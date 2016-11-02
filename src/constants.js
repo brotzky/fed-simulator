@@ -3,7 +3,7 @@ const constants = {
     baseUrl: "http://localhost:3000/",
   },
   production: {
-    baseUrl: "https://azz0r.github.io/react-base-kit/",
+    baseUrl: "https://azz0r.github.io/wwe-draft-generator/",
   },
 }
 

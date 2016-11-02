@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const defaultConfig = require('./webpack.common')
 const path = require('path')
+const constants = require('../src/constants')
 const paths = require('./paths')
 const ManifestPlugin = require('webpack-manifest-plugin')
 
@@ -37,7 +38,7 @@ const prodConfig = Object.assign({}, defaultConfig, {
     app: path.join(paths.appSrc, 'index'),
   },
   output: {
-    publicPath: "https://azz0r.github.io/react-base-kit/",
+    publicPath: constants.baseUrl,
     path: paths.appBuild,
     filename: "static/js/[name].[hash:8].bundle.js",
     chunkFilename: "static/js/[id].[hash:8].chunk.js",
