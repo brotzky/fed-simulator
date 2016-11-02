@@ -13,7 +13,7 @@ export default class PageBucketDrops extends Component {
         <header>
           <h1>
             <img
-              src="/static/media/wwe.png"
+              src="static/media/wwe.png"
               alt="WWE"
               title="WWE"
             />

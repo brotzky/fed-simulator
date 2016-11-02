@@ -28,7 +28,7 @@ class BucketDrops extends Component {
           <span>
             <img
               className="drop__image"
-              src={`/static/media/${toSlug(name)}.png`}
+              src={`static/media/${toSlug(name)}.png`}
               alt={name}
               title={name}
             />
@@ -51,7 +51,7 @@ class BucketDrops extends Component {
                 onDrop={this.onDrop.bind(this, bucket.name)}>
                 <p className="text-center">
                   <img
-                    src={`/static/media/${toSlug(bucket.name)}.png`}
+                    src={`static/media/${toSlug(bucket.name)}.png`}
                     title={bucket.name}
                     alt={bucket.name}
                     className="bucket__logo"

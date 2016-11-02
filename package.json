@@ -7,7 +7,8 @@
     "test": "NODE_ENV=test mocha --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./src/**/**/*.spec.js",
     "test:coverage": "istanbul cover _mocha -- --require babel-register -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./src/**/**/*.spec.js",
     "deploy": "gh-pages-deploy",
-    "eslint": "eslint src"
+    "eslint": "eslint src",
+    "images": "babel-node ./scripts/images.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
