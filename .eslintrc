@@ -1,0 +1,105 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "plugins": ["flowtype", "jsx-a11y", "react"],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "globals": {
+    "If": true,
+    "For": true,
+    "Otherwise": true,
+    "When": true,
+    "Choose": true,
+    "describe": true,
+    "it": true,
+    "expect": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "generators": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "settings": {
+    "import/ignore": [
+      "node_modules",
+      "\\.(json|css|jpg|png|gif|eot|svg|ttf|woff|woff2|mp4|webm)$"
+    ],
+    "import/extensions": [".js"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".json"]
+      }
+    }
+  },
+  "rules": {
+    "semi": ["error", "never"],
+    "comma-dangle": ["warn", {
+      "arrays": "always",
+      "objects": "always",
+      "imports": "never",
+      "exports": "never",
+      "functions": "ignore",
+    }],
+    "array-callback-return": "warn",
+    "dot-location": ["warn", "property"],
+    "eqeqeq": ["warn", "allow-null"],
+    "guard-for-in": "warn",
+    "new-parens": "warn",
+    "no-array-constructor": "warn",
+    "no-caller": "warn",
+    "no-cond-assign": ["warn", "always"],
+    "no-const-assign": "warn",
+    "no-control-regex": "warn",
+    "no-delete-var": "warn",
+    "no-dupe-args": "warn",
+    "no-dupe-class-members": "warn",
+    "no-dupe-keys": "warn",
+    "no-duplicate-case": "warn",
+    "no-empty-character-class": "warn",
+    "no-empty-pattern": "warn",
+    "no-eval": "warn",
+    "no-ex-assign": "warn",
+    "no-extend-native": "warn",
+    "no-extra-bind": "warn",
+    "no-extra-label": "warn",
+    "no-fallthrough": "warn",
+    "no-func-assign": "warn",
+    "no-implied-eval": "warn",
+    "no-invalid-regexp": "warn",
+    "no-iterator": "warn",
+    "no-lone-blocks": "warn",
+    "no-loop-func": "warn",
+    "no-multi-str": "warn",
+    "no-native-reassign": "warn",
+    "no-new-func": "warn",
+    "no-new-object": "warn",
+    "no-new-symbol": "warn",
+    "no-new-wrappers": "warn",
+    "no-obj-calls": "warn",
+    "no-redeclare": "warn",
+    "no-self-compare": "warn",
+    "no-shadow-restricted-names": "warn",
+    "no-sparse-arrays": "warn",
+    "no-this-before-super": "warn",
+    "no-throw-literal": "warn",
+    "no-undef": "warn",
+    "no-unexpected-multiline": "warn",
+    "no-unreachable": "warn",
+    "no-useless-concat": "warn",
+    "no-useless-constructor": "warn",
+    "no-useless-escape": "warn",
+    "no-useless-rename": ["warn", {
+      "ignoreDestructuring": false,
+      "ignoreImport": false,
+      "ignoreExport": false
+    }]
+  }
+}

@@ -1,0 +1,83 @@
+$bg: #1e1e1e;
+$color: white;
+$smackdown: #3b30fe;
+$raw: #eb1826;
+$nxt: #ffc71c;
+
+body {
+  background-color: $bg;
+  color: $color;
+  a {
+    color: $color;
+  }
+}
+
+hr {
+  border: 1px solid $smackdown;
+}
+hr:first-of-type {
+  border: 1px solid $raw;
+}
+
+h1 {
+  font-size: 50px;
+  img {
+    max-height: 80px;
+  }
+}
+
+// bucket drops
+.bucket-drops {
+  min-height: 500px;
+}
+.bucket {
+  &__logo {
+    height: 60px;
+  }
+}
+
+.drops {
+  height: 500px;
+  width: 100%;
+  padding: 15px;
+}
+
+.drop {
+  list-style: none;
+  display: list-item;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #ECECEC;
+  overflow: hidden;
+  float: left;
+  margin: 5px;
+
+  &__name {
+    display: none;
+  }
+  &__image {
+    position: relative;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 150%;
+    max-width: none;
+  }
+}
+
+// bucket drops modifiers
+.drops--raw {
+  background-color: $raw;
+  color: white;
+}
+
+.drops--nxt {
+  background-color: $nxt;
+  color: black;
+}
+
+.drops--smackdown-live {
+  background-color: $smackdown;
+  color: white;
+}

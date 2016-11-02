@@ -1,0 +1,13 @@
+{
+  "name": "page",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./page.js",
+  "contributors": [
+    {
+      "name": "Aaron Lote",
+      "email": "aaron.lote@bt.com",
+      "web": "http://www.aaronlote.com"
+    }
+  ]
+}
