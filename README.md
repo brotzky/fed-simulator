@@ -1,4 +1,4 @@
-#React Base Kit
+![WWE Draft Generator](https://github.com/azz0r/wwe-draft-generator/blob/master/src/imgs/default.png)
 
 ## ✨ Features
 * Hot reloading (v3)
