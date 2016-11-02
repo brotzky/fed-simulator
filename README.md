@@ -1,19 +1,8 @@
 ![WWE Draft Generator](https://github.com/azz0r/wwe-draft-generator/blob/master/src/imgs/default.png)
 
-## ✨ Features
-* Hot reloading (v3)
-* Static compile
-* Bundle per route
-* SASS compiling with hot reload
-* Per component SASS
-* Webpack dev & production configs inherit from a common config
-* Mocha, Chai & Enzyme testing
-* Redux
-* React Router 3.0
-* Stage 0, ES6
-
 ## 📕 Index
 * [Installing](#installing)
+* [Features](#features)
 * [Launching](#launching)
 * [Testing](#testing)
 
@@ -40,3 +29,15 @@ Powered by Mocha, Chai, Enzyme, Sinon.
 * Run unit tests ```npm run test```
 
 Tests are written by creating .spec files under a __tests__ directory.
+
+## ✨ <a name="features">Features</a>
+* Hot reloading (v3)
+* Static compile
+* Bundle per route
+* SASS compiling with hot reload
+* Per component SASS
+* Webpack dev & production configs inherit from a common config
+* Mocha, Chai & Enzyme testing
+* Redux
+* React Router 3.0
+* Stage 0, ES6
