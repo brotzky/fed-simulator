@@ -1,2 +1,2 @@
-export const MOVE_DROP = 'MOVE_DROP'
-export const MOVE_DROP_TO_BUCKET = 'MOVE_DROP_TO_BUCKET'
+export const MOVE_DROP = "MOVE_DROP"
+export const MOVE_DROP_TO_BUCKET = "MOVE_DROP_TO_BUCKET"

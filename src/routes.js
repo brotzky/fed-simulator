@@ -1,6 +1,6 @@
-import React from 'react'
-import Page from './components/page/page'
-import { IndexRoute, Route } from 'react-router'
+import React from "react"
+import Page from "./components/page/page"
+import { IndexRoute, Route } from "react-router"
 
 export default () => {
   return (
@@ -10,7 +10,7 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], (require) => {
-              callback(null, require('./pages/bucket-drops').default)
+              callback(null, require("./pages/bucket-drops").default)
             })
           }}
          />
@@ -18,7 +18,7 @@ export default () => {
           <IndexRoute
             getComponent={(nextState, callback) => {
               require.ensure([], (require) => {
-                callback(null, require('./pages/about').default)
+                callback(null, require("./pages/about").default)
               })
             }}
           />
@@ -27,7 +27,7 @@ export default () => {
           path="*"
           getComponent={(nextState, callback) => {
             require.ensure([], (require) => {
-              callback(null, require('./pages/bucket-drops').default)
+              callback(null, require("./pages/bucket-drops").default)
             })
           }}
          />
