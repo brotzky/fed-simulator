@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import './stylesheets/loading'
+import "./stylesheets/loading"
 
 export default class Head extends Component {
 
@@ -8,9 +8,9 @@ export default class Head extends Component {
   render() {
     return (
       <div className="loading text-center">
-          <div className="loading__line"></div>
-          <div className="loading__line"></div>
-          <div className="loading__line"></div>
+        <div className="loading__line"></div>
+        <div className="loading__line"></div>
+        <div className="loading__line"></div>
       </div>
     )
   }

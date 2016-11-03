@@ -66,7 +66,7 @@ class BucketDrops extends Component {
                       {bucket.name}: &nbsp;
                     </span>
                     <span>
-                      {drops.length} wrestler{drops.length !== 1 ? 's' : ''}
+                      {drops.length} wrestler{drops.length !== 1 ? "s" : ""}
                     </span>
                   </h4>
                   {drops.map((drop, key) => {
