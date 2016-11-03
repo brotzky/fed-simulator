@@ -49,7 +49,7 @@ class BucketDrops extends Component {
             return (
               <Droppable
                 key={key}
-                className="bucket col-xs-3"
+                className="bucket col-lg-3 col-md-3 col-sm-6 col-xs-12"
                 types={["wrestler"]}
                 onDrop={this.onDrop.bind(this, bucket.name)}>
                 <p className="text-center">
