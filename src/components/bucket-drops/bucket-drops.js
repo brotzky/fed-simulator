@@ -3,7 +3,7 @@ import { Draggable, Droppable } from "react-drag-and-drop"
 import * as dropsActions from "../../actions/drops"
 import { connect } from "react-redux"
 import { toSlug } from "./helpers"
-import "./stylesheets/bucket-drops"
+import "./stylesheets/main"
 
 class BucketDrops extends Component {
 

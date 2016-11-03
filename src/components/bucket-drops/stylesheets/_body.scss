@@ -1,0 +1,21 @@
+body {
+  background-color: $bg;
+  color: $color;
+  a {
+    color: $color;
+  }
+}
+
+hr {
+  border: 1px solid $smackdown;
+}
+hr:first-of-type {
+  border: 1px solid $raw;
+}
+
+h1 {
+  font-size: 50px;
+  img {
+    max-height: 80px;
+  }
+}
