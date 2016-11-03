@@ -47,6 +47,11 @@ h1 {
   min-height: 500px;
   width: 100%;
   padding: 15px;
+  &__header {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+  }
 }
 
 .drop {
@@ -78,13 +83,22 @@ h1 {
   background-color: $raw;
   color: white;
 }
+.drops__header--raw {
+  background-color: darken($raw, 10%);
+}
 
 .drops--nxt {
   background-color: $nxt;
   color: black;
 }
+.drops__header--nxt {
+  background-color: darken($nxt, 10%);
+}
 
 .drops--smackdown-live {
   background-color: $smackdown;
   color: white;
+}
+.drops__header--smackdown-live {
+  background-color: darken($smackdown, 10%);
 }

@@ -43,6 +43,7 @@ class BucketDrops extends Component {
       <div className="bucket-drops">
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
+            let drops = this.props.drops.filter((drop) => drop.bucket === bucket.name)
             return (
               <Droppable
                 key={key}
@@ -58,7 +59,10 @@ class BucketDrops extends Component {
                   />
                 </p>
                 <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
-                  {this.props.drops.filter((drop) => drop.bucket === bucket.name).map((drop, key) => {
+                  <h4 className={`drops__header drops__header--${toSlug(bucket.name)}`}>
+                    {drops.length} wrestler{drops.length !== 1 ? 's' : ''}
+                  </h4>
+                  {drops.map((drop, key) => {
                     return (
                       <Draggable
                         key={key}
