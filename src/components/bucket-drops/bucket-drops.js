@@ -28,7 +28,7 @@ class BucketDrops extends Component {
           <span>
             <img
               className="drop__image"
-              src={`static/media/${toSlug(name)}.png`}
+              src={`static/media/wrestlers/${toSlug(name)}.png`}
               alt={name}
               title={name}
             />
@@ -58,7 +58,7 @@ class BucketDrops extends Component {
                   />
                 </p>
                 <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
-                  {this.props.drops.filter((drop) => drop.brand === bucket.name).map((drop, key) => {
+                  {this.props.drops.filter((drop) => drop.bucket === bucket.name).map((drop, key) => {
                     return (
                       <Draggable
                         key={key}

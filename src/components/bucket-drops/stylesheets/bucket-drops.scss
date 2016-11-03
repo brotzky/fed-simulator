@@ -7,8 +7,15 @@ $nxt: #ffc71c;
 body {
   background-color: $bg;
   color: $color;
-  a {
+  a,
+  a:visited,
+  a:hover {
     color: $color;
+  }
+  a:hover,
+  .btn:focus,
+  .btn:hover {
+    color: $raw;
   }
 }
 
@@ -37,7 +44,7 @@ h1 {
 }
 
 .drops {
-  height: 500px;
+  min-height: 500px;
   width: 100%;
   padding: 15px;
 }
