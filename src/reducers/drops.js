@@ -1,7 +1,4 @@
 import defaultState from "./drops.default"
-defaultState.forEach((drop, key) => {
-  defaultState[key].bucket = "default"
-})
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
@@ -12,7 +9,7 @@ export default (state = defaultState, action) => {
       }
       newState.forEach((drop, key) => {
         if (drop.name === action.dropName) {
-          newState[key].brand = action.bucketName
+          newState[key].bucket = action.bucketName
         }
       })
       return newState

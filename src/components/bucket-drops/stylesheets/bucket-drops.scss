@@ -7,8 +7,15 @@ $nxt: #ffc71c;
 body {
   background-color: $bg;
   color: $color;
-  a {
+  a,
+  a:visited,
+  a:hover {
     color: $color;
+  }
+  a:hover,
+  .btn:focus,
+  .btn:hover {
+    color: $nxt;
   }
 }
 
@@ -37,21 +44,26 @@ h1 {
 }
 
 .drops {
-  height: 500px;
+  min-height: 500px;
   width: 100%;
   padding: 15px;
+  &__header {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+  }
 }
 
 .drop {
   list-style: none;
   display: list-item;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: #ECECEC;
   overflow: hidden;
   float: left;
-  margin: 5px;
+  margin: 4px;
 
   &__name {
     display: none;
@@ -71,13 +83,22 @@ h1 {
   background-color: $raw;
   color: white;
 }
+.drops__header--raw {
+  background-color: darken($raw, 10%);
+}
 
 .drops--nxt {
   background-color: $nxt;
   color: black;
 }
+.drops__header--nxt {
+  background-color: darken($nxt, 10%);
+}
 
 .drops--smackdown-live {
   background-color: $smackdown;
   color: white;
+}
+.drops__header--smackdown-live {
+  background-color: darken($smackdown, 10%);
 }

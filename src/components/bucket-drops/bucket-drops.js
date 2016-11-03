@@ -22,13 +22,15 @@ class BucketDrops extends Component {
   displayName = "BucketDrops"
 
   render() {
-    const Drop = ({ name }) => {
+    const Drop = ({
+      name,
+    }) => {
       return (
         <div className="drop">
           <span>
             <img
               className="drop__image"
-              src={`/static/media/${toSlug(name)}.png`}
+              src={`static/media/wrestlers/${toSlug(name)}.png`}
               alt={name}
               title={name}
             />
@@ -40,25 +42,34 @@ class BucketDrops extends Component {
       )
     }
     return (
-      <div className="bucket-drops">
+      <div className="bucket-drops no-select">
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
+            let drops = this.props.drops.filter((drop) => drop.bucket === bucket.name)
             return (
               <Droppable
                 key={key}
-                className="bucket col-xs-3"
+                className="bucket col-lg-3 col-md-3 col-sm-12 col-xs-12"
                 types={["wrestler"]}
                 onDrop={this.onDrop.bind(this, bucket.name)}>
-                <p className="text-center">
+                <p className="text-center hidden-sm hidden-xs">
                   <img
-                    src={`/static/media/${toSlug(bucket.name)}.png`}
+                    src={`static/media/${toSlug(bucket.name)}.png`}
                     title={bucket.name}
                     alt={bucket.name}
                     className="bucket__logo"
                   />
                 </p>
                 <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
-                  {this.props.drops.filter((drop) => drop.brand === bucket.name).map((drop, key) => {
+                  <h4 className={`drops__header drops__header--${toSlug(bucket.name)}`}>
+                    <span className="hidden-lg hidden-md">
+                      {bucket.name}: &nbsp;
+                    </span>
+                    <span>
+                      {drops.length} wrestler{drops.length !== 1 ? 's' : ''}
+                    </span>
+                  </h4>
+                  {drops.map((drop, key) => {
                     return (
                       <Draggable
                         key={key}
