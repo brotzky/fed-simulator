@@ -8,7 +8,9 @@ const toTitleCase = function(){
 }
 const imagePath = paths.appImgs + "/wrestlers/"
 
-let wrestlers = []
+let
+  wrestlers = [],
+  count = 1
 
 console.log("Begin reading directory")
 fs.readdir(imagePath, (err, files) => {
@@ -40,6 +42,7 @@ fs.readdir(imagePath, (err, files) => {
         return m.toUpperCase()
       })
     wrestlers.push({
+      id: count++,
       name: file,
       bucket: "default",
     })
