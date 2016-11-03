@@ -8,7 +8,7 @@ import configureStore from './store/configure-store'
 
 const store = configureStore()
 
-export default class FourSquare extends React.Component {
+export default class Root extends React.Component {
   render() {
     return (
       <Provider store={store}>
