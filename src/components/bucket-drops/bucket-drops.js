@@ -22,7 +22,9 @@ class BucketDrops extends Component {
   displayName = "BucketDrops"
 
   render() {
-    const Drop = ({ name }) => {
+    const Drop = ({
+      name,
+    }) => {
       return (
         <div className="drop">
           <span>
