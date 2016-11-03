@@ -42,7 +42,7 @@ class BucketDrops extends Component {
       )
     }
     return (
-      <div className="bucket-drops">
+      <div className="bucket-drops no-select">
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
             let drops = this.props.drops.filter((drop) => drop.bucket === bucket.name)
