@@ -12,6 +12,7 @@
     "images": "babel-node ./scripts/images.js"
   },
   "devDependencies": {
+    "asyncawait": "^1.0.6",
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.18.0",
     "babel-eslint": "6.1.2",
