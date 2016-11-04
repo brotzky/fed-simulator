@@ -23,14 +23,6 @@ const devConfig = Object.assign({}, defaultConfig, {
   ],
   watch: true,
   progress: true,
-  preLoaders: [
-    {
-      test: /\.js$/,
-      loader: 'eslint',
-      exclude: /node_modules/,
-      configFile: `${paths.appRoot}/.eslintrc`,
-    },
-  ],
 })
 
 devConfig.plugins.push(
