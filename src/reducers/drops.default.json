@@ -1,282 +1,458 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "name": "Alicia fox",
-    "bucket": "default"
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
+  },
+  {
+    "id": 1,
+    "name": "Ariya daivari",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 2,
-    "name": "Ariya daivari",
-    "bucket": "default"
+    "name": "Bayley",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 3,
-    "name": "Bayley",
-    "bucket": "default"
+    "name": "Big e",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 4,
-    "name": "Big e",
-    "bucket": "default"
+    "name": "Big show",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 5,
-    "name": "Big show",
-    "bucket": "default"
+    "name": "Bo dallas",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 6,
-    "name": "Bo dallas",
-    "bucket": "default"
+    "name": "Braun strowman",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 7,
-    "name": "Braun strowman",
-    "bucket": "default"
+    "name": "Brian kendrick",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 8,
-    "name": "Brian kendrick",
-    "bucket": "default"
+    "name": "Brock lesnar",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 9,
-    "name": "Brock lesnar",
-    "bucket": "default"
+    "name": "Byron saxton",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 10,
-    "name": "Byron saxton",
-    "bucket": "default"
+    "name": "Cedric alexander",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 11,
-    "name": "Cedric alexander",
-    "bucket": "default"
+    "name": "Cesaro",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 12,
-    "name": "Cesaro",
-    "bucket": "default"
+    "name": "Charlotte",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 13,
-    "name": "Charlotte",
-    "bucket": "default"
+    "name": "Charly caruso",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 14,
-    "name": "Charly caruso",
-    "bucket": "default"
+    "name": "Chris jericho",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 15,
-    "name": "Chris jericho",
-    "bucket": "default"
+    "name": "Colin cassady",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 16,
-    "name": "Colin cassady",
-    "bucket": "default"
+    "name": "Corey graves",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 17,
-    "name": "Corey graves",
-    "bucket": "default"
+    "name": "Curtis axel",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 18,
-    "name": "Curtis axel",
-    "bucket": "default"
+    "name": "Dana brooke",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 19,
-    "name": "Dana brooke",
-    "bucket": "default"
+    "name": "Darren young",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 20,
-    "name": "Darren young",
-    "bucket": "default"
+    "name": "Drew gulak",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 21,
-    "name": "Drew gulak",
-    "bucket": "default"
+    "name": "Enzo amore",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 22,
-    "name": "Enzo amore",
-    "bucket": "default"
+    "name": "Epico",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 23,
-    "name": "Epico",
-    "bucket": "default"
+    "name": "Finn balor",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 24,
-    "name": "Finn balor",
-    "bucket": "default"
+    "name": "Goldust",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 25,
-    "name": "Goldust",
-    "bucket": "default"
+    "name": "Gran metalik",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 26,
-    "name": "Gran metalik",
-    "bucket": "default"
+    "name": "Jinder mahal",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 27,
-    "name": "Jinder mahal",
-    "bucket": "default"
+    "name": "Jojo",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 28,
-    "name": "Jojo",
-    "bucket": "default"
+    "name": "Karl anderson",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 29,
-    "name": "Karl anderson",
-    "bucket": "default"
+    "name": "Kevin owens",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 30,
-    "name": "Kevin owens",
-    "bucket": "default"
+    "name": "Kofi kingston",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 31,
-    "name": "Kofi kingston",
-    "bucket": "default"
+    "name": "Lana",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 32,
-    "name": "Lana",
-    "bucket": "default"
+    "name": "Lince dorado",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 33,
-    "name": "Lince dorado",
-    "bucket": "default"
+    "name": "Luke gallows",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 34,
-    "name": "Luke gallows",
-    "bucket": "default"
+    "name": "Mark henry",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 35,
-    "name": "Mark henry",
-    "bucket": "default"
+    "name": "Michael cole",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 36,
-    "name": "Michael cole",
-    "bucket": "default"
+    "name": "Mick foley",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 37,
-    "name": "Mick foley",
-    "bucket": "default"
+    "name": "Neville",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 38,
-    "name": "Neville",
-    "bucket": "default"
+    "name": "Nia jax",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 39,
-    "name": "Nia jax",
-    "bucket": "default"
+    "name": "Noam dar",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 40,
-    "name": "Noam dar",
-    "bucket": "default"
+    "name": "Paige",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 41,
-    "name": "Paige",
-    "bucket": "default"
+    "name": "Primo",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 42,
-    "name": "Primo",
-    "bucket": "default"
+    "name": "R truth",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 43,
-    "name": "R truth",
-    "bucket": "default"
+    "name": "Rich swann",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 44,
-    "name": "Rich swann",
-    "bucket": "default"
+    "name": "Roman reigns",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 45,
-    "name": "Roman reigns",
-    "bucket": "default"
+    "name": "Rusev",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 46,
-    "name": "Rusev",
-    "bucket": "default"
+    "name": "Sami zayn",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 47,
-    "name": "Sami zayn",
-    "bucket": "default"
+    "name": "Sasha banks",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 48,
-    "name": "Sasha banks",
-    "bucket": "default"
+    "name": "Seth rollins",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 49,
-    "name": "Seth rollins",
-    "bucket": "default"
+    "name": "Sheamus",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 50,
-    "name": "Sheamus",
-    "bucket": "default"
+    "name": "Sin cara",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 51,
-    "name": "Sin cara",
-    "bucket": "default"
+    "name": "Stephanie mcmahon",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 52,
-    "name": "Stephanie mcmahon",
-    "bucket": "default"
+    "name": "Summer rae",
+    "bucket": "default",
+    "male": false,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 53,
-    "name": "Summer rae",
-    "bucket": "default"
+    "name": "Titus oneil",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 54,
-    "name": "Titus oneil",
-    "bucket": "default"
+    "name": "Tj perkins",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 55,
-    "name": "Tj perkins",
-    "bucket": "default"
+    "name": "Tony nese",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   },
   {
     "id": 56,
-    "name": "Tony nese",
-    "bucket": "default"
+    "name": "Xavier woods",
+    "bucket": "default",
+    "male": true,
+    "champion": false,
+    "wrestler": true
   }
 ]
