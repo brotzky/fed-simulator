@@ -45,6 +45,9 @@ const convertFilenames = (filenames) => {
       id: count++,
       name: filename,
       bucket: "default",
+      male: true,
+      champion: false,
+      wrestler: true,
     })
   })
   return collection
