@@ -55,6 +55,9 @@ h1 {
   &__seperator {
     font-size: 20px;
   }
+  &__container {
+    overflow: scroll;
+  }
 }
 
 .drop {
@@ -79,6 +82,16 @@ h1 {
   }
 }
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+}
+
+
 // bucket drops modifiers
 .drops--raw {
   background-color: $raw;
@@ -87,7 +100,10 @@ h1 {
 .drops__header--raw {
   background-color: darken($raw, 10%);
 }
-
+.drops--default .drops__container {
+  height: 300px;
+  overflow-y: scroll;
+}
 .drops--nxt {
   background-color: $nxt;
   color: black;
