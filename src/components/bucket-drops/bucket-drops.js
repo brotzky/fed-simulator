@@ -51,24 +51,26 @@ class BucketDrops extends React.Component {
     }) => {
       return (
         <div className="clearfix">
-          <h3 className="drops__seperator">
-            {title}
-          </h3>
-          <div className="drops__container">
-            {drops.map((drop, key) => {
-              return (
-                <Draggable
-                  key={key}
-                  type="wrestler"
-                  data={drop.id}>
-                  <Drop
+          <If condition={drops.length > 0}>
+            <h3 className="drops__seperator">
+              {title}
+            </h3>
+            <div className="drops__container">
+              {drops.map((drop, key) => {
+                return (
+                  <Draggable
                     key={key}
-                    name={drop.name}
-                  />
-                </Draggable>
-              )
-            })}
-          </div>
+                    type="wrestler"
+                    data={drop.id}>
+                    <Drop
+                      key={key}
+                      name={drop.name}
+                    />
+                  </Draggable>
+                )
+              })}
+            </div>
+          </If>
         </div>
       )
     }

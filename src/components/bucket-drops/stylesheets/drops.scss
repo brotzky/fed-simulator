@@ -6,8 +6,8 @@
     height: 60px;
   }
 }
-
 .drops {
+  background-color: black;
   min-height: 500px;
   width: 100%;
   padding: 15px;
@@ -17,21 +17,20 @@
     text-align: center;
   }
   &__seperator {
-    font-size: 20px;
+    font-size: 0.9em;
   }
   &__container {
     overflow: scroll;
   }
 }
-
 .drop {
   list-style: none;
   display: list-item;
-  width: 70px;
-  height: 70px;
-  overflow: hidden;
   float: left;
-  margin: 4px;
+  overflow: hidden;
+  width: 18%;
+  height: 100px;
+  margin: 1%;
 
   &__name {
     display: none;
@@ -46,30 +45,4 @@
   }
 }
 
-// Modifiers
-.drops--raw {
-  background-color: $raw;
-  color: white;
-}
-.drops__header--raw {
-  background-color: darken($raw, 10%);
-}
-.drops--default .drops__container {
-  height: 300px;
-  overflow-y: scroll;
-}
-.drops--nxt {
-  background-color: $nxt;
-  color: black;
-}
-.drops__header--nxt {
-  background-color: darken($nxt, 10%);
-}
-
-.drops--smackdown-live {
-  background-color: $smackdown;
-  color: white;
-}
-.drops__header--smackdown-live {
-  background-color: darken($smackdown, 10%);
-}
+@import 'drops.modifiers';

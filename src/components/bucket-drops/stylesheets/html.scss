@@ -26,3 +26,8 @@ h1 {
     max-height: 80px;
   }
 }
+
+.nav>li>a:focus,
+.nav>li>a:hover {
+  background-color: transparent;
+}
