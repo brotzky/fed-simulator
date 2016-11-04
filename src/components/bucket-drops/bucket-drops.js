@@ -94,14 +94,6 @@ class BucketDrops extends React.Component {
                   />
                 </p>
                 <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
-                  <h4 className={`drops__header drops__header--${toSlug(bucket.name)}`}>
-                    <span className="hidden-lg hidden-md">
-                      {bucket.name}: &nbsp;
-                    </span>
-                    <span>
-                      {drops.length} wrestler{drops.length !== 1 ? "s" : ""}
-                    </span>
-                  </h4>
                   <If condition={maleDrops.length > 0}>
                     <Drops
                       title="Male Wrestlers"
@@ -115,6 +107,14 @@ class BucketDrops extends React.Component {
                     />
                   </If>
                 </div>
+                <h4 className={`drops__header drops__header--${toSlug(bucket.name)}`}>
+                  <span className="hidden-lg hidden-md">
+                    {bucket.name}: &nbsp;
+                  </span>
+                  <span>
+                    {drops.length} wrestler{drops.length !== 1 ? "s" : ""}
+                  </span>
+                </h4>
               </Droppable>
             )
           })}
