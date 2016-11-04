@@ -1,14 +1,18 @@
 [
   {
+    "id": 1,
     "name": "default"
   },
   {
+    "id": 2,
     "name": "Raw"
   },
   {
+    "id": 3,
     "name": "Smackdown Live"
   },
   {
+    "id": 4,
     "name": "NXT"
   }
 ]

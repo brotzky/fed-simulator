@@ -13,9 +13,9 @@ class BucketDrops extends React.Component {
     drops:  React.PropTypes.array.isRequired,
   }
 
-  onDrop(bucketName, dropName) {
+  onDrop(bucket, drop) {
     this.props.dispatch(
-      dropsActions.moveDrop(bucketName, dropName.wrestler)
+      dropsActions.moveDrop(bucket, drop.wrestler)
     )
   }
 
@@ -23,10 +23,13 @@ class BucketDrops extends React.Component {
 
   render() {
     const Drop = ({
+      id,
       name,
     }) => {
       return (
-        <div className="drop">
+        <div
+          className="drop"
+          data-id={id}>
           <span>
             <img
               className="drop__image"
@@ -53,7 +56,7 @@ class BucketDrops extends React.Component {
                 types={[
                   "wrestler",
                 ]}
-                onDrop={this.onDrop.bind(this, bucket.name)}>
+                onDrop={this.onDrop.bind(this, bucket)}>
                 <p className="text-center hidden-sm hidden-xs">
                   <img
                     src={`static/media/${toSlug(bucket.name)}.png`}
@@ -76,7 +79,7 @@ class BucketDrops extends React.Component {
                       <Draggable
                         key={key}
                         type="wrestler"
-                        data={drop.name}>
+                        data={drop.id}>
                         <Drop
                           key={key}
                           name={drop.name}
