@@ -1,10 +1,10 @@
-import React, { Component } from "react"
+import React from "react"
 import { Link } from "react-router"
 import Head from "../head/head"
 import { connect } from "react-redux"
 import "../../stylesheets/base"
 
-class Page extends Component {
+class Page extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
@@ -22,18 +22,26 @@ class Page extends Component {
       <div>
         <Head />
         {this.props.children}
-        <Link to={"/"}>
-          WWE Draft Generator
-        </Link> | <Link to={"/about"}>
-          About
-        </Link> |
-        <a
-          href="#"
-          className="btn clearfix"
-          onKeyPress={this.onReset}
-          onClick={this.onReset}>
-          Reset Choices
-        </a>
+        <ul className="nav nav-pills" role="tablist">
+          <li>
+            <Link to={"/"}>
+              WWE Draft Generator
+            </Link>
+          </li>
+          <li>
+            <Link to={"/about"}>
+              About
+            </Link>
+          </li>
+          <li>
+            <a
+              href="#"
+              onKeyPress={this.onReset}
+              onClick={this.onReset}>
+              Reset Choices
+            </a>
+          </li>
+        </ul>
       </div>
     )
   }

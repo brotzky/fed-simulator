@@ -1,21 +1,21 @@
-import React, { PropTypes } from "react"
+import React from "react"
 import emptyFunction from "emptyfunction"
 
 class ContextHolder extends React.Component {
 
   static propTypes = {
-    context: PropTypes.shape({
-      constants: PropTypes.object.required,
-      onSetTitle: PropTypes.func.required,
-      onSetMeta: PropTypes.func.required,
+    context: React.PropTypes.shape({
+      constants: React.PropTypes.object.required,
+      onSetTitle: React.PropTypes.func.required,
+      onSetMeta: React.PropTypes.func.required,
     }),
-    children: PropTypes.element.isRequired,
+    children: React.PropTypes.element.isRequired,
   }
 
   static childContextTypes = {
-    constants: PropTypes.object,
-    onSetTitle: PropTypes.func,
-    onSetMeta: PropTypes.func,
+    constants: React.PropTypes.object,
+    onSetTitle: React.PropTypes.func,
+    onSetMeta: React.PropTypes.func,
   }
 
   getChildContext() {

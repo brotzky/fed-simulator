@@ -1,11 +1,11 @@
-import React, { Component } from "react"
+import React from "react"
 import { Draggable, Droppable } from "react-drag-and-drop"
 import * as dropsActions from "../../actions/drops"
 import { connect } from "react-redux"
 import { toSlug } from "./helpers"
 import "./stylesheets/bucket-drops"
 
-class BucketDrops extends Component {
+class BucketDrops extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
@@ -50,7 +50,9 @@ class BucketDrops extends Component {
               <Droppable
                 key={key}
                 className="bucket col-lg-3 col-md-3 col-sm-12 col-xs-12"
-                types={["wrestler"]}
+                types={[
+                  "wrestler",
+                ]}
                 onDrop={this.onDrop.bind(this, bucket.name)}>
                 <p className="text-center hidden-sm hidden-xs">
                   <img
