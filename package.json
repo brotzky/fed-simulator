@@ -9,7 +9,7 @@
     "test:coverage": "istanbul cover _mocha -- --require babel-register -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./**/**/*.spec.js",
     "deploy": "gh-pages-deploy",
     "eslint": "eslint src",
-    "images": "babel-node ./scripts/images.js"
+    "generate:drops": "node ./scripts/drops.js"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",
