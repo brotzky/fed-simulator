@@ -44,11 +44,39 @@ class BucketDrops extends React.Component {
         </div>
       )
     }
+    const Drops = ({
+      title,
+      drops,
+    }) => {
+      return (
+        <div className="clearfix">
+          <h3 className="drops__seperator">
+            {title}
+          </h3>
+          {drops.map((drop, key) => {
+            return (
+              <Draggable
+                key={key}
+                type="wrestler"
+                data={drop.id}>
+                <Drop
+                  key={key}
+                  name={drop.name}
+                />
+              </Draggable>
+            )
+          })}
+        </div>
+      )
+    }
     return (
       <div className="bucket-drops no-select">
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
-            let drops = this.props.drops.filter((drop) => drop.bucket === bucket.name)
+            let
+              drops = this.props.drops.filter((drop) => drop.bucket === bucket.name),
+              maleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
+              femaleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
             return (
               <Droppable
                 key={key}
@@ -74,19 +102,18 @@ class BucketDrops extends React.Component {
                       {drops.length} wrestler{drops.length !== 1 ? "s" : ""}
                     </span>
                   </h4>
-                  {drops.map((drop, key) => {
-                    return (
-                      <Draggable
-                        key={key}
-                        type="wrestler"
-                        data={drop.id}>
-                        <Drop
-                          key={key}
-                          name={drop.name}
-                        />
-                      </Draggable>
-                    )
-                  })}
+                  <If condition={maleDrops.length > 0}>
+                    <Drops
+                      title="Male Wrestlers"
+                      drops={maleDrops}
+                    />
+                  </If>
+                  <If condition={femaleDrops.length > 0}>
+                    <Drops
+                      title="Female Wrestlers"
+                      drops={femaleDrops}
+                    />
+                  </If>
                 </div>
               </Droppable>
             )
