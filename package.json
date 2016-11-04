@@ -67,8 +67,8 @@
     "webpack-manifest-plugin": "^1.1.0"
   },
   "dependencies": {
+    "asyncawait": "^1.0.6",
     "copy-webpack-plugin": "^4.0.0",
-    "eslint-plugin-react": "^6.4.1",
     "gh-pages-deploy": "^0.4.2",
     "lodash.debounce": "^4.0.8",
     "promise": "7.1.1",

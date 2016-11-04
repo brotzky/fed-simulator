@@ -1,50 +1,68 @@
-import fs from "fs"
-import paths from "../config/paths"
-import jsonfile from "jsonfile"
+const async = require("asyncawait/async")
+const await = require("asyncawait/await")
+const Promise = require("bluebird")
+const fs = Promise.promisifyAll(require("fs")) // adds Async() versions that return promises
+const jsonfile = require("jsonfile")
+
 jsonfile.spaces = 2
 
-const toTitleCase = function(){
-  return this.replace(/\b(\w+)/g, function(m,p){ return p[0].toUpperCase() + p.substr(1).toLowerCase() })
+const imagePath = "src/imgs/wrestlers"
+let count = 0
+
+const writeFile = (wrestlers) => {
+  jsonfile.writeFile(
+    "src/reducers/drops.default.json",
+    wrestlers,
+    (err) => "Error: " + console.error(err)
+  )
 }
-const imagePath = paths.appImgs + "/wrestlers/"
 
-let
-  wrestlers = [],
-  count = 1
+// Returns a list of filenames converted to real names
+const cleanFilenames = (filenames) => {
+  filenames.forEach((filename, key) => {
+    filenames[key] = cleanFilename(filename)
+  })
+  return filenames
+}
 
-console.log("Begin reading directory")
-fs.readdir(imagePath, (err, files) => {
-  function writeFile() {
-    console.log("Writing wrestlers to JSON")
-    jsonfile.writeFile(
-      "src/reducers/drops.default.json",
-      wrestlers,
-      (err) => "Error: " + console.error(err)
-    )
+const cleanFilename = (filename) => {
+  if (filename === undefined) {
+    return false
   }
-  let itemsProcessed = 0
-  console.log("Begin file list creation")
-  files.forEach((file) => {
-    var asyncFunction = ((file) => {
-      itemsProcessed++
-      if (itemsProcessed === files.length) {
-        writeFile()
-      }
+  filename = filename.replace(".png", "")
+  return filename
+    .split("-")
+    .join(" ")
+    .replace(/^[a-z]/, function(m){
+      return m.toUpperCase()
     })
-    // call async function
-    asyncFunction(file)
-    if (file === ".DS_Store") return
-    file = file.replace(".png", "")
-    file = file
-      .split("-")
-      .join(" ")
-      .replace(/^[a-z]/, function(m){
-        return m.toUpperCase()
-      })
-    wrestlers.push({
+}
+
+const convertFilenames = (filenames) => {
+  let collection = []
+  filenames.forEach((filename) => {
+    collection.push({
       id: count++,
-      name: file,
+      name: filename,
       bucket: "default",
     })
   })
+  return collection
+}
+
+// Returns the number of files in the given directory.
+const getFilenames = async (function (dir) {
+  let filenames = await (fs.readdirAsync(dir))
+  filenames = cleanFilenames(filenames)
+  filenames = convertFilenames(filenames)
+  return filenames
 })
+
+getFilenames(imagePath)
+  .then (function (drops) {
+    writeFile(drops)
+    console.log("Drops written")
+  })
+  .catch(function (err) {
+    console.log("Something went wrong: " + err)
+  })
