@@ -27,18 +27,16 @@ class BucketDrops extends React.Component {
       id,
       name,
     }) => {
+      const slugName = toSlug(name)
       return (
         <div
           className="drop"
           data-id={id}>
-          <span>
-            <img
-              className="drop__image"
-              src={`static/media/wrestlers/${toSlug(name)}.png`}
-              alt={name}
-              title={name}
-            />
-          </span>
+          <div
+            className={`drop__image icon-${slugName}`}
+            alt={name}
+            title={name}>
+          </div>
           <h5 className="drop__name">
             {name}
           </h5>

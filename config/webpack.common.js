@@ -15,16 +15,16 @@ module.exports = {
   },
   plugins: [
     new sprite({
-      source : paths.appSprites,
-      imgPath: paths.appImgs + "/wrestlers",
-      cssPath: paths.appStylesheets,
-      processor: "sass",
+      source : "src/imgs/wrestlers/",
+      imgPath: "src/imgs/sprites",
+      cssPath: "src/components/bucket-drops/stylesheets/",
+      processor: "scss",
     }),
     new ExtractTextPlugin('static/css/[name].[hash:8].css'),
     new CopyWebpackPlugin([
       {
         from: paths.appImgs,
-        to: 'static/media/'
+        to: 'static/media/',
       },
     ]),
     new webpack.NoErrorsPlugin(),
