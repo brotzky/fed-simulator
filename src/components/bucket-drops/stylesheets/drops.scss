@@ -1,24 +1,30 @@
 .bucket-drops {
+
   min-height: 500px;
 }
 .bucket {
+
   &__logo {
     height: 60px;
   }
+
 }
 .drops {
   background-color: black;
   min-height: 500px;
   width: 100%;
   padding: 15px;
+
   &__header {
     font-size: 1em;
     line-height: 3em;
     text-align: center;
   }
+
   &__seperator {
     font-size: 0.9em;
   }
+
   &__container {
     overflow: scroll;
   }
@@ -34,14 +40,6 @@
 
   &__name {
     display: none;
-  }
-  &__image {
-    position: relative;
-    left: 50%;
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
-    width: 150%;
-    max-width: none;
   }
 }
 
