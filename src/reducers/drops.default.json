@@ -1,618 +1,858 @@
 [
   {
     "id": 1,
+    "name": "Akam",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 2,
+    "name": "Alexander Wolfe",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 3,
+    "name": "Angelo Dawkins",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 4,
+    "name": "Austin Aries",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 5,
+    "name": "Blake",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 6,
+    "name": "Bobby Roode",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 7,
+    "name": "Chris Girard",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 8,
+    "name": "Dashwilder",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 9,
+    "name": "Elias Samson",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 10,
+    "name": "Eric Young",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 11,
+    "name": "Aliyah",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 12,
+    "name": "Andrea Dmarco",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 13,
+    "name": "Asuka",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 14,
+    "name": "Billie Kay",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 15,
+    "name": "Cathy Kelly",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 16,
+    "name": "Dasha Fuentes",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 17,
+    "name": "Ember Moon",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 18,
+    "name": "Liv Morgan",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 19,
+    "name": "Mandy Rose",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 20,
+    "name": "Nikki Storm",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 21,
+    "name": "Peyton Royce",
+    "bucket": "NXT",
+    "male": false
+  },
+  {
+    "id": 22,
+    "name": "Hideo Itamo",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 23,
+    "name": "Johnny Gargano",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 24,
+    "name": "Manny Andrade",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 25,
+    "name": "Mike Rome",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 26,
+    "name": "Murphy",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 27,
+    "name": "Nick Miller",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 28,
+    "name": "No Way Jose",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 29,
+    "name": "Paul Ellering",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 30,
+    "name": "Rezar",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 31,
+    "name": "Roderick Strong",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 32,
+    "name": "Samoa Joe",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 33,
+    "name": "Sawyer Fulton",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 34,
+    "name": "Scott Dawson",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 35,
+    "name": "Shane Turnerpng",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 36,
+    "name": "Shinsuke Nakamura",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 37,
+    "name": "Tom Phillips",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 38,
+    "name": "Tommaso",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 39,
+    "name": "Tye Dillinger",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 40,
+    "name": "William Regal",
+    "bucket": "NXT",
+    "male": true
+  },
+  {
+    "id": 41,
     "name": "Ariya Daivari",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 2,
+    "id": 42,
     "name": "Big E",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 3,
+    "id": 43,
     "name": "Big Show",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 4,
+    "id": 44,
     "name": "Bo Dallas",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 5,
+    "id": 45,
     "name": "Braun Strowman",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 6,
+    "id": 46,
     "name": "Brian Kendrick",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 7,
+    "id": 47,
     "name": "Brock Lesnar",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 8,
+    "id": 48,
     "name": "Byron Saxton",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 9,
+    "id": 49,
     "name": "Cedric Alexander",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 10,
+    "id": 50,
     "name": "Cesaro",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 11,
+    "id": 51,
     "name": "Chris Jericho",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 12,
+    "id": 52,
     "name": "Colin Cassady",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 13,
+    "id": 53,
     "name": "Corey Graves",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 14,
+    "id": 54,
     "name": "Curtis Axel",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 15,
+    "id": 55,
     "name": "Darren Young",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 16,
+    "id": 56,
     "name": "Drew Gulak",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 17,
+    "id": 57,
     "name": "Enzo Amore",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 18,
+    "id": 58,
     "name": "Epico",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 19,
+    "id": 59,
     "name": "Alicia Fox",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 20,
+    "id": 60,
     "name": "Bayley",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 21,
+    "id": 61,
     "name": "Charlotte",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 22,
+    "id": 62,
     "name": "Charly Caruso",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 23,
+    "id": 63,
     "name": "Dana Brooke",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 24,
+    "id": 64,
     "name": "Jojo",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 25,
+    "id": 65,
     "name": "Lana",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 26,
+    "id": 66,
     "name": "Nia Jax",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 27,
+    "id": 67,
     "name": "Paige",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 28,
+    "id": 68,
     "name": "Sasha Banks",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 29,
+    "id": 69,
     "name": "Stephanie Mcmahon",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 30,
+    "id": 70,
     "name": "Summer Rae",
     "bucket": "Raw",
     "male": false
   },
   {
-    "id": 31,
+    "id": 71,
     "name": "Finn Balor",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 32,
+    "id": 72,
     "name": "Goldust",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 33,
+    "id": 73,
     "name": "Gran Metalik",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 34,
+    "id": 74,
     "name": "Jinder Mahal",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 35,
+    "id": 75,
     "name": "Karl Anderson",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 36,
+    "id": 76,
     "name": "Kevin Owens",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 37,
+    "id": 77,
     "name": "Kofi Kingston",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 38,
+    "id": 78,
     "name": "Lince Dorado",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 39,
+    "id": 79,
     "name": "Luke Gallows",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 40,
+    "id": 80,
     "name": "Mark Henry",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 41,
+    "id": 81,
     "name": "Michael Cole",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 42,
+    "id": 82,
     "name": "Mick Foley",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 43,
+    "id": 83,
     "name": "Neville",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 44,
+    "id": 84,
     "name": "Noam Dar",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 45,
+    "id": 85,
     "name": "Primo",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 46,
+    "id": 86,
     "name": "R Truth",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 47,
+    "id": 87,
     "name": "Rich Swann",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 48,
+    "id": 88,
     "name": "Roman Reigns",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 49,
+    "id": 89,
     "name": "Rusev",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 50,
+    "id": 90,
     "name": "Sami Zayn",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 51,
+    "id": 91,
     "name": "Seth Rollins",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 52,
+    "id": 92,
     "name": "Sheamus",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 53,
+    "id": 93,
     "name": "Sin Cara",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 54,
+    "id": 94,
     "name": "Titus Oneil",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 55,
+    "id": 95,
     "name": "Tj Perkins",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 56,
+    "id": 96,
     "name": "Tony Nese",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 57,
+    "id": 97,
     "name": "Xavier Woods",
     "bucket": "Raw",
     "male": true
   },
   {
-    "id": 58,
+    "id": 98,
     "name": "Aiden English",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 59,
+    "id": 99,
     "name": "Aj Styles",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 60,
+    "id": 100,
     "name": "Apollo Crews",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 61,
+    "id": 101,
     "name": "Baron Corbin",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 62,
+    "id": 102,
     "name": "Bray Wyatt",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 63,
+    "id": 103,
     "name": "Chad Gable",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 64,
+    "id": 104,
     "name": "Curt Hawkins",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 65,
+    "id": 105,
     "name": "Daniel Bryan",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 66,
+    "id": 106,
     "name": "David Otunga",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 67,
+    "id": 107,
     "name": "Dean Ambrose",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 68,
+    "id": 108,
     "name": "Dolph Ziggler",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 69,
+    "id": 109,
     "name": "Erick Rowan",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 70,
+    "id": 110,
     "name": "Fandango",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 71,
+    "id": 111,
     "name": "Alexa Bliss",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 72,
+    "id": 112,
     "name": "Andrea Dmarco",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 73,
+    "id": 113,
     "name": "Becky Lynch",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 74,
+    "id": 114,
     "name": "Carmella",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 75,
+    "id": 115,
     "name": "Eva Marie",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 76,
+    "id": 116,
     "name": "Maryse",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 77,
+    "id": 117,
     "name": "Naomi",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 78,
+    "id": 118,
     "name": "Natalya",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 79,
+    "id": 119,
     "name": "Nikki Bella",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 80,
+    "id": 120,
     "name": "Renee Young",
     "bucket": "Smackdown Live",
     "male": false
   },
   {
-    "id": 81,
+    "id": 121,
     "name": "Greg Hamilton",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 82,
+    "id": 122,
     "name": "Heath Slater",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 83,
+    "id": 123,
     "name": "Jack Swagger",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 84,
+    "id": 124,
     "name": "Jason Jordan",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 85,
+    "id": 125,
     "name": "Jbl",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 86,
+    "id": 126,
     "name": "Jey Uso",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 87,
+    "id": 127,
     "name": "Jimmy Uso",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 88,
+    "id": 128,
     "name": "John Cena",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 89,
+    "id": 129,
     "name": "Kalisto",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 90,
+    "id": 130,
     "name": "Kane",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 91,
+    "id": 131,
     "name": "Kenny",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 92,
+    "id": 132,
     "name": "Konnor",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 93,
+    "id": 133,
     "name": "Luke Harper",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 94,
+    "id": 134,
     "name": "Mauro Ranallo",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 95,
+    "id": 135,
     "name": "Mikey",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 96,
+    "id": 136,
     "name": "Mojo Rawley",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 97,
+    "id": 137,
     "name": "Randy Orton",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 98,
+    "id": 138,
     "name": "Rhyno",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 99,
+    "id": 139,
     "name": "Simon Gotch",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 100,
+    "id": 140,
     "name": "The Miz",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 101,
+    "id": 141,
     "name": "Tyler Breeze",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 102,
+    "id": 142,
     "name": "Viktor",
     "bucket": "Smackdown Live",
     "male": true
   },
   {
-    "id": 103,
+    "id": 143,
     "name": "Zack Ryder",
     "bucket": "Smackdown Live",
     "male": true
