@@ -32,7 +32,7 @@ const cleanFilename = (filename) => {
   filename = filename.replace(".png", "")
   return filename
     .split("-")
-    .map((word, key) => word.replace(/^[a-z]/, function(m){
+    .map((word, key) => word.replace(/^[a-z]/, (m) => {
       return m.toUpperCase()
     }))
     .join(" ")
