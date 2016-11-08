@@ -1,7 +1,7 @@
 const async = require("asyncawait/async")
 const await = require("asyncawait/await")
 const Promise = require("bluebird")
-const fs = Promise.promisifyAll(require("fs")) // adds Async() versions that return promises
+const fs = Promise.promisifyAll(require("fs"))
 const jsonfile = require("jsonfile")
 
 jsonfile.spaces = 2
@@ -32,10 +32,10 @@ const cleanFilename = (filename) => {
   filename = filename.replace(".png", "")
   return filename
     .split("-")
-    .join(" ")
-    .replace(/^[a-z]/, function(m){
+    .map((word, key) => word.replace(/^[a-z]/, function(m){
       return m.toUpperCase()
-    })
+    }))
+    .join(" ")
 }
 
 const convertFilenames = (filenames) => {
@@ -44,10 +44,8 @@ const convertFilenames = (filenames) => {
     collection.push({
       id: count++,
       name: filename,
-      bucket: "default",
-      male: true,
-      champion: false,
-      wrestler: true,
+      bucket: "Raw",
+      male: true
     })
   })
   return collection
