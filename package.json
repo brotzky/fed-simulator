@@ -83,6 +83,7 @@
     "redux": "^3.6.0",
     "redux-localstorage": "^0.4.1",
     "redux-reset": "^0.2.0",
+    "sprite-webpack-plugin": "^0.3.6",
     "superagent": "^2.3.0"
   },
   "gh-pages-deploy": {
