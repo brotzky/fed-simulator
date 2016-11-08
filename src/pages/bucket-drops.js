@@ -1,10 +1,23 @@
-import React, { Component } from "react"
+import React from "react"
+import { Link } from "react-router"
 import BucketDrops from "../components/bucket-drops/bucket-drops"
 import Helmet from "react-helmet"
+import { connect } from "react-redux"
 
-export default class PageBucketDrops extends Component {
+class PageBucketDrops extends React.Component {
 
   displayName="PageBucketDrops"
+
+  static propTypes = {
+    dispatch: React.PropTypes.func.isRequired,
+  }
+
+  onReset = (event) => {
+    event.preventDefault()
+    this.props.dispatch({
+      type: "RESET",
+    })
+  }
 
   render() {
     return (
@@ -21,9 +34,26 @@ export default class PageBucketDrops extends Component {
           </h1>
         </header>
         <hr />
-        <BucketDrops />
+        <ul className="nav nav-pills" role="tablist">
+          <li>
+            <a href="#">
+              Move wrestlers to Draft
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onKeyPress={this.onReset}
+              onClick={this.onReset}>
+              Move all wrestlers to their current brand
+            </a>
+          </li>
+        </ul>
         <hr />
+        <BucketDrops />
       </div>
     )
   }
 }
+
+export default connect(state => ({}))(PageBucketDrops)
