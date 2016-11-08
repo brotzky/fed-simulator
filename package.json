@@ -9,7 +9,7 @@
     "test:coverage": "istanbul cover _mocha -- --require babel-register -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./**/**/*.spec.js",
     "deploy": "gh-pages-deploy",
     "eslint": "eslint src",
-    "generate:drops": "node ./scripts/drops.js"
+    "generate:drops": "node ./scripts/generate/drops.js"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",
@@ -71,6 +71,7 @@
     "asyncawait": "^1.0.6",
     "copy-webpack-plugin": "^4.0.0",
     "gh-pages-deploy": "^0.4.2",
+    "glob": "^7.1.1",
     "lodash.debounce": "^4.0.8",
     "promise": "7.1.1",
     "react": "^15.2.1",
