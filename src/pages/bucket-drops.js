@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router"
 import BucketDrops from "../components/bucket-drops/bucket-drops"
+import * as dropsActions from "../actions/drops"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 
@@ -17,6 +18,13 @@ class PageBucketDrops extends React.Component {
     this.props.dispatch({
       type: "RESET",
     })
+  }
+
+  onSendToDraft = (event) => {
+    event.preventDefault()
+    this.props.dispatch(
+      dropsActions.moveDropsToDefault()
+    )
   }
 
   render() {
@@ -36,7 +44,10 @@ class PageBucketDrops extends React.Component {
         <hr />
         <ul className="nav nav-pills" role="tablist">
           <li>
-            <a href="#">
+            <a
+              href="#"
+              onKeyPress={this.onSendToDraft}
+              onClick={this.onSendToDraft}>
               Move wrestlers to Draft
             </a>
           </li>

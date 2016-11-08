@@ -9,9 +9,14 @@ export default (state = defaultState, action) => {
           newState[key].bucket = action.bucket.name
         }
       })
-      return newState
+      break
+      case "MOVE_DROPS_TO_DEFAULT":
+        newState.forEach((drop, key) => {
+          newState[key].bucket = "default"
+        })
+        break
       default:
-    break
+        break
   }
   return newState
 }

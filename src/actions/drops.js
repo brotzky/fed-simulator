@@ -7,3 +7,9 @@ export function moveDrop(bucket, dropId) {
     dropId,
   }
 }
+
+export function moveDropsToDefault() {
+  return {
+    type: types.MOVE_DROPS_TO_DEFAULT
+  }
+}
