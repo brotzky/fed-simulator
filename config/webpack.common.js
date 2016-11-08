@@ -4,7 +4,6 @@ const CopyWebpackPlugin = require("copy-webpack-plugin")
 const autoprefixer = require("autoprefixer")
 const path = require("path")
 const paths = require("./paths")
-const sprite = require("sprite-webpack-plugin")
 
 module.exports = {
   output: {
@@ -14,14 +13,6 @@ module.exports = {
     chunkFilename: "static/js/[id].[hash:8].chunk.js",
   },
   plugins: [
-    new sprite({
-      source : "src/imgs/wrestlers/",
-      imgPath: "src/imgs/",
-      cssPath: "src/components/bucket-drops/stylesheets/",
-      processor: "scss",
-      spriteName: "wrestlers",
-      orientation: "horizontal",
-    }),
     new ExtractTextPlugin(
       "static/css/[name].[hash:8].css"
     ),
