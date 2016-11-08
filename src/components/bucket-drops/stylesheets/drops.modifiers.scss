@@ -1,22 +1,22 @@
-.drops--default {
-  background-color: transparent;
-  color: white;
-}
 .drops--raw {
   background-color: $raw;
   color: white;
 }
+
 .drops__header--raw {
   background-color: darken($raw, 10%);
 }
+
 .drops--default .drops__container {
   height: 200px;
   overflow-y: scroll;
 }
+
 .drops--nxt {
   background-color: $nxt;
   color: black;
 }
+
 .drops__header--nxt {
   background-color: darken($nxt, 10%);
 }
@@ -25,9 +25,15 @@
   background-color: $smackdown;
   color: white;
 }
+
 .drops__header--smackdown-live {
   background-color: darken($smackdown, 10%);
 }
+
+.drops__header--default {
+  display: none;
+}
+
 .drops__seperator {
   display: none;
 }
