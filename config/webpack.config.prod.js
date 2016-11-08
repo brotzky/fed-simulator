@@ -6,7 +6,6 @@ const path = require('path')
 const constants = require('../src/constants')
 const paths = require('./paths')
 const ManifestPlugin = require('webpack-manifest-plugin')
-const sprite = require('sprite-webpack-plugin')
 
 const HTMLMinifier = {
   removeComments: true,
@@ -74,14 +73,6 @@ pluginPush(
     template: paths.appHtml,
     minify: HTMLMinifier,
   })
-)
-pluginPush(
-  new sprite({
-    source : "src/imgs/wrestlers/",
-    imgPath: "src/imgs/sprites",
-    cssPath: "src/components/bucket-drops/stylesheets/",
-    processor: "scss",
-  }),
 )
 prodConfig.module.loaders.push(
   {
