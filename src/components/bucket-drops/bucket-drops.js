@@ -28,7 +28,6 @@ class BucketDrops extends React.Component {
   }
 
   onSearchUpdated = (search, bucketName) => {
-    console.log(search, bucketName)
     this.setState({
       search,
       bucketName,
