@@ -1,6 +1,7 @@
 const glob = require("glob")
 const jsonfile = require("jsonfile")
 const imagePath = "src/imgs/import/"
+const ratings = require("./ratings")
 
 jsonfile.spaces = 2
 var collection = []
@@ -38,11 +39,15 @@ glob(imagePath + "**/**.png", function (er, files) {
     newFilepath = newFilepath.split("/")
     var bucket = newFilepath[0]
     var male = newFilepath.length === 3 ? false : true
+    var name = cleanFilename(newFilepath[newFilepath.length - 1])
+    var rating = ratings.filter((drop) => drop.name === name)
+    rating = rating[0] ? rating[0].rating: 0
 
     collection.push({
       id: count++,
-      name: cleanFilename(newFilepath[newFilepath.length - 1]),
+      name: name,
       bucket: bucket,
+      rating: rating,
       male: male,
     })
   })
