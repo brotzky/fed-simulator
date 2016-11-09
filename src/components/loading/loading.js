@@ -8,9 +8,11 @@ export default class Head extends React.Component {
   render() {
     return (
       <div className="loading text-center">
-        <div className="loading__line"></div>
-        <div className="loading__line"></div>
-        <div className="loading__line"></div>
+        <img
+          src="static/media/loading.gif"
+          alt="Loading..."
+          title="Loading..."
+        />
       </div>
     )
   }

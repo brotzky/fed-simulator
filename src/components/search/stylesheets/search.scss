@@ -1,0 +1,15 @@
+.search {
+  &__field {
+    padding: inherit 0;
+  }
+  &__location {
+    float: right;
+  }
+  &__container {}
+  &__location-button { 
+    right: 20px;
+  }
+  &__icon {
+    right: 20px;
+  }
+}

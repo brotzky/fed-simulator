@@ -1,7 +1,9 @@
 import React from "react"
 import { Draggable, Droppable } from "react-drag-and-drop"
+import Search from "../search/search"
 import * as dropsActions from "../../actions/drops"
 import { connect } from "react-redux"
+import _filter from "lodash/filter"
 import { toSlug } from "./helpers"
 import "./stylesheets/main"
 import Helmet from "react-helmet"
@@ -10,8 +12,9 @@ class BucketDrops extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    buckets:  React.PropTypes.array.isRequired,
-    drops:  React.PropTypes.array.isRequired,
+    searches: React.PropTypes.array.isRequired,
+    buckets: React.PropTypes.array.isRequired,
+    drops: React.PropTypes.array.isRequired,
   }
 
   onDrop(bucket, drop) {
@@ -23,6 +26,7 @@ class BucketDrops extends React.Component {
   displayName = "BucketDrops"
 
   render() {
+    console.log(this.props)
     const Drop = ({
       id,
       name,
@@ -79,12 +83,23 @@ class BucketDrops extends React.Component {
         <Helmet
           title="WWE Draft Generator"
         />
+        <div>
+          <Search />
+        </div>
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
             let
               drops = this.props.drops.filter((drop) => drop.bucket === bucket.name),
               maleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
               femaleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
+
+            if (false) {
+              drops = _filter(people, (person) => {
+                return person.name.indexOf("im") > -1
+              }),
+              maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
+              femaleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
+            }
             return (
               <Droppable
                 key={key}
@@ -132,6 +147,7 @@ class BucketDrops extends React.Component {
   }
 }
 export default connect(state => ({
+  search: state.search,
   buckets: state.buckets,
   drops: state.drops,
 }))(BucketDrops)
