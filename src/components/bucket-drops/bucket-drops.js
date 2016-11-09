@@ -96,18 +96,18 @@ class BucketDrops extends React.Component {
         />
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
-            let
-              searchIsActive = false,
-              drops = this.props.drops.filter((drop) => drop.bucket === bucket.name),
+            let searchIsActive = false,
+              maleDrops = [],
+              femaleDrops = [],
+              drops = this.props.drops.filter((drop) => drop.bucket === bucket.name)
             if (this.state.search !== "" && this.state.bucketName === bucket.name) {
               searchIsActive = true
               drops = _filter(drops, (drop) => {
                 return drop.name.toLowerCase().indexOf(this.state.search) > -1
               })
             }
-            let
-              maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
-              femaleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
+            maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
+            femaleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
             return (
               <Droppable
                 key={key}
