@@ -221,7 +221,7 @@ async@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async/-/async-1.0.0.tgz#f8fc04ca3a13784ade9e1641af98578cfbd647a9"
 
-asyncawait:
+asyncawait@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/asyncawait/-/asyncawait-1.0.6.tgz#e446cf54e516a416d7423bbe35bf0b4e2b738b67"
   dependencies:
