@@ -30,7 +30,7 @@ class BucketDrops extends React.Component {
       const slugName = toSlug(name)
       return (
         <div
-          className="drop"
+          className="drop jiggle"
           data-id={id}>
           <div className="drop__image">
             <div
