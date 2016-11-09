@@ -98,7 +98,10 @@ class BucketDrops extends React.Component {
             let searchIsActive = false,
               maleDrops = [],
               femaleDrops = [],
-              drops = this.props.drops.filter((drop) => drop.bucket === bucket.name)
+              drops = this.props.drops
+                .filter((drop) => drop.bucket === bucket.name)
+                .sort((a, b) => a.rating < b.rating)
+
             if (this.state.search !== "" && this.state.bucketName === bucket.name) {
               searchIsActive = true
               drops = _filter(drops, (drop) => {
