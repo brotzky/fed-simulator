@@ -32,7 +32,8 @@ const prodConfig = Object.assign({}, defaultConfig, {
       'lodash.debounce',
       'react-helmet',
       'react-router',
-      'superagent',
+      'redux',
+      'react-redux',
     ],
     polyfill: require.resolve('./polyfills'),
     app: path.join(paths.appSrc, 'index'),
@@ -40,8 +41,8 @@ const prodConfig = Object.assign({}, defaultConfig, {
   output: {
     publicPath: constants.baseUrl,
     path: paths.appBuild,
-    filename: "static/js/[name].[hash:8].bundle.js",
-    chunkFilename: "static/js/[id].[hash:8].chunk.js",
+    filename: "static/js/[name].bundle.js",
+    chunkFilename: "static/js/[id].chunk.js",
   },
 })
 
