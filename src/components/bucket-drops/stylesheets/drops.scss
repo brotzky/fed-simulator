@@ -15,6 +15,15 @@
   width: 100%;
   padding: 15px;
 
+  &:hover {
+    .drops__search {
+      display: inline;
+    }
+  }
+  &__search {
+    display: none;
+  }
+
   &__header {
     font-size: 1em;
     line-height: 3em;

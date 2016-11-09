@@ -1,6 +1,6 @@
 import React from "react"
 import Loading from "../loading/loading"
-import * as SearchActions from "../../actions/searches"
+import * as SearchActions from "../../actions/search"
 import _debounce from "lodash.debounce"
 import { connect } from "react-redux"
 import "./stylesheets/search"
@@ -11,7 +11,7 @@ class Search extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    searches: React.PropTypes.array,
+    search: React.PropTypes.string,
     onSearchUpdated: React.PropTypes.func,
   }
 
@@ -29,6 +29,9 @@ class Search extends React.Component {
       this.props.dispatch(
         SearchActions.searchMade(query)
       )
+      this.setState({
+        loading: false,
+      })
     })
   }
 
@@ -66,6 +69,5 @@ class Search extends React.Component {
   }
 }
 export default connect(state => ({
-  query: state.query,
-  searches: state.searches,
+  search: state.search,
 }))(Search)

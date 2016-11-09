@@ -12,7 +12,7 @@ class BucketDrops extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    searches: React.PropTypes.array.isRequired,
+    search: React.PropTypes.string,
     buckets: React.PropTypes.array.isRequired,
     drops: React.PropTypes.array.isRequired,
   }
@@ -26,7 +26,6 @@ class BucketDrops extends React.Component {
   displayName = "BucketDrops"
 
   render() {
-    console.log(this.props)
     const Drop = ({
       id,
       name,
@@ -83,22 +82,19 @@ class BucketDrops extends React.Component {
         <Helmet
           title="WWE Draft Generator"
         />
-        <div>
-          <Search />
-        </div>
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
             let
               drops = this.props.drops.filter((drop) => drop.bucket === bucket.name),
-              maleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
-              femaleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
+              maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
+              femaleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
 
-            if (false) {
-              drops = _filter(people, (person) => {
-                return person.name.indexOf("im") > -1
+            if (this.props.search !== "") {
+              drops = drops.filter((drop) => {
+                return drop.name.toLowerCase().indexOf(this.props.search) > -1
               }),
               maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
-              femaleDrops = this.props.drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
+              femaleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
             }
             return (
               <Droppable
@@ -117,6 +113,9 @@ class BucketDrops extends React.Component {
                   />
                 </p>
                 <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
+                  <div className="drops__search">
+                    <Search />
+                  </div>
                   <If condition={maleDrops.length > 0}>
                     <Drops
                       title="Male Wrestlers"
