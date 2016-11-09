@@ -1,37 +1,28 @@
 import React from "react"
-import Loading from "../loading/loading"
-import * as SearchActions from "../../actions/search"
 import _debounce from "lodash.debounce"
-import { connect } from "react-redux"
 import "./stylesheets/search"
 
-class Search extends React.Component {
+export default class Search extends React.Component {
 
   displayName = "Search"
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    search: React.PropTypes.string,
+    bucketName: React.PropTypes.string,
     onSearchUpdated: React.PropTypes.func,
   }
 
   state = {
-    query: "",
-    loading: false,
+    search: "",
+    bucketName: "",
   }
 
   componentWillMount() {
     this.delayedCallback = _debounce((event) => {
-      let query = event.target.value
+      let search = event.target.value
       this.setState({
-        loading: true,
+        search,
       })
-      this.props.dispatch(
-        SearchActions.searchMade(query)
-      )
-      this.setState({
-        loading: false,
-      })
+      this.props.onSearchUpdated(search, this.props.bucketName)
     })
   }
 
@@ -44,7 +35,7 @@ class Search extends React.Component {
     return (
       <div className="search">
         <div className="row">
-          <div className="col-xs-11 search__container form-group has-feedback">
+          <div className="col-xs-12 search__container form-group">
             <input
               className="form-control search__field"
               placeholder="Search"
@@ -54,20 +45,9 @@ class Search extends React.Component {
               onKeyUp={this.onSearch}
               onKeyPress={this.onSearch}
             />
-            <i className="glyphicon glyphicon-search search__icon form-control-feedback"></i>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-xs-12">
-            <If condition={this.state.loading}>
-              <Loading />
-            </If>
           </div>
         </div>
       </div>
     )
   }
 }
-export default connect(state => ({
-  search: state.search,
-}))(Search)

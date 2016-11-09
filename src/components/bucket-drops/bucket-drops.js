@@ -12,15 +12,27 @@ class BucketDrops extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    search: React.PropTypes.string,
     buckets: React.PropTypes.array.isRequired,
     drops: React.PropTypes.array.isRequired,
+  }
+
+  state = {
+    search: "",
+    bucketName: "",
   }
 
   onDrop(bucket, drop) {
     this.props.dispatch(
       dropsActions.moveDrop(bucket, drop.wrestler)
     )
+  }
+
+  onSearchUpdated = (search, bucketName) => {
+    console.log(search, bucketName)
+    this.setState({
+      search,
+      bucketName,
+    })
   }
 
   displayName = "BucketDrops"
@@ -88,10 +100,9 @@ class BucketDrops extends React.Component {
               drops = this.props.drops.filter((drop) => drop.bucket === bucket.name),
               maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
               femaleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
-
-            if (this.props.search !== "") {
-              drops = drops.filter((drop) => {
-                return drop.name.toLowerCase().indexOf(this.props.search) > -1
+            if (this.state.search !== "" && this.state.bucketName === bucket.name) {
+              drops = _filter(drops, (drop) => {
+                return drop.name.toLowerCase().indexOf(this.state.search) > -1
               }),
               maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
               femaleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
@@ -114,7 +125,10 @@ class BucketDrops extends React.Component {
                 </p>
                 <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
                   <div className="drops__search">
-                    <Search />
+                    <Search
+                      onSearchUpdated={this.onSearchUpdated}
+                      bucketName={bucket.name}
+                    />
                   </div>
                   <If condition={maleDrops.length > 0}>
                     <Drops
@@ -146,7 +160,6 @@ class BucketDrops extends React.Component {
   }
 }
 export default connect(state => ({
-  search: state.search,
   buckets: state.buckets,
   drops: state.drops,
 }))(BucketDrops)
