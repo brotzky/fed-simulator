@@ -46,16 +46,11 @@ class BucketDrops extends React.Component {
         <div
           className="drop jiggle"
           data-id={id}>
-          <div className="drop__image">
-            <div
-              className={`drop__icon icon-${slugName}`}
-              alt={name}
-              title={name}>
-            </div>
+          <div
+            className={`drop__icon icon-${slugName}`}
+            alt={name}
+            title={name}>
           </div>
-          <h5 className="drop__name">
-            {name}
-          </h5>
         </div>
       )
     }

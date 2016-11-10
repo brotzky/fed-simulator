@@ -16,12 +16,12 @@
   padding: 15px;
 
   &__search {
-    display: none;
+    opacity: 0.5
   }
 
   & .drops__search.active,
   &:hover .drops__search {
-    display: inline;
+    opacity: 1
   }
 
   &__header {
@@ -44,11 +44,14 @@
   display: list-item;
   float: left;
   overflow: hidden;
-  margin: 1%;
-  width: 18%;
+  margin: 3px;
+  width: 84px;
 
   &__name {
     display: none;
+  }
+  & .drop__icon {
+    width: 84px;
   }
 }
 
