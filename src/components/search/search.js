@@ -29,6 +29,13 @@ export default class Search extends React.Component {
   }
 
   onSearch = (event) => {
+    if (event.keyCode === 27) {
+      event.target.value = ''
+      this.refs.input.blur()
+    } else {
+      this.refs.input.focus()
+    }
+
     event.persist()
     this.delayedCallback(event)
   }
@@ -37,15 +44,15 @@ export default class Search extends React.Component {
     return (
       <div className="search">
         <div className="row">
-          <div className="col-xs-12 search__container form-group">
+          <div className="col-xs-12 form-group search__container">
             <input
+              ref="input"
               className="form-control search__field"
               placeholder={this.props.placeholder}
               name="search__field"
               id="search__field"
               type="text"
-              onKeyUp={this.onSearch}
-              onKeyPress={this.onSearch}
+              onKeyDown={this.onSearch}
             />
           </div>
         </div>
