@@ -19,13 +19,13 @@ export default class Search extends React.Component {
   }
 
   componentWillMount() {
-    this.delayedCallback = _debounce((event) => {
+    this.delayedCallback = (event) => {
       let search = event.target.value
       this.setState({
         search,
       })
       this.props.onSearchUpdated(search, this.props.bucketName)
-    })
+    }
   }
 
   onSearch = (event) => {
@@ -37,7 +37,9 @@ export default class Search extends React.Component {
     }
 
     event.persist()
-    this.delayedCallback(event)
+    _debounce(
+      this.delayedCallback(event)
+    )
   }
 
   render() {

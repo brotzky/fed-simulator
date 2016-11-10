@@ -1,6 +1,6 @@
 const glob = require("glob")
 const jsonfile = require("jsonfile")
-const imagePath = "src/imgs/import/"
+const imagePath = __dirname + "/import/"
 
 jsonfile.spaces = 2
 var collection = []
@@ -29,6 +29,7 @@ const toSlug = (string) => {
     .replace(/[^\w\s-]/g, "") // remove non-word [a-z0-9_], non-whitespace, non-hyphen characters
     .replace(/[\s_-]+/g, "-") // swap any length of whitespace, underscore, hyphen characters with a single -
     .replace(/^-+|-+$/g, "")  // remove leading, trailing -
+    .trim()
 }
 
 glob(imagePath + "**/**.png", function (er, files) {
