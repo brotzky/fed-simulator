@@ -96,7 +96,7 @@ class BucketDrops extends React.Component {
               drops = this.props.drops.filter((drop) => drop.bucket === bucket.name)
             if (this.state.search !== "" && this.state.bucketName === bucket.name) {
               searchIsActive = true
-              drops = _filter(drops, (drop) => {
+              drops = drops.filter((drop) => {
                 return drop.name.toLowerCase().indexOf(this.state.search) > -1
               })
             }
@@ -121,6 +121,7 @@ class BucketDrops extends React.Component {
                 <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
                   <div className={`drops__search ${(searchIsActive ? "active" : "")}`}>
                     <Search
+                      placeholder={`Filter choices`}
                       onSearchUpdated={this.onSearchUpdated}
                       bucketName={bucket.name}
                     />

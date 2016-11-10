@@ -8,11 +8,13 @@ export default class Search extends React.Component {
 
   static propTypes = {
     bucketName: React.PropTypes.string,
+    placeholder: React.PropTypes.string,
     onSearchUpdated: React.PropTypes.func,
   }
 
   state = {
     search: "",
+    placeholder: "Search",
     bucketName: "",
   }
 
@@ -38,7 +40,7 @@ export default class Search extends React.Component {
           <div className="col-xs-12 search__container form-group">
             <input
               className="form-control search__field"
-              placeholder="Search"
+              placeholder={this.props.placeholder}
               name="search__field"
               id="search__field"
               type="text"
