@@ -7,7 +7,3 @@ if (typeof Promise === 'undefined') {
 }
 
 window.jQuery = require('jquery')
-
-if (typeof window.btoa === 'undefined') {
-  window.btoa = require('btoa')
-}
