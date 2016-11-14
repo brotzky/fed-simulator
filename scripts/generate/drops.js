@@ -1,7 +1,7 @@
 const glob = require("glob")
 const jsonfile = require("jsonfile")
 const imagePath = __dirname + "/import/"
-
+import { hashCode } from "../../src/helpers/hash"
 jsonfile.spaces = 2
 var collection = []
 
@@ -39,10 +39,11 @@ glob(imagePath + "**/**.png", function (er, files) {
     newFilepath = newFilepath.split("/")
     var bucket = newFilepath[0]
     var male = newFilepath.length === 3 ? false : true
+    var name = cleanFilename(newFilepath[newFilepath.length - 1])
 
     collection.push({
-      id: count++,
-      name: cleanFilename(newFilepath[newFilepath.length - 1]),
+      id: hashCode(name),
+      name: name,
       bucket: bucket,
       male: male,
     })
