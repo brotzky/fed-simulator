@@ -10,15 +10,15 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], (require) => {
-              callback(null, require("./pages/bucket-drops").default)
+              callback(null, require("./pages/draft").default)
             })
           }}
          />
-        <Route path="about">
+        <Route path="draft">
           <IndexRoute
             getComponent={(nextState, callback) => {
               require.ensure([], (require) => {
-                callback(null, require("./pages/about").default)
+                callback(null, require("./pages/draft").default)
               })
             }}
           />
@@ -27,7 +27,7 @@ export default () => {
           path="*"
           getComponent={(nextState, callback) => {
             require.ensure([], (require) => {
-              callback(null, require("./pages/bucket-drops").default)
+              callback(null, require("./pages/draft").default)
             })
           }}
          />

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router"
-import BucketDrops from "../components/bucket-drops/bucket-drops"
+import Draft from "../components/draft/draft"
 import * as dropsActions from "../actions/drops"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
@@ -30,18 +30,6 @@ class PageBucketDrops extends React.Component {
   render() {
     return (
       <div>
-        <Helmet title="Bucket Drops" />
-        <header>
-          <h1>
-            <img
-              src="static/media/wwe.png"
-              alt="WWE"
-              title="WWE"
-            />
-            <span> Draft Generator</span>
-          </h1>
-        </header>
-        <hr />
         <ul className="nav nav-pills" role="tablist">
           <li>
             <a
@@ -60,8 +48,7 @@ class PageBucketDrops extends React.Component {
             </a>
           </li>
         </ul>
-        <hr />
-        <BucketDrops />
+        <Draft />
       </div>
     )
   }
