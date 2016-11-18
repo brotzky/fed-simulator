@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import Selection from "./selection"
+import Story from "./story"
 import { SimMatch } from "./helpers"
 import Moves from "./moves"
 import "./stylesheets/main"
@@ -15,39 +16,37 @@ class Match extends React.Component {
 
   state = {
     chosen: [],
+    story: [],
   }
+
   displayName = "Match"
 
-  componentWillMount() {
+  onStartMatch = () => {
     let wrestlers = this.props.drops.slice()
     wrestlers.forEach((wrestler, key) => {
       wrestlers[key].damage = wrestler.rating
     })
-    this.match = new SimMatch([wrestlers[0], wrestlers[1]], Moves)
-    this.match = this.match.ringBell()
+    let match = new SimMatch([wrestlers[0], wrestlers[1]], Moves)
+    this.setState({
+      match: match.ringBell()
+    })
+
   }
 
   render() {
     return (
       <div className="match">
-        <Selection />
-        {this.match.map((action, key) => {
-          return (
-            <div className="match__action" key={key}>
-              <Choose>
-                <When condition={action.action === "move"}>
-                  {action.details.attacker.name} hit
-                  &nbsp;{action.details.defender.name} with
-                  &nbsp;{action.details.move.name} for
-                  &nbsp;{action.details.move.damage} damage
-                </When>
-                <When condition={action.action === "winner"}>
-                  {action.details.winner.name} Wins!
-                </When>
-              </Choose>
-            </div>
-          )
-        })}
+        <div className="row">
+          <div className="col-xs-8">
+            <Selection />
+          </div>
+          <div className="col-xs-4">
+            <button onClick={this.onStartMatch}>
+              Simulate Match!
+            </button>
+            <Story collection={this.state.match} />
+          </div>
+        </div>
       </div>
     )
   }
