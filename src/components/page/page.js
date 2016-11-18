@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router"
 import Head from "../head/head"
 import "../../stylesheets/base"
 
@@ -20,16 +21,16 @@ export default class Page extends React.Component {
         <hr />
         <ul className="nav nav-pills" role="tablist">
           <li>
-            <a
+            <Link
               href="draft">
               Draft
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="match">
+            <Link
+              to="match">
               Match
-            </a>
+            </Link>
           </li>
         </ul>
         <hr />

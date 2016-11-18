@@ -1,22 +1,17 @@
 import React from "react"
 import Match from "../components/match/match"
-import { connect } from "react-redux"
+import Helmet from "react-helmet"
 
-class MatchPage extends React.Component {
+export default class MatchPage extends React.Component {
 
   displayName="MatchPage"
-
-  static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-  }
 
   render() {
     return (
       <div>
+        <Helmet title="Match Simulator" />
         <Match />
       </div>
     )
   }
 }
-
-export default connect(state => ({}))(MatchPage)

@@ -1,0 +1,40 @@
+.story {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 2em;
+
+  &__action {
+  }
+  &__winner {
+    font-weight: 700;
+  }
+  &__loser {
+  }
+  &__attacker {
+  }
+  &__defender {
+  }
+  &__move {
+    font-weight: strong;
+    font-weight: 500;
+  }
+  &__damage {
+    font-weight: strong;
+    font-weight: 300;
+  }
+}
+
+
+.story--winner {}
+.story--move {}
+
+.actor--nxt {
+  color: lighten($nxt, 18%);
+}
+.actor--raw {
+  color: lighten($raw, 18%);
+}
+.actor--smackdown-live {
+  color: lighten($smackdown, 15%);
+}

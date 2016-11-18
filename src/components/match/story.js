@@ -1,4 +1,5 @@
 import React from "react"
+import { toSlug } from "../../helpers/slugs"
 
 export default class Story extends React.Component {
 
@@ -17,10 +18,14 @@ export default class Story extends React.Component {
                 key={key}>
                 <Choose>
                   <When condition={action.action === "move"}>
-                    {action.details.attacker.name} hit {action.details.defender.name} with {action.details.move.name} for {action.details.move.damage} damage
+                    <span className={`story__attacker actor--${toSlug(action.details.attacker.bucket)}`}>{action.details.attacker.name}</span> hit&nbsp;
+                    <span className={`story__defender actor--${toSlug(action.details.defender.bucket)}`}>{action.details.defender.name}</span> with&nbsp;
+                    <span className="story__move">{action.details.move.name}</span> for	&nbsp;
+                    <span className="story__damage">{action.details.move.damage}</span> damage
                   </When>
                   <When condition={action.action === "winner"}>
-                    {action.details.winner.name} pins {action.details.loser.name} for the win!
+                    <span className={`story__winner actor--${toSlug(action.details.winner.bucket)}`}>{action.details.winner.name}</span> pins&nbsp;
+                    <span className={`story__loser actor--${toSlug(action.details.loser.bucket)}`}>{action.details.loser.name}</span> for the win!
                   </When>
                 </Choose>
               </li>

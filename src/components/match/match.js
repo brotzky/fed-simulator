@@ -45,8 +45,9 @@ class Match extends React.Component {
             <button
               className="btn btn-default"
               onClick={this.onStartMatch}>
-              Simulate Match!
+              Ring the bell
             </button>
+            <br />
             <Story collection={this.state.match} />
           </div>
         </div>
