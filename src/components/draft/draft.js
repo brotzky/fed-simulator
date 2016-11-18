@@ -4,7 +4,7 @@ import Search from "../search/search"
 import * as dropsActions from "../../actions/drops"
 import { connect } from "react-redux"
 import _filter from "lodash/filter"
-import { toSlug } from "./helpers"
+import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
 import Helmet from "react-helmet"
 

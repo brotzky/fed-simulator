@@ -5,7 +5,7 @@ module.exports = {
     new sprite({
       source : "src/imgs/wrestlers/",
       imgPath: "src/imgs/",
-      cssPath: "src/components/bucket-drops/stylesheets/",
+      cssPath: "src/stylesheets/",
       processor: "scss",
       spriteName: "wrestlers",
       orientation: "horizontal",

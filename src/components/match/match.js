@@ -1,7 +1,9 @@
 import React from "react"
 import { connect } from "react-redux"
+import Selection from "./selection"
 import { SimMatch } from "./helpers"
 import Moves from "./moves"
+import "./stylesheets/main"
 
 class Match extends React.Component {
 
@@ -11,6 +13,9 @@ class Match extends React.Component {
     drops: React.PropTypes.array.isRequired,
   }
 
+  state = {
+    chosen: [],
+  }
   displayName = "Match"
 
   componentWillMount() {
@@ -24,11 +29,11 @@ class Match extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="match">
+        <Selection />
         {this.match.map((action, key) => {
-          console.log()
           return (
-            <div key={key}>
+            <div className="match__action" key={key}>
               <Choose>
                 <When condition={action.action === "move"}>
                   {action.details.attacker.name} hit
