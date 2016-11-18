@@ -41,8 +41,8 @@ $icon-curtis-axel: -3276px 0px 84px 100px;
 $icon-dana-brooke: -3360px 0px 84px 100px;
 $icon-daniel-bryan: -3444px 0px 84px 100px;
 $icon-darren-young: -3528px 0px 84px 100px;
-$icon-dasha-fuentes: -3612px 0px 84px 100px;
-$icon-dashwilder: -3696px 0px 84px 100px;
+$icon-dash-wilder: -3612px 0px 84px 100px;
+$icon-dasha-fuentes: -3696px 0px 84px 100px;
 $icon-david-otunga: -3780px 0px 84px 100px;
 $icon-dean-ambrose: -3864px 0px 84px 100px;
 $icon-dolph-ziggler: -3948px 0px 84px 100px;
@@ -389,13 +389,13 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../../../imgs/wrestlers-base.png');
 }
 
-.icon-dasha-fuentes {
-  @include sprite($icon-dasha-fuentes);
+.icon-dash-wilder {
+  @include sprite($icon-dash-wilder);
   background-image: url('../../../imgs/wrestlers-base.png');
 }
 
-.icon-dashwilder {
-  @include sprite($icon-dashwilder);
+.icon-dasha-fuentes {
+  @include sprite($icon-dasha-fuentes);
   background-image: url('../../../imgs/wrestlers-base.png');
 }
 
