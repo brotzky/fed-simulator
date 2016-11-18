@@ -54,4 +54,4 @@ class MatchPage extends React.Component {
   }
 }
 
-export default connect(state => ({}))(PageBucketDrops)
+export default connect(state => ({}))(MatchPage)
