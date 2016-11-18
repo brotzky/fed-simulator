@@ -1,7 +1,7 @@
 import weighted from "weighted"
 import _maxBy from "lodash.maxby"
 
-export default class Match {
+export class SimMatch {
 
   state = []
 
