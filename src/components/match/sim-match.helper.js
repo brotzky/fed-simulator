@@ -22,45 +22,45 @@ export class SimMatch {
     })
   }
 
-  countTotalMoveDamage(moves) {
-    return Object.keys(moves).reduce((previous, key) => {
-      return previous + moves[key].weight
-    }, 0)
-  }
-
-  endMatch = () => {
-    const winner = _maxBy(this.wrestlers, "damage")
-    this.logAction("winner", { winner })
-  }
-
-  hitMove = (attacker, defender, move) => {
-    this.wrestlers.forEach((wrestler, key) => {
-      if (defender.name === wrestler.name) {
-        this.wrestlers[key].damage = wrestler.damage - move.damage
-        this.logAction(
-          "move",
-          {
-            attacker,
-            defender,
-            move,
-          }
-        )
-      }
-    })
-  }
-
   ringBell() {
-
+    // while the minimum damage done is stil above zero
     while(_minBy(this.wrestlers, "damage").damage > 0) {
       let
-        getWrestlersWeights = function(wrestlers) {return new Array(wrestlers.length).fill((1 / wrestlers.length))},
+        getWrestlersWeights = (wrestlers) => new Array(wrestlers.length).fill((1 / wrestlers.length)),
         attacker = weighted.select(this.wrestlers, getWrestlersWeights(this.wrestlers)),
-        defenders = this.wrestlers.filter((wrestler) => wrestler.name !== attacker.name)[0],
+        defenders = this.wrestlers.filter((wrestler) => wrestler.name !== attacker.name),
         defender = weighted.select(defenders, getWrestlersWeights(defenders)),
         move =  weighted.select(this.moves, this.movesWeights)
       this.hitMove(attacker, defender, move)
     }
+    // loop done, now lets log the end
     this.endMatch()
+    // return the log
     return this.state
+  }
+
+  hitMove = (attacker, defender, move) => {
+    this.wrestlers.forEach((wrestler, key) => {
+      // wrestler we are looping is the defender
+      if (defender.name === wrestler.name) {
+        // damage the defender
+        this.wrestlers[key].damage = wrestler.damage - move.damage
+        this.logAction("move", {
+          attacker,
+          defender,
+          move,
+        })
+      }
+    })
+  }
+
+  endMatch = () => {
+    let
+      winner = _maxBy(this.wrestlers, "damage"),
+      loser = _minBy(this.wrestlers, "damage")
+    this.logAction("winner", {
+      winner,
+      loser,
+    })
   }
 }
