@@ -14,6 +14,15 @@ export default () => {
             })
           }}
          />
+        <Route path="match">
+          <IndexRoute
+            getComponent={(nextState, callback) => {
+              require.ensure([], (require) => {
+                callback(null, require("./pages/match").default)
+              })
+            }}
+          />
+        </Route>
         <Route path="draft">
           <IndexRoute
             getComponent={(nextState, callback) => {

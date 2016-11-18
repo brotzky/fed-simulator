@@ -155,6 +155,7 @@ class BucketDrops extends React.Component {
     )
   }
 }
+
 export default connect(state => ({
   buckets: state.buckets,
   drops: state.drops,

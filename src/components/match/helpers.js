@@ -1,22 +1,10 @@
-import { moves, wrestlers, randomEvents, maxMoves } from "./match.config"
-import chalk from "chalk"
-import util from "util"
-import "./match.prototype"
 import weighted from "weighted"
+import _maxBy from "lodash.maxby"
 
-let
-  log = console.log,
-  standout = chalk.cyan,
-  good = chalk.green,
-  bad = chalk.red,
-  neutral = chalk.yellow
+export default class Match {
 
-log(neutral(
-  "Common Moves Count: ",
+  state = []
 
-))
-
-class Match {
   constructor(wrestlers, moves) {
     wrestlers.forEach((wrestler, wrestlerKey) => {
       wrestlers[wrestlerKey] = wrestler
@@ -24,11 +12,13 @@ class Match {
     this.wrestlers = wrestlers
     this.moves = moves
     this.movesWeights = moves.reduce((a, b) => a.concat(b.weight), [])
-    this.maxMoves = maxMoves
-    log(neutral(
-      "Common Moves Count: ", this.countTotalMoveDamage(moves)
-    ))
-    log(standout(wrestlers.map((wrestler) => wrestler.name)))
+  }
+
+  logAction = (action, details) => {
+    this.state.push({
+      action,
+      details,
+    })
   }
 
   countTotalMoveDamage(moves) {
@@ -36,32 +26,37 @@ class Match {
       return previous + moves[key].weight
     }, 0)
   }
+
   endMatch = () => {
-    log(good("Match ended with a time out"))
+    const winner = _maxBy(this.wrestlers, "damage")
+    this.logAction("Winner", { winner })
   }
 
   hitMove = (attacker, defender, move) => {
     this.wrestlers.forEach((wrestler, key) => {
       if (defender.name === wrestler.name) {
         this.wrestlers[key].damage = wrestler.damage - move.damage
-        log(neutral(`
-          ${attacker.name}(${attacker.damage}) used ${move.name} on ${defender.name}(${defender.damage}) for ${move.damage} damage
-        `))
+        this.logAction(
+          "Move",
+          {
+            attacker,
+            defender,
+            move,
+          }
+        )
       }
     })
   }
 
   ringBell() {
-    log(good("Bell Rings"))
-    while(this.wrestlers[0].damage > 10 || this.wrestlers[1].damage > 10) {
+    while(this.wrestlers[0].damage > 0 && this.wrestlers[1].damage > 0) {
       let
         attacker = weighted.select(this.wrestlers, [0.5, 0.5]),
         defender = this.wrestlers.filter((wrestler) => wrestler.name !== attacker.name)[0],
         move =  weighted.select(this.moves, this.movesWeights)
       this.hitMove(attacker, defender, move)
     }
+    this.endMatch()
+    return this.state
   }
 }
-
-let currentMatch = new Match(wrestlers, moves)
-currentMatch.ringBell()

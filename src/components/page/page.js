@@ -27,8 +27,8 @@ export default class Page extends React.Component {
           </li>
           <li>
             <a
-              href="calendar">
-              Calendar
+              href="match">
+              Match
             </a>
           </li>
         </ul>

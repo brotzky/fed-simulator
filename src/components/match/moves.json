@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Punch",
+    "weight": 0.5,
+    "damage": 1
+  },
+  {
+    "name":  "Kick",
+    "weight": 0.5,
+    "damage": 2
+  },
+  {
+    "name":  "Suplex",
+    "weight": 0.08,
+    "damage": 5
+  },
+  {
+    "name":  "Bodyslam",
+    "weight": 0.02,
+    "damage": 5
+  },
+  {
+    "name":  "Powerbomb",
+    "weight": 0.03,
+    "damage": 5
+  },
+  {
+    "name":  "Arm bar",
+    "weight": 0.05,
+    "damage": 5
+  },
+  {
+    "name":  "Big back body drop",
+    "weight": 0.08,
+    "damage": 5
+  },
+  {
+    "name":  "Clothesline",
+    "weight": 0.05,
+    "damage": 5
+  },
+  {
+    "name":  "Eyepoke",
+    "weight": 0.08,
+    "damage": 5
+  },
+  {
+    "name":  "Strong Submission",
+    "weight": 0.1,
+    "damage": 7
+  },
+  {
+    "name":  "Superkick",
+    "weight": 0.05,
+    "damage": 9
+  },
+  {
+    "name":  "Back suplex",
+    "weight": 0.05,
+    "damage": 2
+  },
+  {
+    "name":  "Back rake",
+    "weight": 0.05,
+    "damage": 2
+  },
+  {
+    "name":  "Came off the top rope",
+    "weight": 0.05,
+    "damage": 10
+  },
+  {
+    "name":  "Signature move",
+    "weight": 0.01,
+    "damage": 12
+  },
+  {
+    "name":  "Finishing move",
+    "weight": 0.09,
+    "damage": 29
+  },
+  {
+    "name":  "PILEDRIVER!",
+    "weight": 0.02,
+    "damage": 25
+  }
+]
