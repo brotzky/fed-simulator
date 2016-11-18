@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-import Moves from "./moves"
 import Search from "../search/search"
 import Icon from "../icon/icon"
 import * as matchActions from "../../actions/match"
