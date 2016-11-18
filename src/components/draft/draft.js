@@ -12,7 +12,7 @@ class Roster extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    buckets: React.PropTypes.array.isRequired,
+    brands: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
   }
 
@@ -82,7 +82,7 @@ class Roster extends React.Component {
     return (
       <div className="bucket-drops no-select">
         <div className="row">
-          {this.props.buckets.map((bucket, key) => {
+          {this.props.brands.map((bucket, key) => {
             let searchIsActive = false,
               maleDrops = [],
               femaleDrops = [],
@@ -153,6 +153,6 @@ class Roster extends React.Component {
 }
 
 export default connect(state => ({
-  buckets: state.buckets,
+  brands: state.brands,
   wrestlers: state.wrestlers,
 }))(Roster)

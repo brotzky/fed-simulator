@@ -10,7 +10,7 @@ class Match extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    buckets: React.PropTypes.array.isRequired,
+    brands: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
     match: React.PropTypes.object.isRequired,
   }
@@ -55,7 +55,7 @@ class Match extends React.Component {
 }
 
 export default connect(state => ({
-  buckets: state.buckets,
+  brands: state.brands,
   wrestlers: state.wrestlers,
   match: state.match,
 }))(Match)
