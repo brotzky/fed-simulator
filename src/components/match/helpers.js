@@ -29,7 +29,7 @@ export class SimMatch {
 
   endMatch = () => {
     const winner = _maxBy(this.wrestlers, "damage")
-    this.logAction("Winner", { winner })
+    this.logAction("winner", { winner })
   }
 
   hitMove = (attacker, defender, move) => {
@@ -37,7 +37,7 @@ export class SimMatch {
       if (defender.name === wrestler.name) {
         this.wrestlers[key].damage = wrestler.damage - move.damage
         this.logAction(
-          "Move",
+          "move",
           {
             attacker,
             defender,

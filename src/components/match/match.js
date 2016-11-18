@@ -1,7 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
 import { SimMatch } from "./helpers"
-import Helmet from "react-helmet"
 import Moves from "./moves"
 
 class Match extends React.Component {
@@ -14,21 +13,36 @@ class Match extends React.Component {
 
   displayName = "Match"
 
-  componentDidMount() {
+  componentWillMount() {
     let wrestlers = this.props.drops.slice()
     wrestlers.forEach((wrestler, key) => {
       wrestlers[key].damage = wrestler.rating
     })
-    let currentMatch = new SimMatch([wrestlers[0], wrestlers[1]], Moves)
-    currentMatch.ringBell().forEach((event) => {
-      console.log(event)
-    })
+    this.match = new SimMatch([wrestlers[0], wrestlers[1]], Moves)
+    this.match = this.match.ringBell()
   }
 
   render() {
     return (
       <div>
-        Match
+        {this.match.map((action, key) => {
+          console.log()
+          return (
+            <div key={key}>
+              <Choose>
+                <When condition={action.action === "move"}>
+                  {action.details.attacker.name} hit
+                  &nbsp;{action.details.defender.name} with
+                  &nbsp;{action.details.move.name} for
+                  &nbsp;{action.details.move.damage} damage
+                </When>
+                <When condition={action.action === "winner"}>
+                  {action.details.winner.name} Wins!
+                </When>
+              </Choose>
+            </div>
+          )
+        })}
       </div>
     )
   }
