@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import Moves from "./moves"
+import Search from "../search/search"
 import * as matchActions from "../../actions/match"
 import { toSlug } from "../../helpers/slugs"
 
@@ -15,6 +16,16 @@ class Selection extends React.Component {
 
   displayName = "Selection"
 
+  state = {
+    search: "",
+  }
+
+  onSearchUpdated = (search) => {
+    this.setState({
+      search,
+    })
+  }
+
   onClickHandler = (id) => {
     let wrestler = this.props.drops.filter((drop) => drop.id === id)[0]
 
@@ -24,28 +35,43 @@ class Selection extends React.Component {
   }
 
   render() {
-    const SelectionItem = ({ id, name, onClickHandler}) => {
+    const SelectionItem = ({ id, name, bucket, onClickHandler}) => {
       const slugName = toSlug(name)
       const ids = Object.keys(this.props.match.wrestlers).map(f=>this.props.match.wrestlers[f].id)
       const isActive = ids.includes(id)
       return (
-        <span className="selection__item"
+        <span
+          className={`selection__item selection__item--${toSlug(bucket)}`}
           onClick={() => onClickHandler(id)}>
           <span className={`selection__icon icon-${slugName} ${(isActive ? "active" : "")}`}></span>
         </span>
       )
     }
+    let drops = this.props.drops.slice()
+    if (this.state.search !== "") {
+      drops = drops.filter((drop) => {
+        return drop.name.toLowerCase().indexOf(this.state.search) > -1
+      })
+    }
     return (
       <div className="selection">
-        {this.props.drops.map((drop, key) => {
-          return (
-            <SelectionItem
-              key={key}
-              {...drop}
-              onClickHandler={this.onClickHandler}
-            />
-          )
-        })}
+        <div className="selection__search">
+          <Search
+            placeholder={`Filter choices`}
+            onSearchUpdated={this.onSearchUpdated}
+          />
+        </div>
+        <div className="selection__drops">
+          {drops.map((drop, key) => {
+            return (
+              <SelectionItem
+                key={key}
+                {...drop}
+                onClickHandler={this.onClickHandler}
+              />
+            )
+          })}
+        </div>
       </div>
     )
   }

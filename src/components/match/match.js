@@ -16,8 +16,7 @@ class Match extends React.Component {
   }
 
   state = {
-    chosen: [],
-    story: [],
+    match: {},
   }
 
   displayName = "Match"
@@ -31,7 +30,6 @@ class Match extends React.Component {
     this.setState({
       match: match.ringBell()
     })
-
   }
 
   render() {
@@ -43,7 +41,7 @@ class Match extends React.Component {
           </div>
           <div className="col-xs-4">
             <button
-              className="btn btn-default"
+              className="btn btn-success"
               onClick={this.onStartMatch}>
               Ring the bell
             </button>

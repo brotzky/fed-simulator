@@ -1,11 +1,15 @@
 .selection {
-  &__item {
-
-  }
   &__icon {
     border: 5px solid transparent;
-    &.active {
-      border: 5px solid $nxt;
-    }
   }
+}
+
+.selection__item--nxt .selection__icon.active {
+  border-color: $nxt;
+}
+.selection__item--raw .selection__icon.active {
+  border-color: $raw;
+}
+.selection__item--smackdown-live .selection__icon.active {
+  border-color: $smackdown;
 }
