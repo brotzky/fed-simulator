@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import Moves from "./moves"
 import Search from "../search/search"
+import Icon from "../icon/icon"
 import * as matchActions from "../../actions/match"
 import { toSlug } from "../../helpers/slugs"
 
@@ -38,12 +39,9 @@ class Selection extends React.Component {
     const SelectionItem = ({ id, name, bucket, onClickHandler}) => {
       const slugName = toSlug(name)
       const ids = Object.keys(this.props.match.wrestlers).map(f=>this.props.match.wrestlers[f].id)
-      const isActive = ids.includes(id)
       return (
-        <span
-          className={`selection__item selection__item--${toSlug(bucket)}`}
-          onClick={() => onClickHandler(id)}>
-          <span className={`selection__icon icon-${slugName} ${(isActive ? "active" : "")}`}></span>
+        <span className={`selection__item selection__item--${toSlug(bucket)}`}>
+          <Icon name={name} onClick={() => onClickHandler(id)} active={ids.includes(id)} />
         </span>
       )
     }

@@ -1,0 +1,6 @@
+.icon {
+  border: 5px solid transparent;
+  &.active {
+    border: 5px solid gray;
+  }
+}

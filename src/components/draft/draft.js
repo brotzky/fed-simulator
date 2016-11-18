@@ -1,12 +1,12 @@
 import React from "react"
 import { Draggable, Droppable } from "react-drag-and-drop"
+import Icon from "../icon/icon"
 import Search from "../search/search"
 import * as dropsActions from "../../actions/drops"
 import { connect } from "react-redux"
 import _filter from "lodash/filter"
 import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
-import Helmet from "react-helmet"
 
 class BucketDrops extends React.Component {
 
@@ -46,11 +46,7 @@ class BucketDrops extends React.Component {
         <div
           className="drop jiggle"
           data-id={id}>
-          <div
-            className={`drop__icon icon-${slugName}`}
-            alt={name}
-            title={name}>
-          </div>
+          <Icon name={name} />
         </div>
       )
     }
@@ -85,9 +81,6 @@ class BucketDrops extends React.Component {
     }
     return (
       <div className="bucket-drops no-select">
-        <Helmet
-          title="WWE Draft Generator"
-        />
         <div className="row">
           {this.props.buckets.map((bucket, key) => {
             let searchIsActive = false,
