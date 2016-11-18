@@ -24,23 +24,7 @@ class Selection extends React.Component {
   }
 
   render() {
-    const Selection = ({ onClickHandler }) => {
-      return (
-        <div className="selection">
-          {this.props.drops.map((drop, key) => {
-            return (
-              <SelectionItem
-                key={key}
-                {...drop}
-                onClickHandler={onClickHandler}
-              />
-            )
-          })}
-        </div>
-      )
-    }
     const SelectionItem = ({ id, name, onClickHandler}) => {
-      console.log()
       const slugName = toSlug(name)
       const ids = Object.keys(this.props.match.wrestlers).map(f=>this.props.match.wrestlers[f].id)
       const isActive = ids.includes(id)
@@ -52,7 +36,17 @@ class Selection extends React.Component {
       )
     }
     return (
-      <Selection onClickHandler={this.onClickHandler} />
+      <div className="selection">
+        {this.props.drops.map((drop, key) => {
+          return (
+            <SelectionItem
+              key={key}
+              {...drop}
+              onClickHandler={this.onClickHandler}
+            />
+          )
+        })}
+      </div>
     )
   }
 }

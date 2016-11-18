@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import Selection from "./selection"
 import Story from "./story"
-import { SimMatch } from "./helpers"
+import { SimMatch } from "./sim-match.helper"
 import Moves from "./moves"
 import "./stylesheets/main"
 
@@ -12,6 +12,7 @@ class Match extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     buckets: React.PropTypes.array.isRequired,
     drops: React.PropTypes.array.isRequired,
+    match: React.PropTypes.object.isRequired,
   }
 
   state = {
@@ -22,11 +23,11 @@ class Match extends React.Component {
   displayName = "Match"
 
   onStartMatch = () => {
-    let wrestlers = this.props.drops.slice()
+    let wrestlers = this.props.match.wrestlers.slice()
     wrestlers.forEach((wrestler, key) => {
       wrestlers[key].damage = wrestler.rating
     })
-    let match = new SimMatch([wrestlers[0], wrestlers[1]], Moves)
+    let match = new SimMatch(wrestlers, Moves)
     this.setState({
       match: match.ringBell()
     })
@@ -41,7 +42,9 @@ class Match extends React.Component {
             <Selection />
           </div>
           <div className="col-xs-4">
-            <button onClick={this.onStartMatch}>
+            <button
+              className="btn btn-default"
+              onClick={this.onStartMatch}>
               Simulate Match!
             </button>
             <Story collection={this.state.match} />
@@ -55,4 +58,5 @@ class Match extends React.Component {
 export default connect(state => ({
   buckets: state.buckets,
   drops: state.drops,
+  match: state.match,
 }))(Match)

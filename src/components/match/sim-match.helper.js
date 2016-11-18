@@ -1,5 +1,6 @@
 import weighted from "weighted"
 import _maxBy from "lodash.maxby"
+import _minBy from "lodash.minby"
 
 export class SimMatch {
 
@@ -49,10 +50,13 @@ export class SimMatch {
   }
 
   ringBell() {
-    while(this.wrestlers[0].damage > 0 && this.wrestlers[1].damage > 0) {
+
+    while(_minBy(this.wrestlers, "damage").damage > 0) {
       let
-        attacker = weighted.select(this.wrestlers, [0.5, 0.5]),
-        defender = this.wrestlers.filter((wrestler) => wrestler.name !== attacker.name)[0],
+        getWrestlersWeights = function(wrestlers) {return new Array(wrestlers.length).fill((1 / wrestlers.length))},
+        attacker = weighted.select(this.wrestlers, getWrestlersWeights(this.wrestlers)),
+        defenders = this.wrestlers.filter((wrestler) => wrestler.name !== attacker.name)[0],
+        defender = weighted.select(defenders, getWrestlersWeights(defenders)),
         move =  weighted.select(this.moves, this.movesWeights)
       this.hitMove(attacker, defender, move)
     }
