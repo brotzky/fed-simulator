@@ -2,18 +2,18 @@ import React from "react"
 import { Draggable, Droppable } from "react-drag-and-drop"
 import Icon from "../icon/icon"
 import Search from "../search/search"
-import * as dropsActions from "../../actions/drops"
+import * as wrestlersActions from "../../actions/wrestlers"
 import { connect } from "react-redux"
 import _filter from "lodash/filter"
 import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
 
-class BucketDrops extends React.Component {
+class Roster extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     buckets: React.PropTypes.array.isRequired,
-    drops: React.PropTypes.array.isRequired,
+    wrestlers: React.PropTypes.array.isRequired,
   }
 
   state = {
@@ -21,9 +21,9 @@ class BucketDrops extends React.Component {
     bucketName: "",
   }
 
-  onDrop(bucket, drop) {
+  onDrop(bucket, wrestler) {
     this.props.dispatch(
-      dropsActions.moveDrop(bucket, drop.wrestler)
+      wrestlersActions.moveWrestler(bucket, wrestler.wrestler)
     )
   }
 
@@ -86,7 +86,7 @@ class BucketDrops extends React.Component {
             let searchIsActive = false,
               maleDrops = [],
               femaleDrops = [],
-              drops = this.props.drops
+              drops = this.props.wrestlers
                 .filter((drop) => drop.bucket === bucket.name)
                 .sort((a, b) => a.rating < b.rating)
 
@@ -154,5 +154,5 @@ class BucketDrops extends React.Component {
 
 export default connect(state => ({
   buckets: state.buckets,
-  drops: state.drops,
-}))(BucketDrops)
+  wrestlers: state.wrestlers,
+}))(Roster)

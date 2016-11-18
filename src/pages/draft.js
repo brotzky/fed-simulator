@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router"
 import Draft from "../components/draft/draft"
-import * as dropsActions from "../actions/drops"
+import * as wrestlersActions from "../actions/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 
@@ -23,7 +23,7 @@ class DraftPage extends React.Component {
   onSendToDraft = (event) => {
     event.preventDefault()
     this.props.dispatch(
-      dropsActions.moveDropsToDefault()
+      wrestlersActions.moveAllWrestlersToDefault()
     )
   }
 

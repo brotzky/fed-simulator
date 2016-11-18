@@ -11,7 +11,7 @@ class Selection extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     buckets: React.PropTypes.array.isRequired,
-    drops: React.PropTypes.array.isRequired,
+    wrestlers: React.PropTypes.array.isRequired,
     match: React.PropTypes.object.isRequired,
   }
 
@@ -28,7 +28,7 @@ class Selection extends React.Component {
   }
 
   onClickHandler = (id) => {
-    let wrestler = this.props.drops.filter((drop) => drop.id === id)[0]
+    let wrestler = this.props.wrestlers.filter((drop) => drop.id === id)[0]
 
     this.props.dispatch(
       matchActions.toggleWrestlerToMatch(wrestler)
@@ -45,9 +45,9 @@ class Selection extends React.Component {
         </span>
       )
     }
-    let drops = this.props.drops.slice()
+    let wrestlers = this.props.wrestlers.slice()
     if (this.state.search !== "") {
-      drops = drops.filter((drop) => {
+      wrestlers = wrestlers.filter((drop) => {
         return drop.name.toLowerCase().indexOf(this.state.search) > -1
       })
     }
@@ -60,7 +60,7 @@ class Selection extends React.Component {
           />
         </div>
         <div className="selection__drops">
-          {drops.map((drop, key) => {
+          {wrestlers.map((drop, key) => {
             return (
               <SelectionItem
                 key={key}
@@ -77,6 +77,6 @@ class Selection extends React.Component {
 
 export default connect(state => ({
   buckets: state.buckets,
-  drops: state.drops,
+  wrestlers: state.wrestlers,
   match: state.match,
 }))(Selection)
