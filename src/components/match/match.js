@@ -41,7 +41,7 @@ class Match extends React.Component {
           </div>
           <div className="col-xs-4">
             <button
-              className="btn btn-success"
+              className="btn btn-general"
               onClick={this.onStartMatch}>
               Ring the bell
             </button>
