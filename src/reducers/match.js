@@ -16,5 +16,6 @@ export default (state = defaultState, action) => {
       default:
         break
   }
+  newState.wrestlersIds =  Object.keys(newState.wrestlers).map(f => newState.wrestlers[f].id)
   return newState
 }

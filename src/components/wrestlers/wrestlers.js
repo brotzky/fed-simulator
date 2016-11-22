@@ -8,6 +8,7 @@ const Wrestlers = ({
   wrestlers,
   canDragAndDrop = true,
   onWrestlerClick,
+  selected = [],
 }) => {
   return (
     <div className="clearfix">
@@ -17,6 +18,7 @@ const Wrestlers = ({
         </h3>
         <div className="wrestlers__container">
           {wrestlers.map((wrestler, key) => {
+            console.log(selected.includes(wrestler.id), selected, wrestler.id)
             return (
               <Draggable
                 key={key}
@@ -27,6 +29,7 @@ const Wrestlers = ({
                   key={key}
                   id={wrestler.id}
                   name={wrestler.name}
+                  active={selected.includes(wrestler.id)}
                   onWrestlerClick={onWrestlerClick}
                   canJiggle={canDragAndDrop}
                 />

@@ -9,6 +9,7 @@ const Wrestler = ({
   name,
   canJiggle = true,
   onWrestlerClick,
+  active = false
 }) => {
   const classes = classNames(
     "wrestler",
@@ -20,7 +21,7 @@ const Wrestler = ({
       className={classes}
       onClick={() => onWrestlerClick(id)}
       data-id={id}>
-      <Icon name={name} />
+      <Icon name={name} active={active} />
     </div>
   )
 }

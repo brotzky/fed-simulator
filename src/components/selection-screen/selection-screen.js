@@ -17,20 +17,22 @@ class SelectionScreen extends React.Component {
     onWrestlerClick: React.PropTypes.func,
   }
 
+  static defaultProps = {
+    onWrestlerClick: () => {},
+  }
+
   displayName = "SelectionScreen"
 
-  onWrestlerClick(id) {
-    console.log(id)
-    return;
-    // if (this.props.onWrestlerClick) {
-    //   this.props.onWrestlerClick(id)
-    // }
-    // console.log(id, 'onWrestlerClick')
-    // let wrestler = this.props.wrestlers.filter((drop) => drop.id === id)[0]
-    //
-    // this.props.dispatch(
-    //   matchActions.toggleWrestlerToMatch(wrestler)
-    // )
+  onWrestlerClick = (id) => {
+    let wrestler = this.props.wrestlers.filter((wrestler) => wrestler.id === id)[0]
+    if (this.props.onWrestlerClick) {
+      this.props.onWrestlerClick(wrestler)
+    }
+    this.props.dispatch(
+      matchActions.toggleWrestlerToMatch(
+        wrestler
+      )
+    )
   }
 
   render() {
