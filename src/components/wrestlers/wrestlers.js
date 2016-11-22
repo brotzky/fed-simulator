@@ -1,10 +1,12 @@
 import React from "react"
 import Wrestler from "../wrestler/wrestler"
 import { Draggable } from "react-drag-and-drop"
+import "./stylesheets/main"
 
 const Wrestlers = ({
   title,
   wrestlers,
+  isDraggable = true,
 }) => {
   return (
     <div className="clearfix">
@@ -18,6 +20,7 @@ const Wrestlers = ({
               <Draggable
                 key={key}
                 type="wrestler"
+                enabled={isDraggable}
                 data={wrestler.id}>
                 <Wrestler
                   key={key}

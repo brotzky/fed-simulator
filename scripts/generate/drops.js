@@ -38,7 +38,7 @@ glob(imagePath + "**/**.png", function (er, files) {
   files.forEach((filepath) => {
     var newFilepath = filepath.replace(imagePath, "")
     newFilepath = newFilepath.split("/")
-    var bucket = newFilepath[0]
+    var brand = newFilepath[0]
     var male = newFilepath.length === 3 ? false : true
     var name = cleanFilename(newFilepath[newFilepath.length - 1])
     var rating = ratings.filter((drop) => drop.name === name)
@@ -47,7 +47,7 @@ glob(imagePath + "**/**.png", function (er, files) {
     collection.push({
       id: hashCode(name),
       name: name,
-      bucket: bucket,
+      brand: brand,
       rating: rating,
       male: male,
     })

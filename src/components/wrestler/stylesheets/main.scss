@@ -1,0 +1,15 @@
+.wrestler {
+  list-style: none;
+  display: list-item;
+  float: left;
+  overflow: hidden;
+  margin: 3px;
+  width: 84px;
+
+  &__name {
+    display: none;
+  }
+  & .wrestler__icon {
+    width: 84px;
+  }
+}

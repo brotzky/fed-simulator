@@ -1,11 +1,8 @@
-.brand-wrestlers {
-  min-height: 500px;
-}
+
 .brand {
   &__logo {
     height: 60px;
   }
-
 }
 .wrestlers {
   background-color: black;
@@ -42,22 +39,6 @@
 
   &__container {
     overflow: scroll;
-  }
-}
-
-.wrestler {
-  list-style: none;
-  display: list-item;
-  float: left;
-  overflow: hidden;
-  margin: 3px;
-  width: 84px;
-
-  &__name {
-    display: none;
-  }
-  & .wrestler__icon {
-    width: 84px;
   }
 }
 
