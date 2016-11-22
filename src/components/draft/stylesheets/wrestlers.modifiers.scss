@@ -1,39 +1,39 @@
-.drops--raw {
+.wrestlers--raw {
   background-color: $raw;
   color: white;
 }
 
-.drops__header--raw {
+.wrestlers__header--raw {
   background-color: darken($raw, 10%);
 }
 
-.drops--default .drops__container {
+.wrestlers--default .wrestlers__container {
   height: 327px;
   overflow-y: scroll;
 }
 
-.drops--nxt {
+.wrestlers--nxt {
   background-color: $nxt;
   color: black;
 }
 
-.drops__header--nxt {
+.wrestlers__header--nxt {
   background-color: darken($nxt, 10%);
 }
 
-.drops--smackdown-live {
+.wrestlers--smackdown-live {
   background-color: $smackdown;
   color: white;
 }
 
-.drops__header--smackdown-live {
+.wrestlers__header--smackdown-live {
   background-color: darken($smackdown, 10%);
 }
 
-.drops__header--default {
+.wrestlers__header--default {
   display: none;
 }
 
-.drops__seperator {
+.wrestlers__seperator {
   display: none;
 }

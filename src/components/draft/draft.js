@@ -6,9 +6,10 @@ import * as wrestlersActions from "../../actions/wrestlers"
 import { connect } from "react-redux"
 import _filter from "lodash/filter"
 import { toSlug } from "../../helpers/slugs"
+import Wrestlers from "../wrestlers/wrestlers"
 import "./stylesheets/main"
 
-class Roster extends React.Component {
+class Draft extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
@@ -34,74 +35,32 @@ class Roster extends React.Component {
     })
   }
 
-  displayName = "BucketDrops"
+  displayName = "Draft"
 
   render() {
-    const Drop = ({
-      id,
-      name,
-    }) => {
-      const slugName = toSlug(name)
-      return (
-        <div
-          className="drop jiggle"
-          data-id={id}>
-          <Icon name={name} />
-        </div>
-      )
-    }
-    const Drops = ({
-      title,
-      drops,
-    }) => {
-      return (
-        <div className="clearfix">
-          <If condition={drops.length > 0}>
-            <h3 className="drops__seperator">
-              {title}
-            </h3>
-            <div className="drops__container">
-              {drops.map((drop, key) => {
-                return (
-                  <Draggable
-                    key={key}
-                    type="wrestler"
-                    data={drop.id}>
-                    <Drop
-                      key={key}
-                      name={drop.name}
-                    />
-                  </Draggable>
-                )
-              })}
-            </div>
-          </If>
-        </div>
-      )
-    }
     return (
-      <div className="bucket-drops no-select">
+      <div className="brands-wrestlers no-select">
         <div className="row">
           {this.props.brands.map((bucket, key) => {
             let searchIsActive = false,
-              maleDrops = [],
-              femaleDrops = [],
-              drops = this.props.wrestlers
-                .filter((drop) => drop.bucket === bucket.name)
+              malewrestlers = [],
+              femalewrestlers = [],
+              wrestlers = this.props.wrestlers
+                .filter((wrestler) => wrestler.bucket === bucket.name)
                 .sort((a, b) => a.rating < b.rating)
 
             if (this.state.search !== "" && this.state.bucketName === bucket.name) {
               searchIsActive = true
-              drops = drops.filter((drop) => {
-                return drop.name.toLowerCase().indexOf(this.state.search) > -1
+              wrestlers = wrestlers.filter((wrestler) => {
+                return wrestler.name.toLowerCase().indexOf(this.state.search) > -1
               })
             }
-            maleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === true),
-            femaleDrops = drops.filter((drop) => drop.bucket === bucket.name && drop.male === false)
+            malewrestlers = wrestlers.filter((wrestler) => wrestler.bucket === bucket.name && wrestler.male === true),
+            femalewrestlers = wrestlers.filter((wrestler) => wrestler.bucket === bucket.name && wrestler.male === false)
             return (
               <Droppable
                 key={key}
-                className="bucket col-lg-3 col-md-3 col-sm-12 col-xs-12"
+                className="brand col-lg-3 col-md-3 col-sm-12 col-xs-12"
                 types={[
                   "wrestler",
                 ]}
@@ -111,36 +70,36 @@ class Roster extends React.Component {
                     src={`static/media/${toSlug(bucket.name)}.png`}
                     title={bucket.name}
                     alt={bucket.name}
-                    className="bucket__logo"
+                    className="brand__logo"
                   />
                 </p>
-                <div className={`droppable col-xs-4 drops drops--${toSlug(bucket.name)}`}>
-                  <div className={`drops__search ${(searchIsActive ? "active" : "")}`}>
+                <div className={`Droppable col-xs-4 wrestlers wrestlers--${toSlug(bucket.name)}`}>
+                  <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
                     <Search
                       placeholder={`Filter choices`}
                       onSearchUpdated={this.onSearchUpdated}
                       bucketName={bucket.name}
                     />
                   </div>
-                  <If condition={maleDrops.length > 0}>
-                    <Drops
+                  <If condition={malewrestlers.length > 0}>
+                    <Wrestlers
                       title="Male Wrestlers"
-                      drops={maleDrops}
+                      wrestlers={malewrestlers}
                     />
                   </If>
-                  <If condition={femaleDrops.length > 0}>
-                    <Drops
+                  <If condition={femalewrestlers.length > 0}>
+                    <Wrestlers
                       title="Female Wrestlers"
-                      drops={femaleDrops}
+                      wrestlers={femalewrestlers}
                     />
                   </If>
                 </div>
-                <h4 className={`drops__header drops__header--${toSlug(bucket.name)}`}>
+                <h4 className={`wrestlers__header wrestlers__header--${toSlug(bucket.name)}`}>
                   <span className="hidden-lg hidden-md">
                     {bucket.name}: &nbsp;
                   </span>
                   <span>
-                    {drops.length} wrestler{drops.length !== 1 ? "s" : ""}
+                    {wrestlers.length} wrestler{wrestlers.length !== 1 ? "s" : ""}
                   </span>
                 </h4>
               </Droppable>
@@ -155,4 +114,4 @@ class Roster extends React.Component {
 export default connect(state => ({
   brands: state.brands,
   wrestlers: state.wrestlers,
-}))(Roster)
+}))(Draft)

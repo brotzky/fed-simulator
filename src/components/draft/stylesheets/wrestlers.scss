@@ -1,15 +1,13 @@
-.bucket-drops {
-
+.brand-wrestlers {
   min-height: 500px;
 }
-.bucket {
-
+.brand {
   &__logo {
     height: 60px;
   }
 
 }
-.drops {
+.wrestlers {
   background-color: black;
   min-height: 500px;
   width: 100%;
@@ -23,8 +21,8 @@
     -o-transition: opacity 1s ease-in;
   }
 
-  & .drops__search.active,
-  &:hover .drops__search {
+  & .wrestlers__search.active,
+  &:hover .wrestlers__search {
     opacity: 1;
     transition: opacity 1s ease-out;
     -moz-transition: opacity 1s ease-out;
@@ -47,7 +45,7 @@
   }
 }
 
-.drop {
+.wrestler {
   list-style: none;
   display: list-item;
   float: left;
@@ -58,9 +56,9 @@
   &__name {
     display: none;
   }
-  & .drop__icon {
+  & .wrestler__icon {
     width: 84px;
   }
 }
 
-@import 'drops.modifiers';
+@import 'wrestlers.modifiers';
