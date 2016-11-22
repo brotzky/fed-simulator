@@ -19,7 +19,7 @@ const cleanFilename = (filename) => {
 
 const writeCollection = (wrestlers) => {
   jsonfile.writeFile(
-    "src/reducers/drops.default.json",
+    "src/reducers/wrestlers.default.json",
     wrestlers,
     (err) => "Error: " + console.error(err)
   )
