@@ -37,16 +37,6 @@ h4 {
 body {
   background-color: $bg;
   color: $color;
-  a,
-  a:visited,
-  a:hover {
-    color: $color;
-  }
-  a:hover,
-  .btn:focus,
-  .btn:hover {
-    color: $nxt;
-  }
 }
 
 
