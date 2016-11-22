@@ -2,7 +2,12 @@
   font-family: 'Rubik', sans-serif;
   font-weight: 300;
   font-style: normal;
-  line-height: 2em;
+  line-height: 1,3em;
+  font-size: 1em;
+
+  &__action {
+    margin-bottom: 5px;
+  }
 
   &__winner {
     font-weight: 700;
