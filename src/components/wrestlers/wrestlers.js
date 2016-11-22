@@ -18,7 +18,6 @@ const Wrestlers = ({
         </h3>
         <div className="wrestlers__container">
           {wrestlers.map((wrestler, key) => {
-            console.log(selected.includes(wrestler.id), selected, wrestler.id)
             return (
               <Draggable
                 key={key}
@@ -27,8 +26,7 @@ const Wrestlers = ({
                 data={wrestler.id}>
                 <Wrestler
                   key={key}
-                  id={wrestler.id}
-                  name={wrestler.name}
+                  {...wrestler}
                   active={selected.includes(wrestler.id)}
                   onWrestlerClick={onWrestlerClick}
                   canJiggle={canDragAndDrop}

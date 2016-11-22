@@ -7,15 +7,17 @@ import "./stylesheets/main"
 const Wrestler = ({
   id,
   name,
+  brand,
   canJiggle = true,
   onWrestlerClick,
   active = false
 }) => {
+  const slugName = toSlug(name)
   const classes = classNames(
     "wrestler",
+    `wrestler--${toSlug(brand)}`,
     { jiggle: canJiggle },
   )
-  const slugName = toSlug(name)
   return (
     <div
       className={classes}
