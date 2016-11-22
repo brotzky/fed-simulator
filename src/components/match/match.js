@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import Selection from "./selection"
+import SelectionScreen from "../selection-screen/selection-screen"
 import Story from "./story"
 import { SimMatch } from "./sim-match.helper"
 import "./stylesheets/main"
@@ -37,7 +37,7 @@ class Match extends React.Component {
       <div className="match">
         <div className="row">
           <div className="col-xs-8">
-            <Selection />
+            <SelectionScreen />
           </div>
           <div className="col-xs-4">
             <button

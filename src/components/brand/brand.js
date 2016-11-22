@@ -9,13 +9,13 @@ import { toSlug } from "../../helpers/slugs"
 import Wrestlers from "../wrestlers/wrestlers"
 import "./stylesheets/main"
 
-class Draft extends React.Component {
+class Brand extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    brands: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
     canDragAndDrop: React.PropTypes.bool,
+    onWrestlerClick: React.PropTypes.func,
   }
 
   state = {
@@ -24,7 +24,6 @@ class Draft extends React.Component {
   }
 
   onDrop(brand, wrestler) {
-    console.log(brand, wrestler)
     if (!this.props.canDragAndDrop) {
       return
     }
@@ -85,6 +84,7 @@ class Draft extends React.Component {
               title="Male Wrestlers"
               canDragAndDrop={this.props.canDragAndDrop}
               wrestlers={malewrestlers}
+              onWrestlerClick={this.props.onWrestlerClick}
             />
           </If>
           <If condition={femalewrestlers.length > 0}>
@@ -92,6 +92,7 @@ class Draft extends React.Component {
               title="Female Wrestlers"
               canDragAndDrop={this.props.canDragAndDrop}
               wrestlers={femalewrestlers}
+              onWrestlerClick={this.props.onWrestlerClick}
             />
           </If>
         </div>
@@ -109,5 +110,4 @@ class Draft extends React.Component {
 }
 
 export default connect(state => ({
-  wrestlers: state.wrestlers,
-}))(Draft)
+}))(Brand)
