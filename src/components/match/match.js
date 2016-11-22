@@ -1,22 +1,19 @@
 import React from "react"
 import { connect } from "react-redux"
-import Selection from "./selection"
+import SelectionScreen from "../selection-screen/selection-screen"
 import Story from "./story"
+import * as matchActions from "../../actions/match"
 import { SimMatch } from "./sim-match.helper"
-import Moves from "./moves"
+import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
 
 class Match extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    buckets: React.PropTypes.array.isRequired,
-    drops: React.PropTypes.array.isRequired,
+    moves: React.PropTypes.array.isRequired,
+    wrestlers: React.PropTypes.array.isRequired,
     match: React.PropTypes.object.isRequired,
-  }
-
-  state = {
-    match: {},
   }
 
   displayName = "Match"
@@ -26,27 +23,37 @@ class Match extends React.Component {
     wrestlers.forEach((wrestler, key) => {
       wrestlers[key].damage = wrestler.rating
     })
-    let match = new SimMatch(wrestlers, Moves)
-    this.setState({
-      match: match.ringBell()
-    })
+    let story = new SimMatch(
+      this.props.match.wrestlers,
+      this.props.moves
+    ).ringBell()
+    this.props.dispatch(
+      matchActions.simulate(
+        story,
+      )
+    )
   }
 
   render() {
+    let buttonBrand = this.props.match.wrestlers.length > 0
+       ? toSlug(this.props.match.wrestlers[0].brand)
+       : "default"
     return (
       <div className="match">
         <div className="row">
-          <div className="col-xs-8">
-            <Selection />
-          </div>
-          <div className="col-xs-4">
-            <button
-              className="btn btn-general"
-              onClick={this.onStartMatch}>
-              Ring the bell
-            </button>
+          <div className="col-xs-3">
+            <div className="bell">
+              <button
+                className={`btn bell__button bell__button--${buttonBrand}`}
+                onClick={this.onStartMatch}>
+                Ring the bell
+              </button>
+            </div>
             <br />
-            <Story collection={this.state.match} />
+            <Story collection={this.props.match.story} />
+          </div>
+          <div className="col-xs-9">
+            <SelectionScreen />
           </div>
         </div>
       </div>
@@ -55,7 +62,7 @@ class Match extends React.Component {
 }
 
 export default connect(state => ({
-  buckets: state.buckets,
-  drops: state.drops,
+  moves: state.moves,
+  wrestlers: state.wrestlers,
   match: state.match,
 }))(Match)

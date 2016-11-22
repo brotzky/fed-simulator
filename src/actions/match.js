@@ -6,3 +6,16 @@ export function toggleWrestlerToMatch(wrestler) {
     wrestler,
   }
 }
+
+export function clearSelectedWrestlers() {
+  return {
+    type: types.CLEAR_SELECTED_WRESTLERS,
+  }
+}
+
+export function simulate(story) {
+  return {
+    type: types.SIMULATE_MATCH,
+    story,
+  }
+}

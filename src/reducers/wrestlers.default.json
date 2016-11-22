@@ -2,1015 +2,1015 @@
   {
     "id": "2042358",
     "name": "Akam",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 75,
     "male": true
   },
   {
     "id": "-4795789095",
     "name": "Alexander Wolfe",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 75,
     "male": true
   },
   {
     "id": "7424670891",
     "name": "Angelo Dawkins",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 75,
     "male": true
   },
   {
     "id": "2102271712",
     "name": "Austin Aries",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 84,
     "male": true
   },
   {
     "id": "64266449",
     "name": "Blake",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 68,
     "male": true
   },
   {
     "id": "-4003951297",
     "name": "Bobby Roode",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 80,
     "male": true
   },
   {
     "id": "3745538668",
     "name": "Chris Girard",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 80,
     "male": true
   },
   {
     "id": "4465510441",
     "name": "Dashwilder",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 0,
     "male": true
   },
   {
     "id": "495283935",
     "name": "Elias Samson",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 80,
     "male": true
   },
   {
     "id": "710850367",
     "name": "Eric Young",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 82,
     "male": true
   },
   {
     "id": "1963882530",
     "name": "Aliyah",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 70,
     "male": false
   },
   {
     "id": "-5335910065",
     "name": "Andrea Dmarco",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 70,
     "male": false
   },
   {
     "id": "63570681",
     "name": "Asuka",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 89,
     "male": false
   },
   {
     "id": "-1477677146",
     "name": "Billie Kay",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": false
   },
   {
     "id": "-3658960602",
     "name": "Cathy Kelly",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": false
   },
   {
     "id": "-5030966503",
     "name": "Dasha Fuentes",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": false
   },
   {
     "id": "-2677578534",
     "name": "Ember Moon",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": false
   },
   {
     "id": "-2715292309",
     "name": "Liv Morgan",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": false
   },
   {
     "id": "-5283132512",
     "name": "Mandy Rose",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 70,
     "male": false
   },
   {
     "id": "3780603255",
     "name": "Nikki Storm",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 70,
     "male": false
   },
   {
     "id": "-5161499251",
     "name": "Peyton Royce",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 70,
     "male": false
   },
   {
     "id": "598567429",
     "name": "Hideo Itamo",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 78,
     "male": true
   },
   {
     "id": "-3502240535",
     "name": "Johnny Gargano",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 79,
     "male": true
   },
   {
     "id": "3656037516",
     "name": "Manny Andrade",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": true
   },
   {
     "id": "-26285441",
     "name": "Mike Rome",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": true
   },
   {
     "id": "-1978963561",
     "name": "Murphy",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": true
   },
   {
     "id": "6300465446",
     "name": "Nick Miller",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": true
   },
   {
     "id": "8509701255",
     "name": "No Way Jose",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 60,
     "male": true
   },
   {
     "id": "4935853928",
     "name": "Paul Ellering",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 76,
     "male": true
   },
   {
     "id": "78857976",
     "name": "Rezar",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 76,
     "male": true
   },
   {
     "id": "1581561530",
     "name": "Roderick Strong",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 75,
     "male": true
   },
   {
     "id": "3076111569",
     "name": "Samoa Joe",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 87,
     "male": true
   },
   {
     "id": "3354678745",
     "name": "Sawyer Fulton",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 70,
     "male": true
   },
   {
     "id": "-2847138727",
     "name": "Scott Dawson",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 77,
     "male": true
   },
   {
     "id": "1241430850",
     "name": "Shane Turnerpng",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 0,
     "male": true
   },
   {
     "id": "-289148918",
     "name": "Shinsuke Nakamura",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 90,
     "male": true
   },
   {
     "id": "1316903721",
     "name": "Tom Phillips",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 12,
     "male": true
   },
   {
     "id": "522741538",
     "name": "Tommaso",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 79,
     "male": true
   },
   {
     "id": "-3316748150",
     "name": "Tye Dillinger",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 80,
     "male": true
   },
   {
     "id": "60031586",
     "name": "William Regal",
-    "bucket": "NXT",
+    "brand": "NXT",
     "rating": 12,
     "male": true
   },
   {
     "id": "1738822318",
     "name": "Ariya Daivari",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 65,
     "male": true
   },
   {
     "id": "64180485",
     "name": "Big E",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 85,
     "male": true
   },
   {
     "id": "740902493",
     "name": "Big Show",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 88,
     "male": true
   },
   {
     "id": "-2774423838",
     "name": "Bo Dallas",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 67,
     "male": true
   },
   {
     "id": "1470726679",
     "name": "Braun Strowman",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 78,
     "male": true
   },
   {
     "id": "6767582345",
     "name": "Brian Kendrick",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 77,
     "male": true
   },
   {
     "id": "458089598",
     "name": "Brock Lesnar",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 95,
     "male": true
   },
   {
     "id": "1090503215",
     "name": "Byron Saxton",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 10,
     "male": true
   },
   {
     "id": "1555706448",
     "name": "Cedric Alexander",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 50,
     "male": true
   },
   {
     "id": "2014951565",
     "name": "Cesaro",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 88,
     "male": true
   },
   {
     "id": "-5894134289",
     "name": "Chris Jericho",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 92,
     "male": true
   },
   {
     "id": "-4382299651",
     "name": "Colin Cassady",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 84,
     "male": true
   },
   {
     "id": "271449460",
     "name": "Corey Graves",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 12,
     "male": true
   },
   {
     "id": "-3515144288",
     "name": "Curtis Axel",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 68,
     "male": true
   },
   {
     "id": "5226043998",
     "name": "Darren Young",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 72,
     "male": true
   },
   {
     "id": "-1215159416",
     "name": "Drew Gulak",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 65,
     "male": true
   },
   {
     "id": "-3343349196",
     "name": "Enzo Amore",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 74,
     "male": true
   },
   {
     "id": "67163626",
     "name": "Epico",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 69,
     "male": true
   },
   {
     "id": "1551646860",
     "name": "Alicia Fox",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 70,
     "male": false
   },
   {
     "id": "1982817254",
     "name": "Bayley",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 83,
     "male": false
   },
   {
     "id": "-716287028",
     "name": "Charlotte",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 85,
     "male": false
   },
   {
     "id": "-2235064166",
     "name": "Charly Caruso",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 69,
     "male": false
   },
   {
     "id": "-3184597318",
     "name": "Dana Brooke",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 69,
     "male": false
   },
   {
     "id": "2314602",
     "name": "Jojo",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 10,
     "male": false
   },
   {
     "id": "2360840",
     "name": "Lana",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 30,
     "male": false
   },
   {
     "id": "3602480327",
     "name": "Nia Jax",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 79,
     "male": false
   },
   {
     "id": "76875606",
     "name": "Paige",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 81,
     "male": false
   },
   {
     "id": "3923329653",
     "name": "Sasha Banks",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 81,
     "male": false
   },
   {
     "id": "-1321872350",
     "name": "Stephanie Mcmahon",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 12,
     "male": false
   },
   {
     "id": "-2505213915",
     "name": "Summer Rae",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 72,
     "male": false
   },
   {
     "id": "-3418353133",
     "name": "Finn Balor",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 88,
     "male": true
   },
   {
     "id": "1868923158",
     "name": "Goldust",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 72,
     "male": true
   },
   {
     "id": "1302809761",
     "name": "Gran Metalik",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 69,
     "male": true
   },
   {
     "id": "4073979265",
     "name": "Jinder Mahal",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 40,
     "male": true
   },
   {
     "id": "-2221469090",
     "name": "Karl Anderson",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 80,
     "male": true
   },
   {
     "id": "-386269853",
     "name": "Kevin Owens",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 86,
     "male": true
   },
   {
     "id": "657661680",
     "name": "Kofi Kingston",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 86,
     "male": true
   },
   {
     "id": "-5443611566",
     "name": "Lince Dorado",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 60,
     "male": true
   },
   {
     "id": "1117761268",
     "name": "Luke Gallows",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 80,
     "male": true
   },
   {
     "id": "-3199788539",
     "name": "Mark Henry",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 78,
     "male": true
   },
   {
     "id": "197508478",
     "name": "Michael Cole",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 12,
     "male": true
   },
   {
     "id": "-853457765",
     "name": "Mick Foley",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 10,
     "male": true
   },
   {
     "id": "3509565403",
     "name": "Neville",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 78,
     "male": true
   },
   {
     "id": "-3187340638",
     "name": "Noam Dar",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 60,
     "male": true
   },
   {
     "id": "77382249",
     "name": "Primo",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 60,
     "male": true
   },
   {
     "id": "758078717",
     "name": "R Truth",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 70,
     "male": true
   },
   {
     "id": "-191335239",
     "name": "Rich Swann",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 74,
     "male": true
   },
   {
     "id": "142235609",
     "name": "Roman Reigns",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 89,
     "male": true
   },
   {
     "id": "79328033",
     "name": "Rusev",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 86,
     "male": true
   },
   {
     "id": "2846058098",
     "name": "Sami Zayn",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 87,
     "male": true
   },
   {
     "id": "-614818697",
     "name": "Seth Rollins",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 93,
     "male": true
   },
   {
     "id": "3722067034",
     "name": "Sheamus",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 83,
     "male": true
   },
   {
     "id": "-3791139435",
     "name": "Sin Cara",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 72,
     "male": true
   },
   {
     "id": "-1263904922",
     "name": "Titus Oneil",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 75,
     "male": true
   },
   {
     "id": "-1017553258",
     "name": "Tj Perkins",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 78,
     "male": true
   },
   {
     "id": "1013360803",
     "name": "Tony Nese",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 75,
     "male": true
   },
   {
     "id": "-2718771930",
     "name": "Triple H",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 12,
     "male": true
   },
   {
     "id": "-3227874929",
     "name": "Xavier Woods",
-    "bucket": "Raw",
+    "brand": "Raw",
     "rating": 75,
     "male": true
   },
   {
     "id": "-157323275",
     "name": "Aiden English",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "-643714887",
     "name": "Aj Styles",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 95,
     "male": true
   },
   {
     "id": "6680692897",
     "name": "Apollo Crews",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 79,
     "male": true
   },
   {
     "id": "5117296815",
     "name": "Baron Corbin",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 80,
     "male": true
   },
   {
     "id": "2586453735",
     "name": "Bray Wyatt",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 87,
     "male": true
   },
   {
     "id": "1811416937",
     "name": "Chad Gable",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 79,
     "male": true
   },
   {
     "id": "2431002965",
     "name": "Curt Hawkins",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 76,
     "male": true
   },
   {
     "id": "3303163477",
     "name": "Daniel Bryan",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 10,
     "male": true
   },
   {
     "id": "-1645700092",
     "name": "David Otunga",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 10,
     "male": true
   },
   {
     "id": "953902675",
     "name": "Dean Ambrose",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 90,
     "male": true
   },
   {
     "id": "-4641152765",
     "name": "Dolph Ziggler",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 85,
     "male": true
   },
   {
     "id": "-3253989653",
     "name": "Erick Rowan",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 74,
     "male": true
   },
   {
     "id": "875740454",
     "name": "Fandango",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "-2897856670",
     "name": "Alexa Bliss",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 76,
     "male": false
   },
   {
     "id": "-5335910065",
     "name": "Andrea Dmarco",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": false
   },
   {
     "id": "-1051123788",
     "name": "Becky Lynch",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 80,
     "male": false
   },
   {
     "id": "65222421",
     "name": "Carmella",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 60,
     "male": false
   },
   {
     "id": "511640682",
     "name": "Eva Marie",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 50,
     "male": false
   },
   {
     "id": "-1997425011",
     "name": "Maryse",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 10,
     "male": false
   },
   {
     "id": "75034520",
     "name": "Naomi",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 78,
     "male": false
   },
   {
     "id": "3392963828",
     "name": "Natalya",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 77,
     "male": false
   },
   {
     "id": "3764453452",
     "name": "Nikki Bella",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 78,
     "male": false
   },
   {
     "id": "3724813299",
     "name": "Renee Young",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 10,
     "male": false
   },
   {
     "id": "642983727",
     "name": "Greg Hamilton",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 10,
     "male": true
   },
   {
     "id": "-4109708575",
     "name": "Heath Slater",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 72,
     "male": true
   },
   {
     "id": "-8449066423",
     "name": "Jack Swagger",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 71,
     "male": true
   },
   {
     "id": "-6731051095",
     "name": "Jason Jordan",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 80,
     "male": true
   },
   {
     "id": "74260",
     "name": "Jbl",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 10,
     "male": true
   },
   {
     "id": "-39875377",
     "name": "Jey Uso",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 84,
     "male": true
   },
   {
     "id": "-1109137045",
     "name": "Jimmy Uso",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 84,
     "male": true
   },
   {
     "id": "562732938",
     "name": "John Cena",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 93,
     "male": true
   },
   {
     "id": "723309531",
     "name": "Kalisto",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 79,
     "male": true
   },
   {
     "id": "2331053",
     "name": "Kane",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 89,
     "male": true
   },
   {
     "id": "72382207",
     "name": "Kenny",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "-2041883865",
     "name": "Konnor",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "-350773759",
     "name": "Luke Harper",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 79,
     "male": true
   },
   {
     "id": "1615155339",
     "name": "Mauro Ranallo",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 10,
     "male": true
   },
   {
     "id": "74345251",
     "name": "Mikey",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "5668448465",
     "name": "Mojo Rawley",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "7624081956",
     "name": "Randy Orton",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 88,
     "male": true
   },
   {
     "id": "78946788",
     "name": "Rhyno",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 78,
     "male": true
   },
   {
     "id": "3932114528",
     "name": "Shane Mcmahon",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 12,
     "male": true
   },
   {
     "id": "2578470407",
     "name": "Simon Gotch",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "312635887",
     "name": "The Miz",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 85,
     "male": true
   },
   {
     "id": "3397479559",
     "name": "Tyler Breeze",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "-1732587937",
     "name": "Viktor",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 70,
     "male": true
   },
   {
     "id": "-1822027047",
     "name": "Zack Ryder",
-    "bucket": "Smackdown Live",
+    "brand": "Smackdown Live",
     "rating": 73,
     "male": true
   }

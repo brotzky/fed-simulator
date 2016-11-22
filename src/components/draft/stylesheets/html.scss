@@ -1,11 +1,15 @@
+@import "../../../stylesheets/variables";
+
 body {
   background-color: $bg;
   color: $color;
+
   a,
   a:visited,
   a:hover {
     color: $color;
   }
+
   a:hover,
   .btn:focus,
   .btn:hover {
@@ -16,12 +20,14 @@ body {
 hr {
   border: 1px solid $smackdown;
 }
+
 hr:first-of-type {
   border: 1px solid $raw;
 }
 
 h1 {
   font-size: 50px;
+
   img {
     max-height: 80px;
   }

@@ -1,6 +1,20 @@
+@import "../../../stylesheets/variables";
+
 .icon {
   border: 5px solid transparent;
   &.active {
     border: 5px solid gray;
   }
+}
+
+.wrestler--smackdown-live .icon.active {
+  border-color: lighten($smackdown, 25%)
+}
+
+.wrestler--raw .icon.active {
+  border-color: lighten($raw, 25%)
+}
+
+.wrestler--nxt .icon.active {
+  border-color: lighten($nxt, 25%)
 }
