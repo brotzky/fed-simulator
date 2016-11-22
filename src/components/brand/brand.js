@@ -58,7 +58,7 @@ class Brand extends React.Component {
     return (
       <Droppable
         key={this.props.id}
-        className="brand col-lg-3 col-md-3 col-sm-12 col-xs-12"
+        className="brand"
         types={[
           "wrestler",
         ]}

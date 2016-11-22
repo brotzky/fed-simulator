@@ -24,13 +24,15 @@ class Draft extends React.Component {
                 .filter((wrestler) => wrestler.brand === brand.name)
                 .sort((a, b) => a.rating < b.rating)
             return (
-              <Brand
-                id={brand.id}
-                key={brand.id}
-                name={brand.name}
-                canDragAndDrop={true}
-                wrestlers={wrestlers}
-              />
+              <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <Brand
+                  id={brand.id}
+                  key={brand.id}
+                  name={brand.name}
+                  canDragAndDrop={true}
+                  wrestlers={wrestlers}
+                />
+              </div>
             )
           })}
         </div>

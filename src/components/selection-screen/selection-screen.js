@@ -42,14 +42,17 @@ class SelectionScreen extends React.Component {
               .filter((wrestler) => wrestler.brand === brand.name)
               .sort((a, b) => a.rating < b.rating)
             return (
-              <Brand
-                id={brand.id}
+              <div
                 key={brand.id}
-                name={brand.name}
-                canDragAndDrop={false}
-                onWrestlerClick={this.onWrestlerClick}
-                wrestlers={wrestlers}
-              />
+                className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <Brand
+                  id={brand.id}
+                  name={brand.name}
+                  canDragAndDrop={false}
+                  onWrestlerClick={this.onWrestlerClick}
+                  wrestlers={wrestlers}
+                />
+              </div>
             )
           })}
         </div>
