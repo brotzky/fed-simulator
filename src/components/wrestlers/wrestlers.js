@@ -17,7 +17,7 @@ const Wrestlers = ({
           {title}
         </h3>
         <div className="wrestlers__container">
-          {wrestlers.map((wrestler, key) => {
+          {wrestlers.sort((a, b) => a.rating - b.rating).reverse().map((wrestler, key) => {
             return (
               <Draggable
                 key={key}
