@@ -6,7 +6,7 @@ import "./stylesheets/main"
 const Wrestlers = ({
   title,
   wrestlers,
-  isDraggable = true,
+  canDragAndDrop = true
 }) => {
   return (
     <div className="clearfix">
@@ -20,7 +20,7 @@ const Wrestlers = ({
               <Draggable
                 key={key}
                 type="wrestler"
-                enabled={isDraggable}
+                enabled={canDragAndDrop}
                 data={wrestler.id}>
                 <Wrestler
                   key={key}

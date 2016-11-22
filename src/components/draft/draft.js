@@ -13,24 +13,6 @@ class Draft extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
-  state = {
-    search: "",
-    bucketName: "",
-  }
-
-  onDrop(bucket, wrestler) {
-    this.props.dispatch(
-      wrestlersActions.moveWrestler(bucket, wrestler.wrestler)
-    )
-  }
-
-  onSearchUpdated = (search, bucketName) => {
-    this.setState({
-      search,
-      bucketName,
-    })
-  }
-
   displayName = "Draft"
 
   render() {
@@ -46,7 +28,7 @@ class Draft extends React.Component {
                 id={brand.id}
                 key={brand.id}
                 name={brand.name}
-                onDrop={this.onDrop}
+                canDragAndDrop={true}
                 wrestlers={wrestlers}
               />
             )

@@ -15,6 +15,7 @@ class Draft extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     brands: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
+    canDragAndDrop: React.PropTypes.bool,
   }
 
   state = {
@@ -22,6 +23,21 @@ class Draft extends React.Component {
     bucketName: "",
   }
 
+  onDrop(brand, wrestler) {
+    if (!this.props.canDragAndDrop) {
+      return
+    }
+    this.props.dispatch(
+      wrestlersActions.moveWrestler(brand, wrestler.wrestler)
+    )
+  }
+
+  onSearchUpdated = (search, bucketName) => {
+    this.setState({
+      search,
+      bucketName,
+    })
+  }
 
   displayName = "Brand"
 
@@ -66,12 +82,14 @@ class Draft extends React.Component {
           <If condition={malewrestlers.length > 0}>
             <Wrestlers
               title="Male Wrestlers"
+              canDragAndDrop={this.props.canDragAndDrop}
               wrestlers={malewrestlers}
             />
           </If>
           <If condition={femalewrestlers.length > 0}>
             <Wrestlers
               title="Female Wrestlers"
+              canDragAndDrop={this.props.canDragAndDrop}
               wrestlers={femalewrestlers}
             />
           </If>
