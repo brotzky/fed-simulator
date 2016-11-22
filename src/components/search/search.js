@@ -7,7 +7,7 @@ export default class Search extends React.Component {
   displayName = "Search"
 
   static propTypes = {
-    bucketName: React.PropTypes.string,
+    brandName: React.PropTypes.string,
     placeholder: React.PropTypes.string,
     onSearchUpdated: React.PropTypes.func,
   }
@@ -15,7 +15,7 @@ export default class Search extends React.Component {
   state = {
     search: "",
     placeholder: "Search",
-    bucketName: "",
+    brandName: "",
   }
 
   componentWillMount() {
@@ -24,7 +24,7 @@ export default class Search extends React.Component {
       this.setState({
         search,
       })
-      this.props.onSearchUpdated(search, this.props.bucketName)
+      this.props.onSearchUpdated(search, this.props.brandName)
     }
   }
 

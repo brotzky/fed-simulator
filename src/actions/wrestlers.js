@@ -1,9 +1,9 @@
 import * as types from "./types"
 
-export function moveWrestler(bucket, wrestlerId) {
+export function moveWrestler(brand, wrestlerId) {
   return {
     type: types.MOVE_WRESTLER,
-    bucket,
+    brand,
     wrestlerId,
   }
 }

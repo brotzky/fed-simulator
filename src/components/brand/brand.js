@@ -20,10 +20,11 @@ class Draft extends React.Component {
 
   state = {
     search: "",
-    bucketName: "",
+    brandName: "",
   }
 
   onDrop(brand, wrestler) {
+    console.log(brand, wrestler)
     if (!this.props.canDragAndDrop) {
       return
     }
@@ -32,10 +33,10 @@ class Draft extends React.Component {
     )
   }
 
-  onSearchUpdated = (search, bucketName) => {
+  onSearchUpdated = (search, brandName) => {
     this.setState({
       search,
-      bucketName,
+      brandName,
     })
   }
 
@@ -47,7 +48,7 @@ class Draft extends React.Component {
       femalewrestlers = [],
       wrestlers = this.props.wrestlers
 
-    if (this.state.search !== "" && this.state.bucketName === this.props.name) {
+    if (this.state.search !== "" && this.state.brandName === this.props.name) {
       searchIsActive = true
       wrestlers = wrestlers.filter((wrestler) => {
         return wrestler.name.toLowerCase().indexOf(this.state.search) > -1
@@ -62,7 +63,7 @@ class Draft extends React.Component {
         types={[
           "wrestler",
         ]}
-        onDrop={this.props.onDrop.bind(this, this.props)}>
+        onDrop={this.onDrop.bind(this, this.props)}>
         <p className="text-center hidden-sm hidden-xs">
           <img
             src={`static/media/${toSlug(this.props.name)}.png`}
@@ -76,7 +77,7 @@ class Draft extends React.Component {
             <Search
               placeholder={`Filter choices`}
               onSearchUpdated={this.onSearchUpdated}
-              bucketName={this.props.name}
+              brandName={this.props.name}
             />
           </div>
           <If condition={malewrestlers.length > 0}>
