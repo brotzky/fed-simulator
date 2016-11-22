@@ -22,7 +22,7 @@ export default class Page extends React.Component {
         <ul className="nav nav-pills" role="tablist">
           <li>
             <Link
-              href="draft">
+              to="draft">
               Draft
             </Link>
           </li>
