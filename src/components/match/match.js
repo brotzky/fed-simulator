@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import SelectionScreen from "../selection-screen/selection-screen"
 import Story from "./story"
+import Wrestlers from "../wrestlers/wrestlers"
 import * as matchActions from "../../actions/match"
 import { SimMatch } from "./sim-match.helper"
 import { toSlug } from "../../helpers/slugs"
@@ -50,6 +51,7 @@ class Match extends React.Component {
               </button>
             </div>
             <br />
+            <Wrestlers wrestlers={this.props.match.wrestlers} />
             <Story collection={this.props.match.story} />
           </div>
           <div className="col-xs-9">
