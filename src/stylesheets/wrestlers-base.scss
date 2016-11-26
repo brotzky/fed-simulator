@@ -1,147 +1,148 @@
-$icon-kalisto: 0px 0px 84px 100px;
-$icon-aiden-english: -84px 0px 84px 100px;
-$icon-akam: -168px 0px 84px 100px;
-$icon-alexa-bliss: -252px 0px 84px 100px;
-$icon-alexander-wolfe: -336px 0px 84px 100px;
-$icon-alicia-fox: -420px 0px 84px 100px;
-$icon-aliyah: -504px 0px 84px 100px;
-$icon-andrea-dmarco: -588px 0px 84px 100px;
-$icon-angelo-dawkins: -672px 0px 84px 100px;
-$icon-apollo-crews: -756px 0px 84px 100px;
-$icon-ariya-daivari: -840px 0px 84px 100px;
-$icon-asuka: -924px 0px 84px 100px;
-$icon-austin-aries: -1008px 0px 84px 100px;
-$icon-baron-corbin: -1092px 0px 84px 100px;
-$icon-bayley: -1176px 0px 84px 100px;
-$icon-becky-lynch: -1260px 0px 84px 100px;
-$icon-big-e: -1344px 0px 84px 100px;
-$icon-big-show: -1428px 0px 84px 100px;
-$icon-billie-kay: -1512px 0px 84px 100px;
-$icon-blake: -1596px 0px 84px 100px;
-$icon-bo-dallas: -1680px 0px 84px 100px;
-$icon-bobby-roode: -1764px 0px 84px 100px;
-$icon-braun-strowman: -1848px 0px 84px 100px;
-$icon-bray-wyatt: -1932px 0px 84px 100px;
-$icon-william-regal: -2016px 0px 84px 100px;
-$icon-brock-lesnar: -2100px 0px 84px 100px;
-$icon-byron-saxton: -2184px 0px 84px 100px;
-$icon-carmella: -2268px 0px 84px 100px;
-$icon-cathy-kelly: -2352px 0px 84px 100px;
-$icon-cedric-alexander: -2436px 0px 84px 100px;
-$icon-cesaro: -2520px 0px 84px 100px;
-$icon-chad-gable: -2604px 0px 84px 100px;
-$icon-charlotte: -2688px 0px 84px 100px;
-$icon-charly-caruso: -2772px 0px 84px 100px;
-$icon-chris-girard: -2856px 0px 84px 100px;
-$icon-chris-jericho: -2940px 0px 84px 100px;
-$icon-colin-cassady: -3024px 0px 84px 100px;
-$icon-corey-graves: -3108px 0px 84px 100px;
-$icon-curt-hawkins: -3192px 0px 84px 100px;
-$icon-curtis-axel: -3276px 0px 84px 100px;
-$icon-dana-brooke: -3360px 0px 84px 100px;
-$icon-daniel-bryan: -3444px 0px 84px 100px;
-$icon-darren-young: -3528px 0px 84px 100px;
-$icon-dash-wilder: -3612px 0px 84px 100px;
-$icon-dasha-fuentes: -3696px 0px 84px 100px;
-$icon-david-otunga: -3780px 0px 84px 100px;
-$icon-dean-ambrose: -3864px 0px 84px 100px;
-$icon-dolph-ziggler: -3948px 0px 84px 100px;
-$icon-drew-gulak: -4032px 0px 84px 100px;
-$icon-elias-samson: -4116px 0px 84px 100px;
-$icon-ember-moon: -4200px 0px 84px 100px;
-$icon-enzo-amore: -4284px 0px 84px 100px;
-$icon-epico: -4368px 0px 84px 100px;
-$icon-eric-young: -4452px 0px 84px 100px;
-$icon-erick-rowan: -4536px 0px 84px 100px;
-$icon-eva-marie: -4620px 0px 84px 100px;
-$icon-fandango: -4704px 0px 84px 100px;
-$icon-finn-balor: -4788px 0px 84px 100px;
-$icon-goldust: -4872px 0px 84px 100px;
-$icon-gran-metalik: -4956px 0px 84px 100px;
-$icon-greg-hamilton: -5040px 0px 84px 100px;
-$icon-heath-slater: -5124px 0px 84px 100px;
-$icon-hideo-itamo: -5208px 0px 84px 100px;
-$icon-jack-swagger: -5292px 0px 84px 100px;
-$icon-jason-jordan: -5376px 0px 84px 100px;
-$icon-jbl: -5460px 0px 84px 100px;
-$icon-jey-uso: -5544px 0px 84px 100px;
-$icon-jimmy-uso: -5628px 0px 84px 100px;
-$icon-viktor: -5712px 0px 84px 100px;
-$icon-john-cena: -5796px 0px 84px 100px;
-$icon-johnny-gargano: -5880px 0px 84px 100px;
-$icon-jojo: -5964px 0px 84px 100px;
-$icon-aj-styles: -6048px 0px 84px 100px;
-$icon-kane: -6132px 0px 84px 100px;
-$icon-karl-anderson: -6216px 0px 84px 100px;
-$icon-kenny: -6300px 0px 84px 100px;
-$icon-kevin-owens: -6384px 0px 84px 100px;
-$icon-kofi-kingston: -6468px 0px 84px 100px;
-$icon-konnor: -6552px 0px 84px 100px;
-$icon-lana: -6636px 0px 84px 100px;
-$icon-lince-dorado: -6720px 0px 84px 100px;
-$icon-liv-morgan: -6804px 0px 84px 100px;
-$icon-luke-gallows: -6888px 0px 84px 100px;
-$icon-luke-harper: -6972px 0px 84px 100px;
-$icon-mandy-rose: -7056px 0px 84px 100px;
-$icon-manny-andrade: -7140px 0px 84px 100px;
-$icon-mark-henry: -7224px 0px 84px 100px;
-$icon-maryse: -7308px 0px 84px 100px;
-$icon-mauro-ranallo: -7392px 0px 84px 100px;
-$icon-tyler-breeze: -7476px 0px 84px 100px;
-$icon-tye-dillinger: -7560px 0px 84px 100px;
-$icon-mike-rome: -7644px 0px 84px 100px;
-$icon-mikey: -7728px 0px 84px 100px;
-$icon-mojo-rawley: -7812px 0px 84px 100px;
-$icon-murphy: -7896px 0px 84px 100px;
-$icon-naomi: -7980px 0px 84px 100px;
-$icon-natalya: -8064px 0px 84px 100px;
-$icon-triple-h: -8148px 0px 84px 100px;
-$icon-tommaso: -8232px 0px 84px 100px;
-$icon-nick-miller: -8316px 0px 84px 100px;
-$icon-nikki-bella: -8400px 0px 84px 100px;
-$icon-nikki-storm: -8484px 0px 84px 100px;
-$icon-no-way-jose: -8568px 0px 84px 100px;
-$icon-tom-phillips: -8652px 0px 84px 100px;
-$icon-the-miz: -8736px 0px 84px 100px;
-$icon-paul-ellering: -8820px 0px 84px 100px;
-$icon-peyton-royce: -8904px 0px 84px 100px;
-$icon-simon-gotch: -8988px 0px 84px 100px;
-$icon-shinsuke-nakamura: -9072px 0px 84px 100px;
-$icon-randy-orton: -9156px 0px 84px 100px;
-$icon-renee-young: -9240px 0px 84px 100px;
-$icon-rezar: -9324px 0px 84px 100px;
-$icon-rhyno: -9408px 0px 84px 100px;
-$icon-shane-turner: -9492px 0px 84px 100px;
-$icon-roderick-strong: -9576px 0px 84px 100px;
-$icon-shane-mcmahon: -9660px 0px 84px 100px;
-$icon-scott-dawson: -9744px 0px 84px 100px;
-$icon-sawyer-fulton: -9828px 0px 84px 100px;
-$icon-samoa-joe: -9912px 0px 84px 100px;
-$icon-zack-ryder: -9996px 0px 84px 100px;
-$icon-sasha-banks: -10080px 0px 100px 100px;
-$icon-rusev: -10180px 0px 100px 100px;
-$icon-seth-rollins: -10280px 0px 100px 100px;
-$icon-roman-reigns: -10380px 0px 100px 100px;
-$icon-rich-swann: -10480px 0px 100px 100px;
-$icon-sheamus: -10580px 0px 100px 100px;
-$icon-r-truth: -10680px 0px 100px 100px;
-$icon-primo: -10780px 0px 100px 100px;
-$icon-sin-cara: -10880px 0px 100px 100px;
-$icon-stephanie-mcmahon: -10980px 0px 100px 100px;
-$icon-summer-rae: -11080px 0px 100px 100px;
-$icon-sami-zayn: -11180px 0px 100px 100px;
-$icon-titus-oneil: -11280px 0px 100px 100px;
-$icon-tj-perkins: -11380px 0px 100px 100px;
-$icon-noam-dar: -11480px 0px 100px 100px;
-$icon-nia-jax: -11580px 0px 100px 100px;
-$icon-tony-nese: -11680px 0px 100px 100px;
-$icon-neville: -11780px 0px 100px 100px;
-$icon-mick-foley: -11880px 0px 100px 100px;
-$icon-michael-cole: -11980px 0px 100px 100px;
-$icon-jinder-mahal: -12080px 0px 100px 100px;
-$icon-brian-kendrick: -12180px 0px 100px 100px;
-$icon-xavier-woods: -12280px 0px 100px 100px;
-$icon-paige: -12380px 0px 100px 100px;
+$icon-chris-jericho: 0px 0px 85px 101px;
+$icon-akam: -85px 0px 85px 101px;
+$icon-angelo-dawkins: -170px 0px 85px 101px;
+$icon-austin-aries: -255px 0px 85px 101px;
+$icon-blake: -340px 0px 85px 101px;
+$icon-bobby-roode: -425px 0px 85px 101px;
+$icon-chris-girard: -510px 0px 85px 101px;
+$icon-dash-wilder: -595px 0px 85px 101px;
+$icon-elias-samson: -680px 0px 85px 101px;
+$icon-eric-young: -765px 0px 85px 101px;
+$icon-hideo-itamo: -850px 0px 85px 101px;
+$icon-johnny-gargano: -935px 0px 85px 101px;
+$icon-manny-andrade: -1020px 0px 85px 101px;
+$icon-mike-rome: -1105px 0px 85px 101px;
+$icon-murphy: -1190px 0px 85px 101px;
+$icon-nick-miller: -1275px 0px 85px 101px;
+$icon-no-way-jose: -1360px 0px 85px 101px;
+$icon-paul-ellering: -1445px 0px 85px 101px;
+$icon-rezar: -1530px 0px 85px 101px;
+$icon-roderick-strong: -1615px 0px 85px 101px;
+$icon-samoa-joe: -1700px 0px 85px 101px;
+$icon-sawyer-fulton: -1785px 0px 85px 101px;
+$icon-scott-dawson: -1870px 0px 85px 101px;
+$icon-shane-turner: -1955px 0px 85px 101px;
+$icon-shinsuke-nakamura: -2040px 0px 85px 101px;
+$icon-tom-phillips: -2125px 0px 85px 101px;
+$icon-tommaso: -2210px 0px 85px 101px;
+$icon-tye-dillinger: -2295px 0px 85px 101px;
+$icon-william-regal: -2380px 0px 85px 101px;
+$icon-aliyah: -2465px 0px 85px 101px;
+$icon-andrea-dmarco: -2550px 0px 85px 101px;
+$icon-asuka: -2635px 0px 85px 101px;
+$icon-billie-kay: -2720px 0px 85px 101px;
+$icon-cathy-kelly: -2805px 0px 85px 101px;
+$icon-dasha-fuentes: -2890px 0px 85px 101px;
+$icon-ember-moon: -2975px 0px 85px 101px;
+$icon-liv-morgan: -3060px 0px 85px 101px;
+$icon-mandy-rose: -3145px 0px 85px 101px;
+$icon-nikki-storm: -3230px 0px 85px 101px;
+$icon-peyton-royce: -3315px 0px 85px 101px;
+$icon-alicia-fox: -3400px 0px 85px 101px;
+$icon-bayley: -3485px 0px 85px 101px;
+$icon-charlotte: -3570px 0px 85px 101px;
+$icon-charly-caruso: -3655px 0px 85px 101px;
+$icon-dana-brooke: -3740px 0px 85px 101px;
+$icon-jojo: -3825px 0px 85px 101px;
+$icon-lana: -3910px 0px 85px 101px;
+$icon-nia-jax: -3995px 0px 85px 85px;
+$icon-paige: -4080px 0px 85px 85px;
+$icon-sasha-banks: -4165px 0px 85px 85px;
+$icon-stephanie-mcmahon: -4250px 0px 85px 85px;
+$icon-summer-rae: -4335px 0px 85px 85px;
+$icon-alexa-bliss: -4420px 0px 85px 101px;
+$icon-Smackdown Live-female-andrea-dmarco: -4505px 0px 85px 101px;
+$icon-becky-lynch: -4590px 0px 85px 101px;
+$icon-carmella: -4675px 0px 85px 101px;
+$icon-eva-marie: -4760px 0px 85px 101px;
+$icon-maryse: -4845px 0px 85px 101px;
+$icon-naomi: -4930px 0px 85px 101px;
+$icon-natalya: -5015px 0px 85px 101px;
+$icon-nikki-bella: -5100px 0px 85px 101px;
+$icon-renee-young: -5185px 0px 85px 101px;
+$icon-ariya-daivari: -5270px 0px 85px 101px;
+$icon-big-e: -5355px 0px 85px 101px;
+$icon-big-show: -5440px 0px 85px 101px;
+$icon-bo-dallas: -5525px 0px 85px 101px;
+$icon-braun-strowman: -5610px 0px 85px 101px;
+$icon-brian-kendrick: -5695px 0px 85px 85px;
+$icon-brock-lesnar: -5780px 0px 85px 101px;
+$icon-byron-saxton: -5865px 0px 85px 101px;
+$icon-cedric-alexander: -5950px 0px 85px 101px;
+$icon-cesaro: -6035px 0px 85px 101px;
+$icon-alexander-wolfe: -6120px 0px 85px 101px;
+$icon-colin-cassady: -6205px 0px 85px 101px;
+$icon-corey-graves: -6290px 0px 85px 101px;
+$icon-curtis-axel: -6375px 0px 85px 101px;
+$icon-darren-young: -6460px 0px 85px 101px;
+$icon-drew-gulak: -6545px 0px 85px 101px;
+$icon-enzo-amore: -6630px 0px 85px 101px;
+$icon-epico: -6715px 0px 85px 101px;
+$icon-finn-balor: -6800px 0px 85px 101px;
+$icon-goldust: -6885px 0px 85px 101px;
+$icon-gran-metalik: -6970px 0px 85px 101px;
+$icon-jinder-mahal: -7055px 0px 85px 85px;
+$icon-karl-anderson: -7140px 0px 85px 101px;
+$icon-kevin-owens: -7225px 0px 85px 101px;
+$icon-kofi-kingston: -7310px 0px 85px 101px;
+$icon-lince-dorado: -7395px 0px 85px 101px;
+$icon-luke-gallows: -7480px 0px 85px 101px;
+$icon-mark-henry: -7565px 0px 85px 101px;
+$icon-michael-cole: -7650px 0px 85px 85px;
+$icon-mick-foley: -7735px 0px 85px 85px;
+$icon-neville: -7820px 0px 85px 85px;
+$icon-noam-dar: -7905px 0px 85px 85px;
+$icon-primo: -7990px 0px 85px 85px;
+$icon-r-truth: -8075px 0px 85px 85px;
+$icon-rich-swann: -8160px 0px 85px 85px;
+$icon-roman-reigns: -8245px 0px 85px 85px;
+$icon-rusev: -8330px 0px 85px 85px;
+$icon-sami-zayn: -8415px 0px 85px 85px;
+$icon-seth-rollins: -8500px 0px 85px 85px;
+$icon-sheamus: -8585px 0px 85px 85px;
+$icon-sin-cara: -8670px 0px 85px 85px;
+$icon-titus-oneil: -8755px 0px 85px 85px;
+$icon-tj-perkins: -8840px 0px 85px 85px;
+$icon-tony-nese: -8925px 0px 85px 85px;
+$icon-triple-h: -9010px 0px 85px 101px;
+$icon-xavier-woods: -9095px 0px 85px 85px;
+$icon-aiden-english: -9180px 0px 85px 101px;
+$icon-aj-styles: -9265px 0px 85px 101px;
+$icon-apollo-crews: -9350px 0px 85px 101px;
+$icon-baron-corbin: -9435px 0px 85px 101px;
+$icon-bray-wyatt: -9520px 0px 85px 101px;
+$icon-chad-gable: -9605px 0px 85px 101px;
+$icon-curt-hawkins: -9690px 0px 85px 101px;
+$icon-daniel-bryan: -9775px 0px 85px 101px;
+$icon-david-otunga: -9860px 0px 85px 101px;
+$icon-dean-ambrose: -9945px 0px 85px 101px;
+$icon-dolph-ziggler: -10030px 0px 85px 101px;
+$icon-erick-rowan: -10115px 0px 85px 101px;
+$icon-fandango: -10200px 0px 85px 101px;
+$icon-greg-hamilton: -10285px 0px 85px 101px;
+$icon-heath-slater: -10370px 0px 85px 101px;
+$icon-jack-swagger: -10455px 0px 85px 101px;
+$icon-jason-jordan: -10540px 0px 85px 101px;
+$icon-jbl: -10625px 0px 85px 101px;
+$icon-jey-uso: -10710px 0px 85px 101px;
+$icon-jimmy-uso: -10795px 0px 85px 101px;
+$icon-john-cena: -10880px 0px 85px 101px;
+$icon-kalisto: -10965px 0px 85px 101px;
+$icon-kane: -11050px 0px 85px 101px;
+$icon-kenny: -11135px 0px 85px 101px;
+$icon-konnor: -11220px 0px 85px 101px;
+$icon-luke-harper: -11305px 0px 85px 101px;
+$icon-mauro-ranallo: -11390px 0px 85px 101px;
+$icon-mikey: -11475px 0px 85px 101px;
+$icon-mojo-rawley: -11560px 0px 85px 101px;
+$icon-randy-orton: -11645px 0px 85px 101px;
+$icon-rhyno: -11730px 0px 85px 101px;
+$icon-shane-mcmahon: -11815px 0px 85px 101px;
+$icon-simon-gotch: -11900px 0px 85px 101px;
+$icon-the-miz: -11985px 0px 85px 101px;
+$icon-tyler-breeze: -12070px 0px 85px 101px;
+$icon-viktor: -12155px 0px 85px 101px;
+$icon-zack-ryder: -12240px 0px 85px 101px;
 
 @mixin sprite-width($sprite) {
   width: nth($sprite, 3);
@@ -174,13 +175,8 @@ $icon-paige: -12380px 0px 100px 100px;
   @include sprite-height($sprite);
 }
 
-.icon-kalisto {
-  @include sprite($icon-kalisto);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-aiden-english {
-  @include sprite($icon-aiden-english);
+.icon-chris-jericho {
+  @include sprite($icon-chris-jericho);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -189,18 +185,138 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-alexa-bliss {
-  @include sprite($icon-alexa-bliss);
+.icon-angelo-dawkins {
+  @include sprite($icon-angelo-dawkins);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-alexander-wolfe {
-  @include sprite($icon-alexander-wolfe);
+.icon-austin-aries {
+  @include sprite($icon-austin-aries);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-alicia-fox {
-  @include sprite($icon-alicia-fox);
+.icon-blake {
+  @include sprite($icon-blake);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-bobby-roode {
+  @include sprite($icon-bobby-roode);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-chris-girard {
+  @include sprite($icon-chris-girard);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-dash-wilder {
+  @include sprite($icon-dash-wilder);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-elias-samson {
+  @include sprite($icon-elias-samson);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-eric-young {
+  @include sprite($icon-eric-young);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-hideo-itamo {
+  @include sprite($icon-hideo-itamo);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-johnny-gargano {
+  @include sprite($icon-johnny-gargano);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-manny-andrade {
+  @include sprite($icon-manny-andrade);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-mike-rome {
+  @include sprite($icon-mike-rome);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-murphy {
+  @include sprite($icon-murphy);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-nick-miller {
+  @include sprite($icon-nick-miller);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-no-way-jose {
+  @include sprite($icon-no-way-jose);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-paul-ellering {
+  @include sprite($icon-paul-ellering);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-rezar {
+  @include sprite($icon-rezar);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-roderick-strong {
+  @include sprite($icon-roderick-strong);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-samoa-joe {
+  @include sprite($icon-samoa-joe);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-sawyer-fulton {
+  @include sprite($icon-sawyer-fulton);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-scott-dawson {
+  @include sprite($icon-scott-dawson);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-shane-turner {
+  @include sprite($icon-shane-turner);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-shinsuke-nakamura {
+  @include sprite($icon-shinsuke-nakamura);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-tom-phillips {
+  @include sprite($icon-tom-phillips);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-tommaso {
+  @include sprite($icon-tommaso);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-tye-dillinger {
+  @include sprite($icon-tye-dillinger);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-william-regal {
+  @include sprite($icon-william-regal);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -214,53 +330,8 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-angelo-dawkins {
-  @include sprite($icon-angelo-dawkins);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-apollo-crews {
-  @include sprite($icon-apollo-crews);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-ariya-daivari {
-  @include sprite($icon-ariya-daivari);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-asuka {
   @include sprite($icon-asuka);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-austin-aries {
-  @include sprite($icon-austin-aries);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-baron-corbin {
-  @include sprite($icon-baron-corbin);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-bayley {
-  @include sprite($icon-bayley);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-becky-lynch {
-  @include sprite($icon-becky-lynch);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-big-e {
-  @include sprite($icon-big-e);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-big-show {
-  @include sprite($icon-big-show);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -269,68 +340,48 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-blake {
-  @include sprite($icon-blake);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-bo-dallas {
-  @include sprite($icon-bo-dallas);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-bobby-roode {
-  @include sprite($icon-bobby-roode);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-braun-strowman {
-  @include sprite($icon-braun-strowman);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-bray-wyatt {
-  @include sprite($icon-bray-wyatt);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-william-regal {
-  @include sprite($icon-william-regal);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-brock-lesnar {
-  @include sprite($icon-brock-lesnar);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-byron-saxton {
-  @include sprite($icon-byron-saxton);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-carmella {
-  @include sprite($icon-carmella);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-cathy-kelly {
   @include sprite($icon-cathy-kelly);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-cedric-alexander {
-  @include sprite($icon-cedric-alexander);
+.icon-dasha-fuentes {
+  @include sprite($icon-dasha-fuentes);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-cesaro {
-  @include sprite($icon-cesaro);
+.icon-ember-moon {
+  @include sprite($icon-ember-moon);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-chad-gable {
-  @include sprite($icon-chad-gable);
+.icon-liv-morgan {
+  @include sprite($icon-liv-morgan);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-mandy-rose {
+  @include sprite($icon-mandy-rose);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-nikki-storm {
+  @include sprite($icon-nikki-storm);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-peyton-royce {
+  @include sprite($icon-peyton-royce);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-alicia-fox {
+  @include sprite($icon-alicia-fox);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-bayley {
+  @include sprite($icon-bayley);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -344,13 +395,148 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-chris-girard {
-  @include sprite($icon-chris-girard);
+.icon-dana-brooke {
+  @include sprite($icon-dana-brooke);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-chris-jericho {
-  @include sprite($icon-chris-jericho);
+.icon-jojo {
+  @include sprite($icon-jojo);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-lana {
+  @include sprite($icon-lana);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-nia-jax {
+  @include sprite($icon-nia-jax);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-paige {
+  @include sprite($icon-paige);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-sasha-banks {
+  @include sprite($icon-sasha-banks);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-stephanie-mcmahon {
+  @include sprite($icon-stephanie-mcmahon);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-summer-rae {
+  @include sprite($icon-summer-rae);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-alexa-bliss {
+  @include sprite($icon-alexa-bliss);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-Smackdown\ Live-female-andrea-dmarco {
+  @include sprite($icon-Smackdown Live-female-andrea-dmarco);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-becky-lynch {
+  @include sprite($icon-becky-lynch);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-carmella {
+  @include sprite($icon-carmella);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-eva-marie {
+  @include sprite($icon-eva-marie);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-maryse {
+  @include sprite($icon-maryse);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-naomi {
+  @include sprite($icon-naomi);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-natalya {
+  @include sprite($icon-natalya);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-nikki-bella {
+  @include sprite($icon-nikki-bella);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-renee-young {
+  @include sprite($icon-renee-young);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-ariya-daivari {
+  @include sprite($icon-ariya-daivari);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-big-e {
+  @include sprite($icon-big-e);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-big-show {
+  @include sprite($icon-big-show);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-bo-dallas {
+  @include sprite($icon-bo-dallas);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-braun-strowman {
+  @include sprite($icon-braun-strowman);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-brian-kendrick {
+  @include sprite($icon-brian-kendrick);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-brock-lesnar {
+  @include sprite($icon-brock-lesnar);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-byron-saxton {
+  @include sprite($icon-byron-saxton);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-cedric-alexander {
+  @include sprite($icon-cedric-alexander);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-cesaro {
+  @include sprite($icon-cesaro);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-alexander-wolfe {
+  @include sprite($icon-alexander-wolfe);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -364,23 +550,8 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-curt-hawkins {
-  @include sprite($icon-curt-hawkins);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-curtis-axel {
   @include sprite($icon-curtis-axel);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-dana-brooke {
-  @include sprite($icon-dana-brooke);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-daniel-bryan {
-  @include sprite($icon-daniel-bryan);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -389,43 +560,8 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-dash-wilder {
-  @include sprite($icon-dash-wilder);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-dasha-fuentes {
-  @include sprite($icon-dasha-fuentes);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-david-otunga {
-  @include sprite($icon-david-otunga);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-dean-ambrose {
-  @include sprite($icon-dean-ambrose);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-dolph-ziggler {
-  @include sprite($icon-dolph-ziggler);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-drew-gulak {
   @include sprite($icon-drew-gulak);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-elias-samson {
-  @include sprite($icon-elias-samson);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-ember-moon {
-  @include sprite($icon-ember-moon);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -436,26 +572,6 @@ $icon-paige: -12380px 0px 100px 100px;
 
 .icon-epico {
   @include sprite($icon-epico);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-eric-young {
-  @include sprite($icon-eric-young);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-erick-rowan {
-  @include sprite($icon-erick-rowan);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-eva-marie {
-  @include sprite($icon-eva-marie);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-fandango {
-  @include sprite($icon-fandango);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -474,6 +590,196 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
+.icon-jinder-mahal {
+  @include sprite($icon-jinder-mahal);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-karl-anderson {
+  @include sprite($icon-karl-anderson);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-kevin-owens {
+  @include sprite($icon-kevin-owens);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-kofi-kingston {
+  @include sprite($icon-kofi-kingston);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-lince-dorado {
+  @include sprite($icon-lince-dorado);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-luke-gallows {
+  @include sprite($icon-luke-gallows);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-mark-henry {
+  @include sprite($icon-mark-henry);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-michael-cole {
+  @include sprite($icon-michael-cole);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-mick-foley {
+  @include sprite($icon-mick-foley);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-neville {
+  @include sprite($icon-neville);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-noam-dar {
+  @include sprite($icon-noam-dar);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-primo {
+  @include sprite($icon-primo);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-r-truth {
+  @include sprite($icon-r-truth);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-rich-swann {
+  @include sprite($icon-rich-swann);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-roman-reigns {
+  @include sprite($icon-roman-reigns);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-rusev {
+  @include sprite($icon-rusev);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-sami-zayn {
+  @include sprite($icon-sami-zayn);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-seth-rollins {
+  @include sprite($icon-seth-rollins);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-sheamus {
+  @include sprite($icon-sheamus);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-sin-cara {
+  @include sprite($icon-sin-cara);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-titus-oneil {
+  @include sprite($icon-titus-oneil);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-tj-perkins {
+  @include sprite($icon-tj-perkins);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-tony-nese {
+  @include sprite($icon-tony-nese);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-triple-h {
+  @include sprite($icon-triple-h);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-xavier-woods {
+  @include sprite($icon-xavier-woods);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-aiden-english {
+  @include sprite($icon-aiden-english);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-aj-styles {
+  @include sprite($icon-aj-styles);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-apollo-crews {
+  @include sprite($icon-apollo-crews);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-baron-corbin {
+  @include sprite($icon-baron-corbin);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-bray-wyatt {
+  @include sprite($icon-bray-wyatt);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-chad-gable {
+  @include sprite($icon-chad-gable);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-curt-hawkins {
+  @include sprite($icon-curt-hawkins);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-daniel-bryan {
+  @include sprite($icon-daniel-bryan);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-david-otunga {
+  @include sprite($icon-david-otunga);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-dean-ambrose {
+  @include sprite($icon-dean-ambrose);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-dolph-ziggler {
+  @include sprite($icon-dolph-ziggler);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-erick-rowan {
+  @include sprite($icon-erick-rowan);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-fandango {
+  @include sprite($icon-fandango);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
 .icon-greg-hamilton {
   @include sprite($icon-greg-hamilton);
   background-image: url('../imgs/wrestlers-base.png');
@@ -481,11 +787,6 @@ $icon-paige: -12380px 0px 100px 100px;
 
 .icon-heath-slater {
   @include sprite($icon-heath-slater);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-hideo-itamo {
-  @include sprite($icon-hideo-itamo);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -514,28 +815,13 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-viktor {
-  @include sprite($icon-viktor);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-john-cena {
   @include sprite($icon-john-cena);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-johnny-gargano {
-  @include sprite($icon-johnny-gargano);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-jojo {
-  @include sprite($icon-jojo);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-aj-styles {
-  @include sprite($icon-aj-styles);
+.icon-kalisto {
+  @include sprite($icon-kalisto);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -544,23 +830,8 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-karl-anderson {
-  @include sprite($icon-karl-anderson);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-kenny {
   @include sprite($icon-kenny);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-kevin-owens {
-  @include sprite($icon-kevin-owens);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-kofi-kingston {
-  @include sprite($icon-kofi-kingston);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -569,68 +840,13 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-lana {
-  @include sprite($icon-lana);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-lince-dorado {
-  @include sprite($icon-lince-dorado);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-liv-morgan {
-  @include sprite($icon-liv-morgan);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-luke-gallows {
-  @include sprite($icon-luke-gallows);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-luke-harper {
   @include sprite($icon-luke-harper);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-mandy-rose {
-  @include sprite($icon-mandy-rose);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-manny-andrade {
-  @include sprite($icon-manny-andrade);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-mark-henry {
-  @include sprite($icon-mark-henry);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-maryse {
-  @include sprite($icon-maryse);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-mauro-ranallo {
   @include sprite($icon-mauro-ranallo);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-tyler-breeze {
-  @include sprite($icon-tyler-breeze);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-tye-dillinger {
-  @include sprite($icon-tye-dillinger);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-mike-rome {
-  @include sprite($icon-mike-rome);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -644,93 +860,8 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-murphy {
-  @include sprite($icon-murphy);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-naomi {
-  @include sprite($icon-naomi);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-natalya {
-  @include sprite($icon-natalya);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-triple-h {
-  @include sprite($icon-triple-h);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-tommaso {
-  @include sprite($icon-tommaso);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-nick-miller {
-  @include sprite($icon-nick-miller);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-nikki-bella {
-  @include sprite($icon-nikki-bella);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-nikki-storm {
-  @include sprite($icon-nikki-storm);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-no-way-jose {
-  @include sprite($icon-no-way-jose);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-tom-phillips {
-  @include sprite($icon-tom-phillips);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-the-miz {
-  @include sprite($icon-the-miz);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-paul-ellering {
-  @include sprite($icon-paul-ellering);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-peyton-royce {
-  @include sprite($icon-peyton-royce);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-simon-gotch {
-  @include sprite($icon-simon-gotch);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-shinsuke-nakamura {
-  @include sprite($icon-shinsuke-nakamura);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-randy-orton {
   @include sprite($icon-randy-orton);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-renee-young {
-  @include sprite($icon-renee-young);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-rezar {
-  @include sprite($icon-rezar);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
@@ -739,158 +870,33 @@ $icon-paige: -12380px 0px 100px 100px;
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-shane-turner {
-  @include sprite($icon-shane-turner);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-roderick-strong {
-  @include sprite($icon-roderick-strong);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
 .icon-shane-mcmahon {
   @include sprite($icon-shane-mcmahon);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-scott-dawson {
-  @include sprite($icon-scott-dawson);
+.icon-simon-gotch {
+  @include sprite($icon-simon-gotch);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-sawyer-fulton {
-  @include sprite($icon-sawyer-fulton);
+.icon-the-miz {
+  @include sprite($icon-the-miz);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
-.icon-samoa-joe {
-  @include sprite($icon-samoa-joe);
+.icon-tyler-breeze {
+  @include sprite($icon-tyler-breeze);
+  background-image: url('../imgs/wrestlers-base.png');
+}
+
+.icon-viktor {
+  @include sprite($icon-viktor);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
 .icon-zack-ryder {
   @include sprite($icon-zack-ryder);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-sasha-banks {
-  @include sprite($icon-sasha-banks);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-rusev {
-  @include sprite($icon-rusev);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-seth-rollins {
-  @include sprite($icon-seth-rollins);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-roman-reigns {
-  @include sprite($icon-roman-reigns);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-rich-swann {
-  @include sprite($icon-rich-swann);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-sheamus {
-  @include sprite($icon-sheamus);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-r-truth {
-  @include sprite($icon-r-truth);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-primo {
-  @include sprite($icon-primo);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-sin-cara {
-  @include sprite($icon-sin-cara);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-stephanie-mcmahon {
-  @include sprite($icon-stephanie-mcmahon);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-summer-rae {
-  @include sprite($icon-summer-rae);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-sami-zayn {
-  @include sprite($icon-sami-zayn);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-titus-oneil {
-  @include sprite($icon-titus-oneil);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-tj-perkins {
-  @include sprite($icon-tj-perkins);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-noam-dar {
-  @include sprite($icon-noam-dar);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-nia-jax {
-  @include sprite($icon-nia-jax);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-tony-nese {
-  @include sprite($icon-tony-nese);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-neville {
-  @include sprite($icon-neville);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-mick-foley {
-  @include sprite($icon-mick-foley);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-michael-cole {
-  @include sprite($icon-michael-cole);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-jinder-mahal {
-  @include sprite($icon-jinder-mahal);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-brian-kendrick {
-  @include sprite($icon-brian-kendrick);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-xavier-woods {
-  @include sprite($icon-xavier-woods);
-  background-image: url('../imgs/wrestlers-base.png');
-}
-
-.icon-paige {
-  @include sprite($icon-paige);
   background-image: url('../imgs/wrestlers-base.png');
 }
 
