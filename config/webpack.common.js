@@ -9,17 +9,17 @@ module.exports = {
   output: {
     publicPath: "/",
     path: paths.appBuild,
-    filename: "static/js/[name].[hash:8].bundle.js",
-    chunkFilename: "static/js/[id].[hash:8].chunk.js",
+    filename: "static/[name]-[hash:8].bundle.js",
+    chunkFilename: "static/[id]-[hash:8].chunk.js",
   },
   plugins: [
     new ExtractTextPlugin(
-      "static/css/[name].[hash:8].css"
+      "static/[name].css"
     ),
     new CopyWebpackPlugin([
       {
         from: paths.appImgs,
-        to: "static/media/",
+        to: "static/",
       },
     ]),
     new webpack.NoErrorsPlugin(),
@@ -89,7 +89,7 @@ module.exports = {
         ],
         loader: "file",
         query: {
-          name: "static/media/[name].[ext]",
+          name: "static/[name].[ext]",
         },
       },
     ],

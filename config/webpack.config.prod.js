@@ -41,8 +41,8 @@ const prodConfig = Object.assign({}, defaultConfig, {
   output: {
     publicPath: constants.baseUrl,
     path: paths.appBuild,
-    filename: "static/js/[name].bundle.js",
-    chunkFilename: "static/js/[id].chunk.js",
+    filename: "static/[name].bundle.js",
+    chunkFilename: "static/[id].chunk.js",
   },
 })
 
@@ -67,7 +67,7 @@ pluginPush(
   })
 )
 pluginPush(
-  new ExtractTextPlugin('static/css/[name].[hash:8].css')
+  new ExtractTextPlugin('static/[name].css')
 )
 pluginPush(
   new HtmlWebpackPlugin({

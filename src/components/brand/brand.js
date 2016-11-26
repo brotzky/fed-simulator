@@ -65,7 +65,7 @@ class Brand extends React.Component {
         onDrop={this.onDrop.bind(this, this.props)}>
         <p className="text-center hidden-sm hidden-xs">
           <img
-            src={`static/media/${toSlug(this.props.name)}.png`}
+            src={`static/${toSlug(this.props.name)}.png`}
             title={this.props.name}
             alt={this.props.name}
             className="brand__logo"
