@@ -20,14 +20,15 @@ class Draft extends React.Component {
       <div className="brands-wrestlers no-select">
         <div className="row">
           {this.props.brands.map((brand, key) => {
-              let wrestlers = this.props.wrestlers
-                .filter((wrestler) => wrestler.brand === brand.name)
-                .sort((a, b) => a.rating < b.rating)
+            let wrestlers = this.props.wrestlers
+              .filter((wrestler) => wrestler.brand === brand.name)
+              .sort((a, b) => a.rating < b.rating)
             return (
-              <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+              <div
+                key={brand.id}
+                className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <Brand
                   id={brand.id}
-                  key={brand.id}
                   name={brand.name}
                   canDragAndDrop={true}
                   wrestlers={wrestlers}
