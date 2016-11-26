@@ -4,18 +4,20 @@ import { Draggable } from "react-drag-and-drop"
 import "./stylesheets/main"
 
 const Wrestlers = ({
-  title,
-  wrestlers,
+  title = "",
+  wrestlers = [],
   canDragAndDrop = true,
-  onWrestlerClick,
+  onWrestlerClick = () => {},
   selected = [],
 }) => {
   return (
     <div className="clearfix">
-      <If condition={wrestlers.length > 0}>
+      <If condition={title !== ""}>
         <h3 className="wrestlers__seperator">
           {title}
         </h3>
+      </If>
+      <If condition={wrestlers.length > 0}>
         <div className="wrestlers__container">
           {wrestlers.sort((a, b) => a.rating - b.rating).reverse().map((wrestler, key) => {
             return (
