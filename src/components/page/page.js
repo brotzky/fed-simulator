@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router"
 import Head from "../head/head"
 import "../../stylesheets/base"
+import logo from "./logo.png"
 
 export default class Page extends React.Component {
   render() {
@@ -11,7 +12,7 @@ export default class Page extends React.Component {
         <header>
           <h1>
             <img
-              src="static/media/wwe.png"
+              src={logo}
               alt="WWE"
               title="WWE"
             />
