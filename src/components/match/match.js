@@ -54,9 +54,7 @@ class Match extends React.Component {
             <Wrestlers wrestlers={this.props.match.wrestlers} />
             <Story collection={this.props.match.story} />
           </div>
-          <div className="col-xs-9">
-            <SelectionScreen />
-          </div>
+          <SelectionScreen />
         </div>
       </div>
     )
