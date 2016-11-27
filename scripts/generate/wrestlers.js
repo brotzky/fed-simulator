@@ -2,7 +2,7 @@ const glob = require("glob")
 const jsonfile = require("jsonfile")
 const imagePath = __dirname + "/import/wrestlers/"
 import { hashCode } from "../../src/helpers/hash"
-const ratings = require("./ratings")
+const meta = require("./meta")
 
 jsonfile.spaces = 2
 var collection = []
@@ -26,14 +26,6 @@ const writeCollection = (wrestlers) => {
   return
 }
 
-const toSlug = (string) => {
-  return string.toLowerCase()
-    .replace(/[^\w\s-]/g, "") // remove non-word [a-z0-9_], non-whitespace, non-hyphen characters
-    .replace(/[\s_-]+/g, "-") // swap any length of whitespace, underscore, hyphen characters with a single -
-    .replace(/^-+|-+$/g, "")  // remove leading, trailing -
-    .trim()
-}
-
 glob(imagePath + "**/**.png", function (er, files) {
   files.forEach((filepath) => {
     var newFilepath = filepath.replace(imagePath, "")
@@ -41,7 +33,7 @@ glob(imagePath + "**/**.png", function (er, files) {
     var brand = newFilepath[0]
     var male = newFilepath.length === 3 ? false : true
     var name = cleanFilename(newFilepath[newFilepath.length - 1])
-    var rating = ratings.filter((drop) => drop.name === name)
+    var rating = meta.filter((wrestler) => wrestler.name === name)
     rating = rating[0] ? rating[0].rating: 0
 
     collection.push({
