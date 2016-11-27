@@ -172,7 +172,7 @@ $icon-zack-ryder: -12155px 0px 85px 101px;
   display: inline-block;
   @include sprite-width($sprite);
   @include sprite-height($sprite);
-  background-image: url(/static/wrestlers-base.png);
+  background-image: url("/static/wrestlers-base.png");
 }
 .icon-colin-cassady {
   @include sprite($icon-colin-cassady);
