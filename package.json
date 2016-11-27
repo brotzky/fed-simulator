@@ -10,7 +10,8 @@
     "deploy": "gh-pages-deploy",
     "eslint": "eslint src",
     "sprite": "webpack-dev-server --config config/webpack.config.sprite.js",
-    "generate:wrestlers": "babel-node ./scripts/generate/wrestlers.js"
+    "generate:wrestlers": "babel-node ./scripts/generate/wrestlers.js",
+    "generate:championships": "babel-node ./scripts/generate/championships.js"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",
