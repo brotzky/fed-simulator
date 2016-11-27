@@ -1,6 +1,6 @@
 const glob = require("glob")
 const jsonfile = require("jsonfile")
-const imagePath = __dirname + "/import/"
+const imagePath = __dirname + "/import/wrestlers/"
 import { hashCode } from "../../src/helpers/hash"
 const ratings = require("./ratings")
 
