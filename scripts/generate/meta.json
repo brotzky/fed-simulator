@@ -36,7 +36,8 @@
 	"rating": 70
 }, {
 	"name": "Asuka",
-	"rating": 89
+	"rating": 89,
+	"championshipId": "7644539610"
 }, {
 	"rating": 60,
 	"name": "Billie Kay"
@@ -54,7 +55,7 @@
 	"name": "Liv Morgan"
 }, {
 	"name": "Mandy Rose",
-  "rating": 70
+	"rating": 70
 }, {
 	"name": "Nikki Storm",
 	"rating": 70
@@ -93,7 +94,8 @@
 	"rating": 75
 }, {
 	"name": "Samoa Joe",
-	"rating": 87
+	"rating": 87,
+	"championshipId": ""
 }, {
 	"name": "Sawyer Fulton",
 	"rating": 70
@@ -123,7 +125,8 @@
 	"rating": 65
 }, {
 	"name": "Big E",
-	"rating": 85
+	"rating": 85,
+	"championshipId": "8361075146"
 }, {
 	"name": "Big Show",
 	"rating": 88
@@ -135,7 +138,8 @@
 	"rating": 78
 }, {
 	"name": "Brian Kendrick",
-	"rating": 77
+	"rating": 77,
+	"championshipId": "-13430616757"
 }, {
 	"name": "Brock Lesnar",
 	"rating": 95
@@ -180,7 +184,8 @@
 	"rating": 83
 }, {
 	"name": "Charlotte",
-	"rating": 85
+	"rating": 85,
+	"championshipId": "8593337368"
 }, {
 	"name": "Charly Caruso",
 	"rating": 69
@@ -225,10 +230,12 @@
 	"rating": 80
 }, {
 	"name": "Kevin Owens",
-	"rating": 86
+	"rating": 86,
+	"championshipId": "-5537089739"
 }, {
 	"name": "Kofi Kingston",
-	"rating": 86
+	"rating": 86,
+	"championshipId": "8361075146"
 }, {
 	"name": "Lince Dorado",
 	"rating": 60
@@ -261,7 +268,8 @@
 	"rating": 74
 }, {
 	"name": "Roman Reigns",
-	"rating": 89
+	"rating": 89,
+	"championshipId": "-5584518874"
 }, {
 	"name": "Rusev",
 	"rating": 86
@@ -298,7 +306,8 @@
 	"rating": 70
 }, {
 	"name": "Aj Styles",
-	"rating": 95
+	"rating": 95,
+	"championshipId": "4067719886"
 }, {
 	"name": "Apollo Crews",
 	"rating": 79
@@ -340,7 +349,8 @@
 	"rating": 70
 }, {
 	"name": "Becky Lynch",
-	"rating": 80
+	"rating": 80,
+	"championshipId": "-1822071167"
 }, {
 	"name": "Carmella",
 	"rating": 60
@@ -367,7 +377,8 @@
 	"rating": 10
 }, {
 	"name": "Heath Slater",
-	"rating": 72
+	"rating": 72,
+	"championshipId": "2132305395"
 }, {
 	"name": "Jack Swagger",
 	"rating": 71
@@ -415,7 +426,8 @@
 	"rating": 88
 }, {
 	"name": "Rhyno",
-	"rating": 78
+	"rating": 78,
+	"championshipId": "2132305395"
 }, {
 	"name": "Shane Mcmahon",
 	"rating": 12
@@ -424,7 +436,8 @@
 	"rating": 70
 }, {
 	"name": "The Miz",
-	"rating": 85
+	"rating": 85,
+	"championshipId": "8636345506"
 }, {
 	"name": "Tyler Breeze",
 	"rating": 70

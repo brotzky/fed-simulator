@@ -2,38 +2,19 @@ const glob = require("glob")
 const jsonfile = require("jsonfile")
 const imagePath = __dirname + "/import/wrestlers/"
 import { hashCode } from "../../src/helpers/hash"
+import { writeFile, cleanFilename } from "./common"
 const meta = require("./meta")
 
-jsonfile.spaces = 2
-var collection = []
-
-const cleanFilename = (filename) => {
-  filename = filename.replace(".png", "")
-  return filename
-    .split("-")
-    .map((word, key) => word.replace(/^[a-z]/, (m) => {
-      return m.toUpperCase()
-    }))
-    .join(" ")
-}
-
-const writeCollection = (wrestlers) => {
-  jsonfile.writeFile(
-    "src/reducers/wrestlers.default.json",
-    wrestlers,
-    (err) => "Error: " + console.error(err)
-  )
-  return
-}
+let collection = []
 
 glob(imagePath + "**/**.png", function (er, files) {
   files.forEach((filepath) => {
-    var newFilepath = filepath.replace(imagePath, "")
+    let newFilepath = filepath.replace(imagePath, "")
     newFilepath = newFilepath.split("/")
-    var brand = newFilepath[0]
-    var male = newFilepath.length === 3 ? false : true
-    var name = cleanFilename(newFilepath[newFilepath.length - 1])
-    var rating = meta.filter((wrestler) => wrestler.name === name)
+    let brand = newFilepath[0]
+    let male = newFilepath.length === 3 ? false : true
+    let name = cleanFilename(newFilepath[newFilepath.length - 1])
+    let rating = meta.filter((wrestler) => wrestler.name === name)
     rating = rating[0] ? rating[0].rating: 0
 
     collection.push({
@@ -44,5 +25,8 @@ glob(imagePath + "**/**.png", function (er, files) {
       male: male,
     })
   })
-  return writeCollection(collection)
+  return writeFile(
+    "src/reducers/wrestlers.default.json",
+    collection,
+  )
 })
