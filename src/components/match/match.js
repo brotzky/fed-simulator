@@ -36,9 +36,10 @@ class Match extends React.Component {
   }
 
   render() {
-    let buttonBrand = this.props.match.wrestlers.length > 0
-       ? toSlug(this.props.match.wrestlers[0].brand)
-       : "default"
+    let
+      buttonBrand = this.props.match.wrestlers.length > 0
+        ? toSlug(this.props.match.wrestlers[0].brand)
+        : "default"
     return (
       <div className="match">
         <div className="row">
@@ -46,7 +47,7 @@ class Match extends React.Component {
             <div className="bell">
               <button
                 className={`btn bell__button bell__button--${buttonBrand}`}
-                onClick={this.onStartMatch}>
+                onClick={this.props.match.wrestlers.length > 1 ? this.onStartMatch : () => {}}>
                 Ring the bell
               </button>
             </div>
