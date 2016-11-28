@@ -11,7 +11,9 @@
     "eslint": "eslint src",
     "sprite": "webpack-dev-server --config config/webpack.config.sprite.js",
     "generate:wrestlers": "babel-node ./scripts/generate/wrestlers.js",
-    "generate:championships": "babel-node ./scripts/generate/championships.js"
+    "generate:brands": "babel-node ./scripts/generate/brands.js",
+    "generate:championships": "babel-node ./scripts/generate/championships.js",
+    "generate": "npm run generate:wrestlers && npm run generate:championships && npm run generate:brands"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",

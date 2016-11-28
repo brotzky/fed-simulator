@@ -1,0 +1,52 @@
+$icon-raw: 0px 0px 282px 100px;
+$icon-nxt: -282px 0px 301px 100px;
+$icon-default: -583px 0px 324px 100px;
+$icon-smackdown-live: -907px 0px 372px 100px;
+
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+
+@function sprite-width($sprite) {
+  @return nth($sprite, 3);
+}
+
+@function sprite-height($sprite) {
+  @return nth($sprite, 4);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 1);
+  $sprite-offset-y: nth($sprite, 2);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite($sprite) {
+  @include sprite-position($sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  background-image: url("/static/brands-base.png");
+}
+
+.icon-raw {
+  @include sprite($icon-raw);
+}
+
+.icon-nxt {
+  @include sprite($icon-nxt);
+}
+
+.icon-default {
+  @include sprite($icon-default);
+}
+
+.icon-smackdown-live {
+  @include sprite($icon-smackdown-live);
+}

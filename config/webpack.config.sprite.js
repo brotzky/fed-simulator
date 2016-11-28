@@ -1,8 +1,8 @@
-const sprite = require("sprite-webpack-plugin")
+const Sprite = require("sprite-webpack-plugin")
 
 module.exports = {
   plugins: [
-    new sprite({
+    new Sprite({
       source : "scripts/generate/import/wrestlers/",
       imgPath: "src/imgs/",
       cssPath: "src/stylesheets/",
@@ -10,12 +10,20 @@ module.exports = {
       spriteName: "wrestlers",
       orientation: "horizontal",
     }),
-    new sprite({
+    new Sprite({
       source : "scripts/generate/import/championships/",
       imgPath: "src/imgs/",
       cssPath: "src/stylesheets/",
       processor: "scss",
       spriteName: "championships",
+      orientation: "horizontal",
+    }),
+    new Sprite({
+      source : "scripts/generate/import/brands/",
+      imgPath: "src/imgs/",
+      cssPath: "src/stylesheets/",
+      processor: "scss",
+      spriteName: "brands",
       orientation: "horizontal",
     }),
   ],

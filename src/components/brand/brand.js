@@ -63,14 +63,9 @@ class Brand extends React.Component {
           "wrestler",
         ]}
         onDrop={this.onDrop.bind(this, this.props)}>
-        <p className="text-center hidden-sm hidden-xs">
-          <img
-            src={`static/${toSlug(this.props.name)}.png`}
-            title={this.props.name}
-            alt={this.props.name}
-            className="brand__logo"
-          />
-        </p>
+        <div className={`text-center hidden-sm hidden-xs`}>
+          <span className={`icon-${toSlug(this.props.name)}`}></span>
+        </div>
         <div className={`Droppable col-xs-4 wrestlers wrestlers--${toSlug(this.props.name)}`}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search

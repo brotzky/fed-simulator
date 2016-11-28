@@ -39,7 +39,7 @@ class SelectionScreen extends React.Component {
     return (
       <div className="selection">
         <div className="selection__wrestlers">
-          {this.props.brands.filter((brand) => brand.id !== 1).map((brand, key) => {
+          {this.props.brands.filter((brand) => brand.name.toLowerCase() !== "default").map((brand, key) => {
             let wrestlers = this.props.wrestlers
               .filter((wrestler) => wrestler.brand === brand.name)
               .sort((a, b) => a.rating < b.rating)
