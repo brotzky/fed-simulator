@@ -1,6 +1,12 @@
 .championships {
+  height: 125px;
   &__championship {
     float: left;
     width: 8%;
   }
+}
+
+
+.brand__icon {
+  display: none;
 }
