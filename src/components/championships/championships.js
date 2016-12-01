@@ -18,13 +18,25 @@ class Championships extends React.Component {
     canDragAndDrop: true,
   }
 
-  onDrop = (championship, wrestler) => {
+  onDrop = (championship, selection) => {
     if (!this.props.canDragAndDrop) {
       return
     }
-    this.props.dispatch(
-      championshipsActions.awardChampionship(championship, wrestler.wrestler)
-    )
+
+    // re assign for clarity
+    let wrestlerId = selection.wrestler,
+      wrestler = this.props.wrestlers.filter((loopWrestler) => {
+        return loopWrestler.id === wrestlerId
+      })[0]
+
+    // if the championship sex is the same as the wrestler
+    if (wrestler.male === championship.male) {
+      this.props.dispatch(
+        championshipsActions.awardChampionship(championship, wrestlerId)
+      )
+    } else {
+      console.log('Sex are not compatible: ', wrestler.male, championship.male)
+    }
   }
 
   displayName = "Championships"
@@ -35,9 +47,7 @@ class Championships extends React.Component {
         {this.props.championships.map((championship, key) => {
           let wrestler = false
           if (championship.wrestlerId) {
-            console.log('hit')
             wrestler = this.props.wrestlers.filter((wrestler) => {
-              console.log(wrestler.id, championship.wrestlerId, wrestler.id === championship.wrestlerId)
               return wrestler.id === championship.wrestlerId
             })[0]
           }
