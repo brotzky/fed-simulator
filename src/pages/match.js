@@ -4,7 +4,7 @@ import Helmet from "react-helmet"
 import * as matchActions from "../actions/match"
 import { connect } from "react-redux"
 
-export default class MatchPage extends React.Component {
+class MatchPage extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
@@ -39,3 +39,5 @@ export default class MatchPage extends React.Component {
     )
   }
 }
+
+export default connect(state => ({}))(MatchPage)
