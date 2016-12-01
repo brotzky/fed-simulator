@@ -1,7 +1,6 @@
 import React from "react"
-import Search from "../components/search/search"
 import Championships from "../components/championships/championships"
-import Wrestlers from "../components/wrestlers/wrestlers"
+import Brand from "../components/brand/brand"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import "./stylesheets/champions"
@@ -9,53 +8,42 @@ import "./stylesheets/champions"
 class ChampionsPage extends React.Component {
 
   static propTypes = {
+    brands: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
     championships: React.PropTypes.array.isRequired,
-  }
-
-  state = {
-    search: "",
-  }
-
-  onSearchUpdated = (search, brandName) => {
-    this.setState({
-      search,
-    })
   }
 
   displayName = "ChampionsPage"
 
   render() {
-    let searchIsActive = false,
-      wrestlers = this.props.wrestlers
-
-    if (this.state.search !== "") {
-      searchIsActive = true
-      wrestlers = wrestlers.filter((wrestler) => {
-        return wrestler.name.toLowerCase().indexOf(this.state.search) > -1
-      })
-    }
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
         <Championships championships={this.props.championships} />
-        <div className={`wrestlers__search clearfix ${(searchIsActive ? "active" : "")}`}>
-          <Search
-            placeholder={`Filter choices`}
-            onSearchUpdated={this.onSearchUpdated}
-            brandName={"default"}
-          />
-        </div>
-        <Wrestlers
-          wrestlers={wrestlers}
-          canDragAndDrop={true}
-        />
+        {this.props.brands.filter((brand) => brand.name.toLowerCase() !== "default").map((brand, key) => {
+          let wrestlers = this.props.wrestlers
+            .filter((wrestler) => wrestler.brand === brand.name)
+            .sort((a, b) => a.rating < b.rating)
+          return (
+            <div
+              key={brand.id}
+              className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <Brand
+                id={brand.id}
+                name={brand.name}
+                canDragAndDrop={true}
+                wrestlers={wrestlers}
+              />
+            </div>
+          )
+        })}
       </div>
     )
   }
 }
 
 export default connect(state => ({
+  brands: state.brands,
   championships: state.championships,
   wrestlers: state.wrestlers,
 }))(ChampionsPage)
