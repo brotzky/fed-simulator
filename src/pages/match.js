@@ -21,7 +21,7 @@ export default class MatchPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="page match">
         <Helmet title="Match Simulator" />
         <ul className="nav nav-pills" role="tablist">
           <li>

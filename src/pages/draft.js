@@ -29,7 +29,7 @@ class DraftPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="page draft">
         <Helmet title="Draft Management" />
         <ul className="nav nav-pills" role="tablist">
           <li>

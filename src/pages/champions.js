@@ -36,7 +36,7 @@ class ChampionsPage extends React.Component {
       })
     }
     return (
-      <div>
+      <div className="page champions">
         <Helmet title="Championship Management" />
         <Championships championships={this.props.championships} />
         <div className={`wrestlers__search clearfix ${(searchIsActive ? "active" : "")}`}>
