@@ -15,7 +15,7 @@
     "id": "7099496460",
     "name": "Nxt Tag Team Championship",
     "brand": "NXT",
-    "male": false
+    "male": true
   },
   {
     "id": "8593337368",
@@ -27,7 +27,7 @@
     "id": "8361075146",
     "name": "Raw Tag Team Championship",
     "brand": "Raw",
-    "male": false
+    "male": true
   },
   {
     "id": "-5584518874",
@@ -63,7 +63,7 @@
     "id": "2132305395",
     "name": "Smackdown Tag Team Championship",
     "brand": "Smackdown Live",
-    "male": false
+    "male": true
   },
   {
     "id": "4067719886",
