@@ -10,7 +10,7 @@ class MatchPage extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
   }
 
-  displayName="MatchPage"
+  displayName = "MatchPage"
 
   onClearSelection = (event) => {
     event.preventDefault()

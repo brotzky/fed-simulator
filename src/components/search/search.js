@@ -24,7 +24,10 @@ export default class Search extends React.Component {
       this.setState({
         search,
       })
-      this.props.onSearchUpdated(search, this.props.brandName)
+      this.props.onSearchUpdated(
+        search,
+        this.props.brandName,
+      )
     }
   }
 

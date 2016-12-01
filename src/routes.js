@@ -14,7 +14,16 @@ export default () => {
             })
           }}
          />
-        <Route path="match">
+         <Route path="champions">
+           <IndexRoute
+             getComponent={(nextState, callback) => {
+               require.ensure([], (require) => {
+                 callback(null, require("./pages/champions").default)
+               })
+             }}
+           />
+         </Route>
+          <Route path="match">
           <IndexRoute
             getComponent={(nextState, callback) => {
               require.ensure([], (require) => {

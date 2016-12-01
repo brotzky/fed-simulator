@@ -7,7 +7,7 @@ import { connect } from "react-redux"
 
 class DraftPage extends React.Component {
 
-  displayName="DraftPage"
+  displayName = "DraftPage"
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
@@ -30,7 +30,7 @@ class DraftPage extends React.Component {
   render() {
     return (
       <div>
-        <Helmet title="Brand Split Draft!" />
+        <Helmet title="Draft Management" />
         <ul className="nav nav-pills" role="tablist">
           <li>
             <a

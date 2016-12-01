@@ -1,50 +1,74 @@
 [
   {
-    "id": "8636345506",
-    "name": "Intercontinental Championship"
+    "id": "7644539610",
+    "name": "Nxt Womens Championship",
+    "brand": "NXT",
+    "male": false
   },
   {
     "id": "-3822490917",
-    "name": "Nxt Championship"
+    "name": "Nxt Championship",
+    "brand": "NXT",
+    "male": true
   },
   {
     "id": "7099496460",
-    "name": "Nxt Tag Team Championship"
-  },
-  {
-    "id": "7644539610",
-    "name": "Nxt Womens Championship"
-  },
-  {
-    "id": "8361075146",
-    "name": "Raw Tag Team Championship"
+    "name": "Nxt Tag Team Championship",
+    "brand": "NXT",
+    "male": false
   },
   {
     "id": "8593337368",
-    "name": "Raw Womens Championship"
+    "name": "Raw Womens Championship",
+    "brand": "Raw",
+    "male": false
   },
   {
-    "id": "2132305395",
-    "name": "Smackdown Tag Team Championship"
-  },
-  {
-    "id": "-1822071167",
-    "name": "Smackdown Womens Championship"
+    "id": "8361075146",
+    "name": "Raw Tag Team Championship",
+    "brand": "Raw",
+    "male": false
   },
   {
     "id": "-5584518874",
-    "name": "United States Championship"
+    "name": "United States Championship",
+    "brand": "Raw",
+    "male": true
   },
   {
     "id": "-13430616757",
-    "name": "Wwe Cruiserweight Championship"
+    "name": "Wwe Cruiserweight Championship",
+    "brand": "Raw",
+    "male": true
   },
   {
     "id": "-5537089739",
-    "name": "Wwe Universal Championship"
+    "name": "Wwe Universal Championship",
+    "brand": "Raw",
+    "male": true
+  },
+  {
+    "id": "-1822071167",
+    "name": "Smackdown Womens Championship",
+    "brand": "Smackdown Live",
+    "male": false
+  },
+  {
+    "id": "8636345506",
+    "name": "Intercontinental Championship",
+    "brand": "Smackdown Live",
+    "male": true
+  },
+  {
+    "id": "2132305395",
+    "name": "Smackdown Tag Team Championship",
+    "brand": "Smackdown Live",
+    "male": false
   },
   {
     "id": "4067719886",
-    "name": "Wwe World Championship"
+    "name": "Wwe World Championship",
+    "brand": "Smackdown Live",
+    "male": true
   }
 ]

@@ -33,6 +33,12 @@ export default class Page extends React.Component {
               Match
             </Link>
           </li>
+          <li>
+            <Link
+              to="champions">
+              Champions
+            </Link>
+          </li>
         </ul>
         <hr />
         {this.props.children}

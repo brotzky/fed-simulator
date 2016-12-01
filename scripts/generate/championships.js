@@ -9,11 +9,15 @@ glob(imagePath + "**/**.png", function (er, files) {
   files.forEach((filepath) => {
     let newFilepath = filepath.replace(imagePath, "")
     newFilepath = newFilepath.split("/")
+    let brand = newFilepath[0]
+    let male = newFilepath.length === 3 ? false : true
     let name = cleanFilename(newFilepath[newFilepath.length - 1])
 
     collection.push({
       id: hashCode(name),
       name: name,
+      brand: brand,
+      male: male,
     })
   })
   return writeFile(
