@@ -1,4 +1,5 @@
 import React from "react"
+import Search from "../components/search/search"
 import Championships from "../components/championships/championships"
 import Wrestlers from "../components/wrestlers/wrestlers"
 import Helmet from "react-helmet"
@@ -12,15 +13,41 @@ class ChampionsPage extends React.Component {
     championships: React.PropTypes.array.isRequired,
   }
 
+  state = {
+    search: "",
+  }
+
+  onSearchUpdated = (search, brandName) => {
+    this.setState({
+      search,
+    })
+  }
+
   displayName = "ChampionsPage"
 
   render() {
+    let searchIsActive = false,
+      wrestlers = this.props.wrestlers
+
+    if (this.state.search !== "") {
+      searchIsActive = true
+      wrestlers = wrestlers.filter((wrestler) => {
+        return wrestler.name.toLowerCase().indexOf(this.state.search) > -1
+      })
+    }
     return (
       <div>
         <Helmet title="Championship Management" />
         <Championships championships={this.props.championships} />
+        <div className={`wrestlers__search clearfix ${(searchIsActive ? "active" : "")}`}>
+          <Search
+            placeholder={`Filter choices`}
+            onSearchUpdated={this.onSearchUpdated}
+            brandName={"default"}
+          />
+        </div>
         <Wrestlers
-          wrestlers={this.props.wrestlers}
+          wrestlers={wrestlers}
           canDragAndDrop={true}
         />
       </div>
