@@ -249,7 +249,13 @@
     "name": "Shinsuke Nakamura",
     "brand": "NXT",
     "rating": 90,
-    "male": true
+    "male": true,
+    "championship": {
+        "id": "-3822490917",
+        "name": "Nxt Championship",
+        "brand": "NXT",
+        "male": true
+      }
   },
   {
     "id": "1316903721",

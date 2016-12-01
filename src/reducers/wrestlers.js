@@ -4,8 +4,8 @@ export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
   switch (action.type) {
     case "MOVE_WRESTLER":
-      newState.forEach((drop, key) => {
-        if (Number(drop.id) === Number(action.wrestlerId)) {
+      newState.forEach((wrestler, key) => {
+        if (Number(wrestler.id) === Number(action.wrestlerId)) {
           newState[key].brand = action.brand.name
         }
       })
