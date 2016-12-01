@@ -3,6 +3,7 @@ import { Link } from "react-router"
 import Head from "../head/head"
 import "../../stylesheets/base"
 import logo from "./logo.png"
+import "./stylesheets/main"
 
 export default class Page extends React.Component {
   render() {
