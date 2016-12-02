@@ -13,9 +13,12 @@ export default class Story extends React.Component {
       <ul className="col-xs-12 story">
         <If condition={this.props.collection.length > 0}>
           {this.props.collection.map((action, key) => {
+            let brand = action.details.attacker
+              ? action.details.attacker.brand
+              : action.details.winner.brand
             return (
               <li
-                className={`story__action story--${action.action}`}
+                className={`story__action story--${action.action} brand--${toSlug(brand)}`}
                 key={key}>
                 <Choose>
                   <When condition={action.action === "move"}>
