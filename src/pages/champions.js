@@ -33,6 +33,7 @@ class ChampionsPage extends React.Component {
                 name={brand.name}
                 canDragAndDrop={true}
                 wrestlers={wrestlers}
+                showBrandLogo={false}
               />
             </div>
           )

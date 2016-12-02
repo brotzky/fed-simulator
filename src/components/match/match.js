@@ -64,7 +64,7 @@ class Match extends React.Component {
           <br />
           <Story collection={this.props.match.story} />
         </div>
-        <SelectionScreen />
+        <SelectionScreen showBrandLogo={false} />
       </div>
     )
   }

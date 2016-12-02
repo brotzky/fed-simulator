@@ -15,9 +15,11 @@ class SelectionScreen extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     match: React.PropTypes.object.isRequired,
     onWrestlerClick: React.PropTypes.func,
+    showBrandLogo: React.PropTypes.bool,
   }
 
   static defaultProps = {
+    showBrandLogo: true,
     onWrestlerClick: () => {},
   }
 
@@ -53,6 +55,7 @@ class SelectionScreen extends React.Component {
                   canDragAndDrop={false}
                   onWrestlerClick={this.onWrestlerClick}
                   wrestlers={wrestlers}
+                  showBrandLogo={this.props.showBrandLogo}
                 />
               </div>
             )
