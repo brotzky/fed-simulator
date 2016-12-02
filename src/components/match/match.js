@@ -43,7 +43,7 @@ class Match extends React.Component {
     return (
       <div className="match">
         <div className="row">
-          <div className="col-xs-3">
+          <div className="col-xs-12">
             <div className="bell">
               <button
                 className={`btn bell__button bell__button--${buttonBrand}`}
