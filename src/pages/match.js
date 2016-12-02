@@ -3,6 +3,7 @@ import Match from "../components/match/match"
 import Helmet from "react-helmet"
 import * as matchActions from "../actions/match"
 import { connect } from "react-redux"
+import "./stylesheets/match"
 
 class MatchPage extends React.Component {
 
