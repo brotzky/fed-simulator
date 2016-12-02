@@ -1,63 +1,68 @@
 [
   {
-    "name": "Punch",
-    "weight": 0.5,
-    "damage": 1
+    "name": "Punch Combo",
+    "weight": 0.25,
+    "damage": 10
   },
   {
-    "name":  "Kick",
+    "name": "Back Elbow",
+    "weight": 0.25,
+    "damage": 10
+  },
+  {
+    "name":  "Kicks Combo",
     "weight": 0.5,
-    "damage": 2
+    "damage": 10
   },
   {
     "name":  "Suplex",
     "weight": 0.08,
-    "damage": 5
+    "damage": 12
   },
   {
     "name":  "Bodyslam",
     "weight": 0.02,
-    "damage": 5
+    "damage": 12
   },
   {
     "name":  "Powerbomb",
     "weight": 0.03,
-    "damage": 5
+    "damage": 17
   },
   {
     "name":  "Arm bar",
     "weight": 0.05,
-    "damage": 5
+    "damage": 13
   },
   {
     "name":  "Big back body drop",
     "weight": 0.08,
-    "damage": 5
+    "damage": 15
   },
   {
     "name":  "Clothesline",
     "weight": 0.05,
-    "damage": 5
+    "damage": 15
   },
   {
     "name":  "Eyepoke",
     "weight": 0.08,
-    "damage": 5
+    "damage": 15
   },
   {
     "name":  "Strong Submission",
     "weight": 0.1,
-    "damage": 7
+    "damage": 17
   },
   {
     "name":  "Superkick",
     "weight": 0.05,
-    "damage": 9
+    "damage": 22
   },
   {
     "name":  "Back suplex",
     "weight": 0.05,
-    "damage": 2
+    "damage": 10
   },
   {
     "name":  "Back rake",
@@ -67,21 +72,21 @@
   {
     "name":  "Came off the top rope",
     "weight": 0.05,
-    "damage": 10
+    "damage": 20
   },
   {
     "name":  "Signature move",
     "weight": 0.01,
-    "damage": 12
+    "damage": 24
   },
   {
     "name":  "Finishing move",
     "weight": 0.09,
-    "damage": 29
+    "damage": 35
   },
   {
     "name":  "PILEDRIVER!",
     "weight": 0.02,
-    "damage": 25
+    "damage": 40
   }
 ]

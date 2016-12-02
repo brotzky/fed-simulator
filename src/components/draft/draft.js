@@ -32,6 +32,7 @@ class Draft extends React.Component {
                   name={brand.name}
                   canDragAndDrop={true}
                   wrestlers={wrestlers}
+                  showBrandLogo={true}
                 />
               </div>
             )

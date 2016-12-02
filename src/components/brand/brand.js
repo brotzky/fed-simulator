@@ -16,11 +16,13 @@ class Brand extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     canDragAndDrop: React.PropTypes.bool,
     onWrestlerClick: React.PropTypes.func,
+    showBrandLogo: React.PropTypes.bool,
   }
 
   state = {
     search: "",
     brandName: "",
+    showBrandLogo: true,
   }
 
   onDrop(brand, wrestler) {
@@ -63,9 +65,11 @@ class Brand extends React.Component {
           "wrestler",
         ]}
         onDrop={this.onDrop.bind(this, this.props)}>
-        <div className={`brand__icon text-center hidden-sm hidden-xs`}>
-          <span className={`icon icon-${toSlug(this.props.name)}`}></span>
-        </div>
+        <If condition={this.props.showBrandLogo}>
+          <div className={`brand__icon text-center hidden-sm hidden-xs`}>
+            <span className={`icon icon-${toSlug(this.props.name)}`}></span>
+          </div>
+        </If>
         <div className={`Droppable col-xs-4 wrestlers wrestlers--${toSlug(this.props.name)}`}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search

@@ -15,9 +15,11 @@ class SelectionScreen extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     match: React.PropTypes.object.isRequired,
     onWrestlerClick: React.PropTypes.func,
+    showBrandLogo: React.PropTypes.bool,
   }
 
   static defaultProps = {
+    showBrandLogo: true,
     onWrestlerClick: () => {},
   }
 
@@ -46,13 +48,14 @@ class SelectionScreen extends React.Component {
             return (
               <div
                 key={brand.id}
-                className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <Brand
                   id={brand.id}
                   name={brand.name}
                   canDragAndDrop={false}
                   onWrestlerClick={this.onWrestlerClick}
                   wrestlers={wrestlers}
+                  showBrandLogo={this.props.showBrandLogo}
                 />
               </div>
             )

@@ -1,0 +1,68 @@
+@import "../../../stylesheets/variables";
+
+.story {
+  font-family: 'Rubik', sans-serif;
+  font-style: normal;
+  font-size: 1.5em;
+
+  &__action {
+    float: left;
+    list-style: none;
+    font-size: 0.5em;
+    overflow: hidden;
+    text-align: center;
+    height: 5em;
+  }
+
+  &--move {
+    z-index: 0;
+    position: relative;
+    display:inline-block;
+    -webkit-transition: all 50ms ease-in;
+    -webkit-transform: scale(1);
+    -ms-transition: all 50ms ease-in;
+    -ms-transform: scale(1);
+    -moz-transition: all 50ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 50ms ease-in;
+    transform: scale(1);
+    p {
+      width: 100%;
+      margin: 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &:hover {
+      box-shadow: 0px 0px 150px #000000;
+      z-index: 2;
+      -webkit-transition: all 50ms ease-in;
+      -webkit-transform: scale(1.5);
+      -ms-transition: all 50ms ease-in;
+      -ms-transform: scale(1.5);
+      -moz-transition: all 50ms ease-in;
+      -moz-transform: scale(1.5);
+      transition: all 50ms ease-in;
+      transform: scale(1.5em);
+    }
+  }
+
+  &__damage {
+    font-weight: strong;
+    font-weight: 300;
+  }
+  &--winner {
+    height: 1.5em;
+    font-size: 1.5em;
+  }
+}
+
+.brand--nxt {
+  background-color: lighten($nxt, 18%);
+  color: black;
+}
+.brand--raw {
+  background-color: lighten($raw, 18%);
+}
+.brand--smackdown-live {
+  background-color: lighten($smackdown, 15%);
+}
