@@ -26,7 +26,7 @@ webpack(config).run(function(err, stats) {
   log('File sizes after gzip:')
 
   var assets = stats.toJson().assets
-    .filter(asset => /\.(js|css)$/.test(asset.name))
+    .filter(asset => /\.(js|css|png|mp3|jpg)$/.test(asset.name))
     .map(asset => {
       var fileContents = fs.readFileSync(paths.appBuild + '/' + asset.name)
       var size = gzipSize(fileContents)
