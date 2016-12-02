@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import SelectionScreen from "../selection-screen/selection-screen"
-import Story from "./story"
+import Story from "../story/story"
 import Wrestlers from "../wrestlers/wrestlers"
 import * as matchActions from "../../actions/match"
 import { SimMatch } from "./sim-match.helper"
