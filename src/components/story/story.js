@@ -27,7 +27,7 @@ export default class Story extends React.Component {
                 : 100,
               style = {
                 width: `${width}%`,
-                "border-right": "1px solid black",
+                borderRight: "1px solid black",
               }
             return (
               <li style={style}

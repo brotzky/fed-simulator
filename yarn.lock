@@ -1069,6 +1069,14 @@ babel-types@^6.18.0:
     lodash "^4.2.0"
     to-fast-properties "^1.0.1"
 
+babel-watch@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/babel-watch/-/babel-watch-2.0.3.tgz#39f5eac86dd6374010723784911f17695a665d53"
+  dependencies:
+    chokidar "^1.4.3"
+    commander "^2.9.0"
+    source-map-support "^0.4.0"
+
 babylon@^6.0.18, babylon@^6.11.0:
   version "6.12.0"
   resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.12.0.tgz#953e6202e58062f7f5041fc8037e4bd4e17140a9"
@@ -1316,7 +1324,7 @@ cheerio@^0.22.0:
     lodash.reject "^4.4.0"
     lodash.some "^4.4.0"
 
-chokidar@^1.0.0:
+chokidar@^1.0.0, chokidar@^1.4.3:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-1.6.1.tgz#2f4447ab5e96e50fb3d789fd90d4c72e0e4c70c2"
   dependencies:
@@ -3707,9 +3715,17 @@ lodash.map@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.map/-/lodash.map-4.6.0.tgz#771ec7839e3473d9c4cde28b19394c3562f4f6d3"
 
+lodash.maxby@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.maxby/-/lodash.maxby-4.6.0.tgz#082240068f3c7a227aa00a8380e4f38cf0786e3d"
+
 lodash.merge@^4.4.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
+
+lodash.minby@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.minby/-/lodash.minby-4.6.0.tgz#8b105765ae973954ae944a8029999b8080bdf8c4"
 
 lodash.pick@^4.2.1:
   version "4.4.0"
@@ -4908,9 +4924,24 @@ react-side-effect@1.0.2:
   dependencies:
     fbjs "0.1.0-alpha.10"
 
+react-sound:
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/react-sound/-/react-sound-0.5.2.tgz#8514a44b1500feefca85ef87670dc65e26ea0720"
+  dependencies:
+    react ">=0.13.3 <16.0.0"
+    soundmanager2 "^2.97.20150601-a"
+
 react@^15.2.1:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
+  dependencies:
+    fbjs "^0.8.4"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.0"
+
+"react@>=0.13.3 <16.0.0":
+  version "15.4.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.4.1.tgz#498e918602677a3983cd0fd206dfe700389a0dd6"
   dependencies:
     fbjs "^0.8.4"
     loose-envify "^1.1.0"
@@ -5403,9 +5434,19 @@ sortobject@^1.0.0:
   dependencies:
     editions "^1.1.1"
 
+soundmanager2@^2.97.20150601-a:
+  version "2.97.20150601"
+  resolved "https://registry.yarnpkg.com/soundmanager2/-/soundmanager2-2.97.20150601.tgz#673edacb9b52bbcfa57712c370b011f6983c6f36"
+
 source-list-map@^0.1.4, source-list-map@~0.1.0:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-0.1.6.tgz#e1e6f94f0b40c4d28dcf8f5b8766e0e45636877f"
+
+source-map-support@^0.4.0:
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.6.tgz#32552aa64b458392a85eab3b0b5ee61527167aeb"
+  dependencies:
+    source-map "^0.5.3"
 
 source-map-support@^0.4.2:
   version "0.4.5"
@@ -6077,6 +6118,10 @@ websocket-driver@>=0.5.1:
 websocket-extensions@>=0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.1.tgz#76899499c184b6ef754377c2dbb0cd6cb55d29e7"
+
+weighted@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/weighted/-/weighted-0.3.0.tgz#81087f1ffe1b3f06db43dbe451451e9068166647"
 
 whatwg-encoding@^1.0.1:
   version "1.0.1"

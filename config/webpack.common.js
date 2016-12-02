@@ -81,7 +81,7 @@ module.exports = {
         loader: "json",
       },
       {
-        test: /\.(ot|svg|woff|woff2|jpg|png)(\?.*)?$/,
+        test: /\.(ot|svg|woff|woff2|mp3|jpg|png)(\?.*)?$/,
         include: [
           paths.appSrc,
           paths.appImgs,
