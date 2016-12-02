@@ -1,4 +1,4 @@
-![WWE Draft Generator](https://github.com/azz0r/wwe-draft-generator/blob/master/src/imgs/default.png)
+![WWE Draft Generator](https://github.com/azz0r/wwe-draft-generator/blob/master/src/imgs/loading.gif)
 
 [View a demo here](https://azz0r.github.io/wwe-draft-generator/)
 ## 📕 Index
