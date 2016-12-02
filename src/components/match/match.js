@@ -37,26 +37,34 @@ class Match extends React.Component {
 
   render() {
     let
-      buttonBrand = this.props.match.wrestlers.length > 0
+      buttonBrand = this.props.match.wrestlers.length > 1
         ? toSlug(this.props.match.wrestlers[0].brand)
         : "default"
     return (
-      <div className="match">
-        <div className="row">
-          <div className="col-xs-12">
-            <div className="bell">
-              <button
-                className={`btn bell__button bell__button--${buttonBrand}`}
-                onClick={this.props.match.wrestlers.length > 1 ? this.onStartMatch : () => {}}>
-                Ring the bell
-              </button>
-            </div>
-            <br />
-            <Wrestlers wrestlers={this.props.match.wrestlers} />
-            <Story collection={this.props.match.story} />
+      <div className="match row">
+        <div className="col-xs-12">
+          <div className="bell">
+            <button
+              className={`btn btn-lg bell__button bell__button--${buttonBrand}`}
+              onClick={this.props.match.wrestlers.length > 1 ? this.onStartMatch : () => {}}>
+              Ring the bell
+            </button>
           </div>
-          <SelectionScreen />
+          <If condition={this.props.match.wrestlers.length > 1}>
+            <div className="names text-center">
+              {this.props.match.wrestlers.map((wrestler) => {
+                return (
+                  <span className="names__name">
+                    {wrestler.name}
+                  </span>
+                )
+              })}
+            </div>
+          </If>
+          <br />
+          <Story collection={this.props.match.story} />
         </div>
+        <SelectionScreen />
       </div>
     )
   }

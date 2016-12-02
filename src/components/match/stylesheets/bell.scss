@@ -5,6 +5,7 @@
 
   &__button {
     color: black;
+    border-radius: 0;
     background-color: white;
     border-radius: none;
   }
@@ -15,6 +16,7 @@
 }
 .bell__button--raw {
   background-color: lighten($raw, 18%);
+  color: white;
 }
 .bell__button--smackdown-live {
   background-color: lighten($smackdown, 15%);
