@@ -1,5 +1,9 @@
 .championships {
-  height: 125px;
+  &.active {
+    height: 125px;
+    line-height: 125px;
+    vertical-align: middle;
+  }
   &__championship {
     float: left;
     width: 8%;

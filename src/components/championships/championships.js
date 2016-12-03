@@ -43,7 +43,7 @@ class Championships extends React.Component {
 
   render() {
     return (
-      <div className="championships text-center">
+      <div className={`championships row text-center`}>
         {this.props.championships.map((championship, key) => {
           let wrestler = false
           if (championship.wrestlerId) {
