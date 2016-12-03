@@ -10,31 +10,30 @@ export default class Page extends React.Component {
     return (
       <div>
         <header className="header">
-          <div className="row">
-            <div className="col-xs-2 text-left">
+          <div className="navigation navigation--primary">
+            <div className="navigation__item">
               <a className="header__link" href="#">
                 <img src={logo} style={{ width: "55px" }} /> Universe
               </a>
             </div>
-            <div className="col-xs-1 text-center">
+            <div className="navigation__item">
               <Link
                 to="champions">
                 Champions
               </Link>
             </div>
-            <div className="col-xs-1 text-center">
+            <div className="navigation__item">
               <Link
                 to="match">
                 Match
               </Link>
             </div>
-            <div className="col-xs-1 text-center">
+            <div className="navigation__item">
               <Link
                 to="draft">
                 Draft
               </Link>
             </div>
-            <div className="col-xs-7"></div>
           </div>
         </header>
         <section>

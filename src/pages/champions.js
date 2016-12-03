@@ -19,10 +19,9 @@ class ChampionsPage extends React.Component {
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
-        <div className="row" id="secondary">
-          <div className="col-lg-2">
-            <a
-              href="#">
+        <div className="navigation navigation--secondary">
+          <div className="navigation__item">
+            <a href="#">
               Clear all set Champions
             </a>
           </div>

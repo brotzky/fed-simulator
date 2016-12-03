@@ -32,16 +32,16 @@ class DraftPage extends React.Component {
     return (
       <div className="page draft">
         <Helmet title="Draft Management" />
-        <div className="row" id="secondary">
-          <div className="col-lg-2">
+        <div className="navigation navigation--secondary">
+          <div className="navigation__item">
             <a
               href="#"
               onKeyPress={this.onSendToDraft}
               onClick={this.onSendToDraft}>
-              Move wrestlers to Draft
+              Move All wrestlers to Draft
             </a>
           </div>
-          <div className="col-lg-2">
+          <div className="navigation__item">
             <a
               href="#"
               onKeyPress={this.onReset}

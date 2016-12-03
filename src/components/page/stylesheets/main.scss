@@ -1,4 +1,5 @@
 @import "../../../stylesheets/variables";
+@import "./navigation";
 
 body {
   background-color: $bg;
@@ -9,37 +10,8 @@ body {
   .btn:hover {
     color: $nxt;
   }
-}
 
-header {
-  background-color: #232828;
-  color: white;
-  letter-spacing: 0.7px;
-  padding: 25px 60px;
-  line-height: 52px;
-
-  a, a:visited, a:hover {
-    color: white;
-    font-size: 17px;
-    text-transform: uppercase;
-    font-family: 'Roboto';
-    font-weight: bold;
+  .page {
+    padding: 0 20px;
   }
-}
-
-#secondary {
-  background-color: #141516;
-  color: white;
-  margin: 0 -20px 25px;
-  height: 60px;
-  padding: 0 40px;
-  line-height: 60px;
-
-  a {
-    color: white;
-  }
-}
-
-.page {
-  padding: 0 20px;
 }

@@ -1,0 +1,41 @@
+.navigation {
+  line-height: 60px;
+  height: 60px;
+  clear: both;
+  color: white;
+
+  &__item {
+    float: left;
+    margin-right: 25px;
+    a {
+      color: white;
+    }
+  }
+}
+
+.navigation--secondary {
+  background-color: #141516;
+  margin: 0 -20px 25px;
+  padding: 0 40px;
+
+}
+
+.navigation--primary {
+  background-color: #232828;
+  letter-spacing: 0.7px;
+  padding: 25px 60px;
+  height: 100px;
+
+  .navigation__item {
+    margin-right: 60px;
+  }
+
+  a, a:visited,
+  a:hover {
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+
+}
