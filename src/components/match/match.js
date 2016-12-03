@@ -74,17 +74,26 @@ class Match extends React.Component {
             }
             />
           </div>
-          <If condition={isValidMatch}>
-            <div className="names text-center">
-              {this.props.match.wrestlers.map((wrestler, key) => {
-                return (
-                  <span key={key} className="names__name">
-                    {wrestler.name}
-                  </span>
-                )
-              })}
-            </div>
-          </If>
+          <Choose>
+            <When condition={isValidMatch}>
+              <div className="names text-center">
+                {this.props.match.wrestlers.map((wrestler, key) => {
+                  return (
+                    <span key={key} className="names__name">
+                      {wrestler.name}
+                    </span>
+                  )
+                })}
+              </div>
+            </When>
+            <Otherwise>
+              <div className="otherwise text-center names">
+                <span className="names__name">
+                  Click on wrestlers below to put them in a match!
+                </span>
+              </div>
+            </Otherwise>
+          </Choose>
           <br />
           <Story collection={this.props.match.story} />
         </div>

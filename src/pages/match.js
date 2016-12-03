@@ -24,17 +24,16 @@ class MatchPage extends React.Component {
     return (
       <div className="page match">
         <Helmet title="Match Simulator" />
-        <ul className="nav nav-pills" role="tablist">
-          <li>
-            <a
-              href="#"
-              onKeyPress={this.onClearSelection}
-              onClick={this.onClearSelection}>
-              Clear selected wrestlers
-            </a>
-          </li>
-        </ul>
-        <hr />
+        <div className="row" id="secondary">
+          <div className="col-lg-2">
+          <a
+            href="#"
+            onKeyPress={this.onClearSelection}
+            onClick={this.onClearSelection}>
+            Clear selected wrestlers
+          </a>
+          </div>
+        </div>
         <Match />
       </div>
     )

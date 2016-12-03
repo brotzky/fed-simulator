@@ -14,10 +14,10 @@ body {
 header {
   background-color: #232828;
   color: white;
-  height: 75px;
-  line-height: 75px;
-  padding: 0 40px;
-  line-spacing: 0.7px;
+  letter-spacing: 0.7px;
+  padding: 25px 60px;
+  line-height: 52px;
+
   a, a:visited, a:hover {
     color: white;
     font-size: 17px;
@@ -25,30 +25,19 @@ header {
     font-family: 'Roboto';
     font-weight: bold;
   }
-  .links li {
-    float: left;
+}
+
+#secondary {
+  background-color: #141516;
+  color: white;
+  margin: 0 -20px 25px;
+  height: 60px;
+  padding: 0 40px;
+  line-height: 60px;
+
+  a {
+    color: white;
   }
-}
-
-hr {
-  border: 1px solid $smackdown;
-}
-
-hr:first-of-type {
-  border: 1px solid $raw;
-}
-
-h1 {
-  font-size: 50px;
-
-  img {
-    max-height: 80px;
-  }
-}
-
-.nav>li>a:focus,
-.nav>li>a:hover {
-  background-color: transparent;
 }
 
 .page {

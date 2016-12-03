@@ -11,27 +11,30 @@ export default class Page extends React.Component {
       <div>
         <header className="header">
           <div className="row">
-            <div className="col-xs-2">
-              <a className="header__link" href="#">WWE Universe</a>
+            <div className="col-xs-2 text-left">
+              <a className="header__link" href="#">
+                <img src={logo} style={{ width: "55px" }} /> Universe
+              </a>
             </div>
-            <div className="col-xs-1">
+            <div className="col-xs-1 text-center">
               <Link
                 to="champions">
                 Champions
               </Link>
             </div>
-            <div className="col-xs-1">
+            <div className="col-xs-1 text-center">
               <Link
                 to="match">
                 Match
               </Link>
             </div>
-            <div className="col-xs-1">
+            <div className="col-xs-1 text-center">
               <Link
                 to="draft">
                 Draft
               </Link>
             </div>
+            <div className="col-xs-7"></div>
           </div>
         </header>
         <section>

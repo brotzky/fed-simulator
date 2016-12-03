@@ -19,6 +19,14 @@ class ChampionsPage extends React.Component {
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
+        <div className="row" id="secondary">
+          <div className="col-lg-2">
+            <a
+              href="#">
+              Clear all set Champions
+            </a>
+          </div>
+        </div>
         <Championships championships={this.props.championships} />
         {this.props.brands.filter((brand) => brand.name.toLowerCase() !== "default").map((brand, key) => {
           let wrestlers = this.props.wrestlers
