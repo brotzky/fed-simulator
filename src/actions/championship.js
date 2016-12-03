@@ -7,3 +7,10 @@ export function awardChampionship(championship, wrestlerId) {
     wrestlerId,
   }
 }
+
+
+export function clearChampionships() {
+  return {
+    type: types.CLEAR_SELECTED_CHAMPIONS,
+  }
+}

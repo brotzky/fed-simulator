@@ -1,5 +1,6 @@
 import React from "react"
 import Championships from "../components/championships/championships"
+import * as championshipActions from "../actions/championship"
 import Brand from "../components/brand/brand"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
@@ -8,6 +9,7 @@ import "./stylesheets/champions"
 class ChampionsPage extends React.Component {
 
   static propTypes = {
+    dispatch: React.PropTypes.func.isRequired,
     brands: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
     championships: React.PropTypes.array.isRequired,
@@ -15,13 +17,22 @@ class ChampionsPage extends React.Component {
 
   displayName = "ChampionsPage"
 
+  onReset = (event) => {
+    event.preventDefault()
+    this.props.dispatch(
+      championshipActions.clearChampionships()
+    )
+  }
+
   render() {
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
         <div className="navigation navigation--secondary">
           <div className="navigation__item">
-            <a href="#">
+            <a onKeyPress={this.onReset}
+              onClick={this.onReset}
+              href="#">
               Clear all set Champions
             </a>
           </div>

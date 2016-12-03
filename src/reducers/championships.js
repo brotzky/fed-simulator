@@ -10,6 +10,11 @@ export default (state = defaultState, action) => {
         }
       })
       break
+    case "CLEAR_SELECTED_CHAMPIONS":
+        newState.forEach((championship, key) => {
+          delete newState[key].wrestlerId
+        })
+      break
   }
   return newState
 }
