@@ -9,40 +9,34 @@ export default class Page extends React.Component {
   render() {
     return (
       <div>
-        <Head />
-        <header>
-          <h1>
-            <img
-              src={logo}
-              alt="WWE"
-              title="WWE"
-            />
-            <span> Universe</span>
-          </h1>
+        <header className="header">
+          <div className="row">
+            <div className="col-xs-2">
+              <a className="header__link" href="#">WWE Universe</a>
+            </div>
+            <div className="col-xs-1">
+              <Link
+                to="champions">
+                Champions
+              </Link>
+            </div>
+            <div className="col-xs-1">
+              <Link
+                to="match">
+                Match
+              </Link>
+            </div>
+            <div className="col-xs-1">
+              <Link
+                to="draft">
+                Draft
+              </Link>
+            </div>
+          </div>
         </header>
-        <hr />
-        <ul className="nav nav-pills" role="tablist">
-          <li>
-            <Link
-              to="draft">
-              Draft
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="match">
-              Match
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="champions">
-              Champions
-            </Link>
-          </li>
-        </ul>
-        <hr />
-        {this.props.children}
+        <section>
+          {this.props.children}
+        </section>
       </div>
     )
   }

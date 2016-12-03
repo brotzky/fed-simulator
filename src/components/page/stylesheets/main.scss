@@ -4,16 +4,29 @@ body {
   background-color: $bg;
   color: $color;
 
-  a,
-  a:visited,
-  a:hover {
-    color: $color;
-  }
-
   a:hover,
   .btn:focus,
   .btn:hover {
     color: $nxt;
+  }
+}
+
+header {
+  background-color: #232828;
+  color: white;
+  height: 75px;
+  line-height: 75px;
+  padding: 0 40px;
+  line-spacing: 0.7px;
+  a, a:visited, a:hover {
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-weight: bold;
+  }
+  .links li {
+    float: left;
   }
 }
 
@@ -36,4 +49,8 @@ h1 {
 .nav>li>a:focus,
 .nav>li>a:hover {
   background-color: transparent;
+}
+
+.page {
+  padding: 0 20px;
 }
