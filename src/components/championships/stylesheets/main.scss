@@ -1,13 +1,13 @@
 .championships {
   text-align: center;
 
-  &.active {
-    vertical-align: middle;
-  }
-
   &__championship {
+    vertical-align: top;
     width: 20%;
     display: inline-block;
+    &.vacant {
+      color: #ccc;
+    }
   }
 
   .championship__holdername {
@@ -18,8 +18,4 @@
       display: block;
     }
   }
-}
-
-.championship__holdername--vacant {
-  color: #ccc;
 }

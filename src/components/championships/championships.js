@@ -46,7 +46,10 @@ class Championships extends React.Component {
       <div className="championships row text-center">
         {this.props.championships.map((championship, key) => {
           let wrestler = false,
-            wrestlers = []
+            wrestlers = [],
+            active = championship.wrestlerIds.length > 0 || championship.wrestlerId !== ""
+              ? "active"
+              : "vacant"
           if (championship.tag && championship.wrestlerIds.length > 0) {
             wrestlers = this.props.wrestlers.filter((wrestler) => {
               return championship.wrestlerIds.includes(wrestler.id)
@@ -58,7 +61,7 @@ class Championships extends React.Component {
           }
           return (
             <div key={key}
-              className="championships__championship">
+              className={`championships__championship ${active}`}>
               <Droppable
                 types={[
                   "wrestler",
@@ -81,6 +84,11 @@ class Championships extends React.Component {
                         {wrestler.name}
                       </span>
                     </When>
+                    <Otherwise>
+                      <span>
+                        Vacant
+                      </span>
+                    </Otherwise>
                   </Choose>
                 </div>
               </Droppable>
