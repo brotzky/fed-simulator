@@ -1,10 +1,11 @@
 import reducers from "../reducers"
 import reduxReset from "redux-reset"
+import { batch, batching } from "redux-batch-middleware"
 import persistState from "redux-localstorage"
 import { createStore, applyMiddleware, compose } from "redux"
 
 const storeEnhancer = compose(
-  applyMiddleware(),
+  applyMiddleware(batch),
   persistState(),
   reduxReset(),
   typeof window === "object" && typeof window.devToolsExtension !== "undefined"
@@ -13,5 +14,5 @@ const storeEnhancer = compose(
 )
 
 export default (initialState) => {
-  return createStore(reducers, initialState, storeEnhancer)
+  return createStore(batching(reducers), initialState, storeEnhancer)
 }
