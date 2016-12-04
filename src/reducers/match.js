@@ -16,6 +16,10 @@ export default (state = defaultState, action) => {
       newState.story = action.story
       break
 
+    case "CLEAR_STORY":
+      newState.story = defaultState.story
+      break
+
     case "TOGGLE_WRESTLER_TO_MATCH":
       let ids = Object.keys(newState.wrestlers).map(f=>newState.wrestlers[f].id)
       if (ids.includes(action.wrestler.id)) {

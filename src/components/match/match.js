@@ -45,6 +45,13 @@ class Match extends React.Component {
     )
   }
 
+  onWrestlerClick = () => {
+    this.props.dispatch(
+      matchActions.clearStory()
+    )
+  }
+
+
   render() {
     let
       isValidMatch = this.props.match.wrestlers.length > 1,
@@ -85,6 +92,8 @@ class Match extends React.Component {
                   )
                 })}
               </div>
+              <br />
+              <Story collection={this.props.match.story} />
             </When>
             <Otherwise>
               <div className="otherwise text-center names">
@@ -94,10 +103,11 @@ class Match extends React.Component {
               </div>
             </Otherwise>
           </Choose>
-          <br />
-          <Story collection={this.props.match.story} />
         </div>
-        <SelectionScreen showBrandLogo={false} />
+        <SelectionScreen
+          onWrestlerClick={this.onWrestlerClick.bind(this)}
+          showBrandLogo={false}
+        />
       </div>
     )
   }

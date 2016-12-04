@@ -13,6 +13,12 @@ export function clearSelectedWrestlers() {
   }
 }
 
+export function clearStory() {
+  return {
+    type: types.CLEAR_STORY,
+  }
+}
+
 export function simulate(story) {
   return {
     type: types.SIMULATE_MATCH,
