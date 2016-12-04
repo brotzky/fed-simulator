@@ -29,7 +29,7 @@ class Match extends React.Component {
 
   onStartMatch = () => {
     this.setState({
-      soundPlaying: Sound.status.PLAYING
+      soundPlaying: Sound.status.PLAYING,
     })
     let wrestlers = this.props.match.wrestlers.slice()
     wrestlers.forEach((wrestler, key) => {
@@ -66,9 +66,9 @@ class Match extends React.Component {
         ? toSlug(this.props.match.wrestlers[0].brand)
         : "default"
     return (
-      <div className="match row">
-        <div className={`col-xs-12 fold ${(isValidMatch ? "active" : "inactive")}`}>
-          <div className="bell">
+      <div className="match">
+        <div className={`col-xs-12 match__inner ${(isValidMatch ? "active" : "inactive")}`}>
+          <div className="match__bell">
             <img
               src={bellImage}
               className={(isValidMatch ? "active" : "hide")}
@@ -82,7 +82,7 @@ class Match extends React.Component {
               onFinishedPlaying={() => {
                 this.setState({
                   soundPlaying: Sound.status.STOPPED,
-                  position: 0
+                  position: 0,
                 })
               }
             }
@@ -90,22 +90,23 @@ class Match extends React.Component {
           </div>
           <Choose>
             <When condition={isValidMatch}>
-              <div className="names text-center">
+              <div className="match__names">
                 {this.props.match.wrestlers.map((wrestler, key) => {
                   return (
-                    <span key={key} className="names__name">
+                    <span key={key} className="match__names__name">
                       {wrestler.name}
                     </span>
                   )
                 })}
               </div>
-              <br />
-              <Story collection={this.props.match.story} />
+              <div className="row">
+                <Story collection={this.props.match.story} />
+              </div>
             </When>
             <Otherwise>
-              <div className="otherwise text-center names">
+              <div className="otherwise match__names">
                 <span className="names__name">
-                  Click on wrestlers below to put them in a match!
+                  Click on wrestlers below to put them in into the match!
                 </span>
               </div>
             </Otherwise>

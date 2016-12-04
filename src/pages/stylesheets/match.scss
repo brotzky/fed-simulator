@@ -1,5 +1,14 @@
 .page.match {
+
   .wrestler {
     width: 20%;
+  }
+
+  .match {
+    margin: 15px 0;
+    &__inner {
+      background-color: #003250;
+      color: white;
+    }
   }
 }

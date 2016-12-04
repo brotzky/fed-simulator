@@ -39,8 +39,7 @@ class SelectionScreen extends React.Component {
 
   render() {
     return (
-      <div className="selection">
-        <div className="selection__wrestlers">
+      <div className="selection row">
           {this.props.brands.filter((brand) => brand.name.toLowerCase() !== "default").map((brand, key) => {
             let wrestlers = this.props.wrestlers
               .filter((wrestler) => wrestler.brand === brand.name)
@@ -60,7 +59,6 @@ class SelectionScreen extends React.Component {
               </div>
             )
           })}
-        </div>
       </div>
     )
   }
