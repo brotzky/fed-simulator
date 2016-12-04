@@ -11,7 +11,6 @@ export default (state = defaultState, action) => {
       })
       break
       case "AWARD_MATCH_POINTS":
-        console.log('action', action)
         newState.forEach((wrestler, key) => {
           if (wrestler.id === action.loser.id) {
             newState[key].losses = newState[key].losses + 1
