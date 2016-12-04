@@ -45,17 +45,20 @@ class Championships extends React.Component {
     return (
       <div className="championships row text-center">
         {this.props.championships.map((championship, key) => {
-          let wrestler = false
-          if (championship.wrestlerId) {
+          let wrestler = false,
+            wrestlers = []
+          if (championship.tag && championship.wrestlerIds.length > 0) {
+            wrestlers = this.props.wrestlers.filter((wrestler) => {
+              return championship.wrestlerIds.includes(wrestler.id)
+            })
+          } else if (championship.wrestlerId) {
             wrestler = this.props.wrestlers.filter((wrestler) => {
               return wrestler.id === championship.wrestlerId
             })[0]
           }
-          let name = wrestler ? wrestler.name : "Vacant"
           return (
-            <div
-              className="championships__championship fold"
-              key={key}>
+            <div key={key}
+              className="championships__championship">
               <Droppable
                 types={[
                   "wrestler",
@@ -63,7 +66,22 @@ class Championships extends React.Component {
                 onDrop={this.onDrop.bind(this, championship)}>
                 <Icon name={championship.name} />
                 <div className={`championship__holdername championship__holdername--${toSlug(name)}`}>
-                  {name}
+                  <Choose>
+                    <When condition={wrestlers.length > 0}>
+                      {wrestlers.map((wrestler, key) => {
+                        return (
+                          <span key={key}>
+                            {wrestler.name}
+                          </span>
+                        )
+                      })}
+                    </When>
+                    <When condition={wrestler && wrestler.name}>
+                      <span>
+                        {wrestler.name}
+                      </span>
+                    </When>
+                  </Choose>
                 </div>
               </Droppable>
             </div>
