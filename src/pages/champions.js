@@ -33,7 +33,7 @@ class ChampionsPage extends React.Component {
             <a onKeyPress={this.onReset}
               onClick={this.onReset}
               href="#">
-              Clear all set Champions
+              Clear All set Champions
             </a>
           </div>
         </div>
