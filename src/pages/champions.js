@@ -37,7 +37,9 @@ class ChampionsPage extends React.Component {
             </a>
           </div>
         </div>
-        <Championships championships={this.props.championships} />
+        <div className="fold">
+          <Championships championships={this.props.championships} />
+        </div>
         <div className="row">
           {this.props.brands.filter((brand) => brand.name.toLowerCase() !== "default").map((brand, key) => {
             let wrestlers = this.props.wrestlers

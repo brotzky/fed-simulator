@@ -50,6 +50,7 @@ class DraftPage extends React.Component {
             </a>
           </div>
         </div>
+        <br />
         <Draft />
       </div>
     )
