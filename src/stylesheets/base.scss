@@ -53,3 +53,8 @@ h1 {
   min-height: 120px;
   padding: 15px;
 }
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -73,14 +73,14 @@ class Championships extends React.Component {
                     <When condition={wrestlers.length > 0}>
                       {wrestlers.map((wrestler, key) => {
                         return (
-                          <span key={key}>
+                          <span key={key} className="truncate">
                             {wrestler.name}
                           </span>
                         )
                       })}
                     </When>
                     <When condition={wrestler && wrestler.name}>
-                      <span>
+                    <span className="truncate">
                         {wrestler.name}
                       </span>
                     </When>
