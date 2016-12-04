@@ -14,3 +14,17 @@ export function clearChampionships() {
     type: types.CLEAR_SELECTED_CHAMPIONS,
   }
 }
+
+
+export function checkMove({
+  winner,
+  loser,
+  losers,
+}) {
+  return {
+    type: types.CHECK_CHAMPIONSHIP,
+    winner,
+    loser,
+    losers,
+  }
+}

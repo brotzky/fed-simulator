@@ -57,10 +57,12 @@ export class SimMatch {
   endMatch = () => {
     let
       winner = _maxBy(this.wrestlers, "damage"),
-      loser = _minBy(this.wrestlers, "damage")
+      loser = _minBy(this.wrestlers, "damage"),
+      losers = this.wrestlers.filter((wrestler) => wrestler.id !== winner.id)
     this.logAction("winner", {
       winner,
       loser,
+      losers
     })
   }
 }

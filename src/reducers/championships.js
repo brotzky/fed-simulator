@@ -17,6 +17,13 @@ export default (state = defaultState, action) => {
         }
       })
       break
+    case "CHECK_CHAMPIONSHIP":
+      newState.forEach((championship, key) => {
+        if (championship.wrestlerId === action.loser.id) {
+          newState[key].wrestlerId = action.winner.id
+        }
+      })
+      break
     case "CLEAR_SELECTED_CHAMPIONS":
         newState.forEach((championship, key) => {
           newState[key].wrestlerId = ""

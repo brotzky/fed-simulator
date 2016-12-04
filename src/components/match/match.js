@@ -4,6 +4,7 @@ import Sound from "react-sound"
 import SelectionScreen from "../selection-screen/selection-screen"
 import Story from "../story/story"
 import Wrestlers from "../wrestlers/wrestlers"
+import * as championshipActions from "../../actions/championship"
 import * as matchActions from "../../actions/match"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { SimMatch } from "./sim-match.helper"
@@ -28,25 +29,38 @@ class Match extends React.Component {
   displayName = "Match"
 
   onStartMatch = () => {
+    // play the ring bell sound
     this.setState({
       soundPlaying: Sound.status.PLAYING,
     })
+    // copy props wrestlers to local var
     let wrestlers = this.props.match.wrestlers.slice()
+    // bind damage to the rating field due to the random weighting system were using
     wrestlers.forEach((wrestler, key) => {
       wrestlers[key].damage = wrestler.rating
     })
+    // create the match
     let story = new SimMatch(
       this.props.match.wrestlers,
       this.props.moves
+    // set off the simulation
     ).ringBell()
+    // update the match object with the story from the match
     this.props.dispatch(
       matchActions.simulate(
         story,
       )
     )
+    // award wins and losses to the wrestlers in the match
     let winnersAction = story.slice(-1).pop()
     this.props.dispatch(
       wrestlersActions.awardMatchPoints(
+        {...winnersAction.details}
+      )
+    )
+    // check to see if a championship needs to be moved
+    this.props.dispatch(
+      championshipActions.checkMove(
         {...winnersAction.details}
       )
     )

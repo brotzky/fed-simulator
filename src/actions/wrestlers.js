@@ -15,11 +15,13 @@ export function moveWrestler(
 export function awardMatchPoints({
   winner,
   loser,
+  losers,
 }) {
   return {
     type: types.AWARD_MATCH_POINTS,
     winner,
     loser,
+    losers,
   }
 }
 
