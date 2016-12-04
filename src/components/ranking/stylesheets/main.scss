@@ -1,0 +1,18 @@
+.ranking {
+  &__order {
+    width: 1%;
+    text-align: center;
+  }
+  &__wrestler {
+    text-align: left;
+  }
+  &__wins {
+    width: 5%;
+    text-align: center;
+  }
+  &__losses {
+    text-align: center;
+    width: 5%;
+    text-align: center;
+  }
+}

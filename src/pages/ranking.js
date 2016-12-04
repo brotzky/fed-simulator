@@ -1,19 +1,46 @@
 import React from "react"
-import Match from "../components/match/match"
+import Ranking from "../components/ranking/ranking"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
-import "./stylesheets/match"
+import "./stylesheets/ranking"
 
-export default class RankingPage extends React.Component {
+class RankingPage extends React.Component {
+
+  static propTypes = {
+    wrestlers: React.PropTypes.array.isRequired,
+  }
 
   displayName = "RankingPage"
 
   render() {
     return (
-      <div className="page match">
+      <div className="page ranking">
         <Helmet title="Universe Ranking" />
-        <Match />
+        <div className="row">
+          <div className="col-lg-6 col-xs-16">
+            <Ranking
+              wrestlers={this.props.wrestlers
+                .filter((wrestler) => wrestler.male === true)
+                .sort((a, b) => a.wins > b.wins)
+                .reverse()
+              }
+            />
+          </div>
+          <div className="col-lg-6 col-xs-16">
+            <Ranking
+              wrestlers={this.props.wrestlers
+                .filter((wrestler) => wrestler.male === false)
+                .sort((a, b) => a.wins > b.wins)
+                .reverse()
+              }
+            />
+          </div>
+        </div>
       </div>
     )
   }
 }
+
+export default connect(state => ({
+  wrestlers: state.wrestlers,
+}))(RankingPage)
