@@ -17,7 +17,7 @@ class Draft extends React.Component {
 
   render() {
     return (
-      <div className="brands-wrestlers no-select">
+      <div className="draft no-select">
         <div className="row">
           {this.props.brands.map((brand, key) => {
             let wrestlers = this.props.wrestlers
