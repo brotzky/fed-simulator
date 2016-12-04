@@ -35,7 +35,7 @@ class Championships extends React.Component {
         championshipsActions.awardChampionship(championship, wrestlerId)
       )
     } else {
-      console.log('Sex are not compatible: ', wrestler.male, championship.male)
+      alert("Gender conflict")
     }
   }
 
@@ -43,7 +43,7 @@ class Championships extends React.Component {
 
   render() {
     return (
-      <div className={`championships row text-center`}>
+      <div className="championships row text-center">
         {this.props.championships.map((championship, key) => {
           let wrestler = false
           if (championship.wrestlerId) {
@@ -56,11 +56,15 @@ class Championships extends React.Component {
               className="championships__championship"
               key={key}>
               <Droppable
-                types={["wrestler"]}
+                types={[
+                  "wrestler",
+                ]}
                 onDrop={this.onDrop.bind(this, championship)}>
                 <Icon name={championship.name} />
                 <If condition={wrestler}>
-                  <h4>{wrestler.name}</h4>
+                  <h4>
+                    {wrestler.name}
+                  </h4>
                 </If>
               </Droppable>
             </div>

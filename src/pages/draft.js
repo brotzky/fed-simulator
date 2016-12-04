@@ -46,7 +46,7 @@ class DraftPage extends React.Component {
               href="#"
               onKeyPress={this.onReset}
               onClick={this.onReset}>
-              Move all wrestlers to their current brand
+              Move All wrestlers to their current brand
             </a>
           </div>
         </div>
