@@ -7,6 +7,11 @@ export default class Ranking extends React.Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
+    amountToShow: React.PropTypes.number,
+  }
+
+  static defaultProps = {
+    amountToShow: 10,
   }
 
   displayName = "Ranking"
@@ -31,7 +36,9 @@ export default class Ranking extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.wrestlers.map((wrestler, key) => {
+            {this.props.wrestlers
+              .slice(0, this.props.amountToShow)
+              .map((wrestler, key) => {
               let active = (wrestler.wins > 0)
                 ? "active"
                 : "inactive"

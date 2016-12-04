@@ -21,22 +21,22 @@ class RankingPage extends React.Component {
           <div className="col-lg-6 col-xs-16">
             <Ranking
               title="Overall Male Superstars"
+              amountToShow={10}
               wrestlers={this.props.wrestlers
                 .filter((wrestler) => wrestler.male === true)
                 .sort((a, b) => a.wins > b.wins)
                 .reverse()
-                .slice(0, 10)
               }
             />
           </div>
           <div className="col-lg-6 col-xs-16">
             <Ranking
               title="Overall Female Superstars"
+              amountToShow={10}
               wrestlers={this.props.wrestlers
                 .filter((wrestler) => wrestler.male === false)
                 .sort((a, b) => a.wins > b.wins)
                 .reverse()
-                .slice(0, 10)
               }
             />
           </div>
@@ -47,11 +47,11 @@ class RankingPage extends React.Component {
               <div key={key} className="col-lg-4 col-xs-16">
                 <Ranking
                   title={`${brand.name} Overall Ranking`}
+                  amountToShow={5}
                   wrestlers={this.props.wrestlers
                     .filter((wrestler) => wrestler.brand === brand.name)
                     .sort((a, b) => a.wins > b.wins)
                     .reverse()
-                    .slice(0, 10)
                   }
                 />
               </div>
