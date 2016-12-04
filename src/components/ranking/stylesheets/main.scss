@@ -1,25 +1,39 @@
 .ranking {
-  font-family: "Roboto","Verdana",sans-serif;
+  font-family: "Roboto","Verdana", sans-serif;
+
+
   thead td {
     font-size: 1.5em;
     font-weight: 500;
   }
+
+  &__title {
+    margin: 0;
+  }
+  &__table>thead>tr>td {
+    vertical-align: bottom;
+  }
+
   tbody tr {
+
     &.inactive {
       color: #ccc;
       .icon {
         opacity: 0.77;
       }
     }
+
     .ranking__order {
       font-size: 3.5em;
       font-weight: 700;
       width: 1%;
       text-align: center;
     }
+
     .ranking__wrestler {
       text-align: left;
     }
+
     .ranking__wins,
     .ranking__losses {
       font-size: 2em;

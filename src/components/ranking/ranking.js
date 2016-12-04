@@ -14,16 +14,13 @@ export default class Ranking extends React.Component {
   render() {
     return (
       <div className="ranking">
-        <h3>
-          {this.props.title}
-        </h3>
         <table className="ranking__table table table-striped">
           <thead>
             <tr>
-              <td className="ranking__order">
-              </td>
-              <td className="ranking__wrestler">
-                Wrestler
+              <td colSpan="2">
+                <h3 className="ranking__title">
+                  {this.props.title}
+                </h3>
               </td>
               <td className="ranking__wins">
                 Wins

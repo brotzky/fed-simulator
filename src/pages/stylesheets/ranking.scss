@@ -6,9 +6,15 @@
   }
 
   .ranking {
-    padding: 55px;
+    padding: 30px 50px;
+
+    &__split h3 {
+      font-size: 1em;
+    }
+
     .icon {
       zoom: 0.7;
     }
+
   }
 }
