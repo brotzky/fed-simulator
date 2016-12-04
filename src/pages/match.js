@@ -34,6 +34,7 @@ class MatchPage extends React.Component {
             </a>
           </div>
         </div>
+        <br />
         <Match />
       </div>
     )

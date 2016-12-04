@@ -99,9 +99,9 @@ class Match extends React.Component {
                   )
                 })}
               </div>
-              <div className="row">
+              <If condition={this.props.match.story.length > 0}>
                 <Story collection={this.props.match.story} />
-              </div>
+              </If>
             </When>
             <Otherwise>
               <div className="otherwise match__names">

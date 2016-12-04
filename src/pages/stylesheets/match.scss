@@ -4,11 +4,7 @@
     width: 20%;
   }
 
-  .match {
-    margin: 15px 0;
-    &__inner {
-      background-color: #003250;
-      color: white;
-    }
+  .match__inner {
+    padding: 15px;
   }
 }

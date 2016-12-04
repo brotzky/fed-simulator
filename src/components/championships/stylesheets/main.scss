@@ -15,6 +15,9 @@
   .championship__holdername {
     font-size: 0.95em;
     font-weight: bold;
+    span {
+      display: block;
+    }
   }
 }
 
