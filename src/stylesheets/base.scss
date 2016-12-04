@@ -50,6 +50,10 @@ h1 {
   }
 }
 .fold {
-  min-height: 100px;
+  min-height: 120px;
   padding: 15px;
+
+  &.inactive {
+    height: 120px;
+  }
 }

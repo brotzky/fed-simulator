@@ -53,8 +53,8 @@ class Match extends React.Component {
         : "default"
     return (
       <div className="match row">
-        <div className="col-xs-12 fold">
-          <div className="bell ">
+        <div className={`col-xs-12 fold ${(isValidMatch ? "active" : "inactive")}`}>
+          <div className="bell">
             <img
               src={bellImage}
               className={(isValidMatch ? "active" : "hide")}

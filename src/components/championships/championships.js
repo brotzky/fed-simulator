@@ -62,9 +62,9 @@ class Championships extends React.Component {
                 onDrop={this.onDrop.bind(this, championship)}>
                 <Icon name={championship.name} />
                 <If condition={wrestler}>
-                  <h4>
+                  <div className="championship__holdername">
                     {wrestler.name}
-                  </h4>
+                  </div>
                 </If>
               </Droppable>
             </div>
