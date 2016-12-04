@@ -8,6 +8,7 @@ class RankingPage extends React.Component {
 
   static propTypes = {
     wrestlers: React.PropTypes.array.isRequired,
+    brands: React.PropTypes.array.isRequired,
   }
 
   displayName = "RankingPage"
@@ -19,24 +20,43 @@ class RankingPage extends React.Component {
         <div className="row">
           <div className="col-lg-6 col-xs-16">
             <Ranking
-              title="Male Superstars"
+              title="Overall Male Superstars"
               wrestlers={this.props.wrestlers
                 .filter((wrestler) => wrestler.male === true)
                 .sort((a, b) => a.wins > b.wins)
                 .reverse()
+                .slice(0, 10)
               }
             />
           </div>
           <div className="col-lg-6 col-xs-16">
             <Ranking
-              title="Female Superstars"
+              title="Overall Female Superstars"
               wrestlers={this.props.wrestlers
                 .filter((wrestler) => wrestler.male === false)
                 .sort((a, b) => a.wins > b.wins)
                 .reverse()
+                .slice(0, 10)
               }
             />
           </div>
+        </div>
+        <div className="row">
+          {this.props.brands.filter((brand) => brand.name !== "default").map((brand, key)=> {
+            return (
+              <div key={key} className="col-lg-4 col-xs-16">
+                <Ranking
+                  title={`${brand.name} Overall Ranking`}
+                  wrestlers={this.props.wrestlers
+                    .filter((wrestler) => wrestler.brand === brand.name)
+                    .sort((a, b) => a.wins > b.wins)
+                    .reverse()
+                    .slice(0, 10)
+                  }
+                />
+              </div>
+            )
+          })}
         </div>
       </div>
     )
@@ -45,4 +65,5 @@ class RankingPage extends React.Component {
 
 export default connect(state => ({
   wrestlers: state.wrestlers,
+  brands: state.brands,
 }))(RankingPage)
