@@ -15,6 +15,10 @@ class DraftPage extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
+  state = {
+    showFemalesOnly: false,
+  }
+
   onReset = (event) => {
     event.preventDefault()
     this.props.dispatch({
@@ -27,6 +31,13 @@ class DraftPage extends React.Component {
     this.props.dispatch(
       wrestlersActions.moveAllWrestlersToDefault()
     )
+  }
+
+  onToggleWomenWrestlers = (event) => {
+    event.preventDefault()
+    this.setState({
+      showFemalesOnly: !this.state.showFemalesOnly
+    })
   }
 
   render() {
@@ -48,12 +59,19 @@ class DraftPage extends React.Component {
               Move All wrestlers to their current brand
             </a>
           </div>
+          <div className="navigation__item">
+            <a onKeyPress={this.onToggleWomenWrestlers}
+              onClick={this.onToggleWomenWrestlers}
+              href="#">
+              Toggle Women Wrestlers
+            </a>
+          </div>
         </div>
         <div className="draft no-select">
           <div className="row">
             {this.props.brands.map((brand, key) => {
               let wrestlers = this.props.wrestlers
-                .filter((wrestler) => wrestler.brand === brand.name)
+                .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
                 .sort((a, b) => a.rating < b.rating)
               return (
                 <div
