@@ -1,6 +1,5 @@
 import React from "react"
-import { Link } from "react-router"
-import Draft from "../components/draft/draft"
+import Brand from "../components/brand/brand"
 import * as wrestlersActions from "../actions/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
@@ -12,6 +11,8 @@ class DraftPage extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
+    brands: React.PropTypes.array.isRequired,
+    wrestlers: React.PropTypes.array.isRequired,
   }
 
   onReset = (event) => {
@@ -35,7 +36,6 @@ class DraftPage extends React.Component {
         <div className="navigation navigation--secondary">
           <div className="navigation__item">
             <a
-              href="#"
               onKeyPress={this.onSendToDraft}
               onClick={this.onSendToDraft}>
               Move All wrestlers to Draft
@@ -43,17 +43,40 @@ class DraftPage extends React.Component {
           </div>
           <div className="navigation__item">
             <a
-              href="#"
               onKeyPress={this.onReset}
               onClick={this.onReset}>
               Move All wrestlers to their current brand
             </a>
           </div>
         </div>
-        <Draft />
+        <div className="draft no-select">
+          <div className="row">
+            {this.props.brands.map((brand, key) => {
+              let wrestlers = this.props.wrestlers
+                .filter((wrestler) => wrestler.brand === brand.name)
+                .sort((a, b) => a.rating < b.rating)
+              return (
+                <div
+                  key={brand.id}
+                  className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                  <Brand
+                    id={brand.id}
+                    name={brand.name}
+                    canDragAndDrop={true}
+                    wrestlers={wrestlers}
+                    showBrandLogo={true}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </div>
     )
   }
 }
 
-export default connect(state => ({}))(DraftPage)
+export default connect(state => ({
+  brands: state.brands,
+  wrestlers: state.wrestlers,
+}))(DraftPage)
