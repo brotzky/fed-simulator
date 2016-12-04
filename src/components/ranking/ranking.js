@@ -5,16 +5,19 @@ import "./stylesheets/main"
 export default class Ranking extends React.Component {
 
   static propTypes = {
+    title: React.PropTypes.string.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
   }
 
   displayName = "Ranking"
 
   render() {
-    console.log(this.props.wrestlers)
     return (
-      <div>
-        <table className="ranking table table-striped">
+      <div className="ranking">
+        <h3>
+          {this.props.title}
+        </h3>
+        <table className="ranking__table table table-striped">
           <thead>
             <tr>
               <td className="ranking__order">
@@ -32,8 +35,12 @@ export default class Ranking extends React.Component {
           </thead>
           <tbody>
             {this.props.wrestlers.map((wrestler, key) => {
+              let active = (wrestler.wins > 0)
+                ? "active"
+                : "inactive"
               return (
-                <tr key={key}>
+                <tr className={active}
+                  key={key}>
                   <td className="ranking__order">
                     #{key + 1}
                   </td>

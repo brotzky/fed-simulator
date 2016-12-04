@@ -1,18 +1,37 @@
 .ranking {
-  &__order {
-    width: 1%;
-    text-align: center;
+  font-family: "Roboto","Verdana",sans-serif;
+  thead td {
+    font-size: 1.5em;
+    font-weight: 500;
   }
-  &__wrestler {
-    text-align: left;
-  }
-  &__wins {
-    width: 5%;
-    text-align: center;
-  }
-  &__losses {
-    text-align: center;
-    width: 5%;
-    text-align: center;
+  tbody tr {
+    &.inactive {
+      color: #ccc;
+      .icon {
+        opacity: 0.7;
+      }
+    }
+    .ranking__order {
+      font-size: 3.9em;
+      font-weight: 700;
+      width: 1%;
+      text-align: center;
+    }
+    .ranking__wrestler {
+      text-align: left;
+    }
+    .ranking__wins {
+      font-size: 2em;
+      font-weight: 700;
+      width: 5%;
+      text-align: center;
+    }
+    .ranking__losses {
+      font-size: 2em;
+      font-weight: 700;
+      text-align: center;
+      width: 5%;
+      text-align: center;
+    }
   }
 }

@@ -19,6 +19,7 @@ class RankingPage extends React.Component {
         <div className="row">
           <div className="col-lg-6 col-xs-16">
             <Ranking
+              title="Male Superstars"
               wrestlers={this.props.wrestlers
                 .filter((wrestler) => wrestler.male === true)
                 .sort((a, b) => a.wins > b.wins)
@@ -28,6 +29,7 @@ class RankingPage extends React.Component {
           </div>
           <div className="col-lg-6 col-xs-16">
             <Ranking
+              title="Female Superstars"
               wrestlers={this.props.wrestlers
                 .filter((wrestler) => wrestler.male === false)
                 .sort((a, b) => a.wins > b.wins)
