@@ -51,6 +51,7 @@ class Championships extends React.Component {
               return wrestler.id === championship.wrestlerId
             })[0]
           }
+          let name = wrestler ? wrestler.name : "Vacant"
           return (
             <div
               className="championships__championship fold"
@@ -61,11 +62,9 @@ class Championships extends React.Component {
                 ]}
                 onDrop={this.onDrop.bind(this, championship)}>
                 <Icon name={championship.name} />
-                <If condition={wrestler}>
-                  <div className="championship__holdername">
-                    {wrestler.name}
-                  </div>
-                </If>
+                <div className={`championship__holdername championship__holdername--${toSlug(name)}`}>
+                  {name}
+                </div>
               </Droppable>
             </div>
           )
