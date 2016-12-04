@@ -36,6 +36,12 @@ export default class Page extends React.Component {
                 Draft
               </Link>
             </div>
+            <div className="navigation__item">
+              <Link
+                to="ranking">
+                Ranking
+              </Link>
+            </div>
           </div>
         </header>
         <section>

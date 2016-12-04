@@ -10,6 +10,16 @@ export default (state = defaultState, action) => {
         }
       })
       break
+      case "AWARD_MATCH_POINTS":
+        console.log('action', action)
+        newState.forEach((wrestler, key) => {
+          if (wrestler.id === action.loser.id) {
+            newState[key].losses = newState[key].losses + 1
+          } else if (wrestler.id === action.winner.id) {
+            newState[key].wins = newState[key].wins + 1
+          }
+        })
+        break
       case "MOVE_All_WRESTLERS_TO_DEFAULT":
         newState.forEach((drop, key) => {
           newState[key].brand = "default"

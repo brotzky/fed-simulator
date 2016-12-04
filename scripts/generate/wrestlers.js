@@ -23,6 +23,9 @@ glob(imagePath + "**/**.png", function (er, files) {
       brand: brand,
       rating: rating,
       male: male,
+      wins: 0,
+      losses: 0,
+      championshipId: false,
     })
   })
   return writeFile(

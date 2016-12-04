@@ -23,6 +23,15 @@ export default () => {
              }}
            />
          </Route>
+         <Route path="ranking">
+           <IndexRoute
+             getComponent={(nextState, callback) => {
+               require.ensure([], (require) => {
+                 callback(null, require("./pages/ranking").default)
+               })
+             }}
+           />
+         </Route>
           <Route path="match">
           <IndexRoute
             getComponent={(nextState, callback) => {

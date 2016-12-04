@@ -5,6 +5,7 @@ import SelectionScreen from "../selection-screen/selection-screen"
 import Story from "../story/story"
 import Wrestlers from "../wrestlers/wrestlers"
 import * as matchActions from "../../actions/match"
+import * as wrestlersActions from "../../actions/wrestlers"
 import { SimMatch } from "./sim-match.helper"
 import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
@@ -41,6 +42,12 @@ class Match extends React.Component {
     this.props.dispatch(
       matchActions.simulate(
         story,
+      )
+    )
+    let winnersAction = story.slice(-1).pop()
+    this.props.dispatch(
+      wrestlersActions.awardMatchPoints(
+        {...winnersAction.details}
       )
     )
   }
