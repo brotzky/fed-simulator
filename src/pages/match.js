@@ -13,7 +13,7 @@ class MatchPage extends React.Component {
 
   displayName = "MatchPage"
 
-  onClearSelection = (event) => {
+  onReset = (event) => {
     event.preventDefault()
     this.props.dispatch(
       matchActions.clearSelectedWrestlers()
@@ -28,8 +28,8 @@ class MatchPage extends React.Component {
           <div className="navigation__item">
             <a
               href="#"
-              onKeyPress={this.onClearSelection}
-              onClick={this.onClearSelection}>
+              onKeyPress={this.onReset}
+              onClick={this.onReset}>
               Clear selected wrestlers
             </a>
           </div>
