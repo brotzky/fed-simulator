@@ -20,26 +20,26 @@ export default class Page extends React.Component {
             </div>
             <div className="navigation__item">
               <Link
-                to="champions">
-                Champions
-              </Link>
-            </div>
-            <div className="navigation__item">
-              <Link
-                to="match">
-                Match
-              </Link>
-            </div>
-            <div className="navigation__item">
-              <Link
                 to="draft">
                 Draft
               </Link>
             </div>
             <div className="navigation__item">
               <Link
+                to="champions">
+                Champions
+              </Link>
+            </div>
+            <div className="navigation__item">
+              <Link
                 to="ranking">
                 Ranking
+              </Link>
+            </div>
+            <div className="navigation__item">
+              <Link
+                to="match">
+                Match
               </Link>
             </div>
           </div>
