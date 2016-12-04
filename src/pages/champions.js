@@ -37,18 +37,17 @@ class ChampionsPage extends React.Component {
             </a>
           </div>
         </div>
-        <div className="fold">
-          <Championships championships={this.props.championships} />
-        </div>
         <div className="row">
           {this.props.brands.filter((brand) => brand.name.toLowerCase() !== "default").map((brand, key) => {
             let wrestlers = this.props.wrestlers
               .filter((wrestler) => wrestler.brand === brand.name)
-              .sort((a, b) => a.rating < b.rating)
+              .sort((a, b) => a.rating < b.rating),
+              championships = this.props.championships.filter((championship) => championship.brand === brand.name)
             return (
               <div
                 key={brand.id}
                 className="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <Championships championships={championships} />
                 <Brand
                   id={brand.id}
                   name={brand.name}

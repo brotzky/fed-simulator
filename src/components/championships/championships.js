@@ -53,7 +53,7 @@ class Championships extends React.Component {
           }
           return (
             <div
-              className="championships__championship"
+              className="championships__championship fold"
               key={key}>
               <Droppable
                 types={[
@@ -77,5 +77,4 @@ class Championships extends React.Component {
 
 export default connect(state => ({
   wrestlers: state.wrestlers,
-  championships: state.championships,
 }))(Championships)

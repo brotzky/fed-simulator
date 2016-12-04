@@ -1,13 +1,19 @@
 .championships {
+  text-align: center;
+
   &.active {
     vertical-align: middle;
   }
+
   &__championship {
-    float: left;
-    width: 8%;
+    width: 20%;
+    margin: 0 auto;
+    overflow: hidden;
+    display: inline-block;
   }
+
   .championship__holdername {
-    font-size: 20px;
+    font-size: 0.95em;
     font-weight: bold;
   }
 }
