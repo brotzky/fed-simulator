@@ -29,6 +29,9 @@ export default class Bell extends React.Component {
           src={bellImage}
           onClick={this.props.onBellRung}
         />
+        <h3>
+          Ring the Bell!
+        </h3>
         <Sound
           url={bellSound}
           playStatus={this.state.soundPlaying}
