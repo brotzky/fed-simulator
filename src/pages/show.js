@@ -17,6 +17,7 @@ class ShowPage extends React.Component {
 
   state = {
     brand: "Raw",
+    showFemalesOnly: false,
   }
 
   onBellRung = () => {
@@ -29,11 +30,21 @@ class ShowPage extends React.Component {
     })
   }
 
+  onToggleWomenWrestlers = (event) => {
+    event.preventDefault()
+    this.setState({
+      showFemalesOnly: !this.state.showFemalesOnly,
+    })
+  }
+
   displayName = "ShowPage"
 
   render() {
+    let wrestlers = this.props.wrestlers
+      .filter((wrestler) => wrestler.brand === this.state.brand && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
+
     return (
-      <div className="page show">
+      <div className={`page show ${toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
         <div className="navigation navigation--secondary">
           {this.props.brands
@@ -44,7 +55,7 @@ class ShowPage extends React.Component {
                   className="navigation__item">
                   <a onKeyPress={this.onChangeBrand.bind(this, brand.name)}
                     onClick={this.onChangeBrand.bind(this, brand.name)}>
-                    Select {brand.name}
+                    {brand.name} Event
                   </a>
                 </div>
               )
@@ -54,6 +65,13 @@ class ShowPage extends React.Component {
             <a onKeyPress={this.onBellRung}
               onClick={this.onBellRung}>
               Simulate matches
+            </a>
+          </div>
+          <div className="navigation__item">
+            <a onKeyPress={this.onToggleWomenWrestlers}
+              onClick={this.onToggleWomenWrestlers}
+              href="#">
+              Toggle Women Wrestlers
             </a>
           </div>
         </div>
@@ -86,7 +104,7 @@ class ShowPage extends React.Component {
               <Brand
                 name={this.state.brand}
                 showBrandLogo={false}
-                wrestlers={this.props.wrestlers}
+                wrestlers={wrestlers}
               />
             </div>
           </div>
