@@ -79,7 +79,6 @@
     "asyncawait": "^1.0.6",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.0.0",
-    "emitter": "^0.0.5",
     "fbemitter": "^2.1.1",
     "glob": "^7.1.1",
     "jquery": "^3.1.1",
