@@ -24,6 +24,10 @@ class ShowPage extends React.Component {
     eventEmitter.emit("bellRung")
   }
 
+  onRandomiseMatches = (brandName) => {
+    eventEmitter.emit("randomiseMatch", brandName)
+  }
+
   onChangeBrand = (brand) => {
     this.setState({
       brand,
@@ -41,8 +45,8 @@ class ShowPage extends React.Component {
 
   render() {
     let wrestlers = this.props.wrestlers
-      .filter((wrestler) => wrestler.brand === this.state.brand && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
-
+      .filter((wrestler) => wrestler.brand === this.state.brand && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false))),
+      numberOfMatches = 6
     return (
       <div className={`page show ${toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
@@ -74,6 +78,12 @@ class ShowPage extends React.Component {
               Toggle Women Wrestlers
             </a>
           </div>
+          <div className="navigation__item">
+            <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
+              onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
+              Randomise Matches
+            </a>
+          </div>
         </div>
         <br />
         <div className="content-area">
@@ -81,24 +91,11 @@ class ShowPage extends React.Component {
             <div className="col-xs-6">
               <Bell onBellRung={this.onBellRung} />
               <br />
-              <h3 className="show__header">
-                Main Event
-              </h3>
-              <Match showWrestlers={false} />
-              <h3 className="show__header">
-                Midcard Matches
-              </h3>
-              <Match showWrestlers={false} />
-              <Match showWrestlers={false} />
-              <h3 className="show__header">
-                Lowercard Matches
-              </h3>
-              <Match showWrestlers={false} />
-              <Match showWrestlers={false} />
-              <h3 className="show__header">
-                Pre-show Match
-              </h3>
-              <Match showWrestlers={false} />
+              {new Array(numberOfMatches).fill("").map((index, key) => {
+                return (
+                  <Match showWrestlers={false} />
+                )
+              })}
             </div>
             <div className="col-xs-6">
               <Brand

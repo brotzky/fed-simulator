@@ -1,4 +1,5 @@
 import React from "react"
+import weighted from "weighted"
 import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
 import Story from "../story/story"
@@ -20,9 +21,15 @@ class Match extends React.Component {
 
   constructor() {
     super()
-    let onStartMatch = this.onStartMatch.bind(this)
+    let onStartMatch = this.onStartMatch.bind(this),
+      onRandomiseMatch = this.onRandomiseMatch.bind(this)
+
     this.bellRung = eventEmitter.addListener("bellRung", () => {
       onStartMatch()
+    })
+
+    this.randomiseMatches = eventEmitter.addListener("randomiseMatch", (brandName) => {
+      onRandomiseMatch(brandName)
     })
   }
 
@@ -32,6 +39,29 @@ class Match extends React.Component {
   }
 
   displayName = "Match"
+
+  getRandomInt(min, max) {
+    return
+  }
+
+  onRandomiseMatch = (brandName) => {
+    let wrestlers = [],
+      filteredWrestlers = this.props.wrestlers.filter((wrestler) => wrestler.brand === brandName),
+      getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
+      getWrestler = () => weighted.select(filteredWrestlers, new Array(filteredWrestlers.length).fill((1 / filteredWrestlers.length))),
+      amountOfWrestlers = getRandomInt(2, 5)
+
+    while (amountOfWrestlers > 0) {
+      wrestlers.push(
+        getWrestler()
+      )
+      amountOfWrestlers--
+    }
+
+    this.setState({
+      wrestlers,
+    })
+  }
 
   onStartMatch = () => {
     if (this.state.wrestlers.length > 1) {
