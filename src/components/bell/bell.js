@@ -25,7 +25,7 @@ export default class Bell extends React.Component {
   render() {
     return (
       <div
-        onClick={this.props.onBellRung}
+        onClick={this.onBellRung}
         className="bell">
         <img
           src={bellImage}
