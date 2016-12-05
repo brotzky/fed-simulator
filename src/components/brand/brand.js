@@ -30,7 +30,10 @@ class Brand extends React.Component {
       return
     }
     this.props.dispatch(
-      wrestlersActions.moveWrestler(brand, wrestler.wrestler)
+      wrestlersActions.moveWrestler(
+        brand,
+        wrestler.wrestler,
+      )
     )
   }
 
@@ -66,7 +69,7 @@ class Brand extends React.Component {
         ]}
         onDrop={this.onDrop.bind(this, this.props)}>
         <If condition={this.props.showBrandLogo}>
-          <div className={`brand__icon fold text-center hidden-sm hidden-xs`}>
+          <div className={`brand__icon text-center hidden-sm hidden-xs`}>
             <span className={`icon icon-${toSlug(this.props.name)}`}></span>
           </div>
         </If>
