@@ -36,9 +36,15 @@ export default class Story extends React.Component {
                   key={key}>
                   <Choose>
                     <When condition={action.action === "move"}>
-                      <p>{action.details.attacker.name}</p>
-                      <p>{action.details.move.name} ({action.details.move.damage})</p>
-                      <p>{action.details.defender.name}</p>
+                      <p className="truncate">
+                        {action.details.attacker.name}
+                      </p>
+                      <p className="truncate">
+                        {action.details.move.name} ({action.details.move.damage})
+                      </p>
+                      <p className="truncate">
+                        {action.details.defender.name}
+                      </p>
                     </When>
                     <When condition={action.action === "winner"}>
                       <span className="clearfix story__winner">
