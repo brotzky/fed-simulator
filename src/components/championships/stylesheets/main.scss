@@ -4,7 +4,7 @@
   &__championship {
     vertical-align: top;
     display: inline-block;
-    height: 6em;
+    height: 7em;
     width: 20%;
 
     &.vacant {
@@ -13,7 +13,7 @@
   }
 
   .championship__holdername {
-    font-size: 0.95em;
+    font-size: 1em;
     font-weight: bold;
 
     span {
