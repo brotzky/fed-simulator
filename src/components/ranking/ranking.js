@@ -42,7 +42,7 @@ export default class Ranking extends React.Component {
             {this.props.wrestlers
               .slice(0, this.props.amountToShow)
               .map((wrestler, key) => {
-              let active = (wrestler.wins > 0)
+              let active = (wrestler.wins > 0 || wrestler.losses > 0)
                 ? "active"
                 : "inactive"
               return (
