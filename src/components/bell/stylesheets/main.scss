@@ -3,8 +3,9 @@
   font-size: 34px;
   &__header {
     margin: 0;
-    letter-spacing: .37em;
-    padding-left: 15px;
+    letter-spacing: .25em;
+    word-spacing: 0.5em;
+    padding-left: 1em;
     display: inline;
   }
 }

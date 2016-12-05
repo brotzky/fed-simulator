@@ -32,7 +32,7 @@ export default class Bell extends React.Component {
           title="Ring the bell!"
         />
         <h3 className="bell__header">
-          Ring the Bell!
+          Ring the Bell
         </h3>
         <Sound
           url={bellSound}
