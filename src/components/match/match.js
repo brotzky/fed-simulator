@@ -110,9 +110,9 @@ class Match extends React.Component {
               "wrestler",
             ]}
             onDrop={this.onDrop}>
-            <div className="otherwise match__names">
+            <div className={`droparea ${(this.state.story.length > 0 ? "inactive" : "active")} match__names`}>
               <If condition={this.state.story.length === 0}>
-                <span className="names__name">
+                <span className="match__name">
                   Drag and drop wrestlers here to create a match
                 </span>
               </If>

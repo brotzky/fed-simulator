@@ -12,6 +12,7 @@
     font-size: 1.5em;
     font-weight: 500;
     text-align: center;
+    margin-bottom: 0.5em;
   }
 
   &__name::after {
@@ -25,10 +26,15 @@
     content: '';
   }
 
-  .otherwise {
+  .droparea {
     margin: 15px;
     padding: 25px;
-    border: 3px dashed lighten(#003250, 5%);
+    &.active {
+      border: 3px dashed lighten(#003250, 5%);
+    }
+    &.inactive {
+      display: none;
+    }
   }
 
 }
