@@ -45,21 +45,13 @@ class Match extends React.Component {
       let story = new SimMatch(
         this.state.wrestlers,
         this.props.moves
-      // set off the simulation
       ).ringBell()
-      // award wins and losses to the wrestlers in the match
-      let winnersAction = story.slice(-1).pop()
-      this.props.dispatch(
-        wrestlersActions.awardMatchPoints(
-          {...winnersAction.details}
-        )
-      )
-      // check to see if a championship needs to be moved
-      this.props.dispatch(
-        championshipActions.checkMove(
-          {...winnersAction.details}
-        )
-      )
+
+      let winnersAction = story.slice(-1).pop().details
+      this.props.dispatch([
+        wrestlersActions.awardMatchPoints({...winnersAction}),
+        championshipActions.checkMove({...winnersAction}),
+      ])
       this.setState({
         story,
       })
