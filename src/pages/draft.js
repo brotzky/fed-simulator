@@ -21,9 +21,9 @@ class DraftPage extends React.Component {
 
   onReset = (event) => {
     event.preventDefault()
-    this.props.dispatch({
-      type: "RESET",
-    })
+    this.props.dispatch(
+      wrestlersActions.reset()
+    )
   }
 
   onSendToDraft = (event) => {
@@ -49,14 +49,14 @@ class DraftPage extends React.Component {
             <a
               onKeyPress={this.onSendToDraft}
               onClick={this.onSendToDraft}>
-              Move All wrestlers to Draft
+              Move all wrestlers to Draft
             </a>
           </div>
           <div className="navigation__item">
             <a
               onKeyPress={this.onReset}
               onClick={this.onReset}>
-              Move All wrestlers to their current brand
+              Move wrestlers to current TV brand
             </a>
           </div>
           <div className="navigation__item">

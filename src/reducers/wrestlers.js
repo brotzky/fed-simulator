@@ -3,6 +3,17 @@ import defaultState from "./wrestlers.default"
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
   switch (action.type) {
+    case "RESET":
+      let wrestlersBrand = []
+
+      Object.keys(defaultState).map(index => {
+        wrestlersBrand[newState[index].id] = defaultState[index].brand
+      })
+
+      newState.forEach((wrestler, key) => {
+        newState[key].brand = wrestlersBrand[wrestler.id]
+      })
+      break
     case "MOVE_WRESTLER":
       newState.forEach((wrestler, key) => {
         if (Number(wrestler.id) === Number(action.wrestlerId)) {

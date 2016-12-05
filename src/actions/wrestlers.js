@@ -11,7 +11,6 @@ export function moveWrestler(
   }
 }
 
-
 export function awardMatchPoints({
   winner,
   loser,
@@ -28,5 +27,11 @@ export function awardMatchPoints({
 export function moveAllWrestlersToDefault() {
   return {
     type: types.MOVE_All_WRESTLERS_TO_DEFAULT
+  }
+}
+
+export function reset() {
+  return {
+    type: types.RESET
   }
 }
