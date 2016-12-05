@@ -34,10 +34,7 @@ class Match extends React.Component {
   displayName = "Match"
 
   onStartMatch = () => {
-    console.log("hit onstartmatch")
     if (this.state.wrestlers.length > 1) {
-      console.log("hitting onstartmatch")
-
       // copy props wrestlers to local var
       let wrestlers = this.state.wrestlers.slice()
       // bind damage to the rating field due to the random weighting system were using
@@ -50,9 +47,6 @@ class Match extends React.Component {
         this.props.moves
       // set off the simulation
       ).ringBell()
-      this.setState({
-        story,
-      })
       // award wins and losses to the wrestlers in the match
       let winnersAction = story.slice(-1).pop()
       this.props.dispatch(
@@ -66,6 +60,9 @@ class Match extends React.Component {
           {...winnersAction.details}
         )
       )
+      this.setState({
+        story,
+      })
     }
   }
 
