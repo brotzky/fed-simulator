@@ -4,6 +4,7 @@ import Match from "../components/match/match"
 import Wrestlers from "../components/wrestlers/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import eventEmitter from "../helpers/event-emitter"
 import "./stylesheets/show"
 
 class ShowPage extends React.Component {
@@ -13,8 +14,8 @@ class ShowPage extends React.Component {
     brands: React.PropTypes.array.isRequired,
   }
 
-  onBellRung () {
-
+  onBellRung = () => {
+    eventEmitter.emit("bellRung")
   }
 
   displayName = "ShowPage"
@@ -32,6 +33,7 @@ class ShowPage extends React.Component {
             />
             <Match
               showWrestlers={false}
+
             />
           </div>
           <div className="col-xs-6">

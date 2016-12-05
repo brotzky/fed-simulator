@@ -14,6 +14,7 @@ export default class Bell extends React.Component {
     this.setState({
       soundPlaying: Sound.status.PLAYING,
     })
+    console.log("Rung")
     this.props.onBellRung()
   }
 

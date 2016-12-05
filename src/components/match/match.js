@@ -1,10 +1,13 @@
 import React from "react"
 import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
+import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { SimMatch } from "./sim-match.helper"
 import { toSlug } from "../../helpers/slugs"
+import eventEmitter from "../../helpers/event-emitter"
+
 import "./stylesheets/main"
 
 class Match extends React.Component {
@@ -15,36 +18,26 @@ class Match extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
+  constructor() {
+    super()
+    let onStartMatch = this.onStartMatch.bind(this)
+    eventEmitter.addListener("bellRung", function(x, y) {
+      onStartMatch()
+    })
+  }
+
   state = {
-    wrestlers: [
-      {
-        "id": "-4795789095",
-        "name": "Alexander Wolfe",
-        "brand": "NXT",
-        "rating": 75,
-        "male": true,
-        "wins": 0,
-        "losses": 0,
-        "championshipId": false
-      },
-      {
-        "id": "7424670891",
-        "name": "Angelo Dawkins",
-        "brand": "NXT",
-        "rating": 75,
-        "male": true,
-        "wins": 0,
-        "losses": 0,
-        "championshipId": false
-      }
-    ],
+    wrestlers: [],
     story: [],
   }
 
   displayName = "Match"
 
   onStartMatch = () => {
+    console.log("hit onstartmatch")
     if (this.state.wrestlers.length > 1) {
+      console.log("hitting onstartmatch")
+
       // copy props wrestlers to local var
       let wrestlers = this.state.wrestlers.slice()
       // bind damage to the rating field due to the random weighting system were using
@@ -57,6 +50,9 @@ class Match extends React.Component {
         this.props.moves
       // set off the simulation
       ).ringBell()
+      this.setState({
+        story,
+      })
       // award wins and losses to the wrestlers in the match
       let winnersAction = story.slice(-1).pop()
       this.props.dispatch(
@@ -81,6 +77,10 @@ class Match extends React.Component {
     this.setState({
       wrestlers,
     })
+  }
+
+  componentWillUnmount() {
+    this.bellRung.remove()
   }
 
   render() {
@@ -114,9 +114,11 @@ class Match extends React.Component {
             ]}
             onDrop={this.onDrop}>
             <div className="otherwise match__names">
-              <span className="names__name">
-                Drag and drop wrestlers here to create a match
-              </span>
+              <If condition={this.state.story.length === 0}>
+                <span className="names__name">
+                  Drag and drop wrestlers here to create a match
+                </span>
+              </If>
             </div>
             </Droppable>
         </div>
