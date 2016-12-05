@@ -31,7 +31,7 @@ export default class Bell extends React.Component {
           src={bellImage}
           title="Ring the bell!"
         />
-        <h3>
+        <h3 className="bell__header">
           Ring the Bell!
         </h3>
         <Sound

@@ -28,15 +28,23 @@ class ShowPage extends React.Component {
           <div className="col-xs-6">
             <Bell onBellRung={this.onBellRung} />
             <br />
-            <h3>Main Event</h3>
+            <h3 className="show__header">
+              Main Event
+            </h3>
             <Match showWrestlers={false} />
-            <h3>Midcard Matches</h3>
+            <h3 className="show__header">
+              Midcard Matches
+            </h3>
             <Match showWrestlers={false} />
             <Match showWrestlers={false} />
-            <h3>Lowercard Matches</h3>
+            <h3 className="show__header">
+              Lowercard Matches
+            </h3>
             <Match showWrestlers={false} />
             <Match showWrestlers={false} />
-            <h3>Pre-show Match</h3>
+            <h3 className="show__header">
+              Pre-show Match
+            </h3>
             <Match showWrestlers={false} />
           </div>
           <div className="col-xs-6">

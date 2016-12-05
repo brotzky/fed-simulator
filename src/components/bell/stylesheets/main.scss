@@ -1,7 +1,8 @@
 .bell {
   cursor: pointer;
   font-size: 34px;
-  h3 {
+  &__header {
+    margin: 0;
     letter-spacing: .37em;
     padding-left: 15px;
     display: inline;
