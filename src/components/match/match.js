@@ -43,7 +43,7 @@ class Match extends React.Component {
 
   displayName = "Match"
 
-  componentWillMount() {
+  onStartMatch = () => {
     if (this.state.wrestlers.length > 1) {
       // copy props wrestlers to local var
       let wrestlers = this.state.wrestlers.slice()
