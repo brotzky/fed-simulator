@@ -36,7 +36,7 @@ class DraftPage extends React.Component {
   onToggleWomenWrestlers = (event) => {
     event.preventDefault()
     this.setState({
-      showFemalesOnly: !this.state.showFemalesOnly
+      showFemalesOnly: !this.state.showFemalesOnly,
     })
   }
 
