@@ -4,7 +4,7 @@
     "name": "Nxt Womens Championship",
     "brand": "NXT",
     "male": false,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -12,7 +12,7 @@
     "name": "Nxt Championship",
     "brand": "NXT",
     "male": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -21,7 +21,7 @@
     "brand": "NXT",
     "male": true,
     "tag": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -29,7 +29,7 @@
     "name": "Raw Womens Championship",
     "brand": "Raw",
     "male": false,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -38,7 +38,7 @@
     "brand": "Raw",
     "male": true,
     "tag": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -46,7 +46,7 @@
     "name": "United States Championship",
     "brand": "Raw",
     "male": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -54,7 +54,7 @@
     "name": "Wwe Cruiserweight Championship",
     "brand": "Raw",
     "male": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -62,7 +62,7 @@
     "name": "Wwe Universal Championship",
     "brand": "Raw",
     "male": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -70,7 +70,7 @@
     "name": "Smackdown Womens Championship",
     "brand": "Smackdown Live",
     "male": false,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -78,7 +78,7 @@
     "name": "Intercontinental Championship",
     "brand": "Smackdown Live",
     "male": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -87,7 +87,7 @@
     "brand": "Smackdown Live",
     "tag": true,
     "male": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   },
   {
@@ -95,7 +95,7 @@
     "name": "Wwe World Championship",
     "brand": "Smackdown Live",
     "male": true,
-    "wrestlerId": null,
+    "wrestlerId": "",
     "wrestlerIds": []
   }
 ]
