@@ -98,9 +98,13 @@ class ShowPage extends React.Component {
         </div>
         <div className="inpage-content">
           <div className="row">
-            <div className="col-xs-6">
+            <div className="col-xs-12">
               <Bell onBellRung={this.onBellRung} />
-              <br />
+            </div>
+          </div>
+          <br />
+          <div className="row">
+            <div className="col-xs-6">
               {new Array(numberOfMatches).fill("").map((index, key) => {
                 return (
                   <Match showWrestlers={false} />
