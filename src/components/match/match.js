@@ -8,8 +8,12 @@ import * as wrestlersActions from "../../actions/wrestlers"
 import { SimMatch } from "./sim-match.helper"
 import { toSlug } from "../../helpers/slugs"
 import eventEmitter from "../../helpers/event-emitter"
-
 import "./stylesheets/main"
+
+const defaultState = {
+  wrestlers: [],
+  story: [],
+}
 
 class Match extends React.Component {
 
@@ -22,26 +26,34 @@ class Match extends React.Component {
   constructor() {
     super()
     let onStartMatch = this.onStartMatch.bind(this),
-      onRandomiseMatch = this.onRandomiseMatch.bind(this)
+      onRandomiseMatch = this.onRandomiseMatch.bind(this),
+      onClearMatch = this.onClearMatch.bind(this)
 
     this.bellRung = eventEmitter.addListener("bellRung", () => {
       onStartMatch()
     })
 
-    this.randomiseMatches = eventEmitter.addListener("randomiseMatch", (brandName) => {
+    this.randomiseMatch = eventEmitter.addListener("randomiseMatch", (brandName) => {
       onRandomiseMatch(brandName)
+    })
+
+    this.clearMatch = eventEmitter.addListener("clearMatch", (brandName) => {
+      onClearMatch()
     })
   }
 
-  state = {
-    wrestlers: [],
-    story: [],
-  }
+  state = defaultState
 
   displayName = "Match"
 
   getRandomInt(min, max) {
     return
+  }
+
+  onClearMatch = () => {
+    this.setState({
+      ...defaultState
+    })
   }
 
   onRandomiseMatch = (brandName) => {

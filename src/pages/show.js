@@ -28,6 +28,10 @@ class ShowPage extends React.Component {
     eventEmitter.emit("randomiseMatch", brandName)
   }
 
+  onClearMatches = () => {
+    eventEmitter.emit("clearMatch")
+  }
+
   onChangeBrand = (brand) => {
     this.setState({
       brand,
@@ -82,6 +86,12 @@ class ShowPage extends React.Component {
             <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
               onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
               Randomise Matches
+            </a>
+          </div>
+          <div className="navigation__item">
+            <a onKeyPress={this.onClearMatches}
+              onClick={this.onClearMatches}>
+              Clear show
             </a>
           </div>
         </div>
