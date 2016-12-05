@@ -21,7 +21,7 @@ class Match extends React.Component {
   constructor() {
     super()
     let onStartMatch = this.onStartMatch.bind(this)
-    this.bellRung = eventEmitter.addListener("bellRung", function(x, y) {
+    this.bellRung = eventEmitter.addListener("bellRung", () => {
       onStartMatch()
     })
   }
