@@ -38,9 +38,10 @@ class ShowPage extends React.Component {
         <div className="navigation navigation--secondary">
           {this.props.brands
             .filter((brand) => brand.name !== "default")
-            .map((brand) => {
+            .map((brand, key) => {
               return (
-                <div className="navigation__item">
+                <div key={key}
+                  className="navigation__item">
                   <a onKeyPress={this.onChangeBrand.bind(this, brand.name)}
                     onClick={this.onChangeBrand.bind(this, brand.name)}>
                     Select {brand.name}
