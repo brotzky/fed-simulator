@@ -38,8 +38,8 @@ export default class Page extends React.Component {
             </div>
             <div className="navigation__item">
               <Link
-                to="match">
-                Match
+                to="show">
+                Show
               </Link>
             </div>
           </div>

@@ -1,31 +1,34 @@
 .match {
+  margin-bottom: 1.5em;
+  clear: both;
+
   &__inner {
-    padding: 15px 0 0 0;
     background-color: #003250;
+    padding: 15px;
   }
+
   &__names {
     color: white;
     font-size: 1.5em;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 15px;
+  }
 
-    &__name::after {
-      content: " vs ";
-      background-color: #3ebdf2;
-      color: black;
-      margin: 0 1em;
-    }
+  &__name::after {
+    content: " vs ";
+    background-color: #3ebdf2;
+    color: black;
+    margin: 0 1em;
+  }
 
-    &__name:last-child::after {
-      content: '';
-    }
+  &__name:last-child::after {
+    content: '';
   }
 
   .otherwise {
-    line-height: 120px;
-    height: 120px;
-    vertical-align: middle;
+    margin: 15px;
+    padding: 25px;
+    border: 3px dashed lighten(#003250, 5%);
   }
 
 }

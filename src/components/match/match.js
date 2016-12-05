@@ -1,17 +1,11 @@
 import React from "react"
+import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
-import Sound from "react-sound"
-import SelectionScreen from "../selection-screen/selection-screen"
-import Story from "../story/story"
-import Wrestlers from "../wrestlers/wrestlers"
 import * as championshipActions from "../../actions/championship"
-import * as matchActions from "../../actions/match"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { SimMatch } from "./sim-match.helper"
 import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
-import bellImage from "./bell.png"
-import bellSound from "./bell.mp3"
 
 class Match extends React.Component {
 
@@ -19,117 +13,113 @@ class Match extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     moves: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
-    match: React.PropTypes.object.isRequired,
   }
 
   state = {
-    soundPlaying: Sound.status.STOPPED,
+    wrestlers: [
+      {
+        "id": "-4795789095",
+        "name": "Alexander Wolfe",
+        "brand": "NXT",
+        "rating": 75,
+        "male": true,
+        "wins": 0,
+        "losses": 0,
+        "championshipId": false
+      },
+      {
+        "id": "7424670891",
+        "name": "Angelo Dawkins",
+        "brand": "NXT",
+        "rating": 75,
+        "male": true,
+        "wins": 0,
+        "losses": 0,
+        "championshipId": false
+      }
+    ],
+    story: [],
   }
 
   displayName = "Match"
 
-  onStartMatch = () => {
-    // play the ring bell sound
+  componentWillMount() {
+    if (this.state.wrestlers.length > 1) {
+      // copy props wrestlers to local var
+      let wrestlers = this.state.wrestlers.slice()
+      // bind damage to the rating field due to the random weighting system were using
+      wrestlers.forEach((wrestler, key) => {
+        wrestlers[key].damage = wrestler.rating
+      })
+      // create the match
+      let story = new SimMatch(
+        this.state.wrestlers,
+        this.props.moves
+      // set off the simulation
+      ).ringBell()
+      // award wins and losses to the wrestlers in the match
+      let winnersAction = story.slice(-1).pop()
+      this.props.dispatch(
+        wrestlersActions.awardMatchPoints(
+          {...winnersAction.details}
+        )
+      )
+      // check to see if a championship needs to be moved
+      this.props.dispatch(
+        championshipActions.checkMove(
+          {...winnersAction.details}
+        )
+      )
+    }
+  }
+
+  onDrop = (id) => {
+    let wrestlers = this.state.wrestlers.slice(),
+      wrestlerId = id.wrestler,
+      wrestler = this.props.wrestlers.filter((wrestler) => wrestler.id === wrestlerId)[0]
+    wrestlers.push(wrestler)
     this.setState({
-      soundPlaying: Sound.status.PLAYING,
+      wrestlers,
     })
-    // copy props wrestlers to local var
-    let wrestlers = this.props.match.wrestlers.slice()
-    // bind damage to the rating field due to the random weighting system were using
-    wrestlers.forEach((wrestler, key) => {
-      wrestlers[key].damage = wrestler.rating
-    })
-    // create the match
-    let story = new SimMatch(
-      this.props.match.wrestlers,
-      this.props.moves
-    // set off the simulation
-    ).ringBell()
-    // update the match object with the story from the match
-    this.props.dispatch(
-      matchActions.simulate(
-        story,
-      )
-    )
-    // award wins and losses to the wrestlers in the match
-    let winnersAction = story.slice(-1).pop()
-    this.props.dispatch(
-      wrestlersActions.awardMatchPoints(
-        {...winnersAction.details}
-      )
-    )
-    // check to see if a championship needs to be moved
-    this.props.dispatch(
-      championshipActions.checkMove(
-        {...winnersAction.details}
-      )
-    )
   }
-
-  onWrestlerClick = () => {
-    this.props.dispatch(
-      matchActions.clearStory()
-    )
-  }
-
 
   render() {
     let
-      isValidMatch = this.props.match.wrestlers.length > 1,
+      isValidMatch = this.state.wrestlers.length > 0,
       buttonBrand = isValidMatch
-        ? toSlug(this.props.match.wrestlers[0].brand)
+        ? toSlug(this.state.wrestlers[0].brand)
         : "default"
     return (
-      <div className="match">
+      <div className="match clearfix">
         <div className={`col-xs-12 match__inner ${(isValidMatch ? "active" : "inactive")}`}>
-          <div className="match__bell">
-            <img
-              src={bellImage}
-              className={(isValidMatch ? "active" : "hide")}
-              onClick={isValidMatch ? this.onStartMatch : () => {}}
-            />
-            <Sound
-              url={bellSound}
-              playStatus={this.state.soundPlaying}
-              playFromPosition={0}
-              volume={100}
-              onFinishedPlaying={() => {
-                this.setState({
-                  soundPlaying: Sound.status.STOPPED,
-                  position: 0,
-                })
-              }
-            }
-            />
-          </div>
           <Choose>
             <When condition={isValidMatch}>
               <div className="match__names">
-                {this.props.match.wrestlers.map((wrestler, key) => {
+                {this.state.wrestlers.map((wrestler, key) => {
                   return (
-                    <span key={key} className="match__names__name">
+                    <span key={key} className="match__name">
                       {wrestler.name}
                     </span>
                   )
                 })}
               </div>
-              <If condition={this.props.match.story.length > 0}>
-                <Story collection={this.props.match.story} />
+              <If condition={this.state.story.length > 0}>
+                <Story collection={this.state.story} />
               </If>
             </When>
-            <Otherwise>
-              <div className="otherwise match__names">
-                <span className="names__name">
-                  Click on wrestlers below to put them in into the match!
-                </span>
-              </div>
-            </Otherwise>
           </Choose>
+          <Droppable
+            types={[
+              "wrestler",
+            ]}
+            onDrop={this.onDrop}>
+            <div className="otherwise match__names">
+              <span className="names__name">
+                Drag and drop wrestlers here to create a match
+              </span>
+            </div>
+            </Droppable>
         </div>
-        <SelectionScreen
-          onWrestlerClick={this.onWrestlerClick.bind(this)}
-          showBrandLogo={false}
-        />
       </div>
     )
   }
@@ -138,5 +128,4 @@ class Match extends React.Component {
 export default connect(state => ({
   moves: state.moves,
   wrestlers: state.wrestlers,
-  match: state.match,
 }))(Match)

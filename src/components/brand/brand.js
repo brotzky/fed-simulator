@@ -83,7 +83,6 @@ class Brand extends React.Component {
               title="Male Wrestlers"
               canDragAndDrop={this.props.canDragAndDrop}
               wrestlers={malewrestlers}
-              selected={this.props.match.wrestlersIds}
               onWrestlerClick={this.props.onWrestlerClick}
             />
           </If>
@@ -92,7 +91,6 @@ class Brand extends React.Component {
               title="Female Wrestlers"
               canDragAndDrop={this.props.canDragAndDrop}
               wrestlers={femalewrestlers}
-              selected={this.props.match.wrestlersIds}
               onWrestlerClick={this.props.onWrestlerClick}
             />
           </If>
