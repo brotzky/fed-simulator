@@ -96,8 +96,7 @@ class ShowPage extends React.Component {
             </a>
           </div>
         </div>
-        <br />
-        <div className="content-area">
+        <div className="inpage-content">
           <div className="row">
             <div className="col-xs-6">
               <Bell onBellRung={this.onBellRung} />

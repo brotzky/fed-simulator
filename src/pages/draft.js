@@ -67,26 +67,28 @@ class DraftPage extends React.Component {
             </a>
           </div>
         </div>
-        <div className="draft no-select">
-          <div className="row">
-            {this.props.brands.map((brand, key) => {
-              let wrestlers = this.props.wrestlers
-                .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
-                .sort((a, b) => a.rating < b.rating)
-              return (
-                <div
-                  key={brand.id}
-                  className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                  <Brand
-                    id={brand.id}
-                    name={brand.name}
-                    canDragAndDrop={true}
-                    wrestlers={wrestlers}
-                    showBrandLogo={true}
-                  />
-                </div>
-              )
-            })}
+        <div className="inpage-content">
+          <div className="draft no-select">
+            <div className="row">
+              {this.props.brands.map((brand, key) => {
+                let wrestlers = this.props.wrestlers
+                  .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
+                  .sort((a, b) => a.rating < b.rating)
+                return (
+                  <div
+                    key={brand.id}
+                    className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                    <Brand
+                      id={brand.id}
+                      name={brand.name}
+                      canDragAndDrop={true}
+                      wrestlers={wrestlers}
+                      showBrandLogo={true}
+                    />
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
       </div>
