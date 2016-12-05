@@ -14,7 +14,6 @@ export default class Bell extends React.Component {
     this.setState({
       soundPlaying: Sound.status.PLAYING,
     })
-    console.log("Rung")
     this.props.onBellRung()
   }
 
@@ -25,10 +24,12 @@ export default class Bell extends React.Component {
 
   render() {
     return (
-      <div className="bell">
+      <div
+        onClick={this.props.onBellRung}
+        className="bell">
         <img
           src={bellImage}
-          onClick={this.props.onBellRung}
+          title="Ring the bell!"
         />
         <h3>
           Ring the Bell!
