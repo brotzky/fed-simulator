@@ -107,7 +107,10 @@ class ShowPage extends React.Component {
             <div className="col-xs-6">
               {new Array(numberOfMatches).fill("").map((index, key) => {
                 return (
-                  <Match showWrestlers={false} />
+                  <Match
+                    key={key}
+                    showWrestlers={false}
+                  />
                 )
               })}
             </div>
