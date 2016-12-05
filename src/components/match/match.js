@@ -29,17 +29,22 @@ class Match extends React.Component {
       onRandomiseMatch = this.onRandomiseMatch.bind(this),
       onClearMatch = this.onClearMatch.bind(this)
 
-    this.bellRung = eventEmitter.addListener("bellRung", () => {
-      onStartMatch()
-    })
-
-    this.randomiseMatch = eventEmitter.addListener("randomiseMatch", (brandName) => {
-      onRandomiseMatch(brandName)
-    })
-
-    this.clearMatch = eventEmitter.addListener("clearMatch", (brandName) => {
-      onClearMatch()
-    })
+    this.eventList = []
+    this.eventList.push(
+      eventEmitter.addListener("bellRung", () => {
+        onStartMatch()
+      })
+    )
+    this.eventList.push(
+      eventEmitter.addListener("randomiseMatch", (brandName) => {
+        onRandomiseMatch(brandName)
+      })
+    )
+    this.eventList.push(
+      eventEmitter.addListener("clearMatch", (brandName) => {
+        onClearMatch()
+      })
+    )
   }
 
   state = defaultState
@@ -111,15 +116,13 @@ class Match extends React.Component {
   }
 
   componentWillUnmount() {
-    this.bellRung.remove()
+    this.eventList.forEach((eventItem) => {
+      eventItem.remove()
+    })
   }
 
   render() {
-    let
-      isValidMatch = this.state.wrestlers.length > 0,
-      buttonBrand = isValidMatch
-        ? toSlug(this.state.wrestlers[0].brand)
-        : "default"
+    let isValidMatch = this.state.wrestlers.length > 0
     return (
       <div className="match clearfix">
         <div className={`col-xs-12 match__inner ${(isValidMatch ? "active" : "inactive")}`}>
@@ -151,7 +154,7 @@ class Match extends React.Component {
                 </span>
               </If>
             </div>
-            </Droppable>
+          </Droppable>
         </div>
       </div>
     )
