@@ -48,6 +48,7 @@ class RankingPage extends React.Component {
                 <Ranking
                   title={`${brand.name} Overall Ranking`}
                   amountToShow={5}
+                  showLabels={false}
                   wrestlers={this.props.wrestlers
                     .filter((wrestler) => wrestler.brand === brand.name)
                     .sort((a, b) => a.wins > b.wins)

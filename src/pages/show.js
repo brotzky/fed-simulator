@@ -33,6 +33,7 @@ class ShowPage extends React.Component {
   }
 
   onChangeBrand = (brand) => {
+    eventEmitter.emit("clearMatch")
     this.setState({
       brand,
     })
@@ -70,12 +71,6 @@ class ShowPage extends React.Component {
             })
           }
           <div className="navigation__item">
-            <a onKeyPress={this.onBellRung}
-              onClick={this.onBellRung}>
-              Simulate matches
-            </a>
-          </div>
-          <div className="navigation__item">
             <a onKeyPress={this.onToggleWomenWrestlers}
               onClick={this.onToggleWomenWrestlers}
               href="#">
@@ -86,6 +81,12 @@ class ShowPage extends React.Component {
             <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
               onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
               Randomise Matches
+            </a>
+          </div>
+          <div className="navigation__item">
+            <a onKeyPress={this.onBellRung}
+              onClick={this.onBellRung}>
+              Simulate matches
             </a>
           </div>
           <div className="navigation__item">

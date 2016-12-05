@@ -1,0 +1,47 @@
+.label {
+  display: inline-block;
+  padding: 5px 6px 3px;
+  margin: 0 5px 5px 0;
+  font-size: 14px;
+  line-height: 0.8em;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &.label-green {
+    background-color: green;
+  }
+  &.label-purple {
+    background-color: purple;
+  }
+  &.label-orange {
+    background-color: orange;
+  }
+  &.label-red {
+    background-color: red;
+  }
+  &.label-blue {
+    background-color: blue;
+  }
+  &.label-yellow {
+    background-color: yellow;
+    color: black;
+  }
+  &.label-white {
+    background-color: white;
+    color: black;
+  }
+  &.label-black {
+    background-color: black;
+    color: white;
+  }
+  &.label-raw {
+    background-color: $raw;
+  }
+  &.label-smackdown-live {
+    background-color: $smackdown;
+  }
+  &.label-nxt {
+    background-color: $nxt;
+    color: black;
+  }
+}
