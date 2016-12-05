@@ -62,7 +62,7 @@ export class SimMatch {
     this.logAction("winner", {
       winner,
       loser,
-      losers
+      losers,
     })
   }
 }
