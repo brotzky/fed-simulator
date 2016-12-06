@@ -14,13 +14,26 @@ const defaultState = {
   wrestlers: [],
   story: [],
 }
+const settings = {
+  maleBools: [true, false],
+  maleBoolsWeights: [0.8, 0.2],
+  amountOfWrestlers: [2, 3, 4, 5, 6],
+  amountOfWrestlersWeights: [0.5, 0.2, 0.2, 0.05, 0.05]
+}
+const getWeightedArrayOfLength = (length) => new Array(length).fill((1 / length))
+const getWrestler = (wrestlers) => weighted.select(wrestlers, getWeightedArrayOfLength(wrestlers.length))
 
 class Match extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     moves: React.PropTypes.array.isRequired,
+    byPassBrandFilter: React.PropTypes.bool,
     wrestlers: React.PropTypes.array.isRequired,
+  }
+
+  static defaultProps = {
+    byPassBrandFilter: false,
   }
 
   constructor() {
@@ -55,20 +68,13 @@ class Match extends React.Component {
 
   onRandomiseMatch = (brandName) => {
     let wrestlers = [],
-      settings = {
-        bools: [true, false],
-        boolsWeights: [0.8, 0.2],
-        amountOfWrestlers: [2, 3, 4, 5, 6],
-        amountOfWrestlersWeights: [0.5, 0.2, 0.2, 0.05, 0.5]
-      },
-      randomBool = weighted.select(settings.bools, settings.boolsWeights),
-      filteredWrestlers = this.props.wrestlers.filter((wrestler) => wrestler.brand === brandName && wrestler.male === randomBool),
-      getWeightedArrayOfLength = (length) => new Array(length).fill((1 / length)),
-      getWrestler = (wrestlers) => weighted.select(wrestlers, getWeightedArrayOfLength(wrestlers.length)),
+      randomBool = weighted.select(settings.maleBools, settings.maleBoolsWeights),
+      filteredWrestlers = this.props.wrestlers.filter((wrestler) => (!this.props.byPassBrandFilter && brandName === "Default" || wrestler.brand === brandName) && wrestler.male === randomBool),
       amountOfWrestlers = weighted.select(settings.amountOfWrestlers, settings.amountOfWrestlersWeights)
 
     while (amountOfWrestlers > 0) {
       let chosenWrestler = getWrestler(filteredWrestlers)
+      // update filteredWrestlers to lose this wrestler so they dont vs themself
       filteredWrestlers = filteredWrestlers.filter((wrestler) => wrestler.id !== chosenWrestler.id)
       wrestlers.push(
         chosenWrestler
