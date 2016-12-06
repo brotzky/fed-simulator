@@ -55,7 +55,8 @@ class Match extends React.Component {
 
   onRandomiseMatch = (brandName) => {
     let wrestlers = [],
-      filteredWrestlers = this.props.wrestlers.filter((wrestler) => wrestler.brand === brandName),
+      randomBool = Math.random() >= 0.5,
+      filteredWrestlers = this.props.wrestlers.filter((wrestler) => wrestler.brand === brandName && wrestler.male === randomBool),
       getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
       getWrestler = () => weighted.select(filteredWrestlers, new Array(filteredWrestlers.length).fill((1 / filteredWrestlers.length))),
       amountOfWrestlers = getRandomInt(2, 5)
@@ -73,7 +74,6 @@ class Match extends React.Component {
   }
 
   onStartMatch = () => {
-    console.log(this.state.wrestlers)
     if (this.state.wrestlers.length > 1) {
       // copy props wrestlers to local var
       let wrestlers = this.state.wrestlers.slice()
