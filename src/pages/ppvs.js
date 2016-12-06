@@ -2,6 +2,7 @@ import React from "react"
 import PPVs from "../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import "./stylesheets/ppvs"
 
 class PPVsPage extends React.Component {
 

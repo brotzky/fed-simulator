@@ -120,7 +120,7 @@ class ShowPage extends React.Component {
           <h2>
             {this.state.PPV} presented by {this.state.brand}
           </h2>
-          <div className="current-ppv ppvs_item hidden-sm hidden-xs">
+          <div className="current-ppv ppvs__item hidden-sm hidden-xs">
             <Icon name={this.state.PPV} />
           </div>
           <div className="row">
