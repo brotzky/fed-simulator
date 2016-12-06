@@ -17,10 +17,11 @@ export default class Icon extends React.Component {
 
   render() {
     const slugName = toSlug(this.props.name)
+    const active = this.props.active ? "active" : "inactive"
     return (
       <span
         onClick={this.props.onClick}
-        className={`icon icon-${slugName} ${(this.props.active ? "active" : "inactive")}`}
+        className={`icon icon-${slugName} zoom ${active}`}
         alt={name}
         title={name}>
       </span>
