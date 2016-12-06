@@ -42,6 +42,12 @@ export default class Page extends React.Component {
                 Show
               </Link>
             </div>
+            <div className="navigation__item">
+              <Link
+                to="ppvs">
+                PPVs
+              </Link>
+            </div>
           </div>
         </header>
         <section className="container-fluid">

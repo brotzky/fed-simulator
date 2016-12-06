@@ -13,7 +13,10 @@
 }
 
 .introduction {
-  color: white;
+  &,
+  a {
+    color: white;
+  }
 
   &__container {
     padding: 50px;
@@ -37,11 +40,13 @@
 }
 
 .introduction__container--secondary {
-  background-color: $secondary;
   text-shadow: 0 1px 0 black;
   .introduction__box {
     background-size: cover;
     background-repeat: no-repeat;
+  }
+  &.introduction__container {
+    padding: 0 1em;
   }
   .ranking {
     background-image: linear-gradient(

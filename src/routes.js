@@ -32,6 +32,15 @@ export default () => {
              }}
            />
          </Route>
+         <Route path="ppvs">
+           <IndexRoute
+             getComponent={(nextState, callback) => {
+               require.ensure([], (require) => {
+                 callback(null, require("./pages/ppvs").default)
+               })
+             }}
+           />
+         </Route>
          <Route path="ranking">
            <IndexRoute
              getComponent={(nextState, callback) => {
