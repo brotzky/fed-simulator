@@ -109,14 +109,14 @@ class ShowPage extends React.Component {
           <h2>
             {this.state.PPV} presented by {this.state.brand}
           </h2>
-          <div className="current-ppv ppvs_item">
+          <div className="current-ppv ppvs_item hidden-sm hidden-xs">
             <Icon name={this.state.PPV} />
           </div>
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <Bell onBellRung={this.onBellRung} />
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div className="dropdown">
                 <span>
                   <h3 className="dropdown__title">
