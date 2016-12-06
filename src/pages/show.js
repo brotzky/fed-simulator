@@ -74,7 +74,7 @@ class ShowPage extends React.Component {
             <a onKeyPress={this.onToggleWomenWrestlers}
               onClick={this.onToggleWomenWrestlers}
               href="#">
-              Toggle Women Wrestlers
+              &#x2640; Toggle Women Wrestlers
             </a>
           </div>
           <div className="navigation__item">
@@ -86,7 +86,7 @@ class ShowPage extends React.Component {
           <div className="navigation__item">
             <a onKeyPress={this.onBellRung}
               onClick={this.onBellRung}>
-              Simulate matches
+              &#x21bb; Simulate matches
             </a>
           </div>
           <div className="navigation__item">

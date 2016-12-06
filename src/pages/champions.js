@@ -51,7 +51,7 @@ class ChampionsPage extends React.Component {
             <a onKeyPress={this.onToggleWomenWrestlers}
               onClick={this.onToggleWomenWrestlers}
               href="#">
-              Toggle Women Wrestlers
+              &#x2640; Toggle Women Wrestlers
             </a>
           </div>
         </div>
