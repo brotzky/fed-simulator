@@ -129,7 +129,7 @@ class Match extends React.Component {
   render() {
     let isValidMatch = this.state.wrestlers.length > 0
     return (
-      <div className="match clearfix">
+      <div className="match row">
         <div className={`col-xs-12 match__inner ${(isValidMatch ? "active" : "inactive")}`}>
           <Choose>
             <When condition={isValidMatch}>
