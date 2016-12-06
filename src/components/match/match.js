@@ -33,17 +33,13 @@ class Match extends React.Component {
     this.eventList.push(
       eventEmitter.addListener("bellRung", () => {
         onStartMatch()
-      })
-    )
-    this.eventList.push(
+      }),
       eventEmitter.addListener("randomiseMatch", (brandName) => {
         onRandomiseMatch(brandName)
-      })
-    )
-    this.eventList.push(
+      }),
       eventEmitter.addListener("clearMatch", (brandName) => {
         onClearMatch()
-      })
+      }),
     )
   }
 
