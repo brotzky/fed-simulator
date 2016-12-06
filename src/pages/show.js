@@ -58,28 +58,30 @@ class ShowPage extends React.Component {
   displayName = "ShowPage"
 
   render() {
-    let wrestlers = this.props.wrestlers
-      .filter((wrestler) => wrestler.brand === this.state.brand && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false))),
-      numberOfMatches = 6
+    const filterByBrand = (wrestler, brandName) => wrestler.brand === brandName
+    const filterByFemales = (wrestler, showFemalesOnly) => !showFemalesOnly || (showFemalesOnly && wrestler.male === false)
+    let numberOfMatches = 6,
+      wrestlers = this.props.wrestlers
+        .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
+        if (this.state.brand !== "Default") {
+          wrestlers = wrestlers.filter(wrestler => filterByBrand(wrestler, this.state.brand))
+        }
     return (
       <div className={`page show ${toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
         <div className="navigation navigation--secondary">
-          {this.props.brands
-            .filter((brand) => brand.name !== "default")
-            .map((brand, key) => {
-              return (
-                <div key={key}
-                  className="navigation__item">
-                  <a onKeyPress={this.onChangeBrand.bind(this, brand.name)}
-                    onClick={this.onChangeBrand.bind(this, brand.name)}>
-                    {brand.name} Event
-                  </a>
-                </div>
-              )
-            })
-          }
-          <div className="navigation__item">
+          {this.props.brands.map((brand, key) => {
+            return (
+              <div key={key}
+                className="navigation__item">
+                <a onKeyPress={this.onChangeBrand.bind(this, brand.name)}
+                  onClick={this.onChangeBrand.bind(this, brand.name)}>
+                  {(brand.name !== "Default") ? <Icon name={brand.name} /> : "All Brands"}
+                </a>
+              </div>
+            )
+          })}
+          <div className="navigation__item padding-left">
             <a onKeyPress={this.onToggleWomenWrestlers}
               onClick={this.onToggleWomenWrestlers}
               href="#">
