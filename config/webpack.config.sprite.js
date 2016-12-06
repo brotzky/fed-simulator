@@ -3,6 +3,14 @@ const Sprite = require("sprite-webpack-plugin")
 module.exports = {
   plugins: [
     new Sprite({
+      source : "scripts/generate/import/ppvs/",
+      imgPath: "src/imgs/",
+      cssPath: "src/stylesheets/",
+      processor: "scss",
+      spriteName: "ppvs",
+      orientation: "horizontal",
+    }),
+    new Sprite({
       source : "scripts/generate/import/wrestlers/",
       imgPath: "src/imgs/",
       cssPath: "src/stylesheets/",
