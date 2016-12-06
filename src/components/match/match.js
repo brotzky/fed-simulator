@@ -47,10 +47,6 @@ class Match extends React.Component {
 
   displayName = "Match"
 
-  getRandomInt(min, max) {
-    return
-  }
-
   onClearMatch = () => {
     this.setState({
       ...defaultState
