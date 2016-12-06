@@ -139,10 +139,9 @@ class Match extends React.Component {
                     <span key={key}
                       className="match__name">
                       <span>{wrestler.name}</span>
-                      <span> </span>
                       <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
                         className="remove">
-                        (remove)
+                        &nbsp; (remove)
                       </span>
                     </span>
                   )
