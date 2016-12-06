@@ -81,6 +81,7 @@ class Match extends React.Component {
   }
 
   onStartMatch = () => {
+    console.log(this.state.wrestlers)
     if (this.state.wrestlers.length > 1) {
       // copy props wrestlers to local var
       let wrestlers = this.state.wrestlers.slice()
@@ -99,6 +100,7 @@ class Match extends React.Component {
         wrestlersActions.awardMatchPoints({...winnersAction}),
         championshipActions.checkMove({...winnersAction}),
       ])
+
       this.setState({
         story,
       })
@@ -110,6 +112,17 @@ class Match extends React.Component {
       wrestlerId = id.wrestler,
       wrestler = this.props.wrestlers.filter((wrestler) => wrestler.id === wrestlerId)[0]
     wrestlers.push(wrestler)
+
+    this.setState({
+      wrestlers,
+    })
+  }
+
+  onRemoveWrestler = (wrestlerToRemove) => {
+    let wrestlerId = wrestlerToRemove.id,
+      wrestlers = this.state.wrestlers
+        .filter((wrestler) => wrestler.id !== wrestlerId)
+
     this.setState({
       wrestlers,
     })
@@ -131,8 +144,14 @@ class Match extends React.Component {
               <div className="match__names">
                 {this.state.wrestlers.map((wrestler, key) => {
                   return (
-                    <span key={key} className="match__name">
-                      {wrestler.name}
+                    <span key={key}
+                      className="match__name">
+                      <span>{wrestler.name}</span>
+                      <span> </span>
+                      <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
+                        className="remove">
+                        (remove)
+                      </span>
                     </span>
                   )
                 })}
@@ -148,11 +167,9 @@ class Match extends React.Component {
             ]}
             onDrop={this.onDrop}>
             <div className={`droparea ${(this.state.story.length > 0 ? "inactive" : "active")} match__names`}>
-              <If condition={this.state.story.length === 0}>
-                <span className="match__name">
-                  Drag and drop wrestlers here to create a match
-                </span>
-              </If>
+              <span className="match__name">
+                Drag and drop wrestlers here to create a match
+              </span>
             </div>
           </Droppable>
         </div>
