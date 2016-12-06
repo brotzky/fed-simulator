@@ -5,6 +5,7 @@
 @import "labels";
 @import "breakpoints";
 @import "navigation";
+@import "clearfix";
 
 body {
   margin: 0;
@@ -33,10 +34,6 @@ h2 {
 
 h4 {
   font-size: 1em;
-}
-
-.clearfix {
-  clear: both;
 }
 
 a:hover {
