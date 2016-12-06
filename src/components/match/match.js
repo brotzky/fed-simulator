@@ -55,7 +55,7 @@ class Match extends React.Component {
 
   onRandomiseMatch = (brandName) => {
     let wrestlers = [],
-      randomBool = Math.random() >= 0.5,
+      randomBool = weighted.select([true, false], [0.8, 0.2]),
       filteredWrestlers = this.props.wrestlers.filter((wrestler) => wrestler.brand === brandName && wrestler.male === randomBool),
       getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
       getWrestler = () => weighted.select(filteredWrestlers, new Array(filteredWrestlers.length).fill((1 / filteredWrestlers.length))),
