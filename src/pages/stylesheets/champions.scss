@@ -1,5 +1,14 @@
+@import "../../stylesheets/breakpoints";
 .page.champions {
   .wrestler {
-    width: 20%;
+    @include breakpoint(md) {
+      width: 20%;
+    }
+    @include breakpoint(sm) {
+      width: 33%;
+    }
+    @include breakpoint(xs) {
+      width: 33%;
+    }
   }
 }
