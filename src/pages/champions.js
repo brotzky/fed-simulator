@@ -36,6 +36,7 @@ class ChampionsPage extends React.Component {
   }
 
   render() {
+    let awardedChampionships = this.props.championships.filter(championship => championship.wrestlerId !== "" || championship.wrestlerIds.length > 0).length
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
@@ -56,8 +57,13 @@ class ChampionsPage extends React.Component {
           </div>
         </div>
         <div className="inpage-content">
+          <If condition={awardedChampionships < 3}>
+            <div className="alert alert-info" role="alert">
+              Drag and drop wrestlers onto a championship to award it to them!
+            </div>
+          </If>
           <div className="row">
-            {this.props.brands.filter((brand) => brand.name.toLowerCase() !== "default").map((brand, key) => {
+            {this.props.brands.filter((brand) => brand.name !== "Default").map((brand, key) => {
               let wrestlers = this.props.wrestlers
                 .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
                 .sort((a, b) => a.rating < b.rating),
