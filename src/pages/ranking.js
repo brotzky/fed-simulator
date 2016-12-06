@@ -45,7 +45,7 @@ class RankingPage extends React.Component {
           <div className="row ranking__split">
             {this.props.brands.filter((brand) => brand.name !== "default").map((brand, key)=> {
               return (
-                <div key={key} className="col-lg-4 col-xs-16">
+                <div key={key} className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <Ranking
                     title={`${brand.name} Overall Ranking`}
                     amountToShow={5}
