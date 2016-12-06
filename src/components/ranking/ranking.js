@@ -1,5 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
+import "./stylesheets/main"
 
 export default class Ranking extends React.Component {
 
