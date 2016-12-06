@@ -5,7 +5,6 @@ import Search from "../search/search"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { connect } from "react-redux"
 import _filter from "lodash/filter"
-import { toSlug } from "../../helpers/slugs"
 import Wrestlers from "../wrestlers/wrestlers"
 import "./stylesheets/main"
 
@@ -18,6 +17,10 @@ class Brand extends React.Component {
     onWrestlerClick: React.PropTypes.func,
     byPassBrandFilter: React.PropTypes.bool,
     showBrandLogo: React.PropTypes.bool,
+  }
+
+  static contextTypes = {
+    toSlug: React.PropTypes.func,
   }
 
   state = {
@@ -72,10 +75,10 @@ class Brand extends React.Component {
         onDrop={this.onDrop.bind(this, this.props)}>
         <If condition={this.props.showBrandLogo}>
           <div className={`brand__icon text-center hidden-sm hidden-xs`}>
-            <span className={`icon icon-${toSlug(this.props.name)}`}></span>
+            <span className={`icon icon-${this.context.toSlug(this.props.name)}`}></span>
           </div>
         </If>
-        <div className={`Droppable col-xs-4 wrestlers wrestlers--${toSlug(this.props.name)}`}>
+        <div className={`Droppable col-xs-4 wrestlers wrestlers--${this.context.toSlug(this.props.name)}`}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search
               placeholder={`Filter choices`}
@@ -100,7 +103,7 @@ class Brand extends React.Component {
             />
           </If>
         </div>
-        <h4 className={`wrestlers__header wrestlers__header--${toSlug(this.props.name)}`}>
+        <h4 className={`wrestlers__header wrestlers__header--${this.context.toSlug(this.props.name)}`}>
           <span className="hidden-lg hidden-md">
             {this.props.name}: &nbsp;
           </span>
