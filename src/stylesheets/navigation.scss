@@ -5,9 +5,15 @@
   &__item {
     float: left;
     margin-right: 40px;
+
+    &.padding-left {
+      padding-left: 100px;
+    }
+
     a {
       color: white;
     }
+
     @include breakpoint(xs) {
       width: 100%;
     }
@@ -37,6 +43,7 @@
   background-color: #141516;
   margin: 0 -40px;
   padding: 10px 40px;
+
   .navigation__item {
     line-height: 2em;
   }
