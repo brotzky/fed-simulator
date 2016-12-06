@@ -34,7 +34,7 @@ export default (state = defaultState, action) => {
         break
       case "MOVE_All_WRESTLERS_TO_DEFAULT":
         newState.forEach((drop, key) => {
-          newState[key].brand = "default"
+          newState[key].brand = "Default"
         })
         break
       default:
