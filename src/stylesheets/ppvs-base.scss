@@ -29,8 +29,8 @@ $icon-survivor-series: -7523px 0px 280px 58px;
 $icon-tables-ladders-chairs: -7803px 0px 280px 86px;
 $icon-the-bash: -8083px 0px 280px 201px;
 $icon-wrestlemania: -8363px 0px 280px 264px;
-$icon-nxt-takeover: -8643px 0px 320px 180px;
-$icon-nxt-takeover-london: -8963px 0px 320px 180px;
+$icon-nxt-takeover-london: -8643px 0px 290px 179px;
+$icon-nxt-takeover: -8933px 0px 320px 180px;
 
 @mixin sprite-width($sprite) {
   width: nth($sprite, 3);
@@ -188,10 +188,10 @@ $icon-nxt-takeover-london: -8963px 0px 320px 180px;
   @include sprite($icon-wrestlemania);
 }
 
-.icon-nxt-takeover {
-  @include sprite($icon-nxt-takeover);
-}
-
 .icon-nxt-takeover-london {
   @include sprite($icon-nxt-takeover-london);
+}
+
+.icon-nxt-takeover {
+  @include sprite($icon-nxt-takeover);
 }
