@@ -1,5 +1,10 @@
 [
   {
+    "id": "4441579042",
+    "sequence": 0,
+    "name": "Armageddon"
+  },
+  {
     "id": "2186293265",
     "sequence": 0,
     "name": "Backlash"
@@ -10,9 +15,34 @@
     "name": "Battleground"
   },
   {
+    "id": "-4273662650",
+    "sequence": 0,
+    "name": "Bragging Rights"
+  },
+  {
+    "id": "4137828787",
+    "sequence": 0,
+    "name": "Breaking Point"
+  },
+  {
+    "id": "-2587502407",
+    "sequence": 0,
+    "name": "Capitol Punishment"
+  },
+  {
     "id": "-347903468",
     "sequence": 0,
     "name": "Clash Of Champions"
+  },
+  {
+    "id": "-637026377",
+    "sequence": 0,
+    "name": "Cyber Sunday"
+  },
+  {
+    "id": "-2145058621",
+    "sequence": 0,
+    "name": "Elimination Chamber"
   },
   {
     "id": "-118073277",
@@ -25,14 +55,64 @@
     "name": "Fastlane"
   },
   {
+    "id": "-966907727",
+    "sequence": 0,
+    "name": "Fatal Four Way"
+  },
+  {
     "id": "814210105",
     "sequence": 0,
     "name": "Hell In A Cell"
   },
   {
+    "id": "1137665457",
+    "sequence": 0,
+    "name": "Judgement Day"
+  },
+  {
     "id": "3007057350",
     "sequence": 0,
     "name": "Money In The Bank"
+  },
+  {
+    "id": "-3360189261",
+    "sequence": 0,
+    "name": "New Years Revolution"
+  },
+  {
+    "id": "-6728868535",
+    "sequence": 0,
+    "name": "Night Of Champions"
+  },
+  {
+    "id": "-7068497122",
+    "sequence": 0,
+    "name": "No Way Out"
+  },
+  {
+    "id": "-3315552350",
+    "sequence": 0,
+    "name": "Nxt Live"
+  },
+  {
+    "id": "-2559365209",
+    "sequence": 0,
+    "name": "Nxt Takeover London"
+  },
+  {
+    "id": "778173122",
+    "sequence": 0,
+    "name": "Nxt Takeover Toronto"
+  },
+  {
+    "id": "-3311236719",
+    "sequence": 0,
+    "name": "Nxt Takeover"
+  },
+  {
+    "id": "-2286834976",
+    "sequence": 0,
+    "name": "Over The Limit"
   },
   {
     "id": "877640047",
@@ -63,6 +143,21 @@
     "id": "-5618962440",
     "sequence": 0,
     "name": "Tables Ladders Chairs"
+  },
+  {
+    "id": "1101442403",
+    "sequence": 0,
+    "name": "The Bash"
+  },
+  {
+    "id": "-306494963",
+    "sequence": 0,
+    "name": "Unforgiven"
+  },
+  {
+    "id": "-2046128237",
+    "sequence": 0,
+    "name": "Vengence"
   },
   {
     "id": "-56698098",

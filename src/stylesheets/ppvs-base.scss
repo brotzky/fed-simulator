@@ -1,17 +1,36 @@
-$icon-payback: 0px 0px 280px 113px;
-$icon-backlash: -280px 0px 280px 75px;
-$icon-clash-of-champions: -560px 0px 280px 97px;
-$icon-extreme-rules: -840px 0px 280px 183px;
-$icon-fastlane: -1120px 0px 280px 78px;
-$icon-hell-in-a-cell: -1400px 0px 280px 72px;
-$icon-money-in-the-bank: -1680px 0px 280px 173px;
-$icon-battleground: -1960px 0px 280px 70px;
-$icon-roadblock: -2240px 0px 280px 126px;
-$icon-royal-rumble: -2520px 0px 280px 161px;
-$icon-summerslam: -2800px 0px 280px 205px;
-$icon-survivor-series: -3080px 0px 280px 58px;
-$icon-tables-ladders-chairs: -3360px 0px 280px 86px;
-$icon-wrestlemania: -3640px 0px 280px 264px;
+$icon-cyber-sunday: 0px 0px 253px 200px;
+$icon-money-in-the-bank: -253px 0px 270px 167px;
+$icon-night-of-champions: -523px 0px 280px 116px;
+$icon-bragging-rights: -803px 0px 280px 94px;
+$icon-breaking-point: -1083px 0px 280px 104px;
+$icon-capitol-punishment: -1363px 0px 280px 199px;
+$icon-clash-of-champions: -1643px 0px 280px 97px;
+$icon-armageddon: -1923px 0px 280px 70px;
+$icon-elimination-chamber: -2203px 0px 280px 102px;
+$icon-extreme-rules: -2483px 0px 280px 183px;
+$icon-fastlane: -2763px 0px 280px 78px;
+$icon-fatal-four-way: -3043px 0px 280px 161px;
+$icon-hell-in-a-cell: -3323px 0px 280px 72px;
+$icon-judgement-day: -3603px 0px 280px 61px;
+$icon-battleground: -3883px 0px 280px 70px;
+$icon-new-years-revolution: -4163px 0px 280px 114px;
+$icon-backlash: -4443px 0px 280px 75px;
+$icon-no-way-out: -4723px 0px 280px 105px;
+$icon-nxt-live: -5003px 0px 280px 158px;
+$icon-vengence: -5283px 0px 280px 100px;
+$icon-nxt-takeover-toronto: -5563px 0px 280px 198px;
+$icon-unforgiven: -5843px 0px 280px 151px;
+$icon-over-the-limit: -6123px 0px 280px 138px;
+$icon-payback: -6403px 0px 280px 113px;
+$icon-roadblock: -6683px 0px 280px 126px;
+$icon-royal-rumble: -6963px 0px 280px 161px;
+$icon-summerslam: -7243px 0px 280px 205px;
+$icon-survivor-series: -7523px 0px 280px 58px;
+$icon-tables-ladders-chairs: -7803px 0px 280px 86px;
+$icon-the-bash: -8083px 0px 280px 201px;
+$icon-wrestlemania: -8363px 0px 280px 264px;
+$icon-nxt-takeover: -8643px 0px 320px 180px;
+$icon-nxt-takeover-london: -8963px 0px 320px 180px;
 
 @mixin sprite-width($sprite) {
   width: nth($sprite, 3);
@@ -45,16 +64,40 @@ $icon-wrestlemania: -3640px 0px 280px 264px;
   background-image: url("/static/ppvs-base.png");
 }
 
-.icon-payback {
-  @include sprite($icon-payback);
+.icon-cyber-sunday {
+  @include sprite($icon-cyber-sunday);
 }
 
-.icon-backlash {
-  @include sprite($icon-backlash);
+.icon-money-in-the-bank {
+  @include sprite($icon-money-in-the-bank);
+}
+
+.icon-night-of-champions {
+  @include sprite($icon-night-of-champions);
+}
+
+.icon-bragging-rights {
+  @include sprite($icon-bragging-rights);
+}
+
+.icon-breaking-point {
+  @include sprite($icon-breaking-point);
+}
+
+.icon-capitol-punishment {
+  @include sprite($icon-capitol-punishment);
 }
 
 .icon-clash-of-champions {
   @include sprite($icon-clash-of-champions);
+}
+
+.icon-armageddon {
+  @include sprite($icon-armageddon);
+}
+
+.icon-elimination-chamber {
+  @include sprite($icon-elimination-chamber);
 }
 
 .icon-extreme-rules {
@@ -65,16 +108,56 @@ $icon-wrestlemania: -3640px 0px 280px 264px;
   @include sprite($icon-fastlane);
 }
 
+.icon-fatal-four-way {
+  @include sprite($icon-fatal-four-way);
+}
+
 .icon-hell-in-a-cell {
   @include sprite($icon-hell-in-a-cell);
 }
 
-.icon-money-in-the-bank {
-  @include sprite($icon-money-in-the-bank);
+.icon-judgement-day {
+  @include sprite($icon-judgement-day);
 }
 
 .icon-battleground {
   @include sprite($icon-battleground);
+}
+
+.icon-new-years-revolution {
+  @include sprite($icon-new-years-revolution);
+}
+
+.icon-backlash {
+  @include sprite($icon-backlash);
+}
+
+.icon-no-way-out {
+  @include sprite($icon-no-way-out);
+}
+
+.icon-nxt-live {
+  @include sprite($icon-nxt-live);
+}
+
+.icon-vengence {
+  @include sprite($icon-vengence);
+}
+
+.icon-nxt-takeover-toronto {
+  @include sprite($icon-nxt-takeover-toronto);
+}
+
+.icon-unforgiven {
+  @include sprite($icon-unforgiven);
+}
+
+.icon-over-the-limit {
+  @include sprite($icon-over-the-limit);
+}
+
+.icon-payback {
+  @include sprite($icon-payback);
 }
 
 .icon-roadblock {
@@ -97,6 +180,18 @@ $icon-wrestlemania: -3640px 0px 280px 264px;
   @include sprite($icon-tables-ladders-chairs);
 }
 
+.icon-the-bash {
+  @include sprite($icon-the-bash);
+}
+
 .icon-wrestlemania {
   @include sprite($icon-wrestlemania);
+}
+
+.icon-nxt-takeover {
+  @include sprite($icon-nxt-takeover);
+}
+
+.icon-nxt-takeover-london {
+  @include sprite($icon-nxt-takeover-london);
 }
