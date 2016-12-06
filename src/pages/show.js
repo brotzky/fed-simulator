@@ -145,6 +145,7 @@ class ShowPage extends React.Component {
               <Brand
                 name={this.state.brand}
                 showBrandLogo={false}
+                byPassBrandFilter={true}
                 wrestlers={wrestlers}
               />
             </div>
