@@ -37,7 +37,7 @@ devConfig.plugins.push(
 devConfig.module.loaders.push(
   {
     test: /\.scss$/,
-    loader: 'style!css!postcss!sass?sourceMap',
+    loaders: ["style", "css", "postcss", "sass"]
   }
 )
 log('Webpack dev config finished')
