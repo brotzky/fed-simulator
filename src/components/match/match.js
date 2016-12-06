@@ -15,10 +15,14 @@ const defaultState = {
   story: [],
 }
 const settings = {
-  maleBools: [true, false],
-  maleBoolsWeights: [0.8, 0.2],
-  amountOfWrestlers: [2, 3, 4, 5, 6],
-  amountOfWrestlersWeights: [0.5, 0.2, 0.2, 0.05, 0.05]
+  male: {
+    options: [true, false],
+    weights: [0.8, 0.2],
+  },
+  amount: {
+    options: [2, 3, 4, 5, 6],
+    weights: [0.5, 0.2, 0.2, 0.05, 0.05]
+  }
 }
 const getWeightedArrayOfLength = (length) => new Array(length).fill((1 / length))
 const getWrestler = (wrestlers) => weighted.select(wrestlers, getWeightedArrayOfLength(wrestlers.length))
@@ -68,9 +72,11 @@ class Match extends React.Component {
 
   onRandomiseMatch = (brandName) => {
     let wrestlers = [],
-      randomBool = weighted.select(settings.maleBools, settings.maleBoolsWeights),
-      filteredWrestlers = this.props.wrestlers.filter((wrestler) => (!this.props.byPassBrandFilter && brandName === "Default" || wrestler.brand === brandName) && wrestler.male === randomBool),
-      amountOfWrestlers = weighted.select(settings.amountOfWrestlers, settings.amountOfWrestlersWeights)
+      randomBool = weighted.select(settings.male.options, settings.male.weights),
+      amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights),
+      filteredWrestlers = this.props.wrestlers.filter((wrestler) =>
+        (!this.props.byPassBrandFilter && brandName === "Default" || wrestler.brand === brandName)
+          && wrestler.male === randomBool)
 
     while (amountOfWrestlers > 0) {
       let chosenWrestler = getWrestler(filteredWrestlers)
