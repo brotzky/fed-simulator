@@ -55,15 +55,23 @@ class Match extends React.Component {
 
   onRandomiseMatch = (brandName) => {
     let wrestlers = [],
-      randomBool = Math.random() >= 0.5,
+      settings = {
+        bools: [true, false],
+        boolsWeights: [0.8, 0.2],
+        amountOfWrestlers: [2, 3, 4, 5, 6],
+        amountOfWrestlersWeights: [0.5, 0.2, 0.2, 0.05, 0.5]
+      },
+      randomBool = weighted.select(settings.bools, settings.boolsWeights),
       filteredWrestlers = this.props.wrestlers.filter((wrestler) => wrestler.brand === brandName && wrestler.male === randomBool),
-      getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
-      getWrestler = () => weighted.select(filteredWrestlers, new Array(filteredWrestlers.length).fill((1 / filteredWrestlers.length))),
-      amountOfWrestlers = getRandomInt(2, 5)
+      getWeightedArrayOfLength = (length) => new Array(length).fill((1 / length)),
+      getWrestler = (wrestlers) => weighted.select(wrestlers, getWeightedArrayOfLength(wrestlers.length)),
+      amountOfWrestlers = weighted.select(settings.amountOfWrestlers, settings.amountOfWrestlersWeights)
 
     while (amountOfWrestlers > 0) {
+      let chosenWrestler = getWrestler(filteredWrestlers)
+      filteredWrestlers = filteredWrestlers.filter((wrestler) => wrestler.id !== chosenWrestler.id)
       wrestlers.push(
-        getWrestler()
+        chosenWrestler
       )
       amountOfWrestlers--
     }
@@ -139,10 +147,9 @@ class Match extends React.Component {
                     <span key={key}
                       className="match__name">
                       <span>{wrestler.name}</span>
-                      <span> </span>
                       <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
                         className="remove">
-                        (remove)
+                        &nbsp; (remove)
                       </span>
                     </span>
                   )

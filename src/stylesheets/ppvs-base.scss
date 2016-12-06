@@ -1,0 +1,102 @@
+$icon-payback: 0px 0px 280px 113px;
+$icon-backlash: -280px 0px 280px 75px;
+$icon-clash-of-champions: -560px 0px 280px 97px;
+$icon-extreme-rules: -840px 0px 280px 183px;
+$icon-fastlane: -1120px 0px 280px 78px;
+$icon-hell-in-a-cell: -1400px 0px 280px 72px;
+$icon-money-in-the-bank: -1680px 0px 280px 173px;
+$icon-battleground: -1960px 0px 280px 70px;
+$icon-roadblock: -2240px 0px 280px 126px;
+$icon-royal-rumble: -2520px 0px 280px 161px;
+$icon-summerslam: -2800px 0px 280px 205px;
+$icon-survivor-series: -3080px 0px 280px 58px;
+$icon-tables-ladders-chairs: -3360px 0px 280px 86px;
+$icon-wrestlemania: -3640px 0px 280px 264px;
+
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 3);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 4);
+}
+
+@function sprite-width($sprite) {
+  @return nth($sprite, 3);
+}
+
+@function sprite-height($sprite) {
+  @return nth($sprite, 4);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 1);
+  $sprite-offset-y: nth($sprite, 2);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite($sprite) {
+  @include sprite-position($sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  display: inline-block;
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+  background-image: url("/static/ppvs-base.png");
+}
+
+.icon-payback {
+  @include sprite($icon-payback);
+}
+
+.icon-backlash {
+  @include sprite($icon-backlash);
+}
+
+.icon-clash-of-champions {
+  @include sprite($icon-clash-of-champions);
+}
+
+.icon-extreme-rules {
+  @include sprite($icon-extreme-rules);
+}
+
+.icon-fastlane {
+  @include sprite($icon-fastlane);
+}
+
+.icon-hell-in-a-cell {
+  @include sprite($icon-hell-in-a-cell);
+}
+
+.icon-money-in-the-bank {
+  @include sprite($icon-money-in-the-bank);
+}
+
+.icon-battleground {
+  @include sprite($icon-battleground);
+}
+
+.icon-roadblock {
+  @include sprite($icon-roadblock);
+}
+
+.icon-royal-rumble {
+  @include sprite($icon-royal-rumble);
+}
+
+.icon-summerslam {
+  @include sprite($icon-summerslam);
+}
+
+.icon-survivor-series {
+  @include sprite($icon-survivor-series);
+}
+
+.icon-tables-ladders-chairs {
+  @include sprite($icon-tables-ladders-chairs);
+}
+
+.icon-wrestlemania {
+  @include sprite($icon-wrestlemania);
+}
