@@ -13,12 +13,15 @@ class PPVsPage extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="page ppvs">
         <Helmet title="Pay Per Views" />
         <div className="inpage-content">
-          <PPVs ppvs={this.props.ppvs} />
+          <div className="row">
+            <div className="col-xs-12">
+              <PPVs ppvs={this.props.ppvs} />
+            </div>
+          </div>
         </div>
       </div>
     )
