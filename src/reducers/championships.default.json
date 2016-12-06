@@ -4,6 +4,7 @@
     "name": "Nxt Womens Championship",
     "brand": "NXT",
     "male": false,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -12,6 +13,7 @@
     "name": "Nxt Championship",
     "brand": "NXT",
     "male": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -21,6 +23,7 @@
     "brand": "NXT",
     "male": true,
     "tag": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -29,6 +32,7 @@
     "name": "Raw Womens Championship",
     "brand": "Raw",
     "male": false,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -38,6 +42,7 @@
     "brand": "Raw",
     "male": true,
     "tag": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -46,6 +51,7 @@
     "name": "United States Championship",
     "brand": "Raw",
     "male": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -54,6 +60,7 @@
     "name": "Wwe Cruiserweight Championship",
     "brand": "Raw",
     "male": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -62,6 +69,7 @@
     "name": "Wwe Universal Championship",
     "brand": "Raw",
     "male": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -70,6 +78,7 @@
     "name": "Smackdown Womens Championship",
     "brand": "Smackdown Live",
     "male": false,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -78,6 +87,7 @@
     "name": "Intercontinental Championship",
     "brand": "Smackdown Live",
     "male": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -87,6 +97,7 @@
     "brand": "Smackdown Live",
     "tag": true,
     "male": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   },
@@ -95,6 +106,7 @@
     "name": "Wwe World Championship",
     "brand": "Smackdown Live",
     "male": true,
+    "sequence": 0,
     "wrestlerId": "",
     "wrestlerIds": []
   }

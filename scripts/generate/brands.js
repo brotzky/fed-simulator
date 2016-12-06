@@ -10,9 +10,11 @@ glob(imagePath + "**/**.png", function (er, files) {
     let newFilepath = filepath.replace(imagePath, "")
     newFilepath = newFilepath.split("/")
     let name = cleanFilename(newFilepath[newFilepath.length - 1])
+    console.log(name)
 
     collection.push({
       id: hashCode(name),
+      sequence: 0,
       name: name,
     })
   })

@@ -12,12 +12,14 @@ glob(imagePath + "**/**.png", function (er, files) {
     let brand = newFilepath[0]
     let male = newFilepath.length === 3 ? false : true
     let name = cleanFilename(newFilepath[newFilepath.length - 1])
+    console.log(name)
 
     collection.push({
       id: hashCode(name),
       name: name,
       brand: brand,
       male: male,
+      sequence: 0,
       wrestlerId: "",
       wrestlerIds: [],
     })
