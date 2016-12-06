@@ -16,12 +16,14 @@ class Brand extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     canDragAndDrop: React.PropTypes.bool,
     onWrestlerClick: React.PropTypes.func,
+    byPassBrandFilter: React.PropTypes.bool,
     showBrandLogo: React.PropTypes.bool,
   }
 
   state = {
     search: "",
     brandName: "",
+    byPassBrandFilter: false,
     showBrandLogo: true,
   }
 
@@ -58,8 +60,8 @@ class Brand extends React.Component {
         return wrestler.name.toLowerCase().indexOf(this.state.search) > -1
       })
     }
-    malewrestlers = wrestlers.filter((wrestler) => wrestler.brand === this.props.name && wrestler.male === true),
-    femalewrestlers = wrestlers.filter((wrestler) => wrestler.brand === this.props.name && wrestler.male === false)
+    malewrestlers = wrestlers.filter((wrestler) => (this.props.byPassBrandFilter || wrestler.brand === this.props.name) && wrestler.male === true),
+    femalewrestlers = wrestlers.filter((wrestler) => (this.props.byPassBrandFilter || wrestler.brand === this.props.name) && wrestler.male === false)
     return (
       <Droppable
         key={this.props.id}
