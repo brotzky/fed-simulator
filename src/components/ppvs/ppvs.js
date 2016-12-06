@@ -1,6 +1,5 @@
 import React from "react"
 import Icon from "../icon/icon"
-import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
 
 export default class PPVs extends React.Component {

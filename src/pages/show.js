@@ -6,8 +6,6 @@ import Icon from "../components/icon/icon"
 import PPVs from "../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
-import eventEmitter from "../helpers/event-emitter"
-import { toSlug } from "../helpers/slugs"
 import "./stylesheets/show"
 
 class ShowPage extends React.Component {
@@ -18,6 +16,11 @@ class ShowPage extends React.Component {
     brands: React.PropTypes.array.isRequired,
   }
 
+  static contextTypes = {
+    eventEmitter: React.PropTypes.object.isRequired,
+    toSlug: React.PropTypes.func.isRequired,
+  }
+
   state = {
     brand: "Raw",
     PPV: "Roadblock",
@@ -25,20 +28,20 @@ class ShowPage extends React.Component {
   }
 
   onBellRung = () => {
-    eventEmitter.emit("bellRung")
+    this.context.eventEmitter.emit("bellRung")
   }
 
   onRandomiseMatches = (brandName) => {
-    eventEmitter.emit("randomiseMatch", brandName)
+    this.context.eventEmitter.emit("randomiseMatch", brandName)
   }
 
   onRandomiseCardTriggerMatches = (brandName) => {
-    eventEmitter.emit("randomiseMatch", brandName)
-    eventEmitter.emit("bellRung")
+    this.context.eventEmitter.emit("randomiseMatch", brandName)
+    this.context.eventEmitter.emit("bellRung")
   }
 
   onClearMatches = () => {
-    eventEmitter.emit("clearMatch")
+    this.context.eventEmitter.emit("clearMatch")
   }
 
   onchangePPV = (PPV) => {
@@ -72,7 +75,7 @@ class ShowPage extends React.Component {
           wrestlers = wrestlers.filter(wrestler => filterByBrand(wrestler, this.state.brand))
         }
     return (
-      <div className={`page show ${toSlug(this.state.brand)}`}>
+      <div className={`page show ${this.context.toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
         <div className="navigation navigation--secondary">
           {this.props.brands.map((brand, key) => {

@@ -6,8 +6,6 @@ import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { SimMatch } from "./sim-match.helper"
-import { toSlug } from "../../helpers/slugs"
-import eventEmitter from "../../helpers/event-emitter"
 import "./stylesheets/main"
 
 const defaultState = {
@@ -36,15 +34,20 @@ class Match extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
+  static contextTypes = {
+    eventEmitter: React.PropTypes.object.isRequired,
+  }
+
   static defaultProps = {
     byPassBrandFilter: false,
   }
 
-  constructor() {
-    super()
+  constructor(props, context) {
+    super(props)
     let onStartMatch = this.onStartMatch.bind(this),
       onRandomiseMatch = this.onRandomiseMatch.bind(this),
-      onClearMatch = this.onClearMatch.bind(this)
+      onClearMatch = this.onClearMatch.bind(this),
+      eventEmitter = context.eventEmitter
 
     this.eventList = []
     this.eventList.push(

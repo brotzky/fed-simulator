@@ -1,8 +1,11 @@
 import React from "react"
-import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/main"
 
 export default class Story extends React.Component {
+
+  static contextTypes = {
+    toSlug: React.PropTypes.func.isRequired,
+  }
 
   static defaultProps = {
     collection: [],
@@ -32,7 +35,7 @@ export default class Story extends React.Component {
                 }
               return (
                 <li style={style}
-                  className={`story__action story--${action.action} brand--${toSlug(brand)}`}
+                  className={`story__action story--${action.action} brand--${this.context.toSlug(brand)}`}
                   key={key}>
                   <Choose>
                     <When condition={action.action === "move"}>

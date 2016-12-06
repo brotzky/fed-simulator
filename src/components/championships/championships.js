@@ -2,7 +2,6 @@ import React from "react"
 import Icon from "../icon/icon"
 import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
-import { toSlug } from "../../helpers/slugs"
 import { Draggable, Droppable } from "react-drag-and-drop"
 import "./stylesheets/main"
 
@@ -12,6 +11,10 @@ class Championships extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     championships: React.PropTypes.array.isRequired,
     canDragAndDrop: React.PropTypes.bool,
+  }
+
+  static contextTypes = {
+    toSlug: React.PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -68,7 +71,7 @@ class Championships extends React.Component {
                 ]}
                 onDrop={this.onDrop.bind(this, championship)}>
                 <Icon name={championship.name} />
-                <div className={`championship__holdername championship__holdername--${toSlug(name)}`}>
+                <div className={`championship__holdername championship__holdername--${this.context.toSlug(name)}`}>
                   <Choose>
                     <When condition={wrestlers.length > 0}>
                       {wrestlers.map((wrestler, key) => {
