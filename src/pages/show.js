@@ -95,7 +95,6 @@ class ShowPage extends React.Component {
           <div className="navigation__item">
             <a onKeyPress={this.onBellRung}
               onClick={this.onBellRung}>
-              &#x21bb; Simulate matches
               &#10227; Simulate matches
             </a>
           </div>
