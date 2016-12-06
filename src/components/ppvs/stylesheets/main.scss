@@ -1,5 +1,4 @@
-.ppvs {
-}
+.ppvs {}
 .ppvs__list {}
 .ppvs_item {
   margin: 0 1em 1em 0;
@@ -7,12 +6,13 @@
   float: left;
   position: relative;
   background-color: black;
-  width: 24em;
-  height: 14em;
+  width: 18em;
+  height: 10em;
   .icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    zoom: 0.8;
   }
 }

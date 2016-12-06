@@ -2,6 +2,8 @@ import React from "react"
 import Bell from "../components/bell/bell"
 import Match from "../components/match/match"
 import Brand from "../components/brand/brand"
+import Icon from "../components/icon/icon"
+import PPVs from "../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import eventEmitter from "../helpers/event-emitter"
@@ -12,11 +14,13 @@ class ShowPage extends React.Component {
 
   static propTypes = {
     wrestlers: React.PropTypes.array.isRequired,
+    ppvs: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
   }
 
   state = {
     brand: "Raw",
+    PPV: "Roadblock",
     showFemalesOnly: false,
   }
 
@@ -32,8 +36,13 @@ class ShowPage extends React.Component {
     eventEmitter.emit("clearMatch")
   }
 
+  onchangePPV = (PPV) => {
+    this.setState({
+      PPV,
+    })
+  }
+
   onChangeBrand = (brand) => {
-    eventEmitter.emit("clearMatch")
     this.setState({
       brand,
     })
@@ -86,7 +95,7 @@ class ShowPage extends React.Component {
           <div className="navigation__item">
             <a onKeyPress={this.onBellRung}
               onClick={this.onBellRung}>
-              Simulate matches
+              &#10227; Simulate matches
             </a>
           </div>
           <div className="navigation__item">
@@ -97,9 +106,27 @@ class ShowPage extends React.Component {
           </div>
         </div>
         <div className="inpage-content">
+          <h2>
+            {this.state.PPV} presented by {this.state.brand}
+          </h2>
+          <div className="current-ppv ppvs_item">
+            <Icon name={this.state.PPV} />
+          </div>
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <Bell onBellRung={this.onBellRung} />
+            </div>
+            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <div className="dropdown">
+                <span>
+                  <h3 className="dropdown__title">
+                    Select a PPV &#8681;
+                  </h3>
+                </span>
+                <div className="dropdown__content">
+                  <PPVs ppvs={this.props.ppvs} onPPVClick={this.onchangePPV} />
+                </div>
+              </div>
             </div>
           </div>
           <br />
@@ -130,5 +157,6 @@ class ShowPage extends React.Component {
 
 export default connect(state => ({
   brands: state.brands,
+  ppvs: state.ppvs,
   wrestlers: state.wrestlers,
 }))(ShowPage)

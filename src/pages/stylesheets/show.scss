@@ -3,8 +3,21 @@
 
 .page.show {
 
-  .show__header {
-    margin: 0;
+  .current-ppv {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1em;
+    background-color: black;
+    width: 13em;
+    height: 11em;
+    .icon {
+      zoom: 0.6;
+    }
+  }
+
+  .dropdown {
+    display: block;
   }
 
   .brand .wrestler {

@@ -23,6 +23,7 @@ export default class PPVs extends React.Component {
           {this.props.ppvs.map((ppv, key) => {
             return (
               <li key={key}
+                onClick={this.props.onPPVClick.bind(this, ppv.name)}
                 className="ppvs_item">
                 <Icon name={ppv.name} />
               </li>
