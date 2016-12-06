@@ -30,7 +30,7 @@ class LandingPage extends React.Component {
             <div className="col-xs-12 introduction__container introduction__container--secondary">
               <div className="row introduction__boxes">
                 <Link to="draft">
-                  <div className="col-lg-6 col-xs-12 introduction__box draft">
+                  <div className="col-lg-3 col-xs-12 introduction__box draft">
                     Draft wrestlers
                     <br />
                     <br />
@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
                   </div>
                 </Link>
                 <Link to="champions">
-                  <div className="col-lg-6 col-xs-12 introduction__box championship">
+                  <div className="col-lg-3 col-xs-12 introduction__box championship">
                     Be the authority and award championship
                     <Championships
                       championships={this.props.championships.sort(function() { return 0.5 - Math.random() })}
@@ -47,12 +47,12 @@ class LandingPage extends React.Component {
                   </div>
                 </Link>
                 <Link to="show">
-                  <div className="col-lg-6 col-xs-12 introduction__box shows">
+                  <div className="col-lg-3 col-xs-12 introduction__box shows">
                     Put on Shows! With match simulations and a win and loss count that matters
                   </div>
                 </Link>
                 <Link to="ranking">
-                  <div className="col-lg-6 col-xs-12 introduction__box ranking">
+                  <div className="col-lg-3 col-xs-12 introduction__box ranking">
                     View rankings across brands to see whos winning
                   </div>
                 </Link>
