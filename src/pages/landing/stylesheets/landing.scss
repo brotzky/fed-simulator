@@ -1,0 +1,79 @@
+@import "src/stylesheets/variables";
+
+.page.landing {
+  .legal {
+    a {
+      color: #999;
+    }
+  }
+}
+
+.introduction {
+  color: white;
+  background-color: $primary;
+
+  &__container {
+    padding: 50px;
+  }
+
+  &__boxes {
+    background-color: $secondary;
+  }
+
+  &__box {
+    background-color: $secondary;
+    padding: 1.8em;
+    font-size: 1.5em;
+    height: 275px;
+  }
+}
+
+.introduction__container--primary {
+  padding: 10px 50px;
+}
+
+.introduction__container--secondary {
+  background-color: $secondary;
+  text-shadow: 0 1px 0 black;
+  .introduction__box {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .ranking {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url("../imgs/ranking.jpg");
+  }
+  .championship {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url("../imgs/championship.jpg");
+    .championship__holdername {
+      display: none;
+    }
+    .championships {
+      overflow: hidden;
+      height: 39px;
+      margin: 45px -40px;
+    }
+  }
+  .draft {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url("../imgs/draft.jpg");
+    font-size: 26px;
+
+    .icon {
+      zoom: 0.20;
+    }
+  }
+  .shows {
+    background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url("../imgs/shows.jpg");
+  }
+}

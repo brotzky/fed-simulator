@@ -1,12 +1,12 @@
 @import "../../../stylesheets/variables";
 
 .match {
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   clear: both;
 
   &__inner {
     background-color: #003250;
-    padding: 15px;
+    padding: 1em;
   }
 
   &__names {
@@ -29,10 +29,10 @@
   }
 
   .droparea {
-    margin: 15px;
-    padding: 25px;
+    margin: 0.5em;
+    padding: 1em;
     &.active {
-      border: 3px dashed lighten(#003250, 5%);
+      border: 0.15em dashed lighten(#003250, 5%);
     }
     &.inactive {
       display: none;
