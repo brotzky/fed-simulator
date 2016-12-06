@@ -2,18 +2,22 @@
 
 .page.landing {
   .legal {
+    padding: 5px 5px 5px 23px;
+    color: white;
+    line-height: 2em;
+    background-color: #333;
     a {
-      color: #999;
+      color: #ccc;
     }
   }
 }
 
 .introduction {
   color: white;
-  background-color: $primary;
 
   &__container {
     padding: 50px;
+    background-color: $primary;
   }
 
   &__boxes {

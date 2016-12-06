@@ -52,9 +52,11 @@ class LandingPage extends React.Component {
             </div>
           </div>
         </div>
-        <p className="legal">
-          All WWE imagery is taken from <a href="http://www.wwe.com/main-help/generalfaq/copyright">WWE.com</a> and owned by <a href="https://wwe.com">World Wrestling Entertainment, Inc.</a>
-        </p>
+        <div className="row legal">
+          <div className="col-lg-9">
+            All WWE imagery is taken from <a href="http://www.wwe.com/main-help/generalfaq/copyright">WWE.com</a> and owned by <a href="https://wwe.com">World Wrestling Entertainment, Inc.</a>
+          </div>
+        </div>
       </div>
     )
   }

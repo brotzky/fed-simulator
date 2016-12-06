@@ -44,7 +44,7 @@ export default class Page extends React.Component {
             </div>
           </div>
         </header>
-        <section>
+        <section className="container-fluid">
           {this.props.children}
         </section>
       </div>
