@@ -43,7 +43,7 @@ class RankingPage extends React.Component {
             </div>
           </div>
           <div className="row ranking__split">
-            {this.props.brands.filter((brand) => brand.name !== "default").map((brand, key)=> {
+            {this.props.brands.filter((brand) => brand.name !== "Default").map((brand, key)=> {
               return (
                 <div key={key} className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <Ranking
