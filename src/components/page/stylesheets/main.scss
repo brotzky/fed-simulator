@@ -1,4 +1,5 @@
-@import "../../../stylesheets/base";
+@import "src/stylesheets/base";
+@import "src/stylesheets/breakpoints";
 
 body {
   background-color: $bg;
@@ -12,5 +13,8 @@ body {
 
   .page {
     padding: 0 20px;
+    @include breakpoint(xs) {
+      padding: 0;
+    }
   }
 }

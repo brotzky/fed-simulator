@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 .page.ranking {
 
   h3 {
@@ -6,6 +8,9 @@
 
   .ranking {
     padding: 0px 30px;
+    @include breakpoint(xs) {
+      padding: 0;
+    }
 
     &__split h3 {
       font-size: 1em;
