@@ -32,6 +32,11 @@ class ShowPage extends React.Component {
     eventEmitter.emit("randomiseMatch", brandName)
   }
 
+  onRandomiseCardTriggerMatches = (brandName) => {
+    eventEmitter.emit("randomiseMatch", brandName)
+    eventEmitter.emit("bellRung")
+  }
+
   onClearMatches = () => {
     eventEmitter.emit("clearMatch")
   }
@@ -81,29 +86,33 @@ class ShowPage extends React.Component {
               </div>
             )
           })}
-          <div className="navigation__item padding-left">
+          <div className="navigation__item">
             <a onKeyPress={this.onToggleWomenWrestlers}
               onClick={this.onToggleWomenWrestlers}
               href="#">
               &#x2640; Toggle Women Wrestlers
             </a>
           </div>
-          <div className="navigation__item">
+          <div className="navigation__item padding-left">
             <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
               onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
-              Randomise Matches
+              Randomise
             </a>
-          </div>
-          <div className="navigation__item">
+            &nbsp; | &nbsp;
             <a onKeyPress={this.onBellRung}
               onClick={this.onBellRung}>
-              &#10227; Simulate Matches
+              Simulate
+            </a>
+            &nbsp; | &nbsp;
+            <a onKeyPress={this.onClearMatches}
+              onClick={this.onClearMatches}>
+              Clear
             </a>
           </div>
           <div className="navigation__item">
-            <a onKeyPress={this.onClearMatches}
-              onClick={this.onClearMatches}>
-              Clear Matches
+            <a onKeyPress={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}
+              onClick={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}>
+              &#10227; Randomise & Simulate
             </a>
           </div>
         </div>
