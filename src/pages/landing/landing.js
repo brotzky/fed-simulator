@@ -30,16 +30,19 @@ class LandingPage extends React.Component {
             <div className="col-xs-12 introduction__container introduction__container--secondary">
               <div className="row introduction__boxes">
                 <Link to="draft">
-                  <div className="col-lg-3 col-xs-12 introduction__box draft">
-                    Draft wrestlers
+                  <div className="col-lg-3 col-xs-12 introduction__box draft zoom">
+                    <h4>Draft wrestlers</h4>
                     <br />
                     <br />
                     <span className="icon icon-raw"></span>, <span className="icon icon-smackdown-live"></span> and <span className="icon icon-nxt"></span>
                   </div>
                 </Link>
                 <Link to="champions">
-                  <div className="col-lg-3 col-xs-12 introduction__box championship">
-                    Be the authority and award championship
+                  <div className="col-lg-3 col-xs-12 introduction__box championship zoom">
+                    <h4>Be the authority</h4>
+                    <br />
+                    Award and strip championships!
+                    <br />
                     <Championships
                       championships={this.props.championships.sort(function() { return 0.5 - Math.random() })}
                       canDragAndDrop={false}
@@ -47,12 +50,17 @@ class LandingPage extends React.Component {
                   </div>
                 </Link>
                 <Link to="show">
-                  <div className="col-lg-3 col-xs-12 introduction__box shows">
-                    Put on Shows! With match simulations and a win and loss count that matters
+                  <div className="col-lg-3 col-xs-12 introduction__box shows zoom">
+                    <h4>Put on Shows!</h4>
+                    <br />
+                    <br />With match simulations and a win and loss count that matters
                   </div>
                 </Link>
                 <Link to="ranking">
-                  <div className="col-lg-3 col-xs-12 introduction__box ranking">
+                  <div className="col-lg-3 col-xs-12 introduction__box ranking zoom">
+                    <h4>WWE Power ranking</h4>
+                    <br />
+                    <br />
                     View rankings across brands to see whos winning
                   </div>
                 </Link>
