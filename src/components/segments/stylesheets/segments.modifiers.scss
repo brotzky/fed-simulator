@@ -16,6 +16,12 @@
 
 .segments__segment--nxt {
   background-color: $nxt;
+  font-weight: 700;
+  color: black;
+
+  &.hvr-bounce-to-right:hover {
+    color: black;
+  }
   &.hvr-bounce-to-right:before {
     background-color: darken($nxt, 10);
   }
