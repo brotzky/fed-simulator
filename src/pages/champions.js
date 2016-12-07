@@ -21,10 +21,17 @@ class ChampionsPage extends React.Component {
 
   displayName = "ChampionsPage"
 
+  onClear = (event) => {
+    event.preventDefault()
+    this.props.dispatch(
+      championshipActions.clear()
+    )
+  }
+
   onReset = (event) => {
     event.preventDefault()
     this.props.dispatch(
-      championshipActions.clearChampionships()
+      championshipActions.reset()
     )
   }
 
@@ -42,10 +49,16 @@ class ChampionsPage extends React.Component {
         <Helmet title="Championship Management" />
         <div className="navigation navigation--secondary">
           <div className="navigation__item">
-            <a onKeyPress={this.onReset}
-              onClick={this.onReset}
+            <a onKeyPress={this.onClear}
+              onClick={this.onClear}
               href="#">
               Clear All set Champions
+            </a>
+          </div>
+          <div className="navigation__item">
+            <a onKeyPress={this.onReset}
+              onClick={this.onReset}>
+              Move championships to current champions
             </a>
           </div>
           <div className="navigation__item">

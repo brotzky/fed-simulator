@@ -8,13 +8,17 @@ export function awardChampionship(championship, wrestlerId) {
   }
 }
 
-
-export function clearChampionships() {
+export function reset() {
   return {
-    type: types.CLEAR_SELECTED_CHAMPIONS,
+    type: types.RESET,
   }
 }
 
+export function clear() {
+  return {
+    type: types.CLEAR,
+  }
+}
 
 export function checkMove({
   winner,

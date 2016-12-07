@@ -1,5 +1,6 @@
 import React from "react"
 import Ranking from "../components/ranking/ranking"
+import Segments from "../components/segments/segments"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import "./stylesheets/ranking"
@@ -14,12 +15,36 @@ class RankingPage extends React.Component {
   displayName = "RankingPage"
 
   render() {
+    let segments = [],
+      totalWins = this.props.wrestlers.reduce((sum, wrestler) => sum + wrestler.wins, 0)
+
+    this.props.brands.forEach((brand, key) => {
+      let value = this.props.wrestlers
+          .filter(wrestler => wrestler.brand === brand.name)
+          .reduce((sum, wrestler) => sum + wrestler.wins, 0),
+        percent =  100 * value / totalWins
+
+      if (value === 0) {
+        return
+      }
+
+      segments.push({
+        name: brand.name,
+        value,
+        percent,
+      })
+    })
     return (
       <div className="page ranking">
         <Helmet title="Universe Ranking" />
         <div className="inpage-content">
           <div className="row">
-            <div className="col-lg-6 col-xs-16">
+            <div className="col-xs-12">
+              <Segments segments={segments} />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-6 col-xs-12">
               <Ranking
                 title="Overall Male Superstars"
                 amountToShow={10}
@@ -30,7 +55,7 @@ class RankingPage extends React.Component {
                 }
               />
             </div>
-            <div className="col-lg-6 col-xs-16">
+            <div className="col-lg-6 col-xs-12">
               <Ranking
                 title="Overall Female Superstars"
                 amountToShow={10}

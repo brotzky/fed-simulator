@@ -24,11 +24,14 @@ export default (state = defaultState, action) => {
         }
       })
       break
-    case "CLEAR_SELECTED_CHAMPIONS":
+    case "CLEAR":
         newState.forEach((championship, key) => {
           newState[key].wrestlerId = ""
           newState[key].wrestlerIds = []
         })
+      break
+    case "RESET":
+        newState = defaultState
       break
   }
   return newState

@@ -1230,6 +1230,16 @@
     "championshipId": false
   },
   {
+    "id": "10583332036",
+    "name": "James Ellsworth",
+    "brand": "Smackdown Live",
+    "rating": 35,
+    "male": true,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
     "id": "-6731051095",
     "name": "Jason Jordan",
     "brand": "Smackdown Live",

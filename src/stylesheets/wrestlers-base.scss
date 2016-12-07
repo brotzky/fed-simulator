@@ -121,27 +121,28 @@ $icon-fandango: -10115px 0px 85px 101px;
 $icon-greg-hamilton: -10200px 0px 85px 101px;
 $icon-heath-slater: -10285px 0px 85px 101px;
 $icon-jack-swagger: -10370px 0px 85px 101px;
-$icon-jason-jordan: -10455px 0px 85px 101px;
-$icon-jbl: -10540px 0px 85px 101px;
-$icon-jey-uso: -10625px 0px 85px 101px;
-$icon-jimmy-uso: -10710px 0px 85px 101px;
-$icon-john-cena: -10795px 0px 85px 101px;
-$icon-kalisto: -10880px 0px 85px 101px;
-$icon-kane: -10965px 0px 85px 101px;
-$icon-kenny: -11050px 0px 85px 101px;
-$icon-konnor: -11135px 0px 85px 101px;
-$icon-luke-harper: -11220px 0px 85px 101px;
-$icon-mauro-ranallo: -11305px 0px 85px 101px;
-$icon-mikey: -11390px 0px 85px 101px;
-$icon-mojo-rawley: -11475px 0px 85px 101px;
-$icon-randy-orton: -11560px 0px 85px 101px;
-$icon-rhyno: -11645px 0px 85px 101px;
-$icon-shane-mcmahon: -11730px 0px 85px 101px;
-$icon-simon-gotch: -11815px 0px 85px 101px;
-$icon-the-miz: -11900px 0px 85px 101px;
-$icon-tyler-breeze: -11985px 0px 85px 101px;
-$icon-viktor: -12070px 0px 85px 101px;
-$icon-zack-ryder: -12155px 0px 85px 101px;
+$icon-james-ellsworth: -10455px 0px 85px 101px;
+$icon-jason-jordan: -10540px 0px 85px 101px;
+$icon-jbl: -10625px 0px 85px 101px;
+$icon-jey-uso: -10710px 0px 85px 101px;
+$icon-jimmy-uso: -10795px 0px 85px 101px;
+$icon-john-cena: -10880px 0px 85px 101px;
+$icon-kalisto: -10965px 0px 85px 101px;
+$icon-kane: -11050px 0px 85px 101px;
+$icon-kenny: -11135px 0px 85px 101px;
+$icon-konnor: -11220px 0px 85px 101px;
+$icon-luke-harper: -11305px 0px 85px 101px;
+$icon-mauro-ranallo: -11390px 0px 85px 101px;
+$icon-mikey: -11475px 0px 85px 101px;
+$icon-mojo-rawley: -11560px 0px 85px 101px;
+$icon-randy-orton: -11645px 0px 85px 101px;
+$icon-rhyno: -11730px 0px 85px 101px;
+$icon-shane-mcmahon: -11815px 0px 85px 101px;
+$icon-simon-gotch: -11900px 0px 85px 101px;
+$icon-the-miz: -11985px 0px 85px 101px;
+$icon-tyler-breeze: -12070px 0px 85px 101px;
+$icon-viktor: -12155px 0px 85px 101px;
+$icon-zack-ryder: -12240px 0px 85px 101px;
 
 @mixin sprite-width($sprite) {
   width: nth($sprite, 3);
@@ -174,435 +175,583 @@ $icon-zack-ryder: -12155px 0px 85px 101px;
   @include sprite-height($sprite);
   background-image: url("/static/wrestlers-base.png");
 }
+
 .icon-colin-cassady {
   @include sprite($icon-colin-cassady);
 }
+
 .icon-akam {
   @include sprite($icon-akam);
 }
+
 .icon-angelo-dawkins {
   @include sprite($icon-angelo-dawkins);
 }
+
 .icon-austin-aries {
   @include sprite($icon-austin-aries);
 }
+
 .icon-blake {
   @include sprite($icon-blake);
 }
+
 .icon-bobby-roode {
   @include sprite($icon-bobby-roode);
 }
+
 .icon-chris-girard {
   @include sprite($icon-chris-girard);
 }
+
 .icon-dash-wilder {
   @include sprite($icon-dash-wilder);
 }
+
 .icon-elias-samson {
   @include sprite($icon-elias-samson);
 }
+
 .icon-eric-young {
   @include sprite($icon-eric-young);
 }
+
 .icon-hideo-itamo {
   @include sprite($icon-hideo-itamo);
 }
+
 .icon-johnny-gargano {
   @include sprite($icon-johnny-gargano);
 }
+
 .icon-manny-andrade {
   @include sprite($icon-manny-andrade);
 }
+
 .icon-mike-rome {
   @include sprite($icon-mike-rome);
 }
+
 .icon-murphy {
   @include sprite($icon-murphy);
 }
+
 .icon-nick-miller {
   @include sprite($icon-nick-miller);
 }
+
 .icon-no-way-jose {
   @include sprite($icon-no-way-jose);
 }
+
 .icon-paul-ellering {
   @include sprite($icon-paul-ellering);
 }
+
 .icon-rezar {
   @include sprite($icon-rezar);
 }
+
 .icon-roderick-strong {
   @include sprite($icon-roderick-strong);
 }
+
 .icon-samoa-joe {
   @include sprite($icon-samoa-joe);
 }
+
 .icon-sawyer-fulton {
   @include sprite($icon-sawyer-fulton);
 }
+
 .icon-scott-dawson {
   @include sprite($icon-scott-dawson);
 }
+
 .icon-shane-turner {
   @include sprite($icon-shane-turner);
 }
+
 .icon-shinsuke-nakamura {
   @include sprite($icon-shinsuke-nakamura);
 }
+
 .icon-tom-phillips {
   @include sprite($icon-tom-phillips);
 }
+
 .icon-tommaso {
   @include sprite($icon-tommaso);
 }
+
 .icon-tye-dillinger {
   @include sprite($icon-tye-dillinger);
 }
+
 .icon-william-regal {
   @include sprite($icon-william-regal);
 }
+
 .icon-aliyah {
   @include sprite($icon-aliyah);
 }
+
 .icon-andrea-dmarco {
   @include sprite($icon-andrea-dmarco);
 }
+
 .icon-asuka {
   @include sprite($icon-asuka);
 }
+
 .icon-billie-kay {
   @include sprite($icon-billie-kay);
 }
+
 .icon-cathy-kelly {
   @include sprite($icon-cathy-kelly);
 }
+
 .icon-dasha-fuentes {
   @include sprite($icon-dasha-fuentes);
 }
+
 .icon-ember-moon {
   @include sprite($icon-ember-moon);
 }
+
 .icon-liv-morgan {
   @include sprite($icon-liv-morgan);
 }
+
 .icon-mandy-rose {
   @include sprite($icon-mandy-rose);
 }
+
 .icon-nikki-storm {
   @include sprite($icon-nikki-storm);
 }
+
 .icon-peyton-royce {
   @include sprite($icon-peyton-royce);
 }
+
 .icon-alicia-fox {
   @include sprite($icon-alicia-fox);
 }
+
 .icon-bayley {
   @include sprite($icon-bayley);
 }
+
 .icon-charlotte {
   @include sprite($icon-charlotte);
 }
+
 .icon-charly-caruso {
   @include sprite($icon-charly-caruso);
 }
+
 .icon-dana-brooke {
   @include sprite($icon-dana-brooke);
 }
+
 .icon-jojo {
   @include sprite($icon-jojo);
 }
+
 .icon-lana {
   @include sprite($icon-lana);
 }
+
 .icon-nia-jax {
   @include sprite($icon-nia-jax);
 }
+
 .icon-paige {
   @include sprite($icon-paige);
 }
+
 .icon-sasha-banks {
   @include sprite($icon-sasha-banks);
 }
+
 .icon-stephanie-mcmahon {
   @include sprite($icon-stephanie-mcmahon);
 }
+
 .icon-summer-rae {
   @include sprite($icon-summer-rae);
 }
+
 .icon-alexa-bliss {
   @include sprite($icon-alexa-bliss);
 }
+
 .icon-becky-lynch {
   @include sprite($icon-becky-lynch);
 }
+
 .icon-carmella {
   @include sprite($icon-carmella);
 }
+
 .icon-eva-marie {
   @include sprite($icon-eva-marie);
 }
+
 .icon-maryse {
   @include sprite($icon-maryse);
 }
+
 .icon-naomi {
   @include sprite($icon-naomi);
 }
+
 .icon-natalya {
   @include sprite($icon-natalya);
 }
+
 .icon-nikki-bella {
   @include sprite($icon-nikki-bella);
 }
+
 .icon-renee-young {
   @include sprite($icon-renee-young);
 }
+
 .icon-ariya-daivari {
   @include sprite($icon-ariya-daivari);
 }
+
 .icon-big-e {
   @include sprite($icon-big-e);
 }
+
 .icon-big-show {
   @include sprite($icon-big-show);
 }
+
 .icon-bo-dallas {
   @include sprite($icon-bo-dallas);
 }
+
 .icon-braun-strowman {
   @include sprite($icon-braun-strowman);
 }
+
 .icon-brian-kendrick {
   @include sprite($icon-brian-kendrick);
 }
+
 .icon-brock-lesnar {
   @include sprite($icon-brock-lesnar);
 }
+
 .icon-byron-saxton {
   @include sprite($icon-byron-saxton);
 }
+
 .icon-cedric-alexander {
   @include sprite($icon-cedric-alexander);
 }
+
 .icon-cesaro {
   @include sprite($icon-cesaro);
 }
+
 .icon-chris-jericho {
   @include sprite($icon-chris-jericho);
 }
+
 .icon-alexander-wolfe {
   @include sprite($icon-alexander-wolfe);
 }
+
 .icon-corey-graves {
   @include sprite($icon-corey-graves);
 }
+
 .icon-curtis-axel {
   @include sprite($icon-curtis-axel);
 }
+
 .icon-darren-young {
   @include sprite($icon-darren-young);
 }
+
 .icon-drew-gulak {
   @include sprite($icon-drew-gulak);
 }
+
 .icon-enzo-amore {
   @include sprite($icon-enzo-amore);
 }
+
 .icon-epico {
   @include sprite($icon-epico);
 }
+
 .icon-finn-balor {
   @include sprite($icon-finn-balor);
 }
+
 .icon-goldust {
   @include sprite($icon-goldust);
 }
+
 .icon-gran-metalik {
   @include sprite($icon-gran-metalik);
 }
+
 .icon-jinder-mahal {
   @include sprite($icon-jinder-mahal);
 }
+
 .icon-karl-anderson {
   @include sprite($icon-karl-anderson);
 }
+
 .icon-kevin-owens {
   @include sprite($icon-kevin-owens);
 }
+
 .icon-kofi-kingston {
   @include sprite($icon-kofi-kingston);
 }
+
 .icon-lince-dorado {
   @include sprite($icon-lince-dorado);
 }
+
 .icon-luke-gallows {
   @include sprite($icon-luke-gallows);
 }
+
 .icon-mark-henry {
   @include sprite($icon-mark-henry);
 }
+
 .icon-michael-cole {
   @include sprite($icon-michael-cole);
 }
+
 .icon-mick-foley {
   @include sprite($icon-mick-foley);
 }
+
 .icon-neville {
   @include sprite($icon-neville);
 }
+
 .icon-noam-dar {
   @include sprite($icon-noam-dar);
 }
+
 .icon-primo {
   @include sprite($icon-primo);
 }
+
 .icon-r-truth {
   @include sprite($icon-r-truth);
 }
+
 .icon-rich-swann {
   @include sprite($icon-rich-swann);
 }
+
 .icon-roman-reigns {
   @include sprite($icon-roman-reigns);
 }
+
 .icon-rusev {
   @include sprite($icon-rusev);
 }
+
 .icon-sami-zayn {
   @include sprite($icon-sami-zayn);
 }
+
 .icon-seth-rollins {
   @include sprite($icon-seth-rollins);
 }
+
 .icon-sheamus {
   @include sprite($icon-sheamus);
 }
+
 .icon-sin-cara {
   @include sprite($icon-sin-cara);
 }
+
 .icon-titus-oneil {
   @include sprite($icon-titus-oneil);
 }
+
 .icon-tj-perkins {
   @include sprite($icon-tj-perkins);
 }
+
 .icon-tony-nese {
   @include sprite($icon-tony-nese);
 }
+
 .icon-triple-h {
   @include sprite($icon-triple-h);
 }
+
 .icon-xavier-woods {
   @include sprite($icon-xavier-woods);
 }
+
 .icon-aiden-english {
   @include sprite($icon-aiden-english);
 }
+
 .icon-aj-styles {
   @include sprite($icon-aj-styles);
 }
+
 .icon-apollo-crews {
   @include sprite($icon-apollo-crews);
 }
+
 .icon-baron-corbin {
   @include sprite($icon-baron-corbin);
 }
+
 .icon-bray-wyatt {
   @include sprite($icon-bray-wyatt);
 }
+
 .icon-chad-gable {
   @include sprite($icon-chad-gable);
 }
+
 .icon-curt-hawkins {
   @include sprite($icon-curt-hawkins);
 }
+
 .icon-daniel-bryan {
   @include sprite($icon-daniel-bryan);
 }
+
 .icon-david-otunga {
   @include sprite($icon-david-otunga);
 }
+
 .icon-dean-ambrose {
   @include sprite($icon-dean-ambrose);
 }
+
 .icon-dolph-ziggler {
   @include sprite($icon-dolph-ziggler);
 }
+
 .icon-erick-rowan {
   @include sprite($icon-erick-rowan);
 }
+
 .icon-fandango {
   @include sprite($icon-fandango);
 }
+
 .icon-greg-hamilton {
   @include sprite($icon-greg-hamilton);
 }
+
 .icon-heath-slater {
   @include sprite($icon-heath-slater);
 }
+
 .icon-jack-swagger {
   @include sprite($icon-jack-swagger);
 }
+
+.icon-james-ellsworth {
+  @include sprite($icon-james-ellsworth);
+}
+
 .icon-jason-jordan {
   @include sprite($icon-jason-jordan);
 }
+
 .icon-jbl {
   @include sprite($icon-jbl);
 }
+
 .icon-jey-uso {
   @include sprite($icon-jey-uso);
 }
+
 .icon-jimmy-uso {
   @include sprite($icon-jimmy-uso);
 }
+
 .icon-john-cena {
   @include sprite($icon-john-cena);
 }
+
 .icon-kalisto {
   @include sprite($icon-kalisto);
 }
+
 .icon-kane {
   @include sprite($icon-kane);
 }
+
 .icon-kenny {
   @include sprite($icon-kenny);
 }
+
 .icon-konnor {
   @include sprite($icon-konnor);
 }
+
 .icon-luke-harper {
   @include sprite($icon-luke-harper);
 }
+
 .icon-mauro-ranallo {
   @include sprite($icon-mauro-ranallo);
 }
+
 .icon-mikey {
   @include sprite($icon-mikey);
 }
+
 .icon-mojo-rawley {
   @include sprite($icon-mojo-rawley);
 }
+
 .icon-randy-orton {
   @include sprite($icon-randy-orton);
 }
+
 .icon-rhyno {
   @include sprite($icon-rhyno);
 }
+
 .icon-shane-mcmahon {
   @include sprite($icon-shane-mcmahon);
 }
+
 .icon-simon-gotch {
   @include sprite($icon-simon-gotch);
 }
+
 .icon-the-miz {
   @include sprite($icon-the-miz);
 }
+
 .icon-tyler-breeze {
   @include sprite($icon-tyler-breeze);
 }
+
 .icon-viktor {
   @include sprite($icon-viktor);
 }
+
 .icon-zack-ryder {
   @include sprite($icon-zack-ryder);
 }

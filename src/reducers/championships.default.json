@@ -5,7 +5,7 @@
     "brand": "NXT",
     "male": false,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "63570681",
     "wrestlerIds": []
   },
   {
@@ -14,7 +14,7 @@
     "brand": "NXT",
     "male": true,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "-289148918",
     "wrestlerIds": []
   },
   {
@@ -25,7 +25,10 @@
     "tag": true,
     "sequence": 0,
     "wrestlerId": "",
-    "wrestlerIds": []
+    "wrestlerIds": [
+      "522741538",
+      "-3502240535"
+    ]
   },
   {
     "id": "8593337368",
@@ -33,7 +36,7 @@
     "brand": "Raw",
     "male": false,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "3923329653",
     "wrestlerIds": []
   },
   {
@@ -44,7 +47,10 @@
     "tag": true,
     "sequence": 0,
     "wrestlerId": "",
-    "wrestlerIds": []
+    "wrestlerIds": [
+      "64180485",
+      "657661680"
+    ]
   },
   {
     "id": "-5584518874",
@@ -52,7 +58,7 @@
     "brand": "Raw",
     "male": true,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "142235609",
     "wrestlerIds": []
   },
   {
@@ -61,7 +67,7 @@
     "brand": "Raw",
     "male": true,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "-191335239",
     "wrestlerIds": []
   },
   {
@@ -70,7 +76,7 @@
     "brand": "Raw",
     "male": true,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "-386269853",
     "wrestlerIds": []
   },
   {
@@ -79,7 +85,7 @@
     "brand": "Smackdown Live",
     "male": false,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "-2897856670",
     "wrestlerIds": []
   },
   {
@@ -88,7 +94,7 @@
     "brand": "Smackdown Live",
     "male": true,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "312635887",
     "wrestlerIds": []
   },
   {
@@ -99,7 +105,10 @@
     "male": true,
     "sequence": 0,
     "wrestlerId": "",
-    "wrestlerIds": []
+    "wrestlerIds": [
+      "2586453735",
+      "7624081956"
+    ]
   },
   {
     "id": "4067719886",
@@ -107,7 +116,7 @@
     "brand": "Smackdown Live",
     "male": true,
     "sequence": 0,
-    "wrestlerId": "",
+    "wrestlerId": "-643714887",
     "wrestlerIds": []
   }
 ]
