@@ -4,7 +4,7 @@ import Segments from "../../components/segments/segments"
 import * as wrestlersActions from "../../actions/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
-import { randomiseWrestlers } from "../../helpers/match"
+import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/ranking"
 
 class RankingPage extends React.Component {
@@ -12,6 +12,7 @@ class RankingPage extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
+    moves: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
   }
 
@@ -24,12 +25,16 @@ class RankingPage extends React.Component {
     )
   }
 
-  onSimulateAllBrandMatches = () => {
-    let wrestlers = randomiseWrestlers({
-      wrestlers: this.props.wrestlers,
-      byPassBrandFilter: true,
-    })
-    console.log(wrestlers)
+  onSimulateBrandMatches = (amount) => {
+    while (amount > 0) {
+      let wrestlers = randomiseWrestlers({
+        wrestlers: this.props.wrestlers,
+        byPassBrandFilter: true,
+      })
+      let story = simulateMatch(wrestlers, this.props.moves)
+      logMatch(this.props.dispatch, story)
+      amount--
+    }
   }
 
   render() {
@@ -64,10 +69,23 @@ class RankingPage extends React.Component {
             </a>
           </div>
           <div className="navigation__item">
+            <span>Simulate all brand matches: </span>
             <a
-              onKeyPress={this.onSimulateAllBrandMatches}
-              onClick={this.onSimulateAllBrandMatches}>
-              Simulate 100 all brand matches
+              onKeyPress={this.onSimulateBrandMatches.bind(this, 1)}
+              onClick={this.onSimulateBrandMatches.bind(this, 1)}>
+              1
+            </a>
+            <span> | </span>
+            <a
+              onKeyPress={this.onSimulateBrandMatches.bind(this, 100)}
+              onClick={this.onSimulateBrandMatches.bind(this, 100)}>
+              100
+            </a>
+            <span> | </span>
+            <a
+              onKeyPress={this.onSimulateBrandMatches.bind(this, 1000)}
+              onClick={this.onSimulateBrandMatches.bind(this, 1000)}>
+              1000
             </a>
           </div>
         </div>
@@ -127,6 +145,7 @@ class RankingPage extends React.Component {
 }
 
 export default connect(state => ({
+  moves: state.moves,
   wrestlers: state.wrestlers,
   brands: state.brands,
 }))(RankingPage)
