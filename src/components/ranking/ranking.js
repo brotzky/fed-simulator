@@ -28,7 +28,7 @@ export default class Ranking extends React.Component {
         <table className="ranking__table table table-striped">
           <thead>
             <tr>
-              <td colSpan="2">
+              <td colSpan="3">
                 <h3 className="ranking__title">
                   {this.props.title}
                 </h3>
@@ -56,11 +56,17 @@ export default class Ranking extends React.Component {
                   </td>
                   <td className="ranking__wrestler">
                     <Icon name={wrestler.name} />
+                  </td>
+                  <td className="ranking__name">
+                    <p>
+                      {wrestler.name}
+                    </p>
                     <If condition={this.props.showLabels}>
-                      <br />
-                      <div className={`label label-${this.context.toSlug(wrestler.brand)}`}>
-                        {wrestler.brand}
-                      </div>
+                      <p>
+                        <span className={`label label-${this.context.toSlug(wrestler.brand)}`}>
+                          {wrestler.brand}
+                        </span>
+                      </p>
                     </If>
                   </td>
                   <td className="ranking__wins">

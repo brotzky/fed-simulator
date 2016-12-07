@@ -10,11 +10,17 @@
     margin: 4px 0px;
   }
 
-  &__table>thead>tr>td {
+  .table>thead>tr>td,
+  .table>tbody>tr.active>td {
     vertical-align: bottom;
   }
 
   tbody tr {
+
+    p {
+      padding: 0;
+      margin: 0;
+    }
 
     &.inactive {
       color: #ccc;
@@ -23,8 +29,12 @@
       }
     }
 
+    .ranking__name {
+      font-size: 1.5em;
+    }
+
     .ranking__order {
-      font-size: 4.5em;
+      font-size: 3em;
       font-weight: 700;
       width: 1%;
       text-align: center;
@@ -32,6 +42,7 @@
 
     .ranking__wrestler {
       text-align: left;
+      width: 1%;
     }
 
     .ranking__wins,
