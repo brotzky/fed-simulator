@@ -1,3 +1,5 @@
+@import "src/stylesheets/variables";
+
 .label {
   display: inline-block;
   padding: 5px 6px 3px;
@@ -9,22 +11,6 @@
 
   &.label-green {
     background-color: green;
-  }
-  &.label-purple {
-    background-color: purple;
-  }
-  &.label-orange {
-    background-color: orange;
-  }
-  &.label-red {
-    background-color: red;
-  }
-  &.label-blue {
-    background-color: blue;
-  }
-  &.label-yellow {
-    background-color: yellow;
-    color: black;
   }
   &.label-white {
     background-color: white;

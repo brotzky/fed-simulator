@@ -1,5 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
+import Label from "../label/label"
 import "./stylesheets/main"
 
 export default class Ranking extends React.Component {
@@ -9,10 +10,6 @@ export default class Ranking extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     amountToShow: React.PropTypes.number,
     showLabels: React.PropTypes.bool,
-  }
-
-  static contextTypes = {
-    toSlug: React.PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -63,9 +60,10 @@ export default class Ranking extends React.Component {
                     </p>
                     <If condition={this.props.showLabels}>
                       <p>
-                        <span className={`label label-${this.context.toSlug(wrestler.brand)}`}>
-                          {wrestler.brand}
-                        </span>
+                        <Label
+                          modifier={wrestler.brand}
+                          name={wrestler.brand}
+                        />
                       </p>
                     </If>
                   </td>
