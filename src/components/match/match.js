@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
-import { randomiseWrestlers, simulateMatch } from "../../helpers/match"
+import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/main"
 
 const defaultState = {
@@ -79,19 +79,9 @@ class Match extends React.Component {
   }
 
   onStartMatch = () => {
-    if (this.state.wrestlers.length > 1) {
-      let
-        story = simulateMatch(
-          this.state.wrestlers,
-          this.props.moves,
-        ),
-        winnersAction = story.slice(-1).pop().details
-
-      this.props.dispatch([
-        wrestlersActions.awardMatchPoints({...winnersAction}),
-        championshipActions.checkMove({...winnersAction}),
-      ])
-
+    if (this.state.wrestlers.length  > 1) {
+      let story = simulateMatch(this.state.wrestlers, this.props.moves)
+      logMatch(this.props.dispatch, story)
       this.setState({
         story,
       })
