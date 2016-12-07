@@ -8,7 +8,7 @@ const Wrestler = ({
   id,
   name,
   brand,
-  canJiggle = true,
+  animate = true,
   onWrestlerClick,
   active = false
 }) => {
@@ -16,7 +16,7 @@ const Wrestler = ({
   const classes = classNames(
     "wrestler",
     `wrestler--${toSlug(brand)}`,
-    { jiggle: canJiggle },
+    { "hvr-buzz": animate },
   )
   return (
     <div
