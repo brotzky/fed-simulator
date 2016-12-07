@@ -1,7 +1,7 @@
 import React from "react"
-import Ranking from "../components/ranking/ranking"
-import Segments from "../components/segments/segments"
-import * as wrestlersActions from "../actions/wrestlers"
+import Ranking from "../../components/ranking/ranking"
+import Segments from "../../components/segments/segments"
+import * as wrestlersActions from "../../actions/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 

@@ -18,7 +18,7 @@ export default () => {
            <IndexRoute
              getComponent={(nextState, callback) => {
                require.ensure([], (require) => {
-                 callback(null, require("./pages/show").default)
+                 callback(null, require("./pages/show/show").default)
                })
              }}
            />
@@ -27,7 +27,7 @@ export default () => {
            <IndexRoute
              getComponent={(nextState, callback) => {
                require.ensure([], (require) => {
-                 callback(null, require("./pages/champions").default)
+                 callback(null, require("./pages/champions/champions").default)
                })
              }}
            />
@@ -36,7 +36,7 @@ export default () => {
            <IndexRoute
              getComponent={(nextState, callback) => {
                require.ensure([], (require) => {
-                 callback(null, require("./pages/ppvs").default)
+                 callback(null, require("./pages/ppvs/ppvs").default)
                })
              }}
            />
@@ -45,7 +45,7 @@ export default () => {
            <IndexRoute
              getComponent={(nextState, callback) => {
                require.ensure([], (require) => {
-                 callback(null, require("./pages/ranking").default)
+                 callback(null, require("./pages/ranking/ranking").default)
                })
              }}
            />
@@ -54,7 +54,7 @@ export default () => {
           <IndexRoute
             getComponent={(nextState, callback) => {
               require.ensure([], (require) => {
-                callback(null, require("./pages/draft").default)
+                callback(null, require("./pages/draft/draft").default)
               })
             }}
           />

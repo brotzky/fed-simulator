@@ -1,6 +1,6 @@
 import React from "react"
-import Brand from "../components/brand/brand"
-import * as wrestlersActions from "../actions/wrestlers"
+import Brand from "../../components/brand/brand"
+import * as wrestlersActions from "../../actions/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import "./stylesheets/draft"
