@@ -5,8 +5,7 @@ import { connect } from "react-redux"
 import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
-import { randomiseWrestlers } from "../../helpers/match"
-import { SimMatch } from "./sim-match.helper"
+import { randomiseWrestlers, simulateMatch } from "../../helpers/match"
 import "./stylesheets/main"
 
 const defaultState = {
@@ -81,19 +80,13 @@ class Match extends React.Component {
 
   onStartMatch = () => {
     if (this.state.wrestlers.length > 1) {
-      // copy props wrestlers to local var
-      let wrestlers = this.state.wrestlers.slice()
-      // bind damage to the rating field due to the random weighting system were using
-      wrestlers.forEach((wrestler, key) => {
-        wrestlers[key].damage = wrestler.rating
-      })
-      // create the match
-      let story = new SimMatch(
-        this.state.wrestlers,
-        this.props.moves
-      ).ringBell()
+      let
+        story = simulateMatch(
+          this.state.wrestlers,
+          this.props.moves,
+        ),
+        winnersAction = story.slice(-1).pop().details
 
-      let winnersAction = story.slice(-1).pop().details
       this.props.dispatch([
         wrestlersActions.awardMatchPoints({...winnersAction}),
         championshipActions.checkMove({...winnersAction}),

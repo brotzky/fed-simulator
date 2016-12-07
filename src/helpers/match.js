@@ -1,4 +1,5 @@
 import weighted from "weighted"
+import { SimMatch } from "./sim-match.helper"
 
 const getWeightedArrayOfLength = (length) => {
   return new Array(length).fill((1 / length))
@@ -39,4 +40,16 @@ export function randomiseWrestlers({
   }
 
   return matchWrestlers
+}
+
+export function simulateMatch(wrestlers, moves) {
+  // ensure they have a damage attribute
+  wrestlers.forEach((wrestler, key) => {
+    wrestlers[key].damage = wrestler.rating
+  })
+  // create the match
+  return new SimMatch(
+    wrestlers,
+    moves,
+  ).ringBell()
 }
