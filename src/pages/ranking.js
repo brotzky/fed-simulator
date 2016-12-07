@@ -62,6 +62,7 @@ class RankingPage extends React.Component {
               <Segments segments={segments} />
             </div>
           </div>
+          <br />
           <div className="row">
             <div className="col-lg-6 col-xs-12">
               <Ranking

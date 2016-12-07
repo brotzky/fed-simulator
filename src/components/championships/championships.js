@@ -70,7 +70,9 @@ class Championships extends React.Component {
                   "wrestler",
                 ]}
                 onDrop={this.onDrop.bind(this, championship)}>
-                <Icon name={championship.name} />
+                <span className="hvr-push">
+                  <Icon name={championship.name} />
+                </span>
                 <div className={`championship__holdername championship__holdername--${this.context.toSlug(name)}`}>
                   <Choose>
                     <When condition={wrestlers.length > 0}>

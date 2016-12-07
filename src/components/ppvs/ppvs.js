@@ -23,7 +23,7 @@ export default class PPVs extends React.Component {
             return (
               <li key={key}
                 onClick={this.props.onPPVClick.bind(this, ppv.name)}
-                className="ppvs__item">
+                className="ppvs__item hvr-float-shadow">
                 <Icon name={ppv.name} />
               </li>
             )

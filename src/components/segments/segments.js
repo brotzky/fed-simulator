@@ -27,7 +27,7 @@ export default class Segments extends React.Component {
           return (
             <span key={key}
               style={style}
-              className={`segments__segment segments__segment--${this.context.toSlug(segment.name)} zoom truncate`}>
+              className={`segments__segment segments__segment--${this.context.toSlug(segment.name)} hvr-bounce-to-right truncate`}>
               {segment.name} ({segment.value})
             </span>
           )

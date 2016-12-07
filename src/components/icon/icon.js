@@ -21,7 +21,7 @@ export default class Icon extends React.Component {
     return (
       <span
         onClick={this.props.onClick}
-        className={`icon icon-${slugName} zoom ${active}`}
+        className={`icon icon-${slugName} ${active}`}
         alt={name}
         title={name}>
       </span>

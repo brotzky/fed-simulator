@@ -1,13 +1,18 @@
 @import "variables";
-@import "ppvs-base";
-@import "wrestlers-base";
-@import "championships-base";
-@import "brands-base";
+
+/* basics */
+@import "animations/main";
 @import "labels";
 @import "breakpoints";
 @import "navigation";
 @import "clearfix";
 @import "dropdown";
+
+/* sprites */
+@import "ppvs-base";
+@import "wrestlers-base";
+@import "championships-base";
+@import "brands-base";
 
 body {
   margin: 0;
