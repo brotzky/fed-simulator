@@ -8,11 +8,7 @@
 @import "clearfix";
 @import "dropdown";
 
-/* sprites */
-@import "ppvs-base";
-@import "wrestlers-base";
-@import "championships-base";
-@import "brands-base";
+@import "sprites/main";
 
 body {
   margin: 0;
