@@ -4,7 +4,7 @@ import Segments from "../../components/segments/segments"
 import * as wrestlersActions from "../../actions/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
-
+import { randomiseWrestlers } from "../../helpers/match"
 import "./stylesheets/ranking"
 
 class RankingPage extends React.Component {
@@ -22,6 +22,14 @@ class RankingPage extends React.Component {
     this.props.dispatch(
       wrestlersActions.reset()
     )
+  }
+
+  onSimulateAllBrandMatches = () => {
+    let wrestlers = randomiseWrestlers({
+      wrestlers: this.props.wrestlers,
+      byPassBrandFilter: true,
+    })
+    console.log(wrestlers)
   }
 
   render() {
@@ -53,6 +61,13 @@ class RankingPage extends React.Component {
               onKeyPress={this.onReset}
               onClick={this.onReset}>
               Clear wins & losses
+            </a>
+          </div>
+          <div className="navigation__item">
+            <a
+              onKeyPress={this.onSimulateAllBrandMatches}
+              onClick={this.onSimulateAllBrandMatches}>
+              Simulate 100 all brand matches
             </a>
           </div>
         </div>

@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
+import { randomiseWrestlers } from "../../helpers/match"
 import { SimMatch } from "./sim-match.helper"
 import "./stylesheets/main"
 
@@ -22,8 +23,6 @@ const settings = {
     weights: [0.5, 0.2, 0.2, 0.05, 0.05]
   }
 }
-const getWeightedArrayOfLength = (length) => new Array(length).fill((1 / length))
-const getWrestler = (wrestlers) => weighted.select(wrestlers, getWeightedArrayOfLength(wrestlers.length))
 
 class Match extends React.Component {
 
@@ -45,7 +44,7 @@ class Match extends React.Component {
   constructor(props, context) {
     super(props)
     let onStartMatch = this.onStartMatch.bind(this),
-      onRandomiseMatch = this.onRandomiseMatch.bind(this),
+      onRandomiseWrestlers = this.onRandomiseWrestlers.bind(this),
       onClearMatch = this.onClearMatch.bind(this),
       eventEmitter = context.eventEmitter
 
@@ -55,7 +54,7 @@ class Match extends React.Component {
         onStartMatch()
       }),
       eventEmitter.addListener("randomiseMatch", (brandName) => {
-        onRandomiseMatch(brandName)
+        onRandomiseWrestlers(brandName)
       }),
       eventEmitter.addListener("clearMatch", (brandName) => {
         onClearMatch()
@@ -73,26 +72,10 @@ class Match extends React.Component {
     })
   }
 
-  onRandomiseMatch = (brandName) => {
-    let wrestlers = [],
-      randomBool = weighted.select(settings.male.options, settings.male.weights),
-      amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights),
-      filteredWrestlers = this.props.wrestlers.filter((wrestler) =>
-        (!this.props.byPassBrandFilter && brandName === "Default" || wrestler.brand === brandName)
-          && wrestler.male === randomBool)
-
-    while (amountOfWrestlers > 0) {
-      let chosenWrestler = getWrestler(filteredWrestlers)
-      // update filteredWrestlers to lose this wrestler so they dont vs themself
-      filteredWrestlers = filteredWrestlers.filter((wrestler) => wrestler.id !== chosenWrestler.id)
-      wrestlers.push(
-        chosenWrestler
-      )
-      amountOfWrestlers--
-    }
-
+  onRandomiseWrestlers = (brandName) => {
+    let wrestlers = this.props.wrestlers.filter(wrestler => (!this.props.byPassBrandFilter && brandName === "Default") || wrestler.brand === brandName)
     this.setState({
-      wrestlers,
+      wrestlers: randomiseWrestlers({wrestlers})
     })
   }
 

@@ -48,6 +48,7 @@
       "exports": "never",
       "functions": "ignore",
     }],
+    "no-unused-vars": "error"
     "array-callback-return": "warn",
     "dot-location": ["warn", "property"],
     "eqeqeq": ["warn", "allow-null"],
