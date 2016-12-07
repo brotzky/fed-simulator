@@ -36,7 +36,7 @@
 	"rating": 70
 }, {
 	"name": "Asuka",
-	"rating": 89,
+	"rating": 90,
 	"championshipId": "7644539610"
 }, {
 	"rating": 60,
@@ -135,14 +135,14 @@
 	"rating": 67
 }, {
 	"name": "Braun Strowman",
-	"rating": 78
+	"rating": 90
 }, {
 	"name": "Brian Kendrick",
 	"rating": 77,
 	"championshipId": "-13430616757"
 }, {
 	"name": "Brock Lesnar",
-	"rating": 95
+	"rating": 97
 }, {
 	"name": "Byron Saxton",
 	"rating": 10
@@ -175,16 +175,16 @@
 	"rating": 74
 }, {
 	"name": "Epico",
-	"rating": 69
+	"rating": 60
 }, {
 	"name": "Alicia Fox",
 	"rating": 70
 }, {
 	"name": "Bayley",
-	"rating": 83
+	"rating": 85
 }, {
 	"name": "Charlotte",
-	"rating": 85,
+	"rating": 92,
 	"championshipId": "8593337368"
 }, {
 	"name": "Charly Caruso",
@@ -206,7 +206,7 @@
 	"rating": 81
 }, {
 	"name": "Sasha Banks",
-	"rating": 81
+	"rating": 86
 }, {
 	"name": "Stephanie Mcmahon",
 	"rating": 12
@@ -230,7 +230,7 @@
 	"rating": 80
 }, {
 	"name": "Kevin Owens",
-	"rating": 86,
+	"rating": 90,
 	"championshipId": "-5537089739"
 }, {
 	"name": "Kofi Kingston",
@@ -268,36 +268,36 @@
 	"rating": 74
 }, {
 	"name": "Roman Reigns",
-	"rating": 89,
+	"rating": 94,
 	"championshipId": "-5584518874"
 }, {
 	"name": "Rusev",
-	"rating": 86
+	"rating": 85
 }, {
 	"name": "Sami Zayn",
-	"rating": 87
+	"rating": 89
 }, {
 	"name": "Seth Rollins",
-	"rating": 93
+	"rating": 94
 }, {
 	"name": "Sheamus",
-	"rating": 83
+	"rating": 85
 }, {
 	"name": "Sin Cara",
 	"rating": 72
 }, {
 	"name": "Titus Oneil",
-	"rating": 75
+	"rating": 69
 }, {
 	"id": 95,
 	"name": "Tj Perkins",
-	"rating": 78
+	"rating": 79
 }, {
 	"name": "Tony Nese",
 	"rating": 75
 }, {
 	"name": "Triple H",
-	"rating": 12
+	"rating": 86
 }, {
 	"name": "Xavier Woods",
 	"rating": 75
@@ -396,7 +396,7 @@
 	"rating": 84
 }, {
 	"name": "John Cena",
-	"rating": 93
+	"rating": 92
 }, {
 	"name": "Kalisto",
 	"rating": 79
