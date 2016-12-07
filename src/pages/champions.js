@@ -80,7 +80,7 @@ class ChampionsPage extends React.Component {
               let wrestlers = this.props.wrestlers
                 .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
                 .sort((a, b) => a.rating < b.rating),
-                championships = this.props.championships.filter((championship) => championship.brand === brand.name)
+                championships = this.props.championships.filter((championship) => championship.brand === brand.name && ((this.state.showFemalesOnly && championship.male === false) || !this.state.showFemalesOnly))
               return (
                 <div
                   key={brand.id}
