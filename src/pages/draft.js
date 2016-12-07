@@ -19,10 +19,10 @@ class DraftPage extends React.Component {
     showFemalesOnly: false,
   }
 
-  onReset = (event) => {
+  onClear = (event) => {
     event.preventDefault()
     this.props.dispatch(
-      wrestlersActions.reset()
+      wrestlersActions.clear()
     )
   }
 
@@ -54,8 +54,8 @@ class DraftPage extends React.Component {
           </div>
           <div className="navigation__item">
             <a
-              onKeyPress={this.onReset}
-              onClick={this.onReset}>
+              onKeyPress={this.onClear}
+              onClick={this.onClear}>
               Move wrestlers to current TV brand
             </a>
           </div>

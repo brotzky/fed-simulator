@@ -1,18 +1,28 @@
 import React from "react"
 import Ranking from "../components/ranking/ranking"
 import Segments from "../components/segments/segments"
+import * as wrestlersActions from "../actions/wrestlers"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
+
 import "./stylesheets/ranking"
 
 class RankingPage extends React.Component {
 
   static propTypes = {
+    dispatch: React.PropTypes.func.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
   }
 
   displayName = "RankingPage"
+
+  onReset = (event) => {
+    event.preventDefault()
+    this.props.dispatch(
+      wrestlersActions.reset()
+    )
+  }
 
   render() {
     let segments = [],
@@ -37,6 +47,15 @@ class RankingPage extends React.Component {
     return (
       <div className="page ranking">
         <Helmet title="Universe Ranking" />
+        <div className="navigation navigation--secondary">
+          <div className="navigation__item">
+            <a
+              onKeyPress={this.onReset}
+              onClick={this.onReset}>
+              Clear wins & losses
+            </a>
+          </div>
+        </div>
         <div className="inpage-content">
           <div className="row">
             <div className="col-xs-12">

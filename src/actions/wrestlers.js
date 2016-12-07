@@ -30,6 +30,12 @@ export function moveAllWrestlersToDefault() {
   }
 }
 
+export function clear() {
+  return {
+    type: types.CLEAR
+  }
+}
+
 export function reset() {
   return {
     type: types.RESET

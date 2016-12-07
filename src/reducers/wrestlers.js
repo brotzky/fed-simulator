@@ -4,6 +4,9 @@ export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
   switch (action.type) {
     case "RESET":
+        newState = defaultState
+      break
+    case "CLEAR":
       let wrestlersBrand = []
 
       Object.keys(defaultState).map(index => {
