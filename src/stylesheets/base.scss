@@ -18,6 +18,12 @@ body {
   color: $color;
 }
 
+a:hover,
+.btn:focus,
+.btn:hover {
+  color: $active;
+}
+
 ul {
   padding: 0;
 }
@@ -58,6 +64,10 @@ h1 {
 }
 
 .page {
+  padding: 0 20px;
+  @include breakpoint(xs) {
+    padding: 0;
+  }
   .inpage-content {
     position: relative;
     padding: 1em 0;
