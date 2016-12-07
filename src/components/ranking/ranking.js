@@ -68,10 +68,10 @@ export default class Ranking extends React.Component {
                     </If>
                   </td>
                   <td className="ranking__wins">
-                    {wrestler.wins}
+                    {wrestler.wins.toLocaleString()}
                   </td>
                   <td className="ranking__losses">
-                    {wrestler.losses}
+                    {wrestler.losses.toLocaleString()}
                   </td>
                 </tr>
               )
