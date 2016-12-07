@@ -1,19 +1,5 @@
 @import "../../../stylesheets/variables";
 
-.segments {
-  padding: 0px 30px;
-}
-
-.segments__segment {
-  float: left;
-  line-height: 2em;
-  vertical-align: middle;
-  background-color: black;
-  color: white;
-  font-size: 2em;
-  padding: 0.5em;
-}
-
 .segments__segment--raw {
   background-color: $raw;
 }
@@ -21,6 +7,7 @@
 .segments__segment--smackdown-live {
   background-color: $smackdown;
 }
+
 .segments__segment--nxt {
   background-color: $nxt;
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import "./stylesheets/main"
+import "./stylesheets/segments"
 
 export default class Segments extends React.Component {
 
@@ -27,7 +27,7 @@ export default class Segments extends React.Component {
           return (
             <span key={key}
               style={style}
-              className={`segments__segment segments__segment--${this.context.toSlug(segment.name)} truncate`}>
+              className={`segments__segment segments__segment--${this.context.toSlug(segment.name)} zoom truncate`}>
               {segment.name} ({segment.value})
             </span>
           )

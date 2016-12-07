@@ -1,0 +1,15 @@
+.segments {
+  padding: 0px 30px;
+}
+
+.segments__segment {
+  float: left;
+  line-height: 2em;
+  vertical-align: middle;
+  background-color: black;
+  color: white;
+  font-size: 2em;
+  padding: 0.5em;
+}
+
+@import "segments.modifiers"
