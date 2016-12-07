@@ -7,6 +7,11 @@
   @include push();
 }
 
+@import "buzz";
+.#{$nameSpace}-buzz {
+  @include buzz();
+}
+
 @import "float-shadow";
 .#{$nameSpace}-float-shadow {
   @include float-shadow();
