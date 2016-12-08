@@ -60,6 +60,7 @@ export class SimMatch {
       loser = _minBy(this.wrestlers, "damage"),
       losers = this.wrestlers.filter((wrestler) => wrestler.id !== winner.id)
     this.logAction("winner", {
+      wrestlers: this.wrestlers,
       winner,
       loser,
       losers,

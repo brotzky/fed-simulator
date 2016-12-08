@@ -1,4 +1,5 @@
 import React from "react"
+import Icon from "../icon/icon"
 import "./stylesheets/main"
 
 export default class Story extends React.Component {
@@ -7,8 +8,32 @@ export default class Story extends React.Component {
     toSlug: React.PropTypes.func.isRequired,
   }
 
+  static propTypes = {
+    collection: React.PropTypes.array,
+    wrestlers: React.PropTypes.array,
+  }
+
   static defaultProps = {
     collection: [],
+    wrestlers: [],
+  }
+
+  state = {
+    colourIndex: [],
+  }
+
+  componentWillMount() {
+    this.getWrestlersColourIndex()
+  }
+
+  getTitle(action) {
+    return `${action.details.attacker.name}: ${action.details.move.name} for ${action.details.move.damage} on ${action.details.defender.name}`
+  }
+
+  getWrestlersColourIndex = () => {
+    this.props.wrestlers.forEach((wrestler, key) => {
+      this.state.colourIndex[wrestler.id] = key
+    })
   }
 
   render() {
@@ -32,22 +57,28 @@ export default class Story extends React.Component {
                 style = {
                   width: `${width}%`,
                   borderRight: "1px solid black",
-                }
+                },
+                indexClass = (action.action === "move")
+                  ? `index-${this.state.colourIndex[action.details.attacker.id]}`
+                  : ""
               return (
                 <li style={style}
-                  className={`story__action story--${action.action} brand--${this.context.toSlug(brand)}`}
+                  className={`story__action story--${action.action} ${indexClass} brand--${this.context.toSlug(brand)}`}
                   key={key}>
                   <Choose>
                     <When condition={action.action === "move"}>
-                      <p className="truncate">
-                        {action.details.attacker.name}
-                      </p>
-                      <p className="truncate">
-                        {action.details.move.name} ({action.details.move.damage})
-                      </p>
-                      <p className="truncate">
-                        {action.details.defender.name}
-                      </p>
+                      <span className={`move__icon ${action.details.move.name}`}
+                        title={this.getTitle(action)}>
+                        <p className="truncate">
+                          {action.details.attacker.name}
+                        </p>
+                        <p>
+                          {action.details.move.name}
+                        </p>
+                        <p className="truncate">
+                          {action.details.defender.name}
+                        </p>
+                      </span>
                     </When>
                     <When condition={action.action === "winner"}>
                       <span className="clearfix story__winner">

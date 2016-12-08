@@ -55,6 +55,24 @@
     height: 1.5em;
     font-size: 1.5em;
   }
+  .index-0 {
+    filter: grayscale(0%);
+  }
+  .index-1 {
+    filter: grayscale(20%);
+  }
+  .index-2 {
+    filter: grayscale(40%);
+  }
+  .index-3 {
+    filter: grayscale(60%);
+  }
+  .index-4 {
+    filter: grayscale(80%);
+  }
+  .index-5 {
+    filter: grayscale(100%);
+  }
 }
 
 .brand--nxt {
