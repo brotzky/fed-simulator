@@ -11,6 +11,11 @@ export default class Bell extends React.Component {
     title: React.PropTypes.string.isRequired,
   }
 
+  static propTypes = {
+    onBellRung: () => {},
+    title: "",
+  }
+
   onBellRung = () => {
     this.setState({
       soundPlaying: Sound.status.PLAYING,

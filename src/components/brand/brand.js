@@ -19,6 +19,10 @@ class Brand extends React.Component {
     showBrandLogo: React.PropTypes.bool,
   }
 
+  static defaultProps = {
+    wrestlers: [],
+  }
+
   static contextTypes = {
     toSlug: React.PropTypes.func,
   }

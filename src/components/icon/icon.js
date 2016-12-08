@@ -13,6 +13,7 @@ export default class Icon extends React.Component {
   static defaultProps = {
     onClick: () => {},
     active: false,
+    name: "",
   }
 
   render() {
