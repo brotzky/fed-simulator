@@ -20,13 +20,13 @@ export function clear() {
   }
 }
 
-export function checkMove({
+export function shouldTheChampionshipMove({
   winner,
   loser,
   losers,
 }) {
   return {
-    type: types.CHECK_CHAMPIONSHIP,
+    type: types.SHOULD_MOVE_CHAMPIONSHIP,
     winner,
     loser,
     losers,

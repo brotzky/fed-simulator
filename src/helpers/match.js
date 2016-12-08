@@ -1,7 +1,7 @@
 import weighted from "weighted"
 import { SimMatch } from "./sim-match.helper"
 import { awardMatchPoints } from "../actions/wrestlers"
-import { checkMove } from "../actions/championship"
+import { shouldTheChampionshipMove } from "../actions/championship"
 
 const getWeightedArrayOfLength = (length) => {
   return new Array(length).fill((1 / length))
@@ -61,6 +61,6 @@ export function logMatch(dispatch, story) {
 
   dispatch([
     awardMatchPoints({...winnersAction}),
-    checkMove({...winnersAction}),
+    shouldTheChampionshipMove({...winnersAction}),
   ])
 }
