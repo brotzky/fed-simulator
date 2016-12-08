@@ -3,10 +3,11 @@ import defaultState from "./wrestlers.default"
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
   switch (action.type) {
-    case "RESET":
-        newState = defaultState
+    case "RESET_WRESTLERS":
+      console.log("wresters hit")
+      newState = defaultState
       break
-    case "CLEAR":
+    case "CLEAR_WRESTLERS":
       let wrestlersBrand = []
 
       Object.keys(defaultState).map(index => {

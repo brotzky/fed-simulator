@@ -10,13 +10,13 @@ export function awardChampionship(championship, wrestlerId) {
 
 export function reset() {
   return {
-    type: types.RESET,
+    type: types.RESET_CHAMPIONS,
   }
 }
 
 export function clear() {
   return {
-    type: types.CLEAR,
+    type: types.CLEAR_CHAMPIONS,
   }
 }
 

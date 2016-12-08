@@ -32,12 +32,12 @@ export function moveAllWrestlersToDefault() {
 
 export function clear() {
   return {
-    type: types.CLEAR
+    type: types.CLEAR_WRESTLERS
   }
 }
 
 export function reset() {
   return {
-    type: types.RESET
+    type: types.RESET_WRESTLERS
   }
 }
