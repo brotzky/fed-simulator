@@ -119,42 +119,42 @@ class Match extends React.Component {
     let isValidMatch = this.state.wrestlers.length > 0
     return (
       <div className="match row">
-        <div className={`col-xs-12 match__inner ${(isValidMatch ? "active" : "inactive")}`}>
-          <Choose>
-            <When condition={isValidMatch}>
-              <div className="match__names">
-                {this.state.wrestlers.map((wrestler, key) => {
-                  return (
-                    <span key={key}
-                      className="match__name">
-                      <span>{wrestler.name}</span>
-                      <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
-                        className="remove">
-                        &nbsp; (remove)
+        <Droppable
+          types={[
+            "wrestler",
+          ]}
+          onDrop={this.onDrop}>
+          <div className={`col-xs-12 match__inner ${(isValidMatch ? "active" : "inactive")}`}>
+            <Choose>
+              <When condition={isValidMatch}>
+                <div className="match__names">
+                  {this.state.wrestlers.map((wrestler, key) => {
+                    return (
+                      <span key={key}
+                        className="match__name">
+                        <span>{wrestler.name}</span>
+                        <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
+                          className="remove">
+                          &nbsp; (remove)
+                        </span>
                       </span>
-                    </span>
-                  )
-                })}
-              </div>
-              <If condition={this.state.story.length > 0}>
-                <div className="statistic">
-                  <Story collection={this.state.story} wrestlers={this.state.wrestlers} />
+                    )
+                  })}
                 </div>
-              </If>
-            </When>
-          </Choose>
-          <Droppable
-            types={[
-              "wrestler",
-            ]}
-            onDrop={this.onDrop}>
+                <If condition={this.state.story.length > 0}>
+                  <div className="statistic">
+                    <Story collection={this.state.story} wrestlers={this.state.wrestlers} />
+                  </div>
+                </If>
+              </When>
+            </Choose>
             <div className={`droparea ${(this.state.story.length > 0 ? "inactive" : "active")} match__names`}>
               <span className="match__name">
                 Drag and drop wrestlers here to create a match
               </span>
             </div>
-          </Droppable>
-        </div>
+          </div>
+        </Droppable>
       </div>
     )
   }
