@@ -34,11 +34,6 @@ export default class Page extends React.Component {
       <div>
         <header className="header">
           <div className="navigation navigation--primary">
-            <div className="navigation__item">
-              <a className="header__link" href="#">
-                WWE Sim
-              </a>
-            </div>
             {navigationItems.map((navigationItem, key) => {
               return (
                 <div key={key} className="navigation__item">
