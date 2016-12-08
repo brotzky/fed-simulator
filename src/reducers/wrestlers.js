@@ -4,7 +4,6 @@ export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
   switch (action.type) {
     case "RESET_WRESTLERS":
-      console.log("wresters hit")
       newState = defaultState
       break
     case "CLEAR_WRESTLERS":
