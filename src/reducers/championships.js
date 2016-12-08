@@ -26,9 +26,12 @@ export default (state = defaultState, action) => {
       })
       break
     case "SHOULD_MOVE_CHAMPIONSHIP":
+      let movedOneChampionship = 0
+      
       newState.forEach((championship, key) => {
-        if (championship.wrestlerId === action.loser.id && action.winner.male === championship.male) {
+        if (championship.wrestlerId === action.loser.id && action.winner.male === championship.male && movedOneChampionship === 0) {
           newState[key].wrestlerId = action.winner.id
+          movedOneChampionship++
 
           // if (newState[key].history === undefined) {
           //   newState[key].history = []
