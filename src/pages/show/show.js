@@ -22,7 +22,7 @@ class ShowPage extends React.Component {
   }
 
   state = {
-    brand: "Raw",
+    brand: "Default",
     PPV: "Roadblock",
     showFemalesOnly: false,
   }
