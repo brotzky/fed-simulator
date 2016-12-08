@@ -8,6 +8,10 @@ import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import "./stylesheets/show"
 
+const numberOfMatches = 6
+const filterByBrand = (wrestler, brandName) => wrestler.brand === brandName
+const filterByFemales = (wrestler, showFemalesOnly) => !showFemalesOnly || (showFemalesOnly && wrestler.male === false)
+
 class ShowPage extends React.Component {
 
   static propTypes = {
@@ -66,58 +70,59 @@ class ShowPage extends React.Component {
   displayName = "ShowPage"
 
   render() {
-    const filterByBrand = (wrestler, brandName) => wrestler.brand === brandName
-    const filterByFemales = (wrestler, showFemalesOnly) => !showFemalesOnly || (showFemalesOnly && wrestler.male === false)
-    let numberOfMatches = 6,
-      wrestlers = this.props.wrestlers
-        .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
-        if (this.state.brand !== "Default") {
-          wrestlers = wrestlers.filter(wrestler => filterByBrand(wrestler, this.state.brand))
-        }
+    let wrestlers = this.props.wrestlers
+      .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
+      if (this.state.brand !== "Default") {
+        wrestlers = wrestlers.filter(wrestler => filterByBrand(wrestler, this.state.brand))
+      }
     return (
       <div className={`page show ${this.context.toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
         <div className="navigation navigation--secondary">
-          {this.props.brands.map((brand, key) => {
-            return (
-              <div key={key}
-                className="navigation__item">
-                <a onKeyPress={this.onChangeBrand.bind(this, brand.name)}
-                  onClick={this.onChangeBrand.bind(this, brand.name)}>
-                  {(brand.name !== "Default") ? <Icon name={brand.name} /> : "All Brands"}
+          <ul>
+            <li className="navigation__item">
+            {this.props.brands.map((brand, key) => {
+              return (
+                <a key={key}
+                  className="navigation__item">
+                  <Icon
+                    name={brand.name}
+                    onClick={this.onChangeBrand}
+                  />
                 </a>
-              </div>
-            )
-          })}
-          <div className="navigation__item">
-            <a onKeyPress={this.onToggleWomenWrestlers}
-              onClick={this.onToggleWomenWrestlers}
-              href="#">
-              &#x2640; Toggle Women Wrestlers
-            </a>
-          </div>
-          <div className="navigation__item padding-left">
-            <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
-              onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
-              Randomise
-            </a>
-            &nbsp; | &nbsp;
-            <a onKeyPress={this.onBellRung}
-              onClick={this.onBellRung}>
-              Simulate
-            </a>
-            &nbsp; | &nbsp;
-            <a onKeyPress={this.onClearMatches}
-              onClick={this.onClearMatches}>
-              Clear
-            </a>
-          </div>
-          <div className="navigation__item">
-            <a onKeyPress={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}
-              onClick={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}>
-              &#10227; Randomise & Simulate
-            </a>
-          </div>
+              )
+            })}
+            </li>
+            <li className="navigation__item">
+              <a onKeyPress={this.onToggleWomenWrestlers}
+                onClick={this.onToggleWomenWrestlers}
+                href="#">
+                &#x2640; Toggle Women Wrestlers
+              </a>
+              </li>
+              <li className="navigation__item">
+              <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
+                onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
+                Randomise
+              </a>
+              &nbsp; | &nbsp;
+              <a onKeyPress={this.onBellRung}
+                onClick={this.onBellRung}>
+                Simulate
+              </a>
+              &nbsp; | &nbsp;
+              <a onKeyPress={this.onClearMatches}
+                onClick={this.onClearMatches}>
+                Clear
+              </a>
+              </li>
+              <li className="navigation__item">
+              <a onKeyPress={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}
+                onClick={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}>
+                &#10227; Randomise & Simulate
+              </a>
+            </li>
+          </ul>
         </div>
         <div className="inpage-content">
           <h2>

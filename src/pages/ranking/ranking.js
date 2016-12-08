@@ -6,7 +6,9 @@ import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/ranking"
-
+const amountOfSims = [
+  1, 10, 100, 1000, 5000
+]
 class RankingPage extends React.Component {
 
   static propTypes = {
@@ -70,23 +72,18 @@ class RankingPage extends React.Component {
           </div>
           <div className="navigation__item">
             <span>Simulate all brand matches: </span>
-            <a
-              onKeyPress={this.onSimulateBrandMatches.bind(this, 1)}
-              onClick={this.onSimulateBrandMatches.bind(this, 1)}>
-              1
-            </a>
-            <span> | </span>
-            <a
-              onKeyPress={this.onSimulateBrandMatches.bind(this, 100)}
-              onClick={this.onSimulateBrandMatches.bind(this, 100)}>
-              100
-            </a>
-            <span> | </span>
-            <a
-              onKeyPress={this.onSimulateBrandMatches.bind(this, 1000)}
-              onClick={this.onSimulateBrandMatches.bind(this, 1000)}>
-              1000
-            </a>
+            {amountOfSims.map(amount => {
+              return (
+                <span>
+                  <a
+                    onKeyPress={this.onSimulateBrandMatches.bind(this, amount)}
+                    onClick={this.onSimulateBrandMatches.bind(this, amount)}>
+                    {amount}
+                  </a>
+                  <span> | </span>
+                </span>
+              )
+            })}
           </div>
         </div>
         <div className="inpage-content">
