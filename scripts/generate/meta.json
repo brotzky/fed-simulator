@@ -142,7 +142,7 @@
 	"championshipId": "-13430616757"
 }, {
 	"name": "Brock Lesnar",
-	"rating": 97
+	"rating": 100
 }, {
 	"name": "Byron Saxton",
 	"rating": 10
@@ -184,7 +184,7 @@
 	"rating": 85
 }, {
 	"name": "Charlotte",
-	"rating": 92,
+	"rating": 98,
 	"championshipId": "8593337368"
 }, {
 	"name": "Charly Caruso",
@@ -209,7 +209,7 @@
 	"rating": 86
 }, {
 	"name": "Stephanie Mcmahon",
-	"rating": 12
+	"rating": 42
 }, {
 	"name": "Summer Rae",
 	"rating": 72
@@ -268,7 +268,7 @@
 	"rating": 74
 }, {
 	"name": "Roman Reigns",
-	"rating": 94,
+	"rating": 96,
 	"championshipId": "-5584518874"
 }, {
 	"name": "Rusev",
@@ -278,7 +278,7 @@
 	"rating": 89
 }, {
 	"name": "Seth Rollins",
-	"rating": 94
+	"rating": 96
 }, {
 	"name": "Sheamus",
 	"rating": 85
@@ -289,7 +289,6 @@
 	"name": "Titus Oneil",
 	"rating": 69
 }, {
-	"id": 95,
 	"name": "Tj Perkins",
 	"rating": 79
 }, {
@@ -306,11 +305,11 @@
 	"rating": 70
 }, {
 	"name": "Aj Styles",
-	"rating": 95,
+	"rating": 99,
 	"championshipId": "4067719886"
 }, {
 	"name": "Apollo Crews",
-	"rating": 79
+	"rating": 75
 }, {
 	"name": "Baron Corbin",
 	"rating": 80
@@ -328,13 +327,13 @@
 	"rating": 10
 }, {
 	"name": "David Otunga",
-	"rating": 10
+	"rating": 50
 }, {
 	"name": "Dean Ambrose",
-	"rating": 90
+	"rating": 91
 }, {
 	"name": "Dolph Ziggler",
-	"rating": 85
+	"rating": 87
 }, {
 	"name": "Erick Rowan",
 	"rating": 74
@@ -343,20 +342,20 @@
 	"rating": 70
 }, {
 	"name": "Alexa Bliss",
-	"rating": 76
+	"rating": 86
 }, {
 	"name": "Andrea Dmarco",
 	"rating": 70
 }, {
 	"name": "Becky Lynch",
-	"rating": 80,
+	"rating": 85,
 	"championshipId": "-1822071167"
 }, {
 	"name": "Carmella",
-	"rating": 60
+	"rating": 70
 }, {
 	"name": "Eva Marie",
-	"rating": 50
+	"rating": 40
 }, {
 	"name": "Maryse",
 	"rating": 10
@@ -368,16 +367,16 @@
 	"rating": 77
 }, {
 	"name": "Nikki Bella",
-	"rating": 78
+	"rating": 82
 }, {
 	"name": "Renee Young",
-	"rating": 10
+	"rating": 20
 }, {
 	"name": "Greg Hamilton",
 	"rating": 10
 }, {
 	"name": "Heath Slater",
-	"rating": 72,
+	"rating": 75,
 	"championshipId": "2132305395"
 }, {
 	"name": "Jack Swagger",
@@ -387,7 +386,7 @@
 	"rating": 80
 }, {
 	"name": "Jbl",
-	"rating": 10
+	"rating": 60
 }, {
 	"name": "Jey Uso",
 	"rating": 84
@@ -396,7 +395,7 @@
 	"rating": 84
 }, {
 	"name": "John Cena",
-	"rating": 92
+	"rating": 95
 }, {
 	"name": "Kalisto",
 	"rating": 79
@@ -414,7 +413,7 @@
 	"rating": 79
 }, {
 	"name": "Mauro Ranallo",
-	"rating": 10
+	"rating": 20
 }, {
 	"name": "Mikey",
 	"rating": 70
@@ -423,14 +422,14 @@
 	"rating": 70
 }, {
 	"name": "Randy Orton",
-	"rating": 88
+	"rating": 90
 }, {
 	"name": "Rhyno",
-	"rating": 78,
+	"rating": 82,
 	"championshipId": "2132305395"
 }, {
 	"name": "Shane Mcmahon",
-	"rating": 12
+	"rating": 72
 }, {
 	"name": "Simon Gotch",
 	"rating": 70
@@ -446,8 +445,8 @@
 	"rating": 70
 }, {
 	"name": "James Ellsworth",
-	"rating": 35
+	"rating": 45
 }, {
 	"name": "Zack Ryder",
-	"rating": 73
+	"rating": 76
 }]
