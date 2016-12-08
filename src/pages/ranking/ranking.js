@@ -37,15 +37,13 @@ class RankingPage extends React.Component {
   }) => {
     while (amount > 0) {
       let
-        wrestlers = this.props.wrestlers.filter(wrestler => wrestler.brand === brand.name),
-        randomisedWrestlers = randomiseWrestlers({
-          wrestlers,
-          byPassBrandFilter: true,
-        }),
+        wrestlers = this.props.wrestlers.filter(wrestler => brand.name === "Default" || wrestler.brand === brand.name),
+        randomisedWrestlers = randomiseWrestlers(wrestlers),
         story = simulateMatch(
-          wrestlers: randomisedWrestlers,
+          randomisedWrestlers,
           this.props.moves,
         )
+
       logMatch(this.props.dispatch, story)
       amount--
     }
@@ -61,9 +59,7 @@ class RankingPage extends React.Component {
           .reduce((sum, wrestler) => sum + wrestler.wins, 0),
         percent =  100 * value / totalWins
 
-      if (value === 0) {
-        return
-      }
+      if (value === 0) return
 
       segments.push({
         name: brand.name,
@@ -83,7 +79,7 @@ class RankingPage extends React.Component {
                 Clear wins & losses
               </a>
             </li>
-            {this.props.brands.filter(brand => brand.name !== "Default").map((brand, key) => {
+            {this.props.brands.map((brand, key) => {
               return (
                 <li key={key}
                   className="navigation__item">

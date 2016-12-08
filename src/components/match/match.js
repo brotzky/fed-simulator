@@ -74,7 +74,7 @@ class Match extends React.Component {
   onRandomiseWrestlers = (brandName) => {
     let wrestlers = this.props.wrestlers.filter(wrestler => (!this.props.byPassBrandFilter && brandName === "Default") || wrestler.brand === brandName)
     this.setState({
-      wrestlers: randomiseWrestlers({wrestlers})
+      wrestlers: randomiseWrestlers(wrestlers)
     })
   }
 

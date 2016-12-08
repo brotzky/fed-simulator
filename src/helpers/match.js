@@ -22,12 +22,11 @@ const defaultSettings = {
   }
 }
 
-export function randomiseWrestlers({
+export function randomiseWrestlers(
   wrestlers,
   settings = defaultSettings,
-  brandName = "Default",
-}) {
-  let matchWrestlers = [],
+) {
+    let matchWrestlers = [],
     randomBool = weighted.select(settings.male.options, settings.male.weights),
     amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights),
     filteredWrestlers = wrestlers.filter(wrestler => wrestler.male === randomBool)
