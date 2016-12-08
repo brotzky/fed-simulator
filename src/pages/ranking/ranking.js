@@ -1,5 +1,6 @@
 import React from "react"
 import Ranking from "../../components/ranking/ranking"
+import Icon from "../../components/icon/icon"
 import Segments from "../../components/segments/segments"
 import * as wrestlersActions from "../../actions/wrestlers"
 import Helmet from "react-helmet"
@@ -7,7 +8,10 @@ import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/ranking"
 const amountOfSims = [
-  1, 10, 100, 1000, 5000
+  1,
+  10,
+  100,
+  1000,
 ]
 class RankingPage extends React.Component {
 
@@ -27,13 +31,21 @@ class RankingPage extends React.Component {
     )
   }
 
-  onSimulateBrandMatches = (amount) => {
+  onSimulateBrandMatches = ({
+    amount,
+    brand,
+  }) => {
     while (amount > 0) {
-      let wrestlers = randomiseWrestlers({
-        wrestlers: this.props.wrestlers,
-        byPassBrandFilter: true,
-      })
-      let story = simulateMatch(wrestlers, this.props.moves)
+      let
+        wrestlers = this.props.wrestlers.filter(wrestler => wrestler.brand === brand.name),
+        randomisedWrestlers = randomiseWrestlers({
+          wrestlers,
+          byPassBrandFilter: true,
+        }),
+        story = simulateMatch(
+          wrestlers: randomisedWrestlers,
+          this.props.moves,
+        )
       logMatch(this.props.dispatch, story)
       amount--
     }
@@ -71,20 +83,25 @@ class RankingPage extends React.Component {
                 Clear wins & losses
               </a>
             </li>
-            <li className="navigation__item">
-              Simulate all brand matches: &nbsp;
-              {amountOfSims.map((amount, key) => {
-                return (
-                  <span key={key}>
-                    <a
-                      onKeyPress={this.onSimulateBrandMatches.bind(this, amount)}
-                      onClick={this.onSimulateBrandMatches.bind(this, amount)}>
-                      {amount}
-                    </a>,	&nbsp;
-                  </span>
-                )
-              })}
-            </li>
+            {this.props.brands.filter(brand => brand.name !== "Default").map((brand, key) => {
+              return (
+                <li key={key}
+                  className="navigation__item">
+                  <Icon name={brand.name} /> &nbsp;
+                  {amountOfSims.map((amount, key) => {
+                    return (
+                      <span key={key}>
+                        <a
+                          onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand })}
+                          onClick={this.onSimulateBrandMatches.bind(this, {amount, brand })}>
+                          {amount}
+                        </a>,	&nbsp;
+                      </span>
+                    )
+                  })}
+                </li>
+              )
+            })}
           </ul>
         </div>
         <div className="inpage-content">
