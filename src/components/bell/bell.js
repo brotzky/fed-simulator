@@ -8,6 +8,7 @@ export default class Bell extends React.Component {
 
   static propTypes = {
     onBellRung: React.PropTypes.func.isRequired,
+    title: React.PropTypes.string.isRequired,
   }
 
   onBellRung = () => {
@@ -24,15 +25,14 @@ export default class Bell extends React.Component {
 
   render() {
     return (
-      <div
-        onClick={this.onBellRung}
+      <div onClick={this.onBellRung}
         className="bell">
         <img
           src={bellImage}
-          title="Ring the bell!"
+          title={this.props.title}
         />
         <h3 className="bell__header">
-          Ring the Bell
+          {this.props.title}
         </h3>
         <Sound
           url={bellSound}

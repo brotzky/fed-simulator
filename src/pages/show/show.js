@@ -70,7 +70,8 @@ class ShowPage extends React.Component {
   displayName = "ShowPage"
 
   render() {
-    let wrestlers = this.props.wrestlers
+    let title = `${this.state.PPV} presented by ${this.state.brand}`,
+      wrestlers = this.props.wrestlers
       .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
       if (this.state.brand !== "Default") {
         wrestlers = wrestlers.filter(wrestler => filterByBrand(wrestler, this.state.brand))
@@ -106,6 +107,7 @@ class ShowPage extends React.Component {
               </a>
               &nbsp; | &nbsp;
               <a onKeyPress={this.onBellRung}
+                title={title}
                 onClick={this.onBellRung}>
                 Simulate
               </a>
@@ -124,15 +126,15 @@ class ShowPage extends React.Component {
           </ul>
         </div>
         <div className="inpage-content">
-          <h2>
-            {this.state.PPV} presented by {this.state.brand}
-          </h2>
           <div className="current-ppv ppvs__item hidden-sm hidden-xs">
             <Icon name={this.state.PPV} />
           </div>
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <Bell onBellRung={this.onBellRung} />
+              <Bell
+                onBellRung={this.onBellRung}
+                title={title}
+              />
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div className="dropdown">
