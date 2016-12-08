@@ -87,12 +87,6 @@ class RankingPage extends React.Component {
               onClick={this.onSimulateBrandMatches.bind(this, 1000)}>
               1000
             </a>
-            <span> | </span>
-            <a
-              onKeyPress={this.onSimulateBrandMatches.bind(this, 10000)}
-              onClick={this.onSimulateBrandMatches.bind(this, 10000)}>
-              10,000
-            </a>
           </div>
         </div>
         <div className="inpage-content">

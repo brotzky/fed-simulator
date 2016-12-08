@@ -6,16 +6,16 @@ import logo from "./logo.png"
 import "./stylesheets/main"
 const navigationItems = [
   {
+    url: "ppvs",
+    title: "PPVs",
+  },
+  {
     url: "draft",
     title: "Draft",
   },
   {
     url: "champions",
     title: "Champions",
-  },
-  {
-    url: "ppvs",
-    title: "PPVs",
   },
   {
     url: "ranking",
