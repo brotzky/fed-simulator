@@ -36,9 +36,7 @@ export default class Page extends React.Component {
           <div className="navigation navigation--primary">
             <div className="navigation__item">
               <a className="header__link" href="#">
-                <img src={logo} style={{
-                  width: "55px",
-                }} /> Universe
+                WWE Sim
               </a>
             </div>
             {navigationItems.map((navigationItem, key) => {
