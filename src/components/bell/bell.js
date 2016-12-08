@@ -11,7 +11,7 @@ export default class Bell extends React.Component {
     title: React.PropTypes.string.isRequired,
   }
 
-  static propTypes = {
+  static defaultProps = {
     onBellRung: () => {},
     title: "",
   }
