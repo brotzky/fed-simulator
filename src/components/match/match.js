@@ -137,7 +137,9 @@ class Match extends React.Component {
                 })}
               </div>
               <If condition={this.state.story.length > 0}>
-                <Story collection={this.state.story} />
+                <div className="statistic">
+                  <Story collection={this.state.story} />
+                </div>
               </If>
             </When>
           </Choose>

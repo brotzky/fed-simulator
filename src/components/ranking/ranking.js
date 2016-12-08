@@ -48,7 +48,7 @@ export default class Ranking extends React.Component {
               return (
                 <tr className={active}
                   key={key}>
-                  <td className="ranking__order">
+                  <td className="ranking__order statistic">
                     #{key + 1}
                   </td>
                   <td className="ranking__wrestler">
@@ -67,10 +67,10 @@ export default class Ranking extends React.Component {
                       </p>
                     </If>
                   </td>
-                  <td className="ranking__wins">
+                  <td className="ranking__wins statistic">
                     {wrestler.wins.toLocaleString()}
                   </td>
-                  <td className="ranking__losses">
+                  <td className="ranking__losses statistic">
                     {wrestler.losses.toLocaleString()}
                   </td>
                 </tr>

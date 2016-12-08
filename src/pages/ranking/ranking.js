@@ -89,7 +89,7 @@ class RankingPage extends React.Component {
         </div>
         <div className="inpage-content">
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-12 statistic">
               <Segments segments={segments} />
             </div>
           </div>
