@@ -21,9 +21,13 @@
   }
 
   .ranking {
+
+    .wrestler .icon {
+      zoom: 0.7
+    }
+
     &__split h3 {
       font-size: 1em;
     }
-
   }
 }
