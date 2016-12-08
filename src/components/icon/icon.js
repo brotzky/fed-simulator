@@ -20,7 +20,7 @@ export default class Icon extends React.Component {
     const active = this.props.active ? "active" : "inactive"
     return (
       <span
-        onClick={this.props.onClick}
+        onClick={() => this.props.onClick(this.props.name)}
         className={`icon icon-${slugName} ${active}`}
         alt={name}
         title={name}>
