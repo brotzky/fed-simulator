@@ -41,8 +41,8 @@ const prodConfig = Object.assign({}, defaultConfig, {
   output: {
     publicPath: constants.baseUrl,
     path: paths.appBuild,
-    filename: "static/[name].bundle.js",
-    chunkFilename: "static/[id].chunk.js",
+    filename: "static/[name]-[hash:8].bundle.js",
+    chunkFilename: "static/[id]-[hash:8].chunk.js",
   },
 })
 
