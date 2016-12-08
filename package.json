@@ -14,7 +14,8 @@
     "generate:wrestlers": "babel-node ./scripts/generate/wrestlers.js",
     "generate:brands": "babel-node ./scripts/generate/brands.js",
     "generate:championships": "babel-node ./scripts/generate/championships.js",
-    "generate": "npm run generate:wrestlers && npm run generate:championships && npm run generate:brands && npm run generate:ppvs"
+    "generate": "npm run generate:wrestlers && npm run generate:championships && npm run generate:brands && npm run generate:ppvs",
+    "cosmos": "cosmos"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",
@@ -63,6 +64,8 @@
     "opn": "4.0.2",
     "postcss-loader": "0.9.1",
     "react-addons-test-utils": "^15.3.1",
+    "react-cosmos-redux-proxy": "^2.0.0-beta.1",
+    "react-cosmos-webpack": "^2.0.0-beta.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "rimraf": "2.5.4",
     "sass-loader": "^4.0.2",
