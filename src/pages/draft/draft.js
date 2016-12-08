@@ -45,27 +45,29 @@ class DraftPage extends React.Component {
       <div className="page draft">
         <Helmet title="Draft Management" />
         <div className="navigation navigation--secondary">
-          <div className="navigation__item">
-            <a
-              onKeyPress={this.onSendToDraft}
-              onClick={this.onSendToDraft}>
-              Move all wrestlers to Draft
-            </a>
-          </div>
-          <div className="navigation__item">
-            <a
-              onKeyPress={this.onClear}
-              onClick={this.onClear}>
-              Move wrestlers to current TV brand
-            </a>
-          </div>
-          <div className="navigation__item">
-            <a onKeyPress={this.onToggleWomenWrestlers}
-              onClick={this.onToggleWomenWrestlers}
-              href="#">
-              &#x2640; Toggle Women Wrestlers
-            </a>
-          </div>
+          <ul className="navigation__list">
+            <li className="navigation__item">
+              <a
+                onKeyPress={this.onSendToDraft}
+                onClick={this.onSendToDraft}>
+                Move all wrestlers to Draft
+              </a>
+            </li>
+            <li className="navigation__item">
+              <a
+                onKeyPress={this.onClear}
+                onClick={this.onClear}>
+                Move wrestlers to current TV brand
+              </a>
+            </li>
+            <li className="navigation__item">
+              <a onKeyPress={this.onToggleWomenWrestlers}
+                onClick={this.onToggleWomenWrestlers}
+                href="#">
+                &#x2640; Toggle Women Wrestlers
+              </a>
+            </li>
+          </ul>
         </div>
         <div className="inpage-content">
           <div className="draft no-select">

@@ -48,26 +48,28 @@ class ChampionsPage extends React.Component {
       <div className="page champions">
         <Helmet title="Championship Management" />
         <div className="navigation navigation--secondary">
-          <div className="navigation__item">
-            <a onKeyPress={this.onClear}
-              onClick={this.onClear}
-              href="#">
-              Clear All set Champions
-            </a>
-          </div>
-          <div className="navigation__item">
-            <a onKeyPress={this.onReset}
-              onClick={this.onReset}>
-              Move championships to current champions
-            </a>
-          </div>
-          <div className="navigation__item">
-            <a onKeyPress={this.onToggleWomenWrestlers}
-              onClick={this.onToggleWomenWrestlers}
-              href="#">
-              &#x2640; Toggle Women Wrestlers
-            </a>
-          </div>
+          <ul className="navigation__list">
+            <li className="navigation__item">
+              <a onKeyPress={this.onClear}
+                onClick={this.onClear}
+                href="#">
+                Clear All set Champions
+              </a>
+            </li>
+            <li className="navigation__item">
+              <a onKeyPress={this.onReset}
+                onClick={this.onReset}>
+                Move championships to current champions
+              </a>
+            </li>
+            <li className="navigation__item">
+              <a onKeyPress={this.onToggleWomenWrestlers}
+                onClick={this.onToggleWomenWrestlers}
+                href="#">
+                &#x2640; Toggle Women Wrestlers
+              </a>
+            </li>
+          </ul>
         </div>
         <div className="inpage-content">
           <If condition={awardedChampionships < 3}>

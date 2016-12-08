@@ -63,28 +63,29 @@ class RankingPage extends React.Component {
       <div className="page ranking">
         <Helmet title="Universe Ranking" />
         <div className="navigation navigation--secondary">
-          <div className="navigation__item">
-            <a
-              onKeyPress={this.onReset}
-              onClick={this.onReset}>
-              Clear wins & losses
-            </a>
-          </div>
-          <div className="navigation__item">
-            <span>Simulate all brand matches: </span>
-            {amountOfSims.map(amount => {
-              return (
-                <span>
-                  <a
-                    onKeyPress={this.onSimulateBrandMatches.bind(this, amount)}
-                    onClick={this.onSimulateBrandMatches.bind(this, amount)}>
-                    {amount}
-                  </a>
-                  <span> | </span>
-                </span>
-              )
-            })}
-          </div>
+          <ul className="navigation__list">
+            <li className="navigation__item">
+              <a
+                onKeyPress={this.onReset}
+                onClick={this.onReset}>
+                Clear wins & losses
+              </a>
+            </li>
+            <li className="navigation__item">
+              Simulate all brand matches: &nbsp;
+              {amountOfSims.map((amount, key) => {
+                return (
+                  <span key={key}>
+                    <a
+                      onKeyPress={this.onSimulateBrandMatches.bind(this, amount)}
+                      onClick={this.onSimulateBrandMatches.bind(this, amount)}>
+                      {amount}
+                    </a>,	&nbsp;
+                  </span>
+                )
+              })}
+            </li>
+          </ul>
         </div>
         <div className="inpage-content">
           <div className="row">

@@ -79,20 +79,19 @@ class ShowPage extends React.Component {
       <div className={`page show ${this.context.toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
         <div className="navigation navigation--secondary">
-          <ul>
-            <li className="navigation__item">
+          <ul className="navigation__list">
             {this.props.brands.map((brand, key) => {
               return (
-                <a key={key}
-                  className="navigation__item">
-                  <Icon
-                    name={brand.name}
-                    onClick={this.onChangeBrand}
-                  />
-                </a>
+                <li className="navigation__item" key={key}>
+                  <a>
+                    <Icon
+                      name={brand.name}
+                      onClick={this.onChangeBrand}
+                    />
+                  </a>
+                </li>
               )
             })}
-            </li>
             <li className="navigation__item">
               <a onKeyPress={this.onToggleWomenWrestlers}
                 onClick={this.onToggleWomenWrestlers}

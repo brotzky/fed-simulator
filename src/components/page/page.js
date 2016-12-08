@@ -34,16 +34,18 @@ export default class Page extends React.Component {
       <div>
         <header className="header">
           <div className="navigation navigation--primary">
-            {navigationItems.map((navigationItem, key) => {
-              return (
-                <div key={key} className="navigation__item">
-                  <Link
-                    to={navigationItem.url}>
-                    {navigationItem.title}
-                  </Link>
-                </div>
-              )
-            })}
+            <ul className="navigation__list">
+              {navigationItems.map((navigationItem, key) => {
+                return (
+                  <li key={key} className="navigation__item">
+                    <Link
+                      to={navigationItem.url}>
+                      {navigationItem.title}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </header>
         <section className="container-fluid">

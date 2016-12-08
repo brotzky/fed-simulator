@@ -1,52 +1,64 @@
-@import "breakpoints";
+@import "src/stylesheets/breakpoints";
 
 .navigation {
-  @extend .clearfix;
-  color: white;
+  background-color: #141516;
+  font-family: 'Roboto';
+  font-size: 1em;
 
-  &__item {
-    float: left;
-    margin-right: 40px;
-
-    &.padding-left {
-      padding-left: 100px;
+  &__list {
+    margin: 0;
+    padding: 1em 4em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style: none;
+    @include breakpoint(xs) {
+      padding: 0.5em;
     }
+  }
+  &__item {
+    display: block;
+    color: white;
+    margin-right: 5em;
+    display: flex;
+    align-items: flex-start;
 
     a {
       color: white;
     }
 
     @include breakpoint(xs) {
-      width: 100%;
+      padding: 1em;
+      margin-right: 0;
     }
   }
 }
 
 .navigation--primary {
   background-color: #232828;
-  letter-spacing: 0.7px;
-  padding: 25px 60px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: bold;
+  font-size: 1.25em;
 
-  .navigation__item {
-    margin-right: 5em;
-    line-height: 4em;
-  }
+  .navigation__list {
+    padding-top: 2em;
+    padding-bottom: 2em;
 
-  a, a:visited,
-  a:hover {
-    font-size: 17px;
-    text-transform: uppercase;
-    font-family: 'Roboto';
-    font-weight: bold;
+    @include breakpoint(xs) {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
   }
 }
-
 .navigation--secondary {
-  background-color: #141516;
-  margin: 0 -40px;
-  padding: 10px 40px;
+  margin: 0 -35px;
 
-  .navigation__item {
-    line-height: 2em;
+  .navigation__list {
+    padding: 1em 4em;
+
+    @include breakpoint(xs) {
+      padding: 0.5em 2em;
+    }
   }
 }
