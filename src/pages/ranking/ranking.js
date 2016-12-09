@@ -114,7 +114,7 @@ class RankingPage extends React.Component {
                 amountToShow={10}
                 wrestlers={this.props.wrestlers
                   .filter((wrestler) => wrestler.male === true)
-                  .sort((a, b) => a.wins - a.losses > b.wins - b.losses)
+                  .sort((a, b) => a.wins > b.wins)
                   .reverse()
                 }
               />
@@ -125,7 +125,7 @@ class RankingPage extends React.Component {
                 amountToShow={10}
                 wrestlers={this.props.wrestlers
                   .filter((wrestler) => wrestler.male === false)
-                  .sort((a, b) => a.wins - a.losses > b.wins - b.losses)
+                  .sort((a, b) => a.wins > b.wins)
                   .reverse()
                 }
               />
@@ -141,7 +141,7 @@ class RankingPage extends React.Component {
                     showLabels={false}
                     wrestlers={this.props.wrestlers
                       .filter((wrestler) => wrestler.brand === brand.name)
-                      .sort((a, b) => a.wins - a.losses > b.wins - b.losses)
+                      .sort((a, b) => a.wins > b.wins)
                       .reverse()
                     }
                   />
