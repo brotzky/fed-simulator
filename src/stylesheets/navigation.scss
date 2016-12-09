@@ -17,11 +17,11 @@
     }
   }
   &__item {
+    display: flex;
+    align-items: flex-start;
     display: block;
     color: white;
     margin-right: 5em;
-    display: flex;
-    align-items: flex-start;
 
     a {
       color: white;

@@ -1,33 +1,6 @@
 @import "src/stylesheets/breakpoints";
 
 .wrestler {
-  list-style: none;
-  display: list-item;
-  float: left;
-  overflow: hidden;
-  text-align: center;
-  margin: 0 auto;
-
-  @include breakpoint(xs) {
-    width: 33.3%;
-  }
-
-  @include breakpoint(sm) {
-    width: 25%;
-  }
-
-  @include breakpoint(md) {
-    width: 25%;
-  }
-
-  @include breakpoint(lg) {
-    width: 20%;
-  }
-
-  &__name {
-    display: none;
-  }
-  & .wrestler__icon {
-    width: 84px;
-  }
+  display: flex;
+  margin: 0.5em 0.398em;
 }
