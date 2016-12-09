@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 .championships {
   text-align: center;
 
@@ -6,6 +8,10 @@
     display: inline-block;
     height: 7em;
     width: 20%;
+
+    @include breakpoint(xs) {
+      width: 50%;
+    }
 
     &.vacant {
       color: #ccc;
