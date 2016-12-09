@@ -10,7 +10,7 @@
     width: 20%;
 
     @include breakpoint(xs) {
-      width: 50%;
+      width: 33.3%;
     }
 
     &.vacant {
