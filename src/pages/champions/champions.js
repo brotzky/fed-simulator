@@ -53,20 +53,20 @@ class ChampionsPage extends React.Component {
               <a onKeyPress={this.onClear}
                 onClick={this.onClear}
                 href="#">
-                Clear All set Champions
+                Clear All Championships
               </a>
             </li>
             <li className="navigation__item">
               <a onKeyPress={this.onReset}
                 onClick={this.onReset}>
-                Move championships to current champions
+                Reset Championships
               </a>
             </li>
             <li className="navigation__item">
               <a onKeyPress={this.onToggleWomenWrestlers}
                 onClick={this.onToggleWomenWrestlers}
                 href="#">
-                &#x2640; Toggle Women Wrestlers
+                &#x2640; Toggle
               </a>
             </li>
           </ul>

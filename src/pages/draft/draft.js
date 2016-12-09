@@ -50,21 +50,21 @@ class DraftPage extends React.Component {
               <a
                 onKeyPress={this.onSendToDraft}
                 onClick={this.onSendToDraft}>
-                Move all wrestlers to Draft
+                Move All To Draft
               </a>
             </li>
             <li className="navigation__item">
               <a
                 onKeyPress={this.onClear}
                 onClick={this.onClear}>
-                Move wrestlers to current TV brand
+                Reset Wrestlers
               </a>
             </li>
             <li className="navigation__item">
               <a onKeyPress={this.onToggleWomenWrestlers}
                 onClick={this.onToggleWomenWrestlers}
                 href="#">
-                &#x2640; Toggle Women Wrestlers
+                &#x2640; Toggle
               </a>
             </li>
           </ul>

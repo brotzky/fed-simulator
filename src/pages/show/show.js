@@ -98,7 +98,7 @@ class ShowPage extends React.Component {
               <a onKeyPress={this.onToggleWomenWrestlers}
                 onClick={this.onToggleWomenWrestlers}
                 href="#">
-                &#x2640; Toggle Women Wrestlers
+                &#x2640; Toggle
               </a>
               </li>
               <li className="navigation__item">

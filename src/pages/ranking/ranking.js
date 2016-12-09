@@ -89,7 +89,7 @@ class RankingPage extends React.Component {
                       <span key={key}>
                         <a
                           onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand })}
-                          onClick={this.onSimulateBrandMatches.bind(this, {amount, brand })}>
+                          onClick={this.onSimulateBrandMatches.bind(this, { amount, brand })}>
                           {amount}
                         </a>,	&nbsp;
                       </span>
