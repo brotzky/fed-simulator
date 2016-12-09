@@ -70,8 +70,9 @@ class ShowPage extends React.Component {
   displayName = "ShowPage"
 
   render() {
-    let title = `${this.state.PPV} presented by ${this.state.brand}`,
-      wrestlers = this.props.wrestlers
+    let title = this.state.PPV
+    title += this.state.brand !== "Default" ? ` presented by ${this.state.brand}` : ""
+    let wrestlers = this.props.wrestlers
       .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
       if (this.state.brand !== "Default") {
         wrestlers = wrestlers.filter(wrestler => filterByBrand(wrestler, this.state.brand))
