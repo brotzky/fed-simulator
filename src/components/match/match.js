@@ -136,7 +136,7 @@ class Match extends React.Component {
                           {wrestler.name}
                         </span>
                         <span className="match__rating">
-                          ({wrestler.rating})
+                          &nbsp; ({wrestler.rating})
                         </span>
                         <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
                           className="remove">
