@@ -43,6 +43,11 @@
   font-weight: bold;
   font-size: 1.25em;
 
+  @include breakpoint(xs) {
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+
   .navigation__list {
     padding-top: 2em;
     padding-bottom: 2em;
