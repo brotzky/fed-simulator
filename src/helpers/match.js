@@ -17,8 +17,8 @@ const defaultSettings = {
     weights: [0.5, 0.2, 0.2, 0.05, 0.05]
   },
   range: {
-    min: 10,
-    max: 10,
+    min: 15,
+    max: 15,
   }
 }
 
@@ -28,11 +28,11 @@ export function randomiseWrestlers(
 ) {
     let matchWrestlers = [],
     randomBool = weighted.select(settings.male.options, settings.male.weights),
-    amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights),
-    filteredWrestlers = wrestlers.filter(wrestler => wrestler.male === randomBool)
+    amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights)
+    wrestlers = wrestlers.filter(wrestler => wrestler.male === randomBool)
 
     // pick our first wrestler, we do this so we can get a fair match
-    let firstWrestler = getWrestler(filteredWrestlers),
+    let firstWrestler = getWrestler(wrestlers),
       firstWrestlerMin = firstWrestler.rating - settings.range.min,
       firstWrestlerMax = firstWrestler.rating + settings.range.max
       // push first wrestler to match
@@ -40,13 +40,13 @@ export function randomiseWrestlers(
         firstWrestler
       )
     // filter wrestlers out not in the first wrestlers range
-    filteredWrestlers = filteredWrestlers.filter(wrestler => between(wrestler.rating, firstWrestlerMin, firstWrestlerMax))
+    wrestlers = wrestlers.filter(wrestler => between(wrestler.rating, firstWrestlerMin, firstWrestlerMax))
 
   // while amount to create is above one
   while (amountOfWrestlers > 1) {
-    let chosenWrestler = getWrestler(filteredWrestlers)
+    let chosenWrestler = getWrestler(wrestlers)
     // we don't want the same wrestler in the match, so drop them out
-    filteredWrestlers = filteredWrestlers.filter((wrestler) => wrestler.id !== chosenWrestler.id)
+    wrestlers = wrestlers.filter((wrestler) => wrestler.id !== chosenWrestler.id)
     matchWrestlers.push(
       chosenWrestler
     )
