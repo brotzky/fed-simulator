@@ -39,17 +39,6 @@
     display: block;
   }
 
-  .brand .wrestler {
-    @include breakpoint(lg) {
-      width: 10%;
-      zoom: 0.8;
-    }
-    @include breakpoint(xs) {
-      width: 33%;
-      zoom: 1;
-    }
-  }
-
   &.raw {
     .match__inner {
       background-color: #b20404;
