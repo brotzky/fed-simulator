@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 .ranking {
   font-family: "Roboto", "Verdana", sans-serif;
 
@@ -8,6 +10,10 @@
 
   &__title {
     margin: 4px 0px;
+    font-size: 2em;
+    @include breakpoint(xs) {
+      font-size: 1em;
+    }
   }
 
   .table>thead>tr>td,
@@ -24,6 +30,7 @@
 
     &.inactive {
       color: #ccc;
+
       .icon {
         opacity: 0.77;
       }
@@ -31,6 +38,9 @@
 
     .ranking__name {
       font-size: 1.5em;
+      @include breakpoint(xs) {
+        font-size: 1em;
+      }
     }
 
     .ranking__order {
@@ -38,11 +48,21 @@
       font-weight: 700;
       width: 1%;
       text-align: center;
+
+      @include breakpoint(xs) {
+        font-size: 1em;
+      }
     }
 
     .ranking__wrestler {
       text-align: left;
       width: 1%;
+
+      @include breakpoint(xs) {
+        .icon {
+          zoom: 0.5;
+        }
+      }
     }
 
     .ranking__wins,
@@ -54,6 +74,10 @@
       width: 5%;
       vertical-align: middle;
       text-align: center;
+      @include breakpoint(xs) {
+        font-size: 1.5em;
+        height: 2em;
+      }
     }
   }
 }
