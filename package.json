@@ -83,6 +83,7 @@
     "asyncawait": "^1.0.6",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.0.0",
+    "drag-drop-polyfill": "^2.0.0-beta.3",
     "fastclick": "^1.0.6",
     "fbemitter": "^2.1.1",
     "glob": "^7.1.1",

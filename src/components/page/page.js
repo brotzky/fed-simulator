@@ -4,6 +4,9 @@ import Head from "../head/head"
 import "../../stylesheets/base"
 import logo from "./logo.png"
 import "./stylesheets/main"
+import "drag-drop-polyfill";
+import "drag-drop-polyfill/release/drag-drop-polyfill"
+
 const navigationItems = [
   {
     url: "ppvs",
