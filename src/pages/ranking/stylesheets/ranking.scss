@@ -8,6 +8,7 @@
       height: auto;
       width: auto;
       zoom: inherit;
+      overflow: inherit;
 
       &::before {
         content: "All brands";
@@ -21,10 +22,6 @@
   }
 
   .ranking {
-
-    &__wrestler .icon {
-      zoom: 0.7
-    }
 
     &__split h3 {
       font-size: 1em;
