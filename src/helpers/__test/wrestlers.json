@@ -1,0 +1,82 @@
+[
+  {
+    "id": "2042358",
+    "name": "Test Male 1",
+    "brand": "NXT",
+    "rating": 80,
+    "male": true,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "4795789095",
+    "name": "Test Male 2",
+    "brand": "NXT",
+    "rating": 75,
+    "male": true,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "5789095",
+    "name": "Test Male 3",
+    "brand": "NXT",
+    "rating": 75,
+    "male": true,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "343789095",
+    "name": "Test Male 4",
+    "brand": "NXT",
+    "rating": 75,
+    "male": true,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "7424670891",
+    "name": "Test Female 1",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "74246221",
+    "name": "Test Female 2",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "74223291",
+    "name": "Test Female 3",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "56745643291",
+    "name": "Test Female 4",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  }
+]
