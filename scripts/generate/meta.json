@@ -1,9 +1,13 @@
+
 [{
 	"name": "Akam",
 	"rating": 80
 }, {
 	"name": "Alexander Wolfe",
 	"rating": 75
+}, {
+	"name": "Goldberg",
+	"rating": 100
 }, {
 	"name": "Angelo Dawkins",
 	"rating": 75
