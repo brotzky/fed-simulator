@@ -87,7 +87,6 @@
     "fastclick": "^1.0.6",
     "fbemitter": "^2.1.1",
     "glob": "^7.1.1",
-    "hover.css": "^2.0.2",
     "jquery": "^3.1.1",
     "lodash": "^4.17.2",
     "lodash.debounce": "^4.0.8",
