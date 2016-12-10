@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 .ppvs {}
 
 .ppvs__list {}
@@ -11,11 +13,20 @@
   width: 17.55em;
   height: 10em;
 
+  @include breakpoint(xs) {
+    width: 9em;
+    height: 6em;
+  }
+
   .icon {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     zoom: 0.8;
+
+    @include breakpoint(xs) {
+      zoom: 0.3;
+    }
   }
 }
