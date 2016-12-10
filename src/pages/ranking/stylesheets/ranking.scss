@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 .page.ranking {
 
   &.icon-default {
@@ -12,11 +14,15 @@
       color: white;
     }
   }
-  
+
   .ranking {
 
-    &__split h3 {
+    h3 {
       font-size: 1em;
+    }
+
+    &__wrestler .icon {
+      zoom: 0.7;
     }
   }
 }
