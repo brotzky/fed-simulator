@@ -2,20 +2,28 @@
 
 .ppvs {}
 
-.ppvs__list {}
+.ppvs__list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .ppvs__item {
   margin: 0.5em;
   list-style: none;
-  float: left;
-  position: relative;
   background-color: black;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
   width: 17.55em;
   height: 10em;
 
   @include breakpoint(xs) {
-    width: 9em;
-    height: 6em;
+    height: 8em;
+    width: 10em;
   }
 
   .icon {
