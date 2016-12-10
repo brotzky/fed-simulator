@@ -5301,6 +5301,10 @@ redux-localstorage@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/redux-localstorage/-/redux-localstorage-0.4.1.tgz#faf6d719c581397294d811473ffcedee065c933c"
 
+redux-reset:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/redux-reset/-/redux-reset-0.2.0.tgz#ff39376fdd85179d02575f9e4bcff9c9eed3e09b"
+
 redux@^3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/redux/-/redux-3.6.0.tgz#887c2b3d0b9bd86eca2be70571c27654c19e188d"
