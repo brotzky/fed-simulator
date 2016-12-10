@@ -4,6 +4,8 @@
 	"brand": "NXT",
 	"male": false,
 	"sequence": 2,
+	"changes": 0,
+	"canMoveBrands": false,
 	"wrestlers": [{
 		"id": "63570681",
 		"name": "Asuka",
@@ -17,6 +19,8 @@
 	"brand": "NXT",
 	"male": true,
 	"sequence": 1,
+	"changes": 0,
+	"canMoveBrands": false,
 	"wrestlers": [{
 		"id": "-289148918",
 		"name": "Shinsuke Nakamura",
@@ -34,6 +38,8 @@
 	"male": true,
 	"tag": true,
 	"sequence": 3,
+	"canMoveBrands": false,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "-3502240535",
 		"name": "Johnny Gargano",
@@ -59,6 +65,8 @@
 	"brand": "Raw",
 	"male": false,
 	"sequence": 0,
+	"canMoveBrands": false,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "3923329653",
 		"name": "Sasha Banks",
@@ -76,6 +84,7 @@
 	"male": true,
 	"tag": true,
 	"sequence": 4,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "64180485",
 		"name": "Big E",
@@ -101,6 +110,8 @@
 	"brand": "Raw",
 	"male": true,
 	"sequence": 3,
+	"canMoveBrands": true,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "142235609",
 		"name": "Roman Reigns",
@@ -117,6 +128,8 @@
 	"brand": "Raw",
 	"male": true,
 	"sequence": 5,
+	"canMoveBrands": true,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "-191335239",
 		"name": "Rich Swann",
@@ -133,6 +146,8 @@
 	"brand": "Raw",
 	"male": true,
 	"sequence": 1,
+	"canMoveBrands": false,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "-386269853",
 		"name": "Kevin Owens",
@@ -149,6 +164,8 @@
 	"brand": "Smackdown Live",
 	"male": false,
 	"sequence": 2,
+	"canMoveBrands": false,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "-2897856670",
 		"name": "Alexa Bliss",
@@ -165,6 +182,8 @@
 	"brand": "Smackdown Live",
 	"male": true,
 	"sequence": 3,
+	"canMoveBrands": true,
+	"changes": 0,
 	"wrestlers": [{
 		"id": "312635887",
 		"name": "The Miz",
@@ -181,6 +200,8 @@
 	"brand": "Smackdown Live",
 	"tag": true,
 	"male": true,
+	"canMoveBrands": false,
+	"changes": 0,
 	"sequence": 4,
 	"wrestlers": [{
 		"id": "7624081956",
@@ -191,22 +212,23 @@
 		"wins": 0,
 		"losses": 0,
 		"championshipId": false
-	},
-  {
-    "id": "2586453735",
-    "name": "Bray Wyatt",
-    "brand": "Smackdown Live",
-    "rating": 87,
-    "male": true,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
-  }]
+	}, {
+		"id": "2586453735",
+		"name": "Bray Wyatt",
+		"brand": "Smackdown Live",
+		"rating": 87,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
 }, {
 	"id": "4067719886",
 	"name": "WWE World Championship",
 	"brand": "Smackdown Live",
 	"male": true,
+	"canMoveBrands": false,
+	"changes": 0,
 	"sequence": 1,
 	"wrestlers": [{
 		"id": "-643714887",
