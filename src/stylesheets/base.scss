@@ -32,6 +32,10 @@ body {
   font-family: "Roboto Slab", "Verdana", sans-serif;
 }
 
+.sticky {
+  z-index: 100;
+}
+
 a:hover,
 .btn:focus,
 .btn:hover {
