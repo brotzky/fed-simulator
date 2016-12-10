@@ -24,7 +24,7 @@ export default (state = defaultState, action) => {
             if (championship.canMoveBrands) {
               newState[key].brand = action.winner.brand
             }
-            newState[key].changes += 1
+            newState[key].changes++
             newState[key].wrestlers = newState[key].wrestlers.filter(wrestler => wrestler.id !== action.loser.id)
             newState[key].wrestlers.push(action.winner)
           }
