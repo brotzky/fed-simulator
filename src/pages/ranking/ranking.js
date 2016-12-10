@@ -71,7 +71,7 @@ class RankingPage extends React.Component {
     return (
       <div className="page ranking">
         <Helmet title="Universe Ranking" />
-        <Secondary />
+        <Secondary showClear={true} />
         <div className="inpage-content">
           <div className="row">
             <div className="col-xs-12 statistic">

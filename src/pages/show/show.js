@@ -6,6 +6,7 @@ import Icon from "../../components/icon/icon"
 import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import { Sticky } from "react-sticky"
 import "./stylesheets/show"
 
 const numberOfMatches = 6
@@ -80,52 +81,54 @@ class ShowPage extends React.Component {
     return (
       <div className={`page show ${this.context.toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
-        <div className="navigation navigation--secondary">
-          <ul className="navigation__list">
-            {this.props.brands.map((brand, key) => {
-              return (
-                <li className="navigation__item" key={key}>
-                  <a>
-                    <Icon
-                      name={brand.name}
-                      onClick={this.onChangeBrand}
-                    />
-                  </a>
+        <Sticky>
+          <div className="navigation navigation--secondary">
+            <ul className="navigation__list">
+              {this.props.brands.map((brand, key) => {
+                return (
+                  <li className="navigation__item" key={key}>
+                    <a>
+                      <Icon
+                        name={brand.name}
+                        onClick={this.onChangeBrand}
+                      />
+                    </a>
+                  </li>
+                )
+              })}
+              <li className="navigation__item">
+                <a onKeyPress={this.onToggleWomenWrestlers}
+                  onClick={this.onToggleWomenWrestlers}
+                  href="#">
+                  &#x2640; Toggle
+                </a>
                 </li>
-              )
-            })}
-            <li className="navigation__item">
-              <a onKeyPress={this.onToggleWomenWrestlers}
-                onClick={this.onToggleWomenWrestlers}
-                href="#">
-                &#x2640; Toggle
-              </a>
+                <li className="navigation__item">
+                <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
+                  onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
+                  Randomise
+                </a>
+                &nbsp; | &nbsp;
+                <a onKeyPress={this.onBellRung}
+                  title={title}
+                  onClick={this.onBellRung}>
+                  Simulate
+                </a>
+                &nbsp; | &nbsp;
+                <a onKeyPress={this.onClearMatches}
+                  onClick={this.onClearMatches}>
+                  Clear
+                </a>
+                </li>
+                <li className="navigation__item">
+                <a onKeyPress={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}
+                  onClick={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}>
+                  &#10227; Randomise & Simulate
+                </a>
               </li>
-              <li className="navigation__item">
-              <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
-                onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
-                Randomise
-              </a>
-              &nbsp; | &nbsp;
-              <a onKeyPress={this.onBellRung}
-                title={title}
-                onClick={this.onBellRung}>
-                Simulate
-              </a>
-              &nbsp; | &nbsp;
-              <a onKeyPress={this.onClearMatches}
-                onClick={this.onClearMatches}>
-                Clear
-              </a>
-              </li>
-              <li className="navigation__item">
-              <a onKeyPress={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}
-                onClick={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}>
-                &#10227; Randomise & Simulate
-              </a>
-            </li>
-          </ul>
-        </div>
+            </ul>
+          </div>
+        </Sticky>
         <div className="inpage-content">
           <div className="current-ppv ppvs__item hidden-sm hidden-xs">
             <Icon name={this.state.PPV} />

@@ -18,6 +18,11 @@ class PageSecondary extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     moves: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
+    showClear: React.PropTypes.bool
+  }
+
+  static defaultProps = {
+    showClear: false,
   }
 
   displayName = "PageSecondary"
@@ -52,13 +57,6 @@ class PageSecondary extends React.Component {
       <Sticky>
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
-            <li className="navigation__item">
-              <a
-                onKeyPress={this.onReset}
-                onClick={this.onReset}>
-                Clear wins & losses
-              </a>
-            </li>
             {this.props.brands.map((brand, key) => {
               return (
                 <li key={key}
@@ -78,6 +76,15 @@ class PageSecondary extends React.Component {
                 </li>
               )
             })}
+            <If condition={this.props.showClear}>
+              <li className="navigation__item">
+                <a
+                  onKeyPress={this.onReset}
+                  onClick={this.onReset}>
+                  Clear wins & losses
+                </a>
+              </li>
+            </If>
           </ul>
         </div>
       </Sticky>
