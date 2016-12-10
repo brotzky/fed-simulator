@@ -3,7 +3,7 @@
 	"name": "Nxt Womens Championship",
 	"brand": "NXT",
 	"male": false,
-	"sequence": 0,
+	"sequence": 2,
 	"wrestlers": [{
 		"id": "63570681",
 		"name": "Asuka",
@@ -16,7 +16,7 @@
 	"name": "Nxt Championship",
 	"brand": "NXT",
 	"male": true,
-	"sequence": 0,
+	"sequence": 1,
 	"wrestlers": [{
 		"id": "-289148918",
 		"name": "Shinsuke Nakamura",
@@ -33,7 +33,7 @@
 	"brand": "NXT",
 	"male": true,
 	"tag": true,
-	"sequence": 0,
+	"sequence": 3,
 	"wrestlers": [{
 		"id": "-3502240535",
 		"name": "Johnny Gargano",
@@ -75,7 +75,7 @@
 	"brand": "Raw",
 	"male": true,
 	"tag": true,
-	"sequence": 0,
+	"sequence": 4,
 	"wrestlers": [{
 		"id": "64180485",
 		"name": "Big E",
@@ -100,7 +100,7 @@
 	"name": "United States Championship",
 	"brand": "Raw",
 	"male": true,
-	"sequence": 0,
+	"sequence": 3,
 	"wrestlers": [{
 		"id": "142235609",
 		"name": "Roman Reigns",
@@ -116,7 +116,7 @@
 	"name": "Wwe Cruiserweight Championship",
 	"brand": "Raw",
 	"male": true,
-	"sequence": 0,
+	"sequence": 5,
 	"wrestlers": [{
 		"id": "-191335239",
 		"name": "Rich Swann",
@@ -132,7 +132,7 @@
 	"name": "Wwe Universal Championship",
 	"brand": "Raw",
 	"male": true,
-	"sequence": 0,
+	"sequence": 1,
 	"wrestlers": [{
 		"id": "-386269853",
 		"name": "Kevin Owens",
@@ -148,7 +148,7 @@
 	"name": "Smackdown Womens Championship",
 	"brand": "Smackdown Live",
 	"male": false,
-	"sequence": 0,
+	"sequence": 2,
 	"wrestlers": [{
 		"id": "-2897856670",
 		"name": "Alexa Bliss",
@@ -164,7 +164,7 @@
 	"name": "Intercontinental Championship",
 	"brand": "Smackdown Live",
 	"male": true,
-	"sequence": 0,
+	"sequence": 3,
 	"wrestlers": [{
 		"id": "312635887",
 		"name": "The Miz",
@@ -181,7 +181,7 @@
 	"brand": "Smackdown Live",
 	"tag": true,
 	"male": true,
-	"sequence": 0,
+	"sequence": 4,
 	"wrestlers": [{
 		"id": "7624081956",
 		"name": "Randy Orton",
@@ -204,10 +204,10 @@
   }]
 }, {
 	"id": "4067719886",
-	"name": "Wwe World Championship",
+	"name": "WWE World Championship",
 	"brand": "Smackdown Live",
 	"male": true,
-	"sequence": 0,
+	"sequence": 1,
 	"wrestlers": [{
 		"id": "-643714887",
 		"name": "Aj Styles",
