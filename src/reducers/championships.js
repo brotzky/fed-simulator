@@ -7,7 +7,6 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case "MOVE_CHAMPIONSHIP":
       key = newState.findIndex(championship => championship.id === action.championship.id)
-
       newState[key].wrestlers.push(action.wrestler)
       newState[key].brand = action.wrestler.brand
 
@@ -19,16 +18,18 @@ export default (state = defaultState, action) => {
       break
     case "SHOULD_MOVE_CHAMPIONSHIP":
       newState.forEach((championship, key) => {
-        championship.wrestlers.forEach((wrestler, wrestlerKey) => {
-          if (wrestler.id === action.loser.id) {
-            if (championship.canMoveBrands) {
-              newState[key].brand = action.winner.brand
-            }
-            newState[key].changes++
-            newState[key].wrestlers = newState[key].wrestlers.filter(wrestler => wrestler.id !== action.loser.id)
-            newState[key].wrestlers.push(action.winner)
+        let numberOfLosers = newState[key].wrestlers.filter(wrestler => wrestler.id === action.loser.id).length
+
+        if (numberOfLosers > 0) {
+          if (newState[key].canMoveBrands) {
+            newState[key].brand = action.winner.brand
           }
-        })
+          newState[key].changes++
+          newState[key].wrestlers = newState[key].wrestlers.filter(wrestler => wrestler.id !== action.loser.id)
+          newState[key].wrestlers.push({
+            ...action.winner
+          })
+        }
       })
       break
     case "CLEAR_CHAMPIONS":
