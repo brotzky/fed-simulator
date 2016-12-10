@@ -2,6 +2,7 @@
 
 .championships {
   text-align: center;
+  margin-top: 15px;
 
   .badge {
     background-color: #f0efef;
@@ -19,7 +20,8 @@
     width: 20%;
 
     @include breakpoint(xs) {
-      width: 33.3%;
+      width: 25%;
+      zoom: 0.7;
     }
 
     &.vacant {
