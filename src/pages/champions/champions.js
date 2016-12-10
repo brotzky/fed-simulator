@@ -1,5 +1,6 @@
 import React from "react"
 import Championships from "../../components/championships/championships"
+import Secondary from "../../components/page/secondary"
 import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
 import Helmet from "react-helmet"
@@ -47,6 +48,7 @@ class ChampionsPage extends React.Component {
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
+        <Secondary />
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
             <li className="navigation__item">
