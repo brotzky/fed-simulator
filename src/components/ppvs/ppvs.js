@@ -1,6 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
-import "./stylesheets/main"
+import "./stylesheets/ppvs"
 
 export default class PPVs extends React.Component {
 
