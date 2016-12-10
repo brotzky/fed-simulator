@@ -21,6 +21,10 @@ module.exports = {
         from: paths.appImgs,
         to: "static/",
       },
+      {
+        from: paths.appPublic,
+        to: "static/",
+      },
     ]),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({

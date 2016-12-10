@@ -9,6 +9,7 @@ export default (state = defaultState, action) => {
       key = newState.findIndex(championship => championship.id === action.championship.id)
       newState[key].wrestlers.push(action.wrestler)
       newState[key].brand = action.wrestler.brand
+      newState[key].changes++
 
       let newLength = newState[key].wrestlers.length
 
