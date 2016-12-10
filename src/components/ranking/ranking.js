@@ -59,7 +59,7 @@ export default class Ranking extends React.Component {
                       {wrestler.name}
                     </p>
                     <If condition={this.props.showLabels}>
-                      <p>
+                      <p className="hidden-xs">
                         <Label
                           modifier={wrestler.brand}
                           name={wrestler.brand}

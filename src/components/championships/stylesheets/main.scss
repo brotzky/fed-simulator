@@ -1,11 +1,28 @@
+@import "src/stylesheets/breakpoints";
+
 .championships {
   text-align: center;
+  margin-top: 15px;
+
+  .badge {
+    background-color: #f0efef;
+    color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: -5em;
+    right: 0;
+  }
 
   &__championship {
     vertical-align: top;
     display: inline-block;
     height: 7em;
     width: 20%;
+
+    @include breakpoint(xs) {
+      width: 25%;
+      zoom: 0.7;
+    }
 
     &.vacant {
       color: #ccc;
@@ -15,6 +32,7 @@
   .championship__holdername {
     font-size: 1em;
     font-weight: bold;
+    position: relative;
 
     span {
       display: block;

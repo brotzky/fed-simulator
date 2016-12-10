@@ -5,9 +5,9 @@
 }
 .wrestlers {
   background-color: black;
-  min-height: 500px;
   width: 100%;
-  padding: 15px;
+  padding: 0.5em;
+  min-height: 20em;
 
   &__search {
     opacity: 0.5;
@@ -39,7 +39,10 @@
   }
 
   &__container {
-    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 }
 

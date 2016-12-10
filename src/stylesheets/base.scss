@@ -18,8 +18,22 @@ body {
   color: $color;
 }
 
+.legal {
+  padding: 5px 5px 5px 23px;
+  color: white;
+  line-height: 2em;
+  background-color: #333;
+  a {
+    color: #ccc;
+  }
+}
+
 .statistic {
   font-family: "Roboto Slab", "Verdana", sans-serif;
+}
+
+.sticky {
+  z-index: 100;
 }
 
 a:hover,
@@ -68,11 +82,14 @@ h1 {
 }
 
 .page {
-  padding: 0 20px;
+  z-index: 1;
+
   @include breakpoint(xs) {
     padding: 0;
   }
+
   .inpage-content {
+    z-index: 2;
     position: relative;
     padding: 1em 0;
   }

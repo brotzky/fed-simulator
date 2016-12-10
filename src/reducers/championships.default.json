@@ -1,122 +1,243 @@
-[
-  {
-    "id": "7644539610",
-    "name": "Nxt Womens Championship",
-    "brand": "NXT",
-    "male": false,
-    "sequence": 0,
-    "wrestlerId": "63570681",
-    "wrestlerIds": []
-  },
-  {
-    "id": "-3822490917",
-    "name": "Nxt Championship",
-    "brand": "NXT",
-    "male": true,
-    "sequence": 0,
-    "wrestlerId": "-289148918",
-    "wrestlerIds": []
-  },
-  {
-    "id": "7099496460",
-    "name": "Nxt Tag Team Championship",
-    "brand": "NXT",
-    "male": true,
-    "tag": true,
-    "sequence": 0,
-    "wrestlerId": "",
-    "wrestlerIds": [
-      "522741538",
-      "-3502240535"
-    ]
-  },
-  {
-    "id": "8593337368",
-    "name": "Raw Womens Championship",
-    "brand": "Raw",
-    "male": false,
-    "sequence": 0,
-    "wrestlerId": "3923329653",
-    "wrestlerIds": []
-  },
-  {
-    "id": "8361075146",
-    "name": "Raw Tag Team Championship",
-    "brand": "Raw",
-    "male": true,
-    "tag": true,
-    "sequence": 0,
-    "wrestlerId": "",
-    "wrestlerIds": [
-      "64180485",
-      "657661680"
-    ]
-  },
-  {
-    "id": "-5584518874",
-    "name": "United States Championship",
-    "brand": "Raw",
-    "male": true,
-    "sequence": 0,
-    "wrestlerId": "142235609",
-    "wrestlerIds": []
-  },
-  {
-    "id": "-13430616757",
-    "name": "Wwe Cruiserweight Championship",
-    "brand": "Raw",
-    "male": true,
-    "sequence": 0,
-    "wrestlerId": "-191335239",
-    "wrestlerIds": []
-  },
-  {
-    "id": "-5537089739",
-    "name": "Wwe Universal Championship",
-    "brand": "Raw",
-    "male": true,
-    "sequence": 0,
-    "wrestlerId": "-386269853",
-    "wrestlerIds": []
-  },
-  {
-    "id": "-1822071167",
-    "name": "Smackdown Womens Championship",
-    "brand": "Smackdown Live",
-    "male": false,
-    "sequence": 0,
-    "wrestlerId": "-2897856670",
-    "wrestlerIds": []
-  },
-  {
-    "id": "8636345506",
-    "name": "Intercontinental Championship",
-    "brand": "Smackdown Live",
-    "male": true,
-    "sequence": 0,
-    "wrestlerId": "312635887",
-    "wrestlerIds": []
-  },
-  {
-    "id": "2132305395",
-    "name": "Smackdown Tag Team Championship",
-    "brand": "Smackdown Live",
-    "tag": true,
-    "male": true,
-    "sequence": 0,
-    "wrestlerId": "",
-    "wrestlerIds": [
-      "2586453735",
-      "7624081956"
-    ]
-  },
-  {
-    "id": "4067719886",
-    "name": "Wwe World Championship",
-    "brand": "Smackdown Live",
-    "male": true,
-    "sequence": 0,
-    "wrestlerId": "-643714887",
-    "wrestlerIds": []
-  }
-]
+[{
+	"id": "7644539610",
+	"name": "Nxt Womens Championship",
+	"brand": "NXT",
+	"male": false,
+	"sequence": 2,
+	"changes": 0,
+	"canMoveBrands": false,
+	"wrestlers": [{
+		"id": "63570681",
+		"name": "Asuka",
+		"brand": "NXT",
+		"rating": 90,
+		"male": false
+	}]
+}, {
+	"id": "-3822490917",
+	"name": "Nxt Championship",
+	"brand": "NXT",
+	"male": true,
+	"sequence": 1,
+	"changes": 0,
+	"canMoveBrands": false,
+	"wrestlers": [{
+		"id": "-289148918",
+		"name": "Shinsuke Nakamura",
+		"brand": "NXT",
+		"rating": 90,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "7099496460",
+	"name": "Nxt Tag Team Championship",
+	"brand": "NXT",
+	"male": true,
+	"tag": true,
+	"sequence": 3,
+	"canMoveBrands": false,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "-3502240535",
+		"name": "Johnny Gargano",
+		"brand": "NXT",
+		"rating": 79,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}, {
+		"id": "522741538",
+		"name": "Tommaso",
+		"brand": "NXT",
+		"rating": 79,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "8593337368",
+	"name": "Raw Womens Championship",
+	"brand": "Raw",
+	"male": false,
+	"sequence": 0,
+	"canMoveBrands": false,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "3923329653",
+		"name": "Sasha Banks",
+		"brand": "Raw",
+		"rating": 86,
+		"male": false,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "8361075146",
+	"name": "Raw Tag Team Championship",
+	"brand": "Raw",
+	"male": true,
+	"tag": true,
+	"sequence": 4,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "64180485",
+		"name": "Big E",
+		"brand": "Raw",
+		"rating": 85,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}, {
+		"id": "657661680",
+		"name": "Kofi Kingston",
+		"brand": "Raw",
+		"rating": 86,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "-5584518874",
+	"name": "United States Championship",
+	"brand": "Raw",
+	"male": true,
+	"sequence": 3,
+	"canMoveBrands": true,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "142235609",
+		"name": "Roman Reigns",
+		"brand": "Raw",
+		"rating": 96,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "-13430616757",
+	"name": "Wwe Cruiserweight Championship",
+	"brand": "Raw",
+	"male": true,
+	"sequence": 5,
+	"canMoveBrands": true,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "-191335239",
+		"name": "Rich Swann",
+		"brand": "Raw",
+		"rating": 74,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "-5537089739",
+	"name": "Wwe Universal Championship",
+	"brand": "Raw",
+	"male": true,
+	"sequence": 1,
+	"canMoveBrands": false,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "-386269853",
+		"name": "Kevin Owens",
+		"brand": "Raw",
+		"rating": 90,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "-1822071167",
+	"name": "Smackdown Womens Championship",
+	"brand": "Smackdown Live",
+	"male": false,
+	"sequence": 2,
+	"canMoveBrands": false,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "-2897856670",
+		"name": "Alexa Bliss",
+		"brand": "Smackdown Live",
+		"rating": 86,
+		"male": false,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "8636345506",
+	"name": "Intercontinental Championship",
+	"brand": "Smackdown Live",
+	"male": true,
+	"sequence": 3,
+	"canMoveBrands": true,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "312635887",
+		"name": "The Miz",
+		"brand": "Smackdown Live",
+		"rating": 85,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "2132305395",
+	"name": "Smackdown Tag Team Championship",
+	"brand": "Smackdown Live",
+	"tag": true,
+	"male": true,
+	"canMoveBrands": false,
+	"changes": 0,
+	"sequence": 4,
+	"wrestlers": [{
+		"id": "7624081956",
+		"name": "Randy Orton",
+		"brand": "Smackdown Live",
+		"rating": 90,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}, {
+		"id": "2586453735",
+		"name": "Bray Wyatt",
+		"brand": "Smackdown Live",
+		"rating": 87,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "4067719886",
+	"name": "WWE World Championship",
+	"brand": "Smackdown Live",
+	"male": true,
+	"canMoveBrands": false,
+	"changes": 0,
+	"sequence": 1,
+	"wrestlers": [{
+		"id": "-643714887",
+		"name": "Aj Styles",
+		"brand": "Smackdown Live",
+		"rating": 99,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}]

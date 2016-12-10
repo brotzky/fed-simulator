@@ -630,6 +630,16 @@
     "championshipId": false
   },
   {
+    "id": "2163804",
+    "name": "Emma",
+    "brand": "Raw",
+    "rating": 80,
+    "male": false,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
     "id": "2314602",
     "name": "Jojo",
     "brand": "Raw",
@@ -704,6 +714,16 @@
     "name": "Finn Balor",
     "brand": "Raw",
     "rating": 88,
+    "male": true,
+    "wins": 0,
+    "losses": 0,
+    "championshipId": false
+  },
+  {
+    "id": "-2193503688",
+    "name": "Goldberg",
+    "brand": "Raw",
+    "rating": 0,
     "male": true,
     "wins": 0,
     "losses": 0,

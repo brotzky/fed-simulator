@@ -61,13 +61,13 @@ pluginPush(
     },
   })
 )
+// pluginPush(
+//   new ManifestPlugin({
+//     fileName: 'asset-manifest.json',
+//   })
+// )
 pluginPush(
-  new ManifestPlugin({
-    fileName: 'asset-manifest.json',
-  })
-)
-pluginPush(
-  new ExtractTextPlugin('static/[name].css')
+  new ExtractTextPlugin('static/[name]-[hash:8].css')
 )
 pluginPush(
   new HtmlWebpackPlugin({

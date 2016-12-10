@@ -1,0 +1,41 @@
+@import "src/stylesheets/breakpoints";
+
+.ppvs {}
+
+.ppvs__list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ppvs__item {
+  margin: 0.5em;
+  list-style: none;
+  background-color: black;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 17.55em;
+  height: 10em;
+
+  @include breakpoint(xs) {
+    margin: 0.7em;
+    height: 6em;
+    width: 9em;
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    zoom: 0.8;
+
+    @include breakpoint(xs) {
+      zoom: 0.3;
+    }
+  }
+}

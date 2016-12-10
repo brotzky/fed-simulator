@@ -1,17 +1,10 @@
-.wrestler {
-  list-style: none;
-  display: list-item;
-  float: left;
-  overflow: hidden;
-  margin: 3px;
-  width: 20%;
-  text-align: center;
-  margin: 0 auto;
+@import "src/stylesheets/breakpoints";
 
-  &__name {
-    display: none;
-  }
-  & .wrestler__icon {
-    width: 84px;
+.wrestler {
+  display: flex;
+  margin: 0.5em 0.398em;
+
+  @include breakpoint(xs) {
+    zoom: 0.8;
   }
 }

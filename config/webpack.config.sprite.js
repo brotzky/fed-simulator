@@ -13,7 +13,7 @@ module.exports = {
     new Sprite({
       source : "scripts/generate/import/wrestlers/",
       imgPath: "src/imgs/",
-      cssPath: "src/stylesheets/",
+      cssPath: "src/stylesheets/sprites",
       processor: "scss",
       spriteName: "wrestlers",
       orientation: "horizontal",

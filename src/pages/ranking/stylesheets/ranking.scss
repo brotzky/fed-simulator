@@ -1,33 +1,28 @@
+@import "src/stylesheets/breakpoints";
+
 .page.ranking {
 
-  .navigation .icon {
-    zoom: 0.2;
+  &.icon-default {
+    background-image: none;
+    height: auto;
+    width: auto;
+    zoom: inherit;
+    overflow: inherit;
 
-    &.icon-default {
-      background-image: none;
-      height: auto;
-      width: auto;
-      zoom: inherit;
-
-      &::before {
-        content: "All brands";
-        color: white;
-      }
+    &::before {
+      content: "All brands";
+      color: white;
     }
-  }
-
-  h3 {
-    font-size: 2em;
   }
 
   .ranking {
 
-    &__wrestler .icon {
-      zoom: 0.7
+    h3 {
+      font-size: 1em;
     }
 
-    &__split h3 {
-      font-size: 1em;
+    &__wrestler .icon {
+      zoom: 0.7;
     }
   }
 }

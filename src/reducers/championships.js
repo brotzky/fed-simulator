@@ -1,56 +1,49 @@
 import defaultState from "./championships.default"
 
 export default (state = defaultState, action) => {
-  let newState = JSON.parse(JSON.stringify(state))
+  let newState = JSON.parse(JSON.stringify(state)),
+    key = 0
 
   switch (action.type) {
     case "MOVE_CHAMPIONSHIP":
-      newState.forEach((championship, key) => {
-        if (Number(championship.id) === Number(action.championship.id)) {
-          if (championship.tag) {
-            if (newState[key].wrestlerIds.length > 1) {
-              newState[key].wrestlerIds.shift()
-            }
-            newState[key].wrestlerIds.push(action.wrestlerId)
-          } else {
-            newState[key].wrestlerId = action.wrestlerId
-            // if (newState[key].history === undefined) {
-            //   newState[key].history = []
-            // }
-            // newState[key].history.push({
-            //   winner: action.wrestlerId,
-            //   loser: newState[key].wrestlerId,
-            // })
-          }
-        }
-      })
+      key = newState.findIndex(championship => championship.id === action.championship.id)
+      newState[key].wrestlers.push(action.wrestler)
+      newState[key].brand = action.wrestler.brand
+      newState[key].changes++
+
+      let newLength = newState[key].wrestlers.length
+
+      if ((newState[key].tag && newLength === 3) || (!newState[key].tag && newLength === 2)) {
+        newState[key].wrestlers.shift()
+      }
       break
     case "SHOULD_MOVE_CHAMPIONSHIP":
-      let movedOneChampionship = 0
-      
       newState.forEach((championship, key) => {
-        if (championship.wrestlerId === action.loser.id && action.winner.male === championship.male && movedOneChampionship === 0) {
-          newState[key].wrestlerId = action.winner.id
-          movedOneChampionship++
+        let numberOfLosers = newState[key].wrestlers.filter(wrestler => wrestler.id === action.loser.id).length
 
-          // if (newState[key].history === undefined) {
-          //   newState[key].history = []
-          // }
-          // newState[key].history.push({
-          //   winner: action.winner.id,
-          //   loser: action.loser.id,
-          // })
+        if (numberOfLosers > 0) {
+          if (newState[key].canMoveBrands) {
+            newState[key].brand = action.winner.brand
+          }
+
+          console.log(`${action.loser.name} lost the ${championship.name} to ${action.winner.name}`)
+          newState[key].changes++
+          newState[key].wrestlers = newState[key].wrestlers.filter(wrestler => wrestler.id !== action.loser.id)
+          newState[key].wrestlers.push({
+            ...action.winner
+          })
         }
       })
       break
     case "CLEAR_CHAMPIONS":
         newState.forEach((championship, key) => {
-          newState[key].wrestlerId = ""
-          newState[key].wrestlerIds = []
+          newState[key].wrestlers = []
         })
       break
     case "RESET_CHAMPIONS":
       newState = defaultState
+      break
+    default:
       break
   }
   return newState

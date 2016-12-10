@@ -20,8 +20,7 @@ glob(imagePath + "**/**.png", function (er, files) {
       brand: brand,
       male: male,
       sequence: 0,
-      wrestlerId: "",
-      wrestlerIds: [],
+      wrestlers: [],
     })
   })
   return writeFile(

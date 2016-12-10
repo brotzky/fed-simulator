@@ -1,15 +1,22 @@
+@import "src/stylesheets/breakpoints";
+
 .segments {
+
   .hvr-bounce-to-right:before {
     background-color: #ccc;
   }
+
   &__segment {
     float: left;
     line-height: 2em;
     vertical-align: middle;
     background-color: black;
     color: white;
-    font-size: 2em;
     padding: 0.5em;
+
+    @include breakpoint(lg) {
+      font-size: 2em;
+    }
   }
 }
 

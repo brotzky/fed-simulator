@@ -5,30 +5,36 @@
   font-family: 'Roboto';
   font-size: 1em;
 
+  .icon {
+    zoom: 0.2;
+  }
+
   &__list {
     margin: 0;
     padding: 1em 4em;
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
     list-style: none;
+    display: flex;
+    align-items: center;
+
     @include breakpoint(xs) {
       padding: 0.5em;
     }
   }
+
   &__item {
-    display: block;
-    color: white;
-    margin-right: 5em;
     display: flex;
     align-items: flex-start;
+    color: white;
+    margin-right: 5em;
 
     a {
       color: white;
     }
 
     @include breakpoint(xs) {
-      padding: 1em;
+      padding: 0.5em;
       margin-right: 0;
     }
   }
@@ -41,6 +47,11 @@
   font-weight: bold;
   font-size: 1.25em;
 
+  @include breakpoint(xs) {
+    text-transform: inherit;
+    letter-spacing: inherit;
+  }
+
   .navigation__list {
     padding-top: 2em;
     padding-bottom: 2em;
@@ -52,7 +63,7 @@
   }
 }
 .navigation--secondary {
-  margin: 0 -35px;
+  margin: 0 -15px;
 
   .navigation__list {
     padding: 1em 4em;

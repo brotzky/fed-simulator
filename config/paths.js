@@ -8,6 +8,7 @@ module.exports = {
   appBuild: resolveApp('build'),
   appHtml: resolveApp('index.html'),
   appImgs: resolveApp('src/imgs'),
+  appPublic: resolveApp('src/public'),
   appSprites: resolveApp('src/imgs/sprites'),
   appStylesheets: resolveApp('src/stylesheets'),
   appPackageJson: resolveApp('package.json'),

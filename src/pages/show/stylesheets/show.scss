@@ -1,21 +1,15 @@
-@import "src/stylesheets/variables";
-@import "src/stylesheets/breakpoints";
-
 .page.show {
 
-  .navigation .icon {
-    zoom: 0.2;
+  &.icon-default {
+    background-image: none;
+    height: auto;
+    width: auto;
+    zoom: inherit;
+    overflow: inherit;
 
-    &.icon-default {
-      background-image: none;
-      height: auto;
-      width: auto;
-      zoom: inherit;
-
-      &::before {
-        content: "All brands";
-        color: white;
-      }
+    &::before {
+      content: "All brands";
+      color: white;
     }
   }
 
@@ -37,17 +31,6 @@
 
   .dropdown {
     display: block;
-  }
-
-  .brand .wrestler {
-    @include breakpoint(lg) {
-      width: 10%;
-      zoom: 0.8;
-    }
-    @include breakpoint(xs) {
-      width: 33%;
-      zoom: 1;
-    }
   }
 
   &.raw {

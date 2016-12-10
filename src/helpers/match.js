@@ -71,10 +71,16 @@ export function simulateMatch(wrestlers, moves) {
 }
 
 export function logMatch(dispatch, story) {
-  let winnersAction = story.slice(-1).pop().details
+  let winnersAction = story.slice(-1).pop().details,
+    championshipMatch = weighted.select([true, false], [0.5, 0.5]),
+    toDispatch = [
+      awardMatchPoints({...winnersAction}),
+    ]
+    if (championshipMatch) {
+      toDispatch.push(
+        shouldTheChampionshipMove({...winnersAction}),
+      )
+    }
 
-  dispatch([
-    awardMatchPoints({...winnersAction}),
-    shouldTheChampionshipMove({...winnersAction}),
-  ])
+  dispatch(toDispatch)
 }

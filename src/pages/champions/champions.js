@@ -1,5 +1,6 @@
 import React from "react"
 import Championships from "../../components/championships/championships"
+import Secondary from "../../components/page/secondary"
 import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
 import Helmet from "react-helmet"
@@ -47,26 +48,27 @@ class ChampionsPage extends React.Component {
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
+        <Secondary />
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
             <li className="navigation__item">
               <a onKeyPress={this.onClear}
                 onClick={this.onClear}
                 href="#">
-                Clear All set Champions
+                Clear All Championships
               </a>
             </li>
             <li className="navigation__item">
               <a onKeyPress={this.onReset}
                 onClick={this.onReset}>
-                Move championships to current champions
+                Reset Championships
               </a>
             </li>
             <li className="navigation__item">
               <a onKeyPress={this.onToggleWomenWrestlers}
                 onClick={this.onToggleWomenWrestlers}
                 href="#">
-                &#x2640; Toggle Women Wrestlers
+                &#x2640; Toggle
               </a>
             </li>
           </ul>

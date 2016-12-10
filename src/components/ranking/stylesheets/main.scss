@@ -1,18 +1,23 @@
+@import "src/stylesheets/breakpoints";
+
 .ranking {
   font-family: "Roboto", "Verdana", sans-serif;
 
   thead td {
     font-size: 1.5em;
     font-weight: 500;
+
+    @include breakpoint(xs) {
+      font-size: 1em;
+    }
   }
 
   &__title {
     margin: 4px 0px;
-  }
-
-  .table>thead>tr>td,
-  .table>tbody>tr.active>td {
-    vertical-align: bottom;
+    font-size: 2em;
+    @include breakpoint(xs) {
+      font-size: 1em;
+    }
   }
 
   tbody tr {
@@ -24,6 +29,7 @@
 
     &.inactive {
       color: #ccc;
+
       .icon {
         opacity: 0.77;
       }
@@ -31,18 +37,32 @@
 
     .ranking__name {
       font-size: 1.5em;
+      @include breakpoint(xs) {
+        font-size: 1em;
+      }
     }
 
     .ranking__order {
-      font-size: 3em;
+      font-size: 3.8em;
       font-weight: 700;
       width: 1%;
       text-align: center;
+
+      @include breakpoint(xs) {
+        font-size: 1em;
+      }
     }
 
     .ranking__wrestler {
       text-align: left;
       width: 1%;
+
+      @include breakpoint(xs) {
+        .icon {
+          display: none;
+          height: auto;
+        }
+      }
     }
 
     .ranking__wins,
@@ -54,6 +74,12 @@
       width: 5%;
       vertical-align: middle;
       text-align: center;
+
+      @include breakpoint(xs) {
+        line-height: 1em;
+        font-size: 1em;
+        height: 1em;
+      }
     }
   }
 }
