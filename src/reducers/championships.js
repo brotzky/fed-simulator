@@ -5,23 +5,15 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case "MOVE_CHAMPIONSHIP":
-      newState.forEach((championship, key) => {
-        if (championship.id === action.championship.id) {
+      let key = newState.findIndex(championship => championship.id === action.championship.id)
 
-          if (championship.tag) {
-            newState[key].wrestlers.push(action.wrestler)
+      newState[key].wrestlers.push(action.wrestler)
+      let newLength = newState[key].wrestlers.length
 
-            if (newState[key].wrestlers.length > 1) {
-              newState[key].wrestlers.pop()
-            }
+      if ( (newState[key].tag && newLength === 3) || (!newState[key].tag && newLength === 2)) {
+        newState[key].wrestlers.shift()
+      }
 
-          } else {
-            newState[key].wrestlers = [
-              {...action.wrestler}
-            ]
-          }
-        }
-      })
       break
     case "SHOULD_MOVE_CHAMPIONSHIP":
       let movedOneChampionship = 0
