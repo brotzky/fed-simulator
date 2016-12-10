@@ -43,17 +43,17 @@ $icon-bayley: -3485px 0px 85px 101px;
 $icon-charlotte: -3570px 0px 85px 101px;
 $icon-charly-caruso: -3655px 0px 85px 101px;
 $icon-dana-brooke: -3740px 0px 85px 101px;
-$icon-jojo: -3825px 0px 85px 101px;
-$icon-lana: -3910px 0px 85px 101px;
-$icon-nia-jax: -3995px 0px 85px 101px;
-$icon-paige: -4080px 0px 85px 101px;
-$icon-sasha-banks: -4165px 0px 85px 101px;
-$icon-stephanie-mcmahon: -4250px 0px 85px 101px;
-$icon-summer-rae: -4335px 0px 85px 101px;
-$icon-alexa-bliss: -4420px 0px 85px 101px;
-$icon-becky-lynch: -4505px 0px 85px 101px;
-$icon-carmella: -4590px 0px 85px 101px;
-$icon-emma: -4675px 0px 85px 101px;
+$icon-emma: -3825px 0px 85px 101px;
+$icon-jojo: -3910px 0px 85px 101px;
+$icon-lana: -3995px 0px 85px 101px;
+$icon-nia-jax: -4080px 0px 85px 101px;
+$icon-paige: -4165px 0px 85px 101px;
+$icon-sasha-banks: -4250px 0px 85px 101px;
+$icon-stephanie-mcmahon: -4335px 0px 85px 101px;
+$icon-summer-rae: -4420px 0px 85px 101px;
+$icon-alexa-bliss: -4505px 0px 85px 101px;
+$icon-becky-lynch: -4590px 0px 85px 101px;
+$icon-carmella: -4675px 0px 85px 101px;
 $icon-eva-marie: -4760px 0px 85px 101px;
 $icon-maryse: -4845px 0px 85px 101px;
 $icon-naomi: -4930px 0px 85px 101px;
@@ -358,6 +358,10 @@ $icon-zack-ryder: -12410px 0px 85px 101px;
   @include sprite($icon-dana-brooke);
 }
 
+.icon-emma {
+  @include sprite($icon-emma);
+}
+
 .icon-jojo {
   @include sprite($icon-jojo);
 }
@@ -396,10 +400,6 @@ $icon-zack-ryder: -12410px 0px 85px 101px;
 
 .icon-carmella {
   @include sprite($icon-carmella);
-}
-
-.icon-emma {
-  @include sprite($icon-emma);
 }
 
 .icon-eva-marie {
