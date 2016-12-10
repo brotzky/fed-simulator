@@ -7,7 +7,6 @@
   "plugins": [
     "jsx-control-statements",
     "react-hot-loader/babel",
-    "transform-decorators-legacy",
     [
       "transform-runtime", {
         "polyfill": true,
