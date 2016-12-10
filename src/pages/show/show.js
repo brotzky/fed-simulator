@@ -141,7 +141,7 @@ class ShowPage extends React.Component {
               <div className="dropdown">
                 <span>
                   <h3 className="dropdown__title">
-                    Select a PPV &#8681;
+                    Select a Show &#8681;
                   </h3>
                 </span>
                 <div className="dropdown__content">
