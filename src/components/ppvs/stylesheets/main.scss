@@ -22,7 +22,8 @@
   height: 10em;
 
   @include breakpoint(xs) {
-    height: 8em;
+    margin: 0.7em;
+    height: 7em;
     width: 10em;
   }
 

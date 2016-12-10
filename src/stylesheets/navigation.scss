@@ -63,11 +63,7 @@
   }
 }
 .navigation--secondary {
-  margin: 0 -35px;
-
-  @include breakpoint(xs) {
-    margin: 0 -15px;
-  }
+  margin: 0 -15px;
 
   .navigation__list {
     padding: 1em 4em;
