@@ -3,6 +3,15 @@
 .championships {
   text-align: center;
 
+  .badge {
+    background-color: #ccc;
+    color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: -5em;
+    right: 0;
+  }
+
   &__championship {
     vertical-align: top;
     display: inline-block;
@@ -21,6 +30,7 @@
   .championship__holdername {
     font-size: 1em;
     font-weight: bold;
+    position: relative;
 
     span {
       display: block;
