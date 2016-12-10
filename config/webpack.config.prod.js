@@ -67,7 +67,7 @@ pluginPush(
 //   })
 // )
 pluginPush(
-  new ExtractTextPlugin('static/[name]-[hash:8].css')
+  new ExtractTextPlugin('static/[name].css')
 )
 pluginPush(
   new HtmlWebpackPlugin({
