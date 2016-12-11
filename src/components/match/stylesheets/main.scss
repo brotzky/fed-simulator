@@ -4,6 +4,8 @@
 .match {
   margin-bottom: 1em;
   clear: both;
+  background-color: $primary;
+  padding: 1em;
 
   .remove {
     font-size: 0.5em;
@@ -20,11 +22,6 @@
 
   &:hover .remove {
     display: inline-block;
-  }
-
-  &__inner {
-    background-color: #003250;
-    padding: 1em;
   }
 
   &__names {

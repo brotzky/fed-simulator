@@ -89,7 +89,8 @@ class ShowPage extends React.Component {
             <ul className="navigation__list">
               {this.props.brands.map((brand, key) => {
                 return (
-                  <li className="navigation__item" key={key}>
+                  <li key={key}
+                    className="navigation__item">
                     <a>
                       <Icon
                         name={brand.name}

@@ -32,7 +32,7 @@
 
   &.raw {
 
-    .match__inner {
+    .match {
       background-color: #b20404;
 
       .match__name::after {
@@ -48,7 +48,7 @@
 
   &.smackdown-live {
 
-    .match__inner {
+    .match {
       background-color: #18203f;
 
       .droparea {
@@ -59,7 +59,7 @@
 
   &.nxt {
 
-    .match__inner {
+    .match {
 
       background-color: #f0a71f;
 
@@ -67,7 +67,7 @@
         background-color: black;
         color: white;
       }
-      
+
       .droparea {
         color: black;
         border-color: #b76400;
