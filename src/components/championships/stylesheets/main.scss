@@ -20,7 +20,6 @@
     width: 20%;
 
     @include breakpoint(xs) {
-      width: 25%;
       zoom: 0.7;
     }
 
