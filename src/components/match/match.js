@@ -33,14 +33,14 @@ class Match extends React.Component {
     randomise: React.PropTypes.any,
     simulate: React.PropTypes.any,
     clear: React.PropTypes.any,
-    brandName: React.PropTypes.string,
+    brand: React.PropTypes.string,
   }
 
   static defaultProps = {
     randomise: false,
     simulate: false,
     clear: false,
-    brandName: "Default",
+    brand: "Default",
   }
 
   state = defaultState
@@ -72,8 +72,11 @@ class Match extends React.Component {
 
   onRandomise = () => {
     console.log("onRandomise")
-    let wrestlers = this.props.allWrestlers.filter(wrestler => (this.state.brandName === "Default") || wrestler.brand === this.state.brandName)
-
+    let wrestlers = this.props.allWrestlers
+    if (this.props.brand !== "Default") {
+      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.props.brand)
+    }
+    console.log(wrestlers.length)
     this.setState({
       wrestlers: randomiseWrestlers(wrestlers)
     })

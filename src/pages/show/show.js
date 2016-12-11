@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 import { Sticky } from "react-sticky"
 import "./stylesheets/show"
 
-const numberOfMatches = 6
+const numberOfMatches = 2
 const filterByBrand = (wrestler, brandName) => wrestler.brand === brandName
 const filterByFemales = (wrestler, showFemalesOnly) => !showFemalesOnly || (showFemalesOnly && wrestler.male === false)
 
@@ -166,7 +166,7 @@ class ShowPage extends React.Component {
                 return (
                   <Match
                     key={key}
-                    brandName={this.state.brand}
+                    brand={this.state.brand}
                     clear={this.state.clear}
                     randomise={this.state.randomise}
                     simulate={this.state.simulate}
