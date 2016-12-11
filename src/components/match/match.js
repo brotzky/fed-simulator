@@ -53,7 +53,7 @@ class Match extends React.Component {
       this.onClear()
     }
 
-    if (nextProps.randomise) {
+    if (nextProps.randomise && nextProps.randomise !== this.props.randomise) {
       this.onRandomise()
     }
 
@@ -63,29 +63,23 @@ class Match extends React.Component {
   }
 
   onClear = () => {
-    console.log("onClear")
-
     this.setState({
       ...defaultState
     })
   }
 
   onRandomise = () => {
-    console.log("onRandomise")
     let wrestlers = this.props.allWrestlers
     if (this.props.brand !== "Default") {
       wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.props.brand)
     }
-    console.log(wrestlers.length)
     this.setState({
       wrestlers: randomiseWrestlers(wrestlers)
     })
   }
 
   onStartMatch = () => {
-    console.log("onStartMatch")
     if (this.state.wrestlers.length  > 1) {
-      console.log("enough Wrestlers")
       let story = this.onSimulate()
       this.setState({
         story,

@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 import { Sticky } from "react-sticky"
 import "./stylesheets/show"
 
-const numberOfMatches = 2
+const numberOfMatches = 6
 const filterByBrand = (wrestler, brandName) => wrestler.brand === brandName
 const filterByFemales = (wrestler, showFemalesOnly) => !showFemalesOnly || (showFemalesOnly && wrestler.male === false)
 
@@ -35,7 +35,7 @@ class ShowPage extends React.Component {
 
   onRandomiseMatches = () => {
     this.setState({
-      randomise: true,
+      randomise: Date.now(),
     })
   }
 
