@@ -2,18 +2,4 @@
 
 .bell {
   cursor: pointer;
-  font-size: 34px;
-
-  &__header {
-    margin: 0;
-    letter-spacing: .25em;
-    word-spacing: 0.5em;
-    padding-left: 1em;
-    display: inline;
-
-    @include breakpoint(xs) {
-      letter-spacing: inherit;
-      word-spacing: inherit;
-      }
-  }
 }
