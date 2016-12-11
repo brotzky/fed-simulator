@@ -70,12 +70,6 @@ class ShowPage extends React.Component {
     })
   }
 
-  onAutomateShow = () => {
-    this.onClearMatches()
-    this.onRandomiseMatches()
-    this.onSimulateMatches()
-  }
-
   displayName = "ShowPage"
 
   render() {
@@ -126,12 +120,6 @@ class ShowPage extends React.Component {
                 <a onKeyPress={this.onClearMatches}
                   onClick={this.onClearMatches}>
                   Clear
-                </a>
-                </li>
-                <li className="navigation__item">
-                <a onKeyPress={this.onAutomateShow}
-                  onClick={this.onAutomateShow}>
-                  &#10227; Randomise & Simulate
                 </a>
               </li>
             </ul>
