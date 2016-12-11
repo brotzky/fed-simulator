@@ -126,6 +126,16 @@ class ShowPage extends React.Component {
               </li>
             </ul>
           </div>
+          <div className="row visible-xs">
+            <div className="col-xs-12">
+              <Brand
+                name={this.state.brand}
+                showBrandLogo={false}
+                byPassBrandFilter={true}
+                wrestlers={wrestlers}
+              />
+            </div>
+          </div>
         </Sticky>
         <div className="inpage-content">
           <div className="current-ppv ppvs__item hidden-sm hidden-xs">
@@ -168,7 +178,7 @@ class ShowPage extends React.Component {
                 )
               })}
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-4 col-md-6 col-sm-6 hidden-xs">
               <Brand
                 name={this.state.brand}
                 showBrandLogo={false}

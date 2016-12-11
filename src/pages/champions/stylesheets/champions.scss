@@ -12,9 +12,8 @@
   }
 
   @include breakpoint(xs) {
-
     .wrestlers {
-      height: 10em;
+      height: 13em;
       overflow: scroll;
     }
   }

@@ -7,12 +7,17 @@
   background-color: $primary;
   padding: 1em;
 
+  @include breakpoint(xs) {
+    padding: 0.5em;
+  }
+
   .remove {
-    font-size: 0.5em;
+    font-size: 0.7em;
     display: none;
 
     @include breakpoint(xs) {
       display: inline-block;
+      font-size: 0.8em;
     }
 
     &:hover {
@@ -30,6 +35,10 @@
     font-weight: 500;
     text-align: center;
     margin-bottom: 0.5em;
+
+    @include breakpoint(xs) {
+      font-size: 0.8em;
+    }
   }
 
   &__name::after {
@@ -45,11 +54,20 @@
 
   &__rating {
     font-size: 0.5em;
+
+    @include breakpoint(xs) {
+      font-size: 0.8em;
+    }
   }
 
   .droparea {
     margin: 0.5em;
     padding: 1em;
     border: 0.15em dashed lighten(#003250, 5%);
+
+    @include breakpoint(xs) {
+      margin: 0.2em;
+      padding: 0.2em;
+    }
   }
 }

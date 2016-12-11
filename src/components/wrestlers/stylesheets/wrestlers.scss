@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 .brand {
   &__logo {
     height: 60px;
@@ -8,6 +10,12 @@
   width: 100%;
   padding: 0.5em;
   min-height: 20em;
+
+  @include breakpoint(xs) {
+    overflow: hidden;
+    height: 14em;
+    min-height: inherit;
+  }
 
   &__search {
     opacity: 0.5;

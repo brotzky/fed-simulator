@@ -1,4 +1,5 @@
 @import "src/stylesheets/variables";
+@import "src/stylesheets/breakpoints";
 
 .story {
   font-family: 'Rubik', sans-serif;
@@ -21,20 +22,16 @@
     z-index: 0;
     position: relative;
     display:inline-block;
-    -webkit-transition: all 50ms ease-in;
-    -webkit-transform: scale(1);
-    -ms-transition: all 50ms ease-in;
-    -ms-transform: scale(1);
-    -moz-transition: all 50ms ease-in;
-    -moz-transform: scale(1);
     transition: all 50ms ease-in;
     transform: scale(1);
+
     p {
       width: 100%;
       margin: 0;
       overflow: hidden;
       white-space: nowrap;
     }
+
     &:hover {
       box-shadow: 0px 0px 150px #000000;
       z-index: 2;
@@ -53,9 +50,15 @@
     font-weight: strong;
     font-weight: 300;
   }
+
   &--winner {
     height: 1.5em;
     font-size: 1.5em;
+
+    @include breakpoint(xs) {
+      font-size: 0.8em;
+      height: 1.2em;
+    }
   }
   .index-0 {
     filter: grayscale(0%);

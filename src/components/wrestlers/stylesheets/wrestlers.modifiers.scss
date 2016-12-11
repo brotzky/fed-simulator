@@ -8,11 +8,6 @@
   background-color: darken($raw, 10%);
 }
 
-.wrestlers--default .wrestlers__container {
-  height: 327px;
-  overflow-y: scroll;
-}
-
 .wrestlers--nxt {
   background-color: $nxt;
   color: black;
