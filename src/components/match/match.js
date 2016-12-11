@@ -165,11 +165,13 @@ class Match extends React.Component {
                   </If>
                 </When>
               </Choose>
-              <div className={`droparea ${(this.state.story.length > 0 ? "inactive" : "active")} match__names`}>
-                <span className="match__name">
-                  Drop wrestlers here
-                </span>
-              </div>
+              <If condition={this.state.story.length === 0}>
+                <div className={`droparea match__names`}>
+                  <span className="match__name">
+                    Drop wrestlers here
+                  </span>
+                </div>
+              </If>
             </div>
           </Droppable>
           </div>
