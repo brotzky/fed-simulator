@@ -32,6 +32,16 @@ body {
   font-family: "Roboto Slab", "Verdana", sans-serif;
 }
 
+.spaced {
+  letter-spacing: .25em;
+  word-spacing: 0.5em;
+
+  @include breakpoint(xs) {
+    letter-spacing: inherit;
+    word-spacing: inherit;
+  }
+}
+
 .sticky {
   z-index: 100;
 }
