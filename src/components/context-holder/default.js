@@ -1,11 +1,9 @@
 import constants from "../../constants"
 import { toSlug } from "../../helpers/slugs"
-import eventEmitter from "../../helpers/event-emitter"
 
 export const context = {
   constants,
   toSlug,
-  eventEmitter: eventEmitter,
   onSetTitle: (value) => (document.title = value),
   onSetMeta: (name, content) => {
     const elements = document.getElementsByTagName("meta")

@@ -9,7 +9,6 @@ class ContextHolder extends React.Component {
       onSetTitle: React.PropTypes.func.required,
       onSetMeta: React.PropTypes.func.required,
       toSlug: React.PropTypes.func.isRequired,
-      eventEmitter: React.PropTypes.object.isRequired,
     }),
     children: React.PropTypes.element.isRequired,
   }
@@ -19,7 +18,6 @@ class ContextHolder extends React.Component {
     onSetTitle: React.PropTypes.func,
     onSetMeta: React.PropTypes.func,
     toSlug: React.PropTypes.func,
-    eventEmitter: React.PropTypes.object,
   }
 
   getChildContext() {
@@ -29,7 +27,6 @@ class ContextHolder extends React.Component {
       onSetTitle: context.onSetTitle || emptyFunction,
       onSetMeta: context.onSetMeta || emptyFunction,
       toSlug: context.toSlug || emptyFunction,
-      eventEmitter: context.eventEmitter || emptyFunction,
     }
   }
 
