@@ -28,16 +28,11 @@ class Match extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     moves: React.PropTypes.array.isRequired,
-    byPassBrandFilter: React.PropTypes.bool,
     wrestlers: React.PropTypes.array.isRequired,
   }
 
   static contextTypes = {
     eventEmitter: React.PropTypes.object.isRequired,
-  }
-
-  static defaultProps = {
-    byPassBrandFilter: false,
   }
 
   constructor(props, context) {
@@ -72,7 +67,7 @@ class Match extends React.Component {
   }
 
   onRandomiseWrestlers = (brandName) => {
-    let wrestlers = this.props.wrestlers.filter(wrestler => (!this.props.byPassBrandFilter && brandName === "Default") || wrestler.brand === brandName)
+    let wrestlers = this.props.wrestlers.filter(wrestler => (brandName === "Default") || wrestler.brand === brandName)
     this.setState({
       wrestlers: randomiseWrestlers(wrestlers)
     })
