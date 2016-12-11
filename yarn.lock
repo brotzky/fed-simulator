@@ -1984,6 +1984,10 @@ dot-case@^2.1.0:
   dependencies:
     no-case "^2.2.0"
 
+drag-drop-polyfill:
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/drag-drop-polyfill/-/drag-drop-polyfill-2.0.0-beta.3.tgz#a63d3299c2425d42dab502651503d9cbddb642fa"
+
 duplexer@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -5089,6 +5093,10 @@ react-sound:
     react ">=0.13.3 <16.0.0"
     soundmanager2 "^2.97.20150601-a"
 
+react-sticky:
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/react-sticky/-/react-sticky-5.0.5.tgz#995871273f8a001fa4d462d3b96f381ee54b2649"
+
 react-style-proptype@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/react-style-proptype/-/react-style-proptype-1.4.0.tgz#d82c4093b73767e3efaacba013cea22a50e7b5ee"
@@ -5223,6 +5231,10 @@ redux-batch-middleware:
 redux-localstorage@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/redux-localstorage/-/redux-localstorage-0.4.1.tgz#faf6d719c581397294d811473ffcedee065c933c"
+
+redux-reset:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/redux-reset/-/redux-reset-0.2.0.tgz#ff39376fdd85179d02575f9e4bcff9c9eed3e09b"
 
 redux@^3.6.0:
   version "3.6.0"
