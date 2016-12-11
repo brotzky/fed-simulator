@@ -30,6 +30,7 @@ class Match extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     moves: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
+    allWrestlers: React.PropTypes.array.isRequired,
   }
 
   state = defaultState
@@ -56,6 +57,7 @@ class Match extends React.Component {
   }
 
   onSimulate = () => {
+    console.log(onSimulate)
     let story = simulateMatch(this.state.wrestlers, this.props.moves)
     logMatch(this.props.dispatch, story)
     return story
@@ -64,7 +66,7 @@ class Match extends React.Component {
   onDrop = (id) => {
     let wrestlers = this.state.wrestlers.slice(),
       wrestlerId = id.wrestler,
-      wrestler = this.props.wrestlers.filter((wrestler) => wrestler.id === wrestlerId)[0]
+      wrestler = this.props.allWrestlers.filter((wrestler) => wrestler.id === wrestlerId)[0]
     wrestlers.push(wrestler)
 
     this.setState({
@@ -83,59 +85,66 @@ class Match extends React.Component {
   }
 
   render() {
+    console.log(this.props.allWrestlers)
     let isValidMatch = this.state.wrestlers.length > 0
     return (
-      <div className="match row">
-        <Droppable
-          types={[
-            "wrestler",
-          ]}
-          onDrop={this.onDrop}>
-          <div className={classNames(
-            "col-xs-12",
-            "match__inner",
-            { active : isValidMatch },
-            { inactive : !isValidMatch })}>
-            <Choose>
-              <When condition={isValidMatch}>
-                <div className="match__names">
-                  {this.state.wrestlers.map((wrestler, key) => {
-                    return (
-                      <span key={key}
-                        className="match__name">
-                        <span>
-                          {wrestler.name}
+      <div className="match">
+        <div className="row">
+          <Droppable
+            types={[
+              "wrestler",
+            ]}
+            onDrop={this.onDrop}>
+            <div className={classNames(
+              "col-xs-12",
+              "match__inner",
+              { active : isValidMatch },
+              { inactive : !isValidMatch })}>
+              <Choose>
+                <When condition={isValidMatch}>
+                  <div className="match__names">
+                    {this.state.wrestlers.map((wrestler, key) => {
+                      return (
+                        <span key={key}
+                          className="match__name">
+                          <span>
+                            {wrestler.name}
+                          </span>
+                          <span className="match__rating">
+                            &nbsp; ({wrestler.rating})
+                          </span>
+                          <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
+                            className="remove">
+                            &nbsp; (remove)
+                          </span>
                         </span>
-                        <span className="match__rating">
-                          &nbsp; ({wrestler.rating})
-                        </span>
-                        <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
-                          className="remove">
-                          &nbsp; (remove)
-                        </span>
-                      </span>
-                    )
-                  })}
-                </div>
-                <If condition={this.state.story.length > 0}>
-                  <div className="statistic">
-                    <Story collection={this.state.story} wrestlers={this.state.wrestlers} />
+                      )
+                    })}
                   </div>
-                </If>
-              </When>
-            </Choose>
-            <div className={`droparea ${(this.state.story.length > 0 ? "inactive" : "active")} match__names`}>
-              <span className="match__name">
-                Drag and drop wrestlers here to create a match
-              </span>
+                  <If condition={this.state.story.length > 0}>
+                    <div className="statistic">
+                      <Story
+                        collection={this.state.story}
+                        wrestlers={this.state.wrestlers}
+                      />
+                    </div>
+                  </If>
+                </When>
+              </Choose>
+              <div className={`droparea ${(this.state.story.length > 0 ? "inactive" : "active")} match__names`}>
+                <span className="match__name">
+                  Drop wrestlers here
+                </span>
+              </div>
             </div>
+          </Droppable>
           </div>
-        </Droppable>
-      </div>
+        </div>
     )
   }
 }
 
 export default connect(state => ({
   moves: state.moves,
+  allWrestlers: state.wrestlers,
 }))(Match)
