@@ -31,11 +31,14 @@
   }
 
   &.raw {
+
     .match__inner {
       background-color: #b20404;
+
       .match__name::after {
         background-color: white;
       }
+
       .droparea {
         color: white;
         border-color: #960e0e;
@@ -44,8 +47,10 @@
   }
 
   &.smackdown-live {
+
     .match__inner {
       background-color: #18203f;
+
       .droparea {
         color: #ccc;
       }
@@ -53,12 +58,16 @@
   }
 
   &.nxt {
+
     .match__inner {
+
       background-color: #f0a71f;
+
       .match__name::after {
         background-color: black;
         color: white;
       }
+      
       .droparea {
         color: black;
         border-color: #b76400;
