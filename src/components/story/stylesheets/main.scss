@@ -1,4 +1,4 @@
-@import "../../../stylesheets/variables";
+@import "src/stylesheets/variables";
 
 .story {
   font-family: 'Rubik', sans-serif;
@@ -13,6 +13,7 @@
     overflow: hidden;
     text-align: center;
     height: 5em;
+    background-color: $secondaryColor;
   }
 
   &--move {
