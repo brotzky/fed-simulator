@@ -1,11 +1,12 @@
 import React from "react"
 import weighted from "weighted"
+import classNames from "classnames"
 import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
 import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
-import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
+import { simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/main"
 
 const defaultState = {
@@ -31,56 +32,33 @@ class Match extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
-  static contextTypes = {
-    eventEmitter: React.PropTypes.object.isRequired,
-  }
-
-  constructor(props, context) {
-    super(props)
-    let onStartMatch = this.onStartMatch.bind(this),
-      onRandomiseWrestlers = this.onRandomiseWrestlers.bind(this),
-      onClearMatch = this.onClearMatch.bind(this),
-      eventEmitter = context.eventEmitter
-
-    this.eventList = []
-    this.eventList.push(
-      eventEmitter.addListener("bellRung", () => {
-        onStartMatch()
-      }),
-      eventEmitter.addListener("randomiseMatch", (brandName) => {
-        onRandomiseWrestlers(brandName)
-      }),
-      eventEmitter.addListener("clearMatch", (brandName) => {
-        onClearMatch()
-      }),
-    )
-  }
-
   state = defaultState
 
   displayName = "Match"
 
-  onClearMatch = () => {
+  componentWillReceiveProps(nextProps) {
     this.setState({
-      ...defaultState
+      wrestlers: nextProps.wrestlers,
     })
-  }
 
-  onRandomiseWrestlers = (brandName) => {
-    let wrestlers = this.props.wrestlers.filter(wrestler => (brandName === "Default") || wrestler.brand === brandName)
-    this.setState({
-      wrestlers: randomiseWrestlers(wrestlers)
-    })
+    if (nextProps.simulate) {
+      this.onStartMatch()
+    }
   }
 
   onStartMatch = () => {
     if (this.state.wrestlers.length  > 1) {
-      let story = simulateMatch(this.state.wrestlers, this.props.moves)
-      logMatch(this.props.dispatch, story)
+      let story = this.onSimulate()
       this.setState({
         story,
       })
     }
+  }
+
+  onSimulate = () => {
+    let story = simulateMatch(this.state.wrestlers, this.props.moves)
+    logMatch(this.props.dispatch, story)
+    return story
   }
 
   onDrop = (id) => {
@@ -104,12 +82,6 @@ class Match extends React.Component {
     })
   }
 
-  componentWillUnmount() {
-    this.eventList.forEach((eventItem) => {
-      eventItem.remove()
-    })
-  }
-
   render() {
     let isValidMatch = this.state.wrestlers.length > 0
     return (
@@ -119,7 +91,11 @@ class Match extends React.Component {
             "wrestler",
           ]}
           onDrop={this.onDrop}>
-          <div className={`col-xs-12 match__inner ${(isValidMatch ? "active" : "inactive")}`}>
+          <div className={classNames(
+            "col-xs-12",
+            "match__inner",
+            { active : isValidMatch },
+            { inactive : !isValidMatch })}>
             <Choose>
               <When condition={isValidMatch}>
                 <div className="match__names">
@@ -162,5 +138,4 @@ class Match extends React.Component {
 
 export default connect(state => ({
   moves: state.moves,
-  wrestlers: state.wrestlers,
 }))(Match)

@@ -1,5 +1,4 @@
 import React from "react"
-import Bell from "../../components/bell/bell"
 import Match from "../../components/match/match"
 import Brand from "../../components/brand/brand"
 import Icon from "../../components/icon/icon"
@@ -7,6 +6,8 @@ import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import { Sticky } from "react-sticky"
+import { randomiseWrestlers } from "../../helpers/match"
+
 import "./stylesheets/show"
 
 const numberOfMatches = 6
@@ -22,7 +23,6 @@ class ShowPage extends React.Component {
   }
 
   static contextTypes = {
-    eventEmitter: React.PropTypes.object.isRequired,
     toSlug: React.PropTypes.func.isRequired,
   }
 
@@ -30,26 +30,36 @@ class ShowPage extends React.Component {
     brand: "Default",
     PPV: "Roadblock",
     showFemalesOnly: false,
-  }
-
-  onBellRung = () => {
-    this.context.eventEmitter.emit("bellRung")
+    matches: [],
   }
 
   onRandomiseMatches = (brandName) => {
-    this.context.eventEmitter.emit("randomiseMatch", brandName)
+    let
+      wrestlers = this.props.wrestlers.filter(wrestler => (brandName === "Default") || wrestler.brand === brandName),
+      localNumberOfMatches = numberOfMatches,
+      matches = []
+
+    while (localNumberOfMatches > 0) {
+      matches.push({
+        wrestlers: randomiseWrestlers(wrestlers)
+      })
+
+      localNumberOfMatches--
+    }
+
+    this.setState({
+      matches,
+    })
   }
 
   onRandomiseCardTriggerMatches = (brandName) => {
-    this.context.eventEmitter.emit("randomiseMatch", brandName)
-    this.context.eventEmitter.emit("bellRung")
+    this.onRandomiseMatches(brandName)
   }
 
   onClearMatches = () => {
-    this.context.eventEmitter.emit("clearMatch")
   }
 
-  onchangePPV = (PPV) => {
+  onChangePPV = (PPV) => {
     this.setState({
       PPV,
     })
@@ -135,20 +145,19 @@ class ShowPage extends React.Component {
           </div>
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <Bell
-                onBellRung={this.onBellRung}
-                title={title}
-              />
+              <h3 className="spaced">
+                {title}
+              </h3>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <div className="dropdown">
                 <span>
-                  <h3 className="dropdown__title">
+                  <h3 className="spaced dropdown__title">
                     Select a Show &#8681;
                   </h3>
                 </span>
                 <div className="dropdown__content">
-                  <PPVs ppvs={this.props.ppvs} onPPVClick={this.onchangePPV} />
+                  <PPVs ppvs={this.props.ppvs} onPPVClick={this.onChangePPV} />
                 </div>
               </div>
             </div>
@@ -157,10 +166,14 @@ class ShowPage extends React.Component {
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
               {new Array(numberOfMatches).fill("").map((index, key) => {
+                let wrestlers = this.state.matches[key]
+                  ? this.state.matches[key].wrestlers
+                  : []
                 return (
                   <Match
                     key={key}
                     showWrestlers={false}
+                    wrestlers={wrestlers}
                   />
                 )
               })}
@@ -170,7 +183,7 @@ class ShowPage extends React.Component {
                 name={this.state.brand}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
-                wrestlers={wrestlers}
+                wrestlers={this.props.wrestlers}
               />
             </div>
           </div>
