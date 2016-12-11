@@ -1,18 +1,5 @@
 .page.show {
 
-  &.icon-default {
-    background-image: none;
-    height: auto;
-    width: auto;
-    zoom: inherit;
-    overflow: inherit;
-
-    &::before {
-      content: "All brands";
-      color: white;
-    }
-  }
-
   .current-ppv {
     position: absolute;
     right: 0;

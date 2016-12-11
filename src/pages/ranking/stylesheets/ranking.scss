@@ -2,19 +2,6 @@
 
 .page.ranking {
 
-  &.icon-default {
-    background-image: none;
-    height: auto;
-    width: auto;
-    zoom: inherit;
-    overflow: inherit;
-
-    &::before {
-      content: "All brands";
-      color: white;
-    }
-  }
-
   .ranking {
 
     h3 {
