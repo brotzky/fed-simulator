@@ -6,7 +6,7 @@ import { connect } from "react-redux"
 import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
-import { simulateMatch, logMatch } from "../../helpers/match"
+import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/main"
 
 const defaultState = {
@@ -29,13 +29,18 @@ class Match extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     moves: React.PropTypes.array.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
+    randomise: React.PropTypes.any,
     simulate: React.PropTypes.any,
+    clear: React.PropTypes.any,
+    brandName: React.PropTypes.string,
   }
 
   static defaultProps = {
+    randomise: false,
     simulate: false,
+    clear: false,
+    brandName: "Default",
   }
 
   state = defaultState
@@ -43,17 +48,35 @@ class Match extends React.Component {
   displayName = "Match"
 
   componentWillReceiveProps(nextProps) {
-    // if (this.state.wrestlers.length === 0) {
-      this.setState({
-        wrestlers: nextProps.wrestlers,
-      })
-    // }
 
-    // console.log(nextProps)
+    if (nextProps.clear && nextProps.clear !== this.props.clear) {
+      this.onClear()
+    }
+
+    if (nextProps.randomise) {
+      this.onRandomise()
+    }
 
     if (nextProps.simulate !== false && nextProps.simulate !== this.props.simulate) {
       this.onStartMatch()
     }
+  }
+
+  onClear = () => {
+    console.log("onClear")
+
+    this.setState({
+      ...defaultState
+    })
+  }
+
+  onRandomise = () => {
+    console.log("onRandomise")
+    let wrestlers = this.props.allWrestlers.filter(wrestler => (this.state.brandName === "Default") || wrestler.brand === this.state.brandName)
+
+    this.setState({
+      wrestlers: randomiseWrestlers(wrestlers)
+    })
   }
 
   onStartMatch = () => {

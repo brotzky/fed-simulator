@@ -6,8 +6,6 @@ import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import { Sticky } from "react-sticky"
-import { randomiseWrestlers } from "../../helpers/match"
-
 import "./stylesheets/show"
 
 const numberOfMatches = 6
@@ -30,43 +28,26 @@ class ShowPage extends React.Component {
     brand: "Default",
     PPV: "Roadblock",
     showFemalesOnly: false,
-    matches: [],
+    clear: true,
+    randomise: false,
     simulate: false,
   }
 
-  onRandomiseMatches = (brandName) => {
-    let
-      wrestlers = this.props.wrestlers.filter(wrestler => (brandName === "Default") || wrestler.brand === brandName),
-      localNumberOfMatches = numberOfMatches,
-      matches = []
-
-    while (localNumberOfMatches > 0) {
-      matches.push({
-        wrestlers: randomiseWrestlers(wrestlers)
-      })
-
-      localNumberOfMatches--
-    }
-
+  onRandomiseMatches = () => {
     this.setState({
-      matches,
+      randomise: true,
     })
   }
 
   onSimulateMatches = () => {
     this.setState({
-      simulate: Date.now()
+      simulate: Date.now(),
     })
-  }
-
-  onRandomiseCardTriggerMatches = (brandName) => {
-    this.onRandomiseMatches(brandName)
-    this.onSimulateMatches()
   }
 
   onClearMatches = () => {
     this.setState({
-      matches: [],
+      clear: Date.now(),
     })
   }
 
@@ -87,6 +68,11 @@ class ShowPage extends React.Component {
     this.setState({
       showFemalesOnly: !this.state.showFemalesOnly,
     })
+  }
+
+  onRandomiseCardTriggerMatches = () => {
+    this.onRandomiseMatches()
+    this.onSimulateMatches()
   }
 
   displayName = "ShowPage"
@@ -177,15 +163,13 @@ class ShowPage extends React.Component {
           <div className="row">
             <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
               {new Array(numberOfMatches).fill("").map((index, key) => {
-                let wrestlers = this.state.matches[key]
-                  ? this.state.matches[key].wrestlers
-                  : []
                 return (
                   <Match
                     key={key}
+                    brandName={this.state.brand}
+                    clear={this.state.clear}
+                    randomise={this.state.randomise}
                     simulate={this.state.simulate}
-                    showWrestlers={false}
-                    wrestlers={wrestlers}
                   />
                 )
               })}
