@@ -62,13 +62,13 @@ class Match extends React.Component {
     }
   }
 
-  onClear = () => {
+  onClear() {
     this.setState({
       ...defaultState
     })
   }
 
-  onRandomise = () => {
+  onRandomise() {
     let wrestlers = this.props.allWrestlers
     if (this.props.brand !== "Default") {
       wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.props.brand)
@@ -78,7 +78,7 @@ class Match extends React.Component {
     })
   }
 
-  onStartMatch = () => {
+  onStartMatch() {
     if (this.state.wrestlers.length  > 1) {
       let story = this.onSimulate()
       this.setState({
@@ -87,7 +87,7 @@ class Match extends React.Component {
     }
   }
 
-  onSimulate = () => {
+  onSimulate() {
     let story = simulateMatch(this.state.wrestlers, this.props.moves)
     logMatch(this.props.dispatch, story)
     return story
@@ -109,7 +109,7 @@ class Match extends React.Component {
     }
   }
 
-  onRemoveWrestler = (wrestlerToRemove) => {
+  onRemoveWrestler(wrestlerToRemove) {
     let wrestlerId = wrestlerToRemove.id,
       wrestlers = this.state.wrestlers
         .filter((wrestler) => wrestler.id !== wrestlerId)
@@ -147,7 +147,7 @@ class Match extends React.Component {
                           <span className="match__rating">
                             &nbsp; ({wrestler.rating})
                           </span>
-                          <span onClick={this.onRemoveWrestler.bind(this, wrestler)}
+                          <span onClick={() => this.onRemoveWrestler(wrestler)}
                             className="remove">
                             &nbsp; (remove)
                           </span>

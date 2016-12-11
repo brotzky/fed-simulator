@@ -70,7 +70,8 @@ class ShowPage extends React.Component {
     })
   }
 
-  onRandomiseCardTriggerMatches = () => {
+  onAutomateShow = () => {
+    this.onClearMatches()
     this.onRandomiseMatches()
     this.onSimulateMatches()
   }
@@ -128,8 +129,8 @@ class ShowPage extends React.Component {
                 </a>
                 </li>
                 <li className="navigation__item">
-                <a onKeyPress={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}
-                  onClick={this.onRandomiseCardTriggerMatches.bind(this, this.state.brand)}>
+                <a onKeyPress={this.onAutomateShow}
+                  onClick={this.onAutomateShow}>
                   &#10227; Randomise & Simulate
                 </a>
               </li>
@@ -154,7 +155,10 @@ class ShowPage extends React.Component {
                   </h3>
                 </span>
                 <div className="dropdown__content">
-                  <PPVs ppvs={this.props.ppvs} onPPVClick={this.onChangePPV} />
+                  <PPVs
+                    ppvs={this.props.ppvs}
+                    onPPVClick={this.onChangePPV}
+                  />
                 </div>
               </div>
             </div>
