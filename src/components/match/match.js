@@ -64,14 +64,19 @@ class Match extends React.Component {
   }
 
   onDrop = (id) => {
-    let wrestlers = this.state.wrestlers.slice(),
-      wrestlerId = id.wrestler,
-      wrestler = this.props.allWrestlers.filter((wrestler) => wrestler.id === wrestlerId)[0]
-    wrestlers.push(wrestler)
+    let wrestlerId = id.wrestler,
+      isAlreadyInMatch = this.state.wrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
 
-    this.setState({
-      wrestlers,
-    })
+    if (!isAlreadyInMatch) {
+      let wrestlers = this.state.wrestlers.slice(),
+        wrestler = this.props.allWrestlers.filter((wrestler) => wrestler.id === wrestlerId)[0]
+
+      wrestlers.push(wrestler)
+
+      this.setState({
+        wrestlers,
+      })
+    }
   }
 
   onRemoveWrestler = (wrestlerToRemove) => {
