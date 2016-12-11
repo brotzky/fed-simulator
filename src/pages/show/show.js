@@ -106,8 +106,8 @@ class ShowPage extends React.Component {
                 </a>
                 </li>
                 <li className="navigation__item">
-                <a onKeyPress={this.onRandomiseMatches.bind(this, this.state.brand)}
-                  onClick={this.onRandomiseMatches.bind(this, this.state.brand)}>
+                <a onKeyPress={() => this.onRandomiseMatches(this.state.brand)}
+                  onClick={() => this.onRandomiseMatches(this.state.brand)}>
                   Randomise
                 </a>
                 &nbsp; | &nbsp;
@@ -130,12 +130,12 @@ class ShowPage extends React.Component {
             <Icon name={this.state.PPV} />
           </div>
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-8 col-md-6 col-sm-6 col-xs-12">
               <h3 className="spaced">
                 {title}
               </h3>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
               <div className="dropdown">
                 <span>
                   <h3 className="spaced dropdown__title">
@@ -153,7 +153,7 @@ class ShowPage extends React.Component {
           </div>
           <br />
           <div className="row">
-            <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div className="col-lg-8 col-md-6 col-sm-6 col-xs-12">
               {new Array(numberOfMatches).fill("").map((index, key) => {
                 return (
                   <Match
@@ -166,7 +166,7 @@ class ShowPage extends React.Component {
                 )
               })}
             </div>
-            <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+            <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
               <Brand
                 name={this.state.brand}
                 showBrandLogo={false}

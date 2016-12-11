@@ -1,4 +1,5 @@
 @import "src/stylesheets/variables";
+@import "src/stylesheets/breakpoints";
 
 .page.champions {
 
@@ -8,5 +9,13 @@
     color: white;
     border-radius: 0;
     border-color: $secondary;
+  }
+
+  @include breakpoint(xs) {
+
+    .wrestlers {
+      height: 10em;
+      overflow: scroll;
+    }
   }
 }
