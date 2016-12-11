@@ -77,9 +77,10 @@ class ShowPage extends React.Component {
     title += this.state.brand !== "Default" ? ` presented by ${this.state.brand}` : ""
     let wrestlers = this.props.wrestlers
       .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
-      if (this.state.brand !== "Default") {
-        wrestlers = wrestlers.filter(wrestler => filterByBrand(wrestler, this.state.brand))
-      }
+
+    if (this.state.brand !== "Default") {
+      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand)
+    }
     return (
       <div className={`page show ${this.context.toSlug(this.state.brand)}`}>
         <Helmet title="Create Show" />
@@ -171,7 +172,7 @@ class ShowPage extends React.Component {
                 name={this.state.brand}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
-                wrestlers={this.props.wrestlers}
+                wrestlers={wrestlers}
               />
             </div>
           </div>
