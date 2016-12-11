@@ -31,6 +31,7 @@ class ShowPage extends React.Component {
     PPV: "Roadblock",
     showFemalesOnly: false,
     matches: [],
+    simulate: false,
   }
 
   onRandomiseMatches = (brandName) => {
@@ -52,11 +53,21 @@ class ShowPage extends React.Component {
     })
   }
 
+  onSimulateMatches = () => {
+    this.setState({
+      simulate: Date.now()
+    })
+  }
+
   onRandomiseCardTriggerMatches = (brandName) => {
     this.onRandomiseMatches(brandName)
+    this.onSimulateMatches()
   }
 
   onClearMatches = () => {
+    this.setState({
+      matches: [],
+    })
   }
 
   onChangePPV = (PPV) => {
@@ -119,9 +130,9 @@ class ShowPage extends React.Component {
                   Randomise
                 </a>
                 &nbsp; | &nbsp;
-                <a onKeyPress={this.onBellRung}
+                <a onKeyPress={this.onSimulateMatches}
                   title={title}
-                  onClick={this.onBellRung}>
+                  onClick={this.onSimulateMatches}>
                   Simulate
                 </a>
                 &nbsp; | &nbsp;
@@ -172,6 +183,7 @@ class ShowPage extends React.Component {
                 return (
                   <Match
                     key={key}
+                    simulate={this.state.simulate}
                     showWrestlers={false}
                     wrestlers={wrestlers}
                   />

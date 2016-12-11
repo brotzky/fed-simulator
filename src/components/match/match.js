@@ -31,6 +31,11 @@ class Match extends React.Component {
     moves: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
+    simulate: React.PropTypes.any,
+  }
+
+  static defaultProps = {
+    simulate: false,
   }
 
   state = defaultState
@@ -38,17 +43,23 @@ class Match extends React.Component {
   displayName = "Match"
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      wrestlers: nextProps.wrestlers,
-    })
+    // if (this.state.wrestlers.length === 0) {
+      this.setState({
+        wrestlers: nextProps.wrestlers,
+      })
+    // }
 
-    if (nextProps.simulate) {
+    // console.log(nextProps)
+
+    if (nextProps.simulate !== false && nextProps.simulate !== this.props.simulate) {
       this.onStartMatch()
     }
   }
 
   onStartMatch = () => {
+    console.log("onStartMatch")
     if (this.state.wrestlers.length  > 1) {
+      console.log("enough Wrestlers")
       let story = this.onSimulate()
       this.setState({
         story,
@@ -57,7 +68,6 @@ class Match extends React.Component {
   }
 
   onSimulate = () => {
-    console.log(onSimulate)
     let story = simulateMatch(this.state.wrestlers, this.props.moves)
     logMatch(this.props.dispatch, story)
     return story
@@ -90,7 +100,6 @@ class Match extends React.Component {
   }
 
   render() {
-    console.log(this.props.allWrestlers)
     let isValidMatch = this.state.wrestlers.length > 0
     return (
       <div className="match">
