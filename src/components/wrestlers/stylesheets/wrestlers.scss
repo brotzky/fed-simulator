@@ -12,9 +12,10 @@
   min-height: 20em;
 
   @include breakpoint(xs) {
-    overflow: hidden;
     height: 14em;
     min-height: inherit;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   &__search {
