@@ -1,0 +1,107 @@
+[{
+	"id": "7644539610",
+	"name": "Nxt Womens Championship",
+	"brand": "NXT",
+	"male": false,
+	"sequence": 2,
+	"changes": 0,
+	"canMoveBrands": false,
+	"wrestlers": [{
+		"id": "63570681",
+		"name": "Asuka",
+		"brand": "NXT",
+		"rating": 90,
+		"male": false
+	}]
+}, {
+	"id": "-3822490917",
+	"name": "Nxt Championship",
+	"brand": "NXT",
+	"male": true,
+	"sequence": 1,
+	"changes": 0,
+	"canMoveBrands": false,
+	"wrestlers": [{
+		"id": "-289148918",
+		"name": "Shinsuke Nakamura",
+		"brand": "NXT",
+		"rating": 90,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "7099496460",
+	"name": "Nxt Tag Team Championship",
+	"brand": "NXT",
+	"male": true,
+	"tag": true,
+	"sequence": 3,
+	"canMoveBrands": false,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "-3502240535",
+		"name": "Johnny Gargano",
+		"brand": "NXT",
+		"rating": 79,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}, {
+		"id": "522741538",
+		"name": "Tommaso",
+		"brand": "NXT",
+		"rating": 79,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "8593337368",
+	"name": "Raw Womens Championship",
+	"brand": "Raw",
+	"male": false,
+	"sequence": 0,
+	"canMoveBrands": false,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "3923329653",
+		"name": "Sasha Banks",
+		"brand": "Raw",
+		"rating": 86,
+		"male": false,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}, {
+	"id": "8361075146",
+	"name": "Raw Tag Team Championship",
+	"brand": "Raw",
+	"male": true,
+	"tag": true,
+	"sequence": 4,
+	"changes": 0,
+	"wrestlers": [{
+		"id": "64180485",
+		"name": "Big E",
+		"brand": "Raw",
+		"rating": 85,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}, {
+		"id": "657661680",
+		"name": "Kofi Kingston",
+		"brand": "Raw",
+		"rating": 86,
+		"male": true,
+		"wins": 0,
+		"losses": 0,
+		"championshipId": false
+	}]
+}]

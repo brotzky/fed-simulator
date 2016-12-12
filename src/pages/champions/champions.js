@@ -5,6 +5,7 @@ import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import { getById } from "../../helpers/championships"
 import "./stylesheets/champions"
 
 class ChampionsPage extends React.Component {
@@ -45,6 +46,9 @@ class ChampionsPage extends React.Component {
 
   render() {
     let awardedChampionships = this.props.championships.filter(championship => championship.wrestlerId !== "" || championship.wrestlerIds.length > 0).length
+    console.log(
+      getById(this.props.championships)
+    )
     return (
       <div className="page champions">
         <Helmet title="Championship Management" />
@@ -100,7 +104,7 @@ class ChampionsPage extends React.Component {
                 </div>
               )
             })}
-          </div>
+          </div>100
         </div>
       </div>
     )
