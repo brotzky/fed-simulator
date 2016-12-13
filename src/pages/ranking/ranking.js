@@ -8,12 +8,7 @@ import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/ranking"
-const amountOfSims = [
-  1,
-  10,
-  100,
-  1000,
-]
+
 class RankingPage extends React.Component {
 
   static propTypes = {
