@@ -2,29 +2,35 @@ import {
   React,
   expect,
 } from "../test"
-import { groupWrestlersByChampionshipId, groupWrestlersByChampionships, groupByWrestlerIds } from "../championships"
+import {
+  getChampions,
+  getChampionsIds,
+  getKeyedChampions
+} from "../championships"
 import defaultSettings from "./championships.json"
 
 describe("championships", () => {
-  it("groupWrestlersByChampionshipId", () => {
-    const result = groupWrestlersByChampionshipId(defaultSettings)
-    console.log(result)
+  it("getChampions", () => {
+    const result = getChampions(defaultSettings)
+    // console.log("getChampions", result)
+    expect(
+      result.length
+    ).to.equal(7)
+  })
+
+  it("getChampionsIds", () => {
+    const result = getChampionsIds(defaultSettings)
+    // console.log("getChampionsIds", result)
     expect(
       result.length
     ).to.equal(5)
   })
-  // it("groupWrestlersByChampionships", () => {
-  //   const result = groupWrestlersByChampionships(defaultSettings)
-  //   // console.log(result)
-  //   expect(
-  //     result.length
-  //   ).to.equal(5)
-  // })
-  // it("groupByWrestlerIds", () => {
-  //   const result = groupByWrestlerIds(defaultSettings)
-  //   // console.log(result)
-  //   expect(
-  //     result.length
-  //   ).to.equal(7)
-  // })
+
+  it("getKeyedChampions", () => {
+    const result = getKeyedChampions(defaultSettings)
+    // console.log(result)
+    expect(
+      Object.keys(result).length
+    ).to.equal(5)
+  })
 })

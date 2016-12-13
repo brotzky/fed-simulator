@@ -1,37 +1,23 @@
-export function groupWrestlersByChampionshipId(
-  championships,
-  collection = [],
+export function getChampions(
+  champions = [],
+  collection = []
 ) {
-  // championships = championships.map(championship => {
-  //     return {
-  //       key: championship.id,
-  //       ids: championship.wrestlers.map(wrestler => wrestler.id),
-  //
-  //   [championship.id] = championships[index].ids.map(champ => champ)
-  // })
-  collection = championships.reduce((newCollection, current) => {
-    newCollection[current[0]] = current[1];
-    return newCollection
-  }, {})
-  console.log(collection)
-  return collection
+  return collection.concat.apply([],
+    champions.map(champion => champion.wrestlers)
+  )
 }
 
-export function groupWrestlersByChampionships(
-  championships,
-  collection = [],
-) {
-  collection = championships.map(championship => championship.wrestlers)
-  return collection
+export function getChampionsIds(champions) {
+  return champions.map(wrestler => wrestler.id)
 }
 
-export function groupByWrestlerIds(
-  championships,
-  collection = [],
+export function getKeyedChampions(
+  champions = [],
+  collection = {}
 ) {
-  championships = groupWrestlersByChampionships(championships)
-  championships.forEach((championship) => {
-    collection.push(championship)
+  champions.forEach(champion => {
+    collection[champion.id] = champion
   })
+
   return collection
 }
