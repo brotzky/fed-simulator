@@ -1,107 +1,68 @@
 [{
-	"id": "7644539610",
+	"id": "100",
 	"name": "Nxt Womens Championship",
 	"brand": "NXT",
 	"male": false,
-	"sequence": 2,
-	"changes": 0,
-	"canMoveBrands": false,
 	"wrestlers": [{
-		"id": "63570681",
+		"id": "1",
 		"name": "Asuka",
 		"brand": "NXT",
-		"rating": 90,
 		"male": false
 	}]
 }, {
-	"id": "-3822490917",
+	"id": "200",
 	"name": "Nxt Championship",
 	"brand": "NXT",
 	"male": true,
-	"sequence": 1,
-	"changes": 0,
-	"canMoveBrands": false,
 	"wrestlers": [{
-		"id": "-289148918",
+		"id": "2",
 		"name": "Shinsuke Nakamura",
 		"brand": "NXT",
-		"rating": 90,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
-	"id": "7099496460",
+	"id": "900",
 	"name": "Nxt Tag Team Championship",
 	"brand": "NXT",
 	"male": true,
 	"tag": true,
-	"sequence": 3,
-	"canMoveBrands": false,
-	"changes": 0,
 	"wrestlers": [{
-		"id": "-3502240535",
+		"id": "3",
 		"name": "Johnny Gargano",
 		"brand": "NXT",
-		"rating": 79,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}, {
-		"id": "522741538",
+		"id": "4",
 		"name": "Tommaso",
 		"brand": "NXT",
-		"rating": 79,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
-	"id": "8593337368",
+	"id": "400",
 	"name": "Raw Womens Championship",
 	"brand": "Raw",
 	"male": false,
-	"sequence": 0,
-	"canMoveBrands": false,
-	"changes": 0,
 	"wrestlers": [{
-		"id": "3923329653",
+		"id": "5",
 		"name": "Sasha Banks",
 		"brand": "Raw",
-		"rating": 86,
-		"male": false,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": false
 	}]
 }, {
-	"id": "8361075146",
+	"id": "500",
 	"name": "Raw Tag Team Championship",
 	"brand": "Raw",
 	"male": true,
 	"tag": true,
-	"sequence": 4,
-	"changes": 0,
 	"wrestlers": [{
-		"id": "64180485",
+		"id": "6",
 		"name": "Big E",
 		"brand": "Raw",
-		"rating": 85,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}, {
-		"id": "657661680",
+		"id": "7",
 		"name": "Kofi Kingston",
 		"brand": "Raw",
-		"rating": 86,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }]
