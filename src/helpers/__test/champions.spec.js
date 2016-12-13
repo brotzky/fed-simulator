@@ -5,11 +5,21 @@ import {
 import {
   getChampions,
   getChampionsIds,
-  getKeyedChampions
+  getKeyedChampions,
+  getWrestlersWithChampionships,
 } from "../championships"
 import defaultSettings from "./championships.json"
 
 describe("championships", () => {
+
+  it("getWrestlersWithChampionships", () => {
+    const result = getWrestlersWithChampionships(defaultSettings)
+    // console.log("getWrestlersWithChampionships", result)
+    expect(
+      Object.keys(result).length
+    ).to.equal(7)
+  })
+
   it("getChampions", () => {
     const result = getChampions(defaultSettings)
     // console.log("getChampions", result)
