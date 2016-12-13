@@ -5,7 +5,7 @@
     "start": "NODE_ENV=development DEBUG=app:* babel-node ./scripts/start.js",
     "build": "NODE_ENV=production DEBUG=app:* babel-node ./scripts/build.js",
     "build:deploy": "npm run build && npm run deploy",
-    "test": "NODE_ENV=test mocha --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./src/**/**/*.spec.js",
+    "test": "NODE_ENV=test mocha --watch --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./src/**/**/*.spec.js",
     "test:coverage": "istanbul cover _mocha -- --require babel-register -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./**/**/*.spec.js",
     "deploy": "gh-pages-deploy",
     "eslint": "eslint src",
