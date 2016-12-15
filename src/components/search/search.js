@@ -19,7 +19,7 @@ export default class Search extends React.Component {
   }
 
   componentWillMount() {
-    this.delayedCallback = (event) => {
+    this.searchCallback = (event) => {
       let search = event.target.value
       this.setState({
         search,
@@ -40,9 +40,7 @@ export default class Search extends React.Component {
     }
 
     event.persist()
-    _debounce(
-      this.delayedCallback(event)
-    )
+    this.searchCallback(event)
   }
 
   render() {
@@ -58,6 +56,7 @@ export default class Search extends React.Component {
               id="search__field"
               type="text"
               onKeyDown={this.onSearch}
+              onKeyPress={this.onSearch}
             />
           </div>
         </div>
