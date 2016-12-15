@@ -76,7 +76,7 @@ class Championships extends React.Component {
                 </span>
                 <div className={classNames([
                   "championship__holdername",
-                  `championship__holdername--${this.context.toSlug(name)}`])}>
+                  `championship__holdername--${this.context.toSlug(championship.name)}`])}>
                   <Choose>
                     <When condition={championship.wrestlers.length > 0}>
                       {championship.wrestlers.map((wrestler, key) => {
