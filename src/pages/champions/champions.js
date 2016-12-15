@@ -91,7 +91,10 @@ class ChampionsPage extends React.Component {
                   className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div className="row clearfix">
                       <div className="col-xs-12">
-                        <Championships championships={championships} />
+                        <Championships
+                          championships={championships}
+                          showBadge={true}
+                        />
                       </div>
                     </div>
                     <Brand

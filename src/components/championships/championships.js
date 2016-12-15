@@ -12,6 +12,7 @@ class Championships extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     championships: React.PropTypes.array.isRequired,
     canDragAndDrop: React.PropTypes.bool,
+    showBadge: React.PropTypes.bool,
   }
 
   static contextTypes = {
@@ -20,6 +21,7 @@ class Championships extends React.Component {
 
   static defaultProps = {
     canDragAndDrop: true,
+    showBadge: false,
   }
 
   onDrop = (championship, selection) => {
@@ -64,9 +66,11 @@ class Championships extends React.Component {
                   "wrestler",
                 ]}
                 onDrop={this.onDrop.bind(this, championship)}>
-                <span className="badge">
-                  {championship.changes}
-                </span>
+                <If condition={this.props.showBadge}>
+                  <span className="badge">
+                    {championship.changes}
+                  </span>
+                </If>
                 <span className="hvr-push">
                   <Icon name={championship.name} />
                 </span>
