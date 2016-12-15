@@ -89,7 +89,9 @@ class ChampionsPage extends React.Component {
                 <div
                   key={brand.id}
                   className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <Championships championships={championships} />
+                  <div className="clearfix">
+                    <Championships championships={championships} />
+                  </div>
                   <Brand
                     id={brand.id}
                     name={brand.name}
@@ -100,7 +102,7 @@ class ChampionsPage extends React.Component {
                 </div>
               )
             })}
-          </div>100
+          </div>
         </div>
       </div>
     )
