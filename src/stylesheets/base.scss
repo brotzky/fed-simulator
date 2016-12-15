@@ -17,6 +17,13 @@ body {
   color: $color;
 }
 
+@include breakpoint(xs) {
+  [class*='col-'] {
+      padding-right: 0;
+      padding-left: 0;
+  }
+}
+
 /* REM */
 html {
   font-size: 62.5%;
