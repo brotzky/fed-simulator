@@ -1,0 +1,15 @@
+.current-ppv {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1rem;
+  margin: 0;
+  background-color: black;
+  width: 15rem;
+  height: 9rem;
+
+  .icon {
+    z-index: 2;
+    zoom: 0.4;
+  }
+}

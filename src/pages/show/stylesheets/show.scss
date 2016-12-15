@@ -2,29 +2,11 @@
 
 .page.show {
 
-  .current-ppv {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 1rem;
-    margin: 0;
-    background-color: black;
-    width: 13rem;
-    height: 7rem;
-
-    .icon {
-      z-index: 2;
-      zoom: 0.4;
-    }
-  }
-
   .dropdown {
     display: block;
   }
 
   h3 {
-    text-align: left;
-
     @include breakpoint(xs) {
       font-size: 1.2rem;
       font-weight: bolder;
@@ -33,48 +15,6 @@
     }
   }
 
-  &.raw {
-
-    .match {
-      background-color: #b20404;
-
-      .match__name::after {
-        background-color: white;
-      }
-
-      .droparea {
-        color: white;
-        border-color: #960e0e;
-      }
-    }
-  }
-
-  &.smackdown-live {
-
-    .match {
-      background-color: #18203f;
-
-      .droparea {
-        color: #ccc;
-      }
-    }
-  }
-
-  &.nxt {
-
-    .match {
-
-      background-color: #f0a71f;
-
-      .match__name::after {
-        background-color: black;
-        color: white;
-      }
-
-      .droparea {
-        color: black;
-        border-color: #b76400;
-      }
-    }
-  }
+  @import "current-ppv";
+  @import "show.modifiers";
 }

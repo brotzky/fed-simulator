@@ -3,13 +3,9 @@
 
 .match {
   margin-bottom: 1rem;
+  padding: 1rem;
   clear: both;
   background-color: $primary;
-  padding: 1rem;
-
-  @include breakpoint(xs) {
-    padding: 0.5rem;
-  }
 
   .remove {
     display: none;
@@ -28,43 +24,25 @@
 
   &__names {
     color: white;
-    font-size: 1.5rem;
-    font-weight: 500;
     text-align: center;
     margin-bottom: 0.5rem;
+  }
 
-    @include breakpoint(xs) {
-      font-size: 0.8rem;
+  &__name {
+    font-size: 2rem;
+
+    &::after {
+      content: " vs ";
+      background-color: #3ebdf2;
+      color: black;
+      margin: 0 1rem;
+    }
+
+    &:last-child::after {
+      content: '';
     }
   }
 
-  &__name::after {
-    content: " vs ";
-    background-color: #3ebdf2;
-    color: black;
-    margin: 0 1rem;
-  }
 
-  &__name:last-child::after {
-    content: '';
-  }
-
-  &__rating {
-    font-size: 0.5rem;
-
-    @include breakpoint(xs) {
-      font-size: 0.8rem;
-    }
-  }
-
-  .droparea {
-    margin: 0.5rem;
-    padding: 1rem;
-    border: 0.15em dashed lighten(#003250, 5%);
-
-    @include breakpoint(xs) {
-      margin: 0.2rem;
-      padding: 0.2rem;
-    }
-  }
+  @import "./droparea";
 }

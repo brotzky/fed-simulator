@@ -1,0 +1,18 @@
+.droparea {
+  margin: 0.5rem;
+  padding: 1rem;
+  border: 0.15em dashed lighten(#003250, 5%);
+  text-align: center;
+
+  &__title {
+    text-transform: uppercase;
+    letter-spacing: 0.2;
+    color: white;
+    font-weight: 700;
+  }
+
+  @include breakpoint(xs) {
+    margin: 0.2rem;
+    padding: 0.2rem;
+  }
+}

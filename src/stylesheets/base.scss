@@ -76,6 +76,12 @@ h4 {
   }
 }
 
+sup {
+  vertical-align: super;
+  font-size: 50%;
+  letter-spacing: 0.2;
+}
+
 .sticky {
   z-index: 100;
 }

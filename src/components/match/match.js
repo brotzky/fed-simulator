@@ -133,7 +133,8 @@ class Match extends React.Component {
               "col-xs-12",
               "match__inner",
               { active : isValidMatch },
-              { inactive : !isValidMatch })}>
+              { inactive : !isValidMatch }
+            )}>
               <Choose>
                 <When condition={isValidMatch}>
                   <div className="match__names">
@@ -144,9 +145,9 @@ class Match extends React.Component {
                           <span>
                             {wrestler.name}
                           </span>
-                          <span className="match__rating">
-                            &nbsp; ({wrestler.rating})
-                          </span>
+                          <sup>
+                            {wrestler.rating}
+                          </sup>
                           <span onClick={() => this.onRemoveWrestler(wrestler)}
                             className="remove">
                             &nbsp; (remove)
@@ -166,8 +167,8 @@ class Match extends React.Component {
                 </When>
               </Choose>
               <If condition={this.state.story.length === 0}>
-                <div className={`droparea match__names`}>
-                  <span className="match__name">
+                <div className="droparea">
+                  <span className="droparea__title">
                     Drop wrestlers here
                   </span>
                 </div>

@@ -1,7 +1,6 @@
 @import "src/stylesheets/breakpoints";
 
 .wrestler {
-  display: flex;
   margin: 0.5em 0.398rem;
 
   @include breakpoint(xs) {

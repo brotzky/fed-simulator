@@ -23,13 +23,14 @@
   }
 
   &__list {
-    margin: 0;
-    padding: 1rem 4rem;
-    display: flex;
     flex-wrap: wrap;
     list-style: none;
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 1rem 4rem;
+    display: flex;
+
   }
 
   &__item {
