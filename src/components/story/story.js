@@ -37,11 +37,11 @@ export default class Story extends React.Component {
   }
 
   render() {
-    let totalWidthPoints = this.props.collection
-      .filter((action) => action.action === "move")
-      .reduce((sum, action) => {
-        return sum + action.details.move.damage
-      }, 0)
+    // let totalWidthPoints = this.props.collection
+    //   .filter((action) => action.action === "move")
+    //   .reduce((sum, action) => {
+    //     return sum + action.details.move.damage
+    //   }, 0)
     return (
       <div className="row">
         <ul className="col-xs-12 story">
