@@ -1,5 +1,4 @@
 import React from "react"
-import _debounce from "lodash.debounce"
 import "./stylesheets/search"
 
 export default class Search extends React.Component {

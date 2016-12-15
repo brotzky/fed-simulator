@@ -4,7 +4,6 @@ import Icon from "../icon/icon"
 import Search from "../search/search"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { connect } from "react-redux"
-import _filter from "lodash/filter"
 import Wrestlers from "../wrestlers/wrestlers"
 import "./stylesheets/main"
 

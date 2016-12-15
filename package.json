@@ -89,8 +89,6 @@
     "fbemitter": "^2.1.1",
     "glob": "^7.1.1",
     "jquery": "^3.1.1",
-    "lodash": "^4.17.2",
-    "lodash.debounce": "^4.0.8",
     "lodash.maxby": "^4.6.0",
     "lodash.minby": "^4.6.0",
     "promise": "7.1.1",

@@ -29,7 +29,6 @@ const prodConfig = Object.assign({}, defaultConfig, {
     vendors: [
       'react',
       'react-dom',
-      'lodash.debounce',
       'react-helmet',
       'react-router',
       'redux',
