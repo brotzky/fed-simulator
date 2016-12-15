@@ -5,7 +5,7 @@ import Search from "../search/search"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { connect } from "react-redux"
 import Wrestlers from "../wrestlers/wrestlers"
-import "./stylesheets/main"
+import "./stylesheets/brand"
 
 class Brand extends React.Component {
 
