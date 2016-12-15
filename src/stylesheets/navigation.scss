@@ -1,7 +1,7 @@
 @import "src/stylesheets/breakpoints";
 
 .navigation {
-  background-color: #141516;
+  background-color: #232828;
   font-family: 'Roboto';
   font-size: 1em;
 
@@ -30,10 +30,6 @@
     list-style: none;
     display: flex;
     align-items: center;
-
-    @include breakpoint(xs) {
-      padding: 0.5em;
-    }
   }
 
   &__item {
@@ -45,44 +41,55 @@
     a {
       color: white;
     }
+  }
+}
 
-    @include breakpoint(xs) {
+@include breakpoint(xs) {
+  .navigation {
+    &__list {
+      padding: 0.5em;
+      display: block;
+      line-height: 0;
+      overflow-y: scroll;
+      white-space: nowrap;
+      position: relative;
+    }
+    &__item {
       padding: 0.5em;
       margin-right: 0;
+      display: inline-block;
+
+      .icon {
+        zoom: 0.1;
+      }
     }
   }
 }
 
 .navigation--primary {
-  background-color: #232828;
   text-transform: uppercase;
   letter-spacing: 0.17em;
   font-weight: bold;
   font-size: 1.25em;
-
-  @include breakpoint(xs) {
-    text-transform: inherit;
-    letter-spacing: inherit;
-  }
 
   .navigation__list {
     padding-top: 2em;
     padding-bottom: 2em;
 
     @include breakpoint(xs) {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+      padding: 0.7em;
     }
   }
 }
 .navigation--secondary {
   margin: 0 -15px;
+  background-color: #141516;
 
   .navigation__list {
     padding: 1em 4em;
 
     @include breakpoint(xs) {
-      padding: 0.5em 2em;
+      padding: 0.7em;
     }
   }
 }
