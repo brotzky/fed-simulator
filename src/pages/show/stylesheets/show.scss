@@ -6,11 +6,11 @@
     position: absolute;
     right: 0;
     top: 0;
-    padding: 1em;
+    padding: 1rem;
     margin: 0;
     background-color: black;
-    width: 13em;
-    height: 7em;
+    width: 13rem;
+    height: 7rem;
 
     .icon {
       z-index: 2;
@@ -26,10 +26,10 @@
     text-align: left;
 
     @include breakpoint(xs) {
-      font-size: 1.2em;
+      font-size: 1.2rem;
       font-weight: bolder;
       text-align: center;
-      margin: 0.2em;
+      margin: 0.2rem;
     }
   }
 

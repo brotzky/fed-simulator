@@ -8,14 +8,15 @@
 
   &__segment {
     float: left;
-    line-height: 2em;
     vertical-align: middle;
     background-color: black;
     color: white;
-    padding: 0.5em;
+    padding: 2rem;
+    font-size: 3rem;
 
-    @include breakpoint(lg) {
-      font-size: 2em;
+    @include breakpoint(xs) {
+      font-size: 1.5rem;
+      padding: 1rem;
     }
   }
 }

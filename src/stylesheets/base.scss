@@ -12,16 +12,50 @@
 body {
   margin: 0;
   padding: 0;
-  font-size: 1.5em;
   font-family: "Roboto", "Verdana", "Arial", sans-serif;
   background-color: $bg;
   color: $color;
 }
 
+
+/* REM */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 16px;
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 24px;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 18px;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1.7px;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
 .legal {
   padding: 5px 5px 5px 23px;
   color: white;
-  line-height: 2em;
+  line-height: 2rem;
   background-color: #333;
 
   a {
@@ -34,8 +68,8 @@ body {
 }
 
 .spaced {
-  letter-spacing: .25em;
-  word-spacing: 0.5em;
+  letter-spacing: .25rem;
+  word-spacing: 0.5rem;
 
   @include breakpoint(xs) {
     letter-spacing: inherit;
@@ -55,22 +89,6 @@ a:hover,
 
 ul {
   padding: 0;
-}
-
-h1, h2, h3, h4 {
-  padding: 0;
-}
-
-h1 {
-  font-size: 3em;
-}
-
-h2 {
-	font-size: 2em;
-}
-
-h4 {
-  font-size: 1em;
 }
 
 a:hover {

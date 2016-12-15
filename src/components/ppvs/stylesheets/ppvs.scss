@@ -16,14 +16,14 @@
   justify-content: center;
   list-style: none;
   background-color: black;
-  margin: 0.72em;
-  width: 16.55em;
-  height: 10em;
+  margin: 0.72rem;
+  width: 25rem;
+  height: 15rem;
 
   @include breakpoint(xs) {
-    margin: 0.3em;
-    height: 4em;
-    width: 7em;
+    margin: 0.5rem;
+    height: 6rem;
+    width: 8.6rem;
   }
 
   .icon {

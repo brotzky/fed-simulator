@@ -2,14 +2,7 @@
 
 .page.ranking {
 
-  .ranking {
-
-    h3 {
-      font-size: 1em;
-    }
-
-    &__wrestler .icon {
-      zoom: 0.7;
-    }
+  .ranking__wrestler .icon {
+    zoom: 0.7;
   }
 }

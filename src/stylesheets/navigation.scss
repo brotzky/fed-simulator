@@ -3,7 +3,7 @@
 .navigation {
   background-color: #232828;
   font-family: 'Roboto';
-  font-size: 1em;
+  font-size: 2rem;
 
   .icon {
     zoom: 0.2;
@@ -24,7 +24,7 @@
 
   &__list {
     margin: 0;
-    padding: 1em 4em;
+    padding: 1rem 4rem;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
@@ -36,18 +36,17 @@
     display: flex;
     align-items: flex-start;
     color: white;
-    margin-right: 5em;
+    margin-right: 5rem;
 
     a {
       color: white;
     }
   }
-}
 
-@include breakpoint(xs) {
-  .navigation {
+
+  @include breakpoint(xs) {
     &__list {
-      padding: 0.5em;
+      padding: 1rem;
       display: block;
       line-height: 0;
       overflow-y: scroll;
@@ -55,8 +54,8 @@
       position: relative;
     }
     &__item {
-      padding: 0.5em;
-      margin-right: 0;
+      padding: 0.5rem;
+      margin-right: 2rem;
       display: inline-block;
 
       .icon {
@@ -68,28 +67,17 @@
 
 .navigation--primary {
   text-transform: uppercase;
-  letter-spacing: 0.17em;
+  letter-spacing: 0.17rem;
   font-weight: bold;
-  font-size: 1.25em;
 
   .navigation__list {
-    padding-top: 2em;
-    padding-bottom: 2em;
-
-    @include breakpoint(xs) {
-      padding: 0.7em;
-    }
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
+
 .navigation--secondary {
   margin: 0 -15px;
   background-color: #141516;
-
-  .navigation__list {
-    padding: 1em 4em;
-
-    @include breakpoint(xs) {
-      padding: 0.7em;
-    }
-  }
+  font-size: 1.5rem;
 }

@@ -14,11 +14,11 @@
   @include breakpoint(xs) {
     
     .brand {
-      margin-bottom: 1em;
+      margin-bottom: 1rem;
     }
 
     .wrestlers {
-      height: 13em;
+      height: 13rem;
       overflow: scroll;
     }
   }

@@ -8,11 +8,11 @@
 .wrestlers {
   background-color: black;
   width: 100%;
-  padding: 0.5em;
-  min-height: 20em;
+  padding: 0.5rem;
+  min-height: 20rem;
 
   @include breakpoint(xs) {
-    height: 14em;
+    height: 14rem;
     min-height: inherit;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -36,15 +36,15 @@
   }
 
   &__header {
-    font-size: 1em;
-    line-height: 3em;
+    font-size: 1rem;
+    line-height: 3rem;
     text-align: center;
     color: white;
     margin: 0;
   }
 
   &__seperator {
-    font-size: 0.9em;
+    font-size: 0.9rem;
   }
 
   &__container {

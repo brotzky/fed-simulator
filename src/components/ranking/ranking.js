@@ -1,7 +1,7 @@
 import React from "react"
 import Icon from "../icon/icon"
 import Label from "../label/label"
-import "./stylesheets/main"
+import "./stylesheets/ranking"
 
 export default class Ranking extends React.Component {
 

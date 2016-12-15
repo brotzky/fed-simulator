@@ -2,7 +2,7 @@
 
 .wrestler {
   display: flex;
-  margin: 0.5em 0.398em;
+  margin: 0.5em 0.398rem;
 
   @include breakpoint(xs) {
     zoom: 0.8;

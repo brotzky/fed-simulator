@@ -4,16 +4,16 @@
 .story {
   font-family: 'Rubik', sans-serif;
   font-style: normal;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin-bottom: 0;
 
   &__action {
     float: left;
     list-style: none;
-    font-size: 0.5em;
+    font-size: 0.5rem;
     overflow: hidden;
     text-align: center;
-    height: 5em;
+    height: 5rem;
     background-color: $bg;
     color: $color;
   }
@@ -52,12 +52,12 @@
   }
 
   &--winner {
-    height: 1.5em;
-    font-size: 1.5em;
+    height: 1.5rem;
+    font-size: 1.5rem;
 
     @include breakpoint(xs) {
-      font-size: 0.8em;
-      height: 1.2em;
+      font-size: 0.8rem;
+      height: 1.2rem;
     }
   }
   .index-0 {
