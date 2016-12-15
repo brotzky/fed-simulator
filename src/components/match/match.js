@@ -79,6 +79,14 @@ class Match extends React.Component {
     })
   }
 
+  shouldResim() {
+    if (this.state.story.length > 0) {
+      this.setState({
+        story: [],
+      })
+    }
+  }
+
   onStartMatch() {
     if (this.state.wrestlers.length  > 1) {
       let story = this.onSimulate()
@@ -107,6 +115,8 @@ class Match extends React.Component {
       this.setState({
         wrestlers,
       })
+
+      this.shouldResim()
     }
   }
 
@@ -118,6 +128,8 @@ class Match extends React.Component {
     this.setState({
       wrestlers,
     })
+
+    this.shouldResim()
   }
 
   render() {

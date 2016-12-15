@@ -68,19 +68,21 @@ export default class Story extends React.Component {
                   <Choose>
                     <When condition={action.action === "move"}>
                       <table className="table">
-                        <tr>
-                          <td className="wrestler">
-                            {action.details.attacker.name.match(/\b(\w)/g).join("")}
-                          </td>
-                          <td>
-                            {action.details.move.name}
-                            <br />
-                            for {action.details.move.damage} damage
-                          </td>
-                          <td className="wrestler">
-                            {action.details.defender.name.match(/\b(\w)/g).join("")}
-                          </td>
-                        </tr>
+                        <tbody>
+                          <tr>
+                            <td className="wrestler">
+                              {action.details.attacker.name.match(/\b(\w)/g).join("")}
+                            </td>
+                            <td>
+                              {action.details.move.name}
+                              <br />
+                              for {action.details.move.damage} damage
+                            </td>
+                            <td className="wrestler">
+                              {action.details.defender.name.match(/\b(\w)/g).join("")}
+                            </td>
+                          </tr>
+                        </tbody>
                       </table>
                     </When>
                     <When condition={action.action === "winner"}>
