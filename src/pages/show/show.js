@@ -83,7 +83,7 @@ class ShowPage extends React.Component {
     }
     return (
       <div className={`page show ${this.context.toSlug(this.state.brand)}`}>
-        <Helmet title="Create Show" />
+        <Helmet title="Create a Show" />
         <Sticky>
           <div className="navigation navigation--secondary">
             <ul className="navigation__list">

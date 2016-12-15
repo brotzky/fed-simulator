@@ -17,7 +17,7 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div className="page landing">
-        <Helmet title="Welcome to WWE Universe SIM" />
+        <Helmet title="Wrestling SIM" />
         <div className="inpage-content">
           <div className="row introduction">
             <div className="col-xs-12 introduction__container introduction__container--primary">

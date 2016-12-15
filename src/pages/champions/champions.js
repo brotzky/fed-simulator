@@ -47,7 +47,7 @@ class ChampionsPage extends React.Component {
     const awardedChampionships = this.props.championships.filter(championship => championship.wrestlerId !== "" || championship.wrestlerIds.length > 0).length
     return (
       <div className="page champions">
-        <Helmet title="Championship Management" />
+        <Helmet title="Championships" />
         <Secondary />
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
