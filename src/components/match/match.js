@@ -7,6 +7,7 @@ import Story from "../story/story"
 import * as championshipActions from "../../actions/championship"
 import * as wrestlersActions from "../../actions/wrestlers"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
+import FontAwesome from "react-fontawesome"
 import "./stylesheets/main"
 
 const defaultState = {
@@ -150,7 +151,7 @@ class Match extends React.Component {
                           </sup>
                           <span onClick={() => this.onRemoveWrestler(wrestler)}
                             className="remove">
-                            &nbsp; (remove)
+                            &nbsp; <FontAwesome name="remove" />
                           </span>
                         </span>
                       )
