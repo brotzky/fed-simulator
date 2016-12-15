@@ -55,16 +55,11 @@ export default class Ranking extends React.Component {
                     <Icon name={wrestler.name} />
                   </td>
                   <td className="ranking__name">
-                    <p>
-                      {wrestler.name}
-                    </p>
                     <If condition={this.props.showLabels}>
-                      <p className="hidden-xs">
-                        <Label
-                          modifier={wrestler.brand}
-                          name={wrestler.brand}
-                        />
-                      </p>
+                      <Label
+                        modifier={wrestler.brand}
+                        name={wrestler.name}
+                      />
                     </If>
                   </td>
                   <td className="ranking__wins statistic">

@@ -43,10 +43,9 @@
 
     .ranking__name {
       font-size: 2rem;
-      font-weight: 100;
 
       @include breakpoint(xs) {
-        font-size: 1.3rem;
+        font-size: inherit;
         font-weight: inherit;
       }
     }
