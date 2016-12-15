@@ -13,6 +13,7 @@
     @include breakpoint(xs) {
       display: inline-block;
     }
+
     &:hover {
       cursor: pointer;
     }
@@ -40,6 +41,12 @@
 
     &:last-child::after {
       content: '';
+    }
+
+    @include breakpoint(xs) {
+      width: 100%;
+      text-align: center;
+      display: inline-block;
     }
   }
 
