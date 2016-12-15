@@ -12,7 +12,7 @@
 }
 
 .ppvs__item {
-  margin: 0.5em;
+  margin: 0.72em;
   list-style: none;
   background-color: black;
   display: flex;
@@ -22,9 +22,9 @@
   height: 10em;
 
   @include breakpoint(xs) {
-    margin: 0.8em;
-    height: 5em;
-    width: 6em;
+    margin: 0.3em;
+    height: 4em;
+    width: 7em;
   }
 
   .icon {
