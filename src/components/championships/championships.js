@@ -4,7 +4,7 @@ import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
 import classNames from "classnames"
 import { Draggable, Droppable } from "react-drag-and-drop"
-import "./stylesheets/championships.scss"
+import "./stylesheets/championships"
 
 class Championships extends React.Component {
 
