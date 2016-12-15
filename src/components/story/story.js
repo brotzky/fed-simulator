@@ -1,6 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
-import "./stylesheets/main"
+import "./stylesheets/story"
 
 export default class Story extends React.Component {
 
@@ -69,21 +69,24 @@ export default class Story extends React.Component {
                     <When condition={action.action === "move"}>
                       <span className={`move__icon ${action.details.move.name}`}
                         title={this.getTitle(action)}>
-                        <p className="truncate">
-                          {action.details.attacker.name}
-                        </p>
-                        <p>
+                        <span className="wrestler pull-left">
+                          {action.details.attacker.name.match(/\b(\w)/g).join("")}
+                        </span>
+                        <span>
                           {action.details.move.name}
-                        </p>
-                        <p className="truncate">
-                          {action.details.defender.name}
-                        </p>
+                          <sup>
+                            {action.details.move.damage}
+                          </sup>
+                        </span>
+                        <span className="wrestler pull-right">
+                          {action.details.defender.name.match(/\b(\w)/g).join("")}
+                        </span>
                       </span>
                     </When>
                     <When condition={action.action === "winner"}>
-                      <span className="clearfix story__winner">
+                      <h2 className="story__winner">
                         {action.details.winner.name} covers {action.details.loser.name} for the win!
-                      </span>
+                      </h2>
                     </When>
                   </Choose>
                 </li>

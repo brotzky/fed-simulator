@@ -1,0 +1,60 @@
+@import "src/stylesheets/variables";
+@import "src/stylesheets/breakpoints";
+
+.story {
+  font-family: 'Rubik', sans-serif;
+  margin-bottom: 0;
+
+  &__action {
+    float: left;
+    list-style: none;
+    overflow: hidden;
+    text-align: center;
+    background-color: $bg;
+    color: $color;
+  }
+
+  &--move {
+    z-index: 0;
+    font-size: 1rem;
+    position: relative;
+    display: none;
+
+    .wrestler {
+      background-color: $bg;
+      color: $color;
+      border-radius: 50%;
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__damage {
+    font-weight: 300;
+  }
+
+  .index-0 {
+    filter: grayscale(0%);
+  }
+  .index-1 {
+    filter: grayscale(20%);
+  }
+  .index-2 {
+    filter: grayscale(40%);
+  }
+  .index-3 {
+    filter: grayscale(60%);
+  }
+  .index-4 {
+    filter: grayscale(80%);
+  }
+  .index-5 {
+    filter: grayscale(100%);
+  }
+
+  @import "story.modifiers";
+}
+
+.story:hover .story--move {
+  display: inline-block;
+}
