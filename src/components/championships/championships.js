@@ -47,7 +47,7 @@ class Championships extends React.Component {
 
   render() {
     return (
-      <div className="championships row text-center">
+      <div className="championships">
         {this.props.championships
           .sort((prev, current) => prev.sequence > current.sequence)
           .map((championship, key) => {
@@ -64,15 +64,15 @@ class Championships extends React.Component {
                   "wrestler",
                 ]}
                 onDrop={this.onDrop.bind(this, championship)}>
+                <span className="badge">
+                  {championship.changes}
+                </span>
                 <span className="hvr-push">
                   <Icon name={championship.name} />
                 </span>
                 <div className={classNames([
                   "championship__holdername",
                   `championship__holdername--${this.context.toSlug(name)}`])}>
-                  <span className="badge">
-                    {championship.changes}
-                  </span>
                   <Choose>
                     <When condition={championship.wrestlers.length > 0}>
                       {championship.wrestlers.map((wrestler, key) => {

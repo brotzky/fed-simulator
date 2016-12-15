@@ -2,21 +2,21 @@
 
 .championships {
   text-align: center;
-  margin-top: 15px;
 
   .badge {
     background-color: #f0efef;
     color: black;
     border-radius: 50%;
     position: absolute;
-    top: -6em;
+    top: 0em;
     right: 42%;
   }
 
   &__championship {
     vertical-align: top;
     display: inline-block;
-    height: 7em;
+    position: relative;
+    padding: 1em 0;
     width: 20%;
 
     @include breakpoint(xs) {

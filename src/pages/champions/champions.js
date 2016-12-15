@@ -89,16 +89,18 @@ class ChampionsPage extends React.Component {
                 <div
                   key={brand.id}
                   className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                  <div className="clearfix">
-                    <Championships championships={championships} />
-                  </div>
-                  <Brand
-                    id={brand.id}
-                    name={brand.name}
-                    canDragAndDrop={true}
-                    wrestlers={wrestlers}
-                    showBrandLogo={false}
-                  />
+                    <div className="row clearfix">
+                      <div className="col-xs-12">
+                        <Championships championships={championships} />
+                      </div>
+                    </div>
+                    <Brand
+                      id={brand.id}
+                      name={brand.name}
+                      canDragAndDrop={true}
+                      wrestlers={wrestlers}
+                      showBrandLogo={false}
+                    />
                 </div>
               )
             })}
