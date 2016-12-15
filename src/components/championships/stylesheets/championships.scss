@@ -1,0 +1,40 @@
+@import "src/stylesheets/breakpoints";
+
+.championships {
+  text-align: center;
+
+  .championship {
+    vertical-align: top;
+    display: inline-block;
+    position: relative;
+    padding: 1em 0;
+    margin: 0 1rem;
+
+    .badge {
+      background-color: #f0efef;
+      color: black;
+      border-radius: 50%;
+      position: absolute;
+      top: 0rem;
+      right: 42%;
+    }
+
+    &__holdername {
+      position: relative;
+
+      span {
+        display: block;
+      }
+    }
+
+    .icon {
+      @include breakpoint(xs) {
+        zoom: 0.7;
+      }
+    }
+
+    &.vacant {
+      color: #ccc;
+    }
+  }
+}

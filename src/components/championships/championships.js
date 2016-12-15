@@ -4,7 +4,7 @@ import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
 import classNames from "classnames"
 import { Draggable, Droppable } from "react-drag-and-drop"
-import "./stylesheets/main"
+import "./stylesheets/championships.scss"
 
 class Championships extends React.Component {
 
@@ -60,7 +60,7 @@ class Championships extends React.Component {
               : "vacant"
           return (
             <div key={key}
-              className={`championships__championship ${active}`}>
+              className={`championship ${active}`}>
               <Droppable
                 types={[
                   "wrestler",
