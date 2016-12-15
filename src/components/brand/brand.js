@@ -63,7 +63,7 @@ class Brand extends React.Component {
     if (this.state.search !== "" && this.state.brandName === this.props.name) {
       searchIsActive = true
       wrestlers = wrestlers.filter((wrestler) => {
-        return wrestler.name.toLowerCase().indexOf(this.state.search) > -1
+        return wrestler.name.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1
       })
     }
     malewrestlers = wrestlers.filter((wrestler) => (this.props.byPassBrandFilter || wrestler.brand === this.props.name) && wrestler.male === true),
