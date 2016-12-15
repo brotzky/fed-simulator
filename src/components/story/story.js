@@ -51,13 +51,13 @@ export default class Story extends React.Component {
                 brand = action.details.attacker
                   ? action.details.attacker.brand
                   : action.details.winner.brand,
-                width = (action.action === "move")
-                  ? 100 * action.details.move.damage / totalWidthPoints
-                  : 100,
-                style = {
-                  width: `${width}%`,
-                  borderRight: "1px solid black",
-                },
+                // width = (action.action === "move")
+                //   ? 100 * action.details.move.damage / totalWidthPoints
+                //   : 100,
+                style = {},
+                //   width: `${width}%`,
+                //   borderRight: "1px solid black",
+                // },
                 indexClass = (action.action === "move")
                   ? `index-${this.state.colourIndex[action.details.attacker.id]}`
                   : ""
@@ -67,21 +67,21 @@ export default class Story extends React.Component {
                   key={key}>
                   <Choose>
                     <When condition={action.action === "move"}>
-                      <span className={`move__icon ${action.details.move.name}`}
-                        title={this.getTitle(action)}>
-                        <span className="wrestler pull-left">
-                          {action.details.attacker.name.match(/\b(\w)/g).join("")}
-                        </span>
-                        <span>
-                          {action.details.move.name}
-                          <sup>
-                            {action.details.move.damage}
-                          </sup>
-                        </span>
-                        <span className="wrestler pull-right">
-                          {action.details.defender.name.match(/\b(\w)/g).join("")}
-                        </span>
-                      </span>
+                      <table className="table">
+                        <tr>
+                          <td className="wrestler">
+                            {action.details.attacker.name.match(/\b(\w)/g).join("")}
+                          </td>
+                          <td>
+                            {action.details.move.name}
+                            <br />
+                            for {action.details.move.damage} damage
+                          </td>
+                          <td className="wrestler">
+                            {action.details.defender.name.match(/\b(\w)/g).join("")}
+                          </td>
+                        </tr>
+                      </table>
                     </When>
                     <When condition={action.action === "winner"}>
                       <h2 className="story__winner">

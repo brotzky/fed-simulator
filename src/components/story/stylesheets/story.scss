@@ -6,31 +6,33 @@
   margin-bottom: 0;
 
   &__action {
-    float: left;
     list-style: none;
     overflow: hidden;
     text-align: center;
     background-color: $bg;
     color: $color;
+    width: 100%;
   }
 
   &--move {
     z-index: 0;
-    font-size: 1rem;
-    position: relative;
     display: none;
 
-    .wrestler {
-      background-color: $bg;
-      color: $color;
-      border-radius: 50%;
-      font-weight: 500;
-      font-size: 1.5rem;
+    table {
+      margin: 0;
+
+      .wrestler {
+        width: 5%;
+      }
     }
   }
 
   &__damage {
     font-weight: 300;
+  }
+
+  &__winner {
+    margin: 0.7rem;
   }
 
   .index-0 {
