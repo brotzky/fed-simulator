@@ -35,15 +35,13 @@ class DraftPage extends React.Component {
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
             <li className="navigation__item">
-              <a
-                onKeyPress={this.onSendToDraft}
+              <a onKeyPress={this.onSendToDraft}
                 onClick={this.onSendToDraft}>
                 Move All To Draft
               </a>
             </li>
             <li className="navigation__item">
-              <a
-                onKeyPress={this.onClear}
+              <a onKeyPress={this.onClear}
                 onClick={this.onClear}>
                 Reset Wrestlers
               </a>
@@ -55,8 +53,8 @@ class DraftPage extends React.Component {
             <div className="row">
               {this.props.brands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand, key) => {
                 let wrestlers = this.props.wrestlers
-                .filter(wrestler => (brand.default === true && wrestler.brand === "") || wrestler.brand === brand.name)
-                  .sort((a, b) => a.rating < b.rating)
+                  .filter(wrestler => (brand.default === true && wrestler.brand === "") || wrestler.brand === brand.name)
+                  .sort((a, b) => a.rating < b.rating ? 1 : -1)
                 return (
                   <div
                     key={brand.id}

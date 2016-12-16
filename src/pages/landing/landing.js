@@ -44,7 +44,7 @@ class LandingPage extends React.Component {
                     Award and strip championships!
                     <br />
                     <Championships
-                      championships={this.props.championships.slice(0, 5).sort(function() { return 0.5 - Math.random() })}
+                      championships={this.props.championships.slice(0, 5).sort(() => 0.5 - Math.random())}
                       canDragAndDrop={false}
                     />
                   </div>
