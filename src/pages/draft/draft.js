@@ -71,9 +71,10 @@ class DraftPage extends React.Component {
         <div className="inpage-content">
           <div className="draft no-select">
             <div className="row">
-              {this.props.brands.map((brand, key) => {
+              {this.props.brands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand, key) => {
                 let wrestlers = this.props.wrestlers
-                  .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
+                .filter(wrestler => (brand.default === true && wrestler.brand === "") || wrestler.brand === brand.name)
+                .filter(wrestler => !this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false))
                   .sort((a, b) => a.rating < b.rating)
                 return (
                   <div
@@ -84,6 +85,7 @@ class DraftPage extends React.Component {
                       name={brand.name}
                       canDragAndDrop={true}
                       wrestlers={wrestlers}
+                      byPassBrandFilter={brand.default}
                       showBrandLogo={true}
                     />
                   </div>

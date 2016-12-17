@@ -25,7 +25,7 @@ class ShowPage extends React.Component {
   }
 
   state = {
-    brand: "Default",
+    brand: "",
     PPV: "Roadblock",
     showFemalesOnly: false,
     clear: true,
@@ -74,11 +74,11 @@ class ShowPage extends React.Component {
 
   render() {
     let title = this.state.PPV
-    title += this.state.brand !== "Default" ? ` presented by ${this.state.brand}` : ""
+    title += this.state.brand !== "" ? ` presented by ${this.state.brand}` : ""
     let wrestlers = this.props.wrestlers
       .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
 
-    if (this.state.brand !== "Default") {
+    if (this.state.brand !== "") {
       wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand)
     }
     return (

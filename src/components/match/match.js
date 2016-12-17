@@ -41,7 +41,7 @@ class Match extends React.Component {
     randomise: false,
     simulate: false,
     clear: false,
-    brand: "Default",
+    brand: "",
   }
 
   state = defaultState
@@ -71,7 +71,7 @@ class Match extends React.Component {
 
   onRandomise() {
     let wrestlers = this.props.allWrestlers
-    if (this.props.brand !== "Default") {
+    if (this.props.brand !== "") {
       wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.props.brand)
     }
     this.setState({

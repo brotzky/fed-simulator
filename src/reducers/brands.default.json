@@ -2,21 +2,25 @@
   {
     "id": "-1085510111",
     "sequence": 0,
-    "name": "Default"
+    "name": "Default",
+    "default": true
   },
   {
     "id": "77770",
-    "sequence": 0,
-    "name": "NXT"
+    "sequence": 3,
+    "name": "NXT",
+    "default": false
   },
   {
     "id": "81928",
-    "sequence": 0,
-    "name": "Raw"
+    "sequence": 1,
+    "name": "Raw",
+    "default": false
   },
   {
     "id": "-5701846309",
-    "sequence": 0,
-    "name": "Smackdown Live"
+    "sequence": 2,
+    "name": "Smackdown Live",
+    "default": false
   }
 ]

@@ -80,7 +80,7 @@ class ChampionsPage extends React.Component {
             </div>
           </If>
           <div className="row">
-            {this.props.brands.filter((brand) => brand.name !== "Default").map((brand, key) => {
+            {this.props.brands.filter(brand => brand.default === false).map((brand, key) => {
               let wrestlers = this.props.wrestlers
                 .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
                 .sort((a, b) => a.rating < b.rating),

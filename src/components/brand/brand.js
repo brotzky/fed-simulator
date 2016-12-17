@@ -56,18 +56,16 @@ class Brand extends React.Component {
 
   render() {
     let searchIsActive = false,
-      malewrestlers = [],
-      femalewrestlers = [],
       wrestlers = this.props.wrestlers
 
-    if (this.state.search !== "" && this.state.brandName === this.props.name) {
+    if (this.state.search !== "") {
       searchIsActive = true
       wrestlers = wrestlers.filter((wrestler) => {
         return wrestler.name.toLowerCase().indexOf(this.state.search.toLowerCase()) > -1
       })
     }
-    malewrestlers = wrestlers.filter((wrestler) => (this.props.byPassBrandFilter || wrestler.brand === this.props.name) && wrestler.male === true),
-    femalewrestlers = wrestlers.filter((wrestler) => (this.props.byPassBrandFilter || wrestler.brand === this.props.name) && wrestler.male === false)
+    let malewrestlers = wrestlers.filter(wrestler => wrestler.male === true),
+      femalewrestlers = wrestlers.filter(wrestler => wrestler.male === false)
     return (
       <Droppable
         key={this.props.id}
@@ -77,14 +75,14 @@ class Brand extends React.Component {
         ]}
         onDrop={this.onDrop.bind(this, this.props)}>
         <If condition={this.props.showBrandLogo}>
-          <div className={`brand__icon text-center hidden-sm hidden-xs`}>
+          <div className="brand__icon text-center hidden-sm hidden-xs">
             <span className={`icon icon-${this.context.toSlug(this.props.name)}`}></span>
           </div>
         </If>
         <div className={`Droppable col-xs-4 wrestlers wrestlers--${this.context.toSlug(this.props.name)}`}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search
-              placeholder={`Filter choices`}
+              placeholder="Filter choices"
               onSearchUpdated={this.onSearchUpdated}
               brandName={this.props.name}
             />
@@ -119,6 +117,4 @@ class Brand extends React.Component {
   }
 }
 
-export default connect(state => ({
-  match: state.match,
-}))(Brand)
+export default connect(state => ({}))(Brand)

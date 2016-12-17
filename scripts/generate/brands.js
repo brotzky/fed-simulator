@@ -16,6 +16,7 @@ glob(imagePath + "**/**.png", function (er, files) {
       id: hashCode(name),
       sequence: 0,
       name: name,
+      default: false,
     })
   })
   return writeFile(

@@ -18,7 +18,7 @@ class PageSecondary extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     moves: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
-    showClear: React.PropTypes.bool
+    showClear: React.PropTypes.bool,
   }
 
   static defaultProps = {
@@ -39,8 +39,7 @@ class PageSecondary extends React.Component {
     brand,
   }) => {
     while (amount > 0) {
-      let
-        wrestlers = this.props.wrestlers.filter(wrestler => brand.name === "Default" || wrestler.brand === brand.name),
+      let wrestlers = this.props.wrestlers.filter(wrestler => brand.default || wrestler.brand === brand.name),
         randomisedWrestlers = randomiseWrestlers(wrestlers),
         story = simulateMatch(
           randomisedWrestlers,
@@ -65,8 +64,7 @@ class PageSecondary extends React.Component {
                   {amountOfSims.map((amount, key) => {
                     return (
                       <span key={key}>
-                        <a
-                          onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand })}
+                        <a onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand })}
                           onClick={this.onSimulateBrandMatches.bind(this, { amount, brand })}>
                           {amount}
                         </a>,	&nbsp;

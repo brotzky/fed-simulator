@@ -29,8 +29,8 @@ export function randomiseWrestlers(
 ) {
     let matchWrestlers = [],
     ids = [],
-    randomBool = weighted.select(settings.male.options, settings.male.weights)
-    let amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights)
+    randomBool = weighted.select(settings.male.options, settings.male.weights),
+    amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights)
     wrestlers = wrestlers.filter(wrestler => wrestler.male === randomBool)
 
     // pick our first wrestler, we do this so we can get a fair match
