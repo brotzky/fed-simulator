@@ -93,7 +93,7 @@ class Championships extends React.Component {
                       <Vacant />
                     </Otherwise>
                   </Choose>
-                  <If condition={championship.tag && championship.wrestlers.length === 0 || championship.tag && championship.wrestlers.length === 1}>
+                  <If condition={championship.tag && championship.wrestlers.length < 2}>
                     <Vacant />
                   </If>
                 </div>
