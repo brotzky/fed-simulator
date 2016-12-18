@@ -6,6 +6,7 @@ import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import { Sticky } from "react-sticky"
+import { getRandomInt } from "../../helpers/math"
 import "./stylesheets/show"
 
 const numberOfMatches = 6
@@ -26,6 +27,7 @@ class ShowPage extends React.Component {
 
   state = {
     brand: "",
+    showPPVs: false,
     PPV: "Roadblock",
     showFemalesOnly: false,
     clear: true,
@@ -42,6 +44,12 @@ class ShowPage extends React.Component {
   onSimulateMatches = () => {
     this.setState({
       simulate: Date.now(),
+    })
+  }
+
+  onTogglePPVsSelection = () => {
+    this.setState({
+      showPPVs: !this.state.showPPVs
     })
   }
 
@@ -142,51 +150,64 @@ class ShowPage extends React.Component {
             <Icon name={this.state.PPV} />
           </div>
           <div className="row">
-            <div className="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
               <h3 className="spaced">
                 {title}
               </h3>
+              <br />
+              <h5>
+                {getRandomInt(10000, 60000).toLocaleString()} fans in attendance
+              </h5>
             </div>
-            <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-              <div className="dropdown">
-                <span>
-                  <h3 className="spaced dropdown__title">
+            <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+              <span>
+                <h3 onClick={this.onTogglePPVsSelection}
+                  className="spaced">
+                  <a>
                     Select a Show &#8681;
-                  </h3>
-                </span>
-                <div className="dropdown__content">
+                  </a>
+                </h3>
+              </span>
+            </div>
+          </div>
+          <br />
+          <Choose>
+            <When condition={this.state.showPPVs}>
+              <div className="row">
+                <div className="col-xs-12">
                   <PPVs
                     ppvs={this.props.ppvs}
                     onPPVClick={this.onChangePPV}
                   />
                 </div>
               </div>
-            </div>
-          </div>
-          <br />
-          <div className="row">
-            <div className="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-              {new Array(numberOfMatches).fill("").map((index, key) => {
-                return (
-                  <Match
-                    key={key}
-                    brand={this.state.brand}
-                    clear={this.state.clear}
-                    randomise={this.state.randomise}
-                    simulate={this.state.simulate}
+            </When>
+            <Otherwise>
+              <div className="row">
+                <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+                  {new Array(numberOfMatches).fill("").map((index, key) => {
+                    return (
+                      <Match
+                        key={key}
+                        brand={this.state.brand}
+                        clear={this.state.clear}
+                        randomise={this.state.randomise}
+                        simulate={this.state.simulate}
+                      />
+                    )
+                  })}
+                </div>
+                <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+                  <Brand
+                    name={this.state.brand}
+                    showBrandLogo={false}
+                    byPassBrandFilter={true}
+                    wrestlers={wrestlers}
                   />
-                )
-              })}
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-6 hidden-xs">
-              <Brand
-                name={this.state.brand}
-                showBrandLogo={false}
-                byPassBrandFilter={true}
-                wrestlers={wrestlers}
-              />
-            </div>
-          </div>
+                </div>
+              </div>
+            </Otherwise>
+          </Choose>
         </div>
       </div>
     )

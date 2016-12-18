@@ -8,6 +8,15 @@
     }
   }
 
+  .ppvs__list .ppvs__item {
+    width: 13rem;
+    height: 8rem;
+
+    .icon {
+      zoom: 0.4;
+    }
+  }
+
   @import "current-ppv";
   @import "show.modifiers";
 }
