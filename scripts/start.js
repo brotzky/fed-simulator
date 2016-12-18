@@ -8,6 +8,7 @@ const detect = require('./utils/detectPort')
 const prompt = require('./utils/prompt')
 const config = require('../config/webpack.config.dev')
 import { log, error } from '../config/log'
+var player = require('play-sound')()
 
 log('Start development server')
 
@@ -123,8 +124,10 @@ function runDevServer(port) {
     }
   }).listen(port, (err, result) => {
     if (err) {
+      alertTerminal()
       return error(err)
     }
+    alertTerminal()
     log('Development server started')
   })
 }
@@ -132,6 +135,12 @@ function runDevServer(port) {
 function run(port) {
   setupCompiler(port)
   runDevServer(port)
+}
+
+function alertTerminal() {
+  player.play("src/components/bell/bell.mp3", function(err){
+    if (err) throw err
+  })
 }
 
 detect(DEFAULT_PORT).then(port => {
