@@ -27,9 +27,15 @@ class ShowPage extends React.Component {
   }
 
   state = {
-    brand: "",
+    brandName: "",
     showPPVs: false,
-    PPV: "Roadblock",
+    PPV: {
+      "name": "Roadblock",
+      "attendance": {
+        "min": 12000,
+        "max": 20000,
+      }
+    },
     showFemalesOnly: false,
     clear: true,
     randomise: false,
@@ -73,7 +79,7 @@ class ShowPage extends React.Component {
       ? ""
       : brandName,
     this.setState({
-      brand: selectedBrand,
+      brandName: selectedBrand,
     })
   }
 
@@ -90,18 +96,18 @@ class ShowPage extends React.Component {
     let wrestlers = this.props.wrestlers
       .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
 
-    if (this.state.brand !== "") {
-      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand)
+    if (this.state.brandName !== "") {
+      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brandName)
     }
     return (
-      <div className={`page show ${this.context.toSlug(this.state.brand)}`}>
+      <div className={`page show ${this.context.toSlug(this.state.brandName)}`}>
         <Helmet title="Create a Show" />
         <Sticky>
           <div className="navigation navigation--secondary">
             <ul className="navigation__list">
               <li className="navigation__item">
-                <a onKeyPress={() => this.onRandomiseMatches(this.state.brand)}
-                  onClick={() => this.onRandomiseMatches(this.state.brand)}>
+                <a onKeyPress={() => this.onRandomiseMatches(this.state.brandName)}
+                  onClick={() => this.onRandomiseMatches(this.state.brandName)}>
                   Randomise
                 </a>
                 &nbsp; | &nbsp;
@@ -132,7 +138,7 @@ class ShowPage extends React.Component {
           <div className="row visible-xs">
             <div className="col-xs-12">
               <Brand
-                name={this.state.brand}
+                name={this.state.brandName}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
                 wrestlers={wrestlers}
@@ -142,18 +148,18 @@ class ShowPage extends React.Component {
         </Sticky>
         <div className="inpage-content">
           <div className="current-ppv ppvs__item hidden-sm hidden-xs">
-            <Icon name={this.state.PPV} />
+            <Icon name={this.state.PPV.name} />
           </div>
           <div className="row show-event-details">
             <div className="col-lg-7 col-md-6 col-sm-12 col-xs-12">
               <h2 className="spaced">
-                {this.state.PPV}
+                {this.state.PPV.name}
               </h2>
               <hr />
               <h4>
-                {getRandomInt(10000, 60000).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
+                {getRandomInt(this.state.PPV.attendance.min, this.state.PPV.attendance.max).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
                 <div className="dropdown">
-                  {this.state.brand !== "" ? this.state.brand : "all brands"} &#8681;
+                  {this.state.brandName !== "" ? this.state.brandName : "all brands"} &#8681;
                   <ul className="dropdown__content">
                     {this.props.brands.map((brand, key) => {
                       return (
@@ -187,7 +193,7 @@ class ShowPage extends React.Component {
                 return (
                   <Match
                     key={key}
-                    brand={this.state.brand}
+                    brand={this.state.brandName}
                     clear={this.state.clear}
                     randomise={this.state.randomise}
                     simulate={this.state.simulate}
@@ -197,7 +203,7 @@ class ShowPage extends React.Component {
             </div>
             <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
               <Brand
-                name={this.state.brand}
+                name={this.state.brandName}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
                 wrestlers={wrestlers}
