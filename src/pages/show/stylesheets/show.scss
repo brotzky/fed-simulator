@@ -2,10 +2,6 @@
 
 .page.show {
 
-  .dropdown {
-    display: block;
-  }
-
   h3 {
     @include breakpoint(xs) {
       text-align: center;
