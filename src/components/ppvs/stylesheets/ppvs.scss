@@ -4,17 +4,14 @@
 
 .ppvs__list {
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
-  list-style: none;
 }
 
 .ppvs__item {
+  list-style: none;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
-  list-style: none;
+  justify-content: space-between;
   background-color: black;
   margin: 0.72rem;
   width: 25rem;
