@@ -48,6 +48,9 @@ class Championships extends React.Component {
   displayName = "Championships"
 
   render() {
+    const Vacant = () => {
+      return <span>Vacant</span>
+    }
     return (
       <div className="championships">
         {this.props.championships
@@ -87,11 +90,12 @@ class Championships extends React.Component {
                       })}
                     </When>
                     <Otherwise>
-                      <span>
-                        Vacant
-                      </span>
+                      <Vacant />
                     </Otherwise>
                   </Choose>
+                  <If condition={championship.tag && championship.wrestlers.length === 0 || championship.tag && championship.wrestlers.length === 1}>
+                    <Vacant />
+                  </If>
                 </div>
               </Droppable>
             </div>
