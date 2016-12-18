@@ -1,4 +1,5 @@
 import React from "react"
+import classNames from "classnames"
 import Match from "../../components/match/match"
 import Brand from "../../components/brand/brand"
 import Icon from "../../components/icon/icon"
@@ -62,12 +63,17 @@ class ShowPage extends React.Component {
   onChangePPV = (PPV) => {
     this.setState({
       PPV,
+      showPPVs: false,
     })
   }
 
-  onChangeBrand = (brand) => {
+  onChangeBrand = (brandName) => {
+    let selectedBrand = this.props.brands.find(brand => brand.name === brandName)
+    selectedBrand = selectedBrand.default
+      ? ""
+      : brandName,
     this.setState({
-      brand,
+      brand: selectedBrand,
     })
   }
 
@@ -81,8 +87,6 @@ class ShowPage extends React.Component {
   displayName = "ShowPage"
 
   render() {
-    let title = this.state.PPV
-    title += this.state.brand !== "" ? ` presented by ${this.state.brand}` : ""
     let wrestlers = this.props.wrestlers
       .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
 
@@ -95,34 +99,13 @@ class ShowPage extends React.Component {
         <Sticky>
           <div className="navigation navigation--secondary">
             <ul className="navigation__list">
-              {this.props.brands.map((brand, key) => {
-                return (
-                  <li key={key}
-                    className="navigation__item">
-                    <a>
-                      <Icon
-                        name={brand.name}
-                        onClick={this.onChangeBrand}
-                      />
-                    </a>
-                  </li>
-                )
-              })}
               <li className="navigation__item">
-                <a onKeyPress={this.onToggleWomenWrestlers}
-                  onClick={this.onToggleWomenWrestlers}
-                  href="#">
-                  &#x2640; Toggle
-                </a>
-                </li>
-                <li className="navigation__item">
                 <a onKeyPress={() => this.onRandomiseMatches(this.state.brand)}
                   onClick={() => this.onRandomiseMatches(this.state.brand)}>
                   Randomise
                 </a>
                 &nbsp; | &nbsp;
                 <a onKeyPress={this.onSimulateMatches}
-                  title={title}
                   onClick={this.onSimulateMatches}>
                   Simulate
                 </a>
@@ -130,6 +113,18 @@ class ShowPage extends React.Component {
                 <a onKeyPress={this.onClearMatches}
                   onClick={this.onClearMatches}>
                   Clear
+                </a>
+              </li>
+              <li className="navigation__item">
+                <a onClick={this.onTogglePPVsSelection}>
+                  {this.state.showPPVs ? "Hide live events" : "Select live event"}
+                </a>
+              </li>
+              <li className="navigation__item">
+                <a onKeyPress={this.onToggleWomenWrestlers}
+                  onClick={this.onToggleWomenWrestlers}
+                  href="#">
+                  &#x2640; Toggle
                 </a>
               </li>
             </ul>
@@ -149,65 +144,66 @@ class ShowPage extends React.Component {
           <div className="current-ppv ppvs__item hidden-sm hidden-xs">
             <Icon name={this.state.PPV} />
           </div>
-          <div className="row">
-            <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
-              <h3 className="spaced">
-                {title}
-              </h3>
-              <br />
-              <h5>
-                {getRandomInt(10000, 60000).toLocaleString()} fans in attendance
-              </h5>
-            </div>
-            <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-              <span>
-                <h3 onClick={this.onTogglePPVsSelection}
-                  className="spaced">
-                  <a>
-                    Select a Show &#8681;
-                  </a>
-                </h3>
-              </span>
+          <div className="row show-event-details">
+            <div className="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+              <h2 className="spaced">
+                {this.state.PPV}
+              </h2>
+              <hr />
+              <h4>
+                {getRandomInt(10000, 60000).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
+                <div className="dropdown">
+                  {this.state.brand !== "" ? this.state.brand : "all brands"} &#8681;
+                  <ul className="dropdown__content">
+                    {this.props.brands.map((brand, key) => {
+                      return (
+                        <li key={key}>
+                          <a onClick={() => this.onChangeBrand(brand.name)}>
+                            {brand.default ? "All" : brand.name}
+                          </a>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                </div>
+              </h4>
             </div>
           </div>
           <br />
-          <Choose>
-            <When condition={this.state.showPPVs}>
-              <div className="row">
-                <div className="col-xs-12">
-                  <PPVs
-                    ppvs={this.props.ppvs}
-                    onPPVClick={this.onChangePPV}
+          <div className={classNames(
+            "row",
+            { hide: !this.state.showPPVs }
+          )}>
+            <div className="col-xs-12">
+              <PPVs
+                ppvs={this.props.ppvs}
+                onPPVClick={this.onChangePPV}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+              {new Array(numberOfMatches).fill("").map((index, key) => {
+                return (
+                  <Match
+                    key={key}
+                    brand={this.state.brand}
+                    clear={this.state.clear}
+                    randomise={this.state.randomise}
+                    simulate={this.state.simulate}
                   />
-                </div>
-              </div>
-            </When>
-            <Otherwise>
-              <div className="row">
-                <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
-                  {new Array(numberOfMatches).fill("").map((index, key) => {
-                    return (
-                      <Match
-                        key={key}
-                        brand={this.state.brand}
-                        clear={this.state.clear}
-                        randomise={this.state.randomise}
-                        simulate={this.state.simulate}
-                      />
-                    )
-                  })}
-                </div>
-                <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
-                  <Brand
-                    name={this.state.brand}
-                    showBrandLogo={false}
-                    byPassBrandFilter={true}
-                    wrestlers={wrestlers}
-                  />
-                </div>
-              </div>
-            </Otherwise>
-          </Choose>
+                )
+              })}
+            </div>
+            <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+              <Brand
+                name={this.state.brand}
+                showBrandLogo={false}
+                byPassBrandFilter={true}
+                wrestlers={wrestlers}
+              />
+            </div>
+          </div>
         </div>
       </div>
     )

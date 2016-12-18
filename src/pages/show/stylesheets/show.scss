@@ -2,10 +2,24 @@
 
 .page.show {
 
-  h3 {
+  .show-event-details {
     @include breakpoint(xs) {
       text-align: center;
     }
+  }
+
+  .dropdown__content li {
+    line-height: 3rem;
+    text-align: left;
+    list-style: none;
+
+    &, & a {
+      color: black;
+    }
+  }
+
+  hr {
+    margin: 1rem 0;
   }
 
   .ppvs__list .ppvs__item {
