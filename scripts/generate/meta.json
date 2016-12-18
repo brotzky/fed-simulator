@@ -68,7 +68,7 @@
 	"rating": 70
 }, {
 	"name": "Hideo Itamo",
-	"rating": 78
+	"rating": 80
 }, {
 	"name": "Johnny Gargano",
 	"rating": 79
@@ -114,7 +114,7 @@
 	"rating": 90
 }, {
 	"name": "Tom Phillips",
-	"rating": 12
+	"rating": 10
 }, {
 	"name": "Tommaso",
 	"rating": 79
@@ -149,7 +149,7 @@
 	"rating": 100
 }, {
 	"name": "Byron Saxton",
-	"rating": 10
+	"rating": 55
 }, {
 	"name": "Cedric Alexander",
 	"rating": 50
@@ -158,13 +158,13 @@
 	"rating": 88
 }, {
 	"name": "Chris Jericho",
-	"rating": 92
+	"rating": 89
 }, {
 	"name": "Colin Cassady",
 	"rating": 84
 }, {
 	"name": "Corey Graves",
-	"rating": 12
+	"rating": 62
 }, {
 	"name": "Curtis Axel",
 	"rating": 68
@@ -405,7 +405,7 @@
 	"rating": 79
 }, {
 	"name": "Kane",
-	"rating": 89
+	"rating": 85
 	}, {
 	"name": "Emma",
 	"rating": 80
@@ -442,7 +442,7 @@
 	"rating": 70
 }, {
 	"name": "The Miz",
-	"rating": 85,
+	"rating": 87,
 	"championshipId": "8636345506"
 }, {
 	"name": "Tyler Breeze",
@@ -452,7 +452,7 @@
 	"rating": 70
 }, {
 	"name": "James Ellsworth",
-	"rating": 45
+	"rating": 40
 }, {
 	"name": "Zack Ryder",
 	"rating": 76
