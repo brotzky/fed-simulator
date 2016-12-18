@@ -49,7 +49,7 @@ class RankingPage extends React.Component {
     let segments = [],
       totalWins = this.props.wrestlers.reduce((sum, wrestler) => sum + wrestler.wins, 0)
 
-    this.props.brands.filter(brand => brand.name !== "").forEach((brand, key) => {
+    this.props.brands.filter(brand => !brand.default).forEach((brand) => {
       let value = this.props.wrestlers
           .filter(wrestler => wrestler.brand === brand.name)
           .reduce((sum, wrestler) => sum + wrestler.wins, 0),
@@ -99,7 +99,9 @@ class RankingPage extends React.Component {
             </div>
           </div>
           <div className="row ranking__split">
-            {this.props.brands.filter((brand) => brand.name !== "").map((brand, key)=> {
+            {this.props.brands
+              .filter((brand) => !brand.default)
+              .map((brand, key)=> {
               return (
                 <div key={key} className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                   <Ranking
