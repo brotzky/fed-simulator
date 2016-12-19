@@ -10,8 +10,10 @@
     list-style: none;
     overflow: hidden;
     width: 100%;
-    margin: 0 auto;
+    margin: 1rem auto;
+    border-bottom: 3px solid;
   }
+
 
   &--move {
     z-index: 0;

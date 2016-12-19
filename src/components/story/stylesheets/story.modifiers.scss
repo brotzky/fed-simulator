@@ -1,12 +1,12 @@
 .brand--nxt {
   background-color: inherit;
-  border-top: 0.8rem solid lighten($nxt, 18%);
+  border-bottom-color: lighten($nxt, 18%);
 }
 .brand--raw {
   background-color: inherit;
-  border-top: 0.8rem solid lighten($raw, 18%);
+  border-bottom-color: lighten($raw, 18%);
 }
 .brand--smackdown-live {
   background-color: inherit;
-  border-top: 0.8rem solid lighten($smackdown, 15%);
+  border-bottom-color: lighten($smackdown, 15%);
 }
