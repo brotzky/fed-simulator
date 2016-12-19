@@ -3,7 +3,6 @@ import { SimMatch } from "./sim-match.helper"
 import { awardMatchPoints } from "../actions/wrestlers"
 import { shouldTheChampionshipMove } from "../actions/championship"
 
-const between = (number, lower, upper) => number > lower && number < upper
 const getWeightedArrayOfLength = (length) => new Array(length).fill((1 / length))
 const getWrestler = (wrestlers) => weighted.select(wrestlers, getWeightedArrayOfLength(wrestlers.length))
 
