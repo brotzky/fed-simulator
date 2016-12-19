@@ -58,7 +58,7 @@ export default class Story extends React.Component {
                   </When>
                   <When condition={action.action === "winner"}>
                     <div className="story__winner">
-                      {action.details.winner.name} covers {action.details.loser.name} for the win!
+                      {action.details.winner.name}<sup>{action.details.winner.damage}</sup> covers {action.details.loser.name}<sup>{action.details.loser.damage}</sup> for the win!
                     </div>
                   </When>
                 </Choose>
