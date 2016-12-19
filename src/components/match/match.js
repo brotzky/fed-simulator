@@ -176,7 +176,7 @@ class Match extends React.Component {
                   </If>
                 </When>
               </Choose>
-              <If condition={this.state.story.length === 0}>
+              <If condition={this.state.wrestlers.length < 2}>
                 <div className="droparea">
                   <span className="droparea__title">
                     Drop wrestlers here
