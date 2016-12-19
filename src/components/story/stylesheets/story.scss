@@ -3,15 +3,14 @@
 
 .story {
   font-family: "Roboto Slab", "Verdana", sans-serif;
-  margin-bottom: 0;
+  margin: 0 auto;
+  text-align: center;
 
   &__action {
     list-style: none;
     overflow: hidden;
-    text-align: center;
-    background-color: $bg;
-    color: $color;
     width: 100%;
+    margin: 0 auto;
   }
 
   &--move {
@@ -23,6 +22,7 @@
 
       .wrestler {
         width: 5%;
+        font-weight: 100;
       }
     }
   }

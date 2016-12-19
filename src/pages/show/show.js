@@ -151,7 +151,7 @@ class ShowPage extends React.Component {
             <Icon name={this.state.PPV.name} />
           </div>
           <div className="row show-event-details">
-            <div className="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <h2 className="spaced">
                 {this.state.PPV.name}
               </h2>
@@ -188,7 +188,7 @@ class ShowPage extends React.Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 matches">
               {new Array(numberOfMatches).fill("").map((index, key) => {
                 return (
                   <Match
@@ -201,7 +201,7 @@ class ShowPage extends React.Component {
                 )
               })}
             </div>
-            <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <Brand
                 name={this.state.brandName}
                 showBrandLogo={false}

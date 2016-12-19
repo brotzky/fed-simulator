@@ -3,10 +3,13 @@
 
 .match {
   font-family: "Roboto Slab", "Verdana", sans-serif;
-  margin-bottom: 1rem;
+  margin-bottom: 6rem;
   padding: 1rem;
   clear: both;
-  background-color: $primary;
+
+  &, & a {
+    color: black;
+  }
 
   .remove {
     display: none;
@@ -25,7 +28,6 @@
   }
 
   &__names {
-    color: white;
     text-align: center;
     margin-bottom: 0.5rem;
     font-weight: 700;
@@ -37,7 +39,7 @@
 
     &::after {
       content: " vs ";
-      background-color: #3ebdf2;
+      background-color: #dde9ee;
       color: black;
       margin: 0 1rem;
     }
