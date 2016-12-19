@@ -8,11 +8,10 @@ import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import { Sticky } from "react-sticky"
 import { getRandomInt } from "../../helpers/math"
+
 import "./stylesheets/show"
 
 const numberOfMatches = 12
-const filterByBrand = (wrestler, brandName) => wrestler.brand === brandName
-const filterByFemales = (wrestler, showFemalesOnly) => !showFemalesOnly || (showFemalesOnly && wrestler.male === false)
 
 class ShowPage extends React.Component {
 
@@ -36,7 +35,6 @@ class ShowPage extends React.Component {
         "max": 20000,
       }
     },
-    showFemalesOnly: false,
     clear: true,
     randomise: false,
     simulate: false,
@@ -83,19 +81,12 @@ class ShowPage extends React.Component {
     })
   }
 
-  onToggleWomenWrestlers = (event) => {
-    event.preventDefault()
-    this.setState({
-      showFemalesOnly: !this.state.showFemalesOnly,
-    })
-  }
-
   displayName = "ShowPage"
 
   render() {
     let wrestlers = this.props.wrestlers
-      .filter(wrestler => filterByFemales(wrestler, this.state.showFemalesOnly))
 
+    // we're filtering by a brand
     if (this.state.brandName !== "") {
       wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brandName)
     }
@@ -126,13 +117,6 @@ class ShowPage extends React.Component {
                   {this.state.showPPVs ? "Hide live events" : "Select live event"}
                 </a>
               </li>
-              <li className="navigation__item">
-                <a onKeyPress={this.onToggleWomenWrestlers}
-                  onClick={this.onToggleWomenWrestlers}
-                  href="#">
-                  &#x2640; Toggle
-                </a>
-              </li>
             </ul>
           </div>
           <div className="row visible-xs">
@@ -141,7 +125,7 @@ class ShowPage extends React.Component {
                 name={this.state.brandName}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
-                wrestlers={wrestlers.filter(wrestler => filterByFemales(wrestler, true))}
+                wrestlers={wrestlers}
               />
             </div>
           </div>

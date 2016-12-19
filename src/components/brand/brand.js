@@ -1,8 +1,9 @@
 import React from "react"
-import { Draggable, Droppable } from "react-drag-and-drop"
+import { Droppable } from "react-drag-and-drop"
 import Icon from "../icon/icon"
 import Search from "../search/search"
 import * as wrestlersActions from "../../actions/wrestlers"
+import { filterFemales } from "../../helpers/filters"
 import { connect } from "react-redux"
 import Wrestlers from "../wrestlers/wrestlers"
 import "./stylesheets/brand"
@@ -29,6 +30,7 @@ class Brand extends React.Component {
   state = {
     search: "",
     brandName: "",
+    showFemalesOnly: false,
     byPassBrandFilter: false,
     showBrandLogo: true,
   }
@@ -52,11 +54,20 @@ class Brand extends React.Component {
     })
   }
 
+  onToggleWomenWrestlers = (event) => {
+    event.preventDefault()
+    this.setState({
+      showFemalesOnly: !this.state.showFemalesOnly,
+    })
+  }
+
   displayName = "Brand"
 
   render() {
     let searchIsActive = false,
       wrestlers = this.props.wrestlers
+                    .filter(wrestler => filterFemales(wrestler, this.state.showFemalesOnly))
+
 
     if (this.state.search !== "") {
       searchIsActive = true
@@ -86,6 +97,13 @@ class Brand extends React.Component {
               onSearchUpdated={this.onSearchUpdated}
               brandName={this.props.name}
             />
+          </div>
+          <div>
+            <a onKeyPress={this.onToggleWomenWrestlers}
+              onClick={this.onToggleWomenWrestlers}
+              href="#">
+              &#x2640; Toggle
+            </a>
           </div>
           <If condition={malewrestlers.length > 0}>
             <Wrestlers
