@@ -36,22 +36,22 @@
   }
 
   .index-0 {
-    filter: grayscale(0%);
+    color: black;
   }
   .index-1 {
-    filter: grayscale(20%);
+    color: #666;
   }
   .index-2 {
-    filter: grayscale(40%);
+    color: #a0a0a0;
   }
   .index-3 {
-    filter: grayscale(60%);
+    color: darkOrange;
   }
   .index-4 {
-    filter: grayscale(80%);
+    color: #a70b15;
   }
   .index-5 {
-    filter: grayscale(100%);
+    color: #0f4a1e;
   }
 
   @import "story.modifiers";
