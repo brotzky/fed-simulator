@@ -147,16 +147,24 @@ class ShowPage extends React.Component {
           </div>
         </Sticky>
         <div className="inpage-content">
-          <If condition={!this.state.showPPVs}>
-            <div className="current-ppv ppvs__item hidden-sm hidden-xs">
-              <Icon name={this.state.PPV.name} />
+          <div className={classNames(
+            "row",
+            { hide: !this.state.showPPVs }
+          )}>
+            <div className="col-xs-12">
+              <PPVs
+                ppvs={this.props.ppvs}
+                onPPVClick={this.onChangePPV}
+              />
             </div>
-          </If>
-          <div className="row show-event-details">
-            <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <h2 className="spaced">
-                {this.state.PPV.name}
-              </h2>
+          </div>
+          <div className="row text-center">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <If condition={!this.state.showPPVs}>
+                <div className="current-ppv ppvs__item hidden-sm hidden-xs">
+                  <Icon name={this.state.PPV.name} />
+                </div>
+              </If>
               <hr />
               <h4>
                 {getRandomInt(this.state.PPV.attendance.min, this.state.PPV.attendance.max).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
@@ -175,33 +183,19 @@ class ShowPage extends React.Component {
                   </ul>
                 </div>
               </h4>
-            </div>
-          </div>
-          <br />
-          <div className={classNames(
-            "row",
-            { hide: !this.state.showPPVs }
-          )}>
-            <div className="col-xs-12">
-              <PPVs
-                ppvs={this.props.ppvs}
-                onPPVClick={this.onChangePPV}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 matches">
-              {new Array(numberOfMatches).fill("").map((index, key) => {
-                return (
-                  <Match
-                    key={key}
-                    brand={this.state.brandName}
-                    clear={this.state.clear}
-                    randomise={this.state.randomise}
-                    simulate={this.state.simulate}
-                  />
-                )
-              })}
+              <div className="matches">
+                {new Array(numberOfMatches).fill("").map((index, key) => {
+                  return (
+                    <Match
+                      key={key}
+                      brand={this.state.brandName}
+                      clear={this.state.clear}
+                      randomise={this.state.randomise}
+                      simulate={this.state.simulate}
+                    />
+                  )
+                })}
+              </div>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <Brand
