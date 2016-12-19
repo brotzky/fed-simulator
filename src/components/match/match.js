@@ -11,16 +11,6 @@ const defaultState = {
   wrestlers: [],
   story: [],
 }
-const settings = {
-  male: {
-    options: [true, false],
-    weights: [0.8, 0.2],
-  },
-  amount: {
-    options: [2, 3, 4, 5, 6],
-    weights: [0.5, 0.2, 0.2, 0.05, 0.05]
-  }
-}
 
 class Match extends React.Component {
 
