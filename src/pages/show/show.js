@@ -10,7 +10,7 @@ import { Sticky } from "react-sticky"
 import { getRandomInt } from "../../helpers/math"
 import "./stylesheets/show"
 
-const numberOfMatches = 6
+const numberOfMatches = 12
 const filterByBrand = (wrestler, brandName) => wrestler.brand === brandName
 const filterByFemales = (wrestler, showFemalesOnly) => !showFemalesOnly || (showFemalesOnly && wrestler.male === false)
 
@@ -141,7 +141,7 @@ class ShowPage extends React.Component {
                 name={this.state.brandName}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
-                wrestlers={wrestlers}
+                wrestlers={wrestlers.filter(wrestler => filterByFemales(wrestler, true))}
               />
             </div>
           </div>
@@ -161,28 +161,30 @@ class ShowPage extends React.Component {
           <div className="row text-center">
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <If condition={!this.state.showPPVs}>
-                <div className="current-ppv ppvs__item hidden-sm hidden-xs">
-                  <Icon name={this.state.PPV.name} />
+                <div className="ppvs__current">
+                  <div>
+                    <Icon name={this.state.PPV.name} />
+                  </div>
+                  <hr />
+                  <h4>
+                    {getRandomInt(this.state.PPV.attendance.min, this.state.PPV.attendance.max).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
+                    <div className="dropdown">
+                      {this.state.brandName !== "" ? this.state.brandName : "all brands"} &#8681;
+                      <ul className="dropdown__content">
+                        {this.props.brands.map((brand, key) => {
+                          return (
+                            <li key={key}>
+                              <a onClick={() => this.onChangeBrand(brand.name)}>
+                                {brand.default ? "All" : brand.name}
+                              </a>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  </h4>
                 </div>
               </If>
-              <hr />
-              <h4>
-                {getRandomInt(this.state.PPV.attendance.min, this.state.PPV.attendance.max).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
-                <div className="dropdown">
-                  {this.state.brandName !== "" ? this.state.brandName : "all brands"} &#8681;
-                  <ul className="dropdown__content">
-                    {this.props.brands.map((brand, key) => {
-                      return (
-                        <li key={key}>
-                          <a onClick={() => this.onChangeBrand(brand.name)}>
-                            {brand.default ? "All" : brand.name}
-                          </a>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                </div>
-              </h4>
               <div className="matches">
                 {new Array(numberOfMatches).fill("").map((index, key) => {
                   return (

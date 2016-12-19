@@ -1,14 +1,26 @@
 @import "src/stylesheets/variables";
 
-.current-ppv {
+.ppvs__current {
   background-color: $secondary-navigation-bg;
-  height: 15.1rem;
+  color: white;
+  height: auto;
   margin: 0 auto;
   position: relative;
-  width: 20rem;
+  width: 100%;
+
+  .dropdown {
+    background-color: inherit;
+  }
+
+  hr {
+    width: 60%;
+    margin: 0 auto;
+    border-top: 1px solid #666;
+  }
 
   .icon {
+    margin: 2em;
     z-index: 2;
-    zoom: 0.5;
+    zoom: .5;
   }
 }
