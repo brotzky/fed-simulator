@@ -1,10 +1,12 @@
+@import "src/stylesheets/variables";
+
 .current-ppv {
   position: absolute;
   right: 0;
   top: 0;
   padding: 1rem;
   margin: 0;
-  background-color: black;
+  background-color: $secondary-navigation-bg;
   width: 20rem;
   height: 17rem;
 

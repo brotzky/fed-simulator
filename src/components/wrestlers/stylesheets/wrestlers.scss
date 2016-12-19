@@ -1,12 +1,8 @@
 @import "src/stylesheets/breakpoints";
+@import "src/stylesheets/variables";
 
-.brand {
-  &__logo {
-    height: 60px;
-  }
-}
 .wrestlers {
-  background-color: black;
+  background-color: $secondary-navigation-bg;
   width: 100%;
   padding: 0.5rem;
   min-height: 20rem;
@@ -41,7 +37,7 @@
     text-transform: uppercase;
     font-weight: 700;
     text-align: center;
-    color: white;
+    color: $secondary-navigation-color;
     margin: 0;
   }
 
