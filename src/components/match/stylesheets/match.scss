@@ -12,7 +12,8 @@
   }
 
   .inactive {
-    border: 1px solid #eee;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
   }
 
   .remove {
@@ -32,10 +33,10 @@
   }
 
   &__names {
-    text-align: center;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
     font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    text-align: center;
   }
 
   &__name {
@@ -62,7 +63,6 @@
   @include breakpoint(xs) {
     margin-bottom: 2rem;
   }
-
 
   @import "./droparea";
 }

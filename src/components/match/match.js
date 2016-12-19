@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 import Story from "../story/story"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import FontAwesome from "react-fontawesome"
-import "./stylesheets/main"
+import "./stylesheets/match"
 
 const defaultState = {
   wrestlers: [],
@@ -133,7 +133,6 @@ class Match extends React.Component {
               "col-xs-12",
               "match__inner",
               { active : isValidMatch },
-              { inactive : !isValidMatch }
             )}>
               <Choose>
                 <When condition={isValidMatch}>
@@ -167,7 +166,7 @@ class Match extends React.Component {
                 </When>
               </Choose>
               <If condition={this.state.wrestlers.length < 2}>
-                <div className="droparea">
+                <div className="droparea inactive">
                   <span className="droparea__title">
                     Drop wrestlers here
                   </span>
