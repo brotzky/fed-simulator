@@ -6,8 +6,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-4795789095",
@@ -16,8 +15,7 @@
     "rating": 75,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "7424670891",
@@ -26,8 +24,7 @@
     "rating": 75,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2102271712",
@@ -36,8 +33,7 @@
     "rating": 84,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "64266449",
@@ -46,8 +42,7 @@
     "rating": 68,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-4003951297",
@@ -56,8 +51,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3745538668",
@@ -66,8 +60,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3724364219",
@@ -76,8 +69,7 @@
     "rating": 77,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "495283935",
@@ -86,8 +78,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "710850367",
@@ -96,8 +87,7 @@
     "rating": 82,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1963882530",
@@ -106,8 +96,7 @@
     "rating": 70,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-5335910065",
@@ -116,8 +105,7 @@
     "rating": 70,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "63570681",
@@ -126,8 +114,7 @@
     "rating": 90,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1477677146",
@@ -136,8 +123,7 @@
     "rating": 60,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3658960602",
@@ -146,8 +132,7 @@
     "rating": 60,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-5030966503",
@@ -156,8 +141,7 @@
     "rating": 60,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2677578534",
@@ -166,8 +150,7 @@
     "rating": 60,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2715292309",
@@ -176,8 +159,7 @@
     "rating": 60,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-5283132512",
@@ -186,8 +168,7 @@
     "rating": 70,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3780603255",
@@ -196,8 +177,7 @@
     "rating": 70,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-5161499251",
@@ -206,8 +186,7 @@
     "rating": 70,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "598567429",
@@ -216,8 +195,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3502240535",
@@ -226,8 +204,7 @@
     "rating": 79,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3656037516",
@@ -236,8 +213,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-26285441",
@@ -246,8 +222,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1978963561",
@@ -256,8 +231,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "6300465446",
@@ -266,8 +240,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "8509701255",
@@ -276,8 +249,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "4935853928",
@@ -286,8 +258,7 @@
     "rating": 76,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "78857976",
@@ -296,8 +267,7 @@
     "rating": 76,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1581561530",
@@ -306,8 +276,7 @@
     "rating": 75,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3076111569",
@@ -316,8 +285,7 @@
     "rating": 87,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3354678745",
@@ -326,8 +294,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2847138727",
@@ -336,8 +303,7 @@
     "rating": 77,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2426915449",
@@ -346,8 +312,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-289148918",
@@ -356,8 +321,7 @@
     "rating": 90,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1316903721",
@@ -366,8 +330,7 @@
     "rating": 10,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "522741538",
@@ -376,8 +339,7 @@
     "rating": 79,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3316748150",
@@ -386,8 +348,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "60031586",
@@ -396,8 +357,7 @@
     "rating": 76,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1738822318",
@@ -406,8 +366,7 @@
     "rating": 65,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "64180485",
@@ -416,8 +375,7 @@
     "rating": 85,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "740902493",
@@ -426,8 +384,7 @@
     "rating": 88,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2774423838",
@@ -436,8 +393,7 @@
     "rating": 67,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1470726679",
@@ -446,8 +402,7 @@
     "rating": 90,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "6767582345",
@@ -456,8 +411,7 @@
     "rating": 77,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "458089598",
@@ -466,8 +420,7 @@
     "rating": 100,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1090503215",
@@ -476,8 +429,7 @@
     "rating": 55,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1555706448",
@@ -486,8 +438,7 @@
     "rating": 50,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2014951565",
@@ -496,8 +447,7 @@
     "rating": 88,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-5894134289",
@@ -506,8 +456,7 @@
     "rating": 89,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-4382299651",
@@ -516,8 +465,7 @@
     "rating": 84,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "271449460",
@@ -526,8 +474,7 @@
     "rating": 62,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3515144288",
@@ -536,8 +483,7 @@
     "rating": 68,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "5226043998",
@@ -546,8 +492,7 @@
     "rating": 72,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1215159416",
@@ -556,8 +501,7 @@
     "rating": 65,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3343349196",
@@ -566,8 +510,7 @@
     "rating": 74,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "67163626",
@@ -576,8 +519,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1551646860",
@@ -586,8 +528,7 @@
     "rating": 70,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1982817254",
@@ -596,8 +537,7 @@
     "rating": 85,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-716287028",
@@ -606,8 +546,7 @@
     "rating": 98,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2235064166",
@@ -616,8 +555,7 @@
     "rating": 69,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3184597318",
@@ -626,8 +564,7 @@
     "rating": 69,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2163804",
@@ -636,8 +573,7 @@
     "rating": 80,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2314602",
@@ -646,8 +582,7 @@
     "rating": 10,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2360840",
@@ -656,8 +591,7 @@
     "rating": 30,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3602480327",
@@ -666,8 +600,7 @@
     "rating": 79,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "76875606",
@@ -676,8 +609,7 @@
     "rating": 81,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3923329653",
@@ -686,8 +618,7 @@
     "rating": 86,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1321872350",
@@ -696,8 +627,7 @@
     "rating": 42,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2505213915",
@@ -706,8 +636,7 @@
     "rating": 72,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3418353133",
@@ -716,8 +645,7 @@
     "rating": 88,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2193503688",
@@ -726,8 +654,7 @@
     "rating": 100,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1868923158",
@@ -736,8 +663,7 @@
     "rating": 72,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1302809761",
@@ -746,8 +672,7 @@
     "rating": 69,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "4073979265",
@@ -756,8 +681,7 @@
     "rating": 40,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2221469090",
@@ -766,8 +690,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-386269853",
@@ -776,8 +699,7 @@
     "rating": 90,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "657661680",
@@ -786,8 +708,7 @@
     "rating": 86,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-5443611566",
@@ -796,8 +717,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1117761268",
@@ -806,8 +726,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3199788539",
@@ -816,8 +735,7 @@
     "rating": 78,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "197508478",
@@ -826,8 +744,7 @@
     "rating": 12,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-853457765",
@@ -836,8 +753,7 @@
     "rating": 10,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3509565403",
@@ -846,8 +762,7 @@
     "rating": 78,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3187340638",
@@ -856,8 +771,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "77382249",
@@ -866,8 +780,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "758078717",
@@ -876,8 +789,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-191335239",
@@ -886,8 +798,7 @@
     "rating": 74,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "142235609",
@@ -896,8 +807,7 @@
     "rating": 96,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "79328033",
@@ -906,8 +816,7 @@
     "rating": 85,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2846058098",
@@ -916,8 +825,7 @@
     "rating": 89,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-614818697",
@@ -926,8 +834,7 @@
     "rating": 96,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3722067034",
@@ -936,8 +843,7 @@
     "rating": 85,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3791139435",
@@ -946,8 +852,7 @@
     "rating": 72,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1263904922",
@@ -956,8 +861,7 @@
     "rating": 69,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1017553258",
@@ -966,8 +870,7 @@
     "rating": 79,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1013360803",
@@ -976,8 +879,7 @@
     "rating": 75,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2718771930",
@@ -986,8 +888,7 @@
     "rating": 86,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3227874929",
@@ -996,8 +897,7 @@
     "rating": 75,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-157323275",
@@ -1006,8 +906,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-643714887",
@@ -1016,8 +915,7 @@
     "rating": 99,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "6680692897",
@@ -1026,8 +924,7 @@
     "rating": 75,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "5117296815",
@@ -1036,8 +933,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2586453735",
@@ -1046,8 +942,7 @@
     "rating": 87,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1811416937",
@@ -1056,8 +951,7 @@
     "rating": 79,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2431002965",
@@ -1066,8 +960,7 @@
     "rating": 76,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3303163477",
@@ -1076,8 +969,7 @@
     "rating": 10,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1645700092",
@@ -1086,8 +978,7 @@
     "rating": 50,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "953902675",
@@ -1096,8 +987,7 @@
     "rating": 91,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-4641152765",
@@ -1106,8 +996,7 @@
     "rating": 87,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-3253989653",
@@ -1116,8 +1005,7 @@
     "rating": 74,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "875740454",
@@ -1126,8 +1014,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2897856670",
@@ -1136,8 +1023,7 @@
     "rating": 86,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1051123788",
@@ -1146,8 +1032,7 @@
     "rating": 85,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "65222421",
@@ -1156,8 +1041,7 @@
     "rating": 70,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "511640682",
@@ -1166,8 +1050,7 @@
     "rating": 40,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1997425011",
@@ -1176,8 +1059,7 @@
     "rating": 65,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "75034520",
@@ -1186,8 +1068,7 @@
     "rating": 80,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3392963828",
@@ -1196,8 +1077,7 @@
     "rating": 78,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3764453452",
@@ -1206,8 +1086,7 @@
     "rating": 82,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3724813299",
@@ -1216,8 +1095,7 @@
     "rating": 20,
     "male": false,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "642983727",
@@ -1226,8 +1104,7 @@
     "rating": 10,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-4109708575",
@@ -1236,8 +1113,7 @@
     "rating": 75,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-8449066423",
@@ -1246,8 +1122,7 @@
     "rating": 71,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "10583332036",
@@ -1256,8 +1131,7 @@
     "rating": 40,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-6731051095",
@@ -1266,8 +1140,7 @@
     "rating": 80,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "74260",
@@ -1276,8 +1149,7 @@
     "rating": 60,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-39875377",
@@ -1286,8 +1158,7 @@
     "rating": 84,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1109137045",
@@ -1296,8 +1167,7 @@
     "rating": 84,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "562732938",
@@ -1306,8 +1176,7 @@
     "rating": 95,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "723309531",
@@ -1316,8 +1185,7 @@
     "rating": 79,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2331053",
@@ -1326,8 +1194,7 @@
     "rating": 85,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "72382207",
@@ -1336,8 +1203,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-2041883865",
@@ -1346,8 +1212,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-350773759",
@@ -1356,8 +1221,7 @@
     "rating": 79,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "1615155339",
@@ -1366,8 +1230,7 @@
     "rating": 20,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "74345251",
@@ -1376,8 +1239,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "5668448465",
@@ -1386,8 +1248,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "7624081956",
@@ -1396,8 +1257,7 @@
     "rating": 90,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "78946788",
@@ -1406,8 +1266,7 @@
     "rating": 82,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3932114528",
@@ -1416,8 +1275,7 @@
     "rating": 72,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "2578470407",
@@ -1426,8 +1284,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "312635887",
@@ -1436,8 +1293,7 @@
     "rating": 87,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "3397479559",
@@ -1446,8 +1302,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1732587937",
@@ -1456,8 +1311,7 @@
     "rating": 70,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   },
   {
     "id": "-1822027047",
@@ -1466,7 +1320,6 @@
     "rating": 76,
     "male": true,
     "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "losses": 0
   }
 ]

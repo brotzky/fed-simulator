@@ -1,6 +1,6 @@
 [{
 	"id": "7644539610",
-	"name": "Nxt Womens Championship",
+	"name": "NXT Womens Championship",
 	"brand": "NXT",
 	"male": false,
 	"sequence": 2,
@@ -15,7 +15,7 @@
 	}]
 }, {
 	"id": "-3822490917",
-	"name": "Nxt Championship",
+	"name": "NXT Championship",
 	"brand": "NXT",
 	"male": true,
 	"sequence": 1,
@@ -26,14 +26,11 @@
 		"name": "Shinsuke Nakamura",
 		"brand": "NXT",
 		"rating": 90,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
 	"id": "7099496460",
-	"name": "Nxt Tag Team Championship",
+	"name": "NXT Tag Team Championship",
 	"brand": "NXT",
 	"male": true,
 	"tag": true,
@@ -45,19 +42,13 @@
 		"name": "Johnny Gargano",
 		"brand": "NXT",
 		"rating": 79,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}, {
 		"id": "522741538",
 		"name": "Tommaso",
 		"brand": "NXT",
 		"rating": 79,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
 	"id": "8593337368",
@@ -68,15 +59,12 @@
 	"canMoveBrands": false,
 	"changes": 0,
 	"wrestlers": [{
-		"id": "3923329653",
-		"name": "Sasha Banks",
-		"brand": "Raw",
-		"rating": 86,
-		"male": false,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
-	}]
+    "id": "-716287028",
+    "name": "Charlotte",
+    "brand": "Raw",
+    "rating": 98,
+    "male": false
+  }]
 }, {
 	"id": "8361075146",
 	"name": "Raw Tag Team Championship",
@@ -86,24 +74,18 @@
 	"sequence": 4,
 	"changes": 0,
 	"wrestlers": [{
-		"id": "64180485",
-		"name": "Big E",
-		"brand": "Raw",
-		"rating": 85,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
-	}, {
-		"id": "657661680",
-		"name": "Kofi Kingston",
-		"brand": "Raw",
-		"rating": 86,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
-	}]
+    "id": "3722067034",
+    "name": "Sheamus",
+    "brand": "Raw",
+    "rating": 85,
+    "male": true
+  }, {
+    "id": "2014951565",
+    "name": "Cesaro",
+    "brand": "Raw",
+    "rating": 88,
+    "male": true
+  }]
 }, {
 	"id": "-5584518874",
 	"name": "United States Championship",
@@ -117,10 +99,7 @@
 		"name": "Roman Reigns",
 		"brand": "Raw",
 		"rating": 96,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
 	"id": "-13430616757",
@@ -135,10 +114,7 @@
 		"name": "Rich Swann",
 		"brand": "Raw",
 		"rating": 74,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
 	"id": "-5537089739",
@@ -153,10 +129,7 @@
 		"name": "Kevin Owens",
 		"brand": "Raw",
 		"rating": 90,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
 	"id": "-1822071167",
@@ -171,10 +144,7 @@
 		"name": "Alexa Bliss",
 		"brand": "Smackdown Live",
 		"rating": 86,
-		"male": false,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": false
 	}]
 }, {
 	"id": "8636345506",
@@ -189,10 +159,7 @@
 		"name": "The Miz",
 		"brand": "Smackdown Live",
 		"rating": 85,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
 	"id": "2132305395",
@@ -208,19 +175,13 @@
 		"name": "Randy Orton",
 		"brand": "Smackdown Live",
 		"rating": 90,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}, {
 		"id": "2586453735",
 		"name": "Bray Wyatt",
 		"brand": "Smackdown Live",
 		"rating": 87,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }, {
 	"id": "4067719886",
@@ -235,9 +196,6 @@
 		"name": "Aj Styles",
 		"brand": "Smackdown Live",
 		"rating": 99,
-		"male": true,
-		"wins": 0,
-		"losses": 0,
-		"championshipId": false
+		"male": true
 	}]
 }]
