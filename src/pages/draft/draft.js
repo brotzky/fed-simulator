@@ -14,10 +14,6 @@ class DraftPage extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
-  state = {
-    showFemalesOnly: false,
-  }
-
   onClear = (event) => {
     event.preventDefault()
     this.props.dispatch(
@@ -30,13 +26,6 @@ class DraftPage extends React.Component {
     this.props.dispatch(
       wrestlersActions.moveAllWrestlersToDefault()
     )
-  }
-
-  onToggleWomenWrestlers = (event) => {
-    event.preventDefault()
-    this.setState({
-      showFemalesOnly: !this.state.showFemalesOnly,
-    })
   }
 
   render() {
@@ -59,13 +48,6 @@ class DraftPage extends React.Component {
                 Reset Wrestlers
               </a>
             </li>
-            <li className="navigation__item">
-              <a onKeyPress={this.onToggleWomenWrestlers}
-                onClick={this.onToggleWomenWrestlers}
-                href="#">
-                &#x2640; Toggle
-              </a>
-            </li>
           </ul>
         </div>
         <div className="inpage-content">
@@ -74,7 +56,6 @@ class DraftPage extends React.Component {
               {this.props.brands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand, key) => {
                 let wrestlers = this.props.wrestlers
                 .filter(wrestler => (brand.default === true && wrestler.brand === "") || wrestler.brand === brand.name)
-                .filter(wrestler => !this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false))
                   .sort((a, b) => a.rating < b.rating)
                 return (
                   <div

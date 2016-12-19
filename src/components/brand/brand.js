@@ -68,7 +68,6 @@ class Brand extends React.Component {
       wrestlers = this.props.wrestlers
                     .filter(wrestler => filterFemales(wrestler, this.state.showFemalesOnly))
 
-
     if (this.state.search !== "") {
       searchIsActive = true
       wrestlers = wrestlers.filter((wrestler) => {
@@ -98,7 +97,7 @@ class Brand extends React.Component {
               brandName={this.props.name}
             />
           </div>
-          <div>
+          <div className="brand__toggles">
             <a onKeyPress={this.onToggleWomenWrestlers}
               onClick={this.onToggleWomenWrestlers}
               href="#">
