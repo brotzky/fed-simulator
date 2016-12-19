@@ -1831,6 +1831,10 @@ decree@0.0.6:
   dependencies:
     lodash-node "^2.4.1"
 
+deep-diff@^0.3.2:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/deep-diff/-/deep-diff-0.3.4.tgz#aac5c39952236abe5f037a2349060ba01b00ae48"
+
 deep-eql@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-eql/-/deep-eql-0.1.3.tgz#ef558acab8de25206cd713906d74e56930eb69f2"
@@ -5239,6 +5243,12 @@ reduce-function-call@^1.0.1:
 redux-batch-middleware:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/redux-batch-middleware/-/redux-batch-middleware-0.2.0.tgz#c61f7d6354a6422c8fcea6c8c36fb0fcb215ac84"
+
+redux-diff-logger@0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/redux-diff-logger/-/redux-diff-logger-0.0.9.tgz#43c5abe1315fc2aefd1a4cc2ff2222c21b288a7b"
+  dependencies:
+    deep-diff "^0.3.2"
 
 redux-localstorage@^0.4.1:
   version "0.4.1"
