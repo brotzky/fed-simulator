@@ -10,10 +10,17 @@
     word-spacing: 4rem;
     font-size: 1rem;
     color: #666;
+
+    @include breakpoint(xs) {
+      font-size: 1.5rem;
+      word-spacing: normal;
+      letter-spacing: normal;
+      text-transform: none;
+    }
   }
 
   @include breakpoint(xs) {
     margin: 0.2rem;
-    padding: 0.2rem;
+    padding: 1rem;
   }
 }

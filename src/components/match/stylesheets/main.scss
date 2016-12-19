@@ -59,6 +59,10 @@
     }
   }
 
+  @include breakpoint(xs) {
+    margin-bottom: 2rem;
+  }
+
 
   @import "./droparea";
 }
