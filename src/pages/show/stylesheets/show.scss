@@ -22,12 +22,17 @@
     margin: 1rem 0;
   }
 
-  .ppvs__list .ppvs__item {
-    width: 13rem;
-    height: 8rem;
+  .ppvs__list {
+    justify-content: center;
+    align-items: center;
 
-    .icon {
-      zoom: 0.4;
+    .ppvs__item {
+      width: 14.29rem;
+      height: 8rem;
+
+      .icon {
+        zoom: 0.4;
+      }
     }
   }
 
