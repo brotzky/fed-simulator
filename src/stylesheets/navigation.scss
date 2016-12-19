@@ -30,7 +30,6 @@
     margin: 0;
     padding: 1rem 4rem;
     display: flex;
-
   }
 
   &__item {
@@ -54,6 +53,7 @@
       white-space: nowrap;
       position: relative;
     }
+
     &__item {
       padding: 0.5rem;
       margin-right: 2rem;
@@ -72,8 +72,8 @@
   font-weight: bold;
 
   .navigation__list {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 }
 
