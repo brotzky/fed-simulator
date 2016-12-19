@@ -45,6 +45,7 @@ export class SimMatch {
     while(_minBy(this.wrestlers, "damage").damage > 0) {
       // console.log("count check", this.wrestlers.length, attackersWeights.length)
       let attacker = weighted.select(this.wrestlers, attackersWeights)
+      this.finalAttacker = attacker
       let defendersWeights = attackersWeights.slice()
       defendersWeights = defendersWeights.filter((weight, key) => key !== highestIndex)
 
@@ -78,7 +79,11 @@ export class SimMatch {
 
   endMatch = () => {
     let
-      winner = _maxBy(this.wrestlers, "damage"),
+      potentialWinners = [
+        _maxBy(this.wrestlers, "damage"),
+        this.finalAttacker
+      ],
+      winner = weighted.select(potentialWinners, [0.2, 0.8]),
       loser = _minBy(this.wrestlers, "damage"),
       losers = this.wrestlers.filter((wrestler) => wrestler.id !== winner.id)
     this.logAction("winner", {
