@@ -147,9 +147,11 @@ class ShowPage extends React.Component {
           </div>
         </Sticky>
         <div className="inpage-content">
-          <div className="current-ppv ppvs__item hidden-sm hidden-xs">
-            <Icon name={this.state.PPV.name} />
-          </div>
+          <If condition={!this.state.showPPVs}>
+            <div className="current-ppv ppvs__item hidden-sm hidden-xs">
+              <Icon name={this.state.PPV.name} />
+            </div>
+          </If>
           <div className="row show-event-details">
             <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <h2 className="spaced">
