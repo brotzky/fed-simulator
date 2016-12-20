@@ -2,10 +2,10 @@
 
 .label {
   display: inline-block;
-  padding: 0.2rem 0.5rem;
-  margin-right: 0.5rem;
+  margin-right: .5rem;
   text-transform: uppercase;
   border-radius: 0;
+  padding: .3rem 1rem;
 
   &.label-green {
     background-color: green;
