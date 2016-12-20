@@ -1,7 +1,7 @@
 $icon-raw: 0px 0px 282px 100px;
 $icon-nxt: -282px 0px 301px 100px;
-$icon-default: -583px 0px 324px 100px;
-$icon-smackdown-live: -907px 0px 372px 100px;
+$icon-smackdown-live: -583px 0px 314px 84px;
+$icon-default: -897px 0px 324px 100px;
 
 @mixin sprite-width($sprite) {
   width: nth($sprite, 3);
@@ -43,10 +43,10 @@ $icon-smackdown-live: -907px 0px 372px 100px;
   @include sprite($icon-nxt);
 }
 
-.icon-default {
-  @include sprite($icon-default);
-}
-
 .icon-smackdown-live {
   @include sprite($icon-smackdown-live);
+}
+
+.icon-default {
+  @include sprite($icon-default);
 }

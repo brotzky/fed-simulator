@@ -9,6 +9,15 @@
     }
   },
   {
+    "id": "2440941013",
+    "sequence": 0,
+    "name": "205 Live",
+    "attendance": {
+      "min": 12000,
+      "max": 18000
+    }
+  },
+  {
     "id": "44415794532",
     "sequence": 0,
     "name": "Smackdown Live",

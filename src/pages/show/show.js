@@ -29,10 +29,10 @@ class ShowPage extends React.Component {
     brandName: "",
     showPPVs: false,
     PPV: {
-      "name": "Roadblock",
+      "name": "Royal Rumble",
       "attendance": {
-        "min": 12000,
-        "max": 20000,
+        "min": 25000,
+        "max": 60000,
       }
     },
     clear: true,
