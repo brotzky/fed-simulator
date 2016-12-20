@@ -1,7 +1,7 @@
 import React from "react"
 import Wrestler from "../wrestler/wrestler"
 import { Draggable } from "react-drag-and-drop"
-import "./stylesheets/main"
+import "./stylesheets/wrestlers"
 
 const Wrestlers = ({
   wrestlers = [],

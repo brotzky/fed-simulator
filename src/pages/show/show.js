@@ -135,9 +135,9 @@ class ShowPage extends React.Component {
                   </h4>
                 </div>
               </If>
-              <div className="matches">
-                <ul className="">
-                  <li className="">
+              <div className="show__matches">
+                <ul className="show__controls">
+                  <li className="show__control">
                     <a onKeyPress={() => this.onRandomiseMatches(this.state.brandName)}
                       onClick={() => this.onRandomiseMatches(this.state.brandName)}>
                       Randomise
