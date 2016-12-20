@@ -1,14 +1,14 @@
-$icon-smackdown-tag-team-championship: 0px 0px 85px 48px;
-$icon-intercontinental-championship: -85px 0px 85px 48px;
+$icon-united-states-championship: 0px 0px 85px 48px;
+$icon-nxt-championship: -85px 0px 85px 48px;
 $icon-nxt-womens-championship: -170px 0px 85px 48px;
-$icon-raw-tag-team-championship: -340px 0px 85px 48px;
-$icon-raw-womens-championship: -425px 0px 85px 48px;
+$icon-raw-womens-championship: -255px 0px 85px 48px;
+$icon-smackdown-womens-championship: -340px 0px 85px 48px;
+$icon-raw-tag-team-championship: -425px 0px 85px 48px;
 $icon-nxt-tag-team-championship: -510px 0px 85px 48px;
-$icon-nxt-championship: -255px 0px 85px 48px;
-$icon-smackdown-womens-championship: -595px 0px 85px 48px;
-$icon-united-states-championship: -680px 0px 85px 48px;
-$icon-wwe-cruiserweight-championship: -765px 0px 85px 48px;
-$icon-wwe-universal-championship: -850px 0px 85px 48px;
+$icon-wwe-cruiserweight-championship: -595px 0px 85px 48px;
+$icon-wwe-universal-championship: -680px 0px 85px 48px;
+$icon-intercontinental-championship: -765px 0px 85px 48px;
+$icon-smackdown-tag-team-championship: -850px 0px 85px 48px;
 $icon-wwe-world-championship: -935px 0px 85px 48px;
 
 @mixin sprite-width($sprite) {
@@ -43,40 +43,32 @@ $icon-wwe-world-championship: -935px 0px 85px 48px;
   background-image: url("/static/championships-base.png");
 }
 
-.icon-smackdown-tag-team-championship {
-  @include sprite($icon-smackdown-tag-team-championship);
-}
-
-.icon-intercontinental-championship {
-  @include sprite($icon-intercontinental-championship);
-}
-
-.icon-nxt-tag-team-championship {
-  @include sprite($icon-nxt-tag-team-championship);
-}
-
-.icon-nxt-womens-championship {
-  @include sprite($icon-nxt-womens-championship);
-}
-
-.icon-raw-tag-team-championship {
-  @include sprite($icon-raw-tag-team-championship);
-}
-
-.icon-raw-womens-championship {
-  @include sprite($icon-raw-womens-championship);
+.icon-united-states-championship {
+  @include sprite($icon-united-states-championship);
 }
 
 .icon-nxt-championship {
   @include sprite($icon-nxt-championship);
 }
 
+.icon-nxt-womens-championship {
+  @include sprite($icon-nxt-womens-championship);
+}
+
+.icon-raw-womens-championship {
+  @include sprite($icon-raw-womens-championship);
+}
+
 .icon-smackdown-womens-championship {
   @include sprite($icon-smackdown-womens-championship);
 }
 
-.icon-united-states-championship {
-  @include sprite($icon-united-states-championship);
+.icon-raw-tag-team-championship {
+  @include sprite($icon-raw-tag-team-championship);
+}
+
+.icon-nxt-tag-team-championship {
+  @include sprite($icon-nxt-tag-team-championship);
 }
 
 .icon-wwe-cruiserweight-championship {
@@ -85,6 +77,14 @@ $icon-wwe-world-championship: -935px 0px 85px 48px;
 
 .icon-wwe-universal-championship {
   @include sprite($icon-wwe-universal-championship);
+}
+
+.icon-intercontinental-championship {
+  @include sprite($icon-intercontinental-championship);
+}
+
+.icon-smackdown-tag-team-championship {
+  @include sprite($icon-smackdown-tag-team-championship);
 }
 
 .icon-wwe-world-championship {

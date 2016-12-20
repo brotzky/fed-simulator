@@ -5,7 +5,7 @@ module.exports = {
     new Sprite({
       source : "scripts/generate/import/ppvs/",
       imgPath: "src/imgs/",
-      cssPath: "src/stylesheets/",
+      cssPath: "src/stylesheets/sprites",
       processor: "scss",
       spriteName: "ppvs",
       orientation: "horizontal",
@@ -21,7 +21,7 @@ module.exports = {
     new Sprite({
       source : "scripts/generate/import/championships/",
       imgPath: "src/imgs/",
-      cssPath: "src/stylesheets/",
+      cssPath: "src/stylesheets/sprites",
       processor: "scss",
       spriteName: "championships",
       orientation: "horizontal",
@@ -29,7 +29,7 @@ module.exports = {
     new Sprite({
       source : "scripts/generate/import/brands/",
       imgPath: "src/imgs/",
-      cssPath: "src/stylesheets/",
+      cssPath: "src/stylesheets/sprites",
       processor: "scss",
       spriteName: "brands",
       orientation: "horizontal",
