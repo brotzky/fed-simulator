@@ -16,10 +16,6 @@ class ChampionsPage extends React.Component {
     championships: React.PropTypes.array.isRequired,
   }
 
-  state = {
-    showFemalesOnly: false,
-  }
-
   displayName = "ChampionsPage"
 
   onClear = (event) => {
@@ -34,13 +30,6 @@ class ChampionsPage extends React.Component {
     this.props.dispatch(
       championshipActions.reset()
     )
-  }
-
-  onToggleWomenWrestlers = (event) => {
-    event.preventDefault()
-    this.setState({
-      showFemalesOnly: !this.state.showFemalesOnly,
-    })
   }
 
   render() {
@@ -64,13 +53,6 @@ class ChampionsPage extends React.Component {
                 Reset Championships
               </a>
             </li>
-            <li className="navigation__item">
-              <a onKeyPress={this.onToggleWomenWrestlers}
-                onClick={this.onToggleWomenWrestlers}
-                href="#">
-                &#x2640; Toggle
-              </a>
-            </li>
           </ul>
         </div>
         <div className="inpage-content">
@@ -82,9 +64,10 @@ class ChampionsPage extends React.Component {
           <div className="row">
             {this.props.brands.filter(brand => brand.default === false).map((brand, key) => {
               let wrestlers = this.props.wrestlers
-                .filter((wrestler) => wrestler.brand === brand.name && (!this.state.showFemalesOnly || (this.state.showFemalesOnly && wrestler.male === false)))
+                .filter(wrestler => wrestler.brand === brand.name)
                 .sort((a, b) => a.rating < b.rating),
-                championships = this.props.championships.filter((championship) => championship.brand === brand.name && ((this.state.showFemalesOnly && championship.male === false) || !this.state.showFemalesOnly))
+                championships = this.props.championships
+                  .filter(championship => championship.brand === brand.name)
               return (
                 <div
                   key={brand.id}
