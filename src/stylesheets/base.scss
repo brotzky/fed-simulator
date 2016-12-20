@@ -120,14 +120,14 @@ h1 {
 .page {
   z-index: 1;
 
-  @include breakpoint(xs) {
-    padding: 0;
-  }
-
   .inpage-content {
     padding: 1em 0;
     position: relative;
     z-index: 2;
+
+    @include breakpoint(xs) {
+      padding: 0;
+    }
   }
 }
 
