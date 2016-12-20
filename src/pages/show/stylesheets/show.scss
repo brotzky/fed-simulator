@@ -1,19 +1,17 @@
 @import "src/stylesheets/breakpoints";
 
-
 .page.show {
 
-  .show__matches {
-
-  }
   .show__controls {
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .show__control {
     list-style: none;
   }
+
   @include breakpoint(xs) {
     .show-event-details {
       text-align: center;
@@ -30,6 +28,15 @@
       color: black;
     }
   }
+
+  @include breakpoint(xs) {
+    .wrestlers {
+      position: fixed;
+      bottom: 0;
+      height: 30rem;
+    }
+  }
+
 
   hr {
     margin: 1rem 0;
@@ -53,6 +60,7 @@
     cursor: pointer;
     opacity: 1;
   }
+
   .show--edit {
     display: inline-block;
     opacity: 0;
