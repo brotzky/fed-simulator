@@ -125,9 +125,9 @@ h1 {
   }
 
   .inpage-content {
-    z-index: 2;
-    position: relative;
     padding: 1em 0;
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -137,9 +137,9 @@ h1 {
 }
 
 .truncate {
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .zoom:hover {

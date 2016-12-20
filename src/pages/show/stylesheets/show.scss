@@ -2,18 +2,19 @@
 
 .page.show {
 
-  .show-event-details {
-    @include breakpoint(xs) {
+  @include breakpoint(xs) {
+    .show-event-details {
       text-align: center;
     }
   }
 
   .dropdown__content li {
     line-height: 3rem;
-    text-align: left;
     list-style: none;
+    text-align: left;
 
-    &, & a {
+    &,
+    & a {
       color: black;
     }
   }
@@ -23,16 +24,15 @@
   }
 
   .ppvs__list {
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     .ppvs__item {
-      width: 14.29rem;
       height: 8rem;
-
-      .icon {
-        zoom: 0.4;
-      }
+      width: 14.29rem;
+    }
+    .icon {
+      zoom: .4;
     }
   }
 

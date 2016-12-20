@@ -1,17 +1,29 @@
-&.raw {
-  .droparea__title {
-    color: #960e0e;
-  }
-}
-
 &.smackdown-live {
   .droparea__title {
     color: #143aca;
   }
 }
 
-&.nxt {
-  .droparea__title {
-    color: #bba648;
+.show--edit {
+  animation: display-inline-transition 2s both;
+  display: inline-block;
+  opacity: 0;
+}
+
+.ppvs__current:hover .show--edit {
+  animation: display-none-transition 2s both;
+  opacity: 1;
+  cursor: pointer;
+}
+
+@keyframes display-none-transition {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes display-inline-transition {
+  0% {
+    opacity: 1;
   }
 }

@@ -33,7 +33,7 @@ class ShowPage extends React.Component {
       "attendance": {
         "min": 25000,
         "max": 60000,
-      }
+      },
     },
     clear: true,
     randomise: false,
@@ -93,43 +93,6 @@ class ShowPage extends React.Component {
     return (
       <div className={`page show ${this.context.toSlug(this.state.brandName)}`}>
         <Helmet title="Create a Show" />
-        <Sticky>
-          <div className="navigation navigation--secondary">
-            <ul className="navigation__list">
-              <li className="navigation__item">
-                <a onKeyPress={() => this.onRandomiseMatches(this.state.brandName)}
-                  onClick={() => this.onRandomiseMatches(this.state.brandName)}>
-                  Randomise
-                </a>
-                &nbsp; | &nbsp;
-                <a onKeyPress={this.onSimulateMatches}
-                  onClick={this.onSimulateMatches}>
-                  Simulate
-                </a>
-                &nbsp; | &nbsp;
-                <a onKeyPress={this.onClearMatches}
-                  onClick={this.onClearMatches}>
-                  Clear
-                </a>
-              </li>
-              <li className="navigation__item">
-                <a onClick={this.onTogglePPVsSelection}>
-                  {this.state.showPPVs ? "Hide live events" : "Select live event"}
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="row visible-xs">
-            <div className="col-xs-12">
-              <Brand
-                name={this.state.brandName}
-                showBrandLogo={false}
-                byPassBrandFilter={true}
-                wrestlers={wrestlers}
-              />
-            </div>
-          </div>
-        </Sticky>
         <div className="inpage-content">
           <div className={classNames(
             "row",
@@ -146,14 +109,17 @@ class ShowPage extends React.Component {
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <If condition={!this.state.showPPVs}>
                 <div className="ppvs__current">
-                  <div>
-                    <Icon name={this.state.PPV.name} />
+                  <div onClick={this.onTogglePPVsSelection}>
+                    <Icon
+                      name={this.state.PPV.name}
+                    />
+                    <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                   </div>
                   <hr />
                   <h4>
                     {getRandomInt(this.state.PPV.attendance.min, this.state.PPV.attendance.max).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
                     <div className="dropdown">
-                      {this.state.brandName !== "" ? this.state.brandName : "all brands"} &#8681;
+                      {this.state.brandName !== "" ? this.state.brandName : "all brands"} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                       <ul className="dropdown__content">
                         {this.props.brands.map((brand, key) => {
                           return (
@@ -170,6 +136,24 @@ class ShowPage extends React.Component {
                 </div>
               </If>
               <div className="matches">
+                <ul className="">
+                  <li className="">
+                    <a onKeyPress={() => this.onRandomiseMatches(this.state.brandName)}
+                      onClick={() => this.onRandomiseMatches(this.state.brandName)}>
+                      Randomise
+                    </a>
+                    &nbsp; | &nbsp;
+                    <a onKeyPress={this.onSimulateMatches}
+                      onClick={this.onSimulateMatches}>
+                      Simulate
+                    </a>
+                    &nbsp; | &nbsp;
+                    <a onKeyPress={this.onClearMatches}
+                      onClick={this.onClearMatches}>
+                      Clear
+                    </a>
+                  </li>
+                </ul>
                 {new Array(numberOfMatches).fill("").map((index, key) => {
                   return (
                     <Match

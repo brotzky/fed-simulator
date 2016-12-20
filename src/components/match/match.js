@@ -4,7 +4,6 @@ import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
 import Story from "../story/story"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
-import FontAwesome from "react-fontawesome"
 import "./stylesheets/match"
 
 const defaultState = {
@@ -149,7 +148,7 @@ class Match extends React.Component {
                           </sup>
                           <span onClick={() => this.onRemoveWrestler(wrestler)}
                             className="remove">
-                            &nbsp; <FontAwesome name="remove" />
+                            &nbsp; <i className="fa fa-remove" aria-hidden="true"></i>
                           </span>
                         </span>
                       )

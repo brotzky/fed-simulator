@@ -6,7 +6,7 @@
   font-size: 2rem;
 
   .icon {
-    zoom: 0.2;
+    zoom: .2;
 
     &.icon-default {
       background-image: none;
@@ -55,12 +55,12 @@
     }
 
     &__item {
-      padding: 0.5rem;
+      padding: .5rem;
       margin-right: 2rem;
       display: inline-block;
 
       .icon {
-        zoom: 0.1;
+        zoom: .1;
       }
     }
   }
@@ -68,7 +68,7 @@
 
 .navigation--primary {
   text-transform: uppercase;
-  letter-spacing: 0.17rem;
+  letter-spacing: .17rem;
   font-weight: bold;
 
   .navigation__list {
