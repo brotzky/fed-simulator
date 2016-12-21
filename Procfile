@@ -1,1 +1,1 @@
-web: $(npm bin)/babel-node ./scripts/start.js
+web: node server.js
