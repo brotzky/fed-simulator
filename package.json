@@ -21,6 +21,7 @@
     "asyncawait": "^1.0.6",
     "autoprefixer": "^6.5.1",
     "babel-core": "^6.18.0",
+    "babel-cli": "^6.3.17",
     "babel-eslint": "6.1.2",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-runtime": "^6.15.0",
