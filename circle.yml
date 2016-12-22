@@ -3,5 +3,3 @@ deployment:
     branch: master
     heroku:
       appname: www-universe-sim
-      commands:
-        - node server.js
