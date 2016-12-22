@@ -1,7 +1,7 @@
 deployment:
-  production:
+  staging:
     branch: master
     heroku:
       appname: www-universe-sim
       commands:
-        - ./server.js
+        - node server.js
