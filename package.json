@@ -13,7 +13,8 @@
     "generate:brands": "babel-node ./scripts/generate/brands.js",
     "generate:championships": "babel-node ./scripts/generate/championships.js",
     "generate": "npm run generate:wrestlers && npm run generate:championships && npm run generate:brands && npm run generate:ppvs",
-    "cosmos": "cosmos"
+    "cosmos": "cosmos",
+    "postinstall": "npm i && npm run build"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",
@@ -53,7 +54,7 @@
     "gzip-size": "3.0.0",
     "hapi": "^16.0.2",
     "html-webpack-plugin": "^2.24.0",
-    "inert": "^4.0.3",
+    "inert": "^4.0.4",
     "istanbul": "^0.4.5",
     "jsdom": "^9.6.0",
     "jsdom-global": "^2.1.0",
