@@ -1,12 +1,12 @@
 deployment:
   production:
     branch: master
-    commands:
-      - heroku maintenance:on --app www-universe-sim
-      - heroku scale worker=0 --app www-universe-sim
-      - git push git@heroku.com:www-universe-sim.git $CIRCLE_SHA1:refs/heads/master
-      - node server.js
-      - heroku scale worker=x --app www-universe-sim
-      - heroku maintenance:off --app www-universe-sim
     heroku:
       appname: www-universe-sim
+      commands:
+        - heroku maintenance:on --app www-universe-sim
+        - heroku scale worker=0 --app www-universe-sim
+        - git push git@heroku.com:www-universe-sim.git $CIRCLE_SHA1:refs/heads/master
+        - node server.js
+        - heroku scale worker=x --app www-universe-sim
+        - heroku maintenance:off --app www-universe-sim
