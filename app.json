@@ -2,15 +2,8 @@
   "name": "unvierse-draft-generator",
   "description": "",
   "engines": {
-   "node": "5.9.1"
- },
-  "env": {
+    "node": "5.9.1"
   },
-  "formation": {
-  },
-  "addons": [
-
-  ],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
