@@ -5,3 +5,6 @@ deployment:
       - ./server.js
     heroku:
       appname: www-universe-sim
+test:
+  override:
+    - echo "test"
