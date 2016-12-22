@@ -1,8 +1,6 @@
 deployment:
   production:
     branch: master
-    commands:
-      - ./server.js
     heroku:
       appname: www-universe-sim
 test:
