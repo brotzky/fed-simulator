@@ -1,2 +1,1 @@
-web: sh -c 'npm run start'
- 
+web: node server.js
