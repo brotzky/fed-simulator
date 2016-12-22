@@ -1,6 +1,7 @@
 {
   "name": "wwe-draft-generator",
   "version": "0.0.8",
+  "repository": "https://github.com/azz0r/wwe-draft-generator.git",
   "scripts": {
     "start": "NODE_ENV=development DEBUG=app:* babel-node ./scripts/start.js",
     "build": "NODE_ENV=production DEBUG=app:* babel-node ./scripts/build.js",
@@ -13,8 +14,7 @@
     "generate:brands": "babel-node ./scripts/generate/brands.js",
     "generate:championships": "babel-node ./scripts/generate/championships.js",
     "generate": "npm run generate:wrestlers && npm run generate:championships && npm run generate:brands && npm run generate:ppvs",
-    "cosmos": "cosmos",
-    "postinstall": "npm i && npm run build"
+    "cosmos": "cosmos"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",
