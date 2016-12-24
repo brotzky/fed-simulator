@@ -23,6 +23,15 @@ export default () => {
            }}
          />
        </Route>
+       <Route path="show/:id">
+         <IndexRoute
+           getComponent={(nextState, callback) => {
+             require.ensure([], (require) => {
+               callback(null, require("./pages/show/show").default)
+             })
+           }}
+         />
+       </Route>
        <Route path="champions">
          <IndexRoute
            getComponent={(nextState, callback) => {

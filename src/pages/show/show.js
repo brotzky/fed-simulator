@@ -1,4 +1,5 @@
 import React from "react"
+import { browserHistory } from 'react-router'
 import classNames from "classnames"
 import Match from "../../components/match/match"
 import Brand from "../../components/brand/brand"
@@ -33,12 +34,14 @@ class ShowPage extends React.Component {
 
   componentWillMount() {
     let currentShowId
+
     if (this.props.location.query && this.props.location.query.id) {
       currentShowId = this.props.location.query.id
     }
-    let currentShow = this.props.shows.find(show => show.id === currentShowId)
 
-    console.log(currentShow, "current show")
+    currentShowId = "10462753658"
+
+    let currentShow = this.getShowById(this.props.shows, currentShowId)
 
     if (!currentShow || currentShow.length === 0) {
       currentShow = {
@@ -52,14 +55,18 @@ class ShowPage extends React.Component {
       )
     }
 
-    this.setState({
-      ...currentShow
-    })
+    this.currentShow = currentShow
+    // browserHistory.push(`/show/${currentShow.id}`)
+
+  }
+
+  getShowById(collection, id) {
+    return collection.find(item => item.id === id)
   }
 
   onRandomiseMatches = () => {
     this.props.dispatch(
-      showActions.randomiseShow(this.state.id, this.props.wrestlers)
+      showActions.randomiseShow(this.props.id, this.props.wrestlers)
     )
   }
 
@@ -77,13 +84,13 @@ class ShowPage extends React.Component {
 
   onClearMatches = () => {
     this.props.dispatch(
-      showActions.resetShow(this.state.id)
+      showActions.resetShow(this.props.id)
     )
   }
 
   onChangePPV = (PPV) => {
     this.props.dispatch(
-      showActions.selectPPVForShow(this.state.id, PPV)
+      showActions.selectPPVForShow(this.props.id, PPV)
     )
     this.setState({
       showPPVs: false,
@@ -92,21 +99,29 @@ class ShowPage extends React.Component {
 
   onChangeBrand = (brand) => {
     this.props.dispatch(
-      showActions.selectBrandForShow(this.state.id, brand)
+      showActions.selectBrandForShow(this.currentShow.id, brand)
     )
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.currentShow = this.getShowById(nextProps.shows, this.currentShow.id)
   }
 
   displayName = "ShowPage"
 
   render() {
     let wrestlers = this.props.wrestlers
-    console.log(this.state)
+    console.log("state", this.state)
+    console.log("props", this.props)
     // // we're filtering by a brand
     // if (this.state.brand.name !== "") {
     //   wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand.name)
     // }
+    if (!this.currentShow.brand) {
+      return <div>Error</div>
+    }
     return (
-      <div className={`page show ${this.context.toSlug(this.state.brand.name)}`}>
+      <div className={`page show ${this.context.toSlug(this.currentShow.brand.name)}`}>
         <Helmet title="Create a Show" />
         <div className="inpage-content">
           <div className={classNames(
@@ -126,14 +141,14 @@ class ShowPage extends React.Component {
                 <div className="ppvs__current">
                   <div onClick={this.onTogglePPVsSelection}>
                     <Icon
-                      name={this.state.PPV.name}
+                      name={this.currentShow.PPV.name}
                     />
                     <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                   </div>
                   <hr />
                   <h4>
                     <div className="dropdown">
-                      {this.state.brand.name !== "" ? this.state.brand.name : "all brands"} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                      {this.currentShow.default ? "All brands" : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                       <ul className="dropdown__content">
                         {this.props.brands.map((brand, key) => {
                           return (
@@ -152,8 +167,8 @@ class ShowPage extends React.Component {
               <div className="show__matches">
                 <ul className="show__controls">
                   <li className="show__control">
-                    <a onKeyPress={() => this.onRandomiseMatches(this.state.brandName)}
-                      onClick={() => this.onRandomiseMatches(this.state.brandName)}>
+                    <a onKeyPress={() => this.onRandomiseMatches()}
+                      onClick={() => this.onRandomiseMatches()}>
                       Randomise
                     </a>
                     &nbsp; | &nbsp;
@@ -169,13 +184,12 @@ class ShowPage extends React.Component {
                   </li>
                 </ul>
                 {new Array(numberOfMatches).fill("").map((index, key) => {
+                  let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : []
                   return (
                     <Match
                       key={key}
-                      brand={this.state.brandName}
-                      clear={this.state.clear}
-                      randomise={this.state.randomise}
-                      simulate={this.state.simulate}
+                      brand={this.currentShow.brand.name}
+                      wrestlers={wrestlers}
                     />
                   )
                 })}
@@ -183,7 +197,7 @@ class ShowPage extends React.Component {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <Brand
-                name={this.state.brand.name}
+                name={this.currentShow.brand.name}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
                 wrestlers={wrestlers}
