@@ -36,16 +36,20 @@ class ShowPage extends React.Component {
     if (this.props.location.query && this.props.location.query.id) {
       currentShowId = this.props.location.query.id
     }
+    let currentShow = this.props.shows.find(show => show.id === currentShowId)
 
-    let currentShow = this.props.shows.filter(show => show.id === currentShowId)
+    console.log(currentShow, "current show")
 
-    if (currentShow.length === 0) {
+    if (!currentShow || currentShow.length === 0) {
       currentShow = {
         id: hashCode(Date()),
         brand: this.props.brands[0],
         PPV: this.props.ppvs[0],
         matches: [],
       }
+      this.props.dispatch(
+        showActions.createShow(currentShow)
+      )
     }
 
     this.setState({
@@ -54,9 +58,15 @@ class ShowPage extends React.Component {
   }
 
   onRandomiseMatches = () => {
+    this.props.dispatch(
+      showActions.randomiseShow(this.state.id, this.props.wrestlers)
+    )
   }
 
   onSimulateMatches = () => {
+    this.props.dispatch(
+      showActions.simulateShow(this.state.id, this.props.moves)
+    )
   }
 
   onTogglePPVsSelection = () => {
@@ -66,32 +76,35 @@ class ShowPage extends React.Component {
   }
 
   onClearMatches = () => {
+    this.props.dispatch(
+      showActions.resetShow(this.state.id)
+    )
   }
 
   onChangePPV = (PPV) => {
+    this.props.dispatch(
+      showActions.selectPPVForShow(this.state.id, PPV)
+    )
     this.setState({
-      PPV,
       showPPVs: false,
     })
   }
 
-  onChangeBrand = (brandName) => {
-    let selectedBrand = this.props.brands.find(brand => brand.name === brandName)
-    this.setState({
-      brand: selectedBrand,
-    })
+  onChangeBrand = (brand) => {
+    this.props.dispatch(
+      showActions.selectBrandForShow(this.state.id, brand)
+    )
   }
 
   displayName = "ShowPage"
 
   render() {
     let wrestlers = this.props.wrestlers
-
-    // we're filtering by a brand
-    if (this.state.brand.name !== "") {
-      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand.name)
-    }
-    console.log()
+    console.log(this.state)
+    // // we're filtering by a brand
+    // if (this.state.brand.name !== "") {
+    //   wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand.name)
+    // }
     return (
       <div className={`page show ${this.context.toSlug(this.state.brand.name)}`}>
         <Helmet title="Create a Show" />
@@ -125,7 +138,7 @@ class ShowPage extends React.Component {
                         {this.props.brands.map((brand, key) => {
                           return (
                             <li key={key}>
-                              <a onClick={() => this.onChangeBrand(brand.name)}>
+                              <a onClick={() => this.onChangeBrand(brand)}>
                                 {brand.default ? "All" : brand.name}
                               </a>
                             </li>

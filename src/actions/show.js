@@ -76,10 +76,10 @@ export function resetShow(showId) {
   }
 }
 
-export function randomiseShow(wrestlers, showId) {
+export function randomiseShow(showId, wrestlers) {
   return {
     type: types.RANDOMISE_SHOW,
-    wrestlers,
     showId,
+    wrestlers,
   }
 }

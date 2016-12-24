@@ -3,17 +3,10 @@ import { randomiseWrestlers, simulateMatch } from "../helpers/match"
 import { getRandomInt } from "../helpers/math"
 
 export default (state = defaultState, action) => {
-  let newState = JSON.parse(JSON.stringify(state)),
-    defaultShow = {},
-    currentShow = defaultShow
+  let newState = JSON.parse(JSON.stringify(state))
 
-  if (action.id) {
-    currentShow = state.find(show => show.id === action.id)
-  }
-  
   switch (action.type) {
     case "CREATE_SHOW":
-
       action.show.attendance = getRandomInt(
         action.show.PPV.attendance.min,
         action.show.PPV.attendance.max,
@@ -34,19 +27,21 @@ export default (state = defaultState, action) => {
       })
       break
     case "SELECT_PPV_FOR_SHOW":
-      currentShow.PPV = action.PPV
+      newState.forEach((show, key) => {
+        newState[key].PPV = action.PPV
+      })
       break
     case "SELECT_BRAND_FOR_SHOW":
-      currentShow.brand = action.brand
+      let index = newState.findIndex(show => show.id === action.showId)
+      newState[index].brand = action.brand
       break
     case "RANDOMISE_SHOW":
-      newState.map((show, key) => {
+      newState.forEach((show, key) => {
         if (show.id === action.showId) {
           newState[key].matches.forEach((match, matchKey) => {
             newState[key].matches[matchKey].wrestlers = randomiseWrestlers(action.wrestlers)
           })
         }
-        return show
       })
       break
     case "SIMULATE_SHOW":
