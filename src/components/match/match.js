@@ -6,45 +6,42 @@ import Story from "../story/story"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/match"
 
-const defaultState = {
-  wrestlers: [],
-  story: [],
-}
-
 class Match extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
+    onDropWrestler: React.PropTypes.func,
+    matchIndex: React.PropTypes.number,
     moves: React.PropTypes.array.isRequired,
+    chosenWrestlers:  React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
     brand: React.PropTypes.string,
   }
 
   static defaultProps = {
+    chosenWrestlers: [],
     brand: "",
+    matchIndex: 0,
+    onDropWrestler: () => {},
   }
-
-  state = defaultState
 
   displayName = "Match"
 
   onDrop = (id) => {
     let wrestlerId = id.wrestler,
-      isAlreadyInMatch = this.state.wrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
+      isAlreadyInMatch = this.props.wrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
 
     if (!isAlreadyInMatch) {
-      console.log("Match drop", "Dispatch", "resim")
-
-      this.shouldResim()
+      this.props.onDropWrestler(wrestlerId, this.props.matchIndex)
     }
   }
 
   onRemoveWrestler(wrestlerToRemove) {
-    console.log("Match on remove wrestlers", "Dispatch", "remove wrestler")
+    console.log("Match on remove wrestlers", wrestlerToRemove, "Dispatch", "remove wrestler")
   }
 
   render() {
-    let isValidMatch = this.state.wrestlers.length > 0
+    let isValidMatch = this.props.chosenWrestlers.length > 0
     return (
       <div className="match">
         <div className="row">
@@ -61,7 +58,7 @@ class Match extends React.Component {
               <Choose>
                 <When condition={isValidMatch}>
                   <div className="match__names">
-                    {this.state.wrestlers.map((wrestler, key) => {
+                    {this.props.chosenWrestlers.map((wrestler, key) => {
                       return (
                         <span key={key}
                           className="match__name">
@@ -79,17 +76,17 @@ class Match extends React.Component {
                       )
                     })}
                   </div>
-                  <If condition={this.state.story.length > 0}>
+                  <If condition={this.props.story.length > 0}>
                     <div className="statistic">
                       <Story
-                        collection={this.state.story}
-                        wrestlers={this.state.wrestlers}
+                        collection={this.props.story}
+                        wrestlers={this.props.chosenWrestlers}
                       />
                     </div>
                   </If>
                 </When>
               </Choose>
-              <If condition={this.state.wrestlers.length < 2}>
+              <If condition={this.props.chosenWrestlers.length < 2}>
                 <div className="droparea inactive">
                   <span className="droparea__title">
                     Drop wrestlers here

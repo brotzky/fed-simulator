@@ -25,7 +25,6 @@ export default (state = defaultState, action) => {
         }
         return show
       })
-      break
     case "SELECT_PPV_FOR_SHOW":
       newState.forEach((show, key) => {
         newState[key].PPV = action.PPV
@@ -36,9 +35,14 @@ export default (state = defaultState, action) => {
       newState[index].brand = action.brand
       break
     case "RANDOMISE_SHOW":
+      console.log("random", action)
       newState.forEach((show, key) => {
         if (show.id === action.showId) {
+          console.log("show match!")
           newState[key].matches.forEach((match, matchKey) => {
+            if (!newState[key].matches[matchKey].wrestlers) {
+              newState[key].matches[matchKey].wrestlers = []
+            }
             newState[key].matches[matchKey].wrestlers = randomiseWrestlers(action.wrestlers)
           })
         }
@@ -51,14 +55,16 @@ export default (state = defaultState, action) => {
       break
     case "REMOVE_WRESTLER_FROM_MATCH":
       newState.forEach(show => {
-        if (show.id === action.show.id) {
-          show.matches[action.matchIndex].wrestlers = show.matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== wrestler.id)
+        if (show.id === action.showId) {
+          show.matches[action.matchIndex].wrestlers = show.matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestlerId)
         }
       })
       break
-    case "ADD_WRESTLER_FROM_MATCH":
+    case "ADD_WRESTLER_TO_MATCH":
       newState.forEach(show => {
-        if (show.id === action.show.id) {
+        console.log(show.id, action.showId)
+        if (show.id === action.showId) {
+          console.log("shows the same")
           show.matches[action.matchIndex].wrestlers.push(
             action.wrestler
           )

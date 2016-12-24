@@ -40,7 +40,7 @@ export function removeWrestlerFromMatch(showId, matchIndex, wrestler) {
 
 export function addWrestlerToMatch(showId, matchIndex, wrestler) {
   return {
-    type: types.ADD_WRESTLER_FROM_MATCH,
+    type: types.ADD_WRESTLER_TO_MATCH,
     showId,
     matchIndex,
     wrestler,

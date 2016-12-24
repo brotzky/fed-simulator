@@ -7,7 +7,6 @@ import Icon from "../../components/icon/icon"
 import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
-import { Sticky } from "react-sticky"
 import * as showActions from "../../actions/show"
 import { hashCode } from "../../helpers/hash"
 
@@ -39,7 +38,7 @@ class ShowPage extends React.Component {
       currentShowId = this.props.location.query.id
     }
 
-    currentShowId = "10462753658"
+    currentShowId = "7125068969"
 
     let currentShow = this.getShowById(this.props.shows, currentShowId)
 
@@ -48,7 +47,7 @@ class ShowPage extends React.Component {
         id: hashCode(Date()),
         brand: this.props.brands[0],
         PPV: this.props.ppvs[0],
-        matches: [],
+        matches: new Array(numberOfMatches).fill((1 / numberOfMatches)),
       }
       this.props.dispatch(
         showActions.createShow(currentShow)
@@ -65,14 +64,15 @@ class ShowPage extends React.Component {
   }
 
   onRandomiseMatches = () => {
+    console.log("no", this.props.wrestlers)
     this.props.dispatch(
-      showActions.randomiseShow(this.props.id, this.props.wrestlers)
+      showActions.randomiseShow(this.currentShow.id, this.props.wrestlers)
     )
   }
 
   onSimulateMatches = () => {
     this.props.dispatch(
-      showActions.simulateShow(this.state.id, this.props.moves)
+      showActions.simulateShow(this.currentShow.id, this.props.moves)
     )
   }
 
@@ -80,6 +80,12 @@ class ShowPage extends React.Component {
     this.setState({
       showPPVs: !this.state.showPPVs
     })
+  }
+
+  onDropWrestler = (matchIndex) => {
+    this.props.dispatch(
+      showActions.addWrestlerToMatch(this.props.id, matchIndex, this.props.wrestlers)
+    )
   }
 
   onClearMatches = () => {
@@ -111,8 +117,6 @@ class ShowPage extends React.Component {
 
   render() {
     let wrestlers = this.props.wrestlers
-    console.log("state", this.state)
-    console.log("props", this.props)
     // // we're filtering by a brand
     // if (this.state.brand.name !== "") {
     //   wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand.name)
@@ -188,8 +192,10 @@ class ShowPage extends React.Component {
                   return (
                     <Match
                       key={key}
+                      matchIndex={key}
                       brand={this.currentShow.brand.name}
-                      wrestlers={wrestlers}
+                      onDropWrestler={this.onDropWrestler}
+                      chosenWrestlers={wrestlers}
                     />
                   )
                 })}
