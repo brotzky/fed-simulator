@@ -7,7 +7,8 @@ import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import { Sticky } from "react-sticky"
-import { getRandomInt } from "../../helpers/math"
+import * as showActions from "../../actions/show"
+import { hashCode } from "../../helpers/hash"
 
 import "./stylesheets/show"
 
@@ -19,6 +20,7 @@ class ShowPage extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     ppvs: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
+    shows: React.PropTypes.array.isRequired,
   }
 
   static contextTypes = {
@@ -26,30 +28,35 @@ class ShowPage extends React.Component {
   }
 
   state = {
-    brandName: "",
     showPPVs: false,
-    PPV: {
-      "name": "Royal Rumble",
-      "attendance": {
-        "min": 25000,
-        "max": 60000,
-      },
-    },
-    clear: true,
-    randomise: false,
-    simulate: false,
+  }
+
+  componentWillMount() {
+    let currentShowId
+    if (this.props.location.query && this.props.location.query.id) {
+      currentShowId = this.props.location.query.id
+    }
+
+    let currentShow = this.props.shows.filter(show => show.id === currentShowId)
+
+    if (currentShow.length === 0) {
+      currentShow = {
+        id: hashCode(Date()),
+        brand: this.props.brands[0],
+        PPV: this.props.ppvs[0],
+        matches: [],
+      }
+    }
+
+    this.setState({
+      ...currentShow
+    })
   }
 
   onRandomiseMatches = () => {
-    this.setState({
-      randomise: Date.now(),
-    })
   }
 
   onSimulateMatches = () => {
-    this.setState({
-      simulate: Date.now(),
-    })
   }
 
   onTogglePPVsSelection = () => {
@@ -59,9 +66,6 @@ class ShowPage extends React.Component {
   }
 
   onClearMatches = () => {
-    this.setState({
-      clear: Date.now(),
-    })
   }
 
   onChangePPV = (PPV) => {
@@ -73,11 +77,8 @@ class ShowPage extends React.Component {
 
   onChangeBrand = (brandName) => {
     let selectedBrand = this.props.brands.find(brand => brand.name === brandName)
-    selectedBrand = selectedBrand.default
-      ? ""
-      : brandName,
     this.setState({
-      brandName: selectedBrand,
+      brand: selectedBrand,
     })
   }
 
@@ -87,11 +88,12 @@ class ShowPage extends React.Component {
     let wrestlers = this.props.wrestlers
 
     // we're filtering by a brand
-    if (this.state.brandName !== "") {
-      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brandName)
+    if (this.state.brand.name !== "") {
+      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand.name)
     }
+    console.log()
     return (
-      <div className={`page show ${this.context.toSlug(this.state.brandName)}`}>
+      <div className={`page show ${this.context.toSlug(this.state.brand.name)}`}>
         <Helmet title="Create a Show" />
         <div className="inpage-content">
           <div className={classNames(
@@ -117,9 +119,8 @@ class ShowPage extends React.Component {
                   </div>
                   <hr />
                   <h4>
-                    {getRandomInt(this.state.PPV.attendance.min, this.state.PPV.attendance.max).toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
                     <div className="dropdown">
-                      {this.state.brandName !== "" ? this.state.brandName : "all brands"} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                      {this.state.brand.name !== "" ? this.state.brand.name : "all brands"} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                       <ul className="dropdown__content">
                         {this.props.brands.map((brand, key) => {
                           return (
@@ -169,7 +170,7 @@ class ShowPage extends React.Component {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <Brand
-                name={this.state.brandName}
+                name={this.state.brand.name}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
                 wrestlers={wrestlers}
@@ -186,4 +187,5 @@ export default connect(state => ({
   brands: state.brands,
   ppvs: state.ppvs,
   wrestlers: state.wrestlers,
+  shows: state.shows,
 }))(ShowPage)

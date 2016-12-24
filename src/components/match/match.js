@@ -17,16 +17,10 @@ class Match extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     moves: React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
-    randomise: React.PropTypes.any,
-    simulate: React.PropTypes.any,
-    clear: React.PropTypes.any,
     brand: React.PropTypes.string,
   }
 
   static defaultProps = {
-    randomise: false,
-    simulate: false,
-    clear: false,
     brand: "",
   }
 
@@ -34,88 +28,19 @@ class Match extends React.Component {
 
   displayName = "Match"
 
-  componentWillReceiveProps(nextProps) {
-
-    if (nextProps.clear && nextProps.clear !== this.props.clear) {
-      this.onClear()
-    }
-
-    if (nextProps.randomise && nextProps.randomise !== this.props.randomise) {
-      this.onRandomise()
-    }
-
-    if (nextProps.simulate !== false && nextProps.simulate !== this.props.simulate) {
-      this.onStartMatch()
-    }
-  }
-
-  onClear() {
-    this.setState({
-      ...defaultState
-    })
-  }
-
-  onRandomise() {
-    let wrestlers = this.props.allWrestlers
-    if (this.props.brand !== "") {
-      wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.props.brand)
-    }
-    this.setState({
-      wrestlers: randomiseWrestlers(wrestlers)
-    })
-  }
-
-  shouldResim() {
-    if (this.state.story.length > 0) {
-      this.setState({
-        story: [],
-      })
-    }
-  }
-
-  onStartMatch() {
-    if (this.state.wrestlers.length  > 1) {
-      let story = this.onSimulate()
-      this.setState({
-        story,
-      })
-    }
-  }
-
-  onSimulate() {
-    let story = simulateMatch(this.state.wrestlers, this.props.moves)
-    logMatch(this.props.dispatch, story)
-    return story
-  }
-
   onDrop = (id) => {
     let wrestlerId = id.wrestler,
       isAlreadyInMatch = this.state.wrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
 
     if (!isAlreadyInMatch) {
-      let wrestlers = this.state.wrestlers.slice(),
-        wrestler = this.props.allWrestlers.filter((wrestler) => wrestler.id === wrestlerId)[0]
-
-      wrestlers.push(wrestler)
-
-      this.setState({
-        wrestlers,
-      })
+      console.log("Match drop", "Dispatch", "resim")
 
       this.shouldResim()
     }
   }
 
   onRemoveWrestler(wrestlerToRemove) {
-    let wrestlerId = wrestlerToRemove.id,
-      wrestlers = this.state.wrestlers
-        .filter((wrestler) => wrestler.id !== wrestlerId)
-
-    this.setState({
-      wrestlers,
-    })
-
-    this.shouldResim()
+    console.log("Match on remove wrestlers", "Dispatch", "remove wrestler")
   }
 
   render() {
