@@ -64,9 +64,12 @@ class ShowPage extends React.Component {
   }
 
   onRandomiseMatches = () => {
-    console.log("no", this.props.wrestlers)
     this.props.dispatch(
-      showActions.randomiseShow(this.currentShow.id, this.props.wrestlers)
+      showActions.randomiseShow(
+        this.currentShow.id,
+        this.props.wrestlers,
+        numberOfMatches,
+      )
     )
   }
 

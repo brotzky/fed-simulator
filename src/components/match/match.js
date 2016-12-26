@@ -16,12 +16,14 @@ class Match extends React.Component {
     chosenWrestlers:  React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
     brand: React.PropTypes.string,
+    story: React.PropTypes.array,
   }
 
   static defaultProps = {
     chosenWrestlers: [],
     brand: "",
     matchIndex: 0,
+    story: [],
     onDropWrestler: () => {},
   }
 

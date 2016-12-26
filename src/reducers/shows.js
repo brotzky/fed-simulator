@@ -35,16 +35,14 @@ export default (state = defaultState, action) => {
       newState[index].brand = action.brand
       break
     case "RANDOMISE_SHOW":
-      console.log("random", action)
       newState.forEach((show, key) => {
         if (show.id === action.showId) {
-          console.log("show match!")
-          newState[key].matches.forEach((match, matchKey) => {
-            if (!newState[key].matches[matchKey].wrestlers) {
-              newState[key].matches[matchKey].wrestlers = []
-            }
-            newState[key].matches[matchKey].wrestlers = randomiseWrestlers(action.wrestlers)
+          let matches = new Array(action.numberOfMatches).fill({})
+          matches.map(match => {
+            match.wrestlers = randomiseWrestlers(action.wrestlers)
+            return match
           })
+          newState[key].matches = matches
         }
       })
       break
