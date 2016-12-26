@@ -3,6 +3,7 @@ import { randomiseWrestlers, simulateMatch } from "../helpers/match"
 import { getRandomInt } from "../helpers/math"
 
 const getAttendance = (min, max) => getRandomInt(min, max)
+const createEmptyMatches = () => Array.from({length: 12}).fill({})
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state)),
@@ -15,7 +16,7 @@ export default (state = defaultState, action) => {
         action.show.PPV.attendance.min,
         action.show.PPV.attendance.max,
       )
-      action.show.matches = Array.from({length: 12}).fill({})
+      action.show.matches = createEmptyMatches()
       newState.push(
         action.show
       )
@@ -48,7 +49,9 @@ export default (state = defaultState, action) => {
     case "SIMULATE_SHOW":
       index = getShowIndexById(action.showId)
       newState[index].matches.forEach((match, matchKey) => {
-        newState[index].matches[matchKey].story = simulateMatch(match.wrestlers, action.moves)
+        if (match.wrestlers.length > 1) {
+          newState[index].matches[matchKey].story = simulateMatch(match.wrestlers, action.moves)
+        }
       })
       break
     case "REMOVE_WRESTLER_FROM_MATCH":
@@ -70,7 +73,7 @@ export default (state = defaultState, action) => {
       break
     case "RESET_SHOW":
       index = getShowIndexById(action.showId)
-      newState[index].matches = []
+      newState[index].matches = createEmptyMatches()
       break
     case "RESET_SHOWS":
       newState = defaultState
