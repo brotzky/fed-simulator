@@ -3,6 +3,7 @@ import { Link } from "react-router"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
 import * as showActions from "../../actions/show"
+import "./stylesheets/shows"
 
 class ShowsPage extends React.Component {
 
@@ -41,12 +42,13 @@ class ShowsPage extends React.Component {
                 return (
                   <tr key={key}>
                     <td>
+                      <a className="show-on-parent-hover"
+                        onClick={() => this.onDeleteShow(show.id)}>
+                        <i className="fa fa-remove" aria-hidden="true"></i>&nbsp;
+                      </a>
                       <Link to={{pathname: 'show/', query: {id: show.id}}}>
                         {show.PPV.name}
                       </Link>
-                      <a onClick={() => this.onDeleteShow(show.id)}>
-                        Delete
-                      </a>
                     </td>
                     <td>{show.matches.length}</td>
                     <td>{show.attendance.toLocaleString()}</td>

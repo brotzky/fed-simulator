@@ -1,0 +1,8 @@
+.page.shows {
+  .show-on-parent-hover {
+    opacity: 0;
+  }
+  .table:hover .show-on-parent-hover {
+    opacity: 1;
+  }
+}
