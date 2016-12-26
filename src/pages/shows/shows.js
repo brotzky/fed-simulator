@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "react-router"
 import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import * as showActions from "../../actions/show"
+
 class ShowsPage extends React.Component {
 
   static propTypes = {
@@ -10,6 +12,12 @@ class ShowsPage extends React.Component {
 
   static contextTypes = {
     toSlug: React.PropTypes.func.isRequired,
+  }
+
+  onDeleteShow = (id) => {
+    this.props.dispatch(
+      showActions.deleteShow(id)
+    )
   }
 
   displayName = "ShowsPage"
@@ -33,9 +41,12 @@ class ShowsPage extends React.Component {
                 return (
                   <tr key={key}>
                     <td>
-                      <Link to={{ pathname: 'show/', query: { id: show.id } }}>
+                      <Link to={{pathname: 'show/', query: {id: show.id}}}>
                         {show.PPV.name}
                       </Link>
+                      <a onClick={() => this.onDeleteShow(show.id)}>
+                        Delete
+                      </a>
                     </td>
                     <td>{show.matches.length}</td>
                     <td>{show.attendance.toLocaleString()}</td>
