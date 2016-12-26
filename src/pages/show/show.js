@@ -47,7 +47,7 @@ class ShowPage extends React.Component {
         id: hashCode(Date()),
         brand: this.props.brands[0],
         PPV: this.props.ppvs[0],
-        matches: new Array(numberOfMatches).fill((1 / numberOfMatches)),
+        matches: [],
       }
       this.props.dispatch(
         showActions.createShow(currentShow)
@@ -87,19 +87,19 @@ class ShowPage extends React.Component {
 
   onDropWrestler = (matchIndex) => {
     this.props.dispatch(
-      showActions.addWrestlerToMatch(this.props.id, matchIndex, this.props.wrestlers)
+      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, this.props.wrestlers)
     )
   }
 
   onClearMatches = () => {
     this.props.dispatch(
-      showActions.resetShow(this.props.id)
+      showActions.resetShow(this.currentShow.id)
     )
   }
 
   onChangePPV = (PPV) => {
     this.props.dispatch(
-      showActions.selectPPVForShow(this.props.id, PPV)
+      showActions.selectPPVForShow(this.currentShow.id, PPV)
     )
     this.setState({
       showPPVs: false,

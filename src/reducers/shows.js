@@ -70,11 +70,11 @@ export default (state = defaultState, action) => {
       })
       break
     case "RESET_SHOW":
-      newState.map(show => {
+      newState.forEach((show, key) => {
+        console.log(action.showId)
         if (show.id === action.showId) {
-          show = defaultShow
+          newState[key].matches = []
         }
-        return show
       })
       break
     case "RESET_SHOWS":
