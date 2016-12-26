@@ -16,6 +16,10 @@
     "title": "Ranking"
   },
   {
+    "url": "shows",
+    "title": "Shows"
+  },
+  {
     "url": "show",
     "title": "Create a show"
   }

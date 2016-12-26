@@ -21,13 +21,13 @@ export default () => {
                callback(null, require("./pages/show/show").default)
              })
            }}
-         />
+       />
        </Route>
-       <Route path="show/:id">
+       <Route path="shows">
          <IndexRoute
            getComponent={(nextState, callback) => {
              require.ensure([], (require) => {
-               callback(null, require("./pages/show/show").default)
+               callback(null, require("./pages/shows/shows").default)
              })
            }}
          />
