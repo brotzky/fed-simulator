@@ -21,6 +21,7 @@ class ShowPage extends React.Component {
     ppvs: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
     shows: React.PropTypes.array.isRequired,
+    moves: React.PropTypes.array.isRequired,
   }
 
   static contextTypes = {
@@ -128,6 +129,7 @@ class ShowPage extends React.Component {
     if (!this.currentShow.brand) {
       return <div>Error</div>
     }
+    let lastMatchKey = this.currentShow.matches.length + 1
     return (
       <div className={`page show ${this.context.toSlug(this.currentShow.brand.name)}`}>
         <Helmet title="Create a Show" />
@@ -155,6 +157,7 @@ class ShowPage extends React.Component {
                   </div>
                   <hr />
                   <h4>
+                    {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
                     <div className="dropdown">
                       <p>
                         {this.currentShow.default
@@ -197,7 +200,8 @@ class ShowPage extends React.Component {
                   </li>
                 </ul>
                 {this.currentShow.matches.map((match, key) => {
-                  let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : []
+                  let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : [],
+                    story = match.story ? match.story : []
                   return (
                     <Match
                       key={key}
@@ -205,6 +209,7 @@ class ShowPage extends React.Component {
                       brand={this.currentShow.brand.name}
                       onDropWrestler={this.onDropWrestler}
                       chosenWrestlers={wrestlers}
+                      story={story}
                     />
                   )
                 })}
@@ -230,4 +235,5 @@ export default connect(state => ({
   ppvs: state.ppvs,
   wrestlers: state.wrestlers,
   shows: state.shows,
+  moves: state.moves,
 }))(ShowPage)

@@ -2,12 +2,16 @@ import defaultState from "./shows.default"
 import { randomiseWrestlers, simulateMatch } from "../helpers/match"
 import { getRandomInt } from "../helpers/math"
 
+const getAttendance = (min, max) => getRandomInt(min, max)
+
 export default (state = defaultState, action) => {
-  let newState = JSON.parse(JSON.stringify(state))
+  let newState = JSON.parse(JSON.stringify(state)),
+    index = 0
+  const getShowIndexById = (id) => newState.findIndex(show => show.id === id)
 
   switch (action.type) {
     case "CREATE_SHOW":
-      action.show.attendance = getRandomInt(
+      action.show.attendance = getAttendance(
         action.show.PPV.attendance.min,
         action.show.PPV.attendance.max,
       )
@@ -27,12 +31,11 @@ export default (state = defaultState, action) => {
       })
       break
     case "SELECT_PPV_FOR_SHOW":
-      newState.forEach((show, key) => {
-        newState[key].PPV = action.PPV
-      })
+      index = getShowIndexById(action.showId)
+      newState[index].PPV = action.PPV
       break
     case "SELECT_BRAND_FOR_SHOW":
-      let index = newState.findIndex(show => show.id === action.showId)
+      index = getShowIndexById(action.showId)
       newState[index].brand = action.brand
       break
     case "RANDOMISE_SHOW":
@@ -48,16 +51,14 @@ export default (state = defaultState, action) => {
       })
       break
     case "SIMULATE_SHOW":
-      let currentShow = newState.find(show => show.id === action.showId)
-
-      currentShow.story = simulateMatch(currentShow.wrestlers, action.moves)
+      index = getShowIndexById(action.showId)
+      newState[index].matches.forEach((match, matchKey) => {
+        newState[index].matches[matchKey].story = simulateMatch(match.wrestlers, action.moves)
+      })
       break
     case "REMOVE_WRESTLER_FROM_MATCH":
-      newState.forEach(show => {
-        if (show.id === action.showId) {
-          show.matches[action.matchIndex].wrestlers = show.matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestlerId)
-        }
-      })
+      index = getShowIndexById(action.showId)
+      newState[index].matches[action.matchIndex].wrestlers = show.matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestlerId)
       break
     case "ADD_WRESTLER_TO_MATCH":
       newState.map(show => {
@@ -73,12 +74,8 @@ export default (state = defaultState, action) => {
       })
       break
     case "RESET_SHOW":
-      newState.forEach((show, key) => {
-        console.log(action.showId)
-        if (show.id === action.showId) {
-          newState[key].matches = []
-        }
-      })
+      index = getShowIndexById(action.showId)
+      newState[index].matches = []
       break
     case "RESET_SHOWS":
       newState = defaultState
