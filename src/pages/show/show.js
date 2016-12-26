@@ -39,8 +39,6 @@ class ShowPage extends React.Component {
       currentShowId = this.props.location.query.id
     }
 
-    currentShowId = "7776969222"
-
     let currentShow = this.getShowById(this.props.shows, currentShowId)
 
     if (!currentShow || currentShow.length === 0) {

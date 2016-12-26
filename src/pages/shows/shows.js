@@ -24,6 +24,7 @@ class ShowsPage extends React.Component {
               <tr>
                 <td>Show</td>
                 <td># Matches</td>
+                <td>Attendance</td>
                 <td>Presented by</td>
               </tr>
             </thead>
@@ -37,6 +38,7 @@ class ShowsPage extends React.Component {
                       </Link>
                     </td>
                     <td>{show.matches.length}</td>
+                    <td>{show.attendance.toLocaleString()}</td>
                     <td>{show.brand.name}</td>
                   </tr>
                 )
