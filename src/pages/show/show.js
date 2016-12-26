@@ -95,7 +95,7 @@ class ShowPage extends React.Component {
 
   onRemoveWrestler = (wrestler, matchIndex) => {
     this.props.dispatch(
-      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler)
+      showActions.removeWrestlerFromMatch(this.currentShow.id, matchIndex, wrestler)
     )
   }
 
