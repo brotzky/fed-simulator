@@ -10,13 +10,14 @@ class Match extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    onDropWrestler: React.PropTypes.func,
     matchIndex: React.PropTypes.number,
     moves: React.PropTypes.array.isRequired,
     chosenWrestlers:  React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
     brand: React.PropTypes.string,
     story: React.PropTypes.array,
+    onRemoveWrestler: React.PropTypes.func,
+    onDropWrestler: React.PropTypes.func,
   }
 
   static defaultProps = {
@@ -25,6 +26,7 @@ class Match extends React.Component {
     matchIndex: 0,
     story: [],
     onDropWrestler: () => {},
+    onRemoveWrestler: () => {},
   }
 
   displayName = "Match"
@@ -38,8 +40,8 @@ class Match extends React.Component {
     }
   }
 
-  onRemoveWrestler(wrestlerToRemove) {
-    console.log("Match on remove wrestlers", wrestlerToRemove, "Dispatch", "remove wrestler")
+  onRemoveWrestler(wrestler) {
+    this.props.onRemoveWrestler(wrestler, this.props.matchIndex)
   }
 
   render() {

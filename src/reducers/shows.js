@@ -58,7 +58,7 @@ export default (state = defaultState, action) => {
       break
     case "REMOVE_WRESTLER_FROM_MATCH":
       index = getShowIndexById(action.showId)
-      newState[index].matches[action.matchIndex].wrestlers = show.matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestlerId)
+      newState[index].matches[action.matchIndex].wrestlers = newState[index].matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestlerId)
       break
     case "ADD_WRESTLER_TO_MATCH":
       newState.map(show => {

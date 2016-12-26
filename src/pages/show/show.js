@@ -93,6 +93,12 @@ class ShowPage extends React.Component {
     )
   }
 
+  onRemoveWrestler = (wrestler, matchIndex) => {
+    this.props.dispatch(
+      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler)
+    )
+  }
+
   onClearMatches = () => {
     this.props.dispatch(
       showActions.resetShow(this.currentShow.id)
@@ -164,7 +170,6 @@ class ShowPage extends React.Component {
                           ? "All brands"
                           : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                       </p>
-                      <p></p>
                       <ul className="dropdown__content">
                         {this.props.brands.map((brand, key) => {
                           return (
@@ -207,9 +212,10 @@ class ShowPage extends React.Component {
                       key={key}
                       matchIndex={key}
                       brand={this.currentShow.brand.name}
-                      onDropWrestler={this.onDropWrestler}
                       chosenWrestlers={wrestlers}
                       story={story}
+                      onDropWrestler={this.onDropWrestler}
+                      onRemoveWrestler={this.onRemoveWrestler}
                     />
                   )
                 })}
