@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from "redux"
 
 const storeEnhancer = compose(
   applyMiddleware(batch),
-  applyMiddleware(diffLogger),
+  // applyMiddleware(diffLogger),
   persistState(),
   reduxReset(),
   typeof window === "object" && typeof window.devToolsExtension !== "undefined"

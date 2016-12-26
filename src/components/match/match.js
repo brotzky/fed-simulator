@@ -31,7 +31,7 @@ class Match extends React.Component {
 
   onDrop = (id) => {
     let wrestlerId = id.wrestler,
-      isAlreadyInMatch = this.props.wrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
+      isAlreadyInMatch = this.props.chosenWrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
 
     if (!isAlreadyInMatch) {
       this.props.onDropWrestler(wrestlerId, this.props.matchIndex)

@@ -38,7 +38,7 @@ class ShowPage extends React.Component {
       currentShowId = this.props.location.query.id
     }
 
-    currentShowId = "7125068969"
+    currentShowId = "7776969222"
 
     let currentShow = this.getShowById(this.props.shows, currentShowId)
 
@@ -85,9 +85,10 @@ class ShowPage extends React.Component {
     })
   }
 
-  onDropWrestler = (matchIndex) => {
+  onDropWrestler = (wrestlerId, matchIndex) => {
+    let wrestler = this.props.wrestlers.find(wrestler => wrestler.id === wrestlerId)
     this.props.dispatch(
-      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, this.props.wrestlers)
+      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler)
     )
   }
 
@@ -155,7 +156,12 @@ class ShowPage extends React.Component {
                   <hr />
                   <h4>
                     <div className="dropdown">
-                      {this.currentShow.default ? "All brands" : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                      <p>
+                        {this.currentShow.default
+                          ? "All brands"
+                          : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                      </p>
+                      <p></p>
                       <ul className="dropdown__content">
                         {this.props.brands.map((brand, key) => {
                           return (
@@ -190,7 +196,7 @@ class ShowPage extends React.Component {
                     </a>
                   </li>
                 </ul>
-                {new Array(numberOfMatches).fill("").map((index, key) => {
+                {this.currentShow.matches.map((match, key) => {
                   let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : []
                   return (
                     <Match

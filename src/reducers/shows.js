@@ -25,6 +25,7 @@ export default (state = defaultState, action) => {
         }
         return show
       })
+      break
     case "SELECT_PPV_FOR_SHOW":
       newState.forEach((show, key) => {
         newState[key].PPV = action.PPV
@@ -59,14 +60,16 @@ export default (state = defaultState, action) => {
       })
       break
     case "ADD_WRESTLER_TO_MATCH":
-      newState.forEach(show => {
-        console.log(show.id, action.showId)
+      newState.map(show => {
         if (show.id === action.showId) {
-          console.log("shows the same")
+          if (!show.matches[action.matchIndex].wrestlers) {
+            show.matches[action.matchIndex].wrestlers = []
+          }
           show.matches[action.matchIndex].wrestlers.push(
             action.wrestler
           )
         }
+        return show
       })
       break
     case "RESET_SHOW":
