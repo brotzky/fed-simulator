@@ -15,6 +15,7 @@ export default (state = defaultState, action) => {
         action.show.PPV.attendance.min,
         action.show.PPV.attendance.max,
       )
+      action.show.matches = new Array(action.numberOfMatches).fill({ wrestlers: [] })
       newState.push(
         action.show
       )
@@ -39,16 +40,13 @@ export default (state = defaultState, action) => {
       newState[index].brand = action.brand
       break
     case "RANDOMISE_SHOW":
-      newState.forEach((show, key) => {
-        if (show.id === action.showId) {
-          let matches = new Array(action.numberOfMatches).fill({})
-          matches.map(match => {
-            match.wrestlers = randomiseWrestlers(action.wrestlers)
-            return match
-          })
-          newState[key].matches = matches
-        }
+      index = getShowIndexById(action.showId)
+      let matches = new Array(action.numberOfMatches).fill({})
+      matches.forEach((match, key) => {
+        matches[key].wrestlers = randomiseWrestlers(action.wrestlers)
       })
+
+      newState[index].matches = matches
       break
     case "SIMULATE_SHOW":
       index = getShowIndexById(action.showId)

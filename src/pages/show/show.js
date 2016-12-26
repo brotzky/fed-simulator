@@ -12,8 +12,6 @@ import { hashCode } from "../../helpers/hash"
 
 import "./stylesheets/show"
 
-const numberOfMatches = 12
-
 class ShowPage extends React.Component {
 
   static propTypes = {
@@ -54,20 +52,27 @@ class ShowPage extends React.Component {
     }
 
     this.currentShow = currentShow
-    // browserHistory.push(`/show/${currentShow.id}`)
-
   }
 
   getShowById(collection, id) {
     return collection.find(item => item.id === id)
   }
 
+  getWrestlersFilteredByBrand(brand) {
+    let wrestlers = this.props.wrestlers
+
+    if (!brand.default) {
+      wrestlers = wrestlers.filter(wrestler => wrestler.brand === brand.name)
+    }
+
+    return wrestlers
+  }
+
   onRandomiseMatches = () => {
     this.props.dispatch(
       showActions.randomiseShow(
         this.currentShow.id,
-        this.props.wrestlers,
-        numberOfMatches,
+        this.getWrestlersFilteredByBrand(this.currentShow.brand),
       )
     )
   }
@@ -125,15 +130,6 @@ class ShowPage extends React.Component {
   displayName = "ShowPage"
 
   render() {
-    let wrestlers = this.props.wrestlers
-    // // we're filtering by a brand
-    // if (this.state.brand.name !== "") {
-    //   wrestlers = wrestlers.filter(wrestler => wrestler.brand === this.state.brand.name)
-    // }
-    if (!this.currentShow.brand) {
-      return <div>Error</div>
-    }
-    let lastMatchKey = this.currentShow.matches.length + 1
     return (
       <div className={`page show ${this.context.toSlug(this.currentShow.brand.name)}`}>
         <Helmet title="Create a Show" />
@@ -164,7 +160,7 @@ class ShowPage extends React.Component {
                     {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
                     <div className="dropdown">
                       <p>
-                        {this.currentShow.default
+                        {this.currentShow.brand.default
                           ? "All brands"
                           : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                       </p>
@@ -224,7 +220,7 @@ class ShowPage extends React.Component {
                 name={this.currentShow.brand.name}
                 showBrandLogo={false}
                 byPassBrandFilter={true}
-                wrestlers={wrestlers}
+                wrestlers={this.getWrestlersFilteredByBrand(this.currentShow.brand)}
               />
             </div>
           </div>
