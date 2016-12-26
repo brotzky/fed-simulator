@@ -3,8 +3,6 @@ import { Link } from "react-router"
 import Head from "../head/head"
 import { connect } from "react-redux"
 import { StickyContainer } from "react-sticky"
-import "drag-drop-polyfill";
-import "drag-drop-polyfill/release/drag-drop-polyfill"
 import * as versionActions from "../../actions/version"
 import navigation from "./navigation"
 import logo from "./logo.png"
