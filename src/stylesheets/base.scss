@@ -58,13 +58,16 @@ a {
 }
 
 .legal {
-  padding: 5px 5px 5px 23px;
+  padding: 3rem;
   color: white;
   line-height: 2rem;
   background-color: #333;
 
   a {
     color: #ccc;
+  }
+  p {
+    margin: 1rem 0;
   }
 }
 
