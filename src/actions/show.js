@@ -21,6 +21,14 @@ export function updateShow(show) {
   }
 }
 
+export function selectDateForShow(showId, date) {
+  return {
+    type: types.SELECT_DATE_FOR_SHOW,
+    showId,
+    date,
+  }
+}
+
 export function simulateShow(showId, moves) {
   return {
     type: types.SIMULATE_SHOW,

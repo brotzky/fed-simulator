@@ -32,6 +32,10 @@ export default (state = defaultState, action) => {
         return show
       })
       break
+    case "SELECT_DATE_FOR_SHOW":
+      index = getShowIndexById(action.showId)
+      newState[index].date = action.date
+      break
     case "SELECT_PPV_FOR_SHOW":
       index = getShowIndexById(action.showId)
       newState[index].PPV = action.PPV
