@@ -1,12 +1,11 @@
 import React from "react"
-import { browserHistory } from 'react-router'
 import classNames from "classnames"
 import Match from "../../components/match/match"
 import Brand from "../../components/brand/brand"
 import Icon from "../../components/icon/icon"
 import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
-import DayPicker, { DateUtils } from "react-day-picker"
+import DayPicker from "react-day-picker"
 import { connect } from "react-redux"
 import * as showActions from "../../actions/show"
 import { hashCode } from "../../helpers/hash"
