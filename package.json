@@ -93,6 +93,7 @@
     "play-sound": "^1.1.1",
     "promise": "7.1.1",
     "react": "^15.2.1",
+    "react-day-picker": "^3.1.1",
     "react-dom": "^15.2.1",
     "react-drag-and-drop": "^2.1.0",
     "react-helmet": "^3.1.0",

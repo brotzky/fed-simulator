@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router"
 import Helmet from "react-helmet"
+import Icon from "../../components/icon/icon"
 import { connect } from "react-redux"
 import * as showActions from "../../actions/show"
 import "./stylesheets/shows"
@@ -31,10 +32,11 @@ class ShowsPage extends React.Component {
           <table className="table table-striped">
             <thead>
               <tr>
-                <td>Show</td>
-                <td># Matches</td>
-                <td>Attendance</td>
-                <td>Presented by</td>
+                <th>Show</th>
+                <th>Presented by</th>
+                <th>Date</th>
+                <th># Matches</th>
+                <th>Attendance</th>
               </tr>
             </thead>
             <tbody>
@@ -50,9 +52,10 @@ class ShowsPage extends React.Component {
                         {show.PPV.name}
                       </Link>
                     </td>
+                    <td><Icon name={show.brand.name} /></td>
+                    <td>{show.date}</td>
                     <td>{show.matches.length}</td>
                     <td>{show.attendance.toLocaleString()}</td>
-                    <td>{show.brand.name}</td>
                   </tr>
                 )
               })}

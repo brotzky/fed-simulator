@@ -6,10 +6,10 @@ import Brand from "../../components/brand/brand"
 import Icon from "../../components/icon/icon"
 import PPVs from "../../components/ppvs/ppvs"
 import Helmet from "react-helmet"
+import DayPicker, { DateUtils } from "react-day-picker"
 import { connect } from "react-redux"
 import * as showActions from "../../actions/show"
 import { hashCode } from "../../helpers/hash"
-
 import "./stylesheets/show"
 
 class ShowPage extends React.Component {
@@ -45,6 +45,7 @@ class ShowPage extends React.Component {
         brand: this.props.brands[0],
         PPV: this.props.ppvs[0],
         matches: [],
+        date: "",
       }
       this.props.dispatch(
         showActions.createShow(currentShow)
@@ -123,6 +124,12 @@ class ShowPage extends React.Component {
     )
   }
 
+  onDayClick = (event, date) => {
+    this.props.dispatch(
+      showActions.selectDateForShow(this.currentShow.id, date.toLocaleString())
+    )
+  }
+
   componentWillReceiveProps(nextProps) {
     this.currentShow = this.getShowById(nextProps.shows, this.currentShow.id)
   }
@@ -156,6 +163,12 @@ class ShowPage extends React.Component {
                     <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                   </div>
                   <hr />
+                  <div>
+                  <DayPicker
+                    selectedDays={day => this.currentShow.date.toLocaleString() === day.toLocaleString()}
+                    onDayClick={this.onDayClick.bind(this)}
+                  />
+                  </div>
                   <h4>
                     {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
                     <div className="dropdown">
