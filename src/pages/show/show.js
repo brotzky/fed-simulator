@@ -121,6 +121,11 @@ class ShowPage extends React.Component {
     this.setState({
       showPPVs: false,
     })
+    if (PPV.defaultBrand) {
+      this.onChangeBrand(
+        this.props.brands.find(brand => brand.name === PPV.defaultBrand)
+      )
+    }
   }
 
   onChangeBrand = (brand) => {

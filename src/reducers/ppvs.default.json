@@ -3,6 +3,7 @@
     "id": "44479042",
     "sequence": 0,
     "name": "Raw",
+    "defaultBrand": "Raw",
     "attendance": {
       "min": 12000,
       "max": 20000
@@ -12,6 +13,7 @@
     "id": "2440941013",
     "sequence": 0,
     "name": "205 Live",
+    "defaultBrand": "Raw",
     "attendance": {
       "min": 12000,
       "max": 18000
@@ -21,6 +23,7 @@
     "id": "44415794532",
     "sequence": 0,
     "name": "Smackdown Live",
+    "defaultBrand": "Smackdown Live",
     "attendance": {
       "min": 12000,
       "max": 18000
@@ -30,6 +33,7 @@
     "id": "494532",
     "sequence": 0,
     "name": "NXT",
+    "defaultBrand": "NXT",
     "attendance": {
       "min": 400,
       "max": 500
@@ -201,6 +205,7 @@
     "id": "-3315552350",
     "sequence": 0,
     "name": "NXT Live",
+    "defaultBrand": "NXT",
     "attendance": {
       "min": 2000,
       "max": 8000
@@ -210,6 +215,7 @@
     "id": "-2559365209",
     "sequence": 0,
     "name": "NXT Takeover London",
+    "defaultBrand": "NXT",
     "attendance": {
       "min": 10000,
       "max": 12000
@@ -219,6 +225,7 @@
     "id": "778173122",
     "sequence": 0,
     "name": "Nxt Takeover Toronto",
+    "defaultBrand": "NXT",
     "attendance": {
       "min": 10000,
       "max": 15000
@@ -228,6 +235,7 @@
     "id": "-3311236719",
     "sequence": 0,
     "name": "NXT Takeover",
+    "defaultBrand": "NXT",
     "attendance": {
       "min": 10000,
       "max": 12000
