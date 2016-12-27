@@ -53,7 +53,7 @@ export default (state = defaultState, action) => {
     case "SIMULATE_SHOW":
       index = getShowIndexById(action.showId)
       newState[index].matches.forEach((match, matchKey) => {
-        if (match.wrestlers.length > 1) {
+        if (match.wrestlers && match.wrestlers.length > 1) {
           newState[index].matches[matchKey].story = simulateMatch(match.wrestlers, action.moves)
         }
       })
