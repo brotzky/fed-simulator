@@ -42,6 +42,11 @@ class ShowsPage extends React.Component {
                 Reset Shows
               </a>
             </li>
+            <li className="navigation__item">
+              <Link to="show">
+                Create a show
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="inpage-content">

@@ -24,14 +24,6 @@ export default (state = defaultState, action) => {
     case "DELETE_SHOW":
       newState = newState.filter(show => show.id !== action.showId)
       break
-    case "UPDATE_SHOW":
-      newState.map(show => {
-        if (show.id === action.show.id) {
-          show = Object.assign(action.show, show)
-        }
-        return show
-      })
-      break
     case "SELECT_DATE_FOR_SHOW":
       index = getShowIndexById(action.showId)
       newState[index].date = action.date
@@ -43,6 +35,12 @@ export default (state = defaultState, action) => {
     case "SELECT_BRAND_FOR_SHOW":
       index = getShowIndexById(action.showId)
       newState[index].brand = action.brand
+      break
+    case "SELECT_WINNER_IN_MATCH":
+      index = getShowIndexById(action.showId)
+      newState[index].matches[action.matchIndex].wrestlers.forEach((wrestler, wrestlerKey) => {
+        newState[index].matches[action.matchIndex].wrestlers[wrestlerKey].winner = (wrestler.id === action.wrestler.id)
+      })
       break
     case "RANDOMISE_SHOW":
       index = getShowIndexById(action.showId)
@@ -61,6 +59,10 @@ export default (state = defaultState, action) => {
     case "REMOVE_WRESTLER_FROM_MATCH":
       index = getShowIndexById(action.showId)
       newState[index].matches[action.matchIndex].wrestlers = newState[index].matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestler.id)
+      if (newState[index].matches[action.matchIndex].wrestlers.length === 0) {
+        delete newState[index].matches[action.matchIndex]
+        newState[index].matches.concat({})
+      }
       break
     case "ADD_WRESTLER_TO_MATCH":
       newState.map(show => {
@@ -68,6 +70,7 @@ export default (state = defaultState, action) => {
           if (!show.matches[action.matchIndex].wrestlers) {
             show.matches[action.matchIndex].wrestlers = []
           }
+          action.wrestler.winner = false
           show.matches[action.matchIndex].wrestlers.push(
             action.wrestler
           )

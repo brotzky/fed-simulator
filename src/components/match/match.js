@@ -26,6 +26,7 @@ class Match extends React.Component {
     matchIndex: 0,
     story: [],
     onDropWrestler: () => {},
+    onSelectWinner: () => {},
     onRemoveWrestler: () => {},
   }
 
@@ -42,6 +43,10 @@ class Match extends React.Component {
 
   onRemoveWrestler(wrestler) {
     this.props.onRemoveWrestler(wrestler, this.props.matchIndex)
+  }
+
+  onSelectWinner(wrestler) {
+    this.props.onSelectWinner(wrestler, this.props.matchIndex)
   }
 
   render() {
@@ -67,7 +72,12 @@ class Match extends React.Component {
                         <span key={key}
                           className="match__name">
                           <span>
-                            {wrestler.name}
+                            <a onClick={() => this.onSelectWinner(wrestler)}>
+                              {wrestler.name}
+                              <If condition={wrestler.winner}>
+                                <i className="fa fa-star" aria-hidden="true"></i>
+                              </If>
+                            </a>
                           </span>
                           <sup>
                             {wrestler.rating}

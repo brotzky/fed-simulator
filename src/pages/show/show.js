@@ -97,6 +97,12 @@ class ShowPage extends React.Component {
     )
   }
 
+  onSelectWinner = (wrestler, matchIndex) => {
+    this.props.dispatch(
+      showActions.selectWinnerOfMatch(this.currentShow.id, matchIndex, wrestler)
+    )
+  }
+
   onRemoveWrestler = (wrestler, matchIndex) => {
     this.props.dispatch(
       showActions.removeWrestlerFromMatch(this.currentShow.id, matchIndex, wrestler)
@@ -223,6 +229,7 @@ class ShowPage extends React.Component {
                       story={story}
                       onDropWrestler={this.onDropWrestler}
                       onRemoveWrestler={this.onRemoveWrestler}
+                      onSelectWinner={this.onSelectWinner}
                     />
                   )
                 })}

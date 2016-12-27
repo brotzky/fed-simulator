@@ -14,13 +14,6 @@ export function deleteShow(showId) {
   }
 }
 
-export function updateShow(show) {
-  return {
-    type: types.UPDATE_SHOW,
-    show,
-  }
-}
-
 export function selectDateForShow(showId, date) {
   return {
     type: types.SELECT_DATE_FOR_SHOW,
@@ -49,6 +42,15 @@ export function removeWrestlerFromMatch(showId, matchIndex, wrestler) {
 export function addWrestlerToMatch(showId, matchIndex, wrestler) {
   return {
     type: types.ADD_WRESTLER_TO_MATCH,
+    showId,
+    matchIndex,
+    wrestler,
+  }
+}
+
+export function selectWinnerOfMatch(showId, matchIndex, wrestler) {
+  return {
+    type: types.SELECT_WINNER_IN_MATCH,
     showId,
     matchIndex,
     wrestler,
