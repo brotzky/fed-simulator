@@ -60,8 +60,7 @@ export default (state = defaultState, action) => {
       index = getShowIndexById(action.showId)
       newState[index].matches[action.matchIndex].wrestlers = newState[index].matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestler.id)
       if (newState[index].matches[action.matchIndex].wrestlers.length === 0) {
-        delete newState[index].matches[action.matchIndex]
-        newState[index].matches.concat({})
+        newState[index].matches[action.matchIndex] = {}
       }
       break
     case "ADD_WRESTLER_TO_MATCH":
