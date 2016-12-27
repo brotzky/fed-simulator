@@ -24,6 +24,15 @@ export class SimMatch {
     })
   }
 
+  getWinnerWeights(defaults) {
+    let index = this.wrestlers.findIndex(wrestler => wrestler.winner)
+    defaults.forEach((weight, key) => {
+      defaults[key] = 0
+    })
+    defaults[index] = 1
+    return defaults
+  }
+
   ringBell() {
     let lowest = this.wrestlers.sort((a, b) => a.damage > b.damage)[0],
       highest = this.wrestlers.sort((a, b) => a.damage < b.damage)[0],
@@ -32,28 +41,35 @@ export class SimMatch {
       lowestIndex = this.wrestlers.findIndex(wrestler => wrestler.id === lowestId),
       highestIndex = this.wrestlers.findIndex(wrestler => wrestler.id === highestId),
       attackersWeights = getWrestlersWeights(this.wrestlers.length),
-      highestAttackersPercentageGain =  getPercentageAmount(attackersWeights[lowestIndex], 20)
+      highestAttackersPercentageGain =  getPercentageAmount(attackersWeights[lowestIndex], 20),
+      foundWinner = false
 
-      if (lowest.damage !== highest.damage) {
-        attackersWeights[lowestIndex] = attackersWeights[lowestIndex] - highestAttackersPercentageGain
-        attackersWeights[highestIndex] = attackersWeights[highestIndex] + highestAttackersPercentageGain
-      }
-      // console.log(highestAttackersPercentageGain, attackersWeights[lowestIndex], attackersWeights[highestIndex])
-      // console.log("attackersWeightTotal", attackersWeights.reduce((sum, weight) => sum + weight), attackersWeights)
+    if (foundWinner = this.wrestlers.find(wrestler => wrestler.winner)) {
+      attackersWeights = this.getWinnerWeights(attackersWeights)
+    }
+
+    if (lowest.damage !== highest.damage) {
+      attackersWeights[lowestIndex] = attackersWeights[lowestIndex] - highestAttackersPercentageGain
+      attackersWeights[highestIndex] = attackersWeights[highestIndex] + highestAttackersPercentageGain
+    }
 
     // while the minimum damage done is stil above zero
     while(_minBy(this.wrestlers, "damage").damage > 0) {
-      // console.log("count check", this.wrestlers.length, attackersWeights.length)
-      let attacker = weighted.select(this.wrestlers, attackersWeights)
+      let attacker = weighted.select(this.wrestlers, attackersWeights),
+        defender
       this.finalAttacker = attacker
-      let defendersWeights = attackersWeights.slice()
-      defendersWeights = defendersWeights.filter((weight, key) => key !== highestIndex)
 
       let defenders = this.wrestlers.filter((wrestler) => wrestler.name !== attacker.name)
-      // console.log("defendersWeights", defendersWeights)
-      // console.log("count check", this.wrestlers, defenders.length, defendersWeights.length)
-      let defender = weighted.select(defenders, defendersWeights),
-      move =  weighted.select(this.moves, this.movesWeights)
+
+      if (defenders.length > 1) {
+        let defendersWeights = attackersWeights.slice()
+          defendersWeights = defendersWeights.filter((weight, key) => key !== highestIndex)
+        defender = weighted.select(defenders, defendersWeights)
+      } else {
+        defender = defenders[0]
+      }
+
+      let move = weighted.select(this.moves, this.movesWeights)
       this.hitMove(attacker, defender, move)
     }
     // loop done, now lets log the end

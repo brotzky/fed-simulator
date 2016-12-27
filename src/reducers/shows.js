@@ -39,7 +39,7 @@ export default (state = defaultState, action) => {
     case "SELECT_WINNER_IN_MATCH":
       index = getShowIndexById(action.showId)
       newState[index].matches[action.matchIndex].wrestlers.forEach((wrestler, wrestlerKey) => {
-        newState[index].matches[action.matchIndex].wrestlers[wrestlerKey].winner = (wrestler.id === action.wrestler.id)
+        newState[index].matches[action.matchIndex].wrestlers[wrestlerKey].winner = (wrestler.id === action.wrestler.id && !newState[index].matches[action.matchIndex].wrestlers[wrestlerKey].winner)
       })
       break
     case "RANDOMISE_SHOW":
