@@ -6,8 +6,6 @@ if (typeof Promise === 'undefined') {
   if (window) window.Promise = require('promise/lib/es6-extensions.js')
 }
 
-window.jQuery = require('jquery')
-
 if (!Array.prototype.includes) {
   Array.prototype.includes = function(searchElement) {
     'use strict'
