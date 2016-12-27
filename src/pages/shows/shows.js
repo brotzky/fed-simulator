@@ -22,12 +22,28 @@ class ShowsPage extends React.Component {
     )
   }
 
+  onClear = () => {
+    this.props.dispatch(
+      showActions.resetShows()
+    )
+  }
+
   displayName = "ShowsPage"
 
   render() {
     return (
       <div className="page shows">
         <Helmet title="Previous Shows" />
+        <div className="navigation navigation--secondary">
+          <ul className="navigation__list">
+            <li className="navigation__item">
+              <a onKeyPress={this.onClear}
+                onClick={this.onClear}>
+                Reset Shows
+              </a>
+            </li>
+          </ul>
+        </div>
         <div className="inpage-content">
           <table className="table table-striped">
             <thead>
