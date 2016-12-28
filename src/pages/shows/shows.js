@@ -47,6 +47,12 @@ class ShowsPage extends React.Component {
                 Create a show
               </Link>
             </li>
+            <li className="navigation__item">
+              <a download="shows.json"
+                href={`data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.props.shows))}`}>
+                Download an export
+              </a>
+            </li>
           </ul>
         </div>
         <div className="inpage-content">
