@@ -41,12 +41,7 @@ export class SimMatch {
       lowestIndex = this.wrestlers.findIndex(wrestler => wrestler.id === lowestId),
       highestIndex = this.wrestlers.findIndex(wrestler => wrestler.id === highestId),
       attackersWeights = getWrestlersWeights(this.wrestlers.length),
-      highestAttackersPercentageGain =  getPercentageAmount(attackersWeights[lowestIndex], 20),
-      foundWinner = false
-
-    if (foundWinner = this.wrestlers.find(wrestler => wrestler.winner)) {
-      attackersWeights = this.getWinnerWeights(attackersWeights)
-    }
+      highestAttackersPercentageGain =  getPercentageAmount(attackersWeights[lowestIndex], 20)
 
     if (lowest.damage !== highest.damage) {
       attackersWeights[lowestIndex] = attackersWeights[lowestIndex] - highestAttackersPercentageGain
@@ -98,9 +93,11 @@ export class SimMatch {
       potentialWinners = [
         _maxBy(this.wrestlers, "damage"),
         this.finalAttacker
-      ],
-      winner = weighted.select(potentialWinners, [0.2, 0.8]),
-      loser = _minBy(this.wrestlers, "damage"),
+      ]
+
+    let overwriteWinner = this.wrestlers.find(wrestler => wrestler.winner),
+      winner = overwriteWinner ? overwriteWinner : weighted.select(potentialWinners, [0.2, 0.8]),
+      loser = _minBy(this.wrestlers.filter(wrestler => !wrestler.winner), "damage"),
       losers = this.wrestlers.filter((wrestler) => wrestler.id !== winner.id)
     this.logAction("winner", {
       wrestlers: this.wrestlers,
