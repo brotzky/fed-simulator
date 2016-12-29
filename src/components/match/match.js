@@ -58,20 +58,14 @@ class Match extends React.Component {
   }
 
   render() {
-    let isValidMatch = this.props.chosenWrestlers.length > 0,
-      teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}]
+    let teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}]
     return (
       <div className="match">
         <div className="row">
           <div className={classNames(
             "col-xs-12",
             "match__inner",
-            { active :
-              isValidMatch,
-            },
-            {
-              "is-tag-match": this.props.isTagMatch,
-            }
+            { "is-tag-match": this.props.isTagMatch }
           )}>
             <If condition={this.props.story.length === 0}>
               <div className="match__teamtoggle">
@@ -93,41 +87,38 @@ class Match extends React.Component {
                   onDrop={this.onDrop}>
                   <div className={classNames(
                     "droparea",
-                    { inactive : this.props.story.length === 0 }
+                    { active : this.props.story.length > 0 },
+                    { inactive : this.props.story.length === 0 },
                   )}>
                     <If condition={teamWrestlers.length === 0}>
                       <span className="droparea__title">
                         Drop wrestlers here
                       </span>
                     </If>
-                    <Choose>
-                      <When condition={isValidMatch}>
-                        <div className="match__names">
-                          {teamWrestlers.map((wrestler, key) => {
-                            return (
-                              <span key={key}
-                                className="match__name">
-                                <span>
-                                  <a onClick={() => this.onSelectWinner(wrestler)}>
-                                    {wrestler.name}
-                                    <If condition={wrestler.winner}>
-                                      &nbsp;<i className="fa fa-star" aria-hidden="true"></i>
-                                    </If>
-                                  </a>
-                                </span>
-                                <sup>
-                                  {wrestler.rating}
-                                </sup>
-                                <span onClick={() => this.onRemoveWrestler(wrestler)}
-                                  className="remove">
-                                  &nbsp; <i className="fa fa-remove" aria-hidden="true"></i>
-                                </span>
-                              </span>
-                            )
-                          })}
-                        </div>
-                      </When>
-                    </Choose>
+                    <div className="match__names">
+                      {teamWrestlers.map((wrestler, key) => {
+                        return (
+                          <span key={key}
+                            className="match__name">
+                            <span>
+                              <a onClick={() => this.onSelectWinner(wrestler)}>
+                                {wrestler.name}
+                                <If condition={wrestler.winner}>
+                                  &nbsp;<i className="fa fa-star" aria-hidden="true"></i>
+                                </If>
+                              </a>
+                            </span>
+                            <sup>
+                              {wrestler.rating}
+                            </sup>
+                            <span onClick={() => this.onRemoveWrestler(wrestler)}
+                              className="remove">
+                              &nbsp; <i className="fa fa-remove" aria-hidden="true"></i>
+                            </span>
+                          </span>
+                        )
+                      })}
+                    </div>
                   </div>
                   <br />
                 </Droppable>
