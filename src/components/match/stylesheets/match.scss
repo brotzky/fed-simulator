@@ -11,6 +11,10 @@
     content: " & ";
   }
 
+  .is-tag-match .match__name:last-child::after {
+    content: " ";
+  }
+
   .fa-star {
     color: gold;
   }
