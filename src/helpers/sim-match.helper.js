@@ -52,13 +52,14 @@ export class SimMatch {
     while(_minBy(this.wrestlers, "damage").damage > 0) {
       let attacker = weighted.select(this.wrestlers, attackersWeights),
         defender
+
+      // just in case
       this.finalAttacker = attacker
 
-      let defenders = this.wrestlers.filter((wrestler) => wrestler.name !== attacker.name)
+      let defenders = this.wrestlers.filter((wrestler) => wrestler.id !== attacker.id && (wrestler.teamId == null || wrestler.teamId !== attacker.teamId) )
 
       if (defenders.length > 1) {
-        let defendersWeights = attackersWeights.slice()
-          defendersWeights = defendersWeights.filter((weight, key) => key !== highestIndex)
+        let defendersWeights = getWrestlersWeights(defenders.length)
         defender = weighted.select(defenders, defendersWeights)
       } else {
         defender = defenders[0]

@@ -75,11 +75,12 @@ class Match extends React.Component {
           )}>
             <p>
               <a onClick={() => this.onSetTagMatch()}>
-                {this.props.isTagMatch ? "Solo?": "Tag?"}
+                {this.props.isTagMatch ? "Solo?": "Teams?"}
               </a>
             </p>
             {teams.map((emptyObject, teamId) => {
-              console.log(teamId)
+              let teamWrestlers = this.props.chosenWrestlers
+                .filter(wrestler => wrestler.teamId === teamId || !this.props.isTagMatch)
               return (
                 <Droppable
                   key={teamId}
@@ -88,13 +89,16 @@ class Match extends React.Component {
                   ]}
                   data={this.props.isTagMatch ? teamId : false}
                   onDrop={this.onDrop}>
-                  <div className="droparea inactive">
+                  <div className="droparea">
+                    <If condition={teamWrestlers.length === 0}>
+                      <span className="droparea__title">
+                        Drop wrestlers here
+                      </span>
+                    </If>
                     <Choose>
                       <When condition={isValidMatch}>
                         <div className="match__names">
-                          {this.props.chosenWrestlers
-                            .filter(wrestler => wrestler.teamId === teamId || !this.props.isTagMatch)
-                            .map((wrestler, key) => {
+                          {teamWrestlers.map((wrestler, key) => {
                             return (
                               <span key={key}
                                 className="match__name">
@@ -119,9 +123,6 @@ class Match extends React.Component {
                         </div>
                       </When>
                     </Choose>
-                    <span className="droparea__title">
-                      Drop wrestlers here
-                    </span>
                   </div>
                   <br />
                 </Droppable>
