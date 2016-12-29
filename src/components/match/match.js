@@ -37,11 +37,10 @@ class Match extends React.Component {
 
   onDrop = (data, event) => {
     let wrestlerId = data.wrestler,
-      teamId = event.currentTarget.getAttribute("data"),
+      teamId = Number(event.currentTarget.getAttribute("data")),
       isAlreadyInMatch = this.props.chosenWrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
 
     if (!isAlreadyInMatch) {
-      console.log(wrestlerId, this.props.matchIndex, teamId)
       this.props.onDropWrestler(wrestlerId, this.props.matchIndex, teamId)
     }
   }
@@ -70,6 +69,9 @@ class Match extends React.Component {
             { active :
               isValidMatch,
             },
+            {
+              "is-tag-match": this.props.isTagMatch,
+            }
           )}>
             <p>
               <a onClick={() => this.onSetTagMatch()}>
@@ -91,7 +93,7 @@ class Match extends React.Component {
                       <When condition={isValidMatch}>
                         <div className="match__names">
                           {this.props.chosenWrestlers
-                            .filter(wrestler => wrestler.teamId == teamId || !this.props.isTagMatch)
+                            .filter(wrestler => wrestler.teamId === teamId || !this.props.isTagMatch)
                             .map((wrestler, key) => {
                             return (
                               <span key={key}

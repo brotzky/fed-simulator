@@ -7,6 +7,10 @@
   padding: 1rem;
   clear: both;
 
+  .is-tag-match .match__name::after {
+    content: " & ";
+  }
+
   .fa-star {
     color: gold;
   }
