@@ -73,11 +73,11 @@ class Match extends React.Component {
               "is-tag-match": this.props.isTagMatch,
             }
           )}>
-            <p>
+            <div className="match__teamtoggle">
               <a onClick={() => this.onSetTagMatch()}>
                 {this.props.isTagMatch ? "Solo?": "Teams?"}
               </a>
-            </p>
+            </div>
             {teams.map((emptyObject, teamId) => {
               let teamWrestlers = this.props.chosenWrestlers
                 .filter(wrestler => wrestler.teamId === teamId || !this.props.isTagMatch)

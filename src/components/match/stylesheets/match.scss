@@ -35,6 +35,13 @@
     display: inline-block;
   }
 
+  .match__teamtoggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+  }
+
   &__names {
     font-size: 2rem;
     font-weight: 700;
