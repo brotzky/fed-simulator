@@ -1,5 +1,7 @@
 #Universe SIM Manager
 
+[![CircleCI](https://circleci.com/gh/azz0r/wwe-draft-generator.svg?style=svg)](https://circleci.com/gh/azz0r/wwe-draft-generator)
+
 ### [View a demo here](https://www.wwesim.com)
 
 ## 📕 Index
