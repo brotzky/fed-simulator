@@ -19,6 +19,13 @@ or
 yarn
 ```
 
+
+### Features
+* PPV, moves, wrestlers, brands, shows, championships collections
+* Create a show
+* Drag and drop wrestlers onto relevant targets (championships, matches, brands)
+* Select who wins a match
+
 ### 🚀 <a name="launching">Launching</a>
 * Development ```npm run start```
 * Build  ```npm run build```
