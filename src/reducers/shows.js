@@ -3,7 +3,7 @@ import { randomiseWrestlers, simulateMatch } from "../helpers/match"
 import { getRandomInt } from "../helpers/math"
 
 const getAttendance = (min, max) => getRandomInt(min, max)
-const createEmptyMatches = () => Array.from({length: 12}).fill({})
+const createEmptyMatches = () => Array.from({length: 12}).fill({isTagMatch: false})
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state)),
@@ -76,6 +76,10 @@ export default (state = defaultState, action) => {
         }
         return show
       })
+      break
+    case "SET_TAG_MATCH":
+      index = getShowIndexById(action.showId)
+      newState[index].matches[action.matchIndex].isTagMatch = action.isTagMatch
       break
     case "RESET_SHOW":
       index = getShowIndexById(action.showId)

@@ -108,6 +108,12 @@ class ShowPage extends React.Component {
     )
   }
 
+  onSetTagMatch = (isTagMatch, matchIndex) => {
+    this.props.dispatch(
+      showActions.setTagMatch(this.currentShow.id, isTagMatch, matchIndex)
+    )
+  }
+
   onClearMatches = () => {
     this.props.dispatch(
       showActions.resetShow(this.currentShow.id)
@@ -227,10 +233,12 @@ class ShowPage extends React.Component {
                   return (
                     <Match
                       key={key}
+                      isTagMatch={match.isTagMatch}
                       matchIndex={key}
                       brand={this.currentShow.brand.name}
                       chosenWrestlers={wrestlers}
                       story={story}
+                      onSetTagMatch={this.onSetTagMatch}
                       onDropWrestler={this.onDropWrestler}
                       onRemoveWrestler={this.onRemoveWrestler}
                       onSelectWinner={this.onSelectWinner}

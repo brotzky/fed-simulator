@@ -3,7 +3,6 @@ import classNames from "classnames"
 import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
 import Story from "../story/story"
-import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import "./stylesheets/match"
 
 class Match extends React.Component {
@@ -12,12 +11,14 @@ class Match extends React.Component {
     dispatch: React.PropTypes.func.isRequired,
     matchIndex: React.PropTypes.number,
     moves: React.PropTypes.array.isRequired,
+    isTagMatch: React.PropTypes.bool.isRequired,
     chosenWrestlers:  React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
     brand: React.PropTypes.string,
     story: React.PropTypes.array,
     onRemoveWrestler: React.PropTypes.func,
     onDropWrestler: React.PropTypes.func,
+    onSetTagMatch: React.PropTypes.func,
   }
 
   static defaultProps = {
@@ -25,9 +26,11 @@ class Match extends React.Component {
     brand: "",
     matchIndex: 0,
     story: [],
+    isTagMatch: false,
     onDropWrestler: () => {},
     onSelectWinner: () => {},
     onRemoveWrestler: () => {},
+    onSetTagMatch: () => {},
   }
 
   displayName = "Match"
@@ -49,21 +52,27 @@ class Match extends React.Component {
     this.props.onSelectWinner(wrestler, this.props.matchIndex)
   }
 
+  onSetTagMatch() {
+    this.props.onSetTagMatch(!this.props.isTagMatch, this.props.matchIndex)
+  }
+
   render() {
     let isValidMatch = this.props.chosenWrestlers.length > 0
     return (
       <div className="match">
         <div className="row">
-          <Droppable
-            types={[
-              "wrestler",
-            ]}
-            onDrop={this.onDrop}>
             <div className={classNames(
               "col-xs-12",
               "match__inner",
-              { active : isValidMatch },
+              { active :
+                isValidMatch,
+              },
             )}>
+              <p>
+                <a onClick={() => this.onSetTagMatch()}>
+                  {this.props.isTagMatch ? "Solo?": "Tag?"}
+                </a>
+              </p>
               <Choose>
                 <When condition={isValidMatch}>
                   <div className="match__names">
@@ -100,15 +109,18 @@ class Match extends React.Component {
                   </If>
                 </When>
               </Choose>
-              <If condition={this.props.chosenWrestlers.length < 2}>
+              <Droppable
+                types={[
+                  "wrestler",
+                ]}
+                onDrop={this.onDrop}>
                 <div className="droparea inactive">
                   <span className="droparea__title">
                     Drop wrestlers here
                   </span>
                 </div>
-              </If>
+              </Droppable>
             </div>
-          </Droppable>
           </div>
         </div>
     )

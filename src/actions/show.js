@@ -47,6 +47,14 @@ export function addWrestlerToMatch(showId, matchIndex, wrestler) {
     wrestler,
   }
 }
+export function setTagMatch(showId, isTagMatch, matchIndex) {
+  return {
+    type: types.SET_TAG_MATCH,
+    showId,
+    matchIndex,
+    isTagMatch,
+  }
+}
 
 export function selectWinnerOfMatch(showId, matchIndex, wrestler) {
   return {
