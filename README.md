@@ -1,6 +1,7 @@
-![WWE Draft Generator](https://github.com/azz0r/wwe-draft-generator/blob/master/src/imgs/loading.gif)
+#Universe SIM Manager
 
-[View a demo here](https://www.wwesim.com)
+### [View a demo here](https://www.wwesim.com)
+
 ## 📕 Index
 * [Installing](#installing)
 * [Features](#features)
