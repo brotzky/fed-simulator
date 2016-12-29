@@ -89,10 +89,10 @@ class ShowPage extends React.Component {
     })
   }
 
-  onDropWrestler = (wrestlerId, matchIndex) => {
+  onDropWrestler = (wrestlerId, matchIndex, showId = false) => {
     let wrestler = this.props.wrestlers.find(wrestler => wrestler.id === wrestlerId)
     this.props.dispatch(
-      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler)
+      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler, showId)
     )
   }
 

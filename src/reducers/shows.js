@@ -70,6 +70,7 @@ export default (state = defaultState, action) => {
             show.matches[action.matchIndex].wrestlers = []
           }
           action.wrestler.winner = false
+          action.wrestler.teamId = action.teamId
           show.matches[action.matchIndex].wrestlers.push(
             action.wrestler
           )
@@ -79,6 +80,7 @@ export default (state = defaultState, action) => {
       break
     case "SET_TAG_MATCH":
       index = getShowIndexById(action.showId)
+      newState[index].matches[action.matchIndex].wrestlers = []
       newState[index].matches[action.matchIndex].isTagMatch = action.isTagMatch
       break
     case "RESET_SHOW":

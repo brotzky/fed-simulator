@@ -35,12 +35,14 @@ class Match extends React.Component {
 
   displayName = "Match"
 
-  onDrop = (id) => {
-    let wrestlerId = id.wrestler,
+  onDrop = (data, event) => {
+    let wrestlerId = data.wrestler,
+      teamId = event.currentTarget.getAttribute("data"),
       isAlreadyInMatch = this.props.chosenWrestlers.map(wrestler => wrestler.id).includes(wrestlerId)
 
     if (!isAlreadyInMatch) {
-      this.props.onDropWrestler(wrestlerId, this.props.matchIndex)
+      console.log(wrestlerId, this.props.matchIndex, teamId)
+      this.props.onDropWrestler(wrestlerId, this.props.matchIndex, teamId)
     }
   }
 
@@ -57,72 +59,83 @@ class Match extends React.Component {
   }
 
   render() {
-    let isValidMatch = this.props.chosenWrestlers.length > 0
+    let isValidMatch = this.props.chosenWrestlers.length > 0,
+      teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}]
     return (
       <div className="match">
         <div className="row">
-            <div className={classNames(
-              "col-xs-12",
-              "match__inner",
-              { active :
-                isValidMatch,
-              },
-            )}>
-              <p>
-                <a onClick={() => this.onSetTagMatch()}>
-                  {this.props.isTagMatch ? "Solo?": "Tag?"}
-                </a>
-              </p>
-              <Choose>
-                <When condition={isValidMatch}>
-                  <div className="match__names">
-                    {this.props.chosenWrestlers.map((wrestler, key) => {
-                      return (
-                        <span key={key}
-                          className="match__name">
-                          <span>
-                            <a onClick={() => this.onSelectWinner(wrestler)}>
-                              {wrestler.name}
-                              <If condition={wrestler.winner}>
-                                <i className="fa fa-star" aria-hidden="true"></i>
-                              </If>
-                            </a>
-                          </span>
-                          <sup>
-                            {wrestler.rating}
-                          </sup>
-                          <span onClick={() => this.onRemoveWrestler(wrestler)}
-                            className="remove">
-                            &nbsp; <i className="fa fa-remove" aria-hidden="true"></i>
-                          </span>
-                        </span>
-                      )
-                    })}
+          <div className={classNames(
+            "col-xs-12",
+            "match__inner",
+            { active :
+              isValidMatch,
+            },
+          )}>
+            <p>
+              <a onClick={() => this.onSetTagMatch()}>
+                {this.props.isTagMatch ? "Solo?": "Tag?"}
+              </a>
+            </p>
+            {teams.map((emptyObject, teamId) => {
+              console.log(teamId)
+              return (
+                <Droppable
+                  key={teamId}
+                  types={[
+                    "wrestler",
+                  ]}
+                  data={this.props.isTagMatch ? teamId : false}
+                  onDrop={this.onDrop}>
+                  <div className="droparea inactive">
+                    <Choose>
+                      <When condition={isValidMatch}>
+                        <div className="match__names">
+                          {this.props.chosenWrestlers
+                            .filter(wrestler => wrestler.teamId == teamId || !this.props.isTagMatch)
+                            .map((wrestler, key) => {
+                            return (
+                              <span key={key}
+                                className="match__name">
+                                <span>
+                                  <a onClick={() => this.onSelectWinner(wrestler)}>
+                                    {wrestler.name}
+                                    <If condition={wrestler.winner}>
+                                      <i className="fa fa-star" aria-hidden="true"></i>
+                                    </If>
+                                  </a>
+                                </span>
+                                <sup>
+                                  {wrestler.rating}
+                                </sup>
+                                <span onClick={() => this.onRemoveWrestler(wrestler)}
+                                  className="remove">
+                                  &nbsp; <i className="fa fa-remove" aria-hidden="true"></i>
+                                </span>
+                              </span>
+                            )
+                          })}
+                        </div>
+                      </When>
+                    </Choose>
+                    <span className="droparea__title">
+                      Drop wrestlers here
+                    </span>
                   </div>
-                  <If condition={this.props.story.length > 0}>
-                    <div className="statistic">
-                      <Story
-                        collection={this.props.story}
-                        wrestlers={this.props.chosenWrestlers}
-                      />
-                    </div>
-                  </If>
-                </When>
-              </Choose>
-              <Droppable
-                types={[
-                  "wrestler",
-                ]}
-                onDrop={this.onDrop}>
-                <div className="droparea inactive">
-                  <span className="droparea__title">
-                    Drop wrestlers here
-                  </span>
-                </div>
-              </Droppable>
-            </div>
+                  <br />
+                </Droppable>
+              )
+            })}
           </div>
         </div>
+        <If condition={this.props.story.length > 0}>
+          <div className="statistic">
+            <Story
+              collection={this.props.story}
+              wrestlers={this.props.chosenWrestlers}
+            />
+          </div>
+        </If>
+      </div>
     )
   }
 }
