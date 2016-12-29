@@ -7,13 +7,21 @@
   padding: 1rem;
   clear: both;
 
-  .fa-star {
-    color: gold;
-  }
-
-  .inactive {
+  & .inactive {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #eee;
+  }
+
+  .is-tag-match .match__name::after {
+    content: " & ";
+  }
+
+  .is-tag-match .match__name:last-child::after {
+    content: " ";
+  }
+
+  .fa-star {
+    color: gold;
   }
 
   .remove {
@@ -30,6 +38,13 @@
 
   &:hover .remove {
     display: inline-block;
+  }
+
+  .match__teamtoggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
   }
 
   &__names {

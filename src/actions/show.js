@@ -39,12 +39,21 @@ export function removeWrestlerFromMatch(showId, matchIndex, wrestler) {
   }
 }
 
-export function addWrestlerToMatch(showId, matchIndex, wrestler) {
+export function addWrestlerToMatch(showId, matchIndex, wrestler, teamId = null) {
   return {
     type: types.ADD_WRESTLER_TO_MATCH,
     showId,
     matchIndex,
     wrestler,
+    teamId,
+  }
+}
+export function setTagMatch(showId, isTagMatch, matchIndex) {
+  return {
+    type: types.SET_TAG_MATCH,
+    showId,
+    matchIndex,
+    isTagMatch,
   }
 }
 

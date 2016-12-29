@@ -89,10 +89,10 @@ class ShowPage extends React.Component {
     })
   }
 
-  onDropWrestler = (wrestlerId, matchIndex) => {
+  onDropWrestler = (wrestlerId, matchIndex, showId = false) => {
     let wrestler = this.props.wrestlers.find(wrestler => wrestler.id === wrestlerId)
     this.props.dispatch(
-      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler)
+      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler, showId)
     )
   }
 
@@ -105,6 +105,12 @@ class ShowPage extends React.Component {
   onRemoveWrestler = (wrestler, matchIndex) => {
     this.props.dispatch(
       showActions.removeWrestlerFromMatch(this.currentShow.id, matchIndex, wrestler)
+    )
+  }
+
+  onSetTagMatch = (isTagMatch, matchIndex) => {
+    this.props.dispatch(
+      showActions.setTagMatch(this.currentShow.id, isTagMatch, matchIndex)
     )
   }
 
@@ -227,10 +233,12 @@ class ShowPage extends React.Component {
                   return (
                     <Match
                       key={key}
+                      isTagMatch={match.isTagMatch}
                       matchIndex={key}
                       brand={this.currentShow.brand.name}
                       chosenWrestlers={wrestlers}
                       story={story}
+                      onSetTagMatch={this.onSetTagMatch}
                       onDropWrestler={this.onDropWrestler}
                       onRemoveWrestler={this.onRemoveWrestler}
                       onSelectWinner={this.onSelectWinner}
