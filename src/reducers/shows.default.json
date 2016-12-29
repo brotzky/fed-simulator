@@ -65,6 +65,7 @@
 			"winner": false
 		}]
 	}, {
+		"isTagMatch": true,
 		"wrestlers": [{
 			"id": "2014951565",
 			"name": "Cesaro",
@@ -73,7 +74,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}, {
 			"id": "3722067034",
 			"name": "Sheamus",
@@ -82,7 +84,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": true
+			"winner": true,
+			"teamId": 0
 		}, {
 			"id": "64180485",
 			"name": "Big E",
@@ -91,7 +94,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 1
 		}, {
 			"id": "657661680",
 			"name": "Kofi Kingston",
@@ -100,7 +104,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 1
 		}]
 	}, {
 		"wrestlers": [{
@@ -283,6 +288,7 @@
 			"winner": false
 		}]
 	}, {
+		"isTagMatch": true,
 		"wrestlers": [{
 			"id": "2586453735",
 			"name": "Bray Wyatt",
@@ -291,7 +297,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 1
 		}, {
 			"id": "7624081956",
 			"name": "Randy Orton",
@@ -300,7 +307,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": true
+			"winner": true,
+			"teamId": 1
 		}, {
 			"id": "78946788",
 			"name": "Rhyno",
@@ -309,7 +317,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}, {
 			"id": "-4109708575",
 			"name": "Heath Slater",
@@ -318,9 +327,11 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}]
 	}, {
+		"isTagMatch": true,
 		"wrestlers": [{
 			"id": "6680692897",
 			"name": "Apollo Crews",
@@ -329,7 +340,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": true
+			"winner": true,
+			"teamId": 1
 		}, {
 			"id": "5668448465",
 			"name": "Mojo Rawley",
@@ -338,7 +350,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 1
 		}, {
 			"id": "-1822027047",
 			"name": "Zack Ryder",
@@ -347,7 +360,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 1
 		}, {
 			"id": "1811416937",
 			"name": "Chad Gable",
@@ -356,7 +370,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 1
 		}, {
 			"id": "-6731051095",
 			"name": "Jason Jordan",
@@ -365,7 +380,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": true,
+			"teamId": 1
 		}, {
 			"id": "2431002965",
 			"name": "Curt Hawkins",
@@ -374,7 +390,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}, {
 			"id": "-2041883865",
 			"name": "Konnor",
@@ -383,7 +400,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}, {
 			"id": "-1732587937",
 			"name": "Viktor",
@@ -392,7 +410,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}, {
 			"id": "2578470407",
 			"name": "Simon Gotch",
@@ -401,7 +420,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}, {
 			"id": "-157323275",
 			"name": "Aiden English",
@@ -410,7 +430,8 @@
 			"male": true,
 			"wins": 0,
 			"losses": 0,
-			"winner": false
+			"winner": false,
+			"teamId": 0
 		}]
 	}, {
 		"wrestlers": [{
