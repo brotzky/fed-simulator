@@ -80,8 +80,11 @@ export default (state = defaultState, action) => {
       break
     case "SET_TAG_MATCH":
       index = getShowIndexById(action.showId)
-      newState[index].matches[action.matchIndex].wrestlers = []
-      newState[index].matches[action.matchIndex].isTagMatch = action.isTagMatch
+      newState[index].matches[action.matchIndex] = {
+        wrestlers: [],
+        isTagMatch: action.isTagMatch,
+        story: [],
+      }
       break
     case "RESET_SHOW":
       index = getShowIndexById(action.showId)
