@@ -73,11 +73,13 @@ class Match extends React.Component {
               "is-tag-match": this.props.isTagMatch,
             }
           )}>
-            <div className="match__teamtoggle">
-              <a onClick={() => this.onSetTagMatch()}>
-                {this.props.isTagMatch ? "Solo?": "Teams?"}
-              </a>
-            </div>
+            <If condition={this.props.story.length === 0}>
+              <div className="match__teamtoggle">
+                <a onClick={() => this.onSetTagMatch()}>
+                  {this.props.isTagMatch ? "Solo?": "Teams?"}
+                </a>
+              </div>
+            </If>
             {teams.map((emptyObject, teamId) => {
               let teamWrestlers = this.props.chosenWrestlers
                 .filter(wrestler => wrestler.teamId === teamId || !this.props.isTagMatch)
@@ -89,7 +91,10 @@ class Match extends React.Component {
                   ]}
                   data={this.props.isTagMatch ? teamId : false}
                   onDrop={this.onDrop}>
-                  <div className="droparea">
+                  <div className={classNames(
+                    "droparea",
+                    { inactive : this.props.story.length === 0 }
+                  )}>
                     <If condition={teamWrestlers.length === 0}>
                       <span className="droparea__title">
                         Drop wrestlers here
@@ -106,7 +111,7 @@ class Match extends React.Component {
                                   <a onClick={() => this.onSelectWinner(wrestler)}>
                                     {wrestler.name}
                                     <If condition={wrestler.winner}>
-                                      <i className="fa fa-star" aria-hidden="true"></i>
+                                      &nbsp;<i className="fa fa-star" aria-hidden="true"></i>
                                     </If>
                                   </a>
                                 </span>

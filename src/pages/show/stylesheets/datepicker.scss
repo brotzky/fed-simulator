@@ -1,12 +1,16 @@
 /* DayPicker styles */
 
 .DayPicker {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
   padding: 1rem 0;
   user-select: none;
+}
+
+.ppvs__current:hover .DayPicker {
+  display: flex;
 }
 
 .DayPicker-Month {
