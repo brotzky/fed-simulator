@@ -50,6 +50,7 @@ export default (state = defaultState, action) => {
     case "RANDOMISE_SHOW":
       index = getShowIndexById(action.showId)
       newState[index].matches.forEach((match, key) => {
+        newState[index].matches[key].story = []
         newState[index].matches[key].isTagMatch = weighted.select(tag.options, tag.weights)
         newState[index].matches[key].wrestlers = randomiseWrestlers({
           wrestlers: action.wrestlers,
