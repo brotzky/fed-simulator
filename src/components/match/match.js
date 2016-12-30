@@ -4,6 +4,8 @@ import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
 import Story from "../story/story"
 import "./stylesheets/match"
+import soloIMG from "./solo.png"
+import teamsIMG from "./teams.png"
 
 class Match extends React.Component {
 
@@ -70,7 +72,7 @@ class Match extends React.Component {
             <If condition={this.props.story.length === 0}>
               <div className="match__teamtoggle">
                 <a onClick={() => this.onSetTagMatch()}>
-                  {this.props.isTagMatch ? "Solo?": "Teams?"}
+                  <img src={this.props.isTagMatch ? teamsIMG : soloIMG} />
                 </a>
               </div>
             </If>
@@ -83,23 +85,25 @@ class Match extends React.Component {
                   types={[
                     "wrestler",
                   ]}
+                  className={classNames({ "col-xs-6": this.props.isTagMatch })}
                   data={this.props.isTagMatch ? teamId : false}
                   onDrop={this.onDrop}>
                   <div className={classNames(
                     "droparea",
+                    { "droparea--team": this.props.isTagMatch },
                     { active : this.props.story.length > 0 },
                     { inactive : this.props.story.length === 0 },
                   )}>
                     <If condition={teamWrestlers.length === 0}>
                       <span className="droparea__title">
-                        Drop wrestlers here
+
                       </span>
                     </If>
                     <div className="match__names">
                       {teamWrestlers.map((wrestler, key) => {
                         return (
                           <span key={key}
-                            className="match__name">
+                            className="match__name truncate">
                             <span>
                               <a onClick={() => this.onSelectWinner(wrestler)}>
                                 {wrestler.name}

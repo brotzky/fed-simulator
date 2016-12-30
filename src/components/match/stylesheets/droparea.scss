@@ -1,22 +1,25 @@
 .droparea {
-  margin: .5rem;
   padding: 2rem;
-  text-align: center;
   position: relative;
+  text-align: center;
 
   &__title {
-    position: absolute;
-    top: 1rem;
-    left: 0;
     bottom: 0;
-    right: 0;
-    z-index: -1;
-    overflow: hidden;
     color: #DADADB;
     font-size: 1.5rem;
+    left: 0;
+    position: absolute;
+    right: 0;
+    overflow: hidden;
     letter-spacing: 1.5rem;
     text-transform: uppercase;
+    top: 1rem;
     word-spacing: 4rem;
+    z-index: -1;
+
+    &::before {
+      content: "Drop wrestlers here";
+    }
 
     @include breakpoint(xs) {
       font-size: 1.5rem;
@@ -30,4 +33,12 @@
     margin: .2rem;
     padding: 1rem;
   }
+}
+
+.droparea--team .droparea__title::before {
+  content:  "Team";
+}
+
+.droparea--team.active .droparea__title::before {
+  content:  "";
 }
