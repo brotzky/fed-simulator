@@ -22,8 +22,6 @@
 			"brand": "Raw",
 			"rating": 96,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}, {
 			"id": "-386269853",
@@ -31,8 +29,6 @@
 			"brand": "Raw",
 			"rating": 90,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}]
 	}, {
@@ -42,8 +38,6 @@
 			"brand": "Raw",
 			"rating": 77,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}, {
 			"id": "-191335239",
@@ -51,8 +45,6 @@
 			"brand": "Raw",
 			"rating": 74,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "-1017553258",
@@ -60,8 +52,6 @@
 			"brand": "Raw",
 			"rating": 79,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}, {
@@ -72,8 +62,6 @@
 			"brand": "Raw",
 			"rating": 88,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}, {
@@ -82,8 +70,6 @@
 			"brand": "Raw",
 			"rating": 85,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true,
 			"teamId": 0
 		}, {
@@ -92,8 +78,6 @@
 			"brand": "Raw",
 			"rating": 85,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 1
 		}, {
@@ -102,8 +86,6 @@
 			"brand": "Raw",
 			"rating": 86,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 1
 		}]
@@ -114,8 +96,6 @@
 			"brand": "Raw",
 			"rating": 90,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}, {
 			"id": "2846058098",
@@ -123,8 +103,6 @@
 			"brand": "Raw",
 			"rating": 89,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}]
 	}, {
@@ -134,8 +112,6 @@
 			"brand": "Raw",
 			"rating": 96,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "-5894134289",
@@ -143,8 +119,6 @@
 			"brand": "Raw",
 			"rating": 89,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}, {
@@ -154,8 +128,6 @@
 			"brand": "Raw",
 			"rating": 86,
 			"male": false,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}, {
 			"id": "-716287028",
@@ -163,8 +135,6 @@
 			"brand": "Raw",
 			"rating": 98,
 			"male": false,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}]
 	}, {
@@ -174,8 +144,6 @@
 			"brand": "Raw",
 			"rating": 85,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "-4382299651",
@@ -183,12 +151,10 @@
 			"brand": "Raw",
 			"rating": 84,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}],
-	"date": "18/12/2016, 12:00:00",
+	"date": "18/12/2016",
 	"attendance": 12564
 }, {
 	"id": "-13149787906",
@@ -214,8 +180,6 @@
 			"brand": "Smackdown Live",
 			"rating": 99,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "953902675",
@@ -223,8 +187,6 @@
 			"brand": "Smackdown Live",
 			"rating": 91,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}, {
@@ -234,8 +196,6 @@
 			"brand": "Smackdown Live",
 			"rating": 80,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "723309531",
@@ -243,8 +203,6 @@
 			"brand": "Smackdown Live",
 			"rating": 79,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}, {
@@ -254,8 +212,6 @@
 			"brand": "Smackdown Live",
 			"rating": 86,
 			"male": false,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "-1051123788",
@@ -263,8 +219,6 @@
 			"brand": "Smackdown Live",
 			"rating": 85,
 			"male": false,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}, {
@@ -274,8 +228,6 @@
 			"brand": "Smackdown Live",
 			"rating": 87,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "-4641152765",
@@ -283,8 +235,6 @@
 			"brand": "Smackdown Live",
 			"rating": 87,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}, {
@@ -295,8 +245,6 @@
 			"brand": "Smackdown Live",
 			"rating": 87,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 1
 		}, {
@@ -305,8 +253,6 @@
 			"brand": "Smackdown Live",
 			"rating": 90,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true,
 			"teamId": 1
 		}, {
@@ -315,8 +261,6 @@
 			"brand": "Smackdown Live",
 			"rating": 82,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}, {
@@ -325,8 +269,6 @@
 			"brand": "Smackdown Live",
 			"rating": 75,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}]
@@ -338,8 +280,6 @@
 			"brand": "Smackdown Live",
 			"rating": 75,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true,
 			"teamId": 1
 		}, {
@@ -348,8 +288,6 @@
 			"brand": "Smackdown Live",
 			"rating": 70,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 1
 		}, {
@@ -358,8 +296,6 @@
 			"brand": "Smackdown Live",
 			"rating": 76,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 1
 		}, {
@@ -368,8 +304,6 @@
 			"brand": "Smackdown Live",
 			"rating": 79,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 1
 		}, {
@@ -378,8 +312,6 @@
 			"brand": "Smackdown Live",
 			"rating": 80,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": true,
 			"teamId": 1
 		}, {
@@ -388,8 +320,6 @@
 			"brand": "Smackdown Live",
 			"rating": 76,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}, {
@@ -398,8 +328,6 @@
 			"brand": "Smackdown Live",
 			"rating": 70,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}, {
@@ -408,8 +336,6 @@
 			"brand": "Smackdown Live",
 			"rating": 70,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}, {
@@ -418,8 +344,6 @@
 			"brand": "Smackdown Live",
 			"rating": 70,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}, {
@@ -428,8 +352,6 @@
 			"brand": "Smackdown Live",
 			"rating": 70,
 			"male": true,
-			"wins": 0,
-			"losses": 0,
 			"winner": false,
 			"teamId": 0
 		}]
@@ -440,8 +362,6 @@
 			"brand": "Smackdown Live",
 			"rating": 82,
 			"male": false,
-			"wins": 0,
-			"losses": 0,
 			"winner": true
 		}, {
 			"id": "65222421",
@@ -449,11 +369,9 @@
 			"brand": "Smackdown Live",
 			"rating": 70,
 			"male": false,
-			"wins": 0,
-			"losses": 0,
 			"winner": false
 		}]
 	}, {}, {}, {}, {}, {}],
-	"date": "04/12/2016, 12:00:00",
+	"date": "04/12/2016",
 	"attendance": 12668
 }]
