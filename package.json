@@ -1,6 +1,6 @@
 {
   "name": "wwe-draft-generator",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "repository": "https://github.com/azz0r/wwe-draft-generator.git",
   "scripts": {
     "start": "NODE_ENV=development DEBUG=app:* babel-node ./scripts/start.js",
