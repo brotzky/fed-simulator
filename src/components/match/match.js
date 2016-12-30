@@ -91,7 +91,10 @@ class Match extends React.Component {
                   types={[
                     "wrestler",
                   ]}
-                  className={classNames({ "col-xs-6": this.props.isTagMatch })}
+                  className={classNames({
+                    "col-xs-6": this.props.isTagMatch,
+                    "hide": teamWrestlers.length === 0 && this.props.story.length > 0
+                  })}
                   data={this.props.isTagMatch ? teamId : false}
                   onDrop={this.onDrop}>
                   <div className={classNames(
