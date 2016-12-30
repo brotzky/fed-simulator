@@ -34,7 +34,7 @@ class RankingPage extends React.Component {
     while (amount > 0) {
       let
         wrestlers = this.props.wrestlers.filter(wrestler => brand.name === "" || wrestler.brand === brand.name),
-        randomisedWrestlers = randomiseWrestlers(wrestlers),
+        randomisedWrestlers = randomiseWrestlers({ wrestlers }),
         story = simulateMatch(
           randomisedWrestlers,
           this.props.moves,

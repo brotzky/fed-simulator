@@ -1,9 +1,14 @@
 import defaultState from "./shows.default"
+import weighted from "weighted"
 import { randomiseWrestlers, simulateMatch } from "../helpers/match"
 import { getRandomInt } from "../helpers/math"
 
 const getAttendance = (min, max) => getRandomInt(min, max)
 const createEmptyMatches = () => Array.from({length: 12}).fill({isTagMatch: false})
+const tag = {
+  options: [true, false],
+  weights: [0.1, 0.9],
+}
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state)),
@@ -45,7 +50,11 @@ export default (state = defaultState, action) => {
     case "RANDOMISE_SHOW":
       index = getShowIndexById(action.showId)
       newState[index].matches.forEach((match, key) => {
-        newState[index].matches[key].wrestlers = randomiseWrestlers(action.wrestlers)
+        newState[index].matches[key].isTagMatch = weighted.select(tag.options, tag.weights)
+        newState[index].matches[key].wrestlers = randomiseWrestlers({
+          wrestlers: action.wrestlers,
+          isTagMatch: newState[index].matches[key].isTagMatch,
+        })
       })
       break
     case "SIMULATE_SHOW":

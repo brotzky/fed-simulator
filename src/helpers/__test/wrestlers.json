@@ -1,82 +1,135 @@
 [
   {
-    "id": "2042358",
+    "id": "1",
     "name": "Test Male 1",
     "brand": "NXT",
     "rating": 80,
-    "male": true,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": true
   },
   {
-    "id": "4795789095",
+    "id": "2",
     "name": "Test Male 2",
     "brand": "NXT",
     "rating": 75,
-    "male": true,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": true
   },
   {
-    "id": "5789095",
+    "id": "3",
     "name": "Test Male 3",
     "brand": "NXT",
     "rating": 75,
-    "male": true,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": true
   },
   {
-    "id": "343789095",
+    "id": "4",
     "name": "Test Male 4",
     "brand": "NXT",
     "rating": 75,
-    "male": true,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": true
   },
   {
-    "id": "7424670891",
+    "id": "5",
+    "name": "Test Male 5",
+    "brand": "NXT",
+    "rating": 75,
+    "male": true
+  },
+  {
+    "id": "6",
+    "name": "Test Male 6",
+    "brand": "NXT",
+    "rating": 75,
+    "male": true
+  },
+  {
+    "id": "7",
+    "name": "Test Female 0",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "8",
     "name": "Test Female 1",
     "brand": "NXT",
     "rating": 75,
-    "male": false,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": false
   },
   {
-    "id": "74246221",
+    "id": "9",
     "name": "Test Female 2",
     "brand": "NXT",
     "rating": 75,
-    "male": false,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": false
   },
   {
-    "id": "74223291",
+    "id": "10",
     "name": "Test Female 3",
     "brand": "NXT",
     "rating": 75,
-    "male": false,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": false
   },
   {
-    "id": "56745643291",
+    "id": "11",
     "name": "Test Female 4",
     "brand": "NXT",
     "rating": 75,
-    "male": false,
-    "wins": 0,
-    "losses": 0,
-    "championshipId": false
+    "male": false
+  },
+  {
+    "id": "12",
+    "name": "Test Female 5",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "13",
+    "name": "Test Female 6",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "14",
+    "name": "Test Female 7",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "15",
+    "name": "Test Female 8",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "16",
+    "name": "Test Female 9",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "17",
+    "name": "Test Female 10",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "18",
+    "name": "Test Female 11",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
+  },
+  {
+    "id": "19",
+    "name": "Test Female 12",
+    "brand": "NXT",
+    "rating": 75,
+    "male": false
   }
 ]

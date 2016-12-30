@@ -14,6 +14,11 @@ const defaultSettings = {
   amount: {
     options: [2, 3, 4, 5, 6],
     weights: [0.5, 0.2, 0.2, 0.05, 0.05]
+  },
+  tag: {
+    options: [true, false],
+    weights: [0.1, 0.8],
+    perTeam: 2,
   }
 }
 
@@ -22,35 +27,42 @@ export function toPercent(percentage, total) {
   return percent * total
 }
 
-export function randomiseWrestlers(
+export function randomiseWrestlers({
   wrestlers,
   settings = defaultSettings,
-) {
-    let matchWrestlers = [],
-    ids = [],
-    randomBool = weighted.select(settings.male.options, settings.male.weights),
-    amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights)
-    wrestlers = wrestlers.filter(wrestler => wrestler.male === randomBool)
+  matchWrestlers = [],
+  ids = [],
+  isTagMatch = "",
+}) {
+  let amountOfWrestlers = weighted.select(settings.amount.options, settings.amount.weights),
+    isMaleOnly = weighted.select(settings.male.options, settings.male.weights)
+  isTagMatch = (isTagMatch === "")
+    ? weighted.select(settings.tag.options, settings.tag.weights)
+    : isTagMatch
+  wrestlers = wrestlers.filter(wrestler => wrestler.male === isMaleOnly)
 
-    // pick our first wrestler, we do this so we can get a fair match
-    let firstWrestler = getWrestler(wrestlers)
-      // push first wrestler to match
-      matchWrestlers.push(
-        firstWrestler
-      )
-      ids.push(
-        firstWrestler.id
-      )
+  if (isTagMatch) {
+    amountOfWrestlers = amountOfWrestlers * amountOfWrestlers
+  }
 
   // while amount to create is above one
-  while (amountOfWrestlers > 1) {
+  let
+    teamId = 0,
+    perTeam = 0
+  while (amountOfWrestlers > 0) {
     wrestlers = wrestlers.filter(wrestler => !ids.includes(wrestler.id))
     let chosenWrestler = getWrestler(wrestlers)
+    if (isTagMatch && perTeam === settings.tag.perTeam) {
+      perTeam = 0
+      teamId = teamId + 1
+    }
+    chosenWrestler.teamId = isTagMatch ? teamId : null
     // we don't want the same wrestler in the match, so drop them out
     wrestlers = wrestlers.filter((wrestler) => wrestler.id !== chosenWrestler.id)
     matchWrestlers.push(
       chosenWrestler
     )
+    perTeam++
     amountOfWrestlers--
   }
 
