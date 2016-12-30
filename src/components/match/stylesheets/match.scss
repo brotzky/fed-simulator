@@ -24,10 +24,10 @@
   }
 
   .remove {
-    display: none;
+    opacity: 0;
 
     @include breakpoint(xs) {
-      display: inline-block;
+      opacity: 1;
     }
 
     &:hover {
@@ -36,7 +36,7 @@
   }
 
   &:hover .remove {
-    display: inline-block;
+    opacity: 1;
   }
 
   .match__teamtoggle {
