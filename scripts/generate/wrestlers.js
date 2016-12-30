@@ -1,5 +1,4 @@
 const glob = require("glob")
-const jsonfile = require("jsonfile")
 const imagePath = __dirname + "/import/wrestlers/"
 import { hashCode } from "../../src/helpers/hash"
 import { writeFile, cleanFilename } from "./common"
