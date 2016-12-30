@@ -72,7 +72,7 @@ class Match extends React.Component {
             "match__inner",
             { "is-tag-match": this.props.isTagMatch }
           )}>
-            <div className="match__section">
+            <div className="match__section statistic">
               Match {this.props.matchIndex + 1}
             </div>
             <If condition={this.props.story.length === 0}>
