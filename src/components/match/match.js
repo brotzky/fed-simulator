@@ -60,7 +60,10 @@ class Match extends React.Component {
   }
 
   render() {
-    let teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}]
+    let teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}],
+      winnerId = this.props.story.length > 0
+        ? this.props.story[this.props.story.length - 1].details.winner.id
+        : false
     return (
       <div className="match">
         <div className="row">
@@ -69,6 +72,9 @@ class Match extends React.Component {
             "match__inner",
             { "is-tag-match": this.props.isTagMatch }
           )}>
+            <div className="match__section">
+              Match {this.props.matchIndex + 1}
+            </div>
             <If condition={this.props.story.length === 0}>
               <div className="match__teamtoggle">
                 <a onClick={() => this.onSetTagMatch()}>
@@ -95,19 +101,17 @@ class Match extends React.Component {
                     { inactive : this.props.story.length === 0 },
                   )}>
                     <If condition={teamWrestlers.length === 0}>
-                      <span className="droparea__title">
-
-                      </span>
+                      <span className="droparea__title"></span>
                     </If>
                     <div className="match__names">
                       {teamWrestlers.map((wrestler, key) => {
                         return (
                           <span key={key}
-                            className="match__name truncate">
+                            className="match__name">
                             <span>
                               <a onClick={() => this.onSelectWinner(wrestler)}>
                                 {wrestler.name}
-                                <If condition={wrestler.winner}>
+                                <If condition={wrestler.winner || wrestler.id === winnerId}>
                                   &nbsp;<i className="fa fa-star" aria-hidden="true"></i>
                                 </If>
                               </a>
