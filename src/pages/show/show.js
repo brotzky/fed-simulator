@@ -85,7 +85,7 @@ class ShowPage extends React.Component {
 
   onTogglePPVsSelection = () => {
     this.setState({
-      showPPVs: !this.state.showPPVs
+      showPPVs: !this.state.showPPVs,
     })
   }
 
@@ -173,9 +173,7 @@ class ShowPage extends React.Component {
               <If condition={!this.state.showPPVs}>
                 <div className="ppvs__current">
                   <div onClick={this.onTogglePPVsSelection}>
-                    <Icon
-                      name={this.currentShow.PPV.name}
-                    />
+                    <Icon name={this.currentShow.PPV.name} />
                     <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                   </div>
                   <hr />
