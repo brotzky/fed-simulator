@@ -142,7 +142,7 @@ class ShowPage extends React.Component {
 
   onDayClick = (event, date) => {
     this.props.dispatch(
-      showActions.selectDateForShow(this.currentShow.id, date.toLocaleString())
+      showActions.selectDateForShow(this.currentShow.id, date.toLocaleDateString())
     )
   }
 
@@ -177,19 +177,13 @@ class ShowPage extends React.Component {
                     <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                   </div>
                   <hr />
-                  <div>
-                  <DayPicker
-                    selectedDays={day => this.currentShow.date.toLocaleString() === day.toLocaleString()}
-                    onDayClick={this.onDayClick.bind(this)}
-                  />
-                  </div>
                   <h4>
                     {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
                     <div className="dropdown">
                       <p>
                         {this.currentShow.brand.default
                           ? "All brands"
-                          : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                          : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i> &nbsp;
                       </p>
                       <ul className="dropdown__content">
                         {this.props.brands.map((brand, key) => {
@@ -202,6 +196,17 @@ class ShowPage extends React.Component {
                           )
                         })}
                       </ul>
+                    </div>
+                    <div className="dropdown">
+                      <div>
+                        on the {this.currentShow.date} <i className="show--edit fa fa-pencil" aria-hidden="true"></i> &nbsp;
+                      </div>
+                      <div className="dropdown__content">
+                        <DayPicker
+                          selectedDays={day => this.currentShow.date === day.toLocaleDateString()}
+                          onDayClick={this.onDayClick.bind(this)}
+                        />
+                      </div>
                     </div>
                   </h4>
                 </div>

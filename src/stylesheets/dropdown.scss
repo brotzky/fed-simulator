@@ -4,27 +4,25 @@
   position: relative;
   display: inline-block;
   background-color: white;
-  padding-right: 25px;
-  padding-bottom: 20px;
-}
 
-.dropdown__title {
-  letter-spacing: .25rem;
-  word-spacing: 0.5rem;
-  padding-left: 1rem;
-}
+  &__title {
+    letter-spacing: .25rem;
+    word-spacing: .5rem;
+    padding-left: 1rem;
+  }
 
-.dropdown__content {
-  display: none;
-  top: 1rem;
-  position: absolute;
-  background-color: white;
-  min-width: 25rem;
-  padding: 0.1rem 2rem;
-  z-index: 30;
+  &__content {
+    display: none;
+    top: 1rem;
+    position: absolute;
+    background-color: white;
+    min-width: 25rem;
+    padding: .1rem 2rem;
+    z-index: 30;
 
-  &, &.a {
-    color: black;
+    &, &.a {
+      color: black;
+    }
   }
 }
 
@@ -32,6 +30,6 @@
 .dropdown__content {
   display: block;
   box-shadow:
-    0 4px 8px 0 rgba(0, 0, 0, 0.2), 
-    0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    0 4px 8px 0 rgba(0, 0, 0, .2),
+    0 6px 20px 0 rgba(0, 0, 0, .19)
 }

@@ -61,14 +61,7 @@
   }
 
   .ppvs__current:hover .show--edit {
-    animation: fade-in 1s linear;
     cursor: pointer;
-    opacity: 1;
-  }
-
-  .show--edit {
-    display: inline-block;
-    opacity: 0;
   }
 
   @keyframes fade-in {
