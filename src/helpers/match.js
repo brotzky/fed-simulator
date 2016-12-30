@@ -49,7 +49,7 @@ export function randomiseWrestlers({
   let
     teamId = 0,
     perTeam = 0
-  while (amountOfWrestlers > 0) {
+  while (amountOfWrestlers > 0 && wrestlers.length > 0) {
     wrestlers = wrestlers.filter(wrestler => !ids.includes(wrestler.id))
     let chosenWrestler = getWrestler(wrestlers)
     if (isTagMatch && perTeam === settings.tag.perTeam) {
