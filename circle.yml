@@ -1,8 +1,0 @@
-deployment:
-  production:
-    branch: master
-    heroku:
-      appname: www-universe-sim
-# test:
-#   override:
-#     - echo "test"
