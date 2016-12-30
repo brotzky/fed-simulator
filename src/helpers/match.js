@@ -81,7 +81,8 @@ export function simulateMatch(wrestlers, moves) {
   ).ringBell()
 }
 
-export function logMatch(dispatch, story) {
+export function logMatch(dispatch, story = []) {
+  if (story.length === 0) return
   let winnersAction = story.slice(-1).pop().details,
     championshipMatch = weighted.select([true, false], [0.5, 0.5]),
     toDispatch = [
