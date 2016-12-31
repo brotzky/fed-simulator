@@ -58,10 +58,10 @@ class Page extends React.Component {
             <div className="row legal">
               <div className="col-xs-12">
                 <p>
-                  All WWE imagery is taken from <a href="http://www.wwe.com/main-help/generalfaq/copyright" target="_blank">WWE.com</a> and owned by <a href="https://wwe.com" target="_blank">World Wrestling Entertainment, Inc.</a>
+                  All WWE imagery is taken from <a rel="noopener" href="http://www.wwe.com/main-help/generalfaq/copyright" target="_blank">WWE.com</a> and owned by <a rel="noopener" href="https://wwe.com" target="_blank">World Wrestling Entertainment, Inc.</a>
                 </p>
                 <p>
-                  Please <a href="mailto:aaron.lote@gmail.com">email me</a> directly with any queries or find me on <a target="_blank" href="https://twitter.com/azz0r">twitter @azz0r or @UniverseSimMan</a>
+                  Please <a href="mailto:aaron.lote@gmail.com">email me</a> directly with any queries or find me on <a target="_blank" rel="noopener" href="https://twitter.com/azz0r">twitter @azz0r or @UniverseSimMan</a>
                 </p>
               </div>
             </div>
