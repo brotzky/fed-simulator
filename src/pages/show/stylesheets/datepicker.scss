@@ -11,6 +11,7 @@
 
 .ppvs__current:hover .DayPicker {
   display: flex;
+  z-index: 200;
 }
 
 .DayPicker-Month {
