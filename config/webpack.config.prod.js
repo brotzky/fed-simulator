@@ -34,6 +34,7 @@ const prodConfig = Object.assign({}, defaultConfig, {
       'redux',
       'react-redux',
       'react-sticky',
+      'moment',
     ],
     polyfill: require.resolve('./polyfills'),
     app: path.join(paths.appSrc, 'index'),

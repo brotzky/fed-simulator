@@ -2,9 +2,15 @@ import React from "react"
 import { Link } from "react-router"
 import Helmet from "react-helmet"
 import Icon from "../../components/icon/icon"
+import Moment from "moment"
 import { connect } from "react-redux"
 import * as showActions from "../../actions/show"
 import "./stylesheets/shows"
+
+const sortByDate = (previous, next) => {
+  let dateFormat = "D/M/YYYY"
+  return Moment(previous.date, dateFormat).unix() < Moment(next.date, dateFormat).unix()
+}
 
 class ShowsPage extends React.Component {
 
@@ -67,7 +73,9 @@ class ShowsPage extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.shows.map((show, key) => {
+              {this.props.shows
+                .sort((previous, next) => sortByDate(previous, next))
+                .map((show, key) => {
                 return (
                   <tr key={key}>
                     <td>
