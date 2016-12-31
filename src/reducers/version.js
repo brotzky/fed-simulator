@@ -1,4 +1,4 @@
-const defaultState = 3.65
+const defaultState = 3.7
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
