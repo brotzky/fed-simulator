@@ -10,17 +10,18 @@ import teamsIMG from "./teams.png"
 class Match extends React.Component {
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    matchIndex: React.PropTypes.number,
-    moves: React.PropTypes.array.isRequired,
-    isTagMatch: React.PropTypes.bool.isRequired,
-    chosenWrestlers:  React.PropTypes.array.isRequired,
     allWrestlers: React.PropTypes.array.isRequired,
     brand: React.PropTypes.string,
-    story: React.PropTypes.array,
-    onRemoveWrestler: React.PropTypes.func,
+    chosenWrestlers:  React.PropTypes.array.isRequired,
+    dispatch: React.PropTypes.func.isRequired,
+    isTagMatch: React.PropTypes.bool.isRequired,
+    matchIndex: React.PropTypes.number,
+    moves: React.PropTypes.array.isRequired,
     onDropWrestler: React.PropTypes.func,
+    onRemoveWrestler: React.PropTypes.func,
     onSetTagMatch: React.PropTypes.func,
+    settings: React.PropTypes.object.isRequired,
+    story: React.PropTypes.array,
   }
 
   static defaultProps = {
@@ -142,8 +143,8 @@ class Match extends React.Component {
             })}
           </div>
         </div>
-        <If condition={hasBeenSimulated}>
-          <div className="statistic">
+        <If condition={hasBeenSimulated && this.props.settings.SHOW_STORY_BY_DEFAULT}>
+          <div className="statistic animated fadeInUp">
             <Story
               collection={this.props.story}
               wrestlers={this.props.chosenWrestlers}
@@ -157,5 +158,6 @@ class Match extends React.Component {
 
 export default connect(state => ({
   moves: state.moves,
+  settings: state.settings,
   allWrestlers: state.wrestlers,
 }))(Match)

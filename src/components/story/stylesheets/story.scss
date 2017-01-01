@@ -16,7 +16,6 @@
 
   &--move {
     z-index: 0;
-    display: none;
 
     table {
       margin: 0;
@@ -56,8 +55,4 @@
   }
 
   @import "story.modifiers";
-}
-
-.story:hover .story--move {
-  display: inline-block;
 }

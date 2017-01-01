@@ -1,25 +1,26 @@
-import React from "react"
-import classNames from "classnames"
-import { Sticky } from "react-sticky"
-import Match from "../../components/match/match"
-import Brand from "../../components/brand/brand"
-import Icon from "../../components/icon/icon"
-import PPVs from "../../components/ppvs/ppvs"
-import Helmet from "react-helmet"
-import DayPicker from "react-day-picker"
-import { connect } from "react-redux"
-import * as showActions from "../../actions/show"
-import { hashCode } from "../../helpers/hash"
 import "./stylesheets/show"
+import { connect } from "react-redux"
+import { hashCode } from "../../helpers/hash"
+import { Sticky } from "react-sticky"
+import * as settingsActions from "../../actions/settings"
+import * as showActions from "../../actions/show"
+import Brand from "../../components/brand/brand"
+import classNames from "classnames"
+import DayPicker from "react-day-picker"
+import Helmet from "react-helmet"
+import Icon from "../../components/icon/icon"
+import Match from "../../components/match/match"
+import PPVs from "../../components/ppvs/ppvs"
+import React from "react"
 
 class ShowPage extends React.Component {
 
   static propTypes = {
-    wrestlers: React.PropTypes.array.isRequired,
-    ppvs: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
-    shows: React.PropTypes.array.isRequired,
     moves: React.PropTypes.array.isRequired,
+    ppvs: React.PropTypes.array.isRequired,
+    shows: React.PropTypes.array.isRequired,
+    wrestlers: React.PropTypes.array.isRequired,
   }
 
   static contextTypes = {
@@ -43,9 +44,9 @@ class ShowPage extends React.Component {
       currentShow = {
         id: hashCode(Date()),
         brand: this.props.brands[0],
-        PPV: this.props.ppvs[0],
-        matches: [],
         date: "",
+        matches: [],
+        PPV: this.props.ppvs[0],
       }
       this.props.dispatch(
         showActions.createShow(currentShow)
@@ -121,6 +122,12 @@ class ShowPage extends React.Component {
     )
   }
 
+  onToggleStoryByDefault = () => {
+    this.props.dispatch(
+      settingsActions.toggleStoryByDefault()
+    )
+  }
+
   onChangePPV = (PPV) => {
     this.props.dispatch(
       showActions.selectPPVForShow(this.currentShow.id, PPV)
@@ -160,6 +167,7 @@ class ShowPage extends React.Component {
         <div className="inpage-content">
           <div className={classNames(
             "row",
+            "animated fadeIn",
             { hide: !this.state.showPPVs }
           )}>
             <div className="col-xs-12">
@@ -228,6 +236,11 @@ class ShowPage extends React.Component {
                     <a onKeyPress={this.onClearMatches}
                       onClick={this.onClearMatches}>
                       Clear
+                    </a>
+                    &nbsp; | &nbsp;
+                    <a onKeyPress={this.onToggleStoryByDefault}
+                      onClick={this.onToggleStoryByDefault}>
+                      Toggle Story
                     </a>
                   </li>
                 </ul>
