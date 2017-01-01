@@ -144,7 +144,7 @@ class Match extends React.Component {
           </div>
         </div>
         <If condition={hasBeenSimulated && this.props.settings.SHOW_STORY_BY_DEFAULT}>
-          <div className="statistic animated fadeInUp">
+          <div className="statistic animated fadeIn">
             <Story
               collection={this.props.story}
               wrestlers={this.props.chosenWrestlers}
