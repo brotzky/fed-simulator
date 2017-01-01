@@ -11,7 +11,7 @@
     text-transform: uppercase;
     font-size: 1.4rem;
     font-weight: 700;
-    color: darken($bg-text-color, 20);
+    color: $active;
   }
 
   & .inactive {
