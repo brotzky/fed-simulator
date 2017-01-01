@@ -60,8 +60,10 @@ class Match extends React.Component {
   }
 
   render() {
-    let teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}],
-      winnerId = this.props.story.length > 0
+    let
+      hasBeenSimulated = this.props.story && this.props.story.length > 0,
+      teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}],
+      winnerId = hasBeenSimulated
         ? this.props.story[this.props.story.length - 1].details.winner.id
         : false
     return (
@@ -75,7 +77,7 @@ class Match extends React.Component {
             <div className="match__section statistic">
               Match {this.props.matchIndex + 1}
             </div>
-            <If condition={this.props.story.length === 0}>
+            <If condition={!hasBeenSimulated}>
               <div className="match__teamtoggle">
                 <a onClick={() => this.onSetTagMatch()}>
                   <img src={this.props.isTagMatch ? teamsIMG : soloIMG} />
@@ -96,15 +98,15 @@ class Match extends React.Component {
                   ]}
                   className={classNames({
                     "col-xs-6": this.props.isTagMatch,
-                    "hide": teamWrestlers.length === 0 && this.props.story.length > 0
+                    "hide": teamWrestlers.length === 0 && hasBeenSimulated
                   })}
                   data={this.props.isTagMatch ? teamId : false}
                   onDrop={this.onDrop}>
                   <div className={classNames(
                     "droparea",
                     { "droparea--team": this.props.isTagMatch },
-                    { active : this.props.story.length > 0 },
-                    { inactive : this.props.story.length === 0 },
+                    { active : hasBeenSimulated },
+                    { inactive : !hasBeenSimulated },
                   )}>
                     <If condition={teamWrestlers.length === 0}>
                       <span className="droparea__title"></span>
@@ -140,7 +142,7 @@ class Match extends React.Component {
             })}
           </div>
         </div>
-        <If condition={this.props.story.length > 0}>
+        <If condition={hasBeenSimulated}>
           <div className="statistic">
             <Story
               collection={this.props.story}
