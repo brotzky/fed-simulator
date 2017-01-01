@@ -79,6 +79,9 @@ class Match extends React.Component {
               <div className="match__teamtoggle">
                 <a onClick={() => this.onSetTagMatch()}>
                   <img src={this.props.isTagMatch ? teamsIMG : soloIMG} />
+                  <If condition={this.props.matchIndex === 0}>
+                     &nbsp;<i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                  </If>
                 </a>
               </div>
             </If>
