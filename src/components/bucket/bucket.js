@@ -16,13 +16,23 @@ export default class Bucket extends React.Component {
 
   displayName = "Bucket"
 
-  state = {}
+  state = {
+    currentItem: false,
+  }
 
   onSelect = (currentItem) => {
     this.setState({
       currentItem,
     })
-    console.log(currentItem, this.state)
+  }
+
+
+  changeHandler = (fieldName, fieldValue) => {
+    let newState = Object.assign({}, this.state.currentItem)
+    newState[fieldName] = fieldValue
+    this.setState({
+      currentItem: {...newState}
+    })
   }
 
   render() {
@@ -37,35 +47,29 @@ export default class Bucket extends React.Component {
           />
         </div>
         <If condition={this.state.currentItem}>
-          <form
-            ref="form"
-            onChange={changes => this.setState(changes)}>
+          <form ref="form">
             <div className="bucket__edit">
               {Object.keys(this.props.validation).map((name, value) => {
-                let initialValue = this.state.currentItem[name],
-                  currentFieldtype = this.props.validation[name]
+                let defaultValue = this.state.currentItem[name],
+                  currentFieldtype = this.props.validation[name],
+                  values = {
+                    name,
+                    defaultValue,
+                    changeHandler: this.changeHandler,
+                  }
                 return (
                   <div key={name}
                     className={`bucket__${name}`}>
                     <strong>{name}: </strong>
                     <Choose>
                       <When condition={currentFieldtype === "bool"}>
-                        <Checkbox
-                          name={name}
-                          initialValue={initialValue}
-                        />
+                        <Checkbox {...values} />
                       </When>
                       <When condition={currentFieldtype === "input"}>
-                        <Input
-                          name={name}
-                          initialValue={initialValue}
-                        />
+                        <Input {...values} />
                       </When>
                       <When condition={currentFieldtype === "readonly"}>
-                        <ReadOnly
-                          name={name}
-                          initialValue={initialValue}
-                        />
+                        <ReadOnly {...values} />
                       </When>
                     </Choose>
                   </div>

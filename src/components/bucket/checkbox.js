@@ -3,17 +3,21 @@ import React from "react"
 export default class Checkbox extends React.Component {
 
   static propTypes = {
+    changeHandler: React.PropTypes.func.isRequired,
     name: React.PropTypes.string.isRequired,
-    initialValue: React.PropTypes.any.isRequired,
+    defaultValue: React.PropTypes.any.isRequired,
   }
+
+  onChange = (event) => this.props.changeHandler(event.target.name, event.target.value)
 
   render() {
     return (
       <input
-        type="text"
+        type="checkbox"
         name={this.props.name}
-        value={this.props.initialValue}
-        readOnly
+        defaultValue={this.props.defaultValue}
+        checked={this.props.defaultValue}
+        onChange={this.onChange}
       />
     )
   }
