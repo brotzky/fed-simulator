@@ -1,0 +1,23 @@
+{
+  "brand": {
+    "id": "readonly",
+    "name": "input"
+  },
+  "wrestler": {
+    "id": "readonly",
+    "brand": "input",
+    "male": "bool",
+    "name": "input",
+    "rating": "input"
+  },
+  "championship": {
+    "id": "readonly",
+    "name": "input",
+    "brand": "input",
+    "male": "bool",
+    "sequence": "input",
+    "changes": "input",
+    "canMoveBrands": "bool",
+    "wrestlers": "ignore"
+  }
+}

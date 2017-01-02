@@ -1,35 +1,12 @@
 import { connect } from "react-redux"
-import Bucket from "../../components/bucket/bucket"
-import * as wrestlersAction from "../../actions/wrestlers"
-import * as settingsAction from "../../actions/settings"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
+import * as settingsAction from "../../actions/settings"
+import * as wrestlersAction from "../../actions/wrestlers"
+import Bucket from "../../components/bucket/bucket"
 import Helmet from "react-helmet"
 import React from "react"
-
-const validation = {
-  "brand": {
-    "id": "readonly",
-    "name": "input",
-  },
-  "wrestler": {
-    "id": "readonly",
-    "brand": "input",
-    "male": "bool",
-    "name": "input",
-    "rating": "input",
-  },
-  "championship": {
-    "id": "readonly",
-    "name": "input",
-    "brand": "input",
-    "male": "bool",
-    "sequence": "input",
-    "changes": "input",
-    "canMoveBrands": "bool",
-    "wrestlers": "ignore",
-  },
-}
+import validation from "./validation"
 
 class BucketsPage extends React.Component {
 
@@ -60,9 +37,11 @@ class BucketsPage extends React.Component {
   }
 
   onReset = () => {
-    this.props.dispatch(
-      settingsAction.reset()
-    )
+    if (confirm("Are you really sure you want to reset everything?")) {
+      this.props.dispatch(
+        settingsAction.reset()
+      )
+    }
   }
 
   render() {
@@ -74,7 +53,7 @@ class BucketsPage extends React.Component {
             <li className="navigation__item">
               <a onKeyPress={this.onReset}
                 onClick={this.onReset}>
-                Reset EVERYTHING!!!
+                Reset <strong>EVERYTHING</strong>
               </a>
             </li>
           </ul>
