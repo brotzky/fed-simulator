@@ -21,7 +21,7 @@ export default class Select extends React.Component {
         {this.props.label}
         <select className="form-control"
           onChange={this.onChangeSelect}>
-          <option hidden selected>Select here</option>
+          <option hidden>Select here</option>
           {this.props.collection.map((item, index) =>
             <option value={item.id}
               key={index}>

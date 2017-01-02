@@ -42,11 +42,11 @@ export default class Bucket extends React.Component {
   }
 
   render() {
+    console.log("bucket render", this.state)
     return (
       <div className="bucket">
         <div className="bucket__collection">
           <Select
-            ref="bucket-value"
             label={this.props.name}
             collection={this.props.collection}
             onSelect={this.onSelect}
@@ -55,7 +55,7 @@ export default class Bucket extends React.Component {
         <If condition={this.state.currentItem}>
           <form ref="form">
             <div className="bucket__edit">
-              {Object.keys(this.props.validation).map((name) => {
+              {Object.keys(this.props.validation).map((name, key) => {
                 let defaultValue = this.state.currentItem[name],
                   currentFieldtype = this.props.validation[name],
                   values = {
@@ -64,7 +64,7 @@ export default class Bucket extends React.Component {
                     changeHandler: this.changeHandler,
                   }
                 return (
-                  <div key={name}
+                  <div key={key}
                     className={`form-group bucket__${name}`}>
                     <span className="bucket__name">
                       {name}

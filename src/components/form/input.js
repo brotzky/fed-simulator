@@ -11,6 +11,7 @@ export default class Input extends React.Component {
   onChange = (event) => this.props.changeHandler(event.target.name, event.target.value)
 
   render() {
+    console.log("input render", this.props)
     return (
       <input
         type="text"

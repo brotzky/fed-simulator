@@ -9,9 +9,6 @@ export default (state = defaultState, action) => {
       let index = getIndexById(action.wrestler.id)
       newState[index] = action.wrestler
       break
-    case "RESET_WRESTLERS":
-      newState = defaultState
-      break
     case "CLEAR_WRESTLERS":
       let wrestlersBrand = []
 
@@ -46,6 +43,10 @@ export default (state = defaultState, action) => {
           newState[key].brand = ""
         })
         break
+      case "RESET_WRESTLERS":
+      case "RESET":
+          newState = defaultState
+          break
       default:
         break
   }

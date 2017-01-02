@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import Bucket from "../../components/bucket/bucket"
 import * as wrestlersAction from "../../actions/wrestlers"
+import * as settingsAction from "../../actions/settings"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
 import Helmet from "react-helmet"
@@ -58,16 +59,32 @@ class BucketsPage extends React.Component {
     )
   }
 
+  onReset = () => {
+    this.props.dispatch(
+      settingsAction.reset()
+    )
+  }
+
   render() {
     return (
       <div className="page buckets">
         <Helmet title="Buckets" />
+        <div className="navigation navigation--secondary">
+          <ul className="navigation__list">
+            <li className="navigation__item">
+              <a onKeyPress={this.onReset}
+                onClick={this.onReset}>
+                Reset EVERYTHING!!!
+              </a>
+            </li>
+          </ul>
+        </div>
         <div className="inpage-content statistic">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
               <Bucket
                 collection={this.props.brands}
-                key={1}
+                key="brand"
                 name="brand"
                 onSaveBucket={this.onSaveBrand}
                 validation={validation.brand}
@@ -76,7 +93,7 @@ class BucketsPage extends React.Component {
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
               <Bucket
                 collection={this.props.wrestlers}
-                key={2}
+                key="wrestler"
                 name="wrestler"
                 onSaveBucket={this.onSaveWrestler}
                 validation={validation.wrestler}
@@ -85,7 +102,7 @@ class BucketsPage extends React.Component {
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
               <Bucket
                 collection={this.props.championships}
-                key={3}
+                key={"championships"}
                 name="championships"
                 onSaveBucket={this.onSaveChampionship}
                 validation={validation.championship}

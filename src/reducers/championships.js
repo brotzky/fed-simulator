@@ -46,6 +46,7 @@ export default (state = defaultState, action) => {
         })
       break
     case "RESET_CHAMPIONS":
+    case "RESET":
       newState = defaultState
       break
     default:

@@ -5,7 +5,11 @@ export default class Checkbox extends React.Component {
   static propTypes = {
     changeHandler: React.PropTypes.func.isRequired,
     name: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.any.isRequired,
+    defaultValue: React.PropTypes.bool,
+  }
+
+  static defaultProps = {
+    defaultValue: false,
   }
 
   onChange = (event) => this.props.changeHandler(event.target.name, !this.props.defaultValue)

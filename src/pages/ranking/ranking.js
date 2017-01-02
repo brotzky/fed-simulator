@@ -49,7 +49,7 @@ class RankingPage extends React.Component {
     let segments = [],
       totalWins = this.props.wrestlers.reduce((sum, wrestler) => sum + wrestler.wins, 0)
 
-    this.props.brands.filter(brand => !brand.default).forEach((brand) => {
+    this.props.brands.forEach((brand) => {
       let value = this.props.wrestlers
           .filter(wrestler => wrestler.brand === brand.name)
           .reduce((sum, wrestler) => sum + wrestler.wins, 0),
