@@ -2,7 +2,13 @@ import defaultState from "./wrestlers.default"
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
+  const getIndexById = (id) => newState.findIndex(item => item.id === id)
+
   switch (action.type) {
+    case "UPDATE_WRESTLER":
+      let index = getIndexById(action.wrestler.id)
+      newState[index] = action.wrestler
+      break
     case "RESET_WRESTLERS":
       newState = defaultState
       break

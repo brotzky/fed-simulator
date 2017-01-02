@@ -8,7 +8,7 @@ export default class Checkbox extends React.Component {
     defaultValue: React.PropTypes.any.isRequired,
   }
 
-  onChange = (event) => this.props.changeHandler(event.target.name, event.target.value)
+  onChange = (event) => this.props.changeHandler(event.target.name, !this.props.defaultValue)
 
   render() {
     return (

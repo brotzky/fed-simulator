@@ -26,13 +26,16 @@ export default class Bucket extends React.Component {
     })
   }
 
-
   changeHandler = (fieldName, fieldValue) => {
     let newState = Object.assign({}, this.state.currentItem)
     newState[fieldName] = fieldValue
     this.setState({
       currentItem: {...newState}
     })
+  }
+
+  onSaveBucket = () => {
+    this.props.onSaveBucket(this.state.currentItem)
   }
 
   render() {
@@ -80,7 +83,7 @@ export default class Bucket extends React.Component {
           <div>
             <button
               label="Save"
-              onClick={() => this.refs.form.submit()}>
+              onClick={this.onSaveBucket}>
               Save
             </button>
           </div>

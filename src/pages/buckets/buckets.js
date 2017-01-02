@@ -1,5 +1,7 @@
 import { connect } from "react-redux"
 import Bucket from "../../components/bucket/bucket"
+import * as wrestlersAction from "../../actions/wrestlers"
+import * as brandsAction from "../../actions/brands"
 import Helmet from "react-helmet"
 import React from "react"
 
@@ -26,8 +28,16 @@ class BucketsPage extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
-  onSaveBucket = () => {
-    console.log("onSaveBucket")
+  onSaveWrestler = (wrestler) => {
+    this.props.dispatch(
+      wrestlersAction.update(wrestler)
+    )
+  }
+
+  onSaveBrand = (brand) => {
+    this.props.dispatch(
+      brandsAction.update(brand)
+    )
   }
 
   render() {
@@ -41,7 +51,7 @@ class BucketsPage extends React.Component {
                 collection={this.props.brands}
                 key={1}
                 name="brand"
-                onSaveBucket={this.onSaveBucket}
+                onSaveBucket={this.onSaveBrand}
                 validation={validation.brand}
               />
             </div>
@@ -50,7 +60,7 @@ class BucketsPage extends React.Component {
                 collection={this.props.wrestlers}
                 key={2}
                 name="wrestler"
-                onSaveBucket={this.onSaveBucket}
+                onSaveBucket={this.onSaveWrestler}
                 validation={validation.wrestler}
               />
             </div>
