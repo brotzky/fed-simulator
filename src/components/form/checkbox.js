@@ -20,7 +20,7 @@ export default class Checkbox extends React.Component {
         type="checkbox"
         className="form-control"
         name={this.props.name}
-        defaultValue={this.props.defaultValue}
+        value={this.props.defaultValue}
         checked={this.props.defaultValue}
         onChange={this.onChange}
       />

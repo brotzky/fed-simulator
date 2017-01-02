@@ -13,7 +13,7 @@ export default class ReadOnly extends React.Component {
         type="text"
         className="form-control"
         name={this.props.name}
-        defaultValue={this.props.defaultValue}
+        value={this.props.defaultValue}
         readOnly
       />
     )
