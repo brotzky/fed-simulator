@@ -17,20 +17,19 @@ export default class Select extends React.Component {
 
   render() {
     return (
-      <div className="form-group">
-        <label>
-          {this.props.label}
-          <select className="form-control"
-            onChange={this.onChangeSelect}>
-            {this.props.collection.map((item, index) =>
-              <option value={item.id}
-                key={index}>
-                {item.name}
-              </option>
-            )}
-          </select>
-        </label>
-      </div>
+      <label>
+        {this.props.label}
+        <select className="form-control"
+          onChange={this.onChangeSelect}>
+          <option hidden selected>Select here</option>
+          {this.props.collection.map((item, index) =>
+            <option value={item.id}
+              key={index}>
+              {item.name}
+            </option>
+          )}
+        </select>
+      </label>
     )
   }
 }

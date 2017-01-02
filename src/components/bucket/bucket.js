@@ -1,9 +1,10 @@
 import React from "react"
-import Select from "../select/select"
-import Input from "./input"
-import ReadOnly from "./readonly"
-import Checkbox from "./checkbox"
+import Select from "../form/select"
+import Input from "../form/input"
+import ReadOnly from "../form/readonly"
+import Checkbox from "../form/checkbox"
 import classNames from "classnames"
+import "./stylesheets/bucket.scss"
 
 export default class Bucket extends React.Component {
 
@@ -30,12 +31,14 @@ export default class Bucket extends React.Component {
     let newState = Object.assign({}, this.state.currentItem)
     newState[fieldName] = fieldValue
     this.setState({
-      currentItem: {...newState}
+      currentItem: {...newState},
     })
   }
 
   onSaveBucket = () => {
-    this.props.onSaveBucket(this.state.currentItem)
+    this.props.onSaveBucket(
+      this.state.currentItem,
+    )
   }
 
   render() {
@@ -52,7 +55,7 @@ export default class Bucket extends React.Component {
         <If condition={this.state.currentItem}>
           <form ref="form">
             <div className="bucket__edit">
-              {Object.keys(this.props.validation).map((name, value) => {
+              {Object.keys(this.props.validation).map((name) => {
                 let defaultValue = this.state.currentItem[name],
                   currentFieldtype = this.props.validation[name],
                   values = {
@@ -62,8 +65,10 @@ export default class Bucket extends React.Component {
                   }
                 return (
                   <div key={name}
-                    className={`bucket__${name}`}>
-                    <strong>{name}: </strong>
+                    className={`form-group bucket__${name}`}>
+                    <span className="bucket__name">
+                      {name}
+                    </span>
                     <Choose>
                       <When condition={currentFieldtype === "bool"}>
                         <Checkbox {...values} />
@@ -74,6 +79,9 @@ export default class Bucket extends React.Component {
                       <When condition={currentFieldtype === "readonly"}>
                         <ReadOnly {...values} />
                       </When>
+                      <Otherwise>
+                        &nbsp;
+                      </Otherwise>
                     </Choose>
                   </div>
                 )
@@ -83,8 +91,9 @@ export default class Bucket extends React.Component {
           <div>
             <button
               label="Save"
+              className="btn btn-primary"
               onClick={this.onSaveBucket}>
-              Save
+              <i className="fa fa-save"></i> Save
             </button>
           </div>
         </If>
