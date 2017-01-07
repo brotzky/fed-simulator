@@ -1,8 +1,8 @@
-import React from "react"
-import Brand from "../../components/brand/brand"
-import * as wrestlersActions from "../../actions/wrestlers"
-import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import * as wrestlersActions from "../../actions/wrestlers"
+import Brand from "../../components/brand/brand"
+import Helmet from "react-helmet"
+import React from "react"
 
 class DraftPage extends React.Component {
 

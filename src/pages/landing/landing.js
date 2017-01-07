@@ -1,9 +1,9 @@
-import React from "react"
-import { Link } from "react-router"
-import Helmet from "react-helmet"
-import { connect } from "react-redux"
-import Championships from "../../components/championships/championships"
 import "./stylesheets/landing"
+import { connect } from "react-redux"
+import { Link } from "react-router"
+import Championships from "../../components/championships/championships"
+import Helmet from "react-helmet"
+import React from "react"
 
 class LandingPage extends React.Component {
 
