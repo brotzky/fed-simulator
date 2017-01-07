@@ -75,9 +75,7 @@ class Championships extends React.Component {
                 <span className="hvr-push">
                   <Icon name={championship.name} />
                 </span>
-                <div className={classNames([
-                  "championship__holdername",
-                  `championship__holdername--${this.context.toSlug(championship.name)}`])}>
+                <div className="championship__holdername">
                   <Choose>
                     <When condition={championship.wrestlers.length > 0}>
                       {championship.wrestlers.map((wrestler, key) => {

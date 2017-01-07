@@ -162,7 +162,7 @@ class ShowPage extends React.Component {
 
   render() {
     return (
-      <div className={`page show ${this.context.toSlug(this.currentShow.brand.name)}`}>
+      <div className="page show">
         <Helmet title="Create a Show" />
         <div className="inpage-content">
           <div className={classNames(

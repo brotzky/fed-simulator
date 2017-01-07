@@ -89,7 +89,7 @@ class Brand extends React.Component {
             <span className={`icon icon-${this.context.toSlug(this.props.name)}`}></span>
           </div>
         </If>
-        <div className={`Droppable col-xs-4 wrestlers wrestlers--${this.context.toSlug(this.props.name)}`}>
+        <div className={`Droppable col-xs-4 wrestlers`}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search
               placeholder="Filter choices"
@@ -121,13 +121,8 @@ class Brand extends React.Component {
             />
           </If>
         </div>
-        <h4 className={`wrestlers__header wrestlers__header--${this.context.toSlug(this.props.name)}`}>
-          <span className="hidden-lg hidden-md">
-            {this.props.name}: &nbsp;
-          </span>
-          <span>
-            {wrestlers.length} wrestler{wrestlers.length !== 1 ? "s" : ""}
-          </span>
+        <h4 className={`wrestlers__header`}>
+          {wrestlers.length} wrestler{wrestlers.length !== 1 ? "s" : ""}
         </h4>
       </Droppable>
     )

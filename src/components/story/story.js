@@ -48,7 +48,7 @@ export default class Story extends React.Component {
                 ? `index-${this.state.colourIndex[action.details.attacker.id]}`
                 : ""
             return (
-              <li className={`story__action story--${action.action} ${indexClass} brand--${this.context.toSlug(brand)}`}
+              <li className={`story__action story--${action.action} ${indexClass}`}
                 key={key}>
                 <Choose>
                   <When condition={action.action === "move"}>
