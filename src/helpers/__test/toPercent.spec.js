@@ -1,6 +1,5 @@
 import {
-  React,
-  expect,
+  expect
 } from "../test"
 import { toPercent } from "../match"
 
@@ -20,7 +19,7 @@ describe("toPercent", () => {
       total: 100,
       percent: 25,
       result: 25,
-    }
+    },
   }
   it("Correctly figures out 75 percent", () => {
     let { total, percent, result } = totals[75]
