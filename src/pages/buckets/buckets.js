@@ -17,6 +17,8 @@ class BucketsPage extends React.Component {
     brands: React.PropTypes.array.isRequired,
     championships: React.PropTypes.array.isRequired,
     wrestlers: React.PropTypes.array.isRequired,
+    shows: React.PropTypes.array.isRequired,
+    ppvs: React.PropTypes.array.isRequired,
   }
 
   onSaveWrestler = (wrestler) => {
@@ -46,6 +48,19 @@ class BucketsPage extends React.Component {
   }
 
   render() {
+    const allowed = [
+      "shows",
+      "ppvs",
+      "wrestlers",
+      "brands",
+      "championships",
+    ]
+    const filtered = Object.keys(this.props)
+      .filter(key => allowed.includes(key))
+      .reduce((newProps, key) => {
+        newProps[key] = this.props[key]
+        return newProps
+      }, {})
     return (
       <div className="page buckets">
         <Helmet title="Buckets" />
@@ -55,6 +70,12 @@ class BucketsPage extends React.Component {
               <a onKeyPress={this.onReset}
                 onClick={this.onReset}>
                 Reset <strong>EVERYTHING</strong>
+              </a>
+            </li>
+            <li className="navigation__item">
+              <a download="universe-sim.json"
+                href={`data:text/jsoncharset=utf-8,${encodeURIComponent(JSON.stringify(filtered))}`}>
+                Download an export
               </a>
             </li>
           </ul>
@@ -99,4 +120,6 @@ export default connect(state => ({
   brands: state.brands,
   championships: state.championships,
   wrestlers: state.wrestlers,
+  shows: state.shows,
+  ppvs: state.ppvs,
 }))(BucketsPage)
