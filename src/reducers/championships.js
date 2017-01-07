@@ -30,12 +30,10 @@ export default (state = defaultState, action) => {
           if (newState[key].canMoveBrands) {
             newState[key].brand = action.winner.brand
           }
-
-          console.log(`${action.loser.name} lost the ${championship.name} to ${action.winner.name}`)
           newState[key].changes++
           newState[key].wrestlers = newState[key].wrestlers.filter(wrestler => wrestler.id !== action.loser.id)
           newState[key].wrestlers.push({
-            ...action.winner
+            ...action.winner,
           })
         }
       })

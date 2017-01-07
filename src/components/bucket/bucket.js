@@ -43,7 +43,6 @@ export default class Bucket extends React.Component {
   }
 
   render() {
-    console.log("bucket render", this.state)
     return (
       <div className="bucket">
         <div className="bucket__collection">
