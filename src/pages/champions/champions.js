@@ -81,8 +81,7 @@ class ChampionsPage extends React.Component {
                       </div>
                     </div>
                     <Brand
-                      id={brand.id}
-                      name={brand.name}
+                      model={brand}
                       canDragAndDrop={true}
                       wrestlers={wrestlers}
                       showBrandLogo={false}

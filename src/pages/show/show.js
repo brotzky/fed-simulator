@@ -267,7 +267,7 @@ class ShowPage extends React.Component {
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
               <Sticky>
                 <Brand
-                  name={this.currentShow.brand.name}
+                  model={this.currentShow.brand}
                   showBrandLogo={false}
                   byPassBrandFilter={true}
                   wrestlers={this.getWrestlersFilteredByBrand(this.currentShow.brand)}
