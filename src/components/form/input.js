@@ -8,10 +8,9 @@ export default class Input extends React.Component {
     defaultValue: React.PropTypes.any.isRequired,
   }
 
-  onChange = (event) => this.props.changeHandler(event.target.name, event.target.value)
+  onChange = (event) => this.props.changeHandler(this.props.name, event.target.value)
 
   render() {
-    console.log("input render", this.props)
     return (
       <input
         type="text"
