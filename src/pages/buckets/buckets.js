@@ -1,3 +1,4 @@
+import "./stylesheets/buckets"
 import { connect } from "react-redux"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
@@ -60,7 +61,7 @@ class BucketsPage extends React.Component {
         </div>
         <div className="inpage-content statistic">
           <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 brand">
               <Bucket
                 collection={this.props.brands}
                 key="brand"
@@ -69,7 +70,7 @@ class BucketsPage extends React.Component {
                 validation={validation.brand}
               />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 wrestler">
               <Bucket
                 collection={this.props.wrestlers}
                 key="wrestler"
@@ -78,7 +79,7 @@ class BucketsPage extends React.Component {
                 validation={validation.wrestler}
               />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 championship">
               <Bucket
                 collection={this.props.championships}
                 key={"championships"}
