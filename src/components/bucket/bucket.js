@@ -74,6 +74,9 @@ export default class Bucket extends React.Component {
                       {name}
                     </span>
                     <Choose>
+                      <When condition={currentFieldtype === "colour"}>
+                        <ColourPicker {...values} />
+                      </When>
                       <When condition={currentFieldtype === "bool"}>
                         <Checkbox {...values} />
                       </When>

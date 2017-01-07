@@ -1,7 +1,10 @@
 {
   "brand": {
     "id": "readonly",
-    "name": "input"
+    "name": "input",
+    "default": "bool",
+    "bgColour": "colour",
+    "textColour": "colour"
   },
   "wrestler": {
     "id": "readonly",
