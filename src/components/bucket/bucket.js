@@ -53,6 +53,9 @@ export default class Bucket extends React.Component {
           />
         </div>
         <If condition={this.state.currentItem}>
+          <div className="icon__container">
+            <Icon name={this.state.currentItem.name} />
+          </div>
           <form ref="form">
             <div className="bucket__edit">
               {Object.keys(this.props.validation).map((name, key) => {
