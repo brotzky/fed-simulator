@@ -58,7 +58,9 @@ class RankingPage extends React.Component {
       if (value === 0) return
 
       segments.push({
-        model: brand,
+        name: brand.name,
+        bgColour: brand.bgColour,
+        textColour: brand.textColour,
         value,
         percent,
       })

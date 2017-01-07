@@ -5,11 +5,9 @@ export default class Segments extends React.Component {
 
   static propTypes = {
     segments: React.PropTypes.arrayOf(React.PropTypes.shape({
-      model: React.PropTypes.shape({
-        bgColour: React.PropTypes.string.isRequired,
-        name: React.PropTypes.string.isRequired,
-        textColour: React.PropTypes.string.isRequired,
-      }),
+      name: React.PropTypes.string.isRequired,
+      textColour: React.PropTypes.string.isRequired,
+      bgColour: React.PropTypes.string.isRequired,
       percent: React.PropTypes.number,
       value: React.PropTypes.number,
     }))
@@ -27,8 +25,8 @@ export default class Segments extends React.Component {
         {this.props.segments.map((segment, key) => {
           let style = {
             width: `${segment.percent}%`,
-            backgroundColor: segment.model.bgColour,
-            color: segment.model.textColour,
+            backgroundColor: segment.bgColour,
+            color: segment.textColour,
           }
           return (
             <span key={key}
