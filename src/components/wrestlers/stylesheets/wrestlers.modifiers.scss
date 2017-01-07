@@ -1,30 +1,5 @@
 @import "src/stylesheets/variables";
 
-.wrestlers--raw {
-  background-color: $raw;
-}
-
-.wrestlers__header--raw {
-  background-color: darken($raw, 10%);
-}
-
-.wrestlers--nxt {
-  background-color: $nxt;
-  color: black;
-}
-
-.wrestlers__header--nxt {
-  background-color: darken($nxt, 10%);
-}
-
-.wrestlers--smackdown-live {
-  background-color: $smackdown;
-}
-
-.wrestlers__header--smackdown-live {
-  background-color: darken($smackdown, 10%);
-}
-
 .wrestlers__header--default {
   display: none;
 }

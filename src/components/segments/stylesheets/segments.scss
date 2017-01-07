@@ -1,7 +1,6 @@
 @import "src/stylesheets/breakpoints";
 
 .segments {
-
   .hvr-bounce-to-right:before {
     background-color: #ccc;
   }
@@ -20,5 +19,3 @@
     }
   }
 }
-
-@import "segments.modifiers"
