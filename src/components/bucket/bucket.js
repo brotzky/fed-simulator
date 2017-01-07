@@ -1,10 +1,11 @@
-import React from "react"
-import Select from "../form/select"
-import Input from "../form/input"
-import ReadOnly from "../form/readonly"
-import Checkbox from "../form/checkbox"
-import classNames from "classnames"
 import "./stylesheets/bucket.scss"
+import Checkbox from "../form/checkbox"
+import Icon from "../icon/icon"
+import Input from "../form/input"
+import ColourPicker from "../form/colour"
+import React from "react"
+import ReadOnly from "../form/readonly"
+import Select from "../form/select"
 
 export default class Bucket extends React.Component {
 
