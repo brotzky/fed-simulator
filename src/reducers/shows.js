@@ -1,10 +1,10 @@
-import defaultState from "./shows.default"
 import weighted from "weighted"
 import { randomiseWrestlers, simulateMatch } from "../helpers/match"
 import { getRandomInt } from "../helpers/math"
 
 const getAttendance = (min, max) => getRandomInt(min, max)
 const createEmptyMatches = () => Array.from({length: 12}).fill({isTagMatch: false})
+const defaultState = []
 const tag = {
   options: [true, false],
   weights: [0.1, 0.9],

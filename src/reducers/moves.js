@@ -1,5 +1,5 @@
-import defaultState from "./moves.default"
+const defaultState = []
 
-export default (state = defaultState, action) => {
+export default (state = defaultState) => {
   return state
 }

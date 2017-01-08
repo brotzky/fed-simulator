@@ -14,13 +14,6 @@ class DraftPage extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
   }
 
-  onClear = (event) => {
-    event.preventDefault()
-    this.props.dispatch(
-      wrestlersActions.clear()
-    )
-  }
-
   onSendToDraft = (event) => {
     event.preventDefault()
     this.props.dispatch(
@@ -38,12 +31,6 @@ class DraftPage extends React.Component {
               <a onKeyPress={this.onSendToDraft}
                 onClick={this.onSendToDraft}>
                 Move All To Draft
-              </a>
-            </li>
-            <li className="navigation__item">
-              <a onKeyPress={this.onClear}
-                onClick={this.onClear}>
-                Reset Wrestlers
               </a>
             </li>
           </ul>

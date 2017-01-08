@@ -1,11 +1,11 @@
-import React from "react"
-import Championships from "../../components/championships/championships"
-import Secondary from "../../components/page/secondary"
+import "./stylesheets/champions"
+import { connect } from "react-redux"
 import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
+import Championships from "../../components/championships/championships"
 import Helmet from "react-helmet"
-import { connect } from "react-redux"
-import "./stylesheets/champions"
+import React from "react"
+import Secondary from "../../components/page/secondary"
 
 class ChampionsPage extends React.Component {
 
@@ -25,13 +25,6 @@ class ChampionsPage extends React.Component {
     )
   }
 
-  onReset = (event) => {
-    event.preventDefault()
-    this.props.dispatch(
-      championshipActions.reset()
-    )
-  }
-
   render() {
     const awardedChampionships = this.props.championships.filter(championship => championship.wrestlerId !== "" || championship.wrestlerIds.length > 0).length
     return (
@@ -45,12 +38,6 @@ class ChampionsPage extends React.Component {
                 onClick={this.onClear}
                 href="#">
                 Clear All Championships
-              </a>
-            </li>
-            <li className="navigation__item">
-              <a onKeyPress={this.onReset}
-                onClick={this.onReset}>
-                Reset Championships
               </a>
             </li>
           </ul>
