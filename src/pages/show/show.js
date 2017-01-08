@@ -165,7 +165,7 @@ class ShowPage extends React.Component {
 
   render() {
     return (
-      <div className="page show">
+      <main className="page show">
         <Helmet title="Create a Show" />
         <If condition={this.props.ppvs && this.props.ppvs[0]}>
           <div className="inpage-content">
@@ -281,7 +281,7 @@ class ShowPage extends React.Component {
             </div>
           </div>
         </If>
-      </div>
+      </main>
     )
   }
 }

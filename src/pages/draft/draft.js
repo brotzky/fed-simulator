@@ -23,7 +23,7 @@ class DraftPage extends React.Component {
 
   render() {
     return (
-      <div className="page draft">
+      <main className="page draft">
         <Helmet title="Draft Management" />
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
@@ -59,7 +59,7 @@ class DraftPage extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

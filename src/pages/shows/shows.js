@@ -38,7 +38,7 @@ class ShowsPage extends React.Component {
 
   render() {
     return (
-      <div className="page shows">
+      <main className="page shows">
         <Helmet title="Previous Shows" />
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
@@ -97,7 +97,7 @@ class ShowsPage extends React.Component {
             </tbody>
           </table>
         </div>
-      </div>
+      </main>
     )
   }
 }

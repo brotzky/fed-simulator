@@ -55,7 +55,7 @@ class Page extends React.Component {
         <StickyContainer>
           <section className="container-fluid">
             {this.props.children}
-            <div className="row legal">
+            <footer className="row">
               <div className="col-xs-12">
                 <p>
                   All WWE imagery is taken from <a rel="noopener" href="http://www.wwe.com/main-help/generalfaq/copyright" target="_blank">WWE.com</a> and owned by <a rel="noopener" href="https://wwe.com" target="_blank">World Wrestling Entertainment, Inc.</a>
@@ -64,7 +64,7 @@ class Page extends React.Component {
                   Please <a href="mailto:aaron.lote@gmail.com">email me</a> directly with any queries or find me on <a target="_blank" rel="noopener" href="https://twitter.com/azz0r">twitter @azz0r or @UniverseSimMan</a>
                 </p>
               </div>
-            </div>
+            </footer>
           </section>
         </StickyContainer>
       </div>

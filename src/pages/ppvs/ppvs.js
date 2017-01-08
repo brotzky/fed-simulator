@@ -14,7 +14,7 @@ class PPVsPage extends React.Component {
 
   render() {
     return (
-      <div className="page ppvs">
+      <main className="page ppvs">
         <Helmet title="Pay Per Views" />
         <div className="inpage-content">
           <div className="row">
@@ -23,7 +23,7 @@ class PPVsPage extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

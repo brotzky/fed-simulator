@@ -62,7 +62,7 @@ class BucketsPage extends React.Component {
         return newProps
       }, {})
     return (
-      <div className="page buckets">
+      <main className="page buckets">
         <Helmet title="Modifications" />
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">
@@ -111,7 +111,7 @@ class BucketsPage extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

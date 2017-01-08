@@ -16,7 +16,7 @@ class LandingPage extends React.Component {
 
   render() {
     return (
-      <div className="page landing">
+      <main className="page landing">
         <Helmet title="Wrestling SIM" />
         <div className="inpage-content">
           <div className="row introduction">
@@ -68,7 +68,7 @@ class LandingPage extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

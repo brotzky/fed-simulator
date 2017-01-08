@@ -28,7 +28,7 @@ class ChampionsPage extends React.Component {
   render() {
     const awardedChampionships = this.props.championships.filter(championship => championship.wrestlerId !== "" || championship.wrestlerIds.length > 0).length
     return (
-      <div className="page champions">
+      <main className="page champions">
         <Helmet title="Championships" />
         <Secondary />
         <div className="navigation navigation--secondary">
@@ -78,7 +78,7 @@ class ChampionsPage extends React.Component {
             })}
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }
