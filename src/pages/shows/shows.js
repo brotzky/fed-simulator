@@ -45,18 +45,7 @@ class ShowsPage extends React.Component {
             <li className="navigation__item">
               <a onKeyPress={this.onClear}
                 onClick={this.onClear}>
-                Reset Shows
-              </a>
-            </li>
-            <li className="navigation__item">
-              <Link to="show">
-                Create a show
-              </Link>
-            </li>
-            <li className="navigation__item">
-              <a download="shows.json"
-                href={`data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.props.shows))}`}>
-                Download an export
+                Remove all shows
               </a>
             </li>
           </ul>

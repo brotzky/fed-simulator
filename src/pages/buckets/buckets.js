@@ -69,7 +69,7 @@ class BucketsPage extends React.Component {
             <li className="navigation__item">
               <a onKeyPress={this.onReset}
                 onClick={this.onReset}>
-                Reset <strong>EVERYTHING</strong>
+                Reset <strong>everything</strong>
               </a>
             </li>
             <li className="navigation__item">

@@ -30,7 +30,7 @@ class DraftPage extends React.Component {
             <li className="navigation__item">
               <a onKeyPress={this.onSendToDraft}
                 onClick={this.onSendToDraft}>
-                Move All To Draft
+                Start a draft
               </a>
             </li>
           </ul>

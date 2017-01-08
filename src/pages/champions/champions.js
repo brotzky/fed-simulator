@@ -35,7 +35,7 @@ class ChampionsPage extends React.Component {
               <a onKeyPress={this.onClear}
                 onClick={this.onClear}
                 href="#">
-                Clear All Championships
+                Vacate all championships
               </a>
             </li>
           </ul>
