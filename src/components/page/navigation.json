@@ -1,30 +1,22 @@
-[
-  {
-    "url": "ppvs",
-    "title": "PPVs"
-  },
-  {
-    "url": "draft",
-    "title": "Draft"
-  },
-  {
-    "url": "champions",
-    "title": "Champions"
-  },
-  {
-    "url": "ranking",
-    "title": "Ranking"
-  },
-  {
-    "url": "shows",
-    "title": "Shows"
-  },
-  {
-    "url": "show",
-    "title": "Create a show"
-  },
-  {
-    "url": "buckets",
-    "title": "Modify"
-  }
-]
+[{
+	"url": "creationism",
+	"title": "Create"
+}, {
+	"url": "buckets",
+	"title": "Modify"
+}, {
+	"url": "draft",
+	"title": "Draft"
+}, {
+	"url": "champions",
+	"title": "Champions"
+}, {
+	"url": "ranking",
+	"title": "Ranking"
+}, {
+	"url": "shows",
+	"title": "Shows"
+}, {
+	"url": "show",
+	"title": "Create a show"
+}]

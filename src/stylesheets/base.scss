@@ -8,16 +8,16 @@
 @import "variables";
 
 @include breakpoint(xs) {
-  [class*='col-'] {
-      padding-right: 0;
-      padding-left: 0;
+  [class*="col-"] {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
 html {
   font-size: 60%;
-  position: relative;
   min-height: 100%;
+  position: relative;
 }
 
 body {
@@ -31,18 +31,19 @@ body {
 }
 
 footer {
-  padding: 2rem;
-  color: white;
-  line-height: 2rem;
   background-color: #333;
-  position: absolute;
   bottom: 0;
-  width: 100%;
+  color: #fff;
   height: $footer-height;
+  line-height: 2rem;
+  padding: 2rem;
+  position: absolute;
+  width: 100%;
 
   a {
-    color: #ccc;
+    color: $active;
   }
+
   p {
     margin: 1rem 0;
   }
@@ -69,7 +70,7 @@ h4 {
 }
 
 a {
-  color: black;
+  color: #000;
 }
 
 .statistic {
@@ -78,7 +79,7 @@ a {
 
 .spaced {
   letter-spacing: .25rem;
-  word-spacing: 0.5rem;
+  word-spacing: .5rem;
 
   @include breakpoint(xs) {
     letter-spacing: inherit;
@@ -87,9 +88,9 @@ a {
 }
 
 sup {
-  vertical-align: super;
   font-size: 50%;
-  letter-spacing: 0.2;
+  letter-spacing: .2;
+  vertical-align: super;
 }
 
 .sticky {
@@ -111,10 +112,10 @@ a:hover {
 }
 
 .no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 
