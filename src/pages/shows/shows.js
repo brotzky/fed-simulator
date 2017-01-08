@@ -1,11 +1,11 @@
-import React from "react"
+import "./stylesheets/shows"
+import { connect } from "react-redux"
 import { Link } from "react-router"
+import * as showActions from "../../actions/show"
 import Helmet from "react-helmet"
 import Icon from "../../components/icon/icon"
 import Moment from "moment"
-import { connect } from "react-redux"
-import * as showActions from "../../actions/show"
-import "./stylesheets/shows"
+import React from "react"
 
 const sortByDate = (previous, next) => {
   let dateFormat = "D/M/YYYY"

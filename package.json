@@ -93,6 +93,7 @@
     "play-sound": "^1.1.1",
     "promise": "7.1.1",
     "react": "^15.2.1",
+    "react-color": "^2.11.1",
     "react-day-picker": "^3.1.1",
     "react-dom": "^15.2.1",
     "react-drag-and-drop": "^2.1.0",
@@ -106,6 +107,7 @@
     "redux-diff-logger": "0.0.9",
     "redux-localstorage": "^0.4.1",
     "redux-reset": "^0.2.0",
+    "simple-react-form": "^1.8.0",
     "string.prototype.includes": "^1.0.0",
     "superagent": "^2.3.0"
   },

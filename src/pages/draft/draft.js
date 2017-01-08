@@ -1,8 +1,8 @@
-import React from "react"
-import Brand from "../../components/brand/brand"
-import * as wrestlersActions from "../../actions/wrestlers"
-import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import * as wrestlersActions from "../../actions/wrestlers"
+import Brand from "../../components/brand/brand"
+import Helmet from "react-helmet"
+import React from "react"
 
 class DraftPage extends React.Component {
 
@@ -60,8 +60,7 @@ class DraftPage extends React.Component {
                     key={brand.id}
                     className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <Brand
-                      id={brand.id}
-                      name={brand.name}
+                      model={brand}
                       canDragAndDrop={true}
                       wrestlers={wrestlers}
                       byPassBrandFilter={brand.default}

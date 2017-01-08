@@ -1,5 +1,12 @@
 import * as types from "./types"
 
+export function update(championship) {
+  return {
+    type: types.UPDATE_CHAMPIONSHIP,
+    championship,
+  }
+}
+
 export function awardChampionship(championship, wrestler) {
   return {
     type: types.MOVE_CHAMPIONSHIP,

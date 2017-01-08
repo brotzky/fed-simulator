@@ -3,23 +3,32 @@
     "id": "-1085510111",
     "sequence": 0,
     "name": "Default",
+    "bgColour": "#000000",
+    "textColour": "#ffffff",
     "default": true
   },
   {
     "id": "77770",
     "sequence": 3,
     "name": "NXT",
+    "bgColour": "#ffc71c",
+    "textColour": "#000000",
     "default": false
   },
   {
     "id": "81928",
     "sequence": 1,
     "name": "Raw",
+    "bgColour": "#eb1826",
+    "textColour": "#ffffff",
+    "bgColor": "black",
     "default": false
   },
   {
     "id": "-5701846309",
     "sequence": 2,
+    "bgColour": "#3b30fe",
+    "textColour": "#ffffff",
     "name": "Smackdown Live",
     "default": false
   }

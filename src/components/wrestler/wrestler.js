@@ -1,22 +1,20 @@
-import React from "react"
+import "./stylesheets/main"
 import classNames from "classnames"
 import Icon from "../icon/icon"
-import { toSlug } from "../../helpers/slugs"
-import "./stylesheets/main"
+import React from "react"
 
 const Wrestler = ({
   id,
   name,
-  brand,
   animate = true,
   onWrestlerClick,
   active = false
 }) => {
-  const slugName = toSlug(name)
   const classes = classNames(
     "wrestler",
-    `wrestler--${toSlug(brand)}`,
-    { "hvr-buzz": animate },
+    {
+      "hvr-buzz": animate,
+    },
   )
   return (
     <div

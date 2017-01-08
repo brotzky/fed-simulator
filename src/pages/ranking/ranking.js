@@ -1,13 +1,13 @@
-import React from "react"
-import Ranking from "../../components/ranking/ranking"
-import Icon from "../../components/icon/icon"
-import Segments from "../../components/segments/segments"
-import * as wrestlersActions from "../../actions/wrestlers"
-import Secondary from "../../components/page/secondary"
-import Helmet from "react-helmet"
+import "./stylesheets/ranking"
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
-import "./stylesheets/ranking"
+import * as wrestlersActions from "../../actions/wrestlers"
+import Helmet from "react-helmet"
+import Icon from "../../components/icon/icon"
+import Ranking from "../../components/ranking/ranking"
+import React from "react"
+import Secondary from "../../components/page/secondary"
+import Segments from "../../components/segments/segments"
 
 class RankingPage extends React.Component {
 
@@ -49,7 +49,7 @@ class RankingPage extends React.Component {
     let segments = [],
       totalWins = this.props.wrestlers.reduce((sum, wrestler) => sum + wrestler.wins, 0)
 
-    this.props.brands.filter(brand => !brand.default).forEach((brand) => {
+    this.props.brands.forEach((brand) => {
       let value = this.props.wrestlers
           .filter(wrestler => wrestler.brand === brand.name)
           .reduce((sum, wrestler) => sum + wrestler.wins, 0),
@@ -59,6 +59,8 @@ class RankingPage extends React.Component {
 
       segments.push({
         name: brand.name,
+        bgColour: brand.bgColour,
+        textColour: brand.textColour,
         value,
         percent,
       })

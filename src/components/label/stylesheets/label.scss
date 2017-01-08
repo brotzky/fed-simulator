@@ -6,6 +6,8 @@
   text-transform: uppercase;
   border-radius: 0;
   padding: .3rem 1rem;
+  background-color: black;
+  color: white;
 
   &.label-green {
     background-color: green;
@@ -33,15 +35,5 @@
   &.label-black {
     background-color: black;
     color: white;
-  }
-  &.label-raw {
-    background-color: $raw;
-  }
-  &.label-smackdown-live {
-    background-color: $smackdown;
-  }
-  &.label-nxt {
-    background-color: $nxt;
-    color: black;
   }
 }

@@ -2,9 +2,14 @@ import defaultState from "./championships.default"
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state)),
+    getIndexById = (id) => newState.findIndex(item => item.id === id),
     key = 0
 
   switch (action.type) {
+    case "UPDATE_CHAMPIONSHIP":
+      let index = getIndexById(action.championship.id)
+      newState[index] = action.championship
+      break
     case "MOVE_CHAMPIONSHIP":
       key = newState.findIndex(championship => championship.id === action.championship.id)
       newState[key].wrestlers.push(action.wrestler)
@@ -25,12 +30,10 @@ export default (state = defaultState, action) => {
           if (newState[key].canMoveBrands) {
             newState[key].brand = action.winner.brand
           }
-
-          console.log(`${action.loser.name} lost the ${championship.name} to ${action.winner.name}`)
           newState[key].changes++
           newState[key].wrestlers = newState[key].wrestlers.filter(wrestler => wrestler.id !== action.loser.id)
           newState[key].wrestlers.push({
-            ...action.winner
+            ...action.winner,
           })
         }
       })
@@ -41,6 +44,7 @@ export default (state = defaultState, action) => {
         })
       break
     case "RESET_CHAMPIONS":
+    case "RESET":
       newState = defaultState
       break
     default:

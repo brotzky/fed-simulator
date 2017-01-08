@@ -1,0 +1,15 @@
+.page.buckets {
+  .brand .icon {
+    zoom: 0.5;
+  }
+  .wrestler .icon {
+    zoom: 0.7;
+  }
+  .icon__container {
+    .icon {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+}

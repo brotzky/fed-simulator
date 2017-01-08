@@ -101,6 +101,7 @@ export default (state = defaultState, action) => {
       newState[index].matches = createEmptyMatches()
       break
     case "RESET_SHOWS":
+    case "RESET":
       newState = defaultState
       break
     default:

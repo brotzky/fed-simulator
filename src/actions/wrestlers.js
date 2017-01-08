@@ -1,5 +1,13 @@
 import * as types from "./types"
 
+
+export function update(wrestler) {
+  return {
+    type: types.UPDATE_WRESTLER,
+    wrestler,
+  }
+}
+
 export function moveWrestler(
   brand,
   wrestlerId,

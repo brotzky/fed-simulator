@@ -1,12 +1,12 @@
-import React from "react"
-import { Droppable } from "react-drag-and-drop"
-import Icon from "../icon/icon"
-import Search from "../search/search"
-import * as wrestlersActions from "../../actions/wrestlers"
-import { filterFemales } from "../../helpers/filters"
-import { connect } from "react-redux"
-import Wrestlers from "../wrestlers/wrestlers"
 import "./stylesheets/brand"
+import { connect } from "react-redux"
+import { Droppable } from "react-drag-and-drop"
+import { filterFemales } from "../../helpers/filters"
+import * as wrestlersActions from "../../actions/wrestlers"
+import Icon from "../icon/icon"
+import React from "react"
+import Search from "../search/search"
+import Wrestlers from "../wrestlers/wrestlers"
 
 class Brand extends React.Component {
 
@@ -17,6 +17,12 @@ class Brand extends React.Component {
     onWrestlerClick: React.PropTypes.func,
     byPassBrandFilter: React.PropTypes.bool,
     showBrandLogo: React.PropTypes.bool,
+    model: React.PropTypes.shape({
+      id: React.PropTypes.string.required,
+      name: React.PropTypes.string.required,
+      bgColour: React.PropTypes.string.required,
+      textColour: React.PropTypes.string.isRequired,
+    }),
   }
 
   static defaultProps = {
@@ -64,6 +70,10 @@ class Brand extends React.Component {
   displayName = "Brand"
 
   render() {
+    const style = {
+      backgroundColor: this.props.model.bgColour,
+      color: this.props.model.textColour,
+    }
     let searchIsActive = false,
       wrestlers = this.props.wrestlers
                     .filter(wrestler => filterFemales(wrestler, this.state.showFemalesOnly))
@@ -78,7 +88,7 @@ class Brand extends React.Component {
       femalewrestlers = wrestlers.filter(wrestler => wrestler.male === false)
     return (
       <Droppable
-        key={this.props.id}
+        key={this.props.model.id}
         className="brand"
         types={[
           "wrestler",
@@ -86,15 +96,16 @@ class Brand extends React.Component {
         onDrop={this.onDrop.bind(this, this.props)}>
         <If condition={this.props.showBrandLogo}>
           <div className="brand__icon text-center hidden-sm hidden-xs">
-            <span className={`icon icon-${this.context.toSlug(this.props.name)}`}></span>
+            <span className={`icon icon-${this.context.toSlug(this.props.model.name)}`}></span>
           </div>
         </If>
-        <div className={`Droppable col-xs-4 wrestlers wrestlers--${this.context.toSlug(this.props.name)}`}>
+        <div className="Droppable col-xs-4 wrestlers"
+          style={style}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search
               placeholder="Filter choices"
               onSearchUpdated={this.onSearchUpdated}
-              brandName={this.props.name}
+              brandName={this.props.model.name}
             />
           </div>
           <div className="brand__toggles">
@@ -121,13 +132,8 @@ class Brand extends React.Component {
             />
           </If>
         </div>
-        <h4 className={`wrestlers__header wrestlers__header--${this.context.toSlug(this.props.name)}`}>
-          <span className="hidden-lg hidden-md">
-            {this.props.name}: &nbsp;
-          </span>
-          <span>
-            {wrestlers.length} wrestler{wrestlers.length !== 1 ? "s" : ""}
-          </span>
+        <h4 className={`wrestlers__header`}>
+          {wrestlers.length} wrestler{wrestlers.length !== 1 ? "s" : ""}
         </h4>
       </Droppable>
     )

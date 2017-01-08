@@ -6,6 +6,9 @@ export default (state = defaultState, action) => {
     case "SHOW_STORY_BY_DEFAULT":
       newState.SHOW_STORY_BY_DEFAULT = !newState.SHOW_STORY_BY_DEFAULT
       break
+    case "RESET":
+      newState = defaultState
+      break
     default:
       break
   }
