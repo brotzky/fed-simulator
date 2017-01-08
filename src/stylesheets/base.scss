@@ -16,7 +16,8 @@
 
 html {
   font-size: 60%;
-  height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body {
@@ -24,8 +25,27 @@ body {
   color: $color;
   font-family: "Roboto", "Verdana", "Arial", sans-serif;
   font-size: 1.6rem;
+  margin-bottom: $footer-height;
   margin: 0;
   padding: 0;
+}
+
+footer {
+  padding: 2rem;
+  color: white;
+  line-height: 2rem;
+  background-color: #333;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+
+  a {
+    color: #ccc;
+  }
+  p {
+    margin: 1rem 0;
+  }
 }
 
 h1 {
@@ -50,20 +70,6 @@ h4 {
 
 a {
   color: black;
-}
-
-footer {
-  padding: 3rem;
-  color: white;
-  line-height: 2rem;
-  background-color: #333;
-
-  a {
-    color: #ccc;
-  }
-  p {
-    margin: 1rem 0;
-  }
 }
 
 .statistic {
