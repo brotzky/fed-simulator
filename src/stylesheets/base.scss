@@ -6,6 +6,7 @@
 @import "navigation";
 @import "sprites/main";
 @import "variables";
+@import "flexboxgrid";
 
 @include breakpoint(xs) {
   [class*='col-'] {
