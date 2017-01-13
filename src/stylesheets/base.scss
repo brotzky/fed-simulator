@@ -21,7 +21,6 @@ html {
 
 .content {
   display: flex;
-  height: 100vh;
   flex-direction: column;
   position: relative;
 }
@@ -38,6 +37,9 @@ body {
 .inpage-content {
   z-index: 0;
   margin: 3rem;
+  @include breakpoint(xs) {
+    margin: .2rem;
+  }
 }
 
 .wrap {
@@ -135,15 +137,6 @@ h1 {
   font-size: 50px;
   img {
     max-height: 80px;
-  }
-}
-
-.inpage-content {
-  padding: 1em 0;
-  z-index: 2;
-
-  @include breakpoint(xs) {
-    padding: .5rem;
   }
 }
 
