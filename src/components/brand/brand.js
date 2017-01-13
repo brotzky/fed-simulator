@@ -99,7 +99,7 @@ class Brand extends React.Component {
             <span className={`icon icon-${this.context.toSlug(this.props.model.name)}`}></span>
           </div>
         </If>
-        <div className="Droppable col-xs-4 wrestlers"
+        <div className="Droppable col-xs-12 wrestlers"
           style={style}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search

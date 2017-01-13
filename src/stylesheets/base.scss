@@ -21,9 +21,8 @@ html {
 
 .content {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
-  min-height: 100%;
   position: relative;
 }
 
@@ -38,11 +37,6 @@ body {
 
 .page {
   z-index: 0;
-}
-
-.page-section {
-  padding-top: 3rem;
-  margin-bottom: 3rem;
 }
 
 .wrap {
