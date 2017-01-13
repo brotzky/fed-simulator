@@ -9,7 +9,7 @@
 @import "flexboxgrid";
 
 @include breakpoint(xs) {
-  [class*='col-'] {
+  [class*="col-"] {
       padding-right: 0;
       padding-left: 0;
   }
@@ -17,25 +17,43 @@
 
 html {
   font-size: 60%;
-  height: 100%;
+}
+
+.content {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 body {
-  background-color: $bg;
-  color: $color;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
   font-family: "Roboto", "Verdana", "Arial", sans-serif;
   font-size: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
+  background-color: $bg;
+}
+
+.page {
+  z-index: 0;
+}
+
+.page-section {
+  padding-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.wrap {
+  flex: 1;
 }
 
 footer {
   padding: 2rem;
+  box-sizing: border-box;
+
   color: white;
   line-height: 2rem;
   background-color: #333;
-  bottom: 0;
   width: 100%;
 
   a {
@@ -76,7 +94,7 @@ a {
 
 .spaced {
   letter-spacing: .25rem;
-  word-spacing: 0.5rem;
+  word-spacing: .5rem;
 
   @include breakpoint(xs) {
     letter-spacing: inherit;
@@ -87,7 +105,7 @@ a {
 sup {
   vertical-align: super;
   font-size: 50%;
-  letter-spacing: 0.2;
+  letter-spacing: .2;
 }
 
 .sticky {
@@ -123,17 +141,12 @@ h1 {
   }
 }
 
-.page {
-  z-index: 1;
-  flex: 1;
+.inpage-content {
+  padding: 1em 0;
+  z-index: 2;
 
-  .inpage-content {
-    padding: 1em 0;
-    z-index: 2;
-
-    @include breakpoint(xs) {
-      padding: 0.5rem;
-    }
+  @include breakpoint(xs) {
+    padding: .5rem;
   }
 }
 

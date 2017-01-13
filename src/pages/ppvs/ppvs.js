@@ -14,7 +14,7 @@ class PPVsPage extends React.Component {
 
   render() {
     return (
-      <main className="page ppvs">
+      <main className="page-section ppvs">
         <Helmet title="Pay Per Views" />
         <div className="inpage-content">
           <div className="row">
