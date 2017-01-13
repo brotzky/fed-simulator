@@ -1,6 +1,6 @@
-#Universe SIM Manager
+# Fed Simulator
 
-### [View a demo here](https://www.wwesim.com)
+### [View a demo here](http://www.fedsimulator.com)
 
 ## 📕 Index
 * [Installing](#installing)
