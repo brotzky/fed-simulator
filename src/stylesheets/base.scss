@@ -35,8 +35,9 @@ body {
   background-color: $bg;
 }
 
-.page {
+.inpage-content {
   z-index: 0;
+  margin: 3rem;
 }
 
 .wrap {
