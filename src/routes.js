@@ -21,7 +21,16 @@ export default () => {
                callback(null, require("./pages/show/show").default)
              })
            }}
-       />
+         />
+       </Route>
+       <Route path="creationism">
+         <IndexRoute
+           getComponent={(nextState, callback) => {
+             require.ensure([], (require) => {
+               callback(null, require("./pages/creationism/creationism").default)
+             })
+           }}
+         />
        </Route>
        <Route path="shows">
          <IndexRoute

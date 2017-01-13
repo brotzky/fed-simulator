@@ -10,8 +10,8 @@
 
 @include breakpoint(xs) {
   [class*="col-"] {
-      padding-right: 0;
-      padding-left: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
@@ -23,6 +23,8 @@ html {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  min-height: 100%;
+  position: relative;
 }
 
 body {
@@ -54,11 +56,11 @@ footer {
   color: white;
   line-height: 2rem;
   background-color: #333;
-  width: 100%;
 
   a {
-    color: #ccc;
+    color: $active;
   }
+
   p {
     margin: 1rem 0;
   }
@@ -85,7 +87,7 @@ h4 {
 }
 
 a {
-  color: black;
+  color: #000;
 }
 
 .statistic {
@@ -103,9 +105,9 @@ a {
 }
 
 sup {
-  vertical-align: super;
   font-size: 50%;
   letter-spacing: .2;
+  vertical-align: super;
 }
 
 .sticky {
@@ -127,10 +129,10 @@ a:hover {
 }
 
 .no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 
