@@ -53,7 +53,7 @@ class Page extends React.Component {
           </div>
         </header>
         <StickyContainer>
-          <section className="container-fluid">
+          <section className="wrap container-fluid">
             {this.props.children}
             <footer className="row">
               <div className="col-xs-12">
