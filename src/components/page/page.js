@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "react-router"
 import Head from "../head/head"
 import { connect } from "react-redux"
-import { StickyContainer } from "react-sticky"
 import * as versionActions from "../../actions/version"
 import navigation from "./navigation"
 import logo from "./logo.png"
@@ -52,21 +51,19 @@ class Page extends React.Component {
             </ul>
           </div>
         </header>
-        <StickyContainer>
-          <section className="wrap container-fluid">
-            {this.props.children}
-            <footer className="row">
-              <div className="col-xs-12">
-                <p>
-                  All WWE imagery is taken from <a rel="noopener" href="http://www.wwe.com/main-help/generalfaq/copyright" target="_blank">WWE.com</a> and owned by <a rel="noopener" href="https://wwe.com" target="_blank">World Wrestling Entertainment, Inc.</a>
-                </p>
-                <p>
-                  Please <a href="mailto:aaron.lote@gmail.com">email me</a> directly with any queries or find me on twitter <a target="_blank" rel="noopener" href="https://twitter.com/azz0r">@azz0r</a> or <a target="_blank" rel="noopener" href="https://twitter.com/UniverseSimMan">@UniverseSimMan</a>
-                </p>
-              </div>
-            </footer>
-          </section>
-        </StickyContainer>
+        <section className="wrap container-fluid">
+          {this.props.children}
+        </section>
+        <footer className="row">
+          <div className="col-xs-12">
+            <p>
+              All WWE imagery is taken from <a rel="noopener" href="http://www.wwe.com/main-help/generalfaq/copyright" target="_blank">WWE.com</a> and owned by <a rel="noopener" href="https://wwe.com" target="_blank">World Wrestling Entertainment, Inc.</a>
+            </p>
+            <p>
+              Please <a href="mailto:aaron.lote@gmail.com">email me</a> directly with any queries or find me on twitter <a target="_blank" rel="noopener" href="https://twitter.com/azz0r">@azz0r</a> or <a target="_blank" rel="noopener" href="https://twitter.com/UniverseSimMan">@UniverseSimMan</a>
+            </p>
+          </div>
+        </footer>
       </div>
     )
   }

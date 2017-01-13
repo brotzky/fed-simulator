@@ -1,7 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
 import * as wrestlersActions from "../../actions/wrestlers"
-import { Sticky } from "react-sticky"
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 const amountOfSims = [
@@ -53,39 +52,37 @@ class PageSecondary extends React.Component {
 
   render() {
     return (
-      <Sticky>
-        <div className="navigation navigation--secondary">
-          <ul className="navigation__list">
-            {this.props.brands.map((brand, key) => {
-              return (
-                <li key={key}
-                  className="navigation__item">
-                  <Icon name={brand.name} /> &nbsp;
-                  {amountOfSims.map((amount, key) => {
-                    return (
-                      <span key={key}>
-                        <a onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand })}
-                          onClick={this.onSimulateBrandMatches.bind(this, { amount, brand })}>
-                          {amount}
-                        </a>,	&nbsp;
-                      </span>
-                    )
-                  })}
-                </li>
-              )
-            })}
-            <If condition={this.props.showClear}>
-              <li className="navigation__item">
-                <a
-                  onKeyPress={this.onReset}
-                  onClick={this.onReset}>
-                  Clear wins & losses
-                </a>
+      <div className="navigation navigation--secondary">
+        <ul className="navigation__list">
+          {this.props.brands.map((brand, key) => {
+            return (
+              <li key={key}
+                className="navigation__item">
+                <Icon name={brand.name} /> &nbsp;
+                {amountOfSims.map((amount, key) => {
+                  return (
+                    <span key={key}>
+                      <a onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand })}
+                        onClick={this.onSimulateBrandMatches.bind(this, { amount, brand })}>
+                        {amount}
+                      </a>,	&nbsp;
+                    </span>
+                  )
+                })}
               </li>
-            </If>
-          </ul>
-        </div>
-      </Sticky>
+            )
+          })}
+          <If condition={this.props.showClear}>
+            <li className="navigation__item">
+              <a
+                onKeyPress={this.onReset}
+                onClick={this.onReset}>
+                Clear wins & losses
+              </a>
+            </li>
+          </If>
+        </ul>
+      </div>
     )
   }
 }

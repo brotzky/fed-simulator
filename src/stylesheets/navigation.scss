@@ -33,13 +33,13 @@
   }
 
   &__item {
-    display: flex;
     align-items: flex-start;
     color: white;
     margin-right: 5rem;
 
     a {
       color: white;
+      text-decoration: none;
     }
   }
 
@@ -78,7 +78,7 @@
 }
 
 .navigation--secondary {
-  margin: 0 -15px;
+  margin: 0 -2rem;
   background-color: #141516;
   font-size: 1.5rem;
 }
