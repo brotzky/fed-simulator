@@ -17,9 +17,11 @@ export default class Select extends React.Component {
 
   render() {
     return (
-      <label>
-        {this.props.label}
-        <select className="form-control"
+      <div className="select">
+        <label>
+          {this.props.label}
+        </label>
+        <select
           onChange={this.onChangeSelect}>
           <option hidden>Select here</option>
           {this.props.collection.map((item, index) =>
@@ -29,7 +31,8 @@ export default class Select extends React.Component {
             </option>
           )}
         </select>
-      </label>
+        <div className="select__arrow"></div>
+      </div>
     )
   }
 }

@@ -7,6 +7,7 @@
 @import "sprites/main";
 @import "variables";
 @import "flexboxgrid";
+@import "form";
 
 @include breakpoint(xs) {
   [class*="col-"] {
