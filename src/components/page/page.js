@@ -12,6 +12,9 @@ class Page extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     version: React.PropTypes.number.isRequired,
+    wrestlers: React.PropTypes.array.isRequired,
+    ppvs: React.PropTypes.array.isRequired,
+    shows: React.PropTypes.array.isRequired,
   }
 
   static defaultProps = {
@@ -52,6 +55,11 @@ class Page extends React.Component {
               </ul>
             </div>
           </header>
+          <Choose>
+            <When condition={this.props.shows.length === 0 || this.props.ppvs.length === 0 || this.props.wrestlers.length === 0}>
+              <h2>Please add a brand, ppv and wrestler to simulate a show</h2>
+            </When>
+          </Choose>
           <div>{this.props.children}</div>
         </div>
         <footer className="footer">
@@ -70,4 +78,7 @@ class Page extends React.Component {
 
 export default connect(state => ({
   version: state.version,
+  wrestlers: state.wrestlers,
+  shows: state.shows,
+  ppvs: state.ppvs,
 }))(Page)

@@ -68,59 +68,61 @@ class RankingPage extends React.Component {
     return (
       <main className="page ranking">
         <Helmet title="Rankings" />
-        <Secondary showClear={true} />
-        <div className="inpage-content">
-          <div className="row">
-            <div className="col-xs-12 statistic">
-              <Segments segments={segments} />
+        <If condition={this.props.wrestlers.length > 0}>
+          <Secondary showClear={true} />
+          <div className="inpage-content">
+            <div className="row">
+              <div className="col-xs-12 statistic">
+                <Segments segments={segments} />
+              </div>
+            </div>
+            <br />
+            <div className="row">
+              <div className="col-lg-6 col-xs-12">
+                <Ranking
+                  title="Overall Male Superstars"
+                  amountToShow={10}
+                  wrestlers={this.props.wrestlers
+                    .filter((wrestler) => wrestler.male === true)
+                    .sort((a, b) => a.wins > b.wins)
+                    .reverse()
+                  }
+                />
+              </div>
+              <div className="col-lg-6 col-xs-12">
+                <Ranking
+                  title="Overall Female Superstars"
+                  amountToShow={10}
+                  wrestlers={this.props.wrestlers
+                    .filter((wrestler) => wrestler.male === false)
+                    .sort((a, b) => a.wins > b.wins)
+                    .reverse()
+                  }
+                />
+              </div>
+            </div>
+            <div className="row ranking__split">
+              {this.props.brands
+                .filter((brand) => !brand.default)
+                .map((brand, key)=> {
+                return (
+                  <div key={key} className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <Ranking
+                      title={`${brand.name} Overall Ranking`}
+                      amountToShow={5}
+                      showLabels={false}
+                      wrestlers={this.props.wrestlers
+                        .filter((wrestler) => wrestler.brand === brand.name)
+                        .sort((a, b) => a.wins > b.wins)
+                        .reverse()
+                      }
+                    />
+                  </div>
+                )
+              })}
             </div>
           </div>
-          <br />
-          <div className="row">
-            <div className="col-lg-6 col-xs-12">
-              <Ranking
-                title="Overall Male Superstars"
-                amountToShow={10}
-                wrestlers={this.props.wrestlers
-                  .filter((wrestler) => wrestler.male === true)
-                  .sort((a, b) => a.wins > b.wins)
-                  .reverse()
-                }
-              />
-            </div>
-            <div className="col-lg-6 col-xs-12">
-              <Ranking
-                title="Overall Female Superstars"
-                amountToShow={10}
-                wrestlers={this.props.wrestlers
-                  .filter((wrestler) => wrestler.male === false)
-                  .sort((a, b) => a.wins > b.wins)
-                  .reverse()
-                }
-              />
-            </div>
-          </div>
-          <div className="row ranking__split">
-            {this.props.brands
-              .filter((brand) => !brand.default)
-              .map((brand, key)=> {
-              return (
-                <div key={key} className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                  <Ranking
-                    title={`${brand.name} Overall Ranking`}
-                    amountToShow={5}
-                    showLabels={false}
-                    wrestlers={this.props.wrestlers
-                      .filter((wrestler) => wrestler.brand === brand.name)
-                      .sort((a, b) => a.wins > b.wins)
-                      .reverse()
-                    }
-                  />
-                </div>
-              )
-            })}
-          </div>
-        </div>
+        </If>
       </main>
     )
   }

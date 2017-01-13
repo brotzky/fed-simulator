@@ -166,8 +166,8 @@ class ShowPage extends React.Component {
     return (
       <main className="page show">
         <Helmet title="Create a Show" />
-        <If condition={this.props.ppvs && this.props.ppvs[0]}>
-          <div className="inpage-content">
+        <div className="inpage-content">
+          <If condition={this.props.ppvs && this.props.ppvs[0]}>
             <div className={classNames(
               "row",
               "animated fadeIn",
@@ -223,49 +223,49 @@ class ShowPage extends React.Component {
                     </h4>
                   </div>
                 </If>
-                <div className="show__matches">
-                  <ul className="show__controls">
-                    <li className="show__control">
-                      <a onKeyPress={() => this.onRandomiseMatches()}
-                        onClick={() => this.onRandomiseMatches()}>
-                        Randomise
-                      </a>
-                      &nbsp; | &nbsp;
-                      <a onKeyPress={this.onSimulateMatches}
-                        onClick={this.onSimulateMatches}>
-                        Simulate
-                      </a>
-                      &nbsp; | &nbsp;
-                      <a onKeyPress={this.onClearMatches}
-                        onClick={this.onClearMatches}>
-                        Clear
-                      </a>
-                      &nbsp; | &nbsp;
-                      <a onKeyPress={this.onToggleStoryByDefault}
-                        onClick={this.onToggleStoryByDefault}>
-                        Toggle Story
-                      </a>
-                    </li>
-                  </ul>
-                  {this.currentShow.matches.map((match, key) => {
-                    let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : [],
-                      story = match.story ? match.story : []
-                    return (
-                      <Match
-                        key={key}
-                        isTagMatch={match.isTagMatch}
-                        matchIndex={key}
-                        brand={this.currentShow.brand.name}
-                        chosenWrestlers={wrestlers}
-                        story={story}
-                        onSetTagMatch={this.onSetTagMatch}
-                        onDropWrestler={this.onDropWrestler}
-                        onRemoveWrestler={this.onRemoveWrestler}
-                        onSelectWinner={this.onSelectWinner}
-                      />
-                    )
-                  })}
-                </div>
+              </div>
+              <div className="show__matches">
+                <ul className="show__controls">
+                  <li className="show__control">
+                    <a onKeyPress={() => this.onRandomiseMatches()}
+                      onClick={() => this.onRandomiseMatches()}>
+                      Randomise
+                    </a>
+                    &nbsp; | &nbsp;
+                    <a onKeyPress={this.onSimulateMatches}
+                      onClick={this.onSimulateMatches}>
+                      Simulate
+                    </a>
+                    &nbsp; | &nbsp;
+                    <a onKeyPress={this.onClearMatches}
+                      onClick={this.onClearMatches}>
+                      Clear
+                    </a>
+                    &nbsp; | &nbsp;
+                    <a onKeyPress={this.onToggleStoryByDefault}
+                      onClick={this.onToggleStoryByDefault}>
+                      Toggle Story
+                    </a>
+                  </li>
+                </ul>
+                {this.currentShow.matches.map((match, key) => {
+                  let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : [],
+                    story = match.story ? match.story : []
+                  return (
+                    <Match
+                      key={key}
+                      isTagMatch={match.isTagMatch}
+                      matchIndex={key}
+                      brand={this.currentShow.brand.name}
+                      chosenWrestlers={wrestlers}
+                      story={story}
+                      onSetTagMatch={this.onSetTagMatch}
+                      onDropWrestler={this.onDropWrestler}
+                      onRemoveWrestler={this.onRemoveWrestler}
+                      onSelectWinner={this.onSelectWinner}
+                    />
+                  )
+                })}
               </div>
               <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <Brand
@@ -276,8 +276,8 @@ class ShowPage extends React.Component {
                 />
               </div>
             </div>
-          </div>
-        </If>
+          </If>
+        </div>
       </main>
     )
   }
