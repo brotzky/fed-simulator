@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router"
 import Head from "../head/head"
+import CreatorWarning from "../creator/warning"
 import { connect } from "react-redux"
 import * as versionActions from "../../actions/version"
 import navigation from "./navigation"
@@ -57,7 +58,7 @@ class Page extends React.Component {
           </header>
           <Choose>
             <When condition={this.props.shows.length === 0 || this.props.ppvs.length === 0 || this.props.wrestlers.length === 0}>
-              <h2>Please add a brand, ppv and wrestler to simulate a show</h2>
+              <CreatorWarning />
             </When>
           </Choose>
           <div>{this.props.children}</div>
