@@ -1,6 +1,8 @@
 import { connect } from "react-redux"
+import Creator from "../../components/creator/creator"
 import Helmet from "react-helmet"
 import React from "react"
+import skeleton from "../buckets/validation"
 
 class CreationismPage extends React.Component {
 
@@ -20,7 +22,7 @@ class CreationismPage extends React.Component {
         <Helmet title="Creationism" />
         <div className="inpage-content ">
           <div className="row">
-            Hi
+            <Creator skeleton={skeleton} />
           </div>
         </div>
       </main>

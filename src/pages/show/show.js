@@ -166,8 +166,8 @@ class ShowPage extends React.Component {
     return (
       <main className="page show">
         <Helmet title="Create a Show" />
-        <div className="inpage-content">
-          <If condition={this.props.ppvs && this.props.ppvs[0]}>
+        <If condition={this.props.ppvs && this.props.ppvs[0]}>
+          <div className="inpage-content">
             <div className={classNames(
               "row",
               "animated fadeIn",
@@ -276,8 +276,8 @@ class ShowPage extends React.Component {
                 />
               </div>
             </div>
-          </If>
-        </div>
+          </div>
+        </If>
       </main>
     )
   }
