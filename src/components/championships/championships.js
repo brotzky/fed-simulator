@@ -56,7 +56,7 @@ class Championships extends React.Component {
         {this.props.championships
           .sort((prev, current) => prev.sequence > current.sequence ? 1 : -1)
           .map((championship, key) => {
-          let active = championship.wrestlers.length > 0
+          let active = championship.wrestlers && championship.wrestlers.length > 0
               ? "active"
               : "vacant"
           return (
