@@ -1,7 +1,6 @@
 import "./stylesheets/show"
 import { connect } from "react-redux"
 import { hashCode } from "../../helpers/hash"
-import { Sticky } from "react-sticky"
 import * as settingsActions from "../../actions/settings"
 import * as showActions from "../../actions/show"
 import Brand from "../../components/brand/brand"
@@ -265,14 +264,12 @@ class ShowPage extends React.Component {
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-              <Sticky>
-                <Brand
-                  name={this.currentShow.brand.name}
-                  showBrandLogo={false}
-                  byPassBrandFilter={true}
-                  wrestlers={this.getWrestlersFilteredByBrand(this.currentShow.brand)}
-                />
-              </Sticky>
+              <Brand
+                name={this.currentShow.brand.name}
+                showBrandLogo={false}
+                byPassBrandFilter={true}
+                wrestlers={this.getWrestlersFilteredByBrand(this.currentShow.brand)}
+              />
             </div>
           </div>
         </div>

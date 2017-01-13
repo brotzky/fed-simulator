@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "react-router"
 import Head from "../head/head"
 import { connect } from "react-redux"
-import { StickyContainer } from "react-sticky"
 import * as versionActions from "../../actions/version"
 import navigation from "./navigation"
 import logo from "./logo.png"
@@ -52,7 +51,6 @@ class Page extends React.Component {
             </ul>
           </div>
         </header>
-        <StickyContainer>
           <section className="container-fluid">
             {this.props.children}
             <div className="row legal">
@@ -66,7 +64,6 @@ class Page extends React.Component {
               </div>
             </div>
           </section>
-        </StickyContainer>
       </div>
     )
   }
