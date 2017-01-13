@@ -5,6 +5,7 @@ import { getRandomInt } from "../helpers/math"
 const getAttendance = (min, max) => getRandomInt(min, max)
 const createEmptyMatches = () => Array.from({length: 12}).fill({isTagMatch: false})
 const defaultState = []
+const defaultPPV = {attendance: {min: 10000, max: 20000}}
 const tag = {
   options: [true, false],
   weights: [0.1, 0.9],
@@ -17,9 +18,10 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case "CREATE_SHOW":
+      let attendance = (action.show.PPV && action.show.PPV.attendance) ? action.show.PPV.attendance : defaultPPV.attendance
       action.show.attendance = getAttendance(
-        action.show.PPV.attendance.min,
-        action.show.PPV.attendance.max,
+        attendance.min,
+        attendance.max,
       )
       action.show.matches = createEmptyMatches()
       newState.push(
