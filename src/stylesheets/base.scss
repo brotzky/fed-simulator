@@ -37,7 +37,8 @@ body {
 
 .inpage-content {
   z-index: 0;
-  margin: 3rem;
+  margin: 1.5rem;
+
   @include breakpoint(xs) {
     margin: .2rem;
   }

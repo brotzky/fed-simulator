@@ -1,5 +1,4 @@
 import "./stylesheets/ranking"
-import Icon from "../icon/icon"
 import Label from "../label/label"
 import React from "react"
 
@@ -26,7 +25,7 @@ export default class Ranking extends React.Component {
           <table className="ranking__table table table-striped">
             <thead>
               <tr>
-                <td colSpan="3">
+                <td colSpan="2">
                   <h3 className="ranking__title">
                     {this.props.title}
                   </h3>
@@ -51,9 +50,6 @@ export default class Ranking extends React.Component {
                     key={key}>
                     <td className="ranking__order statistic">
                       #{key + 1}
-                    </td>
-                    <td className="ranking__wrestler">
-                      <Icon name={wrestler.name} />
                     </td>
                     <td className="ranking__name">
                       <If condition={this.props.showLabels}>
