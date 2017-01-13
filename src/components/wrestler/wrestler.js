@@ -17,8 +17,7 @@ const Wrestler = ({
     },
   )
   return (
-    <div
-      className={classes}
+    <div className={classes}
       onClick={() => onWrestlerClick(id)}
       data-id={id}>
       <Icon name={name} active={active} />
