@@ -20,6 +20,11 @@ export default class CreationismPage extends React.Component {
   }
 
   onSave = (object) => {
+    const textareaToArray = (value) => value.split(",").filter(item => item !== "").map(item => item.trim())
+    const splitToArray = ["wrestlers", "ppvs", "championships"]
+    splitToArray.forEach(splitter => {
+      object[splitter] = textareaToArray(object[splitter])
+    })
     console.log(object)
   }
 

@@ -17,16 +17,14 @@ export default class Form extends React.Component {
 
   onSave = (event) => {
     event.preventDefault()
-    
+
     const formData = {}
 
     for (const field in this.refs) {
       formData[field] = this.refs[field].state.value
     }
-    console.log(formData)
-    // this.setState({
-    //   saved: true,
-    // })
+  
+    this.props.onSave(formData)
   }
 
   render() {
