@@ -1,11 +1,21 @@
-import React from "react"
-import Helmet from "react-helmet"
+import { connect } from "react-redux"
+import { hashCode } from "../../helpers/hash"
+import * as brandsAction from "../../actions/brands"
+import * as championshipAction from "../../actions/championship"
+import * as settingsAction from "../../actions/settings"
+import * as wrestlersAction from "../../actions/wrestlers"
 import Form from "./form"
+import Helmet from "react-helmet"
+import React from "react"
 import skeleton from "./skeleton"
 
-export default class CreationismPage extends React.Component {
+class CreationismPage extends React.Component {
 
   displayName = "CreationismPage"
+
+  static propTypes = {
+    dispatch: React.PropTypes.func.isRequired,
+  }
 
   state = {
     currentItem: false,
@@ -19,13 +29,21 @@ export default class CreationismPage extends React.Component {
     })
   }
 
-  onSave = (object) => {
+  onSave = (formData) => {
     const textareaToArray = (value) => value.split(",").filter(item => item !== "").map(item => item.trim())
     const splitToArray = ["wrestlers", "ppvs", "championships"]
     splitToArray.forEach(splitter => {
-      object[splitter] = textareaToArray(object[splitter])
+      formData[splitter] = textareaToArray(formData[splitter])
     })
-    console.log(object)
+    let brand = {
+      id: hashCode(formData.brand),
+      name: formData.brand,
+      bgColour: formData.bgColour,
+      textColour: formData.textColour,
+    }
+    this.props.dispatch(
+      brandsAction.create(brand)
+    )
   }
 
   render() {
@@ -58,3 +76,6 @@ export default class CreationismPage extends React.Component {
     )
   }
 }
+
+export default connect(state => ({
+}))(CreationismPage)

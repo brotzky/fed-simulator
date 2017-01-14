@@ -9,6 +9,13 @@ export default (state = defaultState, action) => {
       let index = getIndexById(action.brand.id)
       newState[index] = action.brand
       break
+    case "CREATE_BRAND":
+      if (getIndexById(action.brand.id) < 0) {
+        newState.push({
+          ...action.brand,
+        })
+      }
+      break
     case "RESET":
       newState = defaultState
       break
