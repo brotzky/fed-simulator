@@ -1,6 +1,6 @@
 import React from "react"
 
-export default class Input extends React.Component {
+export default class Textarea extends React.Component {
 
   static propTypes = {
     changeHandler: React.PropTypes.func.isRequired,
@@ -12,12 +12,12 @@ export default class Input extends React.Component {
 
   render() {
     return (
-      <input
-        type="text"
+      <textarea
+        type="textarea"
         className="form-control"
         name={this.props.name}
-        defaultValue={this.props.defaultValue}
         onChange={this.onChange}
+        defaultValue={this.props.defaultValue}
       />
     )
   }

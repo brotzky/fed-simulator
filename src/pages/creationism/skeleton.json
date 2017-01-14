@@ -1,0 +1,56 @@
+{
+  "Raw": {
+    "wrestlers": {
+      "value": "Goldberg, Brock Lesnar, Roman Reigns,",
+      "type": "textarea"
+    },
+    "brand": {
+      "value": "Raw",
+      "type": "input"
+    },
+    "bgColor": {
+      "value": "#ddd",
+      "type": "colour"
+    },
+    "textColour": {
+      "value": "#fff",
+      "type": "colour"
+    }
+  },
+  "Smackdown": {
+    "wrestlers": {
+      "value": "AJ Styles, Dean Ambrose, Becky Lynch,",
+      "type": "textarea"
+    },
+    "brand": {
+      "value": "Smackdown Live",
+      "type": "input"
+    },
+    "bgColor": {
+      "value": "blue",
+      "type": "colour"
+    },
+    "textColour": {
+      "value": "#fff",
+      "type": "colour"
+    }
+  },
+  "NXT": {
+    "wrestlers": {
+      "value": "Samoa Joe, Bobby Roode, William Regal,",
+      "type": "textarea"
+    },
+    "brand": {
+      "value": "NXT",
+      "type": "input"
+    },
+    "bgColor": {
+      "value": "yellow",
+      "type": "colour"
+    },
+    "textColour": {
+      "value": "#000",
+      "type": "colour"
+    }
+  }
+}
