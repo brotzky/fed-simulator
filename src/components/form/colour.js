@@ -28,10 +28,11 @@ export default class ColourPicker extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <Chrome disableAlpha
-          color={this.state.defaultValue}
+          color={this.state.value}
           onChangeComplete={this.onChange}
         />
       </div>
