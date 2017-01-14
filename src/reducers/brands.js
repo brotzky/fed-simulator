@@ -1,4 +1,11 @@
 const defaultState = []
+const defaultBrand = {
+  id: 1,
+  name: "Default",
+  default: true,
+  bgColour: "black",
+  textColor: "white",
+}
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
@@ -10,6 +17,11 @@ export default (state = defaultState, action) => {
       newState[index] = action.brand
       break
     case "CREATE_BRAND":
+      if (newState.length === 0) {
+        newState.push({
+          ...defaultBrand
+        })
+      }
       if (getIndexById(action.brand.id) < 0) {
         newState.push({
           ...action.brand,
