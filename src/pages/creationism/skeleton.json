@@ -4,20 +4,24 @@
       "value": "Raw",
       "type": "input"
     },
-    "wrestlers": {
-      "value": "Goldberg, Brock Lesnar, Roman Reigns,",
+    "maleWrestlers": {
+      "value": "Ariya Daivari, Big E, Big Show, Bo Dallas, Braun Strowman, Brian Kendrick, Brock Lesnar, Byron Saxton, Cedric Alexander, Cesaro, Chris Jericho, Colin Cassady, Corey Graves, Curtis Axel, Darren Young, Drew Gulak, Enzo Amore, Epico, Finn Balor, Goldberg, Goldust, Gran Metalik, Jinder Mahal, Karl Anderson, Kevin Owens, Kofi Kingston, Lince Dorado, Luke Gallows, Mark Henry, Michael Cole, Mick Foley, Neville, Noam Dar, Primo, R Truth, Rich Swann, Roman Reigns, Rusev, Sami Zayn, Seth Rollins, Sheamus, Sin Cara, Titus Oneil, Tj Perkins, Tony Nese, Triple H, Xavier Woods",
+      "type": "textarea"
+    },
+    "femaleWrestlers": {
+      "value": "Alicia Fox, Bayley, Charlotte, Charly Caruso, Dana Brooke, Emma, Jojo, Lana, Nia Jax, Paige, Sasha Banks, Stephanie Mcmahon, Summer Rae",
       "type": "textarea"
     },
     "championships": {
-      "value": "WWE Universal Championship, WWE United States Championship, WWE Raw Tag Team Championship, WWE Cruiserweight Championship, WWE Raw Womens Championship",
+      "value": "Raw Womens Championship, Raw Tag Team Championship, United States Championship, Wwe Cruiserweight Championship, Wwe Universal Championship",
       "type": "textarea"
     },
     "ppvs": {
       "value": "Raw, Fastlane,",
       "type": "textarea"
     },
-    "bgColor": {
-      "value": "#ddd",
+    "bgColour": {
+      "value": "#eb1826",
       "type": "colour"
     },
     "textColour": {
@@ -30,20 +34,24 @@
       "value": "Smackdown Live",
       "type": "input"
     },
-    "wrestlers": {
-      "value": "AJ Styles, Dean Ambrose, Becky Lynch,",
+    "maleWrestlers": {
+      "value": "Aiden English, Aj Styles, Apollo Crews, Baron Corbin, Bray Wyatt, Chad Gable, Curt Hawkins, Daniel Bryan, David Otunga, Dean Ambrose, Dolph Ziggler, Erick Rowan, Fandango, Greg Hamilton, Heath Slater, Jack Swagger, James Ellsworth, Jason Jordan, Jbl, Jey Uso, Jimmy Uso, John Cena, Kalisto, Kane, Kenny, Konnor, Luke Harper, Mauro Ranallo, Mikey, Mojo Rawley, Randy Orton, Rhyno, Shane Mcmahon, Simon Gotch, The Miz, Tyler Breeze, Viktor, Zack Ryder",
+      "type": "textarea"
+    },
+    "femaleWrestlers": {
+      "value": "Alexa Bliss, Becky Lynch, Carmella, Eva Marie, Maryse, Naomi, Natalya, Nikki Bella, Renee Young",
       "type": "textarea"
     },
     "championships": {
-      "value": "WWE World Championship, WWE Intercontinental Championship, WWE Smackdown Tag Team Championship, WWE Smackdown Womens Championship",
+      "value": "Smackdown Womens Championship, Intercontinental Championship, Smackdown Tag Team Championship, WWE World Championship",
       "type": "textarea"
     },
     "ppvs": {
       "value": "Smackdown Live, Backlash,",
       "type": "textarea"
     },
-    "bgColor": {
-      "value": "blue",
+    "bgColour": {
+      "value": "#3b30fe",
       "type": "colour"
     },
     "textColour": {
@@ -56,20 +64,24 @@
       "value": "NXT",
       "type": "input"
     },
-    "wrestlers": {
-      "value": "Samoa Joe, Bobby Roode, William Regal,",
+    "maleWrestlers": {
+      "value": "Akam, Alexander Wolfe, Angelo Dawkins, Austin Aries, Blake, Bobby Roode, Chris Girard, Dash Wilder, Elias Samson, Eric Young, Hideo Itamo, Johnny Gargano, Manny Andrade, Mike Rome, Murphy, Nick Miller, No Way Jose, Paul Ellering, Rezar, Roderick Strong, Samoa Joe, Sawyer Fulton, Scott Dawson, Shane Turner, Shinsuke Nakamura, Tom Phillips, Tommaso, Tye Dillinger, William Regal",
+      "type": "textarea"
+    },
+    "femaleWrestlers": {
+      "value": "Aliyah, Andrea Dmarco, Asuka, Billie Kay, Cathy Kelly, Dasha Fuentes, Ember Moon, Liv Morgan, Mandy Rose, Nikki Storm, Peyton Royce",
       "type": "textarea"
     },
     "championships": {
-      "value": "NXT Championship, NXT Tag Team Championship",
+      "value": "NXT Womens Championship, NXT Championship, NXT Tag Team Championship",
       "type": "textarea"
     },
     "ppvs": {
       "value": "NXT, NXT Live, NXT Takeover: Brooklyn, NXT Takeover: London,",
       "type": "textarea"
     },
-    "bgColor": {
-      "value": "yellow",
+    "bgColour": {
+      "value": "#ffc71c",
       "type": "colour"
     },
     "textColour": {

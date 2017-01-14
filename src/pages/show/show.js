@@ -169,8 +169,7 @@ class ShowPage extends React.Component {
         <If condition={this.props.ppvs && this.props.ppvs[0]}>
           <div className="inpage-content">
             <div className={classNames(
-              "row",
-              "animated fadeIn",
+              "row animated fadeIn",
               { hide: !this.state.showPPVs }
             )}>
               <div className="col-xs-12">
@@ -190,7 +189,7 @@ class ShowPage extends React.Component {
                     </div>
                     <hr />
                     <h4>
-                      {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by <br className="visible-xs" />
+                      {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by&nbsp;	
                       <div className="dropdown">
                         <p>
                           {this.currentShow.brand.default
@@ -223,49 +222,50 @@ class ShowPage extends React.Component {
                     </h4>
                   </div>
                 </If>
-              </div>
-              <div className="show__matches">
-                <ul className="show__controls">
-                  <li className="show__control">
-                    <a onKeyPress={() => this.onRandomiseMatches()}
-                      onClick={() => this.onRandomiseMatches()}>
-                      Randomise
-                    </a>
-                    &nbsp; | &nbsp;
-                    <a onKeyPress={this.onSimulateMatches}
-                      onClick={this.onSimulateMatches}>
-                      Simulate
-                    </a>
-                    &nbsp; | &nbsp;
-                    <a onKeyPress={this.onClearMatches}
-                      onClick={this.onClearMatches}>
-                      Clear
-                    </a>
-                    &nbsp; | &nbsp;
-                    <a onKeyPress={this.onToggleStoryByDefault}
-                      onClick={this.onToggleStoryByDefault}>
-                      Toggle Story
-                    </a>
-                  </li>
-                </ul>
-                {this.currentShow.matches.map((match, key) => {
-                  let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : [],
-                    story = match.story ? match.story : []
-                  return (
-                    <Match
-                      key={key}
-                      isTagMatch={match.isTagMatch}
-                      matchIndex={key}
-                      brand={this.currentShow.brand.name}
-                      chosenWrestlers={wrestlers}
-                      story={story}
-                      onSetTagMatch={this.onSetTagMatch}
-                      onDropWrestler={this.onDropWrestler}
-                      onRemoveWrestler={this.onRemoveWrestler}
-                      onSelectWinner={this.onSelectWinner}
-                    />
-                  )
-                })}
+                <br />
+                <div className="show__matches">
+                  <ul className="show__controls">
+                    <li className="show__control">
+                      <a onKeyPress={() => this.onRandomiseMatches()}
+                        onClick={() => this.onRandomiseMatches()}>
+                        Randomise
+                      </a>
+                      &nbsp; | &nbsp;
+                      <a onKeyPress={this.onSimulateMatches}
+                        onClick={this.onSimulateMatches}>
+                        Simulate
+                      </a>
+                      &nbsp; | &nbsp;
+                      <a onKeyPress={this.onClearMatches}
+                        onClick={this.onClearMatches}>
+                        Clear
+                      </a>
+                      &nbsp; | &nbsp;
+                      <a onKeyPress={this.onToggleStoryByDefault}
+                        onClick={this.onToggleStoryByDefault}>
+                        Toggle Story
+                      </a>
+                    </li>
+                  </ul>
+                  {this.currentShow.matches.map((match, key) => {
+                    let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : [],
+                      story = match.story ? match.story : []
+                    return (
+                      <Match
+                        key={key}
+                        isTagMatch={match.isTagMatch}
+                        matchIndex={key}
+                        brand={this.currentShow.brand.name}
+                        chosenWrestlers={wrestlers}
+                        story={story}
+                        onSetTagMatch={this.onSetTagMatch}
+                        onDropWrestler={this.onDropWrestler}
+                        onRemoveWrestler={this.onRemoveWrestler}
+                        onSelectWinner={this.onSelectWinner}
+                      />
+                    )
+                  })}
+                </div>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <Brand

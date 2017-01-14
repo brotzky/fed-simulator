@@ -32,7 +32,7 @@ class CreationismPage extends React.Component {
 
   onSave = (formData) => {
     const textareaToArray = (value) => value.split(",").filter(item => item !== "").map(item => item.trim())
-    const splitToArray = ["wrestlers", "ppvs", "championships"]
+    const splitToArray = ["maleWrestlers", "femaleWrestlers", "ppvs", "championships"]
     splitToArray.forEach(splitter => {
       formData[splitter] = textareaToArray(formData[splitter])
     })
@@ -42,6 +42,7 @@ class CreationismPage extends React.Component {
       name: formData.brand,
       bgColour: formData.bgColour,
       textColour: formData.textColour,
+      default: false,
     }
     this.props.dispatch(
       brandsAction.create(brand)
@@ -54,7 +55,6 @@ class CreationismPage extends React.Component {
           id: hashCode(championshipName),
           name: championshipName,
           brand: formData.brand,
-          male: true,
           sequence: 0,
           changes: 0,
           canMoveBrands: true,
@@ -63,18 +63,40 @@ class CreationismPage extends React.Component {
       )
     })
     // wrestlers
-    formData.wrestlers.forEach(wrestlersName => {
+    const baseWrestler = {
+      sequence: 0,
+      wins: 0,
+      losses: 0,
+      damage: 90,
+      rating: 90,
+    }
+    const combineWrestlers = (wrestler) => {
+      return Object.assign(baseWrestler, wrestler)
+    }
+    formData.maleWrestlers.forEach(wrestlersName => {
+      let wrestler = combineWrestlers({
+        id: hashCode(wrestlersName),
+        name: wrestlersName,
+        brand: formData.brand,
+        male: true,
+      })
       this.props.dispatch(
-        wrestlersAction.create({
-          id: hashCode(wrestlersName),
-          name: wrestlersName,
-          brand: formData.brand,
-          male: true,
-          rating: 80,
-          sequence: 0,
-          wins: 0,
-          losses: 0,
-        })
+        wrestlersAction.create(
+          wrestler,
+        )
+      )
+    })
+    formData.femaleWrestlers.forEach(wrestlersName => {
+      let wrestler = combineWrestlers({
+        id: hashCode(wrestlersName),
+        name: wrestlersName,
+        brand: formData.brand,
+        male: false,
+      })
+      this.props.dispatch(
+        wrestlersAction.create(
+          wrestler,
+        )
       )
     })
     // ppvs

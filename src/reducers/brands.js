@@ -4,7 +4,8 @@ const defaultBrand = {
   name: "Default",
   default: true,
   bgColour: "black",
-  textColor: "white",
+  textColour: "white",
+  wrestlers: [],
 }
 
 export default (state = defaultState, action) => {
