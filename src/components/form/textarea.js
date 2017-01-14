@@ -8,16 +8,31 @@ export default class Textarea extends React.Component {
     defaultValue: React.PropTypes.any.isRequired,
   }
 
-  onChange = (event) => this.props.changeHandler(this.props.name, event.target.value)
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      value: props.defaultValue,
+    }
+  }
+
+  onChange = (event) => {
+    this.props.changeHandler(
+      this.props.name,
+      event.target.value,
+    )
+    this.setState({
+      value: event.target.value,
+    })
+  }
 
   render() {
     return (
-      <textarea
-        type="textarea"
+      <textarea type="textarea"
         className="form-control"
         name={this.props.name}
-        onChange={this.onChange}
         defaultValue={this.props.defaultValue}
+        onChange={this.onChange}
       />
     )
   }

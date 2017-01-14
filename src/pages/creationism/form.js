@@ -12,53 +12,82 @@ export default class Form extends React.Component {
 
   state = {
     currentItem: false,
+    saved: false,
   }
 
-  changeHandler = (fieldName, fieldValue) => {
-    let newState = Object.assign({}, this.state.currentItem)
-    newState[fieldName] = fieldValue
-    this.setState({
-      currentItem: {...newState},
-    })
+  onSave = (event) => {
+    event.preventDefault()
+    
+    const formData = {}
+
+    for (const field in this.refs) {
+      formData[field] = this.refs[field].state.value
+    }
+    console.log(formData)
+    // this.setState({
+    //   saved: true,
+    // })
   }
 
   render() {
     return (
       <article className="form">
-        {Object.keys(this.props.skeleton).map((name, key) => {
-          let defaultValue = this.props.skeleton[name].value,
-            currentFieldtype = this.props.skeleton[name].type,
-            values = {
-              name,
-              defaultValue,
-              changeHandler: this.changeHandler,
-            }
-            return (
-              <div key={key}>
-                <label htmlFor={name}>{name}</label>
-                <Choose>
-                  <When condition={currentFieldtype === "colour"}>
-                    <ColourPicker {...values} />
-                  </When>
-                  <When condition={currentFieldtype === "textarea"}>
-                    <Textarea {...values} />
-                  </When>
-                  <When condition={currentFieldtype === "bool"}>
-                    <Checkbox {...values} />
-                  </When>
-                  <When condition={currentFieldtype === "input"}>
-                    <Input {...values} />
-                  </When>
-                  <When condition={currentFieldtype === "readonly"}>
-                    <ReadOnly {...values} />
-                  </When>
-                  <Otherwise>
-                    &nbsp;
-                  </Otherwise>
-                </Choose>
+        <form>
+          <Choose>
+            <When condition={this.state.saved}>
+              <h3>Form Saved</h3>
+            </When>
+            <Otherwise>
+              {Object.keys(this.props.skeleton).map((name, key) => {
+                let defaultValue = this.props.skeleton[name].value,
+                  currentFieldtype = this.props.skeleton[name].type,
+                  values = {
+                    name,
+                    ref: name,
+                    defaultValue,
+                    changeHandler: () => {},
+                  }
+                  return (
+                    <div key={key}>
+                      <label className="capitalize"
+                        htmlFor={name}>
+                        {name}
+                      </label>
+                      <Choose>
+                        <When condition={currentFieldtype === "colour"}>
+                          <ColourPicker {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "textarea"}>
+                          <Textarea {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "bool"}>
+                          <Checkbox {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "input"}>
+                          <Input {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "readonly"}>
+                          <ReadOnly {...values} />
+                        </When>
+                        <Otherwise>
+                          &nbsp;
+                        </Otherwise>
+                      </Choose>
+                      <br />
+                    </div>
+                  )
+                })}
+              <div>
+                <button
+                  label="Save"
+                  className="btn btn-primary"
+                  onClick={this.onSave}>
+                  <i className="fa fa-save"></i> Create
+                </button>
               </div>
-            )
-          })}
+            </Otherwise>
+          </Choose>
+        </form>
       </article>
     )
   }

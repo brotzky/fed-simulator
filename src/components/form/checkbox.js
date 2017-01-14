@@ -8,16 +8,32 @@ export default class Checkbox extends React.Component {
     defaultValue: React.PropTypes.bool,
   }
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      value: props.defaultValue,
+    }
+  }
+
   static defaultProps = {
     defaultValue: false,
   }
 
-  onChange = () => this.props.changeHandler(this.props.name, !this.props.defaultValue)
+  onChange = () => {
+    const newValue = !this.props.defaultValue
+    this.props.changeHandler(
+      this.props.name,
+      newValue,
+    )
+    this.setState({
+      value: newValue,
+    })
+  }
 
   render() {
     return (
-      <input
-        type="checkbox"
+      <input type="checkbox"
         className="form-control"
         name={this.props.name}
         value={this.props.defaultValue}

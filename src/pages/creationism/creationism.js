@@ -19,21 +19,33 @@ export default class CreationismPage extends React.Component {
     })
   }
 
+  onSave = (object) => {
+    console.log(object)
+  }
+
   render() {
-    console.log(skeleton)
     return (
       <main className="page creationism">
         <Helmet title="Creationism" />
         <div className="inpage-content">
           <div className="row">
             <div className="col-xs-4">
-              <Form skeleton={skeleton.Raw} />
+              <Form
+                onSave={this.onSave}
+                skeleton={skeleton.Raw}
+              />
             </div>
             <div className="col-xs-4">
-              <Form skeleton={skeleton.Smackdown} />
+              <Form
+                onSave={this.onSave}
+                skeleton={skeleton.Smackdown}
+              />
             </div>
             <div className="col-xs-4">
-              <Form skeleton={skeleton.NXT} />
+              <Form
+                onSave={this.onSave}
+                skeleton={skeleton.NXT}
+              />
             </div>
           </div>
         </div>

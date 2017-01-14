@@ -1,12 +1,20 @@
 {
   "Raw": {
+    "brand": {
+      "value": "Raw",
+      "type": "input"
+    },
     "wrestlers": {
       "value": "Goldberg, Brock Lesnar, Roman Reigns,",
       "type": "textarea"
     },
-    "brand": {
-      "value": "Raw",
-      "type": "input"
+    "championships": {
+      "value": "WWE Universal Championship, WWE United States Championship, WWE Raw Tag Team Championship, WWE Cruiserweight Championship, WWE Raw Womens Championship",
+      "type": "textarea"
+    },
+    "ppvs": {
+      "value": "Raw, Fastlane,",
+      "type": "textarea"
     },
     "bgColor": {
       "value": "#ddd",
@@ -18,13 +26,21 @@
     }
   },
   "Smackdown": {
+    "brand": {
+      "value": "Smackdown Live",
+      "type": "input"
+    },
     "wrestlers": {
       "value": "AJ Styles, Dean Ambrose, Becky Lynch,",
       "type": "textarea"
     },
-    "brand": {
-      "value": "Smackdown Live",
-      "type": "input"
+    "championships": {
+      "value": "WWE World Championship, WWE Intercontinental Championship, WWE Smackdown Tag Team Championship, WWE Smackdown Womens Championship",
+      "type": "textarea"
+    },
+    "ppvs": {
+      "value": "Smackdown Live, Backlash,",
+      "type": "textarea"
     },
     "bgColor": {
       "value": "blue",
@@ -36,13 +52,21 @@
     }
   },
   "NXT": {
+    "brand": {
+      "value": "NXT",
+      "type": "input"
+    },
     "wrestlers": {
       "value": "Samoa Joe, Bobby Roode, William Regal,",
       "type": "textarea"
     },
-    "brand": {
-      "value": "NXT",
-      "type": "input"
+    "championships": {
+      "value": "NXT Championship, NXT Tag Team Championship",
+      "type": "textarea"
+    },
+    "ppvs": {
+      "value": "NXT, NXT Live, NXT Takeover: Brooklyn, NXT Takeover: London,",
+      "type": "textarea"
     },
     "bgColor": {
       "value": "yellow",

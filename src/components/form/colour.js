@@ -9,18 +9,31 @@ export default class ColourPicker extends React.Component {
     defaultValue: React.PropTypes.any.isRequired,
   }
 
-  onChange = (colour) => this.props.changeHandler(this.props.name, colour.hex)
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      value: props.defaultValue,
+    }
+  }
+
+  onChange = (colour) => {
+    this.props.changeHandler(
+      this.props.name,
+      colour.hex,
+    )
+    this.setState({
+      value: colour.hex,
+    })
+  }
 
   render() {
     return (
       <div>
-        <If condition={this.props.defaultValue}>
-          <Chrome
-            disableAlpha
-            color={this.props.defaultValue}
-            onChangeComplete={this.onChange}
-          />
-        </If>
+        <Chrome disableAlpha
+          color={this.state.defaultValue}
+          onChangeComplete={this.onChange}
+        />
       </div>
     )
   }

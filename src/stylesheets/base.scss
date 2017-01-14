@@ -21,20 +21,17 @@ html {
   font-size: 60%;
 }
 
-.content {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  height: 90vh;
-}
-
 body {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: "Roboto", "Verdana", "Arial", sans-serif;
   font-size: 1.6rem;
   background-color: $bg;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
 }
 
 .inpage-content {
@@ -153,6 +150,10 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .zoom:hover {
