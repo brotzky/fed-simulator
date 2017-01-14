@@ -5,7 +5,7 @@
 // Font
 $fh-font-family: "Roboto", "Verdana", "Arial", sans-serif;
 $fh-font-size: inherit !default;
-$fh-font-color: rgb(40, 40, 40) !default;
+$fh-font-color: #666 !default;
 
 // Borders
 $fh-border-radius: inherit !default;
@@ -40,7 +40,6 @@ $fh-button-hover-font-color: $fh-font-color !default;
 // Layout
 $fh-centered: false !default;
 $fh-display: block !default;
-
 
 // Center/Left-Aligned Layout
 @mixin center-layout {
