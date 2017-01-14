@@ -5,6 +5,13 @@ export default (state = defaultState, action) => {
   const getIndexById = (id) => newState.findIndex(item => item.id === id)
 
   switch (action.type) {
+    case "CREATE_WRESTLER":
+      if (getIndexById(action.wrestler.id) < 0) {
+        newState.push({
+          ...action.wrestler,
+        })
+      }
+      break
     case "UPDATE_WRESTLER":
       let index = getIndexById(action.wrestler.id)
       newState[index] = action.wrestler

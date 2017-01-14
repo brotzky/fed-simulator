@@ -1,5 +1,11 @@
 import * as types from "./types"
 
+export function create(wrestler) {
+  return {
+    type: types.CREATE_WRESTLER,
+    wrestler,
+  }
+}
 
 export function update(wrestler) {
   return {

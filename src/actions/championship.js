@@ -1,5 +1,12 @@
 import * as types from "./types"
 
+export function create(championship) {
+  return {
+    type: types.CREATE_CHAMPIONSHIP,
+    championship,
+  }
+}
+
 export function update(championship) {
   return {
     type: types.UPDATE_CHAMPIONSHIP,

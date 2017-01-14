@@ -4,6 +4,7 @@ import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
 import * as settingsAction from "../../actions/settings"
 import * as wrestlersAction from "../../actions/wrestlers"
+import * as ppvsAction from "../../actions/ppvs"
 import Form from "./form"
 import Helmet from "react-helmet"
 import React from "react"
@@ -35,6 +36,7 @@ class CreationismPage extends React.Component {
     splitToArray.forEach(splitter => {
       formData[splitter] = textareaToArray(formData[splitter])
     })
+    // brand
     let brand = {
       id: hashCode(formData.brand),
       name: formData.brand,
@@ -44,6 +46,25 @@ class CreationismPage extends React.Component {
     this.props.dispatch(
       brandsAction.create(brand)
     )
+
+    // championship
+    formData.championships.forEach(championshipName => {
+      this.props.dispatch(
+        championshipAction.create({
+          id: hashCode(championshipName),
+          name: championshipName,
+          brand: formData.brand,
+          male: true,
+          sequence: 0,
+          changes: 0,
+          canMoveBrands: true,
+          wrestlers: [],
+        })
+      )
+    })
+    // wrestlers
+
+    // ppvs
   }
 
   render() {
