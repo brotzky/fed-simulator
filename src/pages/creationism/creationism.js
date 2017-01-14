@@ -63,8 +63,35 @@ class CreationismPage extends React.Component {
       )
     })
     // wrestlers
-
+    formData.wrestlers.forEach(wrestlersName => {
+      this.props.dispatch(
+        wrestlersAction.create({
+          id: hashCode(wrestlersName),
+          name: wrestlersName,
+          brand: formData.brand,
+          male: true,
+          rating: 80,
+          sequence: 0,
+          wins: 0,
+          losses: 0,
+        })
+      )
+    })
     // ppvs
+    formData.ppvs.forEach(ppvName => {
+      this.props.dispatch(
+        ppvsAction.create({
+          id: hashCode(ppvName),
+          name: ppvName,
+          defaultBrand: formData.brand,
+          sequence: 0,
+          attendance: {
+            min: 1000,
+            max: 15000,
+          }
+        })
+      )
+    })
   }
 
   render() {
