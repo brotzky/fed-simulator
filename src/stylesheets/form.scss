@@ -41,6 +41,7 @@ $fh-button-hover-font-color: $fh-font-color !default;
 $fh-centered: false !default;
 $fh-display: block !default;
 
+
 // Center/Left-Aligned Layout
 @mixin center-layout {
 	@if $fh-centered == true {
