@@ -29,12 +29,13 @@ export default class Segments extends React.Component {
             color: segment.textColour,
           }
           return (
-            <span key={key}
+            <div key={key}
               style={style}
               className="segments__segment hvr-bounce-to-right truncate">
-              {segment.name} &nbsp;
+              <span className="segments__name">{segment.name} &nbsp;
               {segment.value.toLocaleString()}
-            </span>
+              </span>
+            </div>
           )
         })}
       </div>
