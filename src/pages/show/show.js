@@ -45,7 +45,7 @@ class ShowPage extends React.Component {
         brand: this.props.brands[0],
         date: "",
         matches: [],
-        PPV: {},
+        PPV: this.props.ppvs[0],
       }
 
       if (this.props.ppvs && this.props.ppvs[0]) {
@@ -189,7 +189,7 @@ class ShowPage extends React.Component {
                     </div>
                     <hr />
                     <h4>
-                      {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by&nbsp;	
+                      {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by&nbsp;
                       <div className="dropdown">
                         <p>
                           {this.currentShow.brand.default
