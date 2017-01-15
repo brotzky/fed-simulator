@@ -4,6 +4,13 @@
     height: 11rem;
   }
 
+  &__name {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1rem;
+  }
+
   &__toggles {
     display: inline-flex;
     height: 2.5rem;
