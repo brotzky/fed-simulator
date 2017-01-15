@@ -47,7 +47,7 @@ class Brand extends React.Component {
     }
     this.props.dispatch(
       wrestlersActions.moveWrestler(
-        brand,
+        brand.model,
         wrestler.wrestler,
       )
     )
@@ -96,6 +96,11 @@ class Brand extends React.Component {
         onDrop={this.onDrop.bind(this, this.props)}>
         <div className="Droppable col-xs-12 wrestlers"
           style={style}>
+          <If condition={!this.props.model.default}>
+            <h3 className="brand__name">
+              {this.props.model.name}
+            </h3>
+          </If>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search
               placeholder="Filter choices"
