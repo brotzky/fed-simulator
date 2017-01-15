@@ -11,8 +11,8 @@ export default class Label extends React.Component {
   }
 
   static defaultProps = {
-    bgColour: "black",
-    textColour: "white",
+    bgColour: "transparent",
+    textColour: "black",
   }
 
   static contextTypes = {
