@@ -28,12 +28,21 @@ export default class ColourPicker extends React.Component {
   }
 
   render() {
+    const style = {
+      backgroundColor: this.state.value,
+      border: "0.1rem solid black"
+    }
     return (
-      <div>
-        <Chrome disableAlpha
-          color={this.state.value}
-          onChangeComplete={this.onChange}
-        />
+      <div className="row">
+        <div className="col-xs-8">
+          <Chrome disableAlpha
+            color={this.state.value}
+            onChangeComplete={this.onChange}
+          />
+        </div>
+        <div className="col-xs-4"
+          style={style}>
+        </div>
       </div>
     )
   }
