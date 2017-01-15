@@ -1,92 +1,182 @@
 {
-  "Raw": {
-    "brand": {
-      "value": "Raw",
-      "type": "input"
-    },
-    "maleWrestlers": {
-      "value": "Ariya Daivari, Big E, Big Show, Bo Dallas, Braun Strowman, Brian Kendrick, Brock Lesnar, Byron Saxton, Cedric Alexander, Cesaro, Chris Jericho, Colin Cassady, Corey Graves, Curtis Axel, Darren Young, Drew Gulak, Enzo Amore, Epico, Finn Balor, Goldberg, Goldust, Gran Metalik, Jinder Mahal, Karl Anderson, Kevin Owens, Kofi Kingston, Lince Dorado, Luke Gallows, Mark Henry, Michael Cole, Mick Foley, Neville, Noam Dar, Primo, R Truth, Rich Swann, Roman Reigns, Rusev, Sami Zayn, Seth Rollins, Sheamus, Sin Cara, Titus Oneil, Tj Perkins, Tony Nese, Triple H, Xavier Woods",
-      "type": "textarea"
-    },
-    "femaleWrestlers": {
-      "value": "Alicia Fox, Bayley, Charlotte, Charly Caruso, Dana Brooke, Emma, Jojo, Lana, Nia Jax, Paige, Sasha Banks, Stephanie Mcmahon, Summer Rae",
-      "type": "textarea"
-    },
-    "championships": {
-      "value": "Raw Womens Championship, Raw Tag Team Championship, United States Championship, Wwe Cruiserweight Championship, Wwe Universal Championship",
-      "type": "textarea"
-    },
-    "ppvs": {
-      "value": "Raw, Fastlane,",
-      "type": "textarea"
-    },
-    "bgColour": {
-      "value": "#eb1826",
-      "type": "colour"
-    },
-    "textColour": {
-      "value": "#fff",
-      "type": "colour"
-    }
-  },
-  "Smackdown": {
-    "brand": {
-      "value": "Smackdown Live",
-      "type": "input"
-    },
-    "maleWrestlers": {
-      "value": "Aiden English, Aj Styles, Apollo Crews, Baron Corbin, Bray Wyatt, Chad Gable, Curt Hawkins, Daniel Bryan, David Otunga, Dean Ambrose, Dolph Ziggler, Erick Rowan, Fandango, Greg Hamilton, Heath Slater, Jack Swagger, James Ellsworth, Jason Jordan, Jbl, Jey Uso, Jimmy Uso, John Cena, Kalisto, Kane, Kenny, Konnor, Luke Harper, Mauro Ranallo, Mikey, Mojo Rawley, Randy Orton, Rhyno, Shane Mcmahon, Simon Gotch, The Miz, Tyler Breeze, Viktor, Zack Ryder",
-      "type": "textarea"
-    },
-    "femaleWrestlers": {
-      "value": "Alexa Bliss, Becky Lynch, Carmella, Eva Marie, Maryse, Naomi, Natalya, Nikki Bella, Renee Young",
-      "type": "textarea"
-    },
-    "championships": {
-      "value": "Smackdown Womens Championship, Intercontinental Championship, Smackdown Tag Team Championship, WWE World Championship",
-      "type": "textarea"
-    },
-    "ppvs": {
-      "value": "Smackdown Live, Backlash,",
-      "type": "textarea"
-    },
-    "bgColour": {
-      "value": "#3b30fe",
-      "type": "colour"
-    },
-    "textColour": {
-      "value": "#fff",
-      "type": "colour"
-    }
-  },
-  "NXT": {
-    "brand": {
-      "value": "NXT",
-      "type": "input"
-    },
-    "maleWrestlers": {
-      "value": "Akam, Alexander Wolfe, Angelo Dawkins, Austin Aries, Blake, Bobby Roode, Chris Girard, Dash Wilder, Elias Samson, Eric Young, Hideo Itamo, Johnny Gargano, Manny Andrade, Mike Rome, Murphy, Nick Miller, No Way Jose, Paul Ellering, Rezar, Roderick Strong, Samoa Joe, Sawyer Fulton, Scott Dawson, Shane Turner, Shinsuke Nakamura, Tom Phillips, Tommaso, Tye Dillinger, William Regal",
-      "type": "textarea"
-    },
-    "femaleWrestlers": {
-      "value": "Aliyah, Andrea Dmarco, Asuka, Billie Kay, Cathy Kelly, Dasha Fuentes, Ember Moon, Liv Morgan, Mandy Rose, Nikki Storm, Peyton Royce",
-      "type": "textarea"
-    },
-    "championships": {
-      "value": "NXT Womens Championship, NXT Championship, NXT Tag Team Championship",
-      "type": "textarea"
-    },
-    "ppvs": {
-      "value": "NXT, NXT Live, NXT Takeover: Brooklyn, NXT Takeover: London,",
-      "type": "textarea"
-    },
-    "bgColour": {
-      "value": "#ffc71c",
-      "type": "colour"
-    },
-    "textColour": {
-      "value": "#000",
-      "type": "colour"
-    }
-  }
+	"Raw": {
+		"brand": {
+			"value": "Raw",
+			"type": "input"
+		},
+		"maleWrestlers": {
+			"value": "Ariya Daivari, Big E, Big Show, Bo Dallas, Braun Strowman, Brian Kendrick, Brock Lesnar, Byron Saxton, Cedric Alexander, Cesaro, Chris Jericho, Colin Cassady, Corey Graves, Curtis Axel, Darren Young, Drew Gulak, Enzo Amore, Epico, Finn Balor, Goldberg, Goldust, Gran Metalik, Jinder Mahal, Karl Anderson, Kevin Owens, Kofi Kingston, Lince Dorado, Luke Gallows, Mark Henry, Michael Cole, Mick Foley, Neville, Noam Dar, Primo, R Truth, Rich Swann, Roman Reigns, Rusev, Sami Zayn, Seth Rollins, Sheamus, Sin Cara, Titus Oneil, Tj Perkins, Tony Nese, Triple H, Xavier Woods",
+			"type": "textarea"
+		},
+		"femaleWrestlers": {
+			"value": "Alicia Fox, Bayley, Charlotte, Charly Caruso, Dana Brooke, Emma, Jojo, Lana, Nia Jax, Paige, Sasha Banks, Stephanie Mcmahon, Summer Rae",
+			"type": "textarea"
+		},
+		"championships": {
+			"value": "Raw Womens Championship, Raw Tag Team Championship, United States Championship, Wwe Cruiserweight Championship, Wwe Universal Championship",
+			"type": "textarea"
+		},
+		"ppvs": {
+			"value": "Raw, Fastlane,",
+			"type": "textarea"
+		},
+		"bgColour": {
+			"value": "#eb1826",
+			"type": "colour"
+		},
+		"textColour": {
+			"value": "#fff",
+			"type": "colour"
+		}
+	},
+	"Smackdown": {
+		"brand": {
+			"value": "Smackdown Live",
+			"type": "input"
+		},
+		"maleWrestlers": {
+			"value": "Aiden English, Aj Styles, Apollo Crews, Baron Corbin, Bray Wyatt, Chad Gable, Curt Hawkins, Daniel Bryan, David Otunga, Dean Ambrose, Dolph Ziggler, Erick Rowan, Fandango, Greg Hamilton, Heath Slater, Jack Swagger, James Ellsworth, Jason Jordan, Jbl, Jey Uso, Jimmy Uso, John Cena, Kalisto, Kane, Kenny, Konnor, Luke Harper, Mauro Ranallo, Mikey, Mojo Rawley, Randy Orton, Rhyno, Shane Mcmahon, Simon Gotch, The Miz, Tyler Breeze, Viktor, Zack Ryder",
+			"type": "textarea"
+		},
+		"femaleWrestlers": {
+			"value": "Alexa Bliss, Becky Lynch, Carmella, Eva Marie, Maryse, Naomi, Natalya, Nikki Bella, Renee Young",
+			"type": "textarea"
+		},
+		"championships": {
+			"value": "Smackdown Womens Championship, Intercontinental Championship, Smackdown Tag Team Championship, WWE World Championship",
+			"type": "textarea"
+		},
+		"ppvs": {
+			"value": "Smackdown Live, Backlash,",
+			"type": "textarea"
+		},
+		"bgColour": {
+			"value": "#3b30fe",
+			"type": "colour"
+		},
+		"textColour": {
+			"value": "#fff",
+			"type": "colour"
+		}
+	},
+	"NXT": {
+		"brand": {
+			"value": "NXT",
+			"type": "input"
+		},
+		"maleWrestlers": {
+			"value": "Akam, Alexander Wolfe, Angelo Dawkins, Austin Aries, Blake, Bobby Roode, Chris Girard, Dash Wilder, Elias Samson, Eric Young, Hideo Itamo, Johnny Gargano, Manny Andrade, Mike Rome, Murphy, Nick Miller, No Way Jose, Paul Ellering, Rezar, Roderick Strong, Samoa Joe, Sawyer Fulton, Scott Dawson, Shane Turner, Shinsuke Nakamura, Tom Phillips, Tommaso, Tye Dillinger, William Regal",
+			"type": "textarea"
+		},
+		"femaleWrestlers": {
+			"value": "Aliyah, Andrea Dmarco, Asuka, Billie Kay, Cathy Kelly, Dasha Fuentes, Ember Moon, Liv Morgan, Mandy Rose, Nikki Storm, Peyton Royce",
+			"type": "textarea"
+		},
+		"championships": {
+			"value": "NXT Womens Championship, NXT Championship, NXT Tag Team Championship",
+			"type": "textarea"
+		},
+		"ppvs": {
+			"value": "NXT, NXT Live, NXT Takeover: Brooklyn, NXT Takeover: London,",
+			"type": "textarea"
+		},
+		"bgColour": {
+			"value": "#ffc71c",
+			"type": "colour"
+		},
+		"textColour": {
+			"value": "#000",
+			"type": "colour"
+		}
+	},
+	"WWF": {
+		"brand": {
+			"value": "WWE Attitude",
+			"type": "input"
+		},
+		"maleWrestlers": {
+			"value": "Steve Austin, The Rock, Mankind, Davey Boy Smith, Dan Severn, Val Venis, Goldust, Blue Meanie, Godfather, Al Snow, Steve Blackman, Shawn Stasiak, Droz, Gillberg, Triple H, Roaddog, Billy Gunn, X-Pac, DLo Brown, Mark Henry, Matt Hardy, Jeff Hardy, Kurrgan, Golga, Beaver Cleavage, Thrasher, Bart Gunn, Butterbean, Vince McMahon, Shane McMahon, The Big Show, Ken Shamrock, Big Bossman, Kane, Test, Gerald Brisco, Pat Patterson, Pete Gas, Rodney, Joey Abs, Kurt Angle, Chris Jericho, Prince Albert, Tiger Ali Singh, Undertaker, Farooq, Bradshaw, Mideon, Viscera, Gangrel, Edge, Christian, DVon Dudley, Bubba Dudley, Owen Hart, Jeff Jarrett, Hardcore Holly, Crash Holly, Brian Christopher, Scott Taylor, Edge, Christian, New Age Outlaws, The Dudley Boyz, Owen & Jarrett, XPac, Paul Bearer, Michael Hayes, Paul Ellering",
+			"type": "textarea"
+		},
+		"femaleWrestlers": {
+			"value": "Chyna, Sable, Nicole Bass, Ivory, Jacqueline, Tori, Luna, Terri Runnels, Debra, Miss Kitty, Barbara Bush, Ryan Shamrock, Fabulous Moolah, Mae Young",
+			"type": "textarea"
+		},
+		"championships": {
+			"value": "WWE Championship, World Tag Team Championship, WWE Intercontinental Championship, WWE Women's Championship, WWE Hardcore Championship, WWE European Championship, WWE Light Heavyweight Championship",
+			"type": "textarea"
+		},
+		"ppvs": {
+			"value": "Royal Rumble, St. Valentine's Day Massacre: In Your House, Wrestlemania, Backlash, No Mercy, Over the Edge, King of the Ring, Fully Loaded, Summerslam, Unforgiven, Rebellion, Survivor Series, Armageddon",
+			"type": "textarea"
+		},
+		"bgColour": {
+			"value": "red",
+			"type": "colour"
+		},
+		"textColour": {
+			"value": "black",
+			"type": "colour"
+		}
+	},
+	"WCW": {
+		"brand": {
+			"value": "WCW",
+			"type": "input"
+		},
+		"maleWrestlers": {
+			"value": "Hollywood Hogan, Goldberg, DDP, Bret Hart, Sting, Kevin Nash, Scott Hall, Roddy Piper, Ric Flair, Mongo McMichael, Dean Malenko, Chris Benoit, Rick Steiner, Scott Steiner, Buff Bagwell, The Giant, Bam Bam Bigelow, Scott Norton, Lex Luger, Chris Jericho, Konnan, Rey Mysterio jr., Raven, Kanyon, The Cat, Disco Inferno, Alex Wright, Tokyo Magnum, The Disciple, Vincent, Brian Adams, Stevie Ray, Horace, Lodi, Eddie Guerrero, Chavo Guerrero jr., Booker T, Saturn, Wrath, Curt Hennig, Barry Windham, Kidman, Juventud, Super Calo, Lizmark jr., La Parka, Psicosis, El Dandy, Silver King, Villano IV, Villano V, Kaz Hayashi, Lenny Lane, Evan Karagias, Johnny Swinger, Meng, Hammer, Brad Armstrong, Scott Armstrong, Steve Armstrong, Bobby Duncum jr., Kenny Kaos, Robbie Rage, Bobby Eaton, Bobby Blaze, Chris Adams, Norman Smiley, Prince Iaukea, Scott Putski, Barry Darsow, Finlay, Barry Horowitz, Glacier, Barbarian, Jerry Flynn, Dave Taylor, Hugh Morrus, Scotty Riggs, Jim Powers, Bull Pain, Kendall Windham, Mike Enos, Mean Mike (DC), Tough Tom (DC), Roadblock, Frankie Lancaster, The Gambler, ",
+			"type": "textarea"
+		},
+		"femaleWrestlers": {
+			"value": "",
+			"type": "textarea"
+		},
+		"championships": {
+			"value": "WCW World Heavyweight Championship, WCW United States Championship, WCW Cruiserweight Championship, WCW World Tag Team Championship",
+			"type": "textarea"
+		},
+		"ppvs": {
+			"value": "Souled Out, Uncensored, SuperBrawl, Spring Stampede, Slamboree, The Great American Bash, Bash at the Beach, Road Wild, Fall Brawl, Halloween Havoc, World War 3, Starcade",
+			"type": "textarea"
+		},
+		"bgColour": {
+			"value": "black",
+			"type": "colour"
+		},
+		"textColour": {
+			"value": "white",
+			"type": "colour"
+		}
+	},
+	"ECW": {
+		"brand": {
+			"value": "ECW",
+			"type": "input"
+		},
+		"maleWrestlers": {
+			"value": "The Sandman, Taz, Tommy Dreamer, Axl Rotten, Mikey Whipwreck, Buelah McGillicuty, Buh-Buh Ray Dudley, D-Von Dudley, The Blue Meanie, Sabu, 'Mr. Monday Night' Rob Van Dam, 'Hollywood' Bob Starr, Little Guido, 'The Franchise' Shane Douglas, Sabu, John Kronus, New Jack, Spike Dudley, Chris Candido, Balls Mahoney, 'The Rookie' Chris Chetti, Bam-Bam Bigelow , Tracy Smothers, Big Dick Dudley, Wild Bill, Wilcox, Roadkill, Bobby Duncum Jr., Lance Storm, Justin Credible, Jerry Lynn, Doug Furnas, Philip LaFon, Dave Morrison, Tommy Rogers, Paul Diamond",
+			"type": "textarea"
+		},
+		"femaleWrestlers": {
+			"value": "Francine",
+			"type": "textarea"
+		},
+		"championships": {
+			"value": "ECW World Heavyweight Championship, ECW World Tag Team Championship, ECW World Television Championship",
+			"type": "textarea"
+		},
+		"ppvs": {
+			"value": " House Party, CyberSlam, Hostil City Showdown, A matter of respect, UltraClash, Born to be Wired, Orgy of Violence",
+			"type": "textarea"
+		},
+		"bgColour": {
+			"value": "black",
+			"type": "colour"
+		},
+		"textColour": {
+			"value": "red",
+			"type": "colour"
+		}
+	}
 }

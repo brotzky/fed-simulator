@@ -1,4 +1,4 @@
-import * as settingsAction from "../../actions/wrestlers"
+import * as settingsAction from "../../actions/settings"
 import React from "react"
 import { connect } from "react-redux"
 

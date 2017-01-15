@@ -46,62 +46,62 @@ export default class Bucket extends React.Component {
     return (
       <div className="bucket">
         <div className="bucket__collection">
-          <Select
-            label={this.props.name}
-            collection={this.props.collection}
-            onSelect={this.onSelect}
-          />
+          <article className="form">
+            <Select label={this.props.name}
+              collection={this.props.collection}
+              onSelect={this.onSelect}
+            />
+          </article>
         </div>
         <If condition={this.state.currentItem}>
-          <div className="icon__container">
-            <Icon name={this.state.currentItem.name} />
-          </div>
-          <form ref="form">
-            <div className="bucket__edit">
-              {Object.keys(this.props.validation).map((name, key) => {
-                let defaultValue = this.state.currentItem[name],
-                  currentFieldtype = this.props.validation[name],
-                  values = {
-                    name,
-                    defaultValue,
-                    changeHandler: this.changeHandler,
-                  }
-                return (
-                  <div key={key}
-                    className={`form-group bucket__${name}`}>
-                    <span className="bucket__name">
-                      {name}
-                    </span>
-                    <Choose>
-                      <When condition={currentFieldtype === "colour"}>
-                        <ColourPicker {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "bool"}>
-                        <Checkbox {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "input"}>
-                        <Input {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "readonly"}>
-                        <ReadOnly {...values} />
-                      </When>
-                      <Otherwise>
-                        &nbsp;
-                      </Otherwise>
-                    </Choose>
-                  </div>
-                )
-              })}
-            </div>
-          </form>
-          <div>
-            <button
-              label="Save"
-              className="btn btn-primary"
-              onClick={this.onSaveBucket}>
-              <i className="fa fa-save"></i> Save
-            </button>
-          </div>
+          <article className="form">
+            <form ref="form">
+              <div className="bucket__edit">
+                {Object.keys(this.props.validation).map((name, key) => {
+                  let defaultValue = this.state.currentItem[name],
+                    currentFieldtype = this.props.validation[name],
+                    values = {
+                      name,
+                      defaultValue,
+                      changeHandler: this.changeHandler,
+                    }
+                  return (
+                    <div key={key}
+                      className={`form-group bucket__${name}`}>
+                      <span className="bucket__name">
+                        {name}
+                      </span>
+                      <Choose>
+                        <When condition={currentFieldtype === "colour"}>
+                          <ColourPicker {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "bool"}>
+                          <Checkbox {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "input"}>
+                          <Input {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "readonly"}>
+                          <ReadOnly {...values} />
+                        </When>
+                        <Otherwise>
+                          &nbsp;
+                        </Otherwise>
+                      </Choose>
+                    </div>
+                  )
+                })}
+              </div>
+              <div>
+                <button
+                  label="Save"
+                  className="btn btn-primary"
+                  onClick={this.onSaveBucket}>
+                  <i className="fa fa-save"></i> Save
+                </button>
+              </div>
+            </form>
+          </article>
         </If>
       </div>
     )

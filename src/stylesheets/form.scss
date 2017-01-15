@@ -1,6 +1,21 @@
 /* FormHack v1.2.0 (formhack.io) */
 
-// Config -----------------------------
+// App styling - Customised outside of formHack 1.2
+.form {
+  margin: 0 auto;
+  opacity: .5;
+  width: 75%;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  label {
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+}
+
 
 // Font
 $fh-font-family: "Roboto", "Verdana", "Arial", sans-serif;

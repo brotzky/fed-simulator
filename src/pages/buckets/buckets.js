@@ -43,7 +43,7 @@ class BucketsPage extends React.Component {
       <main className="page-section buckets">
         <Helmet title="Modifications" />
         <Resets />
-        <div className="inpage-content statistic">
+        <div className="inpage-content">
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 brand">
               <Bucket

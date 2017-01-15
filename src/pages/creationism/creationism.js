@@ -145,6 +145,27 @@ class CreationismPage extends React.Component {
               />
             </div>
           </div>
+          <hr />
+          <div className="row">
+            <div className="col-xs-4">
+              <Form
+                onSave={this.onSave}
+                skeleton={skeleton.WWF}
+              />
+            </div>
+            <div className="col-xs-4">
+              <Form
+                onSave={this.onSave}
+                skeleton={skeleton.WCW}
+              />
+            </div>
+            <div className="col-xs-4">
+              <Form
+                onSave={this.onSave}
+                skeleton={skeleton.ECW}
+              />
+            </div>
+          </div>
         </div>
       </main>
     )
