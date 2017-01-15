@@ -5,6 +5,7 @@ import * as championshipAction from "../../actions/championship"
 import * as settingsAction from "../../actions/settings"
 import * as wrestlersAction from "../../actions/wrestlers"
 import * as ppvsAction from "../../actions/ppvs"
+import Resets from "../../components/navigation/resets"
 import Form from "./form"
 import Helmet from "react-helmet"
 import React from "react"
@@ -120,6 +121,7 @@ class CreationismPage extends React.Component {
     return (
       <main className="page-section creationism">
         <Helmet title="Creationism" />
+        <Resets />
         <div className="inpage-content">
           <div className="row">
             <div className="col-xs-4">

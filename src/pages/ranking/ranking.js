@@ -6,7 +6,7 @@ import Helmet from "react-helmet"
 import Icon from "../../components/icon/icon"
 import Ranking from "../../components/ranking/ranking"
 import React from "react"
-import Secondary from "../../components/page/secondary"
+import Simulations from "../../components/navigation/simulations"
 import Segments from "../../components/segments/segments"
 
 class RankingPage extends React.Component {
@@ -69,7 +69,7 @@ class RankingPage extends React.Component {
       <main className="page-section ranking">
         <Helmet title="Rankings" />
         <If condition={this.props.wrestlers.length > 0}>
-          <Secondary showClear={true} />
+          <Simulations />
           <div className="inpage-content">
             <div className="row">
               <div className="col-xs-12 statistic">

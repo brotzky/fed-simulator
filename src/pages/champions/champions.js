@@ -5,7 +5,6 @@ import Brand from "../../components/brand/brand"
 import Championships from "../../components/championships/championships"
 import Helmet from "react-helmet"
 import React from "react"
-import Secondary from "../../components/page/secondary"
 
 class ChampionsPage extends React.Component {
 
