@@ -88,59 +88,62 @@ class Match extends React.Component {
                 </a>
               </div>
             </If>
-            {teams.map((emptyObject, teamId) => {
-              let teamWrestlers = this.props.chosenWrestlers
-                .filter(wrestler => wrestler.teamId === teamId || !this.props.isTagMatch)
-              return (
-                <Droppable
-                  key={teamId}
-                  types={[
-                    "wrestler",
-                  ]}
-                  className={classNames({
-                    "col-xs-6": this.props.isTagMatch,
-                    "hide": teamWrestlers.length === 0 && hasBeenSimulated
-                  })}
-                  data={this.props.isTagMatch ? teamId : false}
-                  onDrop={this.onDrop}>
-                  <div className={classNames(
-                    "droparea",
-                    { "droparea--team": this.props.isTagMatch },
-                    { active : hasBeenSimulated },
-                    { inactive : !hasBeenSimulated },
-                  )}>
-                    <If condition={teamWrestlers.length === 0}>
-                      <span className="droparea__title"></span>
-                    </If>
-                    <div className="match__names">
-                      {teamWrestlers.map((wrestler, key) => {
-                        return (
-                          <span key={key}
-                            className="match__name">
-                            <span>
-                              <a onClick={() => this.onSelectWinner(wrestler)}>
-                                {wrestler.name}
-                                <If condition={wrestler.winner || wrestler.id === winnerId}>
-                                  &nbsp;<i className="fa fa-star" aria-hidden="true"></i>
-                                </If>
-                              </a>
+            <div className="row">
+              {teams.map((emptyObject, teamId) => {
+                let teamWrestlers = this.props.chosenWrestlers
+                  .filter(wrestler => wrestler.teamId === teamId || !this.props.isTagMatch)
+                return (
+                  <Droppable
+                    key={teamId}
+                    types={[
+                      "wrestler",
+                    ]}
+                    className={classNames({
+                      "col-xs-6": this.props.isTagMatch,
+                      "col-xs-12": !this.props.isTagMatch,
+                      "hide": teamWrestlers.length === 0 && hasBeenSimulated
+                    })}
+                    data={this.props.isTagMatch ? teamId : false}
+                    onDrop={this.onDrop}>
+                    <div className={classNames(
+                      "droparea",
+                      { "droparea--team": this.props.isTagMatch },
+                      { active : hasBeenSimulated },
+                      { inactive : !hasBeenSimulated },
+                    )}>
+                      <If condition={teamWrestlers.length === 0}>
+                        <span className="droparea__title"></span>
+                      </If>
+                      <div className="match__names">
+                        {teamWrestlers.map((wrestler, key) => {
+                          return (
+                            <span key={key}
+                              className="match__name">
+                              <span>
+                                <a onClick={() => this.onSelectWinner(wrestler)}>
+                                  {wrestler.name}
+                                  <If condition={wrestler.winner || wrestler.id === winnerId}>
+                                    &nbsp;<i className="fa fa-star" aria-hidden="true"></i>
+                                  </If>
+                                </a>
+                              </span>
+                              <sup>
+                                {wrestler.rating}
+                              </sup>
+                              <span onClick={() => this.onRemoveWrestler(wrestler)}
+                                className="remove">
+                                &nbsp; <i className="fa fa-remove" aria-hidden="true"></i>
+                              </span>
                             </span>
-                            <sup>
-                              {wrestler.rating}
-                            </sup>
-                            <span onClick={() => this.onRemoveWrestler(wrestler)}
-                              className="remove">
-                              &nbsp; <i className="fa fa-remove" aria-hidden="true"></i>
-                            </span>
-                          </span>
-                        )
-                      })}
+                          )
+                        })}
+                      </div>
                     </div>
-                  </div>
-                  <br />
-                </Droppable>
-              )
-            })}
+                    <br />
+                  </Droppable>
+                )
+              })}
+            </div>
           </div>
         </div>
         <If condition={hasBeenSimulated && this.props.settings.SHOW_STORY_BY_DEFAULT}>
