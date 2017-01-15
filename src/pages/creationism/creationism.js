@@ -10,6 +10,7 @@ import Form from "./form"
 import Helmet from "react-helmet"
 import React from "react"
 import skeleton from "./skeleton"
+import "./stylesheets/creationism"
 
 class CreationismPage extends React.Component {
 
