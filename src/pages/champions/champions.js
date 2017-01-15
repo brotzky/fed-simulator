@@ -27,7 +27,7 @@ class ChampionsPage extends React.Component {
 
   render() {
     return (
-      <main className="page champions">
+      <main className="page-section champions">
         <Helmet title="Championships" />
         <If condition={this.props.brands.length > 0}>
           <div className="navigation navigation--secondary">

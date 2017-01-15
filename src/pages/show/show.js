@@ -164,7 +164,7 @@ class ShowPage extends React.Component {
 
   render() {
     return (
-      <main className="page show">
+      <main className="page-section show">
         <Helmet title="Create a Show" />
         <If condition={this.props.ppvs && this.props.ppvs[0]}>
           <div className="inpage-content">

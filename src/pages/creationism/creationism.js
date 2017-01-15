@@ -118,7 +118,7 @@ class CreationismPage extends React.Component {
 
   render() {
     return (
-      <main className="page creationism">
+      <main className="page-section creationism">
         <Helmet title="Creationism" />
         <div className="inpage-content">
           <div className="row">

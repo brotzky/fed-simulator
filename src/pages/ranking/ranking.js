@@ -66,7 +66,7 @@ class RankingPage extends React.Component {
       })
     })
     return (
-      <main className="page ranking">
+      <main className="page-section ranking">
         <Helmet title="Rankings" />
         <If condition={this.props.wrestlers.length > 0}>
           <Secondary showClear={true} />

@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "react-router"
 import Head from "../head/head"
-import CreatorWarning from "../creator/warning"
 import { connect } from "react-redux"
 import * as versionActions from "../../actions/version"
 import navigation from "./navigation"
@@ -39,29 +38,24 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        <div className="content">
-          <header className="header">
-            <div className="navigation navigation--primary">
-              <ul className="navigation__list">
-                {navigation.map((navigationItem, key) => {
-                  return (
-                    <li key={key} className="navigation__item">
-                      <Link
-                        to={navigationItem.url}>
-                        {navigationItem.title}
-                      </Link>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
-          </header>
-          <Choose>
-            <When condition={this.props.shows.length === 0 || this.props.ppvs.length === 0 || this.props.wrestlers.length === 0}>
-              <CreatorWarning />
-            </When>
-          </Choose>
-          <div>{this.props.children}</div>
+        <header className="header">
+          <nav className="navigation navigation--primary">
+            <ul className="navigation__list">
+              {navigation.map((navigationItem, key) => {
+                return (
+                  <li key={key} className="navigation__item">
+                    <Link
+                      to={navigationItem.url}>
+                      {navigationItem.title}
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          </nav>
+        </header>
+        <div>
+          {this.props.children}
         </div>
         <footer className="footer">
           <p>

@@ -62,7 +62,7 @@ class BucketsPage extends React.Component {
         return newProps
       }, {})
     return (
-      <main className="page buckets">
+      <main className="page-section buckets">
         <Helmet title="Modifications" />
         <div className="navigation navigation--secondary">
           <ul className="navigation__list">

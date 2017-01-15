@@ -23,7 +23,7 @@ class DraftPage extends React.Component {
 
   render() {
     return (
-      <main className="page draft">
+      <main className="page-section draft">
         <Helmet title="Draft Management" />
         <If condition={this.props.brands.length > 0}>
           <div className="navigation navigation--secondary">
