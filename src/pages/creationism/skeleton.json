@@ -5,7 +5,7 @@
 			"type": "input"
 		},
 		"maleWrestlers": {
-			"value": "Ariya Daivari, Big E, Big Show, Bo Dallas, Braun Strowman, Brian Kendrick, Brock Lesnar, Byron Saxton, Cedric Alexander, Cesaro, Chris Jericho, Colin Cassady, Corey Graves, Curtis Axel, Darren Young, Drew Gulak, Enzo Amore, Epico, Finn Balor, Goldberg, Goldust, Gran Metalik, Jinder Mahal, Karl Anderson, Kevin Owens, Kofi Kingston, Lince Dorado, Luke Gallows, Mark Henry, Michael Cole, Mick Foley, Neville, Noam Dar, Primo, R Truth, Rich Swann, Roman Reigns, Rusev, Sami Zayn, Seth Rollins, Sheamus, Sin Cara, Titus Oneil, Tj Perkins, Tony Nese, Triple H, Xavier Woods",
+			"value": "Ariya Daivari, Big E, Big Show, Bo Dallas, Braun Strowman, Brian Kendrick, Brock Lesnar, Byron Saxton, Cedric Alexander, Cesaro, Chris Jericho, Colin Cassady, Corey Graves, Curtis Axel, Darren Young, Drew Gulak, Enzo Amore, Epico, Finn Balor, Goldberg, Goldust, Gran Metalik, Jinder Mahal, Karl Anderson, Kevin Owens, Kofi Kingston, Lince Dorado, Luke Gallows, Mark Henry, Michael Cole, Mick Foley, Neville, Noam Dar, Primo, R Truth, Rich Swann, Roman Reigns, Rusev, Sami Zayn, Seth Rollins, Sheamus, Sin Cara, Titus O'Neil, T.J. Perkins, Tony Nese, Triple H, Xavier Woods",
 			"type": "textarea"
 		},
 		"femaleWrestlers": {
@@ -35,7 +35,7 @@
 			"type": "input"
 		},
 		"maleWrestlers": {
-			"value": "Aiden English, Aj Styles, Apollo Crews, Baron Corbin, Bray Wyatt, Chad Gable, Curt Hawkins, Daniel Bryan, David Otunga, Dean Ambrose, Dolph Ziggler, Erick Rowan, Fandango, Greg Hamilton, Heath Slater, Jack Swagger, James Ellsworth, Jason Jordan, Jbl, Jey Uso, Jimmy Uso, John Cena, Kalisto, Kane, Kenny, Konnor, Luke Harper, Mauro Ranallo, Mikey, Mojo Rawley, Randy Orton, Rhyno, Shane Mcmahon, Simon Gotch, The Miz, Tyler Breeze, Viktor, Zack Ryder",
+			"value": "Aiden English, Aj Styles, Apollo Crews, Baron Corbin, Bray Wyatt, Chad Gable, Curt Hawkins, Daniel Bryan, David Otunga, Dean Ambrose, Dolph Ziggler, Erick Rowan, Fandango, Greg Hamilton, Heath Slater, Jack Swagger, James Ellsworth, Jason Jordan, JBL, Jey Uso, Jimmy Uso, John Cena, Kalisto, Kane, Kenny, Konnor, Luke Harper, Mauro Ranallo, Mikey, Mojo Rawley, Randy Orton, Rhyno, Shane Mcmahon, Simon Gotch, The Miz, Tyler Breeze, Viktor, Zack Ryder",
 			"type": "textarea"
 		},
 		"femaleWrestlers": {

@@ -1,0 +1,17 @@
+@import "src/stylesheets/breakpoints";
+$wrestler-size: 8rem;
+
+.wrestler {
+  align-items: center;
+  background-color: white;
+  border-radius: 100%;
+  color: black;
+  display: flex;
+  height: $wrestler-size;
+  justify-content: center;
+  line-height: 2rem;
+  margin: 0 0.5rem 1rem;
+  width: $wrestler-size;
+  word-wrap: break-word;
+  text-align: center;
+}

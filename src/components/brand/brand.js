@@ -94,11 +94,6 @@ class Brand extends React.Component {
           "wrestler",
         ]}
         onDrop={this.onDrop.bind(this, this.props)}>
-        <If condition={this.props.showBrandLogo}>
-          <div className="brand__icon center-xs hidden-sm hidden-xs">
-            <span className={`icon icon-${this.context.toSlug(this.props.model.name)}`}></span>
-          </div>
-        </If>
         <div className="Droppable col-xs-12 wrestlers"
           style={style}>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
