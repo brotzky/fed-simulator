@@ -10,20 +10,17 @@ export default class Label extends React.Component {
     textColour: React.PropTypes.string,
   }
 
-  static defaultProps = {
-    bgColour: "transparent",
-    textColour: "black",
-  }
-
   static contextTypes = {
     toSlug: React.PropTypes.func.isRequired,
   }
 
   render() {
-    const style = {
-      backgroundColor: this.props.bgColour,
-      color: this.props.textColour,
-    }
+    const style = this.props.bgColour !== "" ?
+      {
+        backgroundColor: this.props.bgColour,
+        color: this.props.textColour,
+      }
+      : {}
     return (
       <span style={style}
         className="label">
