@@ -1,10 +1,8 @@
 import React from "react"
-import { Link } from "react-router"
-import Head from "../head/head"
+import Header from "./header"
+import Footer from "./footer"
 import { connect } from "react-redux"
 import * as versionActions from "../../actions/version"
-import navigation from "./navigation"
-import logo from "./logo.png"
 import "../../stylesheets/base"
 
 class Page extends React.Component {
@@ -12,9 +10,6 @@ class Page extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     version: React.PropTypes.number.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
-    ppvs: React.PropTypes.array.isRequired,
-    shows: React.PropTypes.array.isRequired,
   }
 
   static defaultProps = {
@@ -38,30 +33,9 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        <header className="header">
-          <nav className="navigation navigation--primary">
-            <ul className="navigation__list">
-              {navigation.map((navigationItem, key) => {
-                return (
-                  <li key={key} className="navigation__item">
-                    <Link
-                      to={navigationItem.url}>
-                      {navigationItem.title}
-                    </Link>
-                  </li>
-                )
-              })}
-            </ul>
-          </nav>
-        </header>
-        <div>
-          {this.props.children}
-        </div>
-        <footer className="footer">
-          <p>
-            Please <a href="mailto:aaron.lote@gmail.com">email me</a> directly with any queries or find me on twitter <a target="_blank" rel="noopener" href="https://twitter.com/azz0r">@azz0r</a> or <a target="_blank" rel="noopener" href="https://twitter.com/UniverseSimMan">@UniverseSimMan</a>
-          </p>
-        </footer>
+        <Header />
+        {this.props.children}
+        <Footer />
       </div>
     )
   }
@@ -70,7 +44,4 @@ class Page extends React.Component {
 
 export default connect(state => ({
   version: state.version,
-  wrestlers: state.wrestlers,
-  shows: state.shows,
-  ppvs: state.ppvs,
 }))(Page)
