@@ -17,7 +17,7 @@
 			"type": "textarea"
 		},
 		"ppvs": {
-			"value": "Raw, Fastlane,",
+			"value": "Raw, Fastlane",
 			"type": "textarea"
 		},
 		"bgColour": {
@@ -155,7 +155,7 @@
 			"type": "input"
 		},
 		"maleWrestlers": {
-			"value": "The Sandman, Taz, Tommy Dreamer, Axl Rotten, Mikey Whipwreck, Buelah McGillicuty, Buh-Buh Ray Dudley, D-Von Dudley, The Blue Meanie, Sabu, 'Mr. Monday Night' Rob Van Dam, 'Hollywood' Bob Starr, Little Guido, 'The Franchise' Shane Douglas, Sabu, John Kronus, New Jack, Spike Dudley, Chris Candido, Balls Mahoney, 'The Rookie' Chris Chetti, Bam-Bam Bigelow , Tracy Smothers, Big Dick Dudley, Wild Bill, Wilcox, Roadkill, Bobby Duncum Jr., Lance Storm, Justin Credible, Jerry Lynn, Doug Furnas, Philip LaFon, Dave Morrison, Tommy Rogers, Paul Diamond",
+			"value": "The Sandman, Taz, Tommy Dreamer, Axl Rotten, Mikey Whipwreck, Buelah McGillicuty, Buh-Buh Ray Dudley, D-Von Dudley, The Blue Meanie, Sabu,  Rob Van Dam, 'Hollywood' Bob Starr, Little Guido, 'The Franchise' Shane Douglas, Sabu, John Kronus, New Jack, Spike Dudley, Chris Candido, Balls Mahoney, 'The Rookie' Chris Chetti, Bam-Bam Bigelow , Tracy Smothers, Big Dick Dudley, Wild Bill, Wilcox, Roadkill, Bobby Duncum Jr., Lance Storm, Justin Credible, Jerry Lynn, Doug Furnas, Philip LaFon, Dave Morrison, Tommy Rogers, Paul Diamond",
 			"type": "textarea"
 		},
 		"femaleWrestlers": {
