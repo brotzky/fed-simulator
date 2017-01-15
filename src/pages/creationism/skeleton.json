@@ -91,7 +91,7 @@
 	},
 	"WWF": {
 		"brand": {
-			"value": "WWE Attitude",
+			"value": "WWF",
 			"type": "input"
 		},
 		"maleWrestlers": {
@@ -103,7 +103,7 @@
 			"type": "textarea"
 		},
 		"championships": {
-			"value": "WWE Championship, World Tag Team Championship, WWE Intercontinental Championship, WWE Women's Championship, WWE Hardcore Championship, WWE European Championship, WWE Light Heavyweight Championship",
+			"value": "WWF Championship, World Tag Team Championship, WWF Intercontinental Championship, WWF Womens Championship, WWF Hardcore Championship, WWF European Championship, WWF Light Heavyweight Championship",
 			"type": "textarea"
 		},
 		"ppvs": {
@@ -111,11 +111,11 @@
 			"type": "textarea"
 		},
 		"bgColour": {
-			"value": "red",
+			"value": "#01538F",
 			"type": "colour"
 		},
 		"textColour": {
-			"value": "black",
+			"value": "#FFDB36",
 			"type": "colour"
 		}
 	},
@@ -141,11 +141,11 @@
 			"type": "textarea"
 		},
 		"bgColour": {
-			"value": "black",
+			"value": "#13171A",
 			"type": "colour"
 		},
 		"textColour": {
-			"value": "white",
+			"value": "#F28C3A",
 			"type": "colour"
 		}
 	},
@@ -171,11 +171,11 @@
 			"type": "textarea"
 		},
 		"bgColour": {
-			"value": "black",
+			"value": "#300952",
 			"type": "colour"
 		},
 		"textColour": {
-			"value": "red",
+			"value": "white",
 			"type": "colour"
 		}
 	}
