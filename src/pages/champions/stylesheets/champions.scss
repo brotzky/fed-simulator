@@ -1,7 +1,7 @@
 @import "src/stylesheets/variables";
 @import "src/stylesheets/breakpoints";
 
-.page.champions {
+.page-section.champions {
 
   .alert {
     text-align: center;
@@ -12,7 +12,7 @@
   }
 
   @include breakpoint(xs) {
-    
+
     .brand {
       margin-bottom: 1rem;
     }
