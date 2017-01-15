@@ -9,13 +9,7 @@
     "deploy": "gh-pages-deploy",
     "eslint": "eslint src",
     "test": "NODE_ENV=test mocha --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./src/**/**/*.spec.js",
-    "test:watch": "NODE_ENV=test mocha --watch --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js *.spec.js",
-    "sprite": "webpack-dev-server --config config/webpack.config.sprite.js",
-    "generate:ppvs": "babel-node ./scripts/generate/ppvs.js",
-    "generate:wrestlers": "babel-node ./scripts/generate/wrestlers.js",
-    "generate:brands": "babel-node ./scripts/generate/brands.js",
-    "generate:championships": "babel-node ./scripts/generate/championships.js",
-    "generate": "npm run generate:wrestlers && npm run generate:championships && npm run generate:brands && npm run generate:ppvs"
+    "test:watch": "NODE_ENV=test mocha --watch --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js *.spec.js"
   },
   "devDependencies": {
     "asyncawait": "^1.0.6",

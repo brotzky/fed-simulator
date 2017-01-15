@@ -20,7 +20,7 @@ const Wrestler = ({
     <div className={classes}
       onClick={() => onWrestlerClick(id)}
       data-id={id}>
-      <Icon name={name} active={active} />
+      {name}
     </div>
   )
 }
