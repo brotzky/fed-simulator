@@ -57,6 +57,7 @@ class CreationismPage extends React.Component {
           id: hashCode(championshipName),
           name: championshipName,
           brand: formData.brand,
+          male: true,
           sequence: 0,
           changes: 0,
           canMoveBrands: true,
