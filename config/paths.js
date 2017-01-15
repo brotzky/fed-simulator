@@ -6,9 +6,9 @@ function resolveApp(relativePath) {
 
 module.exports = {
   appBuild: resolveApp('build'),
-  appHtml: resolveApp('index.html'),
   appImgs: resolveApp('src/imgs'),
   appPublic: resolveApp('src/public'),
+  appHtml: resolveApp('src/public/index.html'),
   appSprites: resolveApp('src/imgs/sprites'),
   appStylesheets: resolveApp('src/stylesheets'),
   appPackageJson: resolveApp('package.json'),

@@ -18,10 +18,20 @@
   }
 }
 
+html {
+  height: 100%;
+}
+
 body {
   padding: 0;
   margin: 0;
-  background-color: $bg;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-section {
+  flex: 1 0 auto;
 }
 
 .inpage-content {
@@ -32,7 +42,6 @@ body {
     margin: .2rem;
   }
 }
-
 
 footer {
   background-color: #333;
