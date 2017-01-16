@@ -189,7 +189,7 @@ class ShowPage extends React.Component {
                       </h4>
                     </div>
                     <hr />
-                    <h4>
+                    <div>
                       {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by&nbsp;
                       <div className="dropdown">
                         <p>
@@ -220,7 +220,7 @@ class ShowPage extends React.Component {
                           />
                         </div>
                       </div>
-                    </h4>
+                    </div>
                   </div>
                 </If>
                 <br />
