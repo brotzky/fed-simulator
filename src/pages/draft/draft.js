@@ -22,6 +22,8 @@ class DraftPage extends React.Component {
   }
 
   render() {
+    const defaultBrand = this.props.brands.filter(brand => brand.default)[0]
+    const nonDefaultBrands = this.props.brands.filter(brand => !brand.default)
     return (
       <main className="page-section draft">
         <Helmet title="Draft Management" />
@@ -39,19 +41,24 @@ class DraftPage extends React.Component {
           <div className="inpage-content">
             <div className="draft no-select">
               <div className="row">
-                <div className="col-xs-3">
-                draft
+                <div className="col-xs-2">
+                  <Brand
+                    model={defaultBrand}
+                    canDragAndDrop={true}
+                    wrestlers={this.props.wrestlers.filter(wrestler => wrestler.brand === "Default")}
+                    byPassBrandFilter={defaultBrand.default}
+                    showBrandLogo={false}
+                  />
                 </div>
-                <div className="col-xs-9">
+                <div className="col-xs-10">
                   <div className="row">
-                    {this.props.brands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand, key) => {
+                    {nonDefaultBrands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand, key) => {
                       let wrestlers = this.props.wrestlers
                         .filter(wrestler => (brand.default === true && wrestler.brand === "") || wrestler.brand === brand.name)
                         .sort((a, b) => a.rating < b.rating ? 1 : -1)
                       return (
-                        <div
-                          key={brand.id}
-                          className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div key={brand.id}
+                          className="col-lg-2 col-md-3 col-sm-6 col-xs-12">
                           <Brand
                             model={brand}
                             canDragAndDrop={true}
