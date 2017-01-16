@@ -26,6 +26,9 @@ export default class Form extends React.Component {
     }
 
     this.props.onSave(formData)
+    this.setState({
+      saved: true,
+    })
   }
 
   render() {
