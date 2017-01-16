@@ -14,4 +14,13 @@ $wrestler-size: 8rem;
   width: $wrestler-size;
   word-wrap: break-word;
   text-align: center;
+  text-shadow:
+    0 1px 3px #fff,
+    0 3px 5px #666,
+    0 5px 10px #ccc;
+
+  &:hover {
+    background: #ccc;
+    background: linear-gradient(135deg,  white 0%, #ccc 100%); /* W3C */
+  }
 }

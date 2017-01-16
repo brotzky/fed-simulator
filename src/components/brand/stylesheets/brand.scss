@@ -2,6 +2,10 @@
 
   &__icon {
     text-align: center;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
   }
 
   &__name {
