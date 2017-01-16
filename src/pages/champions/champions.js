@@ -25,6 +25,7 @@ class ChampionsPage extends React.Component {
   }
 
   render() {
+    let brandInOrder = []
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
@@ -48,9 +49,13 @@ class ChampionsPage extends React.Component {
                   championships = this.props.championships
                     .filter(championship => championship.brand === brand.name)
                     .sort((a, b) => a.rating > b.rating ? 1 : -1)
+                  brandInOrder.push({
+                    model: brand,
+                    wrestlers,
+                  })
                 return (
                   <div key={brand.id}
-                    className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    className="col-lg-2 col-md-6 col-sm-6 col-xs-12">
                       <div className="row clearfix">
                         <div className="col-xs-12">
                           <Championships
@@ -59,15 +64,24 @@ class ChampionsPage extends React.Component {
                           />
                         </div>
                       </div>
-                      <Brand
-                        model={brand}
-                        canDragAndDrop={true}
-                        wrestlers={wrestlers}
-                        showBrandLogo={false}
-                      />
                   </div>
                 )
               })}
+              <div className="row">
+                {brandInOrder.map((brand, key) => {
+                  return (
+                    <div key={brand.id}
+                      className="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                      <Brand
+                        model={brand.model}
+                        canDragAndDrop={true}
+                        wrestlers={brand.wrestlers}
+                        showBrandLogo={true}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </If>
