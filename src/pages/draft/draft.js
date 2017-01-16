@@ -25,6 +25,7 @@ class DraftPage extends React.Component {
   render() {
     const defaultBrand = this.props.brands.filter(brand => brand.default)[0]
     const nonDefaultBrands = this.props.brands.filter(brand => !brand.default)
+    const largeColumn = Math.round(12 / nonDefaultBrands.length)
     return (
       <main className="page-section draft">
         <Helmet title="Draft Management" />
@@ -59,7 +60,7 @@ class DraftPage extends React.Component {
                         .sort((a, b) => a.rating < b.rating ? 1 : -1)
                       return (
                         <div key={brand.id}
-                          className="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                          className={`col-lg-${largeColumn} col-md-3 col-sm-6 col-xs-12`}>
                           <Brand
                             model={brand}
                             canDragAndDrop={true}
