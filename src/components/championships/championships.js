@@ -72,7 +72,7 @@ class Championships extends React.Component {
                     {championship.changes}
                   </span>
                 </If>
-                <span className="hvr-push">
+                <span className="championship__name">
                   {championship.name}
                 </span>
                 <div className="championship__holdername">
