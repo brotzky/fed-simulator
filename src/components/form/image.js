@@ -31,18 +31,12 @@ export default class Input extends React.Component {
        this.setState({
          value: evt.target.result,
        })
+       this.props.changeHandler(
+         this.props.name,
+         evt.target.result,
+       )
     }
     reader.readAsDataURL(file)
-  }
-
-  onChange = (event) => {
-    this.props.changeHandler(
-      this.props.name,
-      event.target.value,
-    )
-    this.setState({
-      value: event.target.value,
-    })
   }
 
   onDrop = (files) => {
@@ -63,9 +57,6 @@ export default class Input extends React.Component {
             <img src={this.state.value} />
           </div>
         </Dropzone>
-        <div>
-
-        </div>
       </div>
     )
   }

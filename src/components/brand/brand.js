@@ -93,22 +93,20 @@ class Brand extends React.Component {
           "wrestler",
         ]}
         onDrop={this.onDrop.bind(this, this.props)}>
+        <If condition={this.props.model.image}>
+          <div className="brand__icon">
+            <Icon
+              name={this.props.model.name}
+              image={this.props.model.image}
+            />
+          </div>
+        </If>
         <div className="Droppable col-xs-12 wrestlers"
           style={style}>
-          <If condition={!this.props.model.default}>
-              <Choose>
-                <When condition={this.props.model.image.length === 0}>
-                  <h3 className="brand__name">
-                    {this.props.model.name}
-                  </h3>
-                </When>
-                <Otherwise>
-                  <Icon
-                    name={this.props.model.name}
-                    image={this.props.model.image}
-                  />
-                </Otherwise>
-              </Choose>
+          <If condition={!this.props.model.image || this.props.model.default}>
+            <h3 className="brand__name">
+              {this.props.model.name}
+            </h3>
           </If>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search

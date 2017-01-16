@@ -37,7 +37,10 @@ export default class Bucket extends React.Component {
     })
   }
 
-  onSaveBucket = () => {
+  onSaveBucket = (event) => {
+    event.preventDefault()
+
+    console.log(this.state)
     this.props.onSaveBucket(
       this.state.currentItem,
     )
