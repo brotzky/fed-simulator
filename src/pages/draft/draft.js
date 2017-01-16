@@ -3,6 +3,7 @@ import * as wrestlersActions from "../../actions/wrestlers"
 import Brand from "../../components/brand/brand"
 import Helmet from "react-helmet"
 import React from "react"
+import "./stylesheets/draft"
 
 class DraftPage extends React.Component {
 
@@ -41,7 +42,7 @@ class DraftPage extends React.Component {
           <div className="inpage-content">
             <div className="draft no-select">
               <div className="row">
-                <div className="col-xs-12 col-lg-2">
+                <div className="col-xs-12 col-lg-2 default">
                   <Brand
                     model={defaultBrand}
                     canDragAndDrop={true}
