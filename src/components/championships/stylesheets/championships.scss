@@ -17,17 +17,15 @@
       border-radius: 100%;
       border: 1px solid #911f28;
       color: white;
-      height: 20px;
-      line-height: 20px;
-      padding: 0 .3rem;
-      text-shadow: 0 1px rgba(0, 0, 0, .2);
-      width: 2rem;
-      margin-right: 0.5rem;
+      line-height: 2rem;
+      margin-right: .5rem;
+      padding: 0 .5rem;
     }
 
     &__name {
-      font-weight: 700;
-      font-size: 2rem;
+      font-weight: 500;
+      font-size: 1.5rem;
+      color: #333;
     }
 
     &__holdername  span {
@@ -35,16 +33,7 @@
     }
 
     &.vacant {
-      color: #ccc;
-    }
-
-    @include breakpoint(xs) {
-      padding: 0;
-      zoom: 0.7;
-
-      .badge {
-        display: none;
-      }
+      color: #999;
     }
   }
 }
