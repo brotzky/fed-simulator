@@ -41,7 +41,7 @@ class DraftPage extends React.Component {
           <div className="inpage-content">
             <div className="draft no-select">
               <div className="row">
-                <div className="col-xs-2">
+                <div className="col-xs-12 col-lg-2">
                   <Brand
                     model={defaultBrand}
                     canDragAndDrop={true}
@@ -50,7 +50,7 @@ class DraftPage extends React.Component {
                     showBrandLogo={false}
                   />
                 </div>
-                <div className="col-xs-10">
+                <div className="col-xs-12 col-lg-10">
                   <div className="row">
                     {nonDefaultBrands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand, key) => {
                       let wrestlers = this.props.wrestlers

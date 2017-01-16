@@ -11,7 +11,7 @@ const Wrestler = ({
   active = false
 }) => {
   const classes = classNames(
-    "wrestler",
+    "wrestler shadow-2",
     {
       "hvr-buzz": animate,
     },
