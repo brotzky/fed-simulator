@@ -4,41 +4,36 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   text-align: center;
 
   .championship {
     margin: 0 1rem;
-    padding: 1em 0;
-    position: relative;
-    vertical-align: top;
+    padding: 1rem 0;
 
     .badge {
-      position: absolute;
-      top: 0;
-      right: -0.8em;
-      width: 1.5rem;
+      background-image: linear-gradient(to bottom, #e69fa5, #dd202f);
+      background: #e23442;
+      border-radius: 100%;
+      border: 1px solid #911f28;
+      color: white;
       height: 20px;
       line-height: 20px;
       padding: 0 .3rem;
-      color: white;
+      position: absolute;
+      right: -0.8em;
       text-shadow: 0 1px rgba(0, 0, 0, .2);
-      background: #e23442;
-      border: 1px solid #911f28;
-      border-radius: 100%;
-      background-image: linear-gradient(to bottom, #e69fa5, #dd202f);
+      top: 0;
+      width: 1.5rem;
     }
 
     &__name {
       font-weight: 700;
       font-size: 2rem;
     }
-    &__holdername {
-      position: relative;
 
-      span {
-        display: block;
-      }
+    &__holdername  span {
+      display: block;
     }
 
     &.vacant {
