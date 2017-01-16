@@ -42,6 +42,7 @@ class CreationismPage extends React.Component {
     let brand = {
       id: hashCode(formData.brand),
       name: formData.brand,
+      image: formData.image,
       bgColour: formData.bgColour,
       textColour: formData.textColour,
       default: false,
@@ -113,7 +114,7 @@ class CreationismPage extends React.Component {
           attendance: {
             min: 1000,
             max: 15000,
-          }
+          },
         })
       )
     })
@@ -126,19 +127,19 @@ class CreationismPage extends React.Component {
         <Resets />
         <div className="inpage-content">
           <div className="row">
-            <div className="col-xs-4">
+            <div className="col-xs-12 col-lg-4">
               <Form
                 onSave={this.onSave}
                 skeleton={skeleton.Raw}
               />
             </div>
-            <div className="col-xs-4">
+            <div className="col-xs-12 col-lg-4">
               <Form
                 onSave={this.onSave}
                 skeleton={skeleton.Smackdown}
               />
             </div>
-            <div className="col-xs-4">
+            <div className="col-xs-12 col-lg-4">
               <Form
                 onSave={this.onSave}
                 skeleton={skeleton.NXT}
@@ -147,19 +148,19 @@ class CreationismPage extends React.Component {
           </div>
           <hr />
           <div className="row">
-            <div className="col-xs-4">
+          <div className="col-xs-12 col-lg-4">
               <Form
                 onSave={this.onSave}
                 skeleton={skeleton.WWF}
               />
             </div>
-            <div className="col-xs-4">
+            <div className="col-xs-12 col-lg-4">
               <Form
                 onSave={this.onSave}
                 skeleton={skeleton.WCW}
               />
             </div>
-            <div className="col-xs-4">
+            <div className="col-xs-12 col-lg-4">
               <Form
                 onSave={this.onSave}
                 skeleton={skeleton.ECW}

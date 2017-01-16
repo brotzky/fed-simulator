@@ -2,6 +2,7 @@ import "./stylesheets/bucket.scss"
 import Checkbox from "../form/checkbox"
 import Icon from "../icon/icon"
 import Input from "../form/input"
+import Image from "../form/image"
 import ColourPicker from "../form/colour"
 import React from "react"
 import ReadOnly from "../form/readonly"
@@ -62,15 +63,13 @@ export default class Bucket extends React.Component {
                     currentFieldtype = this.props.validation[name],
                     values = {
                       name,
+                      label: name,
                       defaultValue,
                       changeHandler: this.changeHandler,
                     }
                   return (
                     <div key={key}
                       className={`form-group bucket__${name}`}>
-                      <span className="bucket__name">
-                        {name}
-                      </span>
                       <Choose>
                         <When condition={currentFieldtype === "colour"}>
                           <ColourPicker {...values} />
@@ -83,6 +82,9 @@ export default class Bucket extends React.Component {
                         </When>
                         <When condition={currentFieldtype === "readonly"}>
                           <ReadOnly {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "image"}>
+                          <Image {...values} />
                         </When>
                         <Otherwise>
                           &nbsp;

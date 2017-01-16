@@ -1,6 +1,7 @@
 import Checkbox from "../../components/form/checkbox"
 import Textarea from "../../components/form/textarea"
 import ColourPicker from "../../components/form/colour"
+import Image from "../../components/form/image"
 import Input from "../../components/form/input"
 import React from "react"
 import ReadOnly from "../../components/form/readonly"
@@ -23,7 +24,8 @@ export default class Form extends React.Component {
     for (const field in this.refs) {
       formData[field] = this.refs[field].state.value
     }
-  
+
+    console.log(formData)
     this.props.onSave(formData)
   }
 
@@ -42,15 +44,12 @@ export default class Form extends React.Component {
                   values = {
                     name,
                     ref: name,
+                    label: name,
                     defaultValue,
                     changeHandler: () => {},
                   }
                   return (
                     <div key={key}>
-                      <label className="capitalize"
-                        htmlFor={name}>
-                        {name}
-                      </label>
                       <Choose>
                         <When condition={currentFieldtype === "colour"}>
                           <ColourPicker {...values} />
@@ -66,6 +65,9 @@ export default class Form extends React.Component {
                         </When>
                         <When condition={currentFieldtype === "readonly"}>
                           <ReadOnly {...values} />
+                        </When>
+                        <When condition={currentFieldtype === "image"}>
+                          <Image {...values} />
                         </When>
                         <Otherwise>
                           &nbsp;

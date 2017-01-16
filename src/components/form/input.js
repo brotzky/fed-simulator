@@ -5,6 +5,7 @@ export default class Input extends React.Component {
   static propTypes = {
     changeHandler: React.PropTypes.func.isRequired,
     name: React.PropTypes.string.isRequired,
+    label: React.PropTypes.string.isRequired,
     defaultValue: React.PropTypes.any.isRequired,
   }
 
@@ -28,12 +29,17 @@ export default class Input extends React.Component {
 
   render() {
     return (
-      <input type="text"
-        className="form-control"
-        name={this.props.name}
-        defaultValue={this.props.defaultValue}
-        onChange={this.onChange}
-      />
+      <div>
+        <label htmlFor={this.props.name}>
+          {this.props.label}
+        </label>
+        <input type="text"
+          className="form-control"
+          name={this.props.name}
+          defaultValue={this.props.defaultValue}
+          onChange={this.onChange}
+        />
+      </div>
     )
   }
 }

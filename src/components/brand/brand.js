@@ -75,8 +75,7 @@ class Brand extends React.Component {
       color: this.props.model.textColour,
     }
     let searchIsActive = false,
-      wrestlers = this.props.wrestlers
-                    .filter(wrestler => filterFemales(wrestler, this.state.showFemalesOnly))
+      wrestlers = this.props.wrestlers.filter(wrestler => filterFemales(wrestler, this.state.showFemalesOnly))
 
     if (this.state.search !== "") {
       searchIsActive = true
@@ -97,9 +96,19 @@ class Brand extends React.Component {
         <div className="Droppable col-xs-12 wrestlers"
           style={style}>
           <If condition={!this.props.model.default}>
-            <h3 className="brand__name">
-              {this.props.model.name}
-            </h3>
+              <Choose>
+                <When condition={this.props.model.image.length === 0}>
+                  <h3 className="brand__name">
+                    {this.props.model.name}
+                  </h3>
+                </When>
+                <Otherwise>
+                  <Icon
+                    name={this.props.model.name}
+                    image={this.props.model.image}
+                  />
+                </Otherwise>
+              </Choose>
           </If>
           <div className={`wrestlers__search ${(searchIsActive ? "active" : "")}`}>
             <Search

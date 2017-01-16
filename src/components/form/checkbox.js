@@ -33,13 +33,18 @@ export default class Checkbox extends React.Component {
 
   render() {
     return (
-      <input type="checkbox"
-        className="form-control"
-        name={this.props.name}
-        value={this.props.defaultValue}
-        checked={this.props.defaultValue}
-        onChange={this.onChange}
-      />
+      <div>
+        <input id={this.props.name}
+          name={this.props.name}
+          value={this.props.defaultValue}
+          checked={this.props.defaultValue}
+          onChange={this.onChange}
+          className="checkbox-custom"
+          type="checkbox" />
+        <label htmlFor={this.props.name} className="checkbox-custom-label">
+          {this.props.label}
+        </label>
+      </div>
     )
   }
 }
