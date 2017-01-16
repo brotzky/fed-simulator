@@ -25,7 +25,6 @@ export default class Form extends React.Component {
       formData[field] = this.refs[field].state.value
     }
 
-    console.log(formData)
     this.props.onSave(formData)
   }
 
