@@ -77,7 +77,7 @@ class ShowsPage extends React.Component {
                           {show.PPV.name}
                         </Link>
                       </td>
-                      <td><Icon name={show.brand.name} /></td>
+                      <td>{show.brand.name}</td>
                       <td>{show.date}</td>
                       <td>{show.matches.filter(match => match.wrestlers && match.wrestlers.length > 0).length}</td>
                       <td>{show.attendance.toLocaleString()}</td>
