@@ -58,7 +58,7 @@ export default class Input extends React.Component {
         <div className="row">
           <div className="col-xs-12">
             <label htmlFor={this.props.name}>
-              {this.props.label}
+              {this.props.label} (<a onClick={this.onClear}>Clear</a>)
             </label>
           </div>
           <div className="col-xs-12">
@@ -72,11 +72,6 @@ export default class Input extends React.Component {
                   src={this.state.value} />
               </div>
             </Dropzone>
-          </div>
-        </div>
-        <div className="row formImage__clear">
-          <div className="col-xs-12">
-            <a onClick={this.onClear}>Clear Image</a>
           </div>
         </div>
       </div>

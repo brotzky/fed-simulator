@@ -75,7 +75,6 @@ export default class Form extends React.Component {
                           &nbsp;
                         </Otherwise>
                       </Choose>
-                      <br />
                     </div>
                   )
                 })}
