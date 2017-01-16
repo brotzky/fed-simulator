@@ -184,8 +184,9 @@ class ShowPage extends React.Component {
                 <If condition={!this.state.showPPVs}>
                   <div className="ppvs__current">
                     <div onClick={this.onTogglePPVsSelection}>
-                      <Icon name={this.currentShow.PPV.name} />
-                      <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                      <h4 className="ppvs__name">
+                        {this.currentShow.PPV.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                      </h4>
                     </div>
                     <hr />
                     <h4>

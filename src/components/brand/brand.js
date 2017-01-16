@@ -93,7 +93,7 @@ class Brand extends React.Component {
           "wrestler",
         ]}
         onDrop={this.onDrop.bind(this, this.props)}>
-        <If condition={this.props.model.image}>
+        <If condition={this.props.model.image && this.props.showBrandLogo}>
           <div className="brand__icon">
             <Icon
               name={this.props.model.name}
@@ -103,7 +103,7 @@ class Brand extends React.Component {
         </If>
         <div className="Droppable col-xs-12 wrestlers"
           style={style}>
-          <If condition={!this.props.model.image || this.props.model.default}>
+          <If condition={(!this.props.model.image || this.props.model.default) && this.props.showBrandLogo}>
             <h3 className="brand__name">
               {this.props.model.name}
             </h3>
