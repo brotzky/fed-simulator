@@ -1,5 +1,6 @@
 import React from "react"
 import Dropzone from "react-dropzone"
+import "./stylesheets/image"
 
 export default class Input extends React.Component {
 
@@ -13,8 +14,8 @@ export default class Input extends React.Component {
   }
 
   static defaultProps = {
-    maxImageHeight: 200,
-    maxImageWidth: 200,
+    maxImageHeight: 250,
+    maxImageWidth: 100,
   }
 
   constructor(props) {
@@ -43,20 +44,41 @@ export default class Input extends React.Component {
     this.getBase64(files[0])
   }
 
+  onClear = (event) => {
+    event.preventDefault
+
+    this.setState({
+      value: "",
+    })
+  }
+
   render() {
     return (
-      <div>
-        <label htmlFor={this.props.name}>
-          {this.props.label}
-        </label>
-        <Dropzone multiple={false}
-          accept={"image/*"}
-          onDrop={this.onDrop}>
-          <div className="droparea">
-            <h3>Drop An Image Here</h3>
-            <img src={this.state.value} />
+      <div className="formImage">
+        <div className="row">
+          <div className="col-xs-12">
+            <label htmlFor={this.props.name}>
+              {this.props.label}
+            </label>
           </div>
-        </Dropzone>
+          <div className="col-xs-12">
+            <Dropzone multiple={false}
+              accept={"image/*"}
+              onDrop={this.onDrop}
+              style={{}}>
+              <div className="row formImage__droparea">
+                <h3>Drop An Image Here</h3>
+                <img className="formImage__src"
+                  src={this.state.value} />
+              </div>
+            </Dropzone>
+          </div>
+        </div>
+        <div className="row formImage__clear">
+          <div className="col-xs-12">
+            <a onClick={this.onClear}>Clear Image</a>
+          </div>
+        </div>
       </div>
     )
   }

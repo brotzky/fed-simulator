@@ -1,0 +1,26 @@
+.formImage {
+
+  h3 {
+    display: inline-block;
+    width: 100%;
+  }
+
+  &__droparea {
+    width: 100%;
+    margin: 0 auto 2.5rem auto;
+    padding: 2rem;
+    color: #97A1A8;
+    background: #F9FBFE;
+    border: .2rem dashed #C8CBCE;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+
+  &__src {
+    max-height: 14rem;
+  }
+
+  &__clear {
+    color: black;
+    text-shadow: 2px 1px #ccc;
+  }
+}
