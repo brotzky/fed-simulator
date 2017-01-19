@@ -25,7 +25,8 @@ class ChampionsPage extends React.Component {
   }
 
   render() {
-    let brandInOrder = []
+    let largeColumn  = Math.round(12 / this.props.brands.filter(brand => brand.default === false).length),
+      brands = this.props.brands.filter(brand => brand.default === false)
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
@@ -43,49 +44,37 @@ class ChampionsPage extends React.Component {
           </div>
           <div className="inpage-content">
             <div className="row">
-              {this.props.brands.filter(brand => brand.default === false).map((brand) => {
+              {brands.map((brand, key) => {
                 let wrestlers = this.props.wrestlers
                   .filter(wrestler => wrestler.brand === brand.name),
                   championships = this.props.championships
                     .filter(championship => championship.brand === brand.name)
                     .sort((a, b) => a.rating > b.rating ? 1 : -1)
-                  brandInOrder.push({
-                    model: brand,
-                    wrestlers,
-                  })
-                return (
-                  <div key={brand.id}
-                    className="col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                      <div className="row clearfix">
-                        <div className="col-xs-12">
-                          <Championships
-                            championships={championships}
-                            showBadge={true}
-                          />
-                        </div>
-                      </div>
-                  </div>
-                )
-              })}
-              <div className="row">
-                {brandInOrder.map((brand, key) => {
                   return (
-                    <div key={brand.id}
-                      className="col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                    <div key={key}
+                      className={`col-lg-${largeColumn} col-md-6 col-sm-6 col-xs-12`}>
+                      <Championships
+                        championships={championships}
+                        showBadge={true}
+                      />
                       <Brand
-                        model={brand.model}
+                        model={{
+                          bgColour: brand.bgColour,
+                          textColour: brand.textColour,
+                        }}
                         canDragAndDrop={true}
                         wrestlers={brand.wrestlers}
-                        showBrandLogo={true}
+                        showBrandLogo={false}
+                        bgColour={brand.bgColour}
+                        wrestlers={wrestlers}
                       />
                     </div>
                   )
                 })}
               </div>
             </div>
-          </div>
-        </If>
-      </main>
+          </If>
+        </main>
     )
   }
 }
