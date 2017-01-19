@@ -15,6 +15,7 @@
     color: white;
     margin: 1rem;
     padding: 1rem;
+    border-radius: 0.5rem;
 
     .badge {
       background-image: linear-gradient(to bottom, #e69fa5, #dd202f);
@@ -34,6 +35,12 @@
 
     &__holdername  span {
       display: block;
+    }
+  }
+  .inactive {
+    background-color: #666;
+    &:hover {
+      background-color: black;
     }
   }
 }

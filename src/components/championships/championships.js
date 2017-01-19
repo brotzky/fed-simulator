@@ -58,7 +58,7 @@ class Championships extends React.Component {
           .map((championship, key) => {
           let active = championship.wrestlers && championship.wrestlers.length > 0
               ? "active"
-              : "vacant"
+              : "inactive"
           return (
             <div key={key}
               className={`championship ${active}`}>
