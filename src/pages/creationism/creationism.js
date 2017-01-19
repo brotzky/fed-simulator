@@ -9,7 +9,7 @@ import Resets from "../../components/navigation/resets"
 import Form from "./form"
 import Helmet from "react-helmet"
 import React from "react"
-import skeleton from "./skeleton"
+import Skeleton from "./skeleton"
 import "./stylesheets/creationism"
 
 class CreationismPage extends React.Component {
@@ -127,45 +127,17 @@ class CreationismPage extends React.Component {
         <Resets />
         <div className="inpage-content">
           <div className="row">
-            <div className="col-xs-12 col-lg-4">
-              <Form
-                onSave={this.onSave}
-                skeleton={skeleton.Raw}
-              />
-            </div>
-            <div className="col-xs-12 col-lg-4">
-              <Form
-                onSave={this.onSave}
-                skeleton={skeleton.Smackdown}
-              />
-            </div>
-            <div className="col-xs-12 col-lg-4">
-              <Form
-                onSave={this.onSave}
-                skeleton={skeleton.NXT}
-              />
-            </div>
-          </div>
-          <hr />
-          <div className="row">
-          <div className="col-xs-12 col-lg-4">
-              <Form
-                onSave={this.onSave}
-                skeleton={skeleton.WWF}
-              />
-            </div>
-            <div className="col-xs-12 col-lg-4">
-              <Form
-                onSave={this.onSave}
-                skeleton={skeleton.WCW}
-              />
-            </div>
-            <div className="col-xs-12 col-lg-4">
-              <Form
-                onSave={this.onSave}
-                skeleton={skeleton.ECW}
-              />
-            </div>
+            {Object.keys(Skeleton).map((key) => {
+              return(
+                <div key={key} className="col-xs-12 col-lg-2">
+                  <Form
+                    title={key}
+                    onSave={this.onSave}
+                    skeleton={Skeleton[key]}
+                  />
+                </div>
+              )
+            })}
           </div>
         </div>
       </main>

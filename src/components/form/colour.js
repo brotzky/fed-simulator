@@ -39,13 +39,13 @@ export default class ColourPicker extends React.Component {
             {this.props.label}
           </label>
         </div>
-        <div className="col-xs-11 col-sm-10 col-md-10 col-lg-6">
+        <div className="col-xs-11 col-sm-10 col-md-10 col-lg-10">
           <Chrome disableAlpha
             color={this.state.value}
             onChangeComplete={this.onChange}
           />
         </div>
-        <div className="col-xs-1 col-sm-2 col-md-2 col-lg-6"
+        <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2"
           style={style}>
         </div>
       </div>

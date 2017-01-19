@@ -21,7 +21,7 @@ export default class Form extends React.Component {
 
     const formData = {}
 
-    for (const field in this.refs) {
+    for (let field in this.refs) {
       formData[field] = this.refs[field].state.value
     }
 
@@ -32,6 +32,7 @@ export default class Form extends React.Component {
   }
 
   render() {
+
     return (
       <article className="form">
         <form>
