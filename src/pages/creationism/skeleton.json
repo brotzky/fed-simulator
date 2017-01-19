@@ -31,6 +31,10 @@
 		"textColour": {
 			"value": "#fff",
 			"type": "colour"
+		},
+		"sequence": {
+			"value": 0,
+			"type": "input"
 		}
 	},
 	"Smackdown": {
@@ -65,6 +69,10 @@
 		"textColour": {
 			"value": "#fff",
 			"type": "colour"
+		},
+		"sequence": {
+			"value": 0,
+			"type": "input"
 		}
 	},
 	"NXT": {
@@ -99,6 +107,10 @@
 		"textColour": {
 			"value": "#000",
 			"type": "colour"
+		},
+		"sequence": {
+			"value": 0,
+			"type": "input"
 		}
 	},
 	"WWF": {
@@ -133,6 +145,10 @@
 		"textColour": {
 			"value": "white",
 			"type": "colour"
+		},
+		"sequence": {
+			"value": 0,
+			"type": "input"
 		}
 	},
 	"WCW": {
@@ -167,6 +183,10 @@
 		"textColour": {
 			"value": "#F28C3A",
 			"type": "colour"
+		},
+		"sequence": {
+			"value": 0,
+			"type": "input"
 		}
 	},
 	"ECW": {
@@ -201,6 +221,10 @@
 		"textColour": {
 			"value": "white",
 			"type": "colour"
+		},
+		"sequence": {
+			"value": 0,
+			"type": "input"
 		}
 	}
 }

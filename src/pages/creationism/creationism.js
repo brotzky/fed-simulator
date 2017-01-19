@@ -127,7 +127,9 @@ class CreationismPage extends React.Component {
         <Resets />
         <div className="inpage-content">
           <div className="row">
-            {Object.keys(Skeleton).map((key) => {
+            {Object.keys(Skeleton).map((key, index) => {
+              console.log(Skeleton[key])
+              Skeleton[key].sequence.value = index
               return(
                 <div key={key} className="col-xs-12 col-lg-2">
                   <Form

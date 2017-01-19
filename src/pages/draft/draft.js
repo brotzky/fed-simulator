@@ -24,7 +24,9 @@ class DraftPage extends React.Component {
 
   render() {
     const defaultBrand = this.props.brands.filter(brand => brand.default)[0]
-    const nonDefaultBrands = this.props.brands.filter(brand => !brand.default)
+    const nonDefaultBrands = this.props.brands
+        .filter(brand => !brand.default)
+        .sort((prev, current) => prev.sequence > current.sequence ? 1 : -1)
     const largeColumn = Math.round(12 / nonDefaultBrands.length)
     return (
       <main className="page-section draft">

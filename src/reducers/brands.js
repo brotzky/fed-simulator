@@ -5,6 +5,7 @@ const defaultBrand = {
   default: true,
   bgColour: "black",
   textColour: "white",
+  sequence: 0,
   wrestlers: [],
 }
 

@@ -1,5 +1,45 @@
 /* FormHack v1.2.0 (formhack.io) */
 
+// Font
+$fh-font-family: "Roboto", "Verdana", "Arial", sans-serif;
+$fh-font-size: inherit !default;
+$fh-font-color: #666 !default;
+
+// Borders
+$fh-border-radius: inherit !default;
+$fh-border-width: 1px !default;
+$fh-border-style: solid !default;
+$fh-border-color: rgb(200, 200, 200) !default;
+
+// Inputs, Textareas, Select, Option
+$fh-input-height: 40px !default;
+$fh-input-width: 100% !default;
+$fh-input-max-width: 100% !default;
+$fh-input-bg-color: #fff !default;
+$fh-focus-bg-color: rgb(220, 220, 220) !default;
+$fh-focus-border-color: $fh-border-color !default;
+$fh-focus-font-color: $fh-font-color !default;
+
+// Select Vendor Styling
+$fh-allow-select-vendor-styling: true !default;
+
+// Fieldset & Legend Styling
+$fh-fieldset-bare: false !default;
+
+// Buttons & Input Submits
+$fh-button-height: 40px !default;
+$fh-button-width: 100% !default;
+$fh-button-max-width: 95% !default;
+$fh-button-font-color: #fff !default;
+$fh-button-bg-color: #24d4b2 !default;
+$fh-button-hover-bg-color: #16b085 !default;
+$fh-button-hover-font-color: $fh-button-font-color !default;
+
+// Layout
+$fh-centered: false !default;
+$fh-display: block !default;
+
+
 // App styling - Customised outside of formHack 1.2
 .form {
   margin: 0 auto;
@@ -54,58 +94,6 @@
   outline: 1px solid #ddd; /* focus style */
 }
 
-
-// Font
-$fh-font-family: "Roboto", "Verdana", "Arial", sans-serif;
-$fh-font-size: inherit !default;
-$fh-font-color: #666 !default;
-
-// Borders
-$fh-border-radius: inherit !default;
-$fh-border-width: 1px !default;
-$fh-border-style: solid !default;
-$fh-border-color: rgb(200, 200, 200) !default;
-
-// Inputs, Textareas, Select, Option
-$fh-input-height: 40px !default;
-$fh-input-width: 100% !default;
-$fh-input-max-width: 100% !default;
-$fh-input-bg-color: #fff !default;
-$fh-focus-bg-color: rgb(220, 220, 220) !default;
-$fh-focus-border-color: $fh-border-color !default;
-$fh-focus-font-color: $fh-font-color !default;
-
-// Select Vendor Styling
-$fh-allow-select-vendor-styling: true !default;
-
-// Fieldset & Legend Styling
-$fh-fieldset-bare: false !default;
-
-// Buttons & Input Submits
-$fh-button-height: 40px !default;
-$fh-button-width: 100% !default;
-$fh-button-max-width: 200px !default;
-$fh-button-font-color: $fh-font-color !default;
-$fh-button-bg-color: $fh-focus-bg-color !default;
-$fh-button-hover-bg-color: $fh-border-color !default;
-$fh-button-hover-font-color: $fh-font-color !default;
-
-// Layout
-$fh-centered: false !default;
-$fh-display: block !default;
-
-
-// Center/Left-Aligned Layout
-@mixin center-layout {
-	@if $fh-centered == true {
-		margin: 10px auto;
-		text-align: center;
-	}
-	@else {
-		margin: 10px 0;
-	}
-}
-
 /* Global Reset Styles ------------------ */
 
 input,
@@ -116,16 +104,14 @@ optgroup,
 button,
 legend,
 fieldset {
+	margin: 10px 0;
 	box-sizing: border-box;
-	outline: none;
-
+	color: $fh-font-color;
+	display: $fh-display;
 	font-family: $fh-font-family;
 	font-size: $fh-font-size;
-	color: $fh-font-color;
+	outline: none;
 	vertical-align: top;
-
-	display: $fh-display;
-	@include center-layout;
 }
 
 
@@ -136,7 +122,7 @@ datalist {
 
 label {
 	display: $fh-display;
-	@include center-layout;
+  margin: 1rem 0;
 }
 
 
@@ -165,7 +151,6 @@ textarea {
 	max-width: $fh-input-max-width;
 	padding: $fh-input-height / 5;
 	background-color: $fh-input-bg-color;
-
 	border-radius: $fh-border-radius;
 	border: $fh-border-width $fh-border-style $fh-border-color;
 }
@@ -198,8 +183,8 @@ textarea {
 
 input[type="range"] {
 	height: $fh-input-height;
-	width: $fh-input-width;
 	max-width: $fh-input-max-width;
+	width: $fh-input-width;
 }
 
 input[type="file"] {
@@ -220,11 +205,6 @@ input[type="radio"] {
 	display: inline-block;
 	vertical-align: middle;
 }
-// For checkbox and radio to be centered, need to wrap the input and label in a span -
-// .checkbox-container {
-// 	display: block;
-// 	text-align: center;
-// }
 
 
 /* Select ------------------ */
@@ -333,6 +313,7 @@ input[type="radio"]:focus {
 }
 
 button:hover,
+button:hover a,
 input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
@@ -341,5 +322,5 @@ input[type="button"]:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus {
 	background-color: $fh-button-hover-bg-color;
-	color: $fh-button-hover-font-color;
+	color: $fh-button-hover-font-color !important;
 }

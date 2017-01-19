@@ -82,7 +82,7 @@ export default class Form extends React.Component {
               <div>
                 <button
                   label="Save"
-                  className="btn btn-primary"
+                  className="btn bg-green"
                   onClick={this.onSave}>
                   <i className="fa fa-save"></i> Create
                 </button>
