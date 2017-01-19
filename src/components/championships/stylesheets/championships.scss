@@ -1,15 +1,20 @@
 @import "src/stylesheets/breakpoints";
+@import "src/stylesheets/variables";
 
 .championships {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  height: 50rem;
   justify-content: space-around;
+  overflow-y: scroll;
   text-align: center;
 
   .championship {
-    margin: 0 1rem;
-    padding: 1rem 0;
+    background-color: black;
+    color: white;
+    margin: 1rem;
+    padding: 1rem;
 
     .badge {
       background-image: linear-gradient(to bottom, #e69fa5, #dd202f);
@@ -23,17 +28,12 @@
     }
 
     &__name {
-      font-weight: 500;
       font-size: 1.5rem;
-      color: #333;
+      font-weight: 500;
     }
 
     &__holdername  span {
       display: block;
-    }
-
-    &.vacant {
-      color: #999;
     }
   }
 }
