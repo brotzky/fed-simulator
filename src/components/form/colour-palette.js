@@ -1,13 +1,14 @@
 import React from "react"
 import { GithubPicker, SketchPicker } from "react-color"
 import Colors from "./colors"
+const defaultColour = "#000000"
 
-export default class ColourPicker extends React.Component {
+export default class ColorPalette extends React.Component {
 
   static propTypes = {
     changeHandler: React.PropTypes.func.isRequired,
     name: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.any.isRequired,
+    defaultValue: React.PropTypes.string,
   }
 
   constructor(props) {
@@ -16,6 +17,10 @@ export default class ColourPicker extends React.Component {
     this.state = {
       value: props.defaultValue,
     }
+  }
+
+  static defaultProps = {
+    defaultValue: "#000000",
   }
 
   onChange = (colour) => {
@@ -31,7 +36,7 @@ export default class ColourPicker extends React.Component {
   render() {
     const style = {
       backgroundColor: this.state.value,
-      border: "0.1rem solid black"
+      border: "0.1rem solid black",
     }
     return (
       <div className="row">

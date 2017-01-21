@@ -62,6 +62,10 @@ class CreationismPage extends React.Component {
           sequence: 0,
           changes: 0,
           canMoveBrands: true,
+          plateBackgroundColor: "gold",
+          strapBackgroundColor: "#000",
+          plateColor: "darkGold",
+          strapColor: "gold",
           wrestlers: [],
         })
       )
