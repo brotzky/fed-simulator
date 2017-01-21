@@ -1,5 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
+import Create from "./create"
 import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
 import classNames from "classnames"
@@ -53,6 +54,7 @@ class Championships extends React.Component {
     }
     return (
       <div className="championships">
+        <Create />
         {this.props.championships
           .sort((prev, current) => prev.sequence > current.sequence ? 1 : -1)
           .map((championship, key) => {

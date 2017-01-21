@@ -2,6 +2,7 @@ import "./stylesheets/champions"
 import { connect } from "react-redux"
 import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
+import CreateChampionship from "../../components/championships/create"
 import Championships from "../../components/championships/championships"
 import Helmet from "react-helmet"
 import React from "react"
@@ -30,6 +31,7 @@ class ChampionsPage extends React.Component {
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
+        <CreateChampionship />
         <If condition={this.props.brands.length > 0}>
           <div className="navigation navigation--secondary">
             <ul className="navigation__list">
