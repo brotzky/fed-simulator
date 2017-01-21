@@ -1,4 +1,4 @@
-import "./stylesheets/buckets"
+import "./stylesheets/evolution"
 import { connect } from "react-redux"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
@@ -10,9 +10,9 @@ import React from "react"
 import Resets from "../../components/navigation/resets"
 import validation from "./validation"
 
-class BucketsPage extends React.Component {
+class EvolutionPage extends React.Component {
 
-  displayName = "BucketsPage"
+  displayName = "EvolutionPage"
 
   static propTypes = {
     brands: React.PropTypes.array.isRequired,
@@ -83,4 +83,4 @@ export default connect(state => ({
   brands: state.brands,
   championships: state.championships,
   wrestlers: state.wrestlers,
-}))(BucketsPage)
+}))(EvolutionPage)

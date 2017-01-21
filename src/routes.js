@@ -41,11 +41,11 @@ export default () => {
            }}
          />
        </Route>
-       <Route path="buckets">
+       <Route path="evolution">
          <IndexRoute
            getComponent={(nextState, callback) => {
              require.ensure([], (require) => {
-               callback(null, require("./pages/buckets/buckets").default)
+               callback(null, require("./pages/evolution/evolution").default)
              })
            }}
          />
