@@ -39,8 +39,8 @@ export default class CreateChampionship extends React.Component {
               style={plateStyle}>&nbsp;</span>
           </span>
           <span style={strapStyle}
-            className="belt__strap belt__strap--center">
-            <span className="plate circle"
+            className="belt__strap circle belt__strap--center">
+            <span className="plate "
               style={plateStyle}>
               <span className="plate__nameplate">
                 {this.props.championsName}
