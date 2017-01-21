@@ -1,4 +1,5 @@
 import React from "react"
+import "./stylesheets/footer"
 
 export default class Header extends React.Component {
 

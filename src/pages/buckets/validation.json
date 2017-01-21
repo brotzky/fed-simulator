@@ -22,6 +22,10 @@
     "sequence": "input",
     "changes": "input",
     "canMoveBrands": "bool",
-    "wrestlers": "ignore"
+    "wrestlers": "ignore",
+    "plateBackgroundColor": "color-github",
+    "plateColor": "color-github",
+    "strapBackgroundColor": "color-github",
+    "strapColor": "color-github"
   }
 }

@@ -4,9 +4,11 @@ import Icon from "../icon/icon"
 import Input from "../form/input"
 import Image from "../form/image"
 import ColourPicker from "../form/colour"
+import { GithubPicker, SketchPicker } from "react-color"
 import React from "react"
 import ReadOnly from "../form/readonly"
 import Select from "../form/select"
+import Colors from "./colors"
 
 export default class Bucket extends React.Component {
 
@@ -70,30 +72,38 @@ export default class Bucket extends React.Component {
                       defaultValue,
                       changeHandler: this.changeHandler,
                     }
+                    console.log(values)
                   return (
                     <div key={key}
                       className={`form-group bucket__${name}`}>
                       <Choose>
-                        <When condition={currentFieldtype === "colour"}>
-                          <ColourPicker {...values} />
-                        </When>
-                        <When condition={currentFieldtype === "bool"}>
-                          <Checkbox {...values} />
-                        </When>
-                        <When condition={currentFieldtype === "input"}>
-                          <Input {...values} />
-                        </When>
-                        <When condition={currentFieldtype === "readonly"}>
-                          <ReadOnly {...values} />
-                        </When>
-                        <When condition={currentFieldtype === "image"}>
-                          <Image {...values} />
-                        </When>
-                        <Otherwise>
-                          &nbsp;
-                        </Otherwise>
-                      </Choose>
-                    </div>
+                      <When condition={currentFieldtype === "colour"}>
+                        <ColourPicker {...values} />
+                      </When>
+                      <When condition={currentFieldtype === "color-github"}>
+                        <GithubPicker colors={Colors} />
+                      </When>
+                      <When condition={currentFieldtype === "bool"}>
+                        <Checkbox {...values} />
+                      </When>
+                      <When condition={currentFieldtype === "input"}>
+                        <Input {...values} />
+                      </When>
+                      <When condition={currentFieldtype === "select"}>
+                        <Select value={values.defaultValue}
+                          onChange={this.changeHandler} />
+                      </When>
+                      <When condition={currentFieldtype === "readonly"}>
+                        <ReadOnly {...values} />
+                      </When>
+                      <When condition={currentFieldtype === "image"}>
+                        <Image {...values} />
+                      </When>
+                      <Otherwise>
+                        &nbsp;
+                      </Otherwise>
+                    </Choose>
+                  </div>
                   )
                 })}
               </div>

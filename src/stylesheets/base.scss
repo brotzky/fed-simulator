@@ -23,15 +23,16 @@ body {
 }
 
 body {
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
+  margin: 0;
+  padding: 0;
 }
 
-#root, #root > div {
-  flex-direction: column;
+#root,
+#root > div {
   display: flex;
+  flex-direction: column;
   height: 100%;
 }
 
@@ -40,26 +41,11 @@ body {
 }
 
 .inpage-content {
-  z-index: 0;
   margin: 1.5rem;
+  z-index: 0;
 
   @include breakpoint(xs) {
     margin: .2rem;
-  }
-}
-
-footer {
-  background-color: #333;
-  color: white;
-  line-height: 2rem;
-  padding: 2rem;
-
-  a {
-    color: $active;
-  }
-
-  p {
-    margin: 1rem 0;
   }
 }
 
@@ -133,25 +119,15 @@ a:hover {
   user-select: none;
 }
 
-h1 {
-  font-size: 50px;
-  img {
-    max-height: 80px;
-  }
-}
-
-.fold {
-  min-height: 120px;
-  padding: 15px;
-}
-
 .hide {
   display: none;
 }
 
-.text-center {
-  text-align: center !important;
+span.text-center,
+div.text-center {
+  text-align: center;
 }
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
