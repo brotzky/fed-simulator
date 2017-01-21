@@ -4,11 +4,10 @@ import Icon from "../icon/icon"
 import Input from "../form/input"
 import Image from "../form/image"
 import ColourPicker from "../form/colour"
-import { GithubPicker, SketchPicker } from "react-color"
+import ColourPalettePicker from "../form/colour-palette"
 import React from "react"
 import ReadOnly from "../form/readonly"
 import Select from "../form/select"
-import Colors from "./colors"
 
 export default class Bucket extends React.Component {
 
@@ -80,8 +79,8 @@ export default class Bucket extends React.Component {
                       <When condition={currentFieldtype === "colour"}>
                         <ColourPicker {...values} />
                       </When>
-                      <When condition={currentFieldtype === "color-github"}>
-                        <GithubPicker colors={Colors} />
+                      <When condition={currentFieldtype === "color-palette"}>
+                        <ColourPalettePicker {...values} />
                       </When>
                       <When condition={currentFieldtype === "bool"}>
                         <Checkbox {...values} />

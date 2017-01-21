@@ -23,9 +23,9 @@
     "changes": "input",
     "canMoveBrands": "bool",
     "wrestlers": "ignore",
-    "plateBackgroundColor": "color-github",
-    "plateColor": "color-github",
-    "strapBackgroundColor": "color-github",
-    "strapColor": "color-github"
+    "plateBackgroundColor": "color-palette",
+    "strapBackgroundColor": "color-palette",
+    "plateColor": "color-palette",
+    "strapColor": "color-palette"
   }
 }
