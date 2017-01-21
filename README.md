@@ -1,6 +1,6 @@
 # Fed Simulator
 
-### [View a demo here](http://www.fedsimulator.com)
+### [Play without installing by going to fedSimulator.com](http://www.fedsimulator.com)
 
 ## 📕 Index
 * [Installing](#installing)
