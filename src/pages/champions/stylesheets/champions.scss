@@ -4,11 +4,11 @@
 .page-section.champions {
 
   .alert {
-    text-align: center;
     background-color: $primary;
-    color: white;
-    border-radius: 0;
     border-color: $secondary;
+    border-radius: 0;
+    color: white;
+    text-align: center;
   }
 
   @include breakpoint(xs) {
