@@ -59,7 +59,11 @@ class Championships extends React.Component {
           .map((championship, key) => {
           let active = championship.wrestlers && championship.wrestlers.length > 0
               ? "active"
-              : "inactive"
+              : "inactive",
+            fullName = championship.wrestlers.reduce((prev, current) => {
+              return `& ${current.name}`
+            }, "").substring(2)
+            console.log(fullName)
           return (
             <div key={key}
               className={`championship ${active}`}>
@@ -74,7 +78,10 @@ class Championships extends React.Component {
                   </span>
                 </If>
                 <span className="championship__name">
-                  <ChampionshipBelt />
+                  <ChampionshipBelt
+                    championsName={fullName}
+                    championshipName={championship.name}
+                  />
                   {championship.name}
                 </span>
                 <div className="championship__holdername">

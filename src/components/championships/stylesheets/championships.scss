@@ -11,11 +11,15 @@
   text-align: center;
 
   .championship {
-    background-color: black;
     color: white;
     margin: 1rem 0;
     padding: 1rem;
     border-radius: .5rem;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1); 
+    }
 
     .badge {
       background-image: linear-gradient(to bottom, #e69fa5, #dd202f);
@@ -35,12 +39,6 @@
 
     &__holdername  span {
       display: block;
-    }
-  }
-  .inactive {
-    background-color: #666;
-    &:hover {
-      background-color: black;
     }
   }
 }
