@@ -36,6 +36,13 @@ $encased-negative-margin: 4%;
       justify-content: center;
       width: $side-plate-width;
       z-index: 30;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+
+      .buttons {
+        border-right: 1px solid black;
+
+      }
 
       .plate {
         align-items: center;
@@ -80,7 +87,7 @@ $encased-negative-margin: 4%;
   .belt__strap.belt__strap--side {
     height: $side-strap-height;
     margin: 0;
-    padding: 0 3rem;
+    padding: 0 3rem ;
     z-index: 10;
 
     &.encased-by {

@@ -25,15 +25,29 @@ class ChampionsPage extends React.Component {
     )
   }
 
+  // componentDidMount() {
+  //   setTimeout(
+  //     this.render,
+  //     2000,
+  //   )
+  // }
+
   render() {
     let largeColumn  = Math.round(12 / this.props.brands.filter(brand => brand.default === false).length),
-      brands = this.props.brands.filter(brand => brand.default === false)
+      brands = this.props.brands.filter(brand => brand.default === false),
+      colors = ["#940012", "#C12530", "#22568F", "#53389B", "#fff", "#000"],
+      metals = ["bronze", "silver", "gold"],
+      shapes = ["", "circle", "rectangle"],
+      championship = {
+        plateBackgroundColor: metals[Math.floor(Math.random() * metals.length)],
+        plateColor: colors[Math.floor(Math.random() * colors.length)],
+        plateShape: shapes[Math.floor(Math.random() * shapes.length)],
+        strapBackgroundColor: colors[Math.floor(Math.random() * colors.length)],
+      }
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
-        <CreateChampionship championsName={"default"} />
-        <CreateChampionship plateShape={"rectangle"} championsName={"rectangle"} />
-        <CreateChampionship plateShape={"circle"} championsName={"circle"} />
+        <CreateChampionship championsName={"default"} {...championship} />
       </main>
     )
   }
