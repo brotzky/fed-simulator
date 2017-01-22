@@ -2,7 +2,6 @@ import "./stylesheets/champions"
 import { connect } from "react-redux"
 import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
-import CreateChampionship from "../../components/championships/create"
 import Championships from "../../components/championships/championships"
 import Helmet from "react-helmet"
 import React from "react"
@@ -25,29 +24,56 @@ class ChampionsPage extends React.Component {
     )
   }
 
-  // componentDidMount() {
-  //   setTimeout(
-  //     this.render,
-  //     2000,
-  //   )
-  // }
-
   render() {
     let largeColumn  = Math.round(12 / this.props.brands.filter(brand => brand.default === false).length),
-      brands = this.props.brands.filter(brand => brand.default === false),
-      colors = ["#940012", "#C12530", "#22568F", "#53389B", "#fff", "#000"],
-      metals = ["bronze", "silver", "gold"],
-      shapes = ["", "circle", "rectangle"],
-      championship = {
-        plateBackgroundColor: metals[Math.floor(Math.random() * metals.length)],
-        plateColor: colors[Math.floor(Math.random() * colors.length)],
-        plateShape: shapes[Math.floor(Math.random() * shapes.length)],
-        strapBackgroundColor: colors[Math.floor(Math.random() * colors.length)],
-      }
+      brands = this.props.brands.filter(brand => brand.default === false)
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
-        <CreateChampionship championsName={"default"} {...championship} />
+        <If condition={this.props.brands.length > 0}>
+          <div className="navigation navigation--secondary">
+            <ul className="navigation__list">
+              <li className="navigation__item">
+                <a onKeyPress={this.onClear}
+                  onClick={this.onClear}
+                  href="#">
+                  Vacate all championships
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="inpage-content">
+            <div className="row">
+              {brands.map((brand, key) => {
+                let wrestlers = this.props.wrestlers
+                  .filter(wrestler => wrestler.brand === brand.name),
+                  championships = this.props.championships
+                    .filter(championship => championship.brand === brand.name)
+                    .sort((a, b) => a.rating > b.rating ? 1 : -1)
+                  return (
+                    <div key={key}
+                      className={`col-lg-${largeColumn} col-md-6 col-sm-6 col-xs-12`}>
+                      <Championships
+                        championships={championships}
+                        showBadge={true}
+                      />
+                      <Brand
+                        model={{
+                          bgColour: brand.bgColour,
+                          textColour: brand.textColour,
+                        }}
+                        canDragAndDrop={true}
+                        wrestlers={brand.wrestlers}
+                        showBrandLogo={false}
+                        bgColour={brand.bgColour}
+                        wrestlers={wrestlers}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </If>
       </main>
     )
   }

@@ -11,6 +11,11 @@
     text-align: center;
   }
 
+  .belt {
+    height: 12rem;
+    width: 50rem;
+  }
+
   @include breakpoint(xs) {
 
     .brand {

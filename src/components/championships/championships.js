@@ -1,6 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
-import Create from "./create"
+import ChampionshipBelt from "../championship-belt/championship-belt"
 import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
 import classNames from "classnames"
@@ -74,6 +74,7 @@ class Championships extends React.Component {
                   </span>
                 </If>
                 <span className="championship__name">
+                  <ChampionshipBelt />
                   {championship.name}
                 </span>
                 <div className="championship__holdername">
