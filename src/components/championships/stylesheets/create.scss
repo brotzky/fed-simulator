@@ -1,9 +1,25 @@
+$font-family: 'Bungee Inline', cursive;
+$center-plate-width: 50%;
+$center-plate-height: 100%;
+$side-plate-width: 10%;
+
+$side-strap-height: 50%;
+
+$side-strap-plate-height: 65%;
+$side-strap-plate-width: 95%;
+
+$side-buttons-width: 5%;
+
+$encased-strap-plate-width: 18%;
+$encased-negative-margin: 4%;
+
 .belt {
-  height: 30rem;
-  width: 100rem;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
+  font-size: 100%;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
 
   .strap {
     display: flex;
@@ -13,52 +29,68 @@
     width: 100%;
 
     .belt__strap  {
-      height: 100%;
-      width: 25%;
+      align-items: center;
       border-radius: 5%;
       display: flex;
+      height: 100%;
       justify-content: center;
-      align-items: center;
+      width: $side-plate-width;
       z-index: 30;
 
       .plate {
+        font-family: $font-family;
+        align-items: center;
         border-radius: 5%;
-        display: inline-block;
+        display: flex;
         height: 80%;
+        justify-content: center;
         width: 100%;
 
         &__nameplate {
-          height: 25%;
-          font-size: 1rem;
+          text-align: center;
+          font-size: x-large;
+          text-shadow: .2rem .1rem black;
         }
       }
     }
   }
 
+
   .belt__strap.circle,
   .belt__strap.circle .plate {
     border-radius: 100%;
   }
+
   .belt__strap.rectangle,
   .belt__strap.rectangle .plate {
-    width: 35%;
+    border-radius: 35rem;
   }
 
   .belt__strap.belt__strap--center {
-    height: 100%;
+    height: $center-plate-height;
     padding: 0 1rem;
-    width: 35%;
+    width: $center-plate-width;
   }
+
   .belt__strap.belt__strap--side {
-    margin: 0 -5rem;
-    height: 60%;
+    height: $side-strap-height;
+    margin: 0;
     padding: 0 3rem;
-    width: 20%;
     z-index: 10;
 
+    &.encased-by {
+      margin: 0 -$encased-negative-margin;
+      width: $encased-strap-plate-width;
+    }
+
+    &.buttons {
+      font-size: 9vh;
+      width: $side-buttons-width;
+    }
+
     .plate {
-      height: 54%;
+      height: $side-strap-plate-height;
+      width: $side-strap-plate-width;
     }
   }
-
 }
