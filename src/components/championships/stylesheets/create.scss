@@ -1,5 +1,5 @@
 $font-family: 'Bungee Inline', cursive;
-$center-plate-width: 40%;
+$center-plate-width: 30%;
 $center-plate-height: 100%;
 $side-plate-width: 10%;
 
@@ -22,10 +22,10 @@ $encased-negative-margin: 4%;
   width: 100%;
 
   .strap {
-    display: flex;
-    justify-content: center;
     align-items: center;
+    display: flex;
     height: 100%;
+    justify-content: center;
     width: 100%;
 
     .belt__strap  {
@@ -38,10 +38,10 @@ $encased-negative-margin: 4%;
       z-index: 30;
 
       .plate {
-        font-family: $font-family;
         align-items: center;
         border-radius: 5%;
         display: flex;
+        font-family: $font-family;
         height: 80%;
         justify-content: center;
         width: 100%;
@@ -57,7 +57,7 @@ $encased-negative-margin: 4%;
 
   .belt__strap.rectangle,
   .belt__strap.rectangle .plate {
-    border-radius: 25%;
+    border-radius: 44%;
   }
 
   .belt__strap.belt__strap--center {
@@ -65,10 +65,11 @@ $encased-negative-margin: 4%;
     padding: 0 1rem;
     width: $center-plate-width;
   }
+
   .belt__strap.belt__strap--center.circle {
+    border-radius: 100%;
     height: 100%;
     width: 34%;
-    border-radius: 100%;
 
     .plate {
       border-radius: 46%;

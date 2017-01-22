@@ -34,7 +34,6 @@ class ChampionsPage extends React.Component {
         <CreateChampionship championsName={"default"} />
         <CreateChampionship plateShape={"rectangle"} championsName={"rectangle"} />
         <CreateChampionship plateShape={"circle"} championsName={"circle"} />
-        <CreateChampionship plateShape={"triangle"} championsName={"triangle"} />
       </main>
     )
   }
