@@ -1,5 +1,5 @@
 $font-family: 'Bungee Inline', cursive;
-$center-plate-width: 50%;
+$center-plate-width: 40%;
 $center-plate-height: 100%;
 $side-plate-width: 10%;
 
@@ -55,21 +55,25 @@ $encased-negative-margin: 4%;
     }
   }
 
-
-  .belt__strap.circle,
-  .belt__strap.circle .plate {
-    border-radius: 100%;
-  }
-
   .belt__strap.rectangle,
   .belt__strap.rectangle .plate {
-    border-radius: 35rem;
+    border-radius: 25%;
   }
 
   .belt__strap.belt__strap--center {
     height: $center-plate-height;
     padding: 0 1rem;
     width: $center-plate-width;
+  }
+  .belt__strap.belt__strap--center.circle {
+    height: 100%;
+    width: 34%;
+    border-radius: 100%;
+
+    .plate {
+      border-radius: 46%;
+      width: 90%;
+    }
   }
 
   .belt__strap.belt__strap--side {
@@ -86,11 +90,6 @@ $encased-negative-margin: 4%;
     &.buttons {
       font-size: 9vh;
       width: $side-buttons-width;
-    }
-
-    .plate {
-      height: $side-strap-plate-height;
-      width: $side-strap-plate-width;
     }
   }
 }

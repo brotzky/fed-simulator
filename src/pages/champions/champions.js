@@ -31,7 +31,10 @@ class ChampionsPage extends React.Component {
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
-        <CreateChampionship />
+        <CreateChampionship championsName={"default"} />
+        <CreateChampionship plateShape={"rectangle"} championsName={"rectangle"} />
+        <CreateChampionship plateShape={"circle"} championsName={"circle"} />
+        <CreateChampionship plateShape={"triangle"} championsName={"triangle"} />
       </main>
     )
   }

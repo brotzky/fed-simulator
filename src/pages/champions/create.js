@@ -32,6 +32,8 @@ class ChampionsPage extends React.Component {
       <main className="page-section champions">
         <Helmet title="Championships" />
         <CreateChampionship />
+        <CreateChampionship />
+        <CreateChampionship />
       </main>
     )
   }

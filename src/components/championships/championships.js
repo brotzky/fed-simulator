@@ -54,7 +54,6 @@ class Championships extends React.Component {
     }
     return (
       <div className="championships">
-        <Create />
         {this.props.championships
           .sort((prev, current) => prev.sequence > current.sequence ? 1 : -1)
           .map((championship, key) => {

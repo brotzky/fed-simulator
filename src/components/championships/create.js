@@ -14,7 +14,7 @@ export default class CreateChampionship extends React.Component {
   }
 
   static defaultProps = {
-    plateShape: "circle",
+    plateShape: "",
     strapBackgroundColor: "#000",
     plateBackgroundColor: "gold",
     plateColor: "brown",
