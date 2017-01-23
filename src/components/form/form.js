@@ -41,35 +41,35 @@ export default class Form extends React.Component {
               <h3>Form Saved</h3>
             </When>
             <Otherwise>
-              {Object.keys(this.props.skeleton).map((name, key) => {
-                let defaultValue = this.props.skeleton[name].value,
-                  currentFieldtype = this.props.skeleton[name].type,
+              {this.props.skeleton.map((item, key) => {
+                let defaultValue = item.value,
+                  type = item.type,
                   values = {
                     name,
-                    ref: name,
-                    label: name,
+                    ref: item.name,
+                    label: item.name,
                     defaultValue,
                     changeHandler: () => {},
                   }
                   return (
                     <div key={key}>
                       <Choose>
-                        <When condition={currentFieldtype === "colour"}>
+                        <When condition={type === "colour"}>
                           <ColourPicker {...values} />
                         </When>
-                        <When condition={currentFieldtype === "textarea"}>
+                        <When condition={type === "textarea"}>
                           <Textarea {...values} />
                         </When>
-                        <When condition={currentFieldtype === "bool"}>
+                        <When condition={type === "bool"}>
                           <Checkbox {...values} />
                         </When>
-                        <When condition={currentFieldtype === "input"}>
+                        <When condition={type === "input"}>
                           <Input {...values} />
                         </When>
-                        <When condition={currentFieldtype === "readonly"}>
+                        <When condition={type === "readonly"}>
                           <ReadOnly {...values} />
                         </When>
-                        <When condition={currentFieldtype === "image"}>
+                        <When condition={type === "image"}>
                           <Image {...values} />
                         </When>
                         <Otherwise>

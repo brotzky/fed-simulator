@@ -11,6 +11,7 @@ import Helmet from "react-helmet"
 import React from "react"
 import Resets from "../../components/navigation/resets"
 import Skeleton from "./skeleton"
+import Presets from "./presets"
 
 class CreationismPage extends React.Component {
 
@@ -105,14 +106,14 @@ class CreationismPage extends React.Component {
         <Resets />
         <div className="inpage-content">
           <div className="row">
-            {Object.keys(Skeleton).map((key, index) => {
-              Skeleton[key].sequence.value = index
+            {Presets.map((preset, key) => {
               return(
-                <div key={key} className="col-xs-12 col-lg-2">
+                <div key={key}
+                  className="col-xs-12 col-lg-2">
                   <Form
                     title={key}
                     onSave={this.onSave}
-                    skeleton={Skeleton[key]}
+                    skeleton={Skeleton}
                   />
                 </div>
               )
