@@ -69,6 +69,7 @@ class CreationismPage extends React.Component {
         id: hashCode(wrestlersName),
         name: wrestlersName,
         brand: formData.brand,
+        male: false,
       })
     })
     formData.maleWrestlers.forEach(wrestlersName => {
@@ -76,7 +77,7 @@ class CreationismPage extends React.Component {
         id: hashCode(wrestlersName),
         name: wrestlersName,
         brand: formData.brand,
-        male: false,
+        male: true,
       })
     })
     this.props.dispatch(
