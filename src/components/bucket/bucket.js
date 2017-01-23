@@ -19,7 +19,8 @@ export default class Bucket extends React.Component {
     currentItem: false,
   }
 
-  onSelect = (currentItem) => {
+  onSelect = (selectName, id) => {
+    let currentItem = this.props.options.find(option => option.id === id)
     this.setState({
       currentItem,
     })
@@ -56,7 +57,8 @@ export default class Bucket extends React.Component {
       <div className="bucket">
         <div className="bucket__collection">
           <article className="form">
-            <Select name={this.props.name} label={this.props.name}
+            <Select name={this.props.name}
+              label={this.props.name}
               options={this.props.options}
               changeHandler={this.onSelect}
             />
@@ -64,6 +66,7 @@ export default class Bucket extends React.Component {
         </div>
         <If condition={this.state.currentItem}>
           <Form
+            changeHandler={this.changeHandler}
             skeleton={this.getSkeleton()}
             onSave={this.onSaveBucket} />
         </If>

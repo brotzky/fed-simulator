@@ -20,10 +20,9 @@ export default class Select extends React.Component {
   }
 
   onChange = (event) => {
-    const selectedType = this.props.options.find(item => item.id === event.target.value)
     this.props.changeHandler(
       this.props.name,
-      selectedType,
+      event.target.value,
     )
     this.setState({
       value: event.target.value,
