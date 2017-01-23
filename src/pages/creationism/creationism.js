@@ -4,7 +4,6 @@ import { hashCode } from "../../helpers/hash"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
 import * as ppvsAction from "../../actions/ppvs"
-import * as settingsAction from "../../actions/settings"
 import * as wrestlersAction from "../../actions/wrestlers"
 import Form from "../../components/form/form"
 import Helmet from "react-helmet"
@@ -116,14 +115,12 @@ class CreationismPage extends React.Component {
         <div className="inpage-content">
           <div className="row">
             {Presets.map((preset, key) => {
-              let formSkeleton = this.getPresetSkeleton(preset)
-              console.log(formSkeleton[0].value)
               return(
                 <div key={key}
                   className="col-xs-12 col-lg-2">
                   <Form
                     onSave={this.onSave}
-                    skeleton={formSkeleton}
+                    skeleton={this.getPresetSkeleton(preset)}
                   />
                 </div>
               )
