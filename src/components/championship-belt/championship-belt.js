@@ -14,11 +14,11 @@ export default class CreateChampionship extends React.Component {
   }
 
   static defaultProps = {
-    championshipName: "",
-    championsName: "",
+    championshipName: "Unknown",
+    championsName: "Vacant",
     plateBackgroundColor: "gold",
-    plateColor: "brown",
-    plateShape: "",
+    plateColor: "#91702d",
+    plateShape: "circle",
     strapBackgroundColor: "#000",
   }
 
@@ -66,7 +66,7 @@ export default class CreateChampionship extends React.Component {
           </span>
         </span>
         <div className="belt__name">
-          <h3>{this.props.beltName}</h3>
+          <h3>{this.props.championshipName}</h3>
         </div>
       </div>
     )

@@ -60,10 +60,11 @@ class Championships extends React.Component {
           let active = championship.wrestlers && championship.wrestlers.length > 0
               ? "active"
               : "inactive",
-            fullName = championship.wrestlers.reduce((prev, current) => {
-              return `& ${current.name}`
-            }, "").substring(2)
-            console.log(fullName)
+            fullName = championship.wrestlers && championship.wrestlers.length > 0
+              ? championship.wrestlers.reduce((prev, current) => {
+                return `& ${current.name}`
+              }, "").substring(2)
+              : ""
           return (
             <div key={key}
               className={`championship ${active}`}>
@@ -107,7 +108,7 @@ class Championships extends React.Component {
               </Droppable>
             </div>
           )
-        })}
+      })}
       </div>
     )
   }

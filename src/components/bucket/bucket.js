@@ -41,7 +41,6 @@ export default class Bucket extends React.Component {
   onSaveBucket = (event) => {
     event.preventDefault()
 
-    console.log(this.state)
     this.props.onSaveBucket(
       this.state.currentItem,
     )
@@ -54,7 +53,7 @@ export default class Bucket extends React.Component {
           <article className="form">
             <Select label={this.props.name}
               collection={this.props.collection}
-              onSelect={this.onSelect}
+              changeHandler={this.onSelect}
             />
           </article>
         </div>
@@ -71,7 +70,6 @@ export default class Bucket extends React.Component {
                       defaultValue,
                       changeHandler: this.changeHandler,
                     }
-                    console.log(values)
                   return (
                     <div key={key}
                       className={`form-group bucket__${name}`}>

@@ -7,6 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    overflow: hidden;
+    background-size: cover;
   }
 
   &__name {

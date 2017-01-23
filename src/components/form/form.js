@@ -1,11 +1,11 @@
-import Checkbox from "../../components/form/checkbox"
-import Textarea from "../../components/form/textarea"
-import ColourPicker from "../../components/form/colour"
-import Image from "../../components/form/image"
-import Input from "../../components/form/input"
+import Checkbox from "./checkbox"
+import ColourPicker from "./colour"
+import Image from "./image"
+import Input from "./input"
 import React from "react"
-import ReadOnly from "../../components/form/readonly"
-import Select from "../../components/form/select"
+import ReadOnly from "./readonly"
+import Select from "./select"
+import Textarea from "./textarea"
 
 export default class Form extends React.Component {
 

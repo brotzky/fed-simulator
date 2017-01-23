@@ -1,16 +1,16 @@
+import "./stylesheets/creationism"
 import { connect } from "react-redux"
 import { hashCode } from "../../helpers/hash"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
+import * as ppvsAction from "../../actions/ppvs"
 import * as settingsAction from "../../actions/settings"
 import * as wrestlersAction from "../../actions/wrestlers"
-import * as ppvsAction from "../../actions/ppvs"
-import Resets from "../../components/navigation/resets"
-import Form from "./form"
+import Form from "../../components/form/form"
 import Helmet from "react-helmet"
 import React from "react"
+import Resets from "../../components/navigation/resets"
 import Skeleton from "./skeleton"
-import "./stylesheets/creationism"
 
 class CreationismPage extends React.Component {
 
@@ -64,7 +64,7 @@ class CreationismPage extends React.Component {
           canMoveBrands: true,
           plateBackgroundColor: "gold",
           strapBackgroundColor: "#000",
-          plateColor: "darkgoldenrod",
+          plateColor: "#91702d",
           wrestlers: [],
         })
       )
@@ -131,7 +131,6 @@ class CreationismPage extends React.Component {
         <div className="inpage-content">
           <div className="row">
             {Object.keys(Skeleton).map((key, index) => {
-              console.log(Skeleton[key])
               Skeleton[key].sequence.value = index
               return(
                 <div key={key} className="col-xs-12 col-lg-2">

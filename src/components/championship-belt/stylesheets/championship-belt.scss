@@ -41,7 +41,6 @@ $encased-negative-margin: 4%;
 
       .buttons {
         border-right: 1px solid black;
-
       }
 
       .plate {
@@ -53,10 +52,19 @@ $encased-negative-margin: 4%;
         justify-content: center;
         width: 100%;
 
+        &:hover:after {
+          opacity: 1;
+          top: -30%;
+          left: -30%;
+          transition-property: left, top, opacity;
+          transition-duration: 0.7s, 0.7s, 0.15s;
+          transition-timing-function: ease;
+        }
+
         &__nameplate {
           text-align: center;
           font-size: x-large;
-          text-shadow: .2rem .1rem black;
+          text-shadow: .1rem .2rem white;
         }
       }
     }
