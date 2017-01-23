@@ -32,7 +32,7 @@ export default class Form extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.skeleton[0].value)
     return (
       <article className="form">
         <form>
@@ -42,19 +42,18 @@ export default class Form extends React.Component {
             </When>
             <Otherwise>
               {this.props.skeleton.map((item, key) => {
-                let defaultValue = item.value,
-                  type = item.type,
+                let type = item.type,
                   values = {
                     name,
                     ref: item.name,
                     label: item.name,
-                    defaultValue,
+                    defaultValue: item.value,
                     changeHandler: () => {},
                   }
                   return (
                     <div key={key}>
                       <Choose>
-                        <When condition={type === "colour"}>
+                        <When condition={type === "color"}>
                           <ColourPicker {...values} />
                         </When>
                         <When condition={type === "textarea"}>

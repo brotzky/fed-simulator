@@ -1,10 +1,5 @@
 [
   {
-    "name": "name",
-    "type": "input",
-    "value": "Default"
-  },
-  {
     "name": "brand",
     "type": "input",
     "value": ""

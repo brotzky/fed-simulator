@@ -8,10 +8,11 @@ import * as settingsAction from "../../actions/settings"
 import * as wrestlersAction from "../../actions/wrestlers"
 import Form from "../../components/form/form"
 import Helmet from "react-helmet"
+import Presets from "./presets"
 import React from "react"
 import Resets from "../../components/navigation/resets"
 import Skeleton from "./skeleton"
-import Presets from "./presets"
+import _cloneDeep from "lodash.clonedeep"
 
 class CreationismPage extends React.Component {
 
@@ -99,6 +100,14 @@ class CreationismPage extends React.Component {
     })
   }
 
+  getPresetSkeleton(preset) {
+    let formSkeleton = _cloneDeep(Skeleton)
+    return formSkeleton.map((item, key) => {
+      item.value = preset[item.name] || item.value
+      return item
+    })
+  }
+
   render() {
     return (
       <main className="page-section creationism">
@@ -107,13 +116,14 @@ class CreationismPage extends React.Component {
         <div className="inpage-content">
           <div className="row">
             {Presets.map((preset, key) => {
+              let formSkeleton = this.getPresetSkeleton(preset)
+              console.log(formSkeleton[0].value)
               return(
                 <div key={key}
                   className="col-xs-12 col-lg-2">
                   <Form
-                    title={key}
                     onSave={this.onSave}
-                    skeleton={Skeleton}
+                    skeleton={formSkeleton}
                   />
                 </div>
               )
