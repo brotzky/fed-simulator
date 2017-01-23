@@ -1,21 +1,16 @@
 import "./stylesheets/bucket.scss"
-import Checkbox from "../form/checkbox"
-import Icon from "../icon/icon"
-import Input from "../form/input"
-import Image from "../form/image"
-import ColourPicker from "../form/colour"
-import ColourPalettePicker from "../form/colour-palette"
-import React from "react"
-import ReadOnly from "../form/readonly"
 import Select from "../form/select"
+import Form from "../form/form"
+import _cloneDeep from "lodash.clonedeep"
+import React from "react"
 
 export default class Bucket extends React.Component {
 
   static propTypes = {
-    collection: React.PropTypes.array.isRequired,
+    options: React.PropTypes.array.isRequired,
     name: React.PropTypes.string.isRequired,
-    validation: React.PropTypes.object.isRequired,
     onSaveBucket: React.PropTypes.func.isRequired,
+    skeleton: React.PropTypes.array.isRequired,
   }
 
   displayName = "Bucket"
@@ -34,7 +29,9 @@ export default class Bucket extends React.Component {
     let newState = Object.assign({}, this.state.currentItem)
     newState[fieldName] = fieldValue
     this.setState({
-      currentItem: {...newState},
+      currentItem: {
+        ...newState,
+      },
     })
   }
 
@@ -46,74 +43,29 @@ export default class Bucket extends React.Component {
     )
   }
 
+  getSkeleton() {
+    let formSkeleton = _cloneDeep(this.props.skeleton)
+    return formSkeleton.map((item) => {
+      item.value = this.state.currentItem[item.name] || item.value
+      return item
+    })
+  }
+
   render() {
     return (
       <div className="bucket">
         <div className="bucket__collection">
           <article className="form">
-            <Select label={this.props.name}
-              collection={this.props.collection}
+            <Select name={this.props.name} label={this.props.name}
+              options={this.props.options}
               changeHandler={this.onSelect}
             />
           </article>
         </div>
         <If condition={this.state.currentItem}>
-          <article className="form">
-            <form ref="form">
-              <div className="bucket__edit">
-                {Object.keys(this.props.validation).map((name, key) => {
-                  let defaultValue = this.state.currentItem[name],
-                    currentFieldtype = this.props.validation[name],
-                    values = {
-                      name,
-                      label: name,
-                      defaultValue,
-                      changeHandler: this.changeHandler,
-                    }
-                  return (
-                    <div key={key}
-                      className={`form-group bucket__${name}`}>
-                      <Choose>
-                      <When condition={currentFieldtype === "colour"}>
-                        <ColourPicker {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "color-palette"}>
-                        <ColourPalettePicker {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "bool"}>
-                        <Checkbox {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "input"}>
-                        <Input {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "select"}>
-                        <Select value={values.defaultValue}
-                          onChange={this.changeHandler} />
-                      </When>
-                      <When condition={currentFieldtype === "readonly"}>
-                        <ReadOnly {...values} />
-                      </When>
-                      <When condition={currentFieldtype === "image"}>
-                        <Image {...values} />
-                      </When>
-                      <Otherwise>
-                        &nbsp;
-                      </Otherwise>
-                    </Choose>
-                  </div>
-                  )
-                })}
-              </div>
-              <div>
-                <button
-                  label="Save"
-                  className="btn btn-primary"
-                  onClick={this.onSaveBucket}>
-                  <i className="fa fa-save"></i> Save
-                </button>
-              </div>
-            </form>
-          </article>
+          <Form
+            skeleton={this.getSkeleton()}
+            onSave={this.onSaveBucket} />
         </If>
       </div>
     )

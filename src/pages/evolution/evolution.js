@@ -8,7 +8,7 @@ import Bucket from "../../components/bucket/bucket"
 import Helmet from "react-helmet"
 import React from "react"
 import Resets from "../../components/navigation/resets"
-import validation from "./validation"
+import Skeleton from "./skeleton"
 
 class EvolutionPage extends React.Component {
 
@@ -47,29 +47,29 @@ class EvolutionPage extends React.Component {
           <div className="row">
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 brand">
               <Bucket
-                collection={this.props.brands}
+                options={this.props.brands}
                 key="brand"
                 name="brand"
                 onSaveBucket={this.onSaveBrand}
-                validation={validation.brand}
+                skeleton={Skeleton.brand}
               />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 wrestler">
               <Bucket
-                collection={this.props.wrestlers}
+                options={this.props.wrestlers}
                 key="wrestler"
                 name="wrestler"
                 onSaveBucket={this.onSaveWrestler}
-                validation={validation.wrestler}
+                skeleton={Skeleton.wrestler}
               />
             </div>
             <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 championship">
               <Bucket
-                collection={this.props.championships}
+                options={this.props.championships}
                 key={"championships"}
                 name="championships"
                 onSaveBucket={this.onSaveChampionship}
-                validation={validation.championship}
+                skeleton={Skeleton.championship}
               />
             </div>
           </div>

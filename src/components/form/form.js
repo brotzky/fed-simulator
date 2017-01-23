@@ -1,4 +1,5 @@
 import Checkbox from "./checkbox"
+import ColourPalettePicker from "../form/colour-palette"
 import ColourPicker from "./colour"
 import Image from "./image"
 import Input from "./input"
@@ -25,14 +26,15 @@ export default class Form extends React.Component {
       formData[field] = this.refs[field].state.value
     }
 
-    this.props.onSave(formData)
+    this.props.onSave(
+      formData,
+    )
     this.setState({
       saved: true,
     })
   }
 
   render() {
-    console.log(this.props.skeleton[0].value)
     return (
       <article className="form">
         <form>
@@ -56,6 +58,9 @@ export default class Form extends React.Component {
                         <When condition={type === "color"}>
                           <ColourPicker {...values} />
                         </When>
+                        <When condition={type === "color-palette"}>
+                          <ColourPalettePicker {...values} />
+                        </When>
                         <When condition={type === "textarea"}>
                           <Textarea {...values} />
                         </When>
@@ -70,6 +75,10 @@ export default class Form extends React.Component {
                         </When>
                         <When condition={type === "image"}>
                           <Image {...values} />
+                        </When>
+                        <When condition={type === "select"}>
+                          <Select {...values}
+                            options={item.options} />
                         </When>
                         <Otherwise>
                           &nbsp;

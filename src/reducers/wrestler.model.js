@@ -4,6 +4,7 @@ const Model = Backbone.Model.extend({
   defaults: {
     id: "1",
     name: "Default",
+    brand: "",
     male: true,
     rating: 80,
     damage: 80,

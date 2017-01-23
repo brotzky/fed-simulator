@@ -101,7 +101,7 @@ class CreationismPage extends React.Component {
 
   getPresetSkeleton(preset) {
     let formSkeleton = _cloneDeep(Skeleton)
-    return formSkeleton.map((item, key) => {
+    return formSkeleton.map((item) => {
       item.value = preset[item.name] || item.value
       return item
     })

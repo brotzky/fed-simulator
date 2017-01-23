@@ -4,15 +4,16 @@ export default class Select extends React.Component {
 
   static propTypes = {
     label: React.PropTypes.string.isRequired,
-    collection: React.PropTypes.array.isRequired,
+    options: React.PropTypes.array.isRequired,
     changeHandler: React.PropTypes.func.isRequired,
+    name: React.PropTypes.string.isRequired,
   }
 
   displayName: "Select"
 
   onChange = (event) => {
-    const selectedType = this.props.collection.find(item => item.id === event.target.value)
-    this.props.changeHandler(selectedType)
+    const selectedType = this.props.options.find(item => item.id === event.target.value)
+    this.props.changeHandler(this.props.name, selectedType)
   }
 
   render() {
@@ -24,7 +25,7 @@ export default class Select extends React.Component {
         <select
           onChange={this.onChange}>
           <option hidden>Select here</option>
-          {this.props.collection.map((item, index) =>
+          {this.props.options.map((item, index) =>
             <option value={item.id}
               key={index}>
               {item.name}
