@@ -1,5 +1,12 @@
 import * as types from "./types"
 
+
+export function createMany(wrestlers) {
+  return {
+    type: types.CREATE_WRESTLERS,
+    wrestlers,
+  }
+}
 export function create(wrestler) {
   return {
     type: types.CREATE_WRESTLER,

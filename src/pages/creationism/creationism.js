@@ -59,54 +59,31 @@ class CreationismPage extends React.Component {
           id: hashCode(championshipName),
           name: championshipName,
           brand: formData.brand,
-          male: true,
-          sequence: 0,
-          changes: 0,
-          canMoveBrands: true,
-          plateBackgroundColor: "gold",
-          strapBackgroundColor: "#000",
-          plateColor: "#91702d",
-          wrestlers: [],
         })
       )
     })
     // wrestlers
-    const baseWrestler = {
-      sequence: 0,
-      wins: 0,
-      losses: 0,
-      damage: 90,
-      rating: 90,
-    }
-    const combineWrestlers = (wrestler) => {
-      return Object.assign(baseWrestler, wrestler)
-    }
-    formData.maleWrestlers.forEach(wrestlersName => {
-      let wrestler = combineWrestlers({
+    let wrestlers = []
+    formData.femaleWrestlers.forEach(wrestlersName => {
+      wrestlers.push({
         id: hashCode(wrestlersName),
         name: wrestlersName,
         brand: formData.brand,
-        male: true,
       })
-      this.props.dispatch(
-        wrestlersAction.create(
-          wrestler,
-        )
-      )
     })
-    formData.femaleWrestlers.forEach(wrestlersName => {
-      let wrestler = combineWrestlers({
+    formData.maleWrestlers.forEach(wrestlersName => {
+      wrestlers.push({
         id: hashCode(wrestlersName),
         name: wrestlersName,
         brand: formData.brand,
         male: false,
       })
-      this.props.dispatch(
-        wrestlersAction.create(
-          wrestler,
-        )
-      )
     })
+    this.props.dispatch(
+      wrestlersAction.createMany(
+        wrestlers,
+      )
+    )
     // ppvs
     formData.ppvs.forEach(ppvName => {
       this.props.dispatch(
@@ -115,10 +92,6 @@ class CreationismPage extends React.Component {
           name: ppvName,
           defaultBrand: formData.brand,
           sequence: 0,
-          attendance: {
-            min: 1000,
-            max: 15000,
-          },
         })
       )
     })

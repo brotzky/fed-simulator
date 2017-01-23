@@ -13,6 +13,16 @@ export default (state = defaultState, action) => {
         )
       }
       break
+    case "CREATE_WRESTLERS":
+      action.wrestlers.forEach(wrestler => {
+        if (getIndexById(wrestler.id) < 0) {
+          console.log(wrestler, new Model(wrestler).toJSON())
+          newState.push(
+            new Model(wrestler).toJSON()
+          )
+        }
+      })
+      break
     case "UPDATE_WRESTLER":
       let index = getIndexById(action.wrestler.id)
       newState[index] = new Model(action.wrestler).toJSON()

@@ -7,6 +7,8 @@ const Model = Backbone.Model.extend({
     male: true,
     rating: 80,
     damage: 80,
+    wins: 0,
+    losses: 0,
   },
 })
 
