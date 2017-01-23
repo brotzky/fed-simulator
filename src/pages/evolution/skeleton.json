@@ -1,27 +1,11 @@
 {
 	"brand": [{
-		"name": "brand",
+		"name": "name",
 		"type": "input",
 		"value": ""
 	}, {
 		"name": "image",
 		"type": "image",
-		"value": ""
-	}, {
-		"name": "maleWrestlers",
-		"type": "textarea",
-		"value": ""
-	}, {
-		"name": "femaleWrestlers",
-		"type": "textarea",
-		"value": ""
-	}, {
-		"name": "championships",
-		"type": "textarea",
-		"value": ""
-	}, {
-		"name": "ppvs",
-		"type": "input",
 		"value": ""
 	}, {
 		"name": "bgColour",
