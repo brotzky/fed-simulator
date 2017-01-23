@@ -43,7 +43,7 @@
 	}, {
 		"name": "male",
 		"type": "bool",
-		"value": ""
+		"value": false
 	}, {
 		"name": "brand",
 		"type": "input",
@@ -76,11 +76,11 @@
 	}, {
 		"name": "male",
 		"type": "bool",
-		"value": true
+		"value": false
 	}, {
 		"name": "canMoveBrands",
 		"type": "bool",
-		"value": true
+		"value": false
 	}, {
 		"name": "sequence",
 		"type": "input",

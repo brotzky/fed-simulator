@@ -11,9 +11,23 @@ export default class Select extends React.Component {
 
   displayName: "Select"
 
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      value: props.defaultValue,
+    }
+  }
+
   onChange = (event) => {
     const selectedType = this.props.options.find(item => item.id === event.target.value)
-    this.props.changeHandler(this.props.name, selectedType)
+    this.props.changeHandler(
+      this.props.name,
+      selectedType,
+    )
+    this.setState({
+      value: event.target.value,
+    })
   }
 
   render() {
