@@ -1,4 +1,5 @@
 const defaultState = []
+import Model from "./championship.model"
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state)),
@@ -8,14 +9,15 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case "CREATE_CHAMPIONSHIP":
       if (getIndexById(action.championship.id) < 0) {
-        newState.push({
-          ...action.championship,
-        })
+        newState.push(
+          new Model(action.championship).toJSON()
+        )
+
       }
       break
     case "UPDATE_CHAMPIONSHIP":
       let index = getIndexById(action.championship.id)
-      newState[index] = action.championship
+      newState[index] = new Model(action.championship).toJSON()
       break
     case "MOVE_CHAMPIONSHIP":
       key = newState.findIndex(championship => championship.id === action.championship.id)

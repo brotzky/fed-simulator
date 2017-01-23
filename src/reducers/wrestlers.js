@@ -1,4 +1,5 @@
 const defaultState = []
+import Model from "./wrestler.model"
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
@@ -7,25 +8,14 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case "CREATE_WRESTLER":
       if (getIndexById(action.wrestler.id) < 0) {
-        newState.push({
-          ...action.wrestler,
-        })
+        newState.push(
+          new Model(action.wrestler).toJSON()
+        )
       }
       break
     case "UPDATE_WRESTLER":
       let index = getIndexById(action.wrestler.id)
-      newState[index] = action.wrestler
-      break
-    case "CLEAR_WRESTLERS":
-      let wrestlersBrand = []
-
-      Object.keys(defaultState).map(index => {
-        wrestlersBrand[newState[index].id] = defaultState[index].brand
-      })
-
-      newState.forEach((wrestler, key) => {
-        newState[key].brand = wrestlersBrand[wrestler.id]
-      })
+      newState[index] = new Model(action.wrestler).toJSON()
       break
     case "MOVE_WRESTLER":
       newState.forEach((wrestler, key) => {

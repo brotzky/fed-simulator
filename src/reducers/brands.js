@@ -1,13 +1,5 @@
 const defaultState = []
-const defaultBrand = {
-  id: 1,
-  name: "Default",
-  default: true,
-  bgColour: "black",
-  textColour: "white",
-  sequence: 0,
-  wrestlers: [],
-}
+import Model from "./brand.model"
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
@@ -16,18 +8,18 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case "UPDATE_BRAND":
       let index = getIndexById(action.brand.id)
-      newState[index] = action.brand
+      newState[index] = new Model(...action.brand).toJSON()
       break
     case "CREATE_BRAND":
       if (newState.length === 0) {
-        newState.push({
-          ...defaultBrand
-        })
+        newState.push(
+          new Model().toJSON(),
+        )
       }
       if (getIndexById(action.brand.id) < 0) {
-        newState.push({
-          ...action.brand,
-        })
+        newState.push(
+          new Model(action.brand).toJSON(),
+        )
       }
       break
     case "RESET":

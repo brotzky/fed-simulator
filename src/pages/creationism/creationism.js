@@ -38,8 +38,9 @@ class CreationismPage extends React.Component {
     splitToArray.forEach(splitter => {
       formData[splitter] = textareaToArray(formData[splitter])
     })
+
     // brand
-    let brand = {
+    let newBrand = {
       id: hashCode(formData.brand),
       name: formData.brand,
       image: formData.image,
@@ -48,7 +49,7 @@ class CreationismPage extends React.Component {
       default: false,
     }
     this.props.dispatch(
-      brandsAction.create(brand)
+      brandsAction.create(newBrand)
     )
 
     // championship
