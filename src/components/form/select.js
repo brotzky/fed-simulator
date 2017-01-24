@@ -35,7 +35,7 @@ export default class Select extends React.Component {
         <label>
           {this.props.label}
         </label>
-        <select
+        <select value={this.state.value}
           onChange={this.onChange}>
           <option hidden>Select here</option>
           {this.props.options.map((item, index) =>

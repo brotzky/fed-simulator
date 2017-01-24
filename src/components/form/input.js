@@ -9,19 +9,19 @@ export default class Input extends React.Component {
     defaultValue: React.PropTypes.any.isRequired,
   }
 
-  constructor(props) {
-    super(props)
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.defaultValue,
+    })
+  }
 
-    this.state = {
-      value: props.defaultValue,
-    }
+  componentWillMount() {
+    this.setState({
+      value: this.props.defaultValue,
+    })
   }
 
   onChange = (event) => {
-    this.props.changeHandler(
-      this.props.name,
-      event.target.value,
-    )
     this.setState({
       value: event.target.value,
     })
@@ -36,7 +36,7 @@ export default class Input extends React.Component {
         <input type="text"
           className="form-control"
           name={this.props.name}
-          defaultValue={this.props.defaultValue}
+          value={this.state.value}
           onChange={this.onChange}
         />
       </div>

@@ -37,11 +37,11 @@ export default class Bucket extends React.Component {
   }
 
   onSaveBucket = (event) => {
-    event.preventDefault()
+    event.preventDefault && event.preventDefault()
 
-    this.props.onSaveBucket(
-      this.state.currentItem,
-    )
+    this.props.onSaveBucket({
+      ...this.state.currentItem,
+    })
   }
 
   getSkeleton() {
@@ -65,8 +65,7 @@ export default class Bucket extends React.Component {
           </article>
         </div>
         <If condition={this.state.currentItem}>
-          <Form
-            changeHandler={this.changeHandler}
+          <Form changeHandler={this.changeHandler}
             skeleton={this.getSkeleton()}
             onSave={this.onSaveBucket} />
         </If>

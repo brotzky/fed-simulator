@@ -26,6 +26,12 @@ export default class Input extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.defaultValue
+    })
+  }
+
   getBase64 = (file) => {
     const reader = new FileReader()
     reader.onload = (evt) => {
@@ -58,7 +64,9 @@ export default class Input extends React.Component {
         <div className="row">
           <div className="col-xs-12">
             <label htmlFor={this.props.name}>
-              {this.props.label} (<a onClick={this.onClear}>Clear</a>)
+              {this.props.label} (
+                <a onClick={this.onClear}>Clear</a>
+              )
             </label>
           </div>
           <div className="col-xs-12">

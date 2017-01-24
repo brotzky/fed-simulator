@@ -17,6 +17,12 @@ export default class ColourPicker extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.defaultValue
+    })
+  }
+
   onChange = (colour) => {
     this.props.changeHandler(
       this.props.name,
