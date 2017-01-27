@@ -7,7 +7,7 @@ $belt-ending-radius: 13%;
   font-size: 100%;
   height: 100%;
   justify-content: center;
-  min-height: 9rem;
+  min-height: 2rem;
   width: 100%;
   z-index: 100;
 
@@ -40,15 +40,19 @@ $belt-ending-radius: 13%;
   .plate.buttons {
     align-items: center;
     background-color: transparent;
+    font-size: large;
     justify-content: center;
-    font-size: xx-large;
   }
 
   .strap-lg,
   .plate-lg {
     height: 80%;
     margin: 0 -2.5%;
-    min-height: 8rem;
+    min-height: 5rem;
+
+    .plate-lg {
+      height: 78%;
+    }
   }
 
   .strap-sm,
@@ -61,6 +65,7 @@ $belt-ending-radius: 13%;
     .plate-sm {
       width: 65%;
       margin: 0 5%;
+      min-height: 2rem;
     }
   }
 

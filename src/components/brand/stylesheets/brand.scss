@@ -1,21 +1,20 @@
 .brand {
-  height: 100%;
 
   &__icon {
-    text-align: center;
-    height: 12rem;
-    display: flex;
-    justify-content: center;
     align-items: flex-end;
-    overflow: hidden;
     background-size: cover;
+    display: flex;
+    height: 12rem;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
   }
 
   &__name {
-    text-align: center;
     font-size: 3rem;
     font-weight: 700;
     margin: 1rem;
+    text-align: center;
   }
 
   &__toggles {

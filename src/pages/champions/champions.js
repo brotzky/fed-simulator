@@ -25,8 +25,8 @@ class ChampionsPage extends React.Component {
   }
 
   render() {
-    let largeColumn  = Math.round(12 / this.props.brands.filter(brand => brand.default === false).length),
-      brands = this.props.brands.filter(brand => brand.default === false)
+    let largeColumn  = Math.floor(12 / this.props.brands.length)
+    console.log(largeColumn, this.props.brands.length)
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
@@ -44,7 +44,7 @@ class ChampionsPage extends React.Component {
           </div>
           <div className="inpage-content">
             <div className="row">
-              {brands.map((brand, key) => {
+              {this.props.brands.map((brand, key) => {
                 let wrestlers = this.props.wrestlers
                   .filter(wrestler => wrestler.brand === brand.name),
                   championships = this.props.championships

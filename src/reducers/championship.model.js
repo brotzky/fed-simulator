@@ -1,8 +1,8 @@
 import Backbone from "backbone"
-
+import { hashCode } from "../helpers/hash"
 const Model = Backbone.Model.extend({
   defaults: {
-    id: "1",
+    id: hashCode(new Date().toString()),
     name: "Default",
     male: true,
     canMoveBrands: true,

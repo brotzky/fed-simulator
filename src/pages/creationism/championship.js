@@ -1,6 +1,7 @@
 import "./stylesheets/championship"
 import { connect } from "react-redux"
 import ChampionshipBelt from "../../components/championship-belt/championship-belt"
+import {} from "../../components/championship-belt/championship-belt"
 import Checkbox from "../../components/form/checkbox"
 import ColourPicker from "../../components/form/colour"
 import Input from "../../components/form/input"
@@ -8,6 +9,7 @@ import Model from "../../reducers/championship.model"
 import Options from "./options"
 import React from "react"
 import Select from "../../components/form/select"
+import * as championshipActions from "../../actions/championship"
 
 const shapes = [
   "rectangle",
@@ -22,12 +24,14 @@ class CreationismChampionshipPage extends React.Component {
 
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
+    brands: React.PropTypes.array.isRequired,
   }
 
   state = {
     currentOptionIndex: 0,
     currentItem: {
       name: "",
+      brand: this.props.brands[0].name,
       centerStrapShape: "circle",
       centerPlateShape: "circle",
       centerPlateColor: "gold",
@@ -71,6 +75,14 @@ class CreationismChampionshipPage extends React.Component {
     this.setState({
       currentOptionIndex: newIndex,
     })
+  }
+
+  onSave = () => {
+    this.props.dispatch(
+      championshipActions.create(
+        this.state.currentItem,
+      )
+    )
   }
 
   render() {
@@ -120,6 +132,11 @@ class CreationismChampionshipPage extends React.Component {
                         </div>
                       </When>
                     </Choose>
+                    <div>
+                      <button className="btn" onClick={this.onSave}>
+                        Create Championship
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -138,4 +155,6 @@ class CreationismChampionshipPage extends React.Component {
   }
 }
 
-export default connect()(CreationismChampionshipPage)
+export default connect(state => ({
+  brands: state.brands,
+}))(CreationismChampionshipPage)
