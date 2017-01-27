@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import ChampionshipBelt from "../../components/championship-belt/championship-belt"
 import ColourPalettePicker from "../../components/form/colour-palette"
 import React from "react"
+import Input from "../../components/form/input"
 import Select from "../../components/form/select"
 import Checkbox from "../../components/form/checkbox"
 import Model from "../../reducers/championship.model"
@@ -14,7 +15,6 @@ const shapes = [
   "square",
   "oval",
 ]
-
 
 class CreationismChampionshipPage extends React.Component {
 
@@ -33,7 +33,7 @@ class CreationismChampionshipPage extends React.Component {
       sideplateBackgroundColor: "gold",
       sideplateShape: "rectangle",
       strapBackgroundColor: "black",
-      centerPlateOverflow: "true",
+      centerPlateOverflow: true,
     },
   }
 
@@ -70,7 +70,7 @@ class CreationismChampionshipPage extends React.Component {
 
     if (newIndex === -1) {
       newIndex = Options.length - 1
-    } else if (newIndex === options.length) {
+    } else if (newIndex === Options.length) {
       newIndex = 0
     }
     this.setState({
@@ -79,7 +79,6 @@ class CreationismChampionshipPage extends React.Component {
   }
 
   render() {
-    console.log(this.state.currentItem.centerPlateOverflow)
     const currentOption = Options[this.state.currentOptionIndex]
     const currentValue = this.state.currentItem[currentOption.key]
     let currentOptions = {
@@ -107,6 +106,11 @@ class CreationismChampionshipPage extends React.Component {
                     <When condition={currentOption.type === "color"}>
                       <ColourPalettePicker
                         color={currentValue}
+                        {...currentOptions} />
+                    </When>
+                    <When condition={currentOption.type === "input"}>
+                      <ColourPalettePicker
+                        defaultValue={currentValue}
                         {...currentOptions} />
                     </When>
                     <When condition={currentOption.type === "select"}>

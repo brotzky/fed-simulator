@@ -14,7 +14,7 @@ export default class ChampionshipBelt extends React.Component {
     sideplateBackgroundColor: React.PropTypes.string,
     strapBackgroundColor: React.PropTypes.string,
     sideplateShape: React.PropTypes.string,
-    centerPlateOverflow: React.PropTypes.string,
+    centerPlateOverflow: React.PropTypes.bool,
   }
 
   render() {

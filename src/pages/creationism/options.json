@@ -1,0 +1,54 @@
+[{
+	"key": "centerStrapShape",
+	"type": "select",
+	"label": "Center strap shape",
+	"options": [
+		"rectangle",
+		"circle",
+		"square",
+		"oval"
+	]
+}, {
+	"key": "centerPlateShape",
+	"type": "select",
+	"label": "Center plate shape",
+	"options": [
+		"rectangle",
+		"circle",
+		"square",
+		"oval"
+	]
+}, {
+	"key": "sideplateShape",
+	"type": "select",
+	"label": "Sideplate Shape",
+	"options": [
+		"rectangle",
+		"circle",
+		"square",
+		"oval"
+	]
+}, {
+	"key": "centerPlateOverflow",
+	"type": "checkbox",
+	"label": "Center plate overflow",
+	"options": [{
+		"key": "true",
+		"name": "Show"
+	}, {
+		"key": "false",
+		"name": "Show"
+	}]
+}, {
+	"key": "centerPlateColor",
+	"type": "color",
+	"label": "Center plate color"
+}, {
+	"key": "sideplateBackgroundColor",
+	"type": "color",
+	"label": "Sideplate background color"
+}, {
+	"key": "strapBackgroundColor",
+	"type": "color",
+	"label": "Strap Color"
+}]
