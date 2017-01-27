@@ -17,7 +17,14 @@ $belt-ending-radius: 13%;
     justify-content: center;
     padding: 1%;
     width: 20%;
-    overflow: hidden;
+
+    &.hide-overflow {
+      overflow: hidden;
+    }
+
+    &.show-overflow {
+      overflow: visible;
+    }
 
     .plate {
       display: flex;
@@ -35,7 +42,6 @@ $belt-ending-radius: 13%;
     background-color: transparent;
     justify-content: center;
   }
-
 
   .strap-lg,
   .plate-lg {

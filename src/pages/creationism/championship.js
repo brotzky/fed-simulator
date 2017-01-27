@@ -4,6 +4,9 @@ import ChampionshipBelt from "../../components/championship-belt/championship-be
 import ColourPalettePicker from "../../components/form/colour-palette"
 import React from "react"
 import Select from "../../components/form/select"
+import Checkbox from "../../components/form/checkbox"
+import Model from "../../reducers/championship.model"
+import Options from "./options"
 
 const shapes = [
   "rectangle",
@@ -12,38 +15,6 @@ const shapes = [
   "oval",
 ]
 
-const options = [
-  {
-    key: "centerStrapShape",
-    type: "shape",
-    label: "Center strap shape",
-  },
-  {
-    key: "centerPlateShape",
-    type: "shape",
-    label: "Center plate shape",
-  },
-  {
-    key: "centerPlateColor",
-    type: "color",
-    label: "Center plate color",
-  },
-  {
-    key: "sideplateBackgroundColor",
-    type: "color",
-    label: "Sideplate background color",
-  },
-  {
-    key: "sideplateShape",
-    type: "shape",
-    label: "Sideplate Shape",
-  },
-  {
-    key: "strapBackgroundColor",
-    type: "color",
-    label: "Strap Color",
-  }
-]
 
 class CreationismChampionshipPage extends React.Component {
 
@@ -62,15 +33,16 @@ class CreationismChampionshipPage extends React.Component {
       sideplateBackgroundColor: "gold",
       sideplateShape: "rectangle",
       strapBackgroundColor: "black",
+      centerPlateOverflow: "true",
     },
   }
 
   changeHandler = (event, target) => {
     let newCurrentItem = Object.assign({}, this.state.currentItem)
-    newCurrentItem[options[this.state.currentOptionIndex].key] = target
+    newCurrentItem[Options[this.state.currentOptionIndex].key] = target
 
     this.setState({
-      currentItem: newCurrentItem,
+      currentItem: new Model(newCurrentItem).toJSON(),
     })
   }
 
@@ -86,9 +58,6 @@ class CreationismChampionshipPage extends React.Component {
           this.onChangeCurrentOptionIndex(-1)
           break
       }
-      this.move({
-        ...newState
-      })
     }
   }
 
@@ -100,7 +69,7 @@ class CreationismChampionshipPage extends React.Component {
     let newIndex = this.state.currentOptionIndex + value
 
     if (newIndex === -1) {
-      newIndex = options.length - 1
+      newIndex = Options.length - 1
     } else if (newIndex === options.length) {
       newIndex = 0
     }
@@ -110,7 +79,8 @@ class CreationismChampionshipPage extends React.Component {
   }
 
   render() {
-    const currentOption = options[this.state.currentOptionIndex]
+    console.log(this.state.currentItem.centerPlateOverflow)
+    const currentOption = Options[this.state.currentOptionIndex]
     const currentValue = this.state.currentItem[currentOption.key]
     let currentOptions = {
       label: currentOption.label,
@@ -139,9 +109,15 @@ class CreationismChampionshipPage extends React.Component {
                         color={currentValue}
                         {...currentOptions} />
                     </When>
-                    <When condition={currentOption.type === "shape"}>
-                      <Select options={shapes}
+                    <When condition={currentOption.type === "select"}>
+                      <Select options={currentOption.options}
                         {...currentOptions} />
+                    </When>
+                    <When condition={currentOption.type === "checkbox"}>
+                      <div>
+                        <Checkbox options={currentOption.options}
+                         {...currentOptions} />
+                      </div>
                     </When>
                   </Choose>
                 </div>

@@ -14,9 +14,17 @@
     }
 
     .options {
-      margin: 5rem auto;
+      margin: 0 auto;
       text-align: center;
       width: 60%;
+
+      input {
+        font-size: larger;
+      }
+
+      .checkbox-custom-label {
+        font-size: larger;
+      }
 
       label {
         font-size: 4rem;

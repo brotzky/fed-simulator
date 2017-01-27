@@ -11,11 +11,12 @@ const Model = Backbone.Model.extend({
     changes: 0,
     wrestlers: [],
     centerStrapShape: "circle",
-    centerPlateShape: "circle",
+    centerPlateShape: "square",
     centerPlateColor: "gold",
     sideplateBackgroundColor: "gold",
     strapBackgroundColor: "black",
     sideplateShape: "rectangle",
+    centerPlateOverflow: true,
   },
 })
 
