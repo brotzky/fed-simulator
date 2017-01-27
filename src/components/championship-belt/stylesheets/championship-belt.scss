@@ -12,17 +12,17 @@ $belt-ending-radius: 13%;
   .strap {
     align-items: center;
     display: flex;
-    height: 80%;
     justify-content: center;
-    padding: 3% 1%;
+    padding: 1%;
     width: 20%;
 
     .plate {
       display: flex;
       height: 95%;
       justify-content: center;
-      width: 80%;
+      width: 94%;
       z-index: 30;
+      background-blend-mode: multiply;
     }
   }
 
@@ -35,9 +35,8 @@ $belt-ending-radius: 13%;
 
   .strap-lg,
   .plate-lg {
-    height: 80%;
-    margin: 0 -3%;
-    width: 30%;
+    height: 100%;
+    margin: 0 -2.5%;
   }
 
   .strap-sm,
@@ -46,12 +45,31 @@ $belt-ending-radius: 13%;
     width: 16%;
   }
 
+  .strap-sm {
+    .plate-sm {
+      width: 65%;
+      margin: 0 5%;
+    }
+  }
+
   .first {
     border-radius: $belt-ending-radius 0% 0% $belt-ending-radius;
   }
   .last {
     border-radius: 0% $belt-ending-radius $belt-ending-radius 0;
   }
+
+  //over write
+  .oval {
+    height: 82%;
+    width: 29%;
+  }
+  .rectangle {
+    width: 23%;
+    height: 60%;
+  }
 }
+
+
 
 @import "shapes"

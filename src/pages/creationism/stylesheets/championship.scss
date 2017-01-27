@@ -14,9 +14,14 @@
     }
 
     .options {
-      text-align: center;
       margin: 5rem auto;
+      text-align: center;
       width: 60%;
+
+      label {
+        font-size: 4rem;
+        font-weight: 700;
+      }
     }
   }
 }

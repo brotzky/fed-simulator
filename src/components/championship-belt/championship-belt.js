@@ -1,5 +1,7 @@
 import React from "react"
 import "./stylesheets/championship-belt"
+import leatherIMG from "./leather.png"
+import metalIMG from "./metal.png"
 
 export default class ChampionshipBelt extends React.Component {
 
@@ -15,19 +17,23 @@ export default class ChampionshipBelt extends React.Component {
   }
 
   render() {
+    const buttonsStyle = {
+      backgroundColor: this.props.strapBackgroundColor,
+      backgroundImage: `url("${leatherIMG}")`,
+      color: this.props.sideplateBackgroundColor,
+    }
     const strapBackgroundColor = {
-      backgroundColor: this.props.strapBackgroundColor
+      backgroundColor: this.props.strapBackgroundColor,
+      backgroundImage: `url("${leatherIMG}")`,
     }
     const sideplateBackgroundColor = {
       backgroundColor: this.props.sideplateBackgroundColor,
+      backgroundImage: `url("${metalIMG}")`,
     }
     return (
       <div className="belt">
 
-        <span style={{
-            backgroundColor: this.props.strapBackgroundColor,
-            color: this.props.sideplateBackgroundColor,
-          }}
+        <span style={buttonsStyle}
           className="strap strap-sm first">
           <span className="plate plate-sm buttons">
             <full-width-text>::::</full-width-text>
@@ -44,6 +50,7 @@ export default class ChampionshipBelt extends React.Component {
           className={`strap strap-lg ${this.props.centerStrapShape}`}>
           <span style={{
               backgroundColor: this.props.centerPlateColor,
+              backgroundImage: `url("${metalIMG}")`,
             }}
             className={`plate plate-lg ${this.props.centerPlateShape}`}></span>
         </span>
@@ -54,10 +61,7 @@ export default class ChampionshipBelt extends React.Component {
             className={`plate plate-sm ${this.props.sideplateShape}`}></span>
         </span>
 
-        <span style={{
-            backgroundColor: this.props.strapBackgroundColor,
-            color: this.props.sideplateBackgroundColor,
-          }}
+        <span style={buttonsStyle}
           className="strap strap-sm last">
           <span className="plate plate-sm buttons">
             <full-width-text>::::</full-width-text>

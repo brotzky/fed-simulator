@@ -1,36 +1,37 @@
 import "./stylesheets/championship"
 import { connect } from "react-redux"
 import ChampionshipBelt from "../../components/championship-belt/championship-belt"
-import Chrome from "react-color"
-import ColourPicker from "../../components/form/colour"
+import ColourPalettePicker from "../../components/form/colour-palette"
 import React from "react"
 import Select from "../../components/form/select"
 
 const shapes = [
   "rectangle",
   "circle",
+  "square",
+  "oval",
 ]
 
 const options = [
   {
     key: "centerStrapShape",
     type: "shape",
-    label: "Main Strap Shape",
+    label: "Center strap shape",
   },
   {
     key: "centerPlateShape",
     type: "shape",
-    label: "Main Plate Shape",
+    label: "Center plate shape",
   },
   {
     key: "centerPlateColor",
     type: "color",
-    label: "Main Plate Name Color",
+    label: "Center plate color",
   },
   {
     key: "sideplateBackgroundColor",
     type: "color",
-    label: "Sideplate Background Color",
+    label: "Sideplate background color",
   },
   {
     key: "sideplateShape",
@@ -40,7 +41,7 @@ const options = [
   {
     key: "strapBackgroundColor",
     type: "color",
-    label: "Strap background Color",
+    label: "Strap Color",
   }
 ]
 
@@ -82,7 +83,7 @@ class CreationismChampionshipPage extends React.Component {
 
     if (newIndex === -1) {
       newIndex = options.length - 1
-    } else if (newIndex === options.length - 1) {
+    } else if (newIndex === options.length) {
       newIndex = 0
     }
     this.setState({
@@ -116,7 +117,7 @@ class CreationismChampionshipPage extends React.Component {
                 <div className="options">
                   <Choose>
                     <When condition={currentOption.type === "color"}>
-                      <ColourPicker
+                      <ColourPalettePicker
                         color={currentValue}
                         {...currentOptions} />
                     </When>
