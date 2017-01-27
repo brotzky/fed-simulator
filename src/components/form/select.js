@@ -38,12 +38,17 @@ export default class Select extends React.Component {
         <select value={this.state.value}
           onChange={this.onChange}>
           <option hidden>Select here</option>
-          {this.props.options.map((item, index) =>
-            <option value={item.id}
-              key={index}>
-              {item.name}
-            </option>
-          )}
+          {this.props.options.map((item, index) => {
+            item = typeof(item) === "object"
+              ? item
+              : { name: item, id: item }
+            return (
+              <option value={item.id}
+                key={index}>
+                {item.name}
+              </option>
+            )
+          })}
         </select>
         <div className="select__arrow"></div>
       </div>
