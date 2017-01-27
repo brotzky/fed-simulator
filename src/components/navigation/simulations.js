@@ -1,8 +1,9 @@
-import React from "react"
-import Icon from "../icon/icon"
-import * as wrestlersActions from "../../actions/wrestlers"
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
+import * as wrestlersActions from "../../actions/wrestlers"
+import Icon from "../icon/icon"
+import React from "react"
+
 const amountOfSims = [
   1,
   10,
@@ -58,7 +59,8 @@ class PageSecondary extends React.Component {
             return (
               <li key={key}
                 className="navigation__item">
-                <Icon name={brand.name} /> &nbsp;
+                <Icon name={brand.name} />
+                &nbsp;
                 {amountOfSims.map((amount, key) => {
                   return (
                     <span key={key}>
@@ -74,8 +76,7 @@ class PageSecondary extends React.Component {
           })}
           <If condition={this.props.showClear}>
             <li className="navigation__item">
-              <a
-                onKeyPress={this.onReset}
+              <a onKeyPress={this.onReset}
                 onClick={this.onReset}>
                 Clear wins & losses
               </a>
