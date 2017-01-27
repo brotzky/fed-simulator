@@ -1,110 +1,33 @@
 $font-family: 'Bungee Inline', cursive;
-$center-plate-width: 30%;
-$center-plate-height: 100%;
-$side-plate-width: 10%;
-
-$side-strap-height: 50%;
-
-$side-strap-plate-height: 65%;
-$side-strap-plate-width: 95%;
-
-$side-buttons-width: 5%;
-
-$encased-strap-plate-width: 18%;
-$encased-negative-margin: 4%;
 
 .belt {
   align-items: center;
   display: flex;
   font-size: 100%;
-  height: 100%;
+  height: 50%;
   justify-content: center;
   width: 100%;
 
   .strap {
     align-items: center;
     display: flex;
-    height: 100%;
+    height: 80%;
     justify-content: center;
-    width: 100%;
+    width: 20%;
+    background-color: black;
 
-    .belt__strap  {
+    .plate {
       align-items: center;
-      border-radius: 5%;
       display: flex;
-      height: 100%;
+      height: 80%;
       justify-content: center;
-      width: $side-plate-width;
+      width: 80%;
       z-index: 30;
-      border-top: 1px solid black;
-      border-bottom: 1px solid black;
+      background-color: gold;
 
       .buttons {
         border-right: 1px solid black;
       }
-
-      .plate {
-        align-items: center;
-        border-radius: 5%;
-        display: flex;
-        font-family: $font-family;
-        height: 80%;
-        justify-content: center;
-        width: 100%;
-
-        &:hover:after {
-          opacity: 1;
-          top: -30%;
-          left: -30%;
-          transition-property: left, top, opacity;
-          transition-duration: 0.7s, 0.7s, 0.15s;
-          transition-timing-function: ease;
-        }
-
-        &__nameplate {
-          text-align: center;
-          font-size: x-large;
-          text-shadow: .1rem .2rem white;
-        }
-      }
-    }
-  }
-
-  .belt__strap.rectangle,
-  .belt__strap.rectangle .plate {
-    border-radius: 44%;
-  }
-
-  .belt__strap.belt__strap--center {
-    height: $center-plate-height;
-    padding: 0 1rem;
-    width: $center-plate-width;
-  }
-
-  .belt__strap.belt__strap--center.circle {
-    border-radius: 100%;
-    height: 100%;
-    width: 34%;
-
-    .plate {
-      border-radius: 46%;
-      width: 90%;
-    }
-  }
-
-  .belt__strap.belt__strap--side {
-    height: $side-strap-height;
-    margin: 0;
-    padding: 0 3rem ;
-    z-index: 10;
-
-    &.encased-by {
-      margin: 0 -$encased-negative-margin;
-      width: $encased-strap-plate-width;
-    }
-
-    &.buttons {
-      width: $side-buttons-width;
     }
   }
 }

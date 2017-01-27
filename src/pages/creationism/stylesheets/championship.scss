@@ -1,12 +1,27 @@
 .page-section.creationism-championship {
+  height: 100%;
 
   .inpage-content {
-    height: 100vh;
-    width: 100vh;
+    height: 100%;
 
-    .championship {
-      align-items: center;
-      justify-content: center;
+    .championship-belt {
+      height: 100%;
+
+      .box {
+        height: 100%;
+        width: 100%;
+      }
     }
+  }
+}
+
+
+
+.arrows__container {
+  height: 100%;
+
+  .arrow__left,
+  .arrow__right {
+    font-size: 10rem;
   }
 }

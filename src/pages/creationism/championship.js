@@ -37,29 +37,27 @@ class CreationismChampionshipPage extends React.Component {
   }
 
   render() {
-    const style = {
-      width: "50rem",
-      height: "15rem",
-    }
     return (
       <main className="page-section creationism-championship">
-      <div className="row around-xs">
-          <div className="col-xs-2">
+        <div className="inpage-content">
+          <div className="row between-xs middle-xs arrows__container">
+            <div className="col-xs-1 start-xs arrow__left">
               <div className="box">
-                  around
+                <i className="fa fa-arrow-left" aria-hidden="true"></i>
               </div>
-          </div>
-          <div className="col-xs-2">
+            </div>
+            <div className="col-xs-10 championship-belt">
               <div className="box">
-                  around
+                <ChampionshipBelt />
               </div>
-          </div>
-          <div className="col-xs-2">
+            </div>
+            <div className="col-xs-1 end-xs arrow__right">
               <div className="box">
-                  around
+                <i className="fa fa-arrow-right" aria-hidden="true"></i>
               </div>
+            </div>
           </div>
-      </div>
+        </div>
       </main>
     )
   }
