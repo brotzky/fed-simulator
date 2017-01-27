@@ -27,13 +27,13 @@ $belt-ending-radius: 13%;
     }
 
     .plate {
+      background-blend-mode: multiply;
       display: flex;
       height: 95%;
       justify-content: center;
+      min-height: 6rem;
       width: 94%;
       z-index: 30;
-      background-blend-mode: multiply;
-      min-height: 6rem;
     }
   }
 
@@ -41,6 +41,7 @@ $belt-ending-radius: 13%;
     align-items: center;
     background-color: transparent;
     justify-content: center;
+    font-size: xx-large;
   }
 
   .strap-lg,
@@ -53,7 +54,7 @@ $belt-ending-radius: 13%;
   .strap-sm,
   .plate-sm {
     height: 30%;
-    width: 16%;
+    width: 10%;
   }
 
   .strap-sm {
@@ -68,6 +69,10 @@ $belt-ending-radius: 13%;
   }
   .last {
     border-radius: 0% $belt-ending-radius $belt-ending-radius 0;
+  }
+  .first,
+  .last {
+    width: 5%;
   }
 
   //over write

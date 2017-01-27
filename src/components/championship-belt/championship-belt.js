@@ -48,6 +48,13 @@ export default class ChampionshipBelt extends React.Component {
         </span>
 
         <span style={strapBackgroundColor}
+          className="strap strap-sm">
+          <span style={sideplateBackgroundColor}
+            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
+        </span>
+
+
+        <span style={strapBackgroundColor}
           className={`strap strap-lg ${this.props.centerPlateOverflow ? "hide" : "show"}-overflow ${this.props.centerStrapShape}`}>
           <span style={{
               backgroundColor: this.props.centerPlateColor,
@@ -55,6 +62,13 @@ export default class ChampionshipBelt extends React.Component {
             }}
             className={`plate plate-lg ${this.props.centerPlateShape}`}></span>
         </span>
+        
+        <span style={strapBackgroundColor}
+          className="strap strap-sm">
+          <span style={sideplateBackgroundColor}
+            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
+        </span>
+
 
         <span style={strapBackgroundColor}
           className="strap strap-sm">

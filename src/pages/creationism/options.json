@@ -1,4 +1,8 @@
 [{
+	"key": "name",
+	"type": "input",
+	"label": "Name"
+}, {
 	"key": "centerStrapShape",
 	"type": "select",
 	"label": "Center strap shape",
