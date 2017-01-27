@@ -13,6 +13,7 @@ class Resets extends React.Component {
     wrestlers: React.PropTypes.array.isRequired,
     shows: React.PropTypes.array.isRequired,
     ppvs: React.PropTypes.array.isRequired,
+    children: React.PropTypes.object,
   }
 
   onReset = () => {
@@ -52,6 +53,7 @@ class Resets extends React.Component {
               Download an export
             </a>
           </li>
+          {this.props.children}
         </ul>
       </div>
     )

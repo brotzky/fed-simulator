@@ -1,13 +1,13 @@
 import "./stylesheets/championship"
 import { connect } from "react-redux"
 import ChampionshipBelt from "../../components/championship-belt/championship-belt"
-import ColourPicker from "../../components/form/colour"
-import React from "react"
-import Input from "../../components/form/input"
-import Select from "../../components/form/select"
 import Checkbox from "../../components/form/checkbox"
+import ColourPicker from "../../components/form/colour"
+import Input from "../../components/form/input"
 import Model from "../../reducers/championship.model"
 import Options from "./options"
+import React from "react"
+import Select from "../../components/form/select"
 
 const shapes = [
   "rectangle",

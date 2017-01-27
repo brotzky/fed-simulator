@@ -3,10 +3,17 @@ import React from "react"
 export default class Input extends React.Component {
 
   static propTypes = {
-    changeHandler: React.PropTypes.func.isRequired,
-    name: React.PropTypes.string.isRequired,
-    label: React.PropTypes.string.isRequired,
-    value: React.PropTypes.any.isRequired,
+    changeHandler: React.PropTypes.func,
+    name: React.PropTypes.string,
+    label: React.PropTypes.string,
+    value: React.PropTypes.any,
+  }
+
+  static defaultProps = {
+    value: "",
+    label: "",
+    name: "",
+    changeHandler: () => {},
   }
 
   componentWillReceiveProps(nextProps) {

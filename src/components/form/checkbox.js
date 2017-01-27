@@ -36,7 +36,7 @@ export default class Checkbox extends React.Component {
       <div>
         <input id={this.props.name}
           name={this.props.name}
-          value={this.props.defaultValue}
+          defaultValue={this.state.value}
           checked={this.props.defaultValue}
           onChange={this.onChange}
           className="checkbox-custom"

@@ -101,7 +101,12 @@
 		"value": "black"
 	}, {
 		"name": "sideplateShape",
-		"type": "color",
-		"value": "rectangle"
+		"type": "select",
+		"value": "rectangle",
+		"options": ["rectangle", "square", "circle", "oval"]
+	}, {
+		"name": "centerPlateOverflow",
+		"type": "bool",
+		"value": "true"
 	}]
 }

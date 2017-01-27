@@ -1,6 +1,8 @@
+import _cloneDeep from "lodash.clonedeep"
 import "./stylesheets/creationism"
 import { connect } from "react-redux"
 import { hashCode } from "../../helpers/hash"
+import { Link } from "react-router"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
 import * as ppvsAction from "../../actions/ppvs"
@@ -11,7 +13,6 @@ import Presets from "./presets"
 import React from "react"
 import Resets from "../../components/navigation/resets"
 import Skeleton from "./skeleton"
-import _cloneDeep from "lodash.clonedeep"
 
 class CreationismPage extends React.Component {
 
@@ -113,7 +114,14 @@ class CreationismPage extends React.Component {
     return (
       <main className="page-section creationism">
         <Helmet title="Creationism" />
-        <Resets />
+        <Resets>
+          <li className="navigation__item">
+            <Link to="creationism/championship"
+              className="btn">
+                Create a Championship
+            </Link>
+          </li>
+        </Resets>
         <div className="inpage-content">
           <div className="row">
             {Presets.map((preset, key) => {

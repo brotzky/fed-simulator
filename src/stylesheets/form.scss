@@ -28,8 +28,8 @@ $fh-fieldset-bare: false !default;
 
 // Buttons & Input Submits
 $fh-button-height: 40px !default;
-$fh-button-width: 100% !default;
-$fh-button-max-width: 95% !default;
+$fh-button-width: auto !default;
+$fh-button-max-width: auto !default;
 $fh-button-font-color: #fff !default;
 $fh-button-bg-color: #24d4b2 !default;
 $fh-button-hover-bg-color: #16b085 !default;
