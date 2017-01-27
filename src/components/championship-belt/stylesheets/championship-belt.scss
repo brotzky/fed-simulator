@@ -1,33 +1,52 @@
+
 $font-family: 'Bungee Inline', cursive;
 
 .belt {
   align-items: center;
   display: flex;
   font-size: 100%;
-  height: 50%;
+  height: 40%;
   justify-content: center;
   width: 100%;
 
   .strap {
     align-items: center;
+    background-color: black;
     display: flex;
     height: 80%;
     justify-content: center;
+    padding: 3% 1%;
     width: 20%;
-    background-color: black;
 
     .plate {
-      align-items: center;
+      background-color: gold;
       display: flex;
-      height: 80%;
+      height: 95%;
       justify-content: center;
       width: 80%;
       z-index: 30;
-      background-color: gold;
-
-      .buttons {
-        border-right: 1px solid black;
-      }
     }
   }
+
+  .plate.buttons {
+    align-items: center;
+    background-color: transparent;
+    color: gold;
+    font-size: 10vw;
+  }
+
+  .strap-lg,
+  .plate-lg {
+    height: 80%;
+    width: 30%;
+    margin: 0 -3%;
+  }
+
+  .strap-sm,
+  .plate-sm {
+    height: 30%;
+    width: 16%;
+  }
 }
+
+@import "shapes"

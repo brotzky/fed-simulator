@@ -3,6 +3,14 @@ import { connect } from "react-redux"
 import ChampionshipBelt from "../../components/championship-belt/championship-belt"
 import React from "react"
 
+const shapes = [
+  "square",
+  "rectangle",
+  "circle",
+  "pentagon",
+  "hexagon",
+]
+
 class CreationismChampionshipPage extends React.Component {
 
   displayName = "CreationismChampionshipPage"
@@ -12,19 +20,14 @@ class CreationismChampionshipPage extends React.Component {
   }
 
   state = {
-    stage: 0,
-    plate: {
-      shape: "circle",
-      color: "black",
-      backgroundColor: "gold",
-    },
-    strap: {
-      color: "black",
-      shape: "circle",
-      plate: {
-        shape: "rectangle",
-        backgroundColor: "gold",
-      },
+    currentIndex: 0,
+    currentItem: {
+      centerStrapShape: "circle",
+      centerPlateShape: "circle",
+      centerPlateColor: "gold",
+      centerBackgroundColor: "black",
+      sideplateBackgroundColor: "gold",
+      sideplateShape: "rectangle",
     },
   }
 
@@ -48,7 +51,7 @@ class CreationismChampionshipPage extends React.Component {
             </div>
             <div className="col-xs-10 championship-belt">
               <div className="box">
-                <ChampionshipBelt />
+                <ChampionshipBelt {...this.state.currentItem} />
               </div>
             </div>
             <div className="col-xs-1 end-xs arrow__right">

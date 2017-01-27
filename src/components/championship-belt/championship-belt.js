@@ -6,65 +6,40 @@ export default class ChampionshipBelt extends React.Component {
   displayName = "ChampionshipBelt"
 
   static propTypes = {
-    strapBackgroundColor: React.PropTypes.string,
-    plateShape: React.PropTypes.string,
-    plateBackgroundColor: React.PropTypes.string,
-    plateColor: React.PropTypes.string,
-    championsName: React.PropTypes.string,
-  }
-
-  static defaultProps = {
-    championshipName: "Unknown",
-    championsName: "Vacant",
-    plateBackgroundColor: "gold",
-    plateColor: "#91702d",
-    plateShape: "circle",
-    strapBackgroundColor: "#000",
+    centerStrapShape: React.PropTypes.string,
+    centerPlateShape: React.PropTypes.string,
+    centerPlateColor: React.PropTypes.string,
+    centerBackgroundColor: React.PropTypes.string,
+    sideplateBackgroundColor: React.PropTypes.string,
+    sideplateShape: React.PropTypes.string,
   }
 
   render() {
-    let strapStyle, buttonsStyle, plateStyle
-    // const strapStyle = {
-    //   backgroundColor: this.props.strapBackgroundColor,
-    //   color: this.props.strapColor,
-    // }
-    // const plateStyle = {
-    //   backgroundColor: this.props.plateBackgroundColor,
-    //   color: this.props.plateColor,
-    // }
-    // const buttonsStyle = {
-    //   color: this.props.plateBackgroundColor,
-    // }
     return (
       <div className="belt">
-
-        <span className="strap">
-          <span className="plate plate-sm">
-            <span className="plate buttons">:::</span>
+        <span className="strap strap-sm">
+          <span className="plate plate-sm buttons">
+            <full-width-text>::::</full-width-text>
           </span>
         </span>
-
-        <span className="strap">
-          <span className="plate plate-sm">
-            <span className="plate rectangle"></span>
-          </span>
+        <span className="strap strap-sm">
+          <span style={{
+              backgroundColor: this.props.sideplateBackgroundColor
+            }}
+            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
         </span>
-
-        <span className="strap strap-lg">
-          <span className="plate plate-lg">
-            <span className="plate rectangle"></span>
-          </span>
+        <span className="strap strap-lg circle">
+          <span className={`plate plate-lg ${this.props.centerPlateShape}`}></span>
         </span>
-
-        <span className="strap">
-          <span className="plate plate-sm">
-            <span className="plate rectangle"></span>
-          </span>
+        <span className="strap strap-sm">
+          <span style={{
+              backgroundColor: this.props.sideplateBackgroundColor
+            }}
+            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
         </span>
-
-        <span className="strap">
-          <span className="plate plate-sm">
-            <span className="plate buttons">:::</span>
+        <span className="strap strap-sm">
+          <span className="plate plate-sm buttons">
+            <full-width-text>::::</full-width-text>
           </span>
         </span>
 
