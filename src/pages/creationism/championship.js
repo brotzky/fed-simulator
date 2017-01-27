@@ -74,6 +74,24 @@ class CreationismChampionshipPage extends React.Component {
     })
   }
 
+  componentDidMount() {
+    document.onkeydown = (e) => {
+      switch (e.keyCode) {
+        case 37: // left
+        case 65: //a
+          this.onChangeCurrentOptionIndex(1)
+          break
+        case 39: // right
+        case 68: //d
+          this.onChangeCurrentOptionIndex(-1)
+          break
+      }
+      this.move({
+        ...newState
+      })
+    }
+  }
+
   onSave = () => {
 
   }
