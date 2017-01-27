@@ -1,9 +1,9 @@
 import React from "react"
 import "./stylesheets/championship-belt"
 
-export default class CreateChampionship extends React.Component {
+export default class ChampionshipBelt extends React.Component {
 
-  displayName = "CreateChampionship"
+  displayName = "ChampionshipBelt"
 
   static propTypes = {
     strapBackgroundColor: React.PropTypes.string,
@@ -65,9 +65,6 @@ export default class CreateChampionship extends React.Component {
             <span style={buttonsStyle}>:::</span>
           </span>
         </span>
-        <div className="belt__name">
-          <h3>{this.props.championshipName}</h3>
-        </div>
       </div>
     )
   }

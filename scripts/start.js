@@ -13,8 +13,14 @@ var player = require('play-sound')()
 log('Start development server')
 
 const DEFAULT_PORT = process.env.PORT || 3000
-var compiler
 
+function alertTerminal(fileName = "bell.mp3") {
+  player.play(`src/components/bell/${fileName}`, function(err){
+    if (err) throw err
+  })
+}
+
+var compiler
 // TODO: hide this behind a flag and eliminate dead code on eject.
 // This shouldn't be exposed to the user.
 var handleCompile
@@ -89,6 +95,7 @@ function setupCompiler(port) {
         formattedErrors = formattedErrors.filter(isLikelyASyntaxError)
       }
       formattedErrors.forEach(message => {
+        alertTerminal("error.mp3")
         error(message)
       })
       return
@@ -122,7 +129,7 @@ function runDevServer(port) {
     watchOptions: {
       ignored: /node_modules/
     }
-  }).listen(port, (err, result) => {
+  }).listen(port, (err) => {
     if (err) {
       alertTerminal()
       return error(err)
@@ -135,12 +142,6 @@ function runDevServer(port) {
 function run(port) {
   setupCompiler(port)
   runDevServer(port)
-}
-
-function alertTerminal() {
-  player.play("src/components/bell/bell.mp3", function(err){
-    if (err) throw err
-  })
 }
 
 detect(DEFAULT_PORT).then(port => {

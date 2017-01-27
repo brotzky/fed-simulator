@@ -32,6 +32,15 @@ export default () => {
            }}
          />
        </Route>
+       <Route path="creationism/championship">
+         <IndexRoute
+           getComponent={(nextState, callback) => {
+             require.ensure([], (require) => {
+               callback(null, require("./pages/creationism/championship").default)
+             })
+           }}
+         />
+       </Route>
        <Route path="shows">
          <IndexRoute
            getComponent={(nextState, callback) => {
