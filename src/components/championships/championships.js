@@ -82,6 +82,7 @@ class Championships extends React.Component {
                   <ChampionshipBelt
                     championsName={fullName}
                     championshipName={championship.name}
+                    {...championship}
                   />
                   {championship.name}
                 </span>

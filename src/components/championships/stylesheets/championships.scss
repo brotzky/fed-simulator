@@ -5,20 +5,19 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  height: 50rem;
+  height: 25%;
   justify-content: center;
   overflow-y: scroll;
   text-align: center;
 
   .championship {
-    color: white;
+    border-radius: .5rem;
     margin: 1rem 0;
     padding: 1rem;
-    border-radius: .5rem;
     transition: all .2s ease-in-out;
 
     &:hover {
-      transform: scale(1.1); 
+      transform: scale(1.1);
     }
 
     .badge {
@@ -28,13 +27,12 @@
       border: 1px solid #911f28;
       color: white;
       line-height: 2rem;
-      margin-right: .5rem;
       padding: 0 .5rem;
+      z-index: 1;
     }
 
     &__name {
       font-size: 1.5rem;
-      font-weight: 500;
     }
 
     &__holdername  span {

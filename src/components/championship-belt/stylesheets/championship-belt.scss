@@ -8,6 +8,7 @@ $belt-ending-radius: 13%;
   height: 40%;
   justify-content: center;
   width: 100%;
+  z-index: 100;
 
   .strap {
     align-items: center;
@@ -28,9 +29,8 @@ $belt-ending-radius: 13%;
 
   .plate.buttons {
     align-items: center;
-    justify-content: center;
     background-color: transparent;
-    font-size: 7vw;
+    justify-content: center;
   }
 
   .strap-lg,
@@ -65,8 +65,8 @@ $belt-ending-radius: 13%;
     width: 29%;
   }
   .rectangle {
-    width: 23%;
     height: 60%;
+    width: 23%;
   }
 }
 
