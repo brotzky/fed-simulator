@@ -41,7 +41,7 @@ class CreationismPage extends React.Component {
     })
 
     // brand
-    let newBrand = {
+    let brand = {
       id: hashCode(formData.brand),
       name: formData.brand,
       image: formData.image,
@@ -50,7 +50,7 @@ class CreationismPage extends React.Component {
       default: false,
     }
     this.props.dispatch(
-      brandsAction.create(newBrand)
+      brandsAction.create(brand)
     )
 
     // championship
@@ -63,6 +63,7 @@ class CreationismPage extends React.Component {
         })
       )
     })
+
     // wrestlers
     let wrestlers = []
     formData.femaleWrestlers.forEach(wrestlersName => {
@@ -86,6 +87,7 @@ class CreationismPage extends React.Component {
         wrestlers,
       )
     )
+
     // ppvs
     formData.ppvs.forEach(ppvName => {
       this.props.dispatch(
