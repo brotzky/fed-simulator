@@ -7,11 +7,8 @@ import React from "react"
 import Select from "../../components/form/select"
 
 const shapes = [
-  "square",
   "rectangle",
   "circle",
-  "pentagon",
-  "hexagon",
 ]
 
 const options = [
@@ -19,11 +16,6 @@ const options = [
     key: "centerStrapShape",
     type: "shape",
     label: "Main Strap Shape",
-  },
-  {
-    key: "centerBackgroundColor",
-    type: "color",
-    label: "Main Background Color",
   },
   {
     key: "centerPlateShape",
@@ -45,6 +37,11 @@ const options = [
     type: "shape",
     label: "Sideplate Shape",
   },
+  {
+    key: "strapBackgroundColor",
+    type: "color",
+    label: "Strap background Color",
+  }
 ]
 
 class CreationismChampionshipPage extends React.Component {
@@ -61,14 +58,19 @@ class CreationismChampionshipPage extends React.Component {
       centerStrapShape: "circle",
       centerPlateShape: "circle",
       centerPlateColor: "gold",
-      centerBackgroundColor: "black",
       sideplateBackgroundColor: "gold",
       sideplateShape: "rectangle",
+      strapBackgroundColor: "black",
     },
   }
 
-  changeHandler = () => {
+  changeHandler = (event, target) => {
+    let newCurrentItem = Object.assign({}, this.state.currentItem)
+    newCurrentItem[options[this.state.currentOptionIndex].key] = target
 
+    this.setState({
+      currentItem: newCurrentItem,
+    })
   }
 
   onSave = () => {
@@ -80,7 +82,7 @@ class CreationismChampionshipPage extends React.Component {
 
     if (newIndex === -1) {
       newIndex = options.length - 1
-    } else if (newIndex === options.length -1) {
+    } else if (newIndex === options.length - 1) {
       newIndex = 0
     }
     this.setState({
