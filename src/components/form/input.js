@@ -6,6 +6,7 @@ export default class Input extends React.Component {
     changeHandler: React.PropTypes.func,
     name: React.PropTypes.string,
     label: React.PropTypes.string,
+    maxLength: React.PropTypes.number,
     value: React.PropTypes.any,
   }
 
@@ -13,6 +14,7 @@ export default class Input extends React.Component {
     value: "",
     label: "",
     name: "",
+    maxLength: 2000,
     changeHandler: () => {},
   }
 
@@ -47,6 +49,7 @@ export default class Input extends React.Component {
         <input type="text"
           className="form-control"
           name={this.props.name}
+          maxLength={this.props.maxLength}
           defaultValue={this.state.value}
           onChange={this.onChange}
         />
