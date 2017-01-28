@@ -1,13 +1,16 @@
 import React from "react"
 import "./stylesheets/championship-belt"
+import sizeMe from 'react-sizeme'
 import leatherIMG from "./leather.png"
 import metalIMG from "./metal.png"
 
-export default class ChampionshipBelt extends React.Component {
+class ChampionshipBelt extends React.Component {
 
   displayName = "ChampionshipBelt"
 
   static propTypes = {
+    size: React.PropTypes.object,
+    name: React.PropTypes.string,
     centerStrapShape: React.PropTypes.string,
     centerPlateShape: React.PropTypes.string,
     centerPlateColor: React.PropTypes.string,
@@ -18,72 +21,81 @@ export default class ChampionshipBelt extends React.Component {
   }
 
   render() {
-    const buttonsStyle = {
+    const { width } = this.props.size
+    const divisibleAmount = this.props.name.length > 10 ? 350 : 150
+    const getFontSize = () => Math.round(this.props.size.width / divisibleAmount)
+    const beltName = {
+      fontSize: `${getFontSize()}rem`,
+      color: this.props.centerPlateColor,
+    }
+    const buttonsContainerStyle = {
       backgroundColor: this.props.strapBackgroundColor,
       backgroundImage: `url("${leatherIMG}")`,
       color: this.props.sideplateBackgroundColor,
+    }
+    const buttonsStyle = {
+      fontSize: `${(width / 150)}rem`,
     }
     const strapBackgroundColor = {
       backgroundColor: this.props.strapBackgroundColor,
       backgroundImage: `url("${leatherIMG}")`,
     }
-    const sideplateBackgroundColor = {
+    const plateBackground = {
       backgroundColor: this.props.sideplateBackgroundColor,
       backgroundImage: `url("${metalIMG}")`,
     }
+    const Buttons = ({ borderClass="first" }) => {
+      return (
+        <span className="container-xs">
+          <span style={buttonsContainerStyle}
+            className={`strap ${borderClass}`}>
+            <span className="plate buttons"
+              style={buttonsStyle}>
+              :::
+            </span>
+          </span>
+        </span>
+      )
+    }
+    const Sideplate = () => {
+      return (
+        <span className="container-sm">
+          <span style={strapBackgroundColor}
+            className="strap">
+            <span style={plateBackground}
+              className={`plate plate-sm ${this.props.sideplateShape}`}></span>
+          </span>
+        </span>
+      )
+    }
     return (
       <div className="belt">
-
-        <span style={buttonsStyle}
-          className="strap strap-sm first">
-          <span className="plate plate-sm buttons">
-            <full-width-text>::::</full-width-text>
+        <Buttons />
+        <Sideplate />
+        <Sideplate />
+        <span className="container-lg">
+          <span style={strapBackgroundColor}
+            className={`strap ${this.props.centerPlateOverflow ? "hide" : "show"}-overflow ${this.props.centerStrapShape}`}>
+            <span style={plateBackground}
+              className={`plate plate-lg ${this.props.centerPlateShape}`}>
+                <span style={beltName}>
+                  {this.props.name}
+                </span>
+              </span>
           </span>
         </span>
-
-        <span style={strapBackgroundColor}
-          className="strap strap-sm">
-          <span style={sideplateBackgroundColor}
-            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
-        </span>
-
-        <span style={strapBackgroundColor}
-          className="strap strap-sm">
-          <span style={sideplateBackgroundColor}
-            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
-        </span>
-
-
-        <span style={strapBackgroundColor}
-          className={`strap strap-lg ${this.props.centerPlateOverflow ? "hide" : "show"}-overflow ${this.props.centerStrapShape}`}>
-          <span style={{
-              backgroundColor: this.props.centerPlateColor,
-              backgroundImage: `url("${metalIMG}")`,
-            }}
-            className={`plate plate-lg ${this.props.centerPlateShape}`}></span>
-        </span>
-        
-        <span style={strapBackgroundColor}
-          className="strap strap-sm">
-          <span style={sideplateBackgroundColor}
-            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
-        </span>
-
-
-        <span style={strapBackgroundColor}
-          className="strap strap-sm">
-          <span style={sideplateBackgroundColor}
-            className={`plate plate-sm ${this.props.sideplateShape}`}></span>
-        </span>
-
-        <span style={buttonsStyle}
-          className="strap strap-sm last">
-          <span className="plate plate-sm buttons">
-            <full-width-text>::::</full-width-text>
-          </span>
-        </span>
-
+        <Sideplate />
+        <Sideplate />
+        <Buttons borderClass="last" />
       </div>
     )
   }
 }
+
+const config = {
+  monitorHeight: true,
+}
+
+const sizeMeHOC = sizeMe(config)
+
+export default sizeMeHOC(ChampionshipBelt)

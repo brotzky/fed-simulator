@@ -1,5 +1,6 @@
-$font-family: 'Bungee Inline', cursive;
+@import "shapes";
 $belt-ending-radius: 13%;
+$font-family: 'Bungee Inline', cursive;
 
 .belt {
   align-items: center;
@@ -11,12 +12,33 @@ $belt-ending-radius: 13%;
   width: 100%;
   z-index: 100;
 
+  .container-sm {
+    height: 50%;
+    width: 15%;
+  }
+
+  .container-xs {
+    height: 50%;
+    width: 10%;
+  }
+
+  .container-lg {
+    height: 100%;
+    margin: 0 -2%;
+    width: 30%;
+  }
+
+  .plate,
+  .strap {
+    background-blend-mode: multiply;
+  }
+
   .strap {
     align-items: center;
     display: flex;
+    height: 100%;
     justify-content: center;
-    padding: 1%;
-    width: 20%;
+    width: 100%;
 
     &.hide-overflow {
       overflow: hidden;
@@ -27,13 +49,12 @@ $belt-ending-radius: 13%;
     }
 
     .plate {
-      background-blend-mode: multiply;
+      align-items: center;
       display: flex;
-      height: 95%;
+      font-family: $font-family;
       justify-content: center;
-      min-height: 6rem;
-      width: 94%;
       z-index: 30;
+      word-spacing: 100rem;
     }
   }
 
@@ -44,53 +65,11 @@ $belt-ending-radius: 13%;
     justify-content: center;
   }
 
-  .strap-lg,
-  .plate-lg {
-    height: 80%;
-    margin: 0 -2.5%;
-    min-height: 5rem;
-
-    .plate-lg {
-      height: 78%;
-    }
-  }
-
-  .strap-sm,
-  .plate-sm {
-    height: 30%;
-    width: 10%;
-  }
-
-  .strap-sm {
-    .plate-sm {
-      width: 65%;
-      margin: 0 5%;
-      min-height: 2rem;
-    }
-  }
-
   .first {
     border-radius: $belt-ending-radius 0% 0% $belt-ending-radius;
   }
+
   .last {
     border-radius: 0% $belt-ending-radius $belt-ending-radius 0;
   }
-  .first,
-  .last {
-    width: 5%;
-  }
-
-  //over write
-  .oval {
-    height: 82%;
-    width: 29%;
-  }
-  .rectangle {
-    height: 60%;
-    width: 23%;
-  }
 }
-
-
-
-@import "shapes"
