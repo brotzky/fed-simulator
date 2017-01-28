@@ -22,11 +22,12 @@ class ChampionshipBelt extends React.Component {
 
   render() {
     const { width } = this.props.size
-    const divisibleAmount = this.props.name.length > 10 ? 350 : 150
+    const divisibleAmount = this.props.name.length > 20 ? 350 : 150
     const getFontSize = () => Math.round(this.props.size.width / divisibleAmount)
     const beltName = {
       fontSize: `${getFontSize()}rem`,
       color: this.props.centerPlateColor,
+      textShadow: `.1rem .1rem ${this.props.strapBackgroundColor}`,
     }
     const buttonsContainerStyle = {
       backgroundColor: this.props.strapBackgroundColor,
@@ -78,7 +79,8 @@ class ChampionshipBelt extends React.Component {
             className={`strap ${this.props.centerPlateOverflow ? "hide" : "show"}-overflow ${this.props.centerStrapShape}`}>
             <span style={plateBackground}
               className={`plate plate-lg ${this.props.centerPlateShape}`}>
-                <span style={beltName}>
+                <span className="plate__name"
+                  style={beltName}>
                   {this.props.name}
                 </span>
               </span>

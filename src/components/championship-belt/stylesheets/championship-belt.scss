@@ -1,6 +1,5 @@
 @import "shapes";
 $belt-ending-radius: 13%;
-$font-family: 'Bungee Inline', cursive;
 
 .belt {
   align-items: center;
@@ -26,6 +25,11 @@ $font-family: 'Bungee Inline', cursive;
     height: 100%;
     margin: 0 -2%;
     width: 30%;
+    .plate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .plate,
@@ -49,20 +53,20 @@ $font-family: 'Bungee Inline', cursive;
     }
 
     .plate {
-      align-items: center;
-      display: flex;
-      font-family: $font-family;
-      justify-content: center;
       z-index: 30;
-      word-spacing: 100rem;
+
+      &__name {
+        font-family: 'Jockey One', sans-serif;
+        word-spacing: 100rem;
+        line-height: .8em;
+      }
+
     }
   }
 
   .plate.buttons {
-    align-items: center;
     background-color: transparent;
     font-size: large;
-    justify-content: center;
   }
 
   .first {
