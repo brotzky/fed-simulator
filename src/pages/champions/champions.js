@@ -1,5 +1,6 @@
 import "./stylesheets/champions"
 import { connect } from "react-redux"
+import { Link } from "react-router"
 import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
 import Championships from "../../components/championships/championships"
@@ -26,19 +27,25 @@ class ChampionsPage extends React.Component {
 
   render() {
     let largeColumn  = Math.floor(12 / this.props.brands.length)
-    console.log(largeColumn, this.props.brands.length)
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
-        <If condition={this.props.brands.length > 0}>
           <div className="navigation navigation--secondary">
             <ul className="navigation__list">
+              <If condition={this.props.brands.length > 0}>
+                <li className="navigation__item">
+                  <a onKeyPress={this.onClear}
+                    onClick={this.onClear}
+                    href="#">
+                    Vacate all championships
+                  </a>
+                </li>
+              </If>
               <li className="navigation__item">
-                <a onKeyPress={this.onClear}
-                  onClick={this.onClear}
-                  href="#">
-                  Vacate all championships
-                </a>
+                <Link to="creationism/championship"
+                  className="btn">
+                    Create a Championship
+                </Link>
               </li>
             </ul>
           </div>
@@ -71,9 +78,8 @@ class ChampionsPage extends React.Component {
                     </div>
                   )
                 })}
-              </div>
             </div>
-          </If>
+          </div>
       </main>
     )
   }
