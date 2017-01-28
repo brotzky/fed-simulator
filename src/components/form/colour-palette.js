@@ -9,6 +9,7 @@ export default class ColorPalette extends React.Component {
     changeHandler: React.PropTypes.func.isRequired,
     name: React.PropTypes.string.isRequired,
     defaultValue: React.PropTypes.string,
+    showPreview: React.PropTypes.bool,
   }
 
   constructor(props) {
@@ -21,6 +22,7 @@ export default class ColorPalette extends React.Component {
 
   static defaultProps = {
     defaultValue: "#000000",
+    showPreview: true,
   }
 
   onChange = (colour) => {
@@ -36,7 +38,7 @@ export default class ColorPalette extends React.Component {
   render() {
     const style = {
       backgroundColor: this.state.value,
-      border: "0.1rem solid black",
+      border: ".1rem solid black",
     }
     return (
       <div className="row">
@@ -50,9 +52,11 @@ export default class ColorPalette extends React.Component {
             color={this.state.value}
             colors={Colors} />
         </div>
-        <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2"
-          style={style}>
-        </div>
+        <If condition={this.props.showPreview}>
+          <div className="col-xs-1 col-sm-2 col-md-2 col-lg-2"
+            style={style}>
+          </div>
+        </If>
       </div>
     )
   }
