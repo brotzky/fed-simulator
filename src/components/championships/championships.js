@@ -80,32 +80,11 @@ class Championships extends React.Component {
                 </If>
                 <span className="championship__name">
                   <ChampionshipBelt
-                    championsName={fullName}
-                    championshipName={championship.name}
                     {...championship}
+                    name={fullName}
                   />
                   {championship.name}
                 </span>
-                <div className="championship__holdername">
-                  <Choose>
-                    <When condition={championship.wrestlers.length > 0}>
-                      {championship.wrestlers.map((wrestler, key) => {
-                        return (
-                          <span key={key}
-                            className="truncate">
-                            {wrestler.name}
-                          </span>
-                        )
-                      })}
-                    </When>
-                    <Otherwise>
-                      <Vacant />
-                    </Otherwise>
-                  </Choose>
-                  <If condition={championship.tag && championship.wrestlers.length < 2}>
-                    <Vacant />
-                  </If>
-                </div>
               </Droppable>
             </div>
           )
