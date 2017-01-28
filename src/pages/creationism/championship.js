@@ -1,7 +1,7 @@
 import "./stylesheets/championship"
 import { connect } from "react-redux"
+import * as championshipActions from "../../actions/championship"
 import ChampionshipBelt from "../../components/championship-belt/championship-belt"
-import {} from "../../components/championship-belt/championship-belt"
 import Checkbox from "../../components/form/checkbox"
 import ColourPicker from "../../components/form/colour"
 import Input from "../../components/form/input"
@@ -9,14 +9,6 @@ import Model from "../../reducers/championship.model"
 import Options from "./options"
 import React from "react"
 import Select from "../../components/form/select"
-import * as championshipActions from "../../actions/championship"
-
-const shapes = [
-  "rectangle",
-  "circle",
-  "square",
-  "oval",
-]
 
 class CreationismChampionshipPage extends React.Component {
 
@@ -30,15 +22,7 @@ class CreationismChampionshipPage extends React.Component {
   state = {
     currentOptionIndex: 0,
     currentItem: {
-      name: "",
-      brand: this.props.brands[0].name,
-      centerStrapShape: "circle",
-      centerPlateShape: "circle",
-      centerPlateColor: "gold",
-      sideplateBackgroundColor: "gold",
-      sideplateShape: "rectangle",
-      strapBackgroundColor: "black",
-      centerPlateOverflow: true,
+      ...new Model().toJSON(),
     },
   }
 
@@ -93,6 +77,7 @@ class CreationismChampionshipPage extends React.Component {
       name: currentOption.key,
       defaultValue: currentValue,
       changeHandler: this.changeHandler,
+      showPreview: false,
     }
     return (
       <main className="page-section creationism-championship">
@@ -105,39 +90,41 @@ class CreationismChampionshipPage extends React.Component {
                   aria-hidden="true"></i>
               </div>
             </div>
-            <div className="col-xs-10 center-xs championship-belt">
+            <div className="col-xs-10 center-xs middle-xs championship-belt">
               <div className="box">
                 <ChampionshipBelt {...this.state.currentItem} />
                 <div className="row options">
                   <div className="col-xs-12">
-                    <Choose>
-                      <When condition={currentOption.type === "color"}>
-                        <ColourPicker
-                          color={currentValue}
-                          {...currentOptions} />
-                      </When>
-                      <When condition={currentOption.type === "input"}>
-                        <Input
-                          value={currentValue}
-                          {...currentOptions} />
-                      </When>
-                      <When condition={currentOption.type === "select"}>
-                        <Select options={currentOption.options}
-                          {...currentOptions} />
-                      </When>
-                      <When condition={currentOption.type === "checkbox"}>
-                        <div>
-                          <Checkbox options={currentOption.options}
-                           {...currentOptions} />
-                        </div>
-                      </When>
-                    </Choose>
-                    <div>
-                      <button className="btn" onClick={this.onSave}>
-                        Create Championship
-                      </button>
+                    <div className="box">
+                      <Choose>
+                        <When condition={currentOption.type === "color"}>
+                          <ColourPicker
+                            color={currentValue}
+                            {...currentOptions} />
+                        </When>
+                        <When condition={currentOption.type === "input"}>
+                          <Input value={currentValue}
+                            maxLength={50}
+                            {...currentOptions} />
+                        </When>
+                        <When condition={currentOption.type === "select"}>
+                          <Select options={currentOption.options}
+                            {...currentOptions} />
+                        </When>
+                        <When condition={currentOption.type === "checkbox"}>
+                          <div>
+                            <Checkbox options={currentOption.options}
+                             {...currentOptions} />
+                          </div>
+                        </When>
+                      </Choose>
                     </div>
                   </div>
+                </div>
+                <div className="row options">
+                  <button className="btn" onClick={this.onSave}>
+                    Create Championship
+                  </button>
                 </div>
               </div>
             </div>
