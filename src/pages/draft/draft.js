@@ -30,7 +30,7 @@ class DraftPage extends React.Component {
     const largeColumn = Math.round(12 / nonDefaultBrands.length)
     return (
       <main className="page-section draft">
-        <Helmet title="Draft Management" />
+        <Helmet title="Draft" />
         <If condition={this.props.brands.length > 0}>
           <div className="navigation navigation--secondary">
             <ul className="navigation__list">

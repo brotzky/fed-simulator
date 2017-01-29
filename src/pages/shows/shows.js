@@ -39,7 +39,7 @@ class ShowsPage extends React.Component {
   render() {
     return (
       <main className="page-section shows">
-        <Helmet title="Previous Shows" />
+        <Helmet title="Shows" />
         <If condition={this.props.shows.length > 0}>
           <div className="navigation navigation--secondary">
             <ul className="navigation__list">

@@ -100,6 +100,10 @@ class CreationismPage extends React.Component {
         })
       )
     })
+
+    this.setState({
+      saved: true,
+    })
   }
 
   getPresetSkeleton(preset) {
@@ -113,7 +117,7 @@ class CreationismPage extends React.Component {
   render() {
     return (
       <main className="page-section creationism">
-        <Helmet title="Creationism" />
+        <Helmet title="Create" />
         <Resets>
           <li className="navigation__item">
             <Link to="creationism/championship"
