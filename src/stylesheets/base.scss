@@ -1,37 +1,52 @@
-@import "variables";
-
-/* basics */
-@import "animations/main";
-@import "breakpoints";
-@import "navigation";
-@import "clearfix";
-@import "dropdown";
-@import "animate";
-
-@import "sprites/main";
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", "Verdana", "Arial", sans-serif;
-  background-color: $bg;
-  color: $color;
-}
+@import 'typography';
+@import 'animate';
+@import 'animations/main';
+@import 'breakpoints';
+@import 'clearfix';
+@import 'dropdown';
+@import 'navigation';
+@import 'variables';
+@import 'flexboxgrid';
+@import 'form';
+@import 'table';
 
 @include breakpoint(xs) {
   [class*='col-'] {
-      padding-right: 0;
-      padding-left: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-/* REM */
-html {
-  font-size: 60%;
+html,
+body {
+  height: 100%;
 }
 
 body {
-  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+#root,
+#root > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.page-section {
+  flex: 1 0 auto;
+}
+
+.inpage-content {
+  margin: 2rem 2rem 0;
+  z-index: 0;
+
+  @include breakpoint(xs) {
+    margin: .2rem;
+  }
 }
 
 h1 {
@@ -55,30 +70,16 @@ h4 {
 }
 
 a {
-  color: black;
-}
-
-.legal {
-  padding: 3rem;
-  color: white;
-  line-height: 2rem;
-  background-color: #333;
-
-  a {
-    color: #ccc;
-  }
-  p {
-    margin: 1rem 0;
-  }
+  color: #000;
 }
 
 .statistic {
-  font-family: "Roboto Slab", "Verdana", sans-serif;
+  font-family: 'Roboto Slab', 'Verdana', sans-serif;
 }
 
 .spaced {
   letter-spacing: .25rem;
-  word-spacing: 0.5rem;
+  word-spacing: .5rem;
 
   @include breakpoint(xs) {
     letter-spacing: inherit;
@@ -87,9 +88,9 @@ a {
 }
 
 sup {
-  vertical-align: super;
   font-size: 50%;
-  letter-spacing: 0.2;
+  letter-spacing: .2;
+  vertical-align: super;
 }
 
 a:hover,
@@ -107,43 +108,30 @@ a:hover {
 }
 
 .no-select {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 
-h1 {
-  font-size: 50px;
-  img {
-    max-height: 80px;
-  }
+.hide {
+  display: none;
 }
 
-.page {
-  z-index: 1;
-
-  .inpage-content {
-    padding: 1em 0;
-    position: relative;
-    z-index: 2;
-
-    @include breakpoint(xs) {
-      padding: 0;
-    }
-  }
-}
-
-.fold {
-  min-height: 120px;
-  padding: 15px;
+span.text-center,
+div.text-center {
+  text-align: center;
 }
 
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .zoom:hover {

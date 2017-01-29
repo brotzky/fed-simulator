@@ -1,6 +1,18 @@
-# Fed Simulator
+# TODO
 
-### [Play without installing by going to fedSimulator.com](http://www.fedsimulator.com)
+ * Delete item (but no default)
+ * Any kind of error handling on form submission
+ * Consider the vertical vs horizontal form and consolidate
+ * Promises on dispatch so we can do loaders
+ * Championship colour
+
+
+
+#Universe SIM Manager
+
+[![CircleCI](https://circleci.com/gh/azz0r/wwe-draft-generator.svg?style=svg)](https://circleci.com/gh/azz0r/wwe-draft-generator)
+
+### [View a demo here](https://www.wwesim.com)
 
 ## 📕 Index
 * [Installing](#installing)
@@ -18,7 +30,6 @@ or
 ```
 yarn
 ```
-
 
 ### Features
 * PPV, moves, wrestlers, brands, shows, championships collections

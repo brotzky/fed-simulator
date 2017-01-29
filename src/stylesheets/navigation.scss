@@ -4,6 +4,7 @@
   background-color: #232828;
   font-family: 'Roboto';
   font-size: 2rem;
+  color: white;
 
   .icon {
     zoom: .2;
@@ -28,18 +29,18 @@
     display: flex;
     align-items: center;
     margin: 0;
-    padding: 1rem 4rem;
+    padding: 1rem 2rem;
     display: flex;
   }
 
   &__item {
-    display: flex;
     align-items: flex-start;
     color: white;
     margin-right: 5rem;
 
     a {
       color: white;
+      text-decoration: none;
     }
   }
 
@@ -78,7 +79,6 @@
 }
 
 .navigation--secondary {
-  margin: 0 -15px;
   background-color: #141516;
   font-size: 1.5rem;
 }

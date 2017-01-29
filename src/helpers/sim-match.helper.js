@@ -8,13 +8,21 @@ export class SimMatch {
 
   state = []
 
-  constructor(wrestlers, moves) {
+  constructor(
+    wrestlers = [],
+    moves = [],
+    byPassMoves = false
+  ) {
     wrestlers.forEach((wrestler, wrestlerKey) => {
       wrestlers[wrestlerKey] = wrestler
     })
     this.wrestlers = wrestlers
-    this.moves = moves
-    this.movesWeights = moves.reduce((a, b) => a.concat(b.weight), [])
+    this.byPassMoves = byPassMoves
+
+    if (!this.byPassMoves) {
+      this.moves = moves
+      this.movesWeights = moves.reduce((a, b) => a.concat(b.weight), [])
+    }
   }
 
   logAction = (action, details) => {
@@ -36,7 +44,7 @@ export class SimMatch {
   ringBell() {
     if (this.wrestlers.length === 0) return
     let lowest = this.wrestlers.sort((a, b) => a.damage > b.damage)[0],
-      highest = this.wrestlers.sort((a, b) => a.damage < b.damage)[0],
+      highest = this.wrestlers.filter(wrestler => wrestler.id !== lowest.id).sort((a, b) => a.damage < b.damage)[0],
       lowestId = lowest.id,
       highestId = highest.id,
       lowestIndex = this.wrestlers.findIndex(wrestler => wrestler.id === lowestId),
@@ -49,25 +57,30 @@ export class SimMatch {
       attackersWeights[highestIndex] = attackersWeights[highestIndex] + highestAttackersPercentageGain
     }
 
-    // while the minimum damage done is stil above zero
-    while(_minBy(this.wrestlers, "damage").damage > 0) {
-      let attacker = weighted.select(this.wrestlers, attackersWeights),
-        defender
+    if (this.byPassMoves) {
+      // make the top ranked guy the winner for quicker sim
+      this.finalAttacker = highest
+    } else {
+      // while the minimum damage done is stil above zero
+      while(_minBy(this.wrestlers, "damage").damage > 0) {
+        let attacker = weighted.select(this.wrestlers, attackersWeights),
+          defender
 
-      // just in case
-      this.finalAttacker = attacker
+        // just in case
+        this.finalAttacker = attacker
 
-      let defenders = this.wrestlers.filter((wrestler) => wrestler.id !== attacker.id && (wrestler.teamId == null || wrestler.teamId !== attacker.teamId) )
+        let defenders = this.wrestlers.filter((wrestler) => wrestler.id !== attacker.id && (wrestler.teamId == null || wrestler.teamId !== attacker.teamId) )
 
-      if (defenders.length > 1) {
-        let defendersWeights = getWrestlersWeights(defenders.length)
-        defender = weighted.select(defenders, defendersWeights)
-      } else {
-        defender = defenders[0]
+        if (defenders.length > 1) {
+          let defendersWeights = getWrestlersWeights(defenders.length)
+          defender = weighted.select(defenders, defendersWeights)
+        } else {
+          defender = defenders[0]
+        }
+
+        let move = weighted.select(this.moves, this.movesWeights)
+        this.hitMove(attacker, defender, move)
       }
-
-      let move = weighted.select(this.moves, this.movesWeights)
-      this.hitMove(attacker, defender, move)
     }
     // loop done, now lets log the end
     this.endMatch()

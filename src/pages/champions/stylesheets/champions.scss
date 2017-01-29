@@ -1,18 +1,15 @@
 @import "src/stylesheets/variables";
 @import "src/stylesheets/breakpoints";
 
-.page.champions {
+.page-section.champions {
 
-  .alert {
-    text-align: center;
-    background-color: $primary;
-    color: white;
-    border-radius: 0;
-    border-color: $secondary;
+  .belt {
+    height: 6rem;
+    width: 28rem;
   }
 
   @include breakpoint(xs) {
-    
+
     .brand {
       margin-bottom: 1rem;
     }

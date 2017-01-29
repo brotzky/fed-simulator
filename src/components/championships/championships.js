@@ -1,5 +1,6 @@
 import React from "react"
 import Icon from "../icon/icon"
+import ChampionshipBelt from "../championship-belt/championship-belt"
 import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
 import classNames from "classnames"
@@ -48,17 +49,20 @@ class Championships extends React.Component {
   displayName = "Championships"
 
   render() {
-    const Vacant = () => {
-      return <span>Vacant</span>
-    }
     return (
       <div className="championships">
         {this.props.championships
           .sort((prev, current) => prev.sequence > current.sequence ? 1 : -1)
           .map((championship, key) => {
-          let active = championship.wrestlers.length > 0
+          let active = championship.wrestlers && championship.wrestlers.length > 0
               ? "active"
-              : "vacant"
+              : "inactive",
+            fullName = championship.wrestlers && championship.wrestlers.length > 0
+              ? championship.wrestlers.reduce((prev, current) => {
+                prev = prev + ` & ${current.name}`
+                return prev
+              }, "").substring(2)
+              : ""
           return (
             <div key={key}
               className={`championship ${active}`}>
@@ -72,35 +76,17 @@ class Championships extends React.Component {
                     {championship.changes}
                   </span>
                 </If>
-                <span className="hvr-push">
-                  <Icon name={championship.name} />
+                <span className="championship__name">
+                  <ChampionshipBelt
+                    {...championship}
+                    name={fullName}
+                  />
+                  {championship.name}
                 </span>
-                <div className={classNames([
-                  "championship__holdername",
-                  `championship__holdername--${this.context.toSlug(championship.name)}`])}>
-                  <Choose>
-                    <When condition={championship.wrestlers.length > 0}>
-                      {championship.wrestlers.map((wrestler, key) => {
-                        return (
-                          <span key={key}
-                            className="truncate">
-                            {wrestler.name}
-                          </span>
-                        )
-                      })}
-                    </When>
-                    <Otherwise>
-                      <Vacant />
-                    </Otherwise>
-                  </Choose>
-                  <If condition={championship.tag && championship.wrestlers.length < 2}>
-                    <Vacant />
-                  </If>
-                </div>
               </Droppable>
             </div>
           )
-        })}
+      })}
       </div>
     )
   }

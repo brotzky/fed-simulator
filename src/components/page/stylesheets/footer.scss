@@ -1,0 +1,18 @@
+$footer-background-color: #333;
+$footer-color: #fff;
+$footer-active-color: #ccc;
+
+footer {
+  background-color: $footer-background-color;
+  color: $footer-color;
+  line-height: 2rem;
+  padding: 2rem;
+
+  a {
+    color: $footer-active-color;
+  }
+
+  p {
+    margin: 1rem 0;
+  }
+}

@@ -8,6 +8,7 @@ export default class Icon extends React.Component {
     onClick: React.PropTypes.func,
     name: React.PropTypes.string.isRequired,
     active: React.PropTypes.bool,
+    image: React.PropTypes.string,
   }
 
   static defaultProps = {
@@ -20,10 +21,13 @@ export default class Icon extends React.Component {
     const slugName = toSlug(this.props.name)
     const active = this.props.active ? "active" : "inactive"
     return (
-      <span
-        onClick={() => this.props.onClick(this.props.name)}
+      <span onClick={() => this.props.onClick(this.props.name)}
         className={`icon icon-${slugName} ${active}`}
         title={name}>
+        <If condition={this.props.image}>
+          <img src={this.props.image}
+            className="icon__image" />
+        </If>
       </span>
     )
   }

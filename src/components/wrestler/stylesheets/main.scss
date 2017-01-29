@@ -1,9 +1,0 @@
-@import "src/stylesheets/breakpoints";
-
-.wrestler {
-  margin: 0.2rem 0.55rem;
-  
-  @include breakpoint(xs) {
-    zoom: 0.8;
-  }
-}

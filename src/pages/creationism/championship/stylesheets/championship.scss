@@ -1,0 +1,62 @@
+.page-section.creationism-championship {
+  height: 100%;
+
+  .inpage-content {
+    height: 100%;
+
+    .championship-belt {
+      height: 45%;
+
+      .box {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    .options {
+      margin: 2rem auto;
+      text-align: center;
+
+      input {
+        font-size: larger;
+        text-align: center;
+      }
+
+      .checkbox-custom-label {
+        font-size: larger;
+      }
+
+      .color__chrome {
+        flex: inherit;
+        margin: 0 auto;
+      }
+
+      label {
+        font-size: 4rem;
+        font-weight: 700;
+      }
+
+      button {
+        margin: 0 auto;
+        background-color: gold;
+
+        &,
+        a:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+
+
+.arrows__container {
+  height: 100%;
+  align-items: baseline;
+
+  .arrow__left,
+  .arrow__right {
+    font-size: 10rem;
+  }
+}

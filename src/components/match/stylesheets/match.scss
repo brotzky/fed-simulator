@@ -37,6 +37,7 @@
 
   .remove {
     opacity: 0;
+    transition: ease-out .3s;
 
     @include breakpoint(xs) {
       opacity: 1;
@@ -49,13 +50,7 @@
 
   &:hover .remove {
     opacity: 1;
-  }
-
-  .match__teamtoggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1;
+    transition: ease-in .3s;
   }
 
   &__names {

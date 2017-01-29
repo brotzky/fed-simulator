@@ -18,10 +18,6 @@ module.exports = {
     ),
     new CopyWebpackPlugin([
       {
-        from: paths.appImgs,
-        to: "static/",
-      },
-      {
         from: paths.appPublic,
         to: "static/",
       },
@@ -88,7 +84,7 @@ module.exports = {
         test: /\.(ot|svg|woff|woff2|mp3|jpg|png)(\?.*)?$/,
         include: [
           paths.appSrc,
-          paths.appImgs,
+          paths.appPublic,
           paths.appNodeModules,
         ],
         loader: "file",

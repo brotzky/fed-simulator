@@ -1,14 +1,24 @@
 .brand {
 
   &__icon {
-    height: 11rem;
+    align-items: flex-end;
+    background-size: cover;
+    display: flex;
+    height: 12rem;
+    justify-content: center;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 1rem;
+    text-align: center;
   }
 
   &__toggles {
-    display: inline-flex;
-    height: 2.5rem;
-    margin: 0;
-    padding: 0;
+    margin-bottom: 1rem;
 
     a {
       color: white;

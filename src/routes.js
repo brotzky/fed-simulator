@@ -10,7 +10,7 @@ export default () => {
       <IndexRoute
         getComponent={(nextState, callback) => {
           require.ensure([], (require) => {
-            callback(null, require("./pages/landing/landing").default)
+            callback(null, require("./pages/creationism/creationism").default)
           })
         }}
        />
@@ -21,13 +21,40 @@ export default () => {
                callback(null, require("./pages/show/show").default)
              })
            }}
-       />
+         />
+       </Route>
+       <Route path="creationism">
+         <IndexRoute
+           getComponent={(nextState, callback) => {
+             require.ensure([], (require) => {
+               callback(null, require("./pages/creationism/creationism").default)
+             })
+           }}
+         />
+       </Route>
+       <Route path="creationism/championship">
+         <IndexRoute
+           getComponent={(nextState, callback) => {
+             require.ensure([], (require) => {
+               callback(null, require("./pages/creationism/championship/championship").default)
+             })
+           }}
+         />
        </Route>
        <Route path="shows">
          <IndexRoute
            getComponent={(nextState, callback) => {
              require.ensure([], (require) => {
                callback(null, require("./pages/shows/shows").default)
+             })
+           }}
+         />
+       </Route>
+       <Route path="evolution">
+         <IndexRoute
+           getComponent={(nextState, callback) => {
+             require.ensure([], (require) => {
+               callback(null, require("./pages/evolution/evolution").default)
              })
            }}
          />
@@ -72,7 +99,7 @@ export default () => {
         path="*"
         getComponent={(nextState, callback) => {
           require.ensure([], (require) => {
-            callback(null, require("./pages/landing/landing").default)
+            callback(null, require("./pages/creationism/creationism").default)
           })
         }}
       />

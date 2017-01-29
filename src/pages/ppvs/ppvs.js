@@ -1,7 +1,7 @@
-import React from "react"
-import PPVs from "../../components/ppvs/ppvs"
-import Helmet from "react-helmet"
 import { connect } from "react-redux"
+import Helmet from "react-helmet"
+import PPVs from "../../components/ppvs/ppvs"
+import React from "react"
 
 class PPVsPage extends React.Component {
 
@@ -14,7 +14,7 @@ class PPVsPage extends React.Component {
 
   render() {
     return (
-      <div className="page ppvs">
+      <main className="page-section ppvs">
         <Helmet title="Pay Per Views" />
         <div className="inpage-content">
           <div className="row">
@@ -23,7 +23,7 @@ class PPVsPage extends React.Component {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

@@ -1,8 +1,6 @@
 @import "src/stylesheets/breakpoints";
 
 .ranking {
-  font-family: "Roboto", "Verdana", sans-serif;
-
   thead tr td {
     font-size: 1.7rem;
     font-weight: 500;
@@ -26,6 +24,8 @@
       @include breakpoint(xs) {
         font-size: 1.3rem;
         vertical-align: middle;
+        line-height: 1.3rem;
+
         p {
           margin: 0;
           padding: 0;
@@ -37,7 +37,7 @@
       color: #ccc;
 
       .icon {
-        opacity: 0.77;
+        opacity: .77;
       }
     }
 
@@ -75,13 +75,14 @@
 
     .ranking__wins,
     .ranking__losses {
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 2.5rem;
-      height: 2.5rem;
-      width: 5%;
-      vertical-align: middle;
       text-align: center;
+      width: 5%;
+    }
+  
+    .ranking__wins,
+    .ranking__losses,
+    .ranking__name {
+      vertical-align: middle;
 
       @include breakpoint(xs) {
         line-height: inherit;

@@ -1,0 +1,62 @@
+[{
+	"key": "name",
+	"type": "input",
+	"label": "Name"
+}, {
+	"key": "centerStrapShape",
+	"type": "select",
+	"label": "Center strap shape",
+	"options": [
+		"rectangle",
+		"circle",
+		"square",
+		"oval"
+	]
+}, {
+	"key": "centerPlateShape",
+	"type": "select",
+	"label": "Center plate shape",
+	"options": [
+		"rectangle",
+		"circle",
+		"square",
+		"oval"
+	]
+}, {
+	"key": "sideplateShape",
+	"type": "select",
+	"label": "Sideplate shape",
+	"options": [
+		"rectangle",
+		"circle",
+		"square",
+		"oval"
+	]
+}, {
+	"key": "centerPlateOverflow",
+	"type": "checkbox",
+	"label": "Center plate overflow",
+	"options": [{
+		"key": true,
+		"name": "Show"
+	}, {
+		"key": false,
+		"name": "Show"
+	}]
+}, {
+	"key": "centerPlateColor",
+	"type": "color",
+	"label": "Center plate engraving color"
+}, {
+	"key": "centerPlateBackgroundColor",
+	"type": "color",
+	"label": "Center plate metal color"
+}, {
+	"key": "sideplateBackgroundColor",
+	"type": "color",
+	"label": "Sideplate metal color"
+}, {
+	"key": "strapBackgroundColor",
+	"type": "color",
+	"label": "Strap color"
+}]

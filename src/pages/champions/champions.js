@@ -1,11 +1,11 @@
-import React from "react"
-import Championships from "../../components/championships/championships"
-import Secondary from "../../components/page/secondary"
+import "./stylesheets/champions"
+import { connect } from "react-redux"
+import { Link } from "react-router"
 import * as championshipActions from "../../actions/championship"
 import Brand from "../../components/brand/brand"
+import Championships from "../../components/championships/championships"
 import Helmet from "react-helmet"
-import { connect } from "react-redux"
-import "./stylesheets/champions"
+import React from "react"
 
 class ChampionsPage extends React.Component {
 
@@ -25,74 +25,62 @@ class ChampionsPage extends React.Component {
     )
   }
 
-  onReset = (event) => {
-    event.preventDefault()
-    this.props.dispatch(
-      championshipActions.reset()
-    )
-  }
-
   render() {
-    const awardedChampionships = this.props.championships.filter(championship => championship.wrestlerId !== "" || championship.wrestlerIds.length > 0).length
+    let largeColumn  = Math.round(12 / this.props.brands.length)
     return (
-      <div className="page champions">
+      <main className="page-section champions">
         <Helmet title="Championships" />
-        <Secondary />
-        <div className="navigation navigation--secondary">
-          <ul className="navigation__list">
-            <li className="navigation__item">
-              <a onKeyPress={this.onClear}
-                onClick={this.onClear}
-                href="#">
-                Clear All Championships
-              </a>
-            </li>
-            <li className="navigation__item">
-              <a onKeyPress={this.onReset}
-                onClick={this.onReset}>
-                Reset Championships
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div className="inpage-content">
-          <If condition={awardedChampionships < 3}>
-            <div className="alert alert-info" role="alert">
-              Drag and drop wrestlers onto a championship to award it to them!
-            </div>
-          </If>
-          <div className="row">
-            {this.props.brands.filter(brand => brand.default === false).map((brand, key) => {
-              let wrestlers = this.props.wrestlers
-                .filter(wrestler => wrestler.brand === brand.name),
-                championships = this.props.championships
-                  .filter(championship => championship.brand === brand.name)
-                  .sort((a, b) => a.rating > b.rating ? 1 : -1)
-              return (
-                <div
-                  key={brand.id}
-                  className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <div className="row clearfix">
-                      <div className="col-xs-12">
-                        <Championships
-                          championships={championships}
-                          showBadge={true}
-                        />
-                      </div>
-                    </div>
-                    <Brand
-                      id={brand.id}
-                      name={brand.name}
-                      canDragAndDrop={true}
-                      wrestlers={wrestlers}
-                      showBrandLogo={false}
-                    />
-                </div>
-              )
-            })}
+          <div className="navigation navigation--secondary">
+            <ul className="navigation__list">
+              <If condition={this.props.brands.length > 0}>
+                <li className="navigation__item">
+                  <a onKeyPress={this.onClear}
+                    onClick={this.onClear}
+                    href="#">
+                    Vacate all championships
+                  </a>
+                </li>
+              </If>
+              <li className="navigation__item">
+                <Link to="creationism/championship"
+                  className="btn">
+                    Create a Championship
+                </Link>
+              </li>
+            </ul>
           </div>
-        </div>
-      </div>
+          <div className="inpage-content">
+            <div className="row">
+              {this.props.brands.map((brand, key) => {
+                let wrestlers = this.props.wrestlers
+                  .filter(wrestler => wrestler.brand === brand.name),
+                  championships = this.props.championships
+                    .filter(championship => championship.brand === brand.name)
+                    .sort((a, b) => a.rating > b.rating ? 1 : -1)
+                  return (
+                    <div key={key}
+                      className={`col-lg-${largeColumn} col-md-6 col-sm-6 col-xs-12`}>
+                      <Championships
+                        championships={championships}
+                        showBadge={true}
+                      />
+                      <Brand
+                        model={{
+                          bgColour: brand.bgColour,
+                          textColour: brand.textColour,
+                        }}
+                        canDragAndDrop={true}
+                        wrestlers={brand.wrestlers}
+                        showBrandLogo={false}
+                        bgColour={brand.bgColour}
+                        wrestlers={wrestlers}
+                      />
+                    </div>
+                  )
+                })}
+            </div>
+          </div>
+      </main>
     )
   }
 }

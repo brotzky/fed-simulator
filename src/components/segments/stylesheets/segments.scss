@@ -1,18 +1,19 @@
 @import "src/stylesheets/breakpoints";
 
 .segments {
+  display: flex;
 
   .hvr-bounce-to-right:before {
-    background-color: #ccc;
+    background-color: rgba(black, 0.5);
   }
 
   &__segment {
-    float: left;
-    vertical-align: middle;
+    align-items: center;
     background-color: black;
     color: white;
-    padding: 2rem;
     font-size: 3rem;
+    justify-content: center;
+    padding: 2rem;
 
     @include breakpoint(xs) {
       font-size: 1.5rem;
@@ -20,5 +21,3 @@
     }
   }
 }
-
-@import "segments.modifiers"

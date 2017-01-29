@@ -1,46 +1,45 @@
 @import "src/stylesheets/breakpoints";
+@import "src/stylesheets/variables";
 
 .championships {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
   text-align: center;
-
+  overflow: hidden;
+  
   .championship {
-    vertical-align: top;
+    border-radius: .5rem;
+    margin-bottom: .5rem;
     position: relative;
-    padding: 1em 0;
-    margin: 0 1rem;
+    margin: 0 1rem 1rem 1rem;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     .badge {
-      background-color: #f0efef;
-      color: black;
-      border-radius: 50%;
+      background-image: linear-gradient(to bottom, #e69fa5, #dd202f);
+      background: #e23442;
+      border-radius: 100%;
+      border: 1px solid #911f28;
+      color: white;
+      line-height: 2rem;
+      padding: 0 .5rem;
       position: absolute;
-      top: 0rem;
-      right: 40%;
+      right: 27%;
+      top: 25%;
+      z-index: 250;
     }
 
-    &__holdername {
-      position: relative;
-
-      span {
-        display: block;
-      }
+    &__name {
+      font-size: 1.5rem;
     }
 
-    &.vacant {
-      color: #ccc;
-    }
-
-    @include breakpoint(xs) {
-      padding: 0;
-      zoom: 0.7;
-
-      .badge {
-        display: none;
-      }
+    &__holdername  span {
+      display: block;
     }
   }
 }

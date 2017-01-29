@@ -1,0 +1,9 @@
+.form__textarea {
+  font-size: 1.2rem;
+
+  &.active {
+    background-color: white;
+    font-size: 1.8rem;
+    height: 25rem;
+  }
+}
