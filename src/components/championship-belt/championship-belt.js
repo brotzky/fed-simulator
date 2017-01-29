@@ -1,6 +1,6 @@
 import React from "react"
 import "./stylesheets/championship-belt"
-import sizeMe from 'react-sizeme'
+import sizeMe from "react-sizeme"
 import leatherIMG from "./leather.png"
 import metalIMG from "./metal.png"
 
@@ -27,7 +27,6 @@ class ChampionshipBelt extends React.Component {
     const beltName = {
       fontSize: `${getFontSize()}rem`,
       color: this.props.centerPlateColor,
-      textShadow: `.1rem .1rem ${this.props.strapBackgroundColor}`,
     }
     const buttonsContainerStyle = {
       backgroundColor: this.props.strapBackgroundColor,

@@ -1,14 +1,14 @@
 import "./stylesheets/championship"
 import { connect } from "react-redux"
-import * as championshipActions from "../../actions/championship"
-import ChampionshipBelt from "../../components/championship-belt/championship-belt"
-import Checkbox from "../../components/form/checkbox"
-import ColourPicker from "../../components/form/colour"
-import Input from "../../components/form/input"
-import Model from "../../reducers/championship.model"
-import Options from "./options"
+import * as championshipActions from "../../../actions/championship"
+import ChampionshipBelt from "../../../components/championship-belt/championship-belt"
+import Checkbox from "../../../components/form/checkbox"
+import ColourPicker from "../../../components/form/colour"
+import Input from "../../../components/form/input"
+import Model from "../../../reducers/championship.model"
 import React from "react"
-import Select from "../../components/form/select"
+import Select from "../../../components/form/select"
+import Skeleton from "./skeleton"
 
 class CreationismChampionshipPage extends React.Component {
 
@@ -28,7 +28,7 @@ class CreationismChampionshipPage extends React.Component {
 
   changeHandler = (event, target) => {
     let newCurrentItem = Object.assign({}, this.state.currentItem)
-    newCurrentItem[Options[this.state.currentOptionIndex].key] = target
+    newCurrentItem[Skeleton[this.state.currentOptionIndex].key] = target
 
     this.setState({
       currentItem: new Model(newCurrentItem).toJSON(),
@@ -52,8 +52,8 @@ class CreationismChampionshipPage extends React.Component {
     let newIndex = this.state.currentOptionIndex + value
 
     if (newIndex === -1) {
-      newIndex = Options.length - 1
-    } else if (newIndex === Options.length) {
+      newIndex = Skeleton.length - 1
+    } else if (newIndex === Skeleton.length) {
       newIndex = 0
     }
     this.setState({
@@ -70,9 +70,9 @@ class CreationismChampionshipPage extends React.Component {
   }
 
   render() {
-    const currentOption = Options[this.state.currentOptionIndex]
+    const currentOption = Skeleton[this.state.currentOptionIndex]
     const currentValue = this.state.currentItem[currentOption.key]
-    let currentOptions = {
+    let currentSkeleton = {
       label: currentOption.label,
       name: currentOption.key,
       defaultValue: currentValue,
@@ -93,35 +93,35 @@ class CreationismChampionshipPage extends React.Component {
             <div className="col-xs-10 center-xs middle-xs championship-belt">
               <div className="box">
                 <ChampionshipBelt {...this.state.currentItem} />
-                <div className="row options">
+                <div className="row Skeleton">
                   <div className="col-xs-12">
                     <div className="box">
                       <Choose>
                         <When condition={currentOption.type === "color"}>
                           <ColourPicker
                             color={currentValue}
-                            {...currentOptions} />
+                            {...currentSkeleton} />
                         </When>
                         <When condition={currentOption.type === "input"}>
                           <Input value={currentValue}
                             maxLength={50}
-                            {...currentOptions} />
+                            {...currentSkeleton} />
                         </When>
                         <When condition={currentOption.type === "select"}>
-                          <Select options={currentOption.options}
-                            {...currentOptions} />
+                          <Select Skeleton={currentOption.Skeleton}
+                            {...currentSkeleton} />
                         </When>
                         <When condition={currentOption.type === "checkbox"}>
                           <div>
-                            <Checkbox options={currentOption.options}
-                             {...currentOptions} />
+                            <Checkbox Skeleton={currentOption.Skeleton}
+                             {...currentSkeleton} />
                           </div>
                         </When>
                       </Choose>
                     </div>
                   </div>
                 </div>
-                <div className="row options">
+                <div className="row Skeleton">
                   <button className="btn" onClick={this.onSave}>
                     Create Championship
                   </button>
