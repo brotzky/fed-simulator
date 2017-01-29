@@ -74,7 +74,7 @@ class ChampionshipBelt extends React.Component {
       )
     }
     return (
-      <div className="belt">
+      <div className="belt no-select">
         <Buttons />
         <Sideplate />
         <Sideplate />
