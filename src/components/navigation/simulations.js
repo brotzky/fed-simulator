@@ -14,11 +14,11 @@ const amountOfSims = [
 class PageSecondary extends React.Component {
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
-    moves: React.PropTypes.array.isRequired,
     brands: React.PropTypes.array.isRequired,
+    dispatch: React.PropTypes.func.isRequired,
+    moves: React.PropTypes.array.isRequired,
     showClear: React.PropTypes.bool,
+    wrestlers: React.PropTypes.array.isRequired,
   }
 
   static defaultProps = {
@@ -41,9 +41,11 @@ class PageSecondary extends React.Component {
     while (amount > 0) {
       let wrestlers = this.props.wrestlers.filter(wrestler => brand.default || wrestler.brand === brand.name),
         randomisedWrestlers = randomiseWrestlers({ wrestlers }),
+        byPassMoves = true,
         story = simulateMatch(
           randomisedWrestlers,
           this.props.moves,
+          byPassMoves,
         )
 
       logMatch(this.props.dispatch, story)

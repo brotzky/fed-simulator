@@ -69,7 +69,7 @@ export function randomiseWrestlers({
   return matchWrestlers
 }
 
-export function simulateMatch(wrestlers, moves) {
+export function simulateMatch(wrestlers, moves, byPassMoves = false) {
   // ensure they have a damage attribute
   wrestlers.forEach((wrestler, key) => {
     wrestlers[key].damage = wrestler.rating
@@ -78,6 +78,7 @@ export function simulateMatch(wrestlers, moves) {
   return new SimMatch(
     wrestlers,
     moves,
+    byPassMoves,
   ).ringBell()
 }
 
