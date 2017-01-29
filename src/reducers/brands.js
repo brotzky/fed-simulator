@@ -9,7 +9,6 @@ export default (state = defaultState, action) => {
     case "UPDATE_BRAND":
       let index = getIndexById(action.brand.id)
       newState[index] = new Model(action.brand).toJSON()
-      console.log(newState[index])
       break
     case "CREATE_BRAND":
       if (newState.length === 0) {

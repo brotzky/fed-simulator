@@ -16,7 +16,6 @@ export default (state = defaultState, action) => {
       break
     case "UPDATE_CHAMPIONSHIP":
       let index = getIndexById(action.championship.id)
-      console.log(index, action.championship)
       newState[index] = new Model(action.championship).toJSON()
       break
     case "MOVE_CHAMPIONSHIP":
