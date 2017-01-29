@@ -14,6 +14,7 @@ const Model = Backbone.Model.extend({
     centerStrapShape: "circle",
     centerPlateShape: "circle",
     centerPlateColor: "black",
+    centerPlateBackgroundColor: "gold",
     sideplateBackgroundColor: "gold",
     strapBackgroundColor: "black",
     sideplateShape: "rectangle",

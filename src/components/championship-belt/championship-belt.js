@@ -14,6 +14,7 @@ class ChampionshipBelt extends React.Component {
     centerStrapShape: React.PropTypes.string,
     centerPlateShape: React.PropTypes.string,
     centerPlateColor: React.PropTypes.string,
+    centerPlateBackgroundColor: React.PropTypes.string,
     sideplateBackgroundColor: React.PropTypes.string,
     strapBackgroundColor: React.PropTypes.string,
     sideplateShape: React.PropTypes.string,
@@ -40,7 +41,11 @@ class ChampionshipBelt extends React.Component {
       backgroundColor: this.props.strapBackgroundColor,
       backgroundImage: `url("${leatherIMG}")`,
     }
-    const plateBackground = {
+    const centerPlate = {
+      backgroundColor: this.props.centerPlateBackgroundColor,
+      backgroundImage: `url("${metalIMG}")`,
+    }
+    const sidePlate = {
       backgroundColor: this.props.sideplateBackgroundColor,
       backgroundImage: `url("${metalIMG}")`,
     }
@@ -62,7 +67,7 @@ class ChampionshipBelt extends React.Component {
         <span className="container-sm">
           <span style={strapBackgroundColor}
             className="strap">
-            <span style={plateBackground}
+            <span style={sidePlate}
               className={`plate plate-sm ${this.props.sideplateShape}`}></span>
           </span>
         </span>
@@ -76,7 +81,7 @@ class ChampionshipBelt extends React.Component {
         <span className="container-lg">
           <span style={strapBackgroundColor}
             className={`strap ${this.props.centerPlateOverflow ? "hide" : "show"}-overflow ${this.props.centerStrapShape}`}>
-            <span style={plateBackground}
+            <span style={centerPlate}
               className={`plate plate-lg ${this.props.centerPlateShape}`}>
                 <span className="plate__name"
                   style={beltName}>

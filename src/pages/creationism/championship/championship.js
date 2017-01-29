@@ -71,11 +71,13 @@ class CreationismChampionshipPage extends React.Component {
 
   render() {
     const currentOption = Skeleton[this.state.currentOptionIndex]
+    console.log(currentOption)
     const currentValue = this.state.currentItem[currentOption.key]
-    let currentSkeleton = {
+    let values = {
       label: currentOption.label,
       name: currentOption.key,
       defaultValue: currentValue,
+      value: currentValue,
       changeHandler: this.changeHandler,
       showPreview: false,
     }
@@ -100,21 +102,21 @@ class CreationismChampionshipPage extends React.Component {
                         <When condition={currentOption.type === "color"}>
                           <ColourPicker
                             color={currentValue}
-                            {...currentSkeleton} />
+                            {...values} />
                         </When>
                         <When condition={currentOption.type === "input"}>
                           <Input value={currentValue}
                             maxLength={50}
-                            {...currentSkeleton} />
+                            {...values} />
                         </When>
                         <When condition={currentOption.type === "select"}>
-                          <Select Skeleton={currentOption.Skeleton}
-                            {...currentSkeleton} />
+                          <Select options={currentOption.options}
+                            {...values} />
                         </When>
                         <When condition={currentOption.type === "checkbox"}>
                           <div>
-                            <Checkbox Skeleton={currentOption.Skeleton}
-                             {...currentSkeleton} />
+                            <Checkbox options={currentOption.options}
+                             {...values} />
                           </div>
                         </When>
                       </Choose>

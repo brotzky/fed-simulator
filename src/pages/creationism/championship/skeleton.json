@@ -25,7 +25,7 @@
 }, {
 	"key": "sideplateShape",
 	"type": "select",
-	"label": "Sideplate Shape",
+	"label": "Sideplate shape",
 	"options": [
 		"rectangle",
 		"circle",
@@ -46,13 +46,17 @@
 }, {
 	"key": "centerPlateColor",
 	"type": "color",
-	"label": "Center plate color"
+	"label": "Center plate engraving color"
+}, {
+	"key": "centerPlateBackgroundColor",
+	"type": "color",
+	"label": "Center plate metal color"
 }, {
 	"key": "sideplateBackgroundColor",
 	"type": "color",
-	"label": "Sideplate background color"
+	"label": "Sideplate metal color"
 }, {
 	"key": "strapBackgroundColor",
 	"type": "color",
-	"label": "Strap Color"
+	"label": "Strap color"
 }]

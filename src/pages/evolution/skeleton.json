@@ -96,6 +96,10 @@
 		"type": "color",
 		"value": "gold"
 	}, {
+		"name": "centerPlateBackgroundColor",
+		"type": "color",
+		"value": "gold"
+	}, {
 		"name": "sideplateBackgroundColor",
 		"type": "color",
 		"value": "gold"
