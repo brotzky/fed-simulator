@@ -1,21 +1,8 @@
 .page-section.buckets {
 
-  .icon__container {
-
-    .icon {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-    }
-  }
-
-  .form {
-    opacity: .5;
-    width: 75%;
-    margin: 0 auto;
-  }
-
-  .form:hover {
-    opacity: 1;
+  .icon__container .icon {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 }
