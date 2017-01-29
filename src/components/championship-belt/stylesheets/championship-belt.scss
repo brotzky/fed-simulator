@@ -44,6 +44,8 @@ $belt-ending-radius: 13%;
     height: 100%;
     justify-content: center;
     width: 100%;
+    border-top: .1rem solid #ccc;
+    border-bottom: .1rem solid #ccc;
 
     &.hide-overflow {
       overflow: hidden;
@@ -70,10 +72,12 @@ $belt-ending-radius: 13%;
   }
 
   .first {
+    border-left: .1rem solid #ccc;
     border-radius: $belt-ending-radius 0% 0% $belt-ending-radius;
   }
 
   .last {
     border-radius: 0% $belt-ending-radius $belt-ending-radius 0;
+    border-right: .1rem solid #ccc;
   }
 }
