@@ -129,6 +129,7 @@ class CreationismPage extends React.Component {
                 <div key={key}
                   className="col-xs-12 col-lg-2">
                   <Form
+                    buttonTitle="Create"
                     onSave={this.onSave}
                     skeleton={this.getPresetSkeleton(preset)}
                   />

@@ -40,12 +40,12 @@ $belt-ending-radius: 13%;
 
   .strap {
     align-items: center;
+    border-bottom: .1rem solid #ccc;
+    border-top: .1rem solid #ccc;
     display: flex;
     height: 100%;
     justify-content: center;
     width: 100%;
-    border-top: .1rem solid #ccc;
-    border-bottom: .1rem solid #ccc;
 
     &.hide-overflow {
       overflow: hidden;
@@ -67,7 +67,6 @@ $belt-ending-radius: 13%;
       &__buttons {
         background-color: transparent;
         font-size: large;
-        text-shadow: 2px 1px 0px #ccc;
       }
     }
   }

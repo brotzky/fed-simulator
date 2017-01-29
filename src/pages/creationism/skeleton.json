@@ -1,46 +1,55 @@
 [
   {
     "name": "brand",
+    "label": "Brand",
     "type": "input",
     "value": ""
   },
   {
     "name": "image",
+    "label": "Logo",
     "type": "image",
     "value": ""
   },
   {
     "name": "maleWrestlers",
+    "label": "Male wrestlers",
     "type": "textarea",
     "value": ""
   },
   {
     "name": "femaleWrestlers",
+    "label": "Women Wrestlers",
     "type": "textarea",
     "value": ""
   },
   {
     "name": "championships",
+    "label": "List of Championships",
     "type": "textarea",
     "value": ""
   },
   {
     "name": "ppvs",
-    "type": "input",
+    "type": "textarea",
+    "label": "List of Event titles",
     "value": ""
   },
   {
     "name": "bgColour",
     "type": "color",
+    "label": "Brand background color",
     "value": "#000"
   },
   {
     "name": "textColour",
+    "label": "Brand text color",
     "type": "color",
     "value": "#fff"
   },
   {
     "name": "sequence",
+    "label": "Order",
     "type": "input",
     "value": "0"
   }

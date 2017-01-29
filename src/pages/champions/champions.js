@@ -26,7 +26,7 @@ class ChampionsPage extends React.Component {
   }
 
   render() {
-    let largeColumn  = Math.floor(12 / this.props.brands.length)
+    let largeColumn  = Math.round(12 / this.props.brands.length)
     return (
       <main className="page-section champions">
         <Helmet title="Championships" />
