@@ -37,10 +37,10 @@
 	"type": "checkbox",
 	"label": "Center plate overflow",
 	"options": [{
-		"key": "true",
+		"key": true,
 		"name": "Show"
 	}, {
-		"key": "false",
+		"key": false,
 		"name": "Show"
 	}]
 }, {

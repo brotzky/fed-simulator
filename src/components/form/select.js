@@ -19,6 +19,12 @@ export default class Select extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.defaultValue,
+    })
+  }
+
   onChange = (event) => {
     this.props.changeHandler(
       this.props.name,

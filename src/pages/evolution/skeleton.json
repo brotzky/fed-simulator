@@ -70,6 +70,10 @@
 		"type": "bool",
 		"value": false
 	}, {
+		"name": "centerPlateOverflow",
+		"type": "bool",
+		"value": true
+	}, {
 		"name": "sequence",
 		"type": "input",
 		"value": 0
@@ -104,9 +108,5 @@
 		"type": "select",
 		"value": "rectangle",
 		"options": ["rectangle", "square", "circle", "oval"]
-	}, {
-		"name": "centerPlateOverflow",
-		"type": "bool",
-		"value": "true"
 	}]
 }

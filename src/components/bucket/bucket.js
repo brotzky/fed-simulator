@@ -1,27 +1,29 @@
-import "./stylesheets/bucket.scss"
-import Select from "../form/select"
-import Form from "../form/form"
 import _cloneDeep from "lodash.clonedeep"
+import "./stylesheets/bucket.scss"
+import Form from "../form/form"
 import React from "react"
+import Select from "../form/select"
 
 export default class Bucket extends React.Component {
 
   static propTypes = {
     options: React.PropTypes.array.isRequired,
     name: React.PropTypes.string.isRequired,
-    onSaveBucket: React.PropTypes.func.isRequired,
+    onSave: React.PropTypes.func.isRequired,
     skeleton: React.PropTypes.array.isRequired,
   }
 
   displayName = "Bucket"
 
   state = {
+    currentId: false,
     currentItem: false,
   }
 
   onSelect = (selectName, id) => {
     let currentItem = this.props.options.find(option => option.id === id)
     this.setState({
+      currentId: id,
       currentItem,
     })
   }
@@ -36,11 +38,13 @@ export default class Bucket extends React.Component {
     })
   }
 
-  onSaveBucket = (event) => {
-    event.preventDefault && event.preventDefault()
-
-    this.props.onSaveBucket({
-      ...this.state.currentItem,
+  onSave = (newState) => {
+    newState = Object.assign(this.state.currentItem, newState)
+    this.props.onSave({
+      ...newState,
+    })
+    this.setState({
+      currentItem: newState,
     })
   }
 
@@ -65,9 +69,12 @@ export default class Bucket extends React.Component {
           </article>
         </div>
         <If condition={this.state.currentItem}>
-          <Form changeHandler={this.changeHandler}
+          <Form
+            id={this.state.currentId}
+            onSave={this.onSave}
             skeleton={this.getSkeleton()}
-            onSave={this.onSaveBucket} />
+            changeHandler={this.changeHandler}
+          />
         </If>
       </div>
     )

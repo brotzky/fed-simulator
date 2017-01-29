@@ -11,11 +11,17 @@ import Textarea from "./textarea"
 export default class Form extends React.Component {
 
   static propTypes = {
+    buttonTitle: React.PropTypes.string,
+    id: React.PropTypes.string,
     onSave: React.PropTypes.func,
+    skeleton: React.PropTypes.array.isRequired,
   }
 
   static defaultProps = {
+    buttonTitle: "Save",
+    id: `${Math.random()}`,
     onSave: () => {},
+    skeleton: [],
   }
 
   displayName = "Form"
@@ -41,7 +47,7 @@ export default class Form extends React.Component {
   render() {
     return (
       <article className="form">
-        <form>
+        <form id={this.props.id}>
           {this.props.skeleton.map((item, key) => {
             let type = item.type,
               values = {

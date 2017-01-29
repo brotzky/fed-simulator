@@ -50,7 +50,7 @@ export default class Input extends React.Component {
           className="form-control"
           name={this.props.name}
           maxLength={this.props.maxLength}
-          defaultValue={this.state.value}
+          value={this.state.value}
           onChange={this.onChange}
         />
       </div>

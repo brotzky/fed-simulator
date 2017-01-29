@@ -50,7 +50,7 @@ class EvolutionPage extends React.Component {
                 options={this.props.brands}
                 key="brand"
                 name="brand"
-                onSaveBucket={this.onSaveBrand}
+                onSave={this.onSaveBrand}
                 skeleton={Skeleton.brand}
               />
             </div>
@@ -59,7 +59,7 @@ class EvolutionPage extends React.Component {
                 options={this.props.wrestlers}
                 key="wrestler"
                 name="wrestler"
-                onSaveBucket={this.onSaveWrestler}
+                onSave={this.onSaveWrestler}
                 skeleton={Skeleton.wrestler}
               />
             </div>
@@ -68,7 +68,7 @@ class EvolutionPage extends React.Component {
                 options={this.props.championships}
                 key={"championships"}
                 name="championships"
-                onSaveBucket={this.onSaveChampionship}
+                onSave={this.onSaveChampionship}
                 skeleton={Skeleton.championship}
               />
             </div>

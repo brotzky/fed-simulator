@@ -5,7 +5,7 @@ export default class Checkbox extends React.Component {
   static propTypes = {
     changeHandler: React.PropTypes.func.isRequired,
     name: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.bool,
+    defaultValue: React.PropTypes.any,
   }
 
   constructor(props) {
@@ -16,12 +16,18 @@ export default class Checkbox extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.defaultValue,
+    })
+  }
+
   static defaultProps = {
     defaultValue: false,
   }
 
   onChange = () => {
-    const newValue = !this.props.defaultValue
+    const newValue = !this.state.value
     this.props.changeHandler(
       this.props.name,
       newValue,
@@ -36,8 +42,8 @@ export default class Checkbox extends React.Component {
       <div>
         <input id={this.props.name}
           name={this.props.name}
-          defaultValue={this.state.value}
-          checked={this.props.defaultValue}
+          value={this.state.value}
+          defaultChecked={this.state.value}
           onChange={this.onChange}
           className="checkbox-custom"
           type="checkbox" />
