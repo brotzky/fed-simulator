@@ -63,12 +63,13 @@ $belt-ending-radius: 13%;
         line-height: .8em;
         word-spacing: 100rem;
       }
-    }
-  }
 
-  .plate.buttons {
-    background-color: transparent;
-    font-size: large;
+      &__buttons {
+        background-color: transparent;
+        font-size: large;
+        text-shadow: 2px 1px 0px #ccc;
+      }
+    }
   }
 
   .first {

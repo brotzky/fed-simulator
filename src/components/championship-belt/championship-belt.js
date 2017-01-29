@@ -54,7 +54,7 @@ class ChampionshipBelt extends React.Component {
         <span className="container-xs">
           <span style={buttonsContainerStyle}
             className={`strap ${borderClass}`}>
-            <span className="plate buttons"
+            <span className="plate plate__buttons"
               style={buttonsStyle}>
               :::
             </span>

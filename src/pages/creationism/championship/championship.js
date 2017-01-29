@@ -95,7 +95,7 @@ class CreationismChampionshipPage extends React.Component {
             <div className="col-xs-10 center-xs middle-xs championship-belt">
               <div className="box">
                 <ChampionshipBelt {...this.state.currentItem} />
-                <div className="row Skeleton">
+                <div className="row options">
                   <div className="col-xs-12">
                     <div className="box">
                       <Choose>
@@ -123,7 +123,7 @@ class CreationismChampionshipPage extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="row Skeleton">
+                <div className="row options">
                   <button className="btn" onClick={this.onSave}>
                     Create Championship
                   </button>
