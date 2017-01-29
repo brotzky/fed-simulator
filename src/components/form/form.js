@@ -7,6 +7,7 @@ import React from "react"
 import ReadOnly from "./readonly"
 import Select from "./select"
 import Textarea from "./textarea"
+import "./stylesheets/form"
 
 export default class Form extends React.Component {
 
@@ -46,19 +47,21 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <article className="form">
-        <form id={this.props.id}>
+      <article>
+        <form className="form"
+          id={this.props.id}>
           {this.props.skeleton.map((item, key) => {
             let type = item.type,
               values = {
                 name: item.name,
                 ref: item.name,
-                label: item.name,
+                label: item.label ? item.label : item.name,
                 defaultValue: item.value,
                 changeHandler: () => {},
               }
               return (
-                <div key={key}>
+                <div className="form__group"
+                  key={key}>
                   <Choose>
                     <When condition={type === "color"}>
                       <ColourPicker {...values} />

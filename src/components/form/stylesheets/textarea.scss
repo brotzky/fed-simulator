@@ -1,0 +1,8 @@
+.form__textarea {
+  font-size: 1rem;
+
+  &.active {
+    font-size: 2rem;
+    height: 25rem;
+  }
+}

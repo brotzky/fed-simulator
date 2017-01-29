@@ -1,4 +1,5 @@
 import React from "react"
+import "./stylesheets/textarea"
 
 export default class Textarea extends React.Component {
 
@@ -14,7 +15,20 @@ export default class Textarea extends React.Component {
 
     this.state = {
       value: props.defaultValue,
+      active: false,
     }
+  }
+
+  onFocus = () => {
+    this.setState({
+      active: true,
+    })
+  }
+
+  onBlur = () => {
+    this.setState({
+      active: false,
+    })
   }
 
   onChange = (event) => {
@@ -34,7 +48,9 @@ export default class Textarea extends React.Component {
           {this.props.label}
         </label>
         <textarea type="textarea"
-          className="form-control"
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          className={`form__textarea form-control ${this.state.active ? "active" : "inactive"}`}
           name={this.props.name}
           defaultValue={this.props.defaultValue}
           onChange={this.onChange}
