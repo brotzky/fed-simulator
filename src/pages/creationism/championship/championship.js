@@ -71,7 +71,6 @@ class CreationismChampionshipPage extends React.Component {
 
   render() {
     const currentOption = Skeleton[this.state.currentOptionIndex]
-    console.log(currentOption)
     const currentValue = this.state.currentItem[currentOption.key]
     let values = {
       label: currentOption.label,
