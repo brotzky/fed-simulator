@@ -23,8 +23,8 @@ class ChampionshipBelt extends React.Component {
 
   render() {
     const { width } = this.props.size
-    const divisibleAmount = this.props.name.length > 20 ? 350 : 150
-    const getFontSize = () => Math.round(this.props.size.width / divisibleAmount)
+    const divisibleAmount = this.props.name.length > 20 ? 400 : 150
+    const getFontSize = () => this.props.size.width / divisibleAmount
     const beltName = {
       fontSize: `${getFontSize()}rem`,
       color: this.props.centerPlateColor,
