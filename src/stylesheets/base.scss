@@ -1,17 +1,17 @@
-@import "typography";
-@import "animate";
-@import "animations/main";
-@import "breakpoints";
-@import "clearfix";
-@import "dropdown";
-@import "navigation";
-@import "variables";
-@import "flexboxgrid";
-@import "form";
-@import "table";
+@import 'typography';
+@import 'animate';
+@import 'animations/main';
+@import 'breakpoints';
+@import 'clearfix';
+@import 'dropdown';
+@import 'navigation';
+@import 'variables';
+@import 'flexboxgrid';
+@import 'form';
+@import 'table';
 
 @include breakpoint(xs) {
-  [class*="col-"] {
+  [class*='col-'] {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -74,7 +74,7 @@ a {
 }
 
 .statistic {
-  font-family: "Roboto Slab", "Verdana", sans-serif;
+  font-family: 'Roboto Slab', 'Verdana', sans-serif;
 }
 
 .spaced {
