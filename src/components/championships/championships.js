@@ -49,9 +49,6 @@ class Championships extends React.Component {
   displayName = "Championships"
 
   render() {
-    const Vacant = () => {
-      return <span>Vacant</span>
-    }
     return (
       <div className="championships">
         {this.props.championships
@@ -62,7 +59,8 @@ class Championships extends React.Component {
               : "inactive",
             fullName = championship.wrestlers && championship.wrestlers.length > 0
               ? championship.wrestlers.reduce((prev, current) => {
-                return `& ${current.name}`
+                prev = prev + ` & ${current.name}`
+                return prev
               }, "").substring(2)
               : ""
           return (
