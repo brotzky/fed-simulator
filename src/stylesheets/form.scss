@@ -28,11 +28,13 @@ $display: block !default;
 
 .form {
   margin: 0 auto;
-  opacity: .6;
+  opacity: .8;
+  transition: opacity .3s ease-in;
   width: 95%;
 
   &:hover {
     opacity: 1;
+    transition: opacity .3s ease-out;
   }
 
   label {
