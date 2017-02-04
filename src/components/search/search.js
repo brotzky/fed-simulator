@@ -17,6 +17,10 @@ export default class Search extends React.Component {
     brandName: "",
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.search !== nextState.search
+  }
+
   componentWillMount() {
     this.searchCallback = (event) => {
       let search = event.target.value

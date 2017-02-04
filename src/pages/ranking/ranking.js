@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import * as wrestlersActions from "../../actions/wrestlers"
 import Helmet from "react-helmet"
-import Icon from "../../components/icon/icon"
 import Ranking from "../../components/ranking/ranking"
 import React from "react"
 import Simulations from "../../components/navigation/simulations"
@@ -34,7 +33,9 @@ class RankingPage extends React.Component {
     while (amount > 0) {
       let
         wrestlers = this.props.wrestlers.filter(wrestler => brand.name === "" || wrestler.brand === brand.name),
-        randomisedWrestlers = randomiseWrestlers({ wrestlers }),
+        randomisedWrestlers = randomiseWrestlers({
+          wrestlers,
+        }),
         story = simulateMatch(
           randomisedWrestlers,
           this.props.moves,
@@ -106,18 +107,18 @@ class RankingPage extends React.Component {
                 .filter((brand) => !brand.default)
                 .map((brand, key)=> {
                 return (
-                  <div key={key} className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <Ranking
-                      title={`${brand.name} Overall Ranking`}
-                      amountToShow={5}
-                      showLabels={false}
-                      wrestlers={this.props.wrestlers
-                        .filter((wrestler) => wrestler.brand === brand.name)
-                        .sort((a, b) => a.wins > b.wins)
-                        .reverse()
-                      }
-                    />
-                  </div>
+                  <Ranking
+                    key={key}
+                    className="col-lg-4 col-md-12 col-sm-12 col-xs-12"
+                    title={`${brand.name} Overall Ranking`}
+                    amountToShow={5}
+                    showLabels={false}
+                    wrestlers={this.props.wrestlers
+                      .filter((wrestler) => wrestler.brand === brand.name)
+                      .sort((a, b) => a.wins > b.wins)
+                      .reverse()
+                    }
+                  />
                 )
               })}
             </div>

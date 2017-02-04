@@ -23,7 +23,7 @@ class DraftPage extends React.Component {
   }
 
   render() {
-    const defaultBrand = this.props.brands.filter(brand => brand.default)[0]
+    const defaultBrand = this.props.brands.find(brand => brand.default)
     const nonDefaultBrands = this.props.brands
         .filter(brand => !brand.default)
         .sort((prev, current) => prev.sequence > current.sequence ? 1 : -1)
@@ -56,7 +56,7 @@ class DraftPage extends React.Component {
                 </div>
                 <div className="col-xs-12 col-lg-10">
                   <div className="row">
-                    {nonDefaultBrands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand, key) => {
+                    {nonDefaultBrands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand) => {
                       let wrestlers = this.props.wrestlers
                         .filter(wrestler => (brand.default === true && wrestler.brand === "") || wrestler.brand === brand.name)
                         .sort((a, b) => a.rating < b.rating ? 1 : -1)

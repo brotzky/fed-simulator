@@ -5,9 +5,9 @@ import sinon from "sinon"
 import { Provider } from "react-redux"
 import { shallow, mount, render } from "enzyme"
 import chaiEnzyme from "chai-enzyme"
-import configureStore from "../store/configure-store"
-import { context } from "../components/context-holder/default"
-import ContextHolder from "../components/context-holder/context-holder"
+import configureStore from "../src/store/configure-store"
+import { context } from "../src/components/context-holder/default"
+import ContextHolder from "../src/components/context-holder/context-holder"
 
 const store = configureStore()
 
@@ -30,5 +30,5 @@ export {
   render,
   store,
   ContextHolder,
-  context,
+  context
 }

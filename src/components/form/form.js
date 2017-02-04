@@ -20,7 +20,7 @@ export default class Form extends React.Component {
 
   static defaultProps = {
     buttonTitle: "Save",
-    id: `${Math.random()}`,
+    id: Math.random(),
     onSave: () => {},
     skeleton: [],
   }
@@ -36,8 +36,10 @@ export default class Form extends React.Component {
 
     const formData = {}
 
-    for (let field in this.refs) {
-      formData[field] = this.refs[field].state.value
+    for (const field in this.refs) {
+      if (this.refs.hasOwnProperty(field)) {
+        formData[field] = this.refs[field].state.value
+      }
     }
 
     this.props.onSave(

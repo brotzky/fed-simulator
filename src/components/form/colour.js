@@ -44,7 +44,7 @@ export default class ColourPicker extends React.Component {
   render() {
     const style = {
       backgroundColor: this.state.value,
-      border: "0.1rem solid black"
+      border: ".1rem solid black",
     }
     return (
       <div className="row color">

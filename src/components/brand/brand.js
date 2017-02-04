@@ -87,7 +87,6 @@ class Brand extends React.Component {
       femalewrestlers = wrestlers.filter(wrestler => wrestler.male === false)
     return (
       <Droppable
-        key={this.props.model.id}
         className="brand"
         types={[
           "wrestler",
@@ -147,4 +146,4 @@ class Brand extends React.Component {
   }
 }
 
-export default connect(state => ({}))(Brand)
+export default connect(() => ({}))(Brand)

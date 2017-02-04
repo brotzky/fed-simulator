@@ -1,10 +1,8 @@
 import React from "react"
-import Icon from "../icon/icon"
 import ChampionshipBelt from "../championship-belt/championship-belt"
 import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
-import classNames from "classnames"
-import { Draggable, Droppable } from "react-drag-and-drop"
+import { Droppable } from "react-drag-and-drop"
 import "./stylesheets/championships"
 
 class Championships extends React.Component {
@@ -53,7 +51,7 @@ class Championships extends React.Component {
       <div className="championships">
         {this.props.championships
           .sort((prev, current) => prev.sequence > current.sequence ? 1 : -1)
-          .map((championship, key) => {
+          .map((championship) => {
           let active = championship.wrestlers && championship.wrestlers.length > 0
               ? "active"
               : "inactive",
@@ -64,7 +62,7 @@ class Championships extends React.Component {
               }, "").substring(2)
               : ""
           return (
-            <div key={key}
+            <div key={championship.id}
               className={`championship ${active}`}>
               <Droppable
                 types={[
@@ -86,7 +84,7 @@ class Championships extends React.Component {
               </Droppable>
             </div>
           )
-      })}
+        })}
       </div>
     )
   }

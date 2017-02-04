@@ -63,7 +63,7 @@ class Match extends React.Component {
   render() {
     let
       hasBeenSimulated = this.props.story && this.props.story.length > 0,
-      teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}],
+      teams = this.props.isTagMatch ? [{}, {}, {}, {},] : [{}, ],
       winnerId = hasBeenSimulated
         ? this.props.story[this.props.story.length - 1].details.winner.id
         : false
@@ -73,7 +73,7 @@ class Match extends React.Component {
           <div className={classNames(
             "col-xs-12",
             "match__inner",
-            { "is-tag-match": this.props.isTagMatch }
+            { "is-tag-match": this.props.isTagMatch, }
           )}>
             <div className="match__section statistic">
               Match {this.props.matchIndex + 1}
@@ -101,15 +101,15 @@ class Match extends React.Component {
                     className={classNames({
                       "col-xs-6": this.props.isTagMatch,
                       "col-xs-12": !this.props.isTagMatch,
-                      "hide": teamWrestlers.length === 0 && hasBeenSimulated
+                      "hide": teamWrestlers.length === 0 && hasBeenSimulated,
                     })}
                     data={this.props.isTagMatch ? teamId : false}
                     onDrop={this.onDrop}>
                     <div className={classNames(
                       "droparea",
-                      { "droparea--team": this.props.isTagMatch },
-                      { active : hasBeenSimulated },
-                      { inactive : !hasBeenSimulated },
+                      { "droparea--team": this.props.isTagMatch, },
+                      { active : hasBeenSimulated, },
+                      { inactive : !hasBeenSimulated, },
                     )}>
                       <If condition={teamWrestlers.length === 0}>
                         <span className="droparea__title"></span>

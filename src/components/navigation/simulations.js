@@ -1,7 +1,6 @@
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import * as wrestlersActions from "../../actions/wrestlers"
-import Icon from "../icon/icon"
 import React from "react"
 
 const amountOfSims = [
@@ -40,7 +39,9 @@ class PageSecondary extends React.Component {
   }) => {
     while (amount > 0) {
       let wrestlers = this.props.wrestlers.filter(wrestler => brand.default || wrestler.brand === brand.name),
-        randomisedWrestlers = randomiseWrestlers({ wrestlers }),
+        randomisedWrestlers = randomiseWrestlers({
+          wrestlers,
+        }),
         byPassMoves = true,
         story = simulateMatch(
           randomisedWrestlers,
@@ -65,8 +66,8 @@ class PageSecondary extends React.Component {
                 {amountOfSims.map((amount, key) => {
                   return (
                     <span key={key}>
-                      <a onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand })}
-                        onClick={this.onSimulateBrandMatches.bind(this, { amount, brand })}>
+                      <a onKeyPress={this.onSimulateBrandMatches.bind(this, { amount, brand, })}
+                        onClick={this.onSimulateBrandMatches.bind(this, { amount, brand, })}>
                         {amount}
                       </a>,	&nbsp;
                     </span>

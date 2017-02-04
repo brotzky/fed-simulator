@@ -1,7 +1,7 @@
 import {
   expect
-} from "../test"
-import { toPercent } from "../match"
+} from "./test"
+import { toPercent } from "../src/helpers/match"
 
 describe("toPercent", () => {
   const totals = {
@@ -22,15 +22,15 @@ describe("toPercent", () => {
     },
   }
   it("Correctly figures out 75 percent", () => {
-    let { total, percent, result } = totals[75]
+    let { total, percent, result, } = totals[75]
     expect(toPercent(percent, total)).to.equal(result)
   })
   it("Correctly figures out 50 percent", () => {
-    let { total, percent, result } = totals[50]
+    let { total, percent, result, } = totals[50]
     expect(toPercent(percent, total)).to.equal(result)
   })
   it("Correctly figures out 25 percent", () => {
-    let { total, percent, result } = totals[25]
+    let { total, percent, result, } = totals[25]
     expect(toPercent(percent, total)).to.equal(result)
   })
 })

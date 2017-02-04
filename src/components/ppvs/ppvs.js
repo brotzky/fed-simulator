@@ -19,12 +19,12 @@ export default class PPVs extends React.Component {
     return (
       <div className="ppvs">
         <ul className="ppvs__list">
-          {this.props.ppvs.map((ppv, key) => {
+          {this.props.ppvs.map((ppv) => {
             const style = {
               color: getRandomHex(),
             }
             return (
-              <li key={key}
+              <li key={ppv.id}
                 style={style}
                 onClick={this.props.onPPVClick.bind(this, ppv)}
                 className="ppvs__item hvr-float-shadow">

@@ -47,7 +47,10 @@ export default class Select extends React.Component {
           {this.props.options.map((item, index) => {
             item = typeof(item) === "object"
               ? item
-              : { name: item, id: item }
+              : {
+                  name: item,
+                  id: item,
+                }
             return (
               <option value={item.id}
                 key={index}>

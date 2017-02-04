@@ -22,7 +22,7 @@ class ChampionshipBelt extends React.Component {
   }
 
   render() {
-    const { width } = this.props.size
+    const { width, } = this.props.size
     const divisibleAmount = this.props.name.length > 20 ? 400 : 150
     const getFontSize = () => this.props.size.width / divisibleAmount
     const beltName = {
@@ -49,7 +49,7 @@ class ChampionshipBelt extends React.Component {
       backgroundColor: this.props.sideplateBackgroundColor,
       backgroundImage: `url("${metalIMG}")`,
     }
-    const Buttons = ({ borderClass="first" }) => {
+    const Buttons = ({ borderClass="first", }) => {
       return (
         <span className="container-xs">
           <span style={buttonsContainerStyle}

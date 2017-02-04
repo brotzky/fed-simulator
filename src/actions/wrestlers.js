@@ -47,18 +47,18 @@ export function awardMatchPoints({
 
 export function moveAllWrestlersToDefault() {
   return {
-    type: types.MOVE_All_WRESTLERS_TO_DEFAULT
+    type: types.MOVE_All_WRESTLERS_TO_DEFAULT,
   }
 }
 
 export function clear() {
   return {
-    type: types.CLEAR_WRESTLERS
+    type: types.CLEAR_WRESTLERS,
   }
 }
 
 export function reset() {
   return {
-    type: types.RESET_WRESTLERS
+    type: types.RESET_WRESTLERS,
   }
 }

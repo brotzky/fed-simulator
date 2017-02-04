@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { Link } from "react-router"
 import * as showActions from "../../actions/show"
 import Helmet from "react-helmet"
-import Icon from "../../components/icon/icon"
 import Moment from "moment"
 import React from "react"
 
@@ -73,7 +72,12 @@ class ShowsPage extends React.Component {
                           onClick={() => this.onDeleteShow(show.id)}>
                           <i className="fa fa-remove" aria-hidden="true"></i>&nbsp;
                         </a>
-                        <Link to={{pathname: 'show/', query: {id: show.id}}}>
+                        <Link to={{
+                          pathname: "show/",
+                          query: {
+                            id: show.id,
+                          },
+                        }}>
                           {show.PPV.name}
                         </Link>
                       </td>

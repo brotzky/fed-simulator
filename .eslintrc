@@ -101,6 +101,9 @@
       "ignoreDestructuring": false,
       "ignoreImport": false,
       "ignoreExport": false
-    }]
+    }],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": 1,
+    "react/react-in-jsx-scope": 1
   }
 }

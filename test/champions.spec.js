@@ -1,13 +1,10 @@
-import {
-  React,
-  expect,
-} from "../test"
+import { expect } from "./test"
 import {
   getChampions,
   getChampionsIds,
   getKeyedChampions,
-  getWrestlersWithChampionships,
-} from "../championships"
+  getWrestlersWithChampionships
+} from "../src/helpers/championships"
 import defaultSettings from "./championships.json"
 
 describe("championships", () => {
