@@ -34,7 +34,9 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        <PerfProfiler />
+        <If condition={process && process.env && process.env.NODE_ENV === "development"}>
+          <PerfProfiler />
+        </If>
         <Header />
         {this.props.children}
         <Footer />
