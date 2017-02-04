@@ -64,7 +64,7 @@ class Championships extends React.Component {
               }, "").substring(2)
               : ""
           return (
-            <div key={key}
+            <div key={championship.id}
               className={`championship ${active}`}>
               <Droppable
                 types={[
