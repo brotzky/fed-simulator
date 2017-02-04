@@ -19,6 +19,10 @@ export default class Select extends React.Component {
     }
   }
 
+  shouldComponentUpdate(nextProps) {
+    return this.state.value !== nextProps.defaultValue
+  }
+
   componentWillReceiveProps(nextProps) {
     this.setState({
       value: nextProps.defaultValue,
