@@ -106,19 +106,18 @@ class RankingPage extends React.Component {
                 .filter((brand) => !brand.default)
                 .map((brand, key)=> {
                 return (
-                  <div key={key}
-                    className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
-                    <Ranking
-                      title={`${brand.name} Overall Ranking`}
-                      amountToShow={5}
-                      showLabels={false}
-                      wrestlers={this.props.wrestlers
-                        .filter((wrestler) => wrestler.brand === brand.name)
-                        .sort((a, b) => a.wins > b.wins)
-                        .reverse()
-                      }
-                    />
-                  </div>
+                  <Ranking
+                    key={key}
+                    className="col-lg-4 col-md-12 col-sm-12 col-xs-12"
+                    title={`${brand.name} Overall Ranking`}
+                    amountToShow={5}
+                    showLabels={false}
+                    wrestlers={this.props.wrestlers
+                      .filter((wrestler) => wrestler.brand === brand.name)
+                      .sort((a, b) => a.wins > b.wins)
+                      .reverse()
+                    }
+                  />
                 )
               })}
             </div>
