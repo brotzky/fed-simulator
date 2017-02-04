@@ -40,11 +40,7 @@ export default class Story extends React.Component {
       <ul className="story">
         <If condition={this.props.collection.length > 0}>
           {this.props.collection.map((action, key) => {
-            let
-              brand = action.details.attacker
-                ? action.details.attacker.brand
-                : action.details.winner.brand,
-              indexClass = (action.action === "move")
+            let indexClass = (action.action === "move")
                 ? `index-${this.state.colourIndex[action.details.attacker.id]}`
                 : ""
             return (

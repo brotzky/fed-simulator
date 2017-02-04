@@ -17,6 +17,10 @@ export default class Icon extends React.Component {
     name: "",
   }
 
+  shouldComponentUpdate(nextProps) {
+    return this.props.name !== nextProps.name
+  }
+
   render() {
     const slugName = toSlug(this.props.name)
     const active = this.props.active ? "active" : "inactive"
