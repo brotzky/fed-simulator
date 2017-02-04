@@ -7,7 +7,6 @@ import Brand from "../../components/brand/brand"
 import classNames from "classnames"
 import DayPicker from "react-day-picker"
 import Helmet from "react-helmet"
-import Icon from "../../components/icon/icon"
 import Match from "../../components/match/match"
 import PPVs from "../../components/ppvs/ppvs"
 import React from "react"
@@ -168,9 +167,9 @@ class ShowPage extends React.Component {
         <Helmet title="Create a Show" />
         <If condition={this.props.ppvs && this.props.ppvs[0]}>
           <div className="inpage-content">
-            <div className={classNames(
-              "row animated fadeIn",
-              { hide: !this.state.showPPVs }
+            <div className={classNames("row animated fadeIn", {
+                hide: !this.state.showPPVs,
+              }
             )}>
               <div className="col-xs-12">
                 <PPVs

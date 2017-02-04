@@ -30,13 +30,20 @@ class CreationismPage extends React.Component {
     let newState = Object.assign({}, this.state.currentItem)
     newState[fieldName] = fieldValue
     this.setState({
-      currentItem: {...newState},
+      currentItem: {
+        ...newState,
+      },
     })
   }
 
   onSave = (formData) => {
     const textareaToArray = (value) => value.split(",").filter(item => item !== "").map(item => item.trim())
-    const splitToArray = ["maleWrestlers", "femaleWrestlers", "ppvs", "championships"]
+    const splitToArray = [
+      "maleWrestlers",
+      "femaleWrestlers",
+      "ppvs",
+      "championships",
+    ]
     splitToArray.forEach(splitter => {
       formData[splitter] = textareaToArray(formData[splitter])
     })
@@ -147,5 +154,4 @@ class CreationismPage extends React.Component {
   }
 }
 
-export default connect(state => ({
-}))(CreationismPage)
+export default connect(() => ({}))(CreationismPage)

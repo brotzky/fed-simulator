@@ -8,8 +8,8 @@
     "build:deploy": "npm run build && npm run deploy",
     "deploy": "gh-pages-deploy",
     "eslint": "eslint src",
-    "test": "NODE_ENV=test mocha --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./src/**/**/*.spec.js",
-    "test:watch": "NODE_ENV=test mocha --watch --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js *.spec.js"
+    "test": "NODE_ENV=test mocha --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./test/*.js",
+    "test:watch": "NODE_ENV=test mocha --watch --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./test/*.js"
   },
   "pre-commit": [
     "test",

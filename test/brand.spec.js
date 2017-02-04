@@ -5,15 +5,22 @@ import {
   ContextHolder,
   context,
   store,
-  Provider,
-} from "../../../helpers/test"
-import Brand from "../brand"
+  Provider
+} from "./test"
+import Brand from "../src/components/brand/brand"
+
+const model = {
+  id: 1,
+  name: "test",
+  "bgColour": "black",
+  "textColour": "white",
+}
 
 describe("<Brand />", () => {
   const mainWrapper = mount(
     <Provider store={store}>
       <ContextHolder context={context}>
-        <Brand />
+        <Brand model={model} />
       </ContextHolder>
     </Provider>
   )

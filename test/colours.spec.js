@@ -1,7 +1,7 @@
 import {
   expect
-} from "../test"
-import { luminance } from "../colours"
+} from "./test"
+import { luminance } from "../src/helpers/colours"
 
 describe("luminance", () => {
   const cases = {

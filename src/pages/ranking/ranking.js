@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import * as wrestlersActions from "../../actions/wrestlers"
 import Helmet from "react-helmet"
-import Icon from "../../components/icon/icon"
 import Ranking from "../../components/ranking/ranking"
 import React from "react"
 import Simulations from "../../components/navigation/simulations"
@@ -34,7 +33,9 @@ class RankingPage extends React.Component {
     while (amount > 0) {
       let
         wrestlers = this.props.wrestlers.filter(wrestler => brand.name === "" || wrestler.brand === brand.name),
-        randomisedWrestlers = randomiseWrestlers({ wrestlers }),
+        randomisedWrestlers = randomiseWrestlers({
+          wrestlers,
+        }),
         story = simulateMatch(
           randomisedWrestlers,
           this.props.moves,

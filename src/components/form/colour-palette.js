@@ -1,7 +1,6 @@
 import React from "react"
-import { GithubPicker, SketchPicker } from "react-color"
+import { GithubPicker } from "react-color"
 import Colors from "./colors"
-const defaultColour = "#000000"
 
 export default class ColorPalette extends React.Component {
 

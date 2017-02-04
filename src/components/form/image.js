@@ -28,7 +28,7 @@ export default class Input extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      value: nextProps.defaultValue
+      value: nextProps.defaultValue,
     })
   }
 

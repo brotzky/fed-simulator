@@ -25,7 +25,10 @@ export default class RankingRow extends React.Component {
   displayName = "RankingRow"
 
   render() {
-    const { wins, losses } = this.props.wrestler
+    const {
+      wins,
+      losses,
+    } = this.props.wrestler
 
     return (
       <tr className={(isActive(wins, losses) ? "active" : "inactive")}>

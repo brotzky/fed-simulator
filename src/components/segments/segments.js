@@ -10,7 +10,7 @@ export default class Segments extends React.Component {
       bgColour: React.PropTypes.string.isRequired,
       percent: React.PropTypes.number,
       value: React.PropTypes.number,
-    }))
+    })),
   }
 
   static defaultProps = {

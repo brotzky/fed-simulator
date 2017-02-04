@@ -107,11 +107,14 @@ export class SimMatch {
     let
       potentialWinners = [
         _maxBy(this.wrestlers, "damage"),
-        this.finalAttacker
+        this.finalAttacker,
       ]
 
     let overwriteWinner = this.wrestlers.find(wrestler => wrestler.winner),
-      winner = overwriteWinner ? overwriteWinner : weighted.select(potentialWinners, [0.2, 0.8]),
+      winner = overwriteWinner ? overwriteWinner : weighted.select(potentialWinners, [
+        0.2,
+        0.8,
+      ]),
       loser = _minBy(this.wrestlers.filter(wrestler => !wrestler.winner), "damage"),
       losers = this.wrestlers.filter((wrestler) => wrestler.id !== winner.id)
     this.logAction("winner", {
