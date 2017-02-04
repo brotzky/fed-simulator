@@ -8,18 +8,36 @@ const getWrestler = (wrestlers) => weighted.select(wrestlers, getWeightedArrayOf
 
 const defaultSettings = {
   male: {
-    options: [true, false],
-    weights: [0.8, 0.2],
+    options: [true, false, ],
+    weights: [0.8, 0.2, ],
   },
   amount: {
-    options: [2, 3, 4, 5, 6],
-    weights: [0.5, 0.2, 0.2, 0.05, 0.05]
+    options: [
+      2,
+      3,
+      4,
+      5,
+      6,
+    ],
+    weights: [
+      0.5,
+      0.2,
+      0.2,
+      0.05,
+      0.05,
+    ],
   },
   tag: {
-    options: [true, false],
-    weights: [0.1, 0.8],
+    options: [
+      true,
+      false,
+    ],
+    weights: [
+      0.1,
+      0.8,
+    ],
     perTeam: 2,
-  }
+  },
 }
 
 export function toPercent(percentage, total) {
@@ -85,13 +103,23 @@ export function simulateMatch(wrestlers, moves, byPassMoves = false) {
 export function logMatch(dispatch, story = []) {
   if (story.length === 0) return
   let winnersAction = story.slice(-1).pop().details,
-    championshipMatch = weighted.select([true, false], [0.5, 0.5]),
+    championshipMatch = weighted.select([
+      true,
+      false,
+    ], [
+      0.5,
+      0.5,
+    ]),
     toDispatch = [
-      awardMatchPoints({...winnersAction}),
+      awardMatchPoints({
+        ...winnersAction,
+      }),
     ]
     if (championshipMatch) {
       toDispatch.push(
-        shouldTheChampionshipMove({...winnersAction}),
+        shouldTheChampionshipMove({
+          ...winnersAction,
+        }),
       )
     }
 

@@ -146,4 +146,4 @@ class Brand extends React.Component {
   }
 }
 
-export default connect(state => ({}))(Brand)
+export default connect(() => ({}))(Brand)

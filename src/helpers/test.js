@@ -30,5 +30,5 @@ export {
   render,
   store,
   ContextHolder,
-  context,
+  context
 }

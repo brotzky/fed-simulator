@@ -1,7 +1,6 @@
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import * as wrestlersActions from "../../actions/wrestlers"
-import Icon from "../icon/icon"
 import React from "react"
 
 const amountOfSims = [

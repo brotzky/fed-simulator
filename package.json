@@ -11,6 +11,10 @@
     "test": "NODE_ENV=test mocha --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js ./src/**/**/*.spec.js",
     "test:watch": "NODE_ENV=test mocha --watch --recursive -r mock-local-storage --compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js *.spec.js"
   },
+  "pre-commit": [
+    "test",
+    "eslint"
+  ],
   "devDependencies": {
     "asyncawait": "^1.0.6",
     "autoprefixer": "^6.5.1",

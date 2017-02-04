@@ -3,12 +3,27 @@ import { randomiseWrestlers, simulateMatch } from "../helpers/match"
 import { getRandomInt } from "../helpers/math"
 
 const getAttendance = (min, max) => getRandomInt(min, max)
-const createEmptyMatches = () => Array.from({length: 12}).fill({isTagMatch: false})
+const createEmptyMatches = () => Array.from({
+  length: 12,
+}).fill({
+  isTagMatch: false,
+})
 const defaultState = []
-const defaultPPV = {attendance: {min: 10000, max: 20000}}
+const defaultPPV = {
+  attendance: {
+    min: 10000,
+    max: 20000,
+  },
+}
 const tag = {
-  options: [true, false],
-  weights: [0.1, 0.9],
+  options: [
+    true,
+    false,
+  ],
+  weights: [
+    0.1,
+    0.9,
+  ],
 }
 
 export default (state = defaultState, action) => {
