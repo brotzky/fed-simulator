@@ -20,7 +20,7 @@ export default class Form extends React.Component {
 
   static defaultProps = {
     buttonTitle: "Save",
-    id: Math.random(),
+    id: String(Math.random()),
     onSave: () => {},
     skeleton: [],
   }
