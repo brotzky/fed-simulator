@@ -1,6 +1,6 @@
 import "./stylesheets/ranking"
-import Label from "../label/label"
 import React from "react"
+import Row from "./row"
 
 export default class Ranking extends React.Component {
 
@@ -39,35 +39,17 @@ export default class Ranking extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.wrestlers
-                .slice(0, this.props.amountToShow)
-                .map((wrestler, key) => {
-                let active = (wrestler.wins > 0 || wrestler.losses > 0)
-                  ? "active"
-                  : "inactive"
+            {this.props.wrestlers
+              .slice(0, this.props.amountToShow)
+              .map((wrestler, key) => {
                 return (
-                  <tr className={active}
-                    key={key}>
-                    <td className="ranking__order statistic">
-                      #{key + 1}
-                    </td>
-                    <td className="ranking__name">
-                      <If condition={this.props.showLabels}>
-                        <Label
-                          modifier={wrestler.brand}
-                          name={wrestler.name}
-                        />
-                      </If>
-                    </td>
-                    <td className="ranking__wins statistic">
-                      {wrestler.wins.toLocaleString()}
-                    </td>
-                    <td className="ranking__losses statistic">
-                      {wrestler.losses.toLocaleString()}
-                    </td>
-                  </tr>
+                  <Row key={wrestler.id}
+                    position={ (key + 1) }
+                    wrestler={wrestler}
+                    showLabels={this.props.showLabel}
+                  />
                 )
-              })}
+            })}
             </tbody>
           </table>
         </If>

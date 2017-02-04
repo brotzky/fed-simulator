@@ -106,7 +106,8 @@ class RankingPage extends React.Component {
                 .filter((brand) => !brand.default)
                 .map((brand, key)=> {
                 return (
-                  <div key={key} className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                  <div key={key}
+                    className="col-lg-4 col-md-12 col-sm-12 col-xs-12">
                     <Ranking
                       title={`${brand.name} Overall Ranking`}
                       amountToShow={5}
