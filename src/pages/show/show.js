@@ -198,9 +198,9 @@ class ShowPage extends React.Component {
                             : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i> &nbsp;
                         </p>
                         <ul className="dropdown__content">
-                          {this.props.brands.map((brand, key) => {
+                          {this.props.brands.map((brand) => {
                             return (
-                              <li key={key}>
+                              <li key={brand.id}>
                                 <a onClick={() => this.onChangeBrand(brand)}>
                                   {brand.default ? "All" : brand.name}
                                 </a>
