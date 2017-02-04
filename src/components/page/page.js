@@ -1,6 +1,7 @@
 import React from "react"
 import Header from "./header"
 import Footer from "./footer"
+import PerfProfiler from "../perf-profiler/perf-profiler"
 import { connect } from "react-redux"
 import * as versionActions from "../../actions/version"
 import "../../stylesheets/base"
@@ -33,6 +34,7 @@ class Page extends React.Component {
   render() {
     return (
       <div>
+        <PerfProfiler />
         <Header />
         {this.props.children}
         <Footer />
