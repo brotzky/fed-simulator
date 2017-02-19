@@ -52,7 +52,7 @@ class RankingPage extends React.Component {
 
     this.props.brands.forEach((brand) => {
       let value = this.props.wrestlers
-          .filter(wrestler => wrestler.brand === brand.name)
+          .filter(wrestler => wrestler.brand.name === brand.name)
           .reduce((sum, wrestler) => sum + wrestler.wins, 0),
         percent =  100 * value / totalWins
 

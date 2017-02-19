@@ -17,6 +17,7 @@ class DraftPage extends React.Component {
 
   onSendToDraft = (event) => {
     event.preventDefault()
+
     this.props.dispatch(
       wrestlersActions.moveAllWrestlersToDefault()
     )
@@ -49,7 +50,7 @@ class DraftPage extends React.Component {
                   <Brand
                     model={defaultBrand}
                     canDragAndDrop={true}
-                    wrestlers={this.props.wrestlers.filter(wrestler => wrestler.brand === "Default")}
+                    wrestlers={this.props.wrestlers.filter(wrestler => wrestler.brand.name === "Default")}
                     byPassBrandFilter={defaultBrand.default}
                     showBrandLogo={false}
                   />
@@ -58,7 +59,7 @@ class DraftPage extends React.Component {
                   <div className="row">
                     {nonDefaultBrands.sort((prev, next) => prev.sequence > next.sequence ? 1 : -1).map((brand) => {
                       let wrestlers = this.props.wrestlers
-                        .filter(wrestler => (brand.default === true && wrestler.brand === "") || wrestler.brand === brand.name)
+                        .filter(wrestler => brand.default === true || wrestler.brand.name === brand.name)
                         .sort((a, b) => a.rating < b.rating ? 1 : -1)
                       return (
                         <div key={brand.id}

@@ -1,11 +1,21 @@
 const defaultState = []
 import Model from "./wrestler.model"
+import BrandModel from "./brand.model"
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
   const getIndexById = (id) => newState.findIndex(item => item.id === id)
 
   switch (action.type) {
+    case "UPDATE_BRAND":
+      delete action.brand.image
+
+      newState.forEach((wrestler, key) => {
+        if (action.brand.id === wrestler.brand.id) {
+          newState[key].brand = action.brand
+        }
+      })
+      break
     case "CREATE_WRESTLER":
       if (getIndexById(action.wrestler.id) < 0) {
         newState.push(
@@ -29,7 +39,7 @@ export default (state = defaultState, action) => {
     case "MOVE_WRESTLER":
       newState.forEach((wrestler, key) => {
         if (Number(wrestler.id) === Number(action.wrestlerId)) {
-          newState[key].brand = action.brand.name
+          newState[key].brand = action.brand
         }
       })
       break
@@ -46,7 +56,7 @@ export default (state = defaultState, action) => {
         break
       case "MOVE_All_WRESTLERS_TO_DEFAULT":
         newState.forEach((drop, key) => {
-          newState[key].brand = "Default"
+          newState[key].brand = new BrandModel().toJSON()
         })
         break
       case "RESET_WRESTLERS":

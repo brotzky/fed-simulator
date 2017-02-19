@@ -63,7 +63,7 @@ class ShowPage extends React.Component {
     let wrestlers = this.props.wrestlers
 
     if (!brand.default) {
-      wrestlers = wrestlers.filter(wrestler => wrestler.brand === brand.name)
+      wrestlers = wrestlers.filter(wrestler => wrestler.brand.name === brand.name)
     }
 
     return wrestlers

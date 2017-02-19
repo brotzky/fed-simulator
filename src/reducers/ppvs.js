@@ -6,6 +6,15 @@ export default (state = defaultState, action) => {
     getIndexById = (id) => newState.findIndex(item => item.id === id)
 
   switch (action.type) {
+    case "UPDATE_BRAND":
+      delete action.brand.image
+
+      newState.forEach((ppv, key) => {
+        if (action.brand.id === ppv.brand.id) {
+          newState[key].brand = action.brand
+        }
+      })
+      break
     case "CREATE_PPV":
       if (getIndexById(action.ppv.id) < 0) {
         newState.push(

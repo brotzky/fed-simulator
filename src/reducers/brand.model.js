@@ -8,7 +8,6 @@ const Model = Backbone.Model.extend({
     id: hashCode(new Date().toString()),
     name: "Default",
     image: "",
-    male: true,
     default: true,
     bgColour: "#000",
     textColour: "#fff",

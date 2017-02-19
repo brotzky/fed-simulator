@@ -7,9 +7,10 @@ export function create(brand) {
   }
 }
 
-export function update(brand) {
+export function update(brand, original = {}) {
   return {
     type: types.UPDATE_BRAND,
     brand,
+    original,
   }
 }

@@ -25,9 +25,11 @@ class EvolutionPage extends React.Component {
     )
   }
 
-  onSaveBrand = (brand) => {
+  onSaveBrand = (updatedBrand) => {
+    const original = this.props.brands.find((brand) => brand.id === updatedBrand.id)
+    console.log(original.name)
     this.props.dispatch(
-      brandsAction.update(brand)
+      brandsAction.update(updatedBrand, original)
     )
   }
 

@@ -7,6 +7,15 @@ export default (state = defaultState, action) => {
     key = 0
 
   switch (action.type) {
+    case "UPDATE_BRAND":
+      delete action.brand.image
+
+      newState.forEach((championship, key) => {
+        if (action.brand.id === championship.brand.id) {
+          newState[key].brand = action.brand
+        }
+      })
+      break
     case "CREATE_CHAMPIONSHIP":
       if (getIndexById(action.championship.id) < 0) {
         newState.push(

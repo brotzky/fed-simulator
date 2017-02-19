@@ -20,6 +20,15 @@ export default (state = defaultState, action) => {
   const getIndexById = (id) => newState.findIndex(show => show.id === id)
 
   switch (action.type) {
+    case "UPDATE_BRAND":
+      delete action.brand.image
+
+      newState.forEach((show, key) => {
+        if (action.brand.id === show.brand.id) {
+          newState[key].brand = action.brand
+        }
+      })
+      break
     case "CREATE_SHOW":
       if (getIndexById(action.show.id) < 0) {
         newState.push(

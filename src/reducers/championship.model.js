@@ -2,13 +2,14 @@ import Backbone from "backbone"
 import _each from "lodash/each"
 import _escape from "lodash/escape"
 import { hashCode } from "../helpers/hash"
+import BrandModel from "./brand.model"
 
 const Model = Backbone.Model.extend({
   defaults: {
     id: hashCode(new Date().toString()),
     name: "Default",
     male: true,
-    brand: "Default",
+    brand: new BrandModel().toJSON(),
     canMoveBrands: true,
     tag: false,
     sequence: 0,

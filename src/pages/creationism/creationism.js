@@ -60,6 +60,7 @@ class CreationismPage extends React.Component {
     this.props.dispatch(
       brandsAction.create(brand)
     )
+    delete brand.image
 
     // championship
     formData.championships.forEach(championshipName => {
@@ -67,7 +68,7 @@ class CreationismPage extends React.Component {
         championshipAction.create({
           id: hashCode(championshipName),
           name: championshipName,
-          brand: formData.brand,
+          brand: brand,
         })
       )
     })
@@ -78,7 +79,7 @@ class CreationismPage extends React.Component {
       wrestlers.push({
         id: hashCode(wrestlersName),
         name: wrestlersName,
-        brand: formData.brand,
+        brand: brand,
         male: false,
       })
     })
@@ -86,7 +87,7 @@ class CreationismPage extends React.Component {
       wrestlers.push({
         id: hashCode(wrestlersName),
         name: wrestlersName,
-        brand: formData.brand,
+        brand: brand,
         male: true,
       })
     })
@@ -102,7 +103,7 @@ class CreationismPage extends React.Component {
         ppvsAction.create({
           id: hashCode(ppvName),
           name: ppvName,
-          defaultBrand: formData.brand,
+          defaultBrand: brand,
           sequence: 0,
         })
       )

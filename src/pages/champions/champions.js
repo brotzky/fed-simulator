@@ -53,9 +53,9 @@ class ChampionsPage extends React.Component {
             <div className="row">
               {this.props.brands.map((brand, key) => {
                 let wrestlers = this.props.wrestlers
-                  .filter(wrestler => wrestler.brand === brand.name),
+                  .filter(wrestler => wrestler.brand.name === brand.name),
                   championships = this.props.championships
-                    .filter(championship => championship.brand === brand.name)
+                    .filter(championship => championship.brand.name === brand.name)
                     .sort((a, b) => a.rating > b.rating ? 1 : -1)
                   return (
                     <div key={key}
