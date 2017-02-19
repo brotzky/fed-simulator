@@ -1,6 +1,5 @@
 import "./stylesheets/show"
 import { connect } from "react-redux"
-import { hashCode } from "../../helpers/hash"
 import * as settingsActions from "../../actions/settings"
 import * as showActions from "../../actions/show"
 import Brand from "../../components/brand/brand"
@@ -10,6 +9,7 @@ import Helmet from "react-helmet"
 import Match from "../../components/match/match"
 import PPVs from "../../components/ppvs/ppvs"
 import React from "react"
+import Model from "../../reducers/show.model"
 
 class ShowPage extends React.Component {
 
@@ -39,13 +39,11 @@ class ShowPage extends React.Component {
     let currentShow = this.getShowById(this.props.shows, currentShowId)
 
     if (!currentShow || currentShow.length === 0) {
-      currentShow = {
-        id: hashCode(Date()),
+      currentShow = new Model({
         brand: this.props.brands[0],
-        date: "",
-        matches: [],
         PPV: this.props.ppvs[0],
-      }
+      })
+      currentShow = currentShow.toJSON()
 
       if (this.props.ppvs && this.props.ppvs[0]) {
         this.props.dispatch(

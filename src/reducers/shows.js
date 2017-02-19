@@ -1,20 +1,8 @@
 import weighted from "weighted"
 import { randomiseWrestlers, simulateMatch } from "../helpers/match"
-import { getRandomInt } from "../helpers/math"
+import Model from "./show.model"
 
-const getAttendance = (min, max) => getRandomInt(min, max)
-const createEmptyMatches = () => Array.from({
-  length: 12,
-}).fill({
-  isTagMatch: false,
-})
 const defaultState = []
-const defaultPPV = {
-  attendance: {
-    min: 10000,
-    max: 20000,
-  },
-}
 const tag = {
   options: [
     true,
@@ -29,43 +17,39 @@ const tag = {
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state)),
     index = 0
-  const getShowIndexById = (id) => newState.findIndex(show => show.id === id)
+  const getIndexById = (id) => newState.findIndex(show => show.id === id)
 
   switch (action.type) {
     case "CREATE_SHOW":
-      let attendance = (action.show.PPV && action.show.PPV.attendance) ? action.show.PPV.attendance : defaultPPV.attendance
-      action.show.attendance = getAttendance(
-        attendance.min,
-        attendance.max,
-      )
-      action.show.matches = createEmptyMatches()
-      newState.push(
-        action.show
-      )
+      if (getIndexById(action.show.id) < 0) {
+        newState.push(
+          new Model(action.show).toJSON()
+        )
+      }
       break
     case "DELETE_SHOW":
       newState = newState.filter(show => show.id !== action.showId)
       break
     case "SELECT_DATE_FOR_SHOW":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].date = action.date
       break
     case "SELECT_PPV_FOR_SHOW":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].PPV = action.PPV
       break
     case "SELECT_BRAND_FOR_SHOW":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].brand = action.brand
       break
     case "SELECT_WINNER_IN_MATCH":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].matches[action.matchIndex].wrestlers.forEach((wrestler, wrestlerKey) => {
         newState[index].matches[action.matchIndex].wrestlers[wrestlerKey].winner = (wrestler.id === action.wrestler.id && !newState[index].matches[action.matchIndex].wrestlers[wrestlerKey].winner)
       })
       break
     case "RANDOMISE_SHOW":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].matches.forEach((match, key) => {
         newState[index].matches[key].story = []
         newState[index].matches[key].isTagMatch = weighted.select(tag.options, tag.weights)
@@ -76,7 +60,7 @@ export default (state = defaultState, action) => {
       })
       break
     case "SIMULATE_SHOW":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].matches.forEach((match, matchKey) => {
         if (match.wrestlers && match.wrestlers.length > 1) {
           newState[index].matches[matchKey].story = simulateMatch(match.wrestlers, action.moves)
@@ -84,7 +68,7 @@ export default (state = defaultState, action) => {
       })
       break
     case "REMOVE_WRESTLER_FROM_MATCH":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].matches[action.matchIndex].wrestlers = newState[index].matches[action.matchIndex].wrestlers.filter(wrestler => wrestler.id !== action.wrestler.id)
       if (newState[index].matches[action.matchIndex].wrestlers.length === 0) {
         newState[index].matches[action.matchIndex] = {}
@@ -106,7 +90,7 @@ export default (state = defaultState, action) => {
       })
       break
     case "SET_TAG_MATCH":
-      index = getShowIndexById(action.showId)
+      index = getIndexById(action.showId)
       newState[index].matches[action.matchIndex] = {
         wrestlers: [],
         isTagMatch: action.isTagMatch,
@@ -114,8 +98,8 @@ export default (state = defaultState, action) => {
       }
       break
     case "RESET_SHOW":
-      index = getShowIndexById(action.showId)
-      newState[index].matches = createEmptyMatches()
+      index = getIndexById(action.showId)
+      newState[index].matches = [{}]
       break
     case "RESET_SHOWS":
     case "RESET":

@@ -6,9 +6,13 @@ import { hashCode } from "../helpers/hash"
 const Model = Backbone.Model.extend({
   defaults: {
     id: hashCode(new Date().toString()),
-    name: "Default",
-    defaultBrand: "Default",
-    sequence: 0,
+    brand: "Default",
+    PPV: {},
+    matches: Array.from({
+      length: 12,
+    }).fill({
+      isTagMatch: false,
+    }),
     attendance: 1000,
   },
 
