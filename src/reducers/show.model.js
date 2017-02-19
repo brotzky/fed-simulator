@@ -1,13 +1,12 @@
 import Backbone from "backbone"
 import _each from "lodash/each"
 import _escape from "lodash/escape"
-import { hashCode } from "../helpers/hash"
 import BrandModel from "./brand.model"
 import PPVModel from "./ppv.model"
 
 const Model = Backbone.Model.extend({
   defaults: {
-    id: hashCode(new Date().toString()),
+    id: Math.random().toString(36),
     brand: new BrandModel().toJSON(),
     PPV: new PPVModel().toJSON(),
     matches: Array.from({

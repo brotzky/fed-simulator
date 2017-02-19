@@ -27,6 +27,8 @@ class ShowPage extends React.Component {
 
   state = {
     showPPVs: false,
+    currentShowId: "",
+    currentShow: {},
   }
 
   componentWillMount() {
@@ -40,6 +42,7 @@ class ShowPage extends React.Component {
 
     if (!currentShow || currentShow.length === 0) {
       currentShow = new Model({
+        id: Math.random().toString(36).substr(2, 10),
         brand: this.props.brands[0],
         PPV: this.props.ppvs[0],
       })
@@ -52,7 +55,10 @@ class ShowPage extends React.Component {
       }
     }
 
-    this.currentShow = currentShow
+    this.setState({
+      currentShow,
+      currentShowId,
+    })
   }
 
   getShowById(collection, id) {
@@ -72,15 +78,15 @@ class ShowPage extends React.Component {
   onRandomiseMatches = () => {
     this.props.dispatch(
       showActions.randomiseShow(
-        this.currentShow.id,
-        this.getWrestlersFilteredByBrand(this.currentShow.brand),
+        this.state.currentShow.id,
+        this.getWrestlersFilteredByBrand(this.state.currentShow.brand),
       )
     )
   }
 
   onSimulateMatches = () => {
     this.props.dispatch(
-      showActions.simulateShow(this.currentShow.id, this.props.moves)
+      showActions.simulateShow(this.state.currentShow.id, this.props.moves)
     )
   }
 
@@ -93,31 +99,31 @@ class ShowPage extends React.Component {
   onDropWrestler = (wrestlerId, matchIndex, showId = false) => {
     let wrestler = this.props.wrestlers.find(wrestler => wrestler.id === wrestlerId)
     this.props.dispatch(
-      showActions.addWrestlerToMatch(this.currentShow.id, matchIndex, wrestler, showId)
+      showActions.addWrestlerToMatch(this.state.currentShow.id, matchIndex, wrestler, showId)
     )
   }
 
   onSelectWinner = (wrestler, matchIndex) => {
     this.props.dispatch(
-      showActions.selectWinnerOfMatch(this.currentShow.id, matchIndex, wrestler)
+      showActions.selectWinnerOfMatch(this.state.currentShow.id, matchIndex, wrestler)
     )
   }
 
   onRemoveWrestler = (wrestler, matchIndex) => {
     this.props.dispatch(
-      showActions.removeWrestlerFromMatch(this.currentShow.id, matchIndex, wrestler)
+      showActions.removeWrestlerFromMatch(this.state.currentShow.id, matchIndex, wrestler)
     )
   }
 
   onSetTagMatch = (isTagMatch, matchIndex) => {
     this.props.dispatch(
-      showActions.setTagMatch(this.currentShow.id, isTagMatch, matchIndex)
+      showActions.setTagMatch(this.state.currentShow.id, isTagMatch, matchIndex)
     )
   }
 
   onClearMatches = () => {
     this.props.dispatch(
-      showActions.resetShow(this.currentShow.id)
+      showActions.resetShow(this.state.currentShow.id)
     )
   }
 
@@ -129,32 +135,32 @@ class ShowPage extends React.Component {
 
   onChangePPV = (PPV) => {
     this.props.dispatch(
-      showActions.selectPPVForShow(this.currentShow.id, PPV)
+      showActions.selectPPVForShow(this.state.currentShow.id, PPV)
     )
     this.setState({
       showPPVs: false,
     })
-    if (PPV.defaultBrand) {
+    if (PPV.brand) {
       this.onChangeBrand(
-        this.props.brands.find(brand => brand.name === PPV.defaultBrand)
+        this.props.brands.find(brand => brand.name === PPV.brand.name)
       )
     }
   }
 
   onChangeBrand = (brand) => {
     this.props.dispatch(
-      showActions.selectBrandForShow(this.currentShow.id, brand)
+      showActions.selectBrandForShow(this.state.currentShow.id, brand)
     )
   }
 
   onDayClick = (event, date) => {
     this.props.dispatch(
-      showActions.selectDateForShow(this.currentShow.id, date.toLocaleDateString())
+      showActions.selectDateForShow(this.state.currentShow.id, date.toLocaleDateString())
     )
   }
 
   componentWillReceiveProps(nextProps) {
-    this.currentShow = this.getShowById(nextProps.shows, this.currentShow.id)
+    this.state.currentShow = this.getShowById(nextProps.shows, this.state.currentShow.id)
   }
 
   displayName = "ShowPage"
@@ -182,17 +188,17 @@ class ShowPage extends React.Component {
                   <div className="ppvs__current">
                     <div onClick={this.onTogglePPVsSelection}>
                       <h4 className="ppvs__name">
-                        {this.currentShow.PPV.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
+                        {this.state.currentShow.PPV.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i>
                       </h4>
                     </div>
                     <hr />
                     <div>
-                      {this.currentShow.attendance.toLocaleString()} fans in attendance, presented by&nbsp;
+                      {this.state.currentShow.attendance.toLocaleString()} fans in attendance, presented by&nbsp;
                       <div className="dropdown">
                         <p>
-                          {this.currentShow.brand.default
+                          {this.state.currentShow.brand.default
                             ? "All brands"
-                            : this.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i> &nbsp;
+                            : this.state.currentShow.brand.name} <i className="show--edit fa fa-pencil" aria-hidden="true"></i> &nbsp;
                         </p>
                         <ul className="dropdown__content">
                           {this.props.brands.map((brand) => {
@@ -208,11 +214,11 @@ class ShowPage extends React.Component {
                       </div>
                       <div className="dropdown">
                         <div>
-                          on the {this.currentShow.date} <i className="show--edit fa fa-pencil" aria-hidden="true"></i> &nbsp;
+                          on the {this.state.currentShow.date} <i className="show--edit fa fa-pencil" aria-hidden="true"></i> &nbsp;
                         </div>
                         <div className="dropdown__content">
                           <DayPicker
-                            selectedDays={day => this.currentShow.date === day.toLocaleDateString()}
+                            selectedDays={day => this.state.currentShow.date === day.toLocaleDateString()}
                             onDayClick={this.onDayClick.bind(this)}
                           />
                         </div>
@@ -245,15 +251,15 @@ class ShowPage extends React.Component {
                       </a>
                     </li>
                   </ul>
-                  {this.currentShow.matches.map((match, key) => {
-                    let wrestlers = this.currentShow.matches && this.currentShow.matches[key] ? this.currentShow.matches[key].wrestlers : [],
+                  {this.state.currentShow.matches.map((match, key) => {
+                    let wrestlers = this.state.currentShow.matches && this.state.currentShow.matches[key] ? this.state.currentShow.matches[key].wrestlers : [],
                       story = match.story ? match.story : []
                     return (
                       <Match
                         key={key}
                         isTagMatch={match.isTagMatch}
                         matchIndex={key}
-                        brand={this.currentShow.brand.name}
+                        brand={this.state.currentShow.brand.name}
                         chosenWrestlers={wrestlers}
                         story={story}
                         onSetTagMatch={this.onSetTagMatch}
@@ -267,10 +273,10 @@ class ShowPage extends React.Component {
               </div>
               <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <Brand
-                  model={this.currentShow.brand}
+                  model={this.state.currentShow.brand}
                   showBrandLogo={false}
                   byPassBrandFilter={true}
-                  wrestlers={this.getWrestlersFilteredByBrand(this.currentShow.brand)}
+                  wrestlers={this.getWrestlersFilteredByBrand(this.state.currentShow.brand)}
                 />
               </div>
             </div>

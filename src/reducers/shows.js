@@ -30,11 +30,9 @@ export default (state = defaultState, action) => {
       })
       break
     case "CREATE_SHOW":
-      if (getIndexById(action.show.id) < 0) {
-        newState.push(
-          new Model(action.show).toJSON()
-        )
-      }
+      newState.push(
+        new Model(action.show).toJSON()
+      )
       break
     case "DELETE_SHOW":
       newState = newState.filter(show => show.id !== action.showId)
@@ -44,10 +42,14 @@ export default (state = defaultState, action) => {
       newState[index].date = action.date
       break
     case "SELECT_PPV_FOR_SHOW":
+      delete action.PPV.brand.image
+
       index = getIndexById(action.showId)
       newState[index].PPV = action.PPV
       break
     case "SELECT_BRAND_FOR_SHOW":
+      delete action.brand.image
+
       index = getIndexById(action.showId)
       newState[index].brand = action.brand
       break
@@ -108,7 +110,9 @@ export default (state = defaultState, action) => {
       break
     case "RESET_SHOW":
       index = getIndexById(action.showId)
-      newState[index].matches = [{}]
+      newState[index].matches.forEach((match, key) => {
+        newState[index].matches[key] = {}
+      })
       break
     case "RESET_SHOWS":
     case "RESET":
