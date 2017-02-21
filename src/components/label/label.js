@@ -5,7 +5,6 @@ export default class Label extends React.Component {
 
   static propTypes = {
     bgColour: React.PropTypes.string,
-    modifier: React.PropTypes.string,
     name: React.PropTypes.string.isRequired,
     textColour: React.PropTypes.string,
   }

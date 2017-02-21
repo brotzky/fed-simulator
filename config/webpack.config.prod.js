@@ -5,7 +5,6 @@ const defaultConfig = require('./webpack.common')
 const path = require('path')
 const constants = require('../src/constants')
 const paths = require('./paths')
-const ManifestPlugin = require('webpack-manifest-plugin')
 
 const HTMLMinifier = {
   removeComments: true,
@@ -24,7 +23,6 @@ const HTMLMinifier = {
 
 const prodConfig = Object.assign({}, defaultConfig, {
   devtool: false,
-  warnings: false,
   entry: {
     vendors: [
       'react',
@@ -57,16 +55,11 @@ pluginPush(
     sourceMap: false,
     mangle: true,
     compress: {
-      warnings: false,
+      warnings: true,
       drop_console: true,
     },
   })
 )
-// pluginPush(
-//   new ManifestPlugin({
-//     fileName: 'asset-manifest.json',
-//   })
-// )
 pluginPush(
   new ExtractTextPlugin('static/[name].css')
 )
@@ -76,14 +69,18 @@ pluginPush(
     minify: HTMLMinifier,
   })
 )
-prodConfig.module.loaders.push(
+prodConfig.module.rules.push(
   {
     test: /\.scss$/,
-    loader:
-      ExtractTextPlugin.extract(
-        'style',
-        'css!postcss!sass?sourceMap'
-      ),
+    use:
+      ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: [
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
+      }),
   }
 )
 module.exports = prodConfig

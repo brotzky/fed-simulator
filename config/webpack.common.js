@@ -13,6 +13,9 @@ module.exports = {
     chunkFilename: "static/[id]-[hash:8].chunk.js",
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
     new ExtractTextPlugin(
       "static/[name].css"
     ),
@@ -22,7 +25,7 @@ module.exports = {
         to: "static/",
       },
     ]),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       "process.env.PORT": JSON.stringify(process.env.PORT),
       "process.env.DEBUG": JSON.stringify(process.env.DEBUG),
@@ -30,9 +33,12 @@ module.exports = {
     }),
   ],
   resolve: {
-    root: path.resolve(__dirname),
+    modules: [
+      path.join(__dirname, "src"),
+      "node_modules",
+    ],
+    enforceExtension: false,
     extensions: [
-      "",
       ".js",
       ".scss",
       ".json",
@@ -49,36 +55,22 @@ module.exports = {
       "babel-runtime/regenerator": require.resolve("babel-runtime/regenerator"),
     },
   },
-  resolveLoader: {
-    root: paths.ownNodeModules,
-    moduleTemplates: [
-      "*-loader",
-    ],
-  },
-  postcss: [
-    autoprefixer({
-      browsers: [
-        "last 2 versions",
-      ],
-    }),
-  ],
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader",
+        }),
+      },
       {
         test: /\.js$/,
-        loaders: [
-          "babel",
+        use: [
+          "babel-loader",
         ],
         exclude: /node_modules/,
         include: paths.appSrc,
-      },
-      {
-        test: /\.json$/,
-        include: [
-          paths.appSrc,
-          paths.appNodeModules,
-        ],
-        loader: "json",
       },
       {
         test: /\.(ot|svg|woff|woff2|mp3|jpg|png)(\?.*)?$/,
@@ -87,7 +79,7 @@ module.exports = {
           paths.appPublic,
           paths.appNodeModules,
         ],
-        loader: "file",
+        loader: "file-loader",
         query: {
           name: "static/[name].[ext]",
         },

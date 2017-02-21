@@ -8,7 +8,6 @@ import { log } from './log'
 
 const devConfig = Object.assign({}, defaultConfig, {
   devtool: "source-map",
-  publicPath: '/assets/',
   devServer: {
     contentBase: './build/',
     hot: true,
@@ -22,7 +21,6 @@ const devConfig = Object.assign({}, defaultConfig, {
     path.join(paths.appSrc, 'index'),
   ],
   watch: true,
-  progress: true,
 })
 
 devConfig.plugins.push(
@@ -34,10 +32,10 @@ devConfig.plugins.push(
     template: paths.appHtml,
   })
 )
-devConfig.module.loaders.push(
+devConfig.module.rules.push(
   {
     test: /\.scss$/,
-    loaders: ["style", "css", "postcss", "sass"]
+    use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"]
   }
 )
 log('Webpack dev config finished')
