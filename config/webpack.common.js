@@ -79,10 +79,7 @@ module.exports = {
           paths.appPublic,
           paths.appNodeModules,
         ],
-        loader: "file-loader",
-        query: {
-          name: "static/[name].[ext]",
-        },
+        use: "file-loader",
       },
     ],
   },
