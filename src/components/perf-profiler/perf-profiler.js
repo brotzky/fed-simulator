@@ -1,6 +1,6 @@
 import React from "react"
 import Perf from "react-addons-perf"
-import "./stylesheets/main"
+import "./stylesheets/main.scss"
 
 export default class PerfProfiler extends React.Component {
 

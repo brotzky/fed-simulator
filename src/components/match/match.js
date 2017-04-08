@@ -1,27 +1,28 @@
 import React from "react"
+import PropTypes from "prop-types"
 import classNames from "classnames"
 import { Droppable } from "react-drag-and-drop"
 import { connect } from "react-redux"
 import Story from "../story/story"
-import "./stylesheets/match"
+import "./stylesheets/match.scss"
 import soloIMG from "./solo.png"
 import teamsIMG from "./teams.png"
 
 class Match extends React.Component {
 
   static propTypes = {
-    allWrestlers: React.PropTypes.array.isRequired,
-    brand: React.PropTypes.string,
-    chosenWrestlers:  React.PropTypes.array.isRequired,
-    dispatch: React.PropTypes.func.isRequired,
-    isTagMatch: React.PropTypes.bool.isRequired,
-    matchIndex: React.PropTypes.number,
-    moves: React.PropTypes.array.isRequired,
-    onDropWrestler: React.PropTypes.func,
-    onRemoveWrestler: React.PropTypes.func,
-    onSetTagMatch: React.PropTypes.func,
-    settings: React.PropTypes.object.isRequired,
-    story: React.PropTypes.array,
+    allWrestlers: PropTypes.array.isRequired,
+    brand: PropTypes.string,
+    chosenWrestlers:  PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    isTagMatch: PropTypes.bool.isRequired,
+    matchIndex: PropTypes.number,
+    moves: PropTypes.array.isRequired,
+    onDropWrestler: PropTypes.func,
+    onRemoveWrestler: PropTypes.func,
+    onSetTagMatch: PropTypes.func,
+    settings: PropTypes.object.isRequired,
+    story: PropTypes.array,
   }
 
   static defaultProps = {

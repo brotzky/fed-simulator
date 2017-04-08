@@ -3,16 +3,17 @@ import * as wrestlersActions from "../../actions/wrestlers"
 import Brand from "../../components/brand/brand"
 import Helmet from "react-helmet"
 import React from "react"
-import "./stylesheets/draft"
+import PropTypes from "prop-types"
+import "./stylesheets/draft.scss"
 
 class DraftPage extends React.Component {
 
   displayName = "DraftPage"
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    brands: React.PropTypes.array.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    brands: PropTypes.array.isRequired,
+    wrestlers: PropTypes.array.isRequired,
   }
 
   onSendToDraft = (event) => {

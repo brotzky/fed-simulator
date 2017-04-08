@@ -1,4 +1,4 @@
-import "./stylesheets/ranking"
+import "./stylesheets/ranking.scss"
 import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import * as wrestlersActions from "../../actions/wrestlers"
@@ -7,14 +7,15 @@ import Ranking from "../../components/ranking/ranking"
 import React from "react"
 import Simulations from "../../components/navigation/simulations"
 import Segments from "../../components/segments/segments"
+import PropTypes from "prop-types"
 
 class RankingPage extends React.Component {
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
-    moves: React.PropTypes.array.isRequired,
-    brands: React.PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    wrestlers: PropTypes.array.isRequired,
+    moves: PropTypes.array.isRequired,
+    brands: PropTypes.array.isRequired,
   }
 
   displayName = "RankingPage"

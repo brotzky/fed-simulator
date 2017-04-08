@@ -4,18 +4,19 @@ import ColourPicker from "./colour"
 import Image from "./image"
 import Input from "./input"
 import React from "react"
+import PropTypes from "prop-types"
 import ReadOnly from "./readonly"
 import Select from "./select"
 import Textarea from "./textarea"
-import "./stylesheets/form"
+import "./stylesheets/form.scss"
 
 export default class Form extends React.Component {
 
   static propTypes = {
-    buttonTitle: React.PropTypes.string,
-    id: React.PropTypes.string,
-    onSave: React.PropTypes.func,
-    skeleton: React.PropTypes.array.isRequired,
+    buttonTitle: PropTypes.string,
+    id: PropTypes.string,
+    onSave: PropTypes.func,
+    skeleton: PropTypes.array.isRequired,
   }
 
   static defaultProps = {

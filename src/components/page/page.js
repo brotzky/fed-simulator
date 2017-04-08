@@ -1,16 +1,17 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Header from "./header"
 import Footer from "./footer"
 import PerfProfiler from "../perf-profiler/perf-profiler"
 import { connect } from "react-redux"
 import * as versionActions from "../../actions/version"
-import "../../stylesheets/base"
+import "../../stylesheets/base.scss"
 
 class Page extends React.Component {
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    version: React.PropTypes.number.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    version: PropTypes.number.isRequired,
   }
 
   static defaultProps = {

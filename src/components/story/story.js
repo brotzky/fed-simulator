@@ -1,15 +1,16 @@
 import React from "react"
-import "./stylesheets/story"
+import PropTypes from "prop-types"
+import "./stylesheets/story.scss"
 
 export default class Story extends React.Component {
 
   static contextTypes = {
-    toSlug: React.PropTypes.func.isRequired,
+    toSlug: PropTypes.func.isRequired,
   }
 
   static propTypes = {
-    collection: React.PropTypes.array,
-    wrestlers: React.PropTypes.array,
+    collection: PropTypes.array,
+    wrestlers: PropTypes.array,
   }
 
   static defaultProps = {

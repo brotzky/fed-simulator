@@ -1,14 +1,15 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { GithubPicker } from "react-color"
 import Colors from "./colors"
 
 export default class ColorPalette extends React.Component {
 
   static propTypes = {
-    changeHandler: React.PropTypes.func.isRequired,
-    name: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.string,
-    showPreview: React.PropTypes.bool,
+    changeHandler: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    defaultValue: PropTypes.string,
+    showPreview: PropTypes.bool,
   }
 
   constructor(props) {

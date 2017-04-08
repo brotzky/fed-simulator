@@ -1,4 +1,4 @@
-import "./stylesheets/championship"
+import "./stylesheets/championship.scss"
 import { connect } from "react-redux"
 import * as championshipActions from "../../../actions/championship"
 import ChampionshipBelt from "../../../components/championship-belt/championship-belt"
@@ -7,6 +7,7 @@ import ColourPicker from "../../../components/form/colour"
 import Input from "../../../components/form/input"
 import Model from "../../../reducers/championship.model"
 import React from "react"
+import PropTypes from "prop-types"
 import Select from "../../../components/form/select"
 import Skeleton from "./skeleton"
 
@@ -15,8 +16,8 @@ class CreationismChampionshipPage extends React.Component {
   displayName = "CreationismChampionshipPage"
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    brands: React.PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    brands: PropTypes.array.isRequired,
   }
 
   state = {

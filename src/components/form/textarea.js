@@ -1,13 +1,14 @@
 import React from "react"
-import "./stylesheets/textarea"
+import PropTypes from "prop-types"
+import "./stylesheets/textarea.scss"
 
 export default class Textarea extends React.Component {
 
   static propTypes = {
-    changeHandler: React.PropTypes.func.isRequired,
-    name: React.PropTypes.string.isRequired,
-    label: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.any.isRequired,
+    changeHandler: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    defaultValue: PropTypes.any.isRequired,
   }
 
   constructor(props) {

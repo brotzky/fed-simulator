@@ -1,14 +1,15 @@
-import "./stylesheets/ranking"
+import "./stylesheets/ranking.scss"
 import React from "react"
+import PropTypes from "prop-types"
 import Row from "./row"
 
 export default class Ranking extends React.Component {
 
   static propTypes = {
-    title: React.PropTypes.string.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
-    amountToShow: React.PropTypes.number,
-    showLabels: React.PropTypes.bool,
+    title: PropTypes.string.isRequired,
+    wrestlers: PropTypes.array.isRequired,
+    amountToShow: PropTypes.number,
+    showLabels: PropTypes.bool,
   }
 
   static defaultProps = {

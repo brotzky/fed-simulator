@@ -1,12 +1,13 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 export default class Select extends React.Component {
 
   static propTypes = {
-    label: React.PropTypes.string.isRequired,
-    options: React.PropTypes.array.isRequired,
-    changeHandler: React.PropTypes.func.isRequired,
-    name: React.PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    options: PropTypes.array.isRequired,
+    changeHandler: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
   }
 
   displayName: "Select"

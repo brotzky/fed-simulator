@@ -1,12 +1,13 @@
 import React from "react"
-import "./stylesheets/ppvs"
+import PropTypes from "prop-types"
+import "./stylesheets/ppvs.scss"
 const getRandomHex = () => '#'+('00000'+(Math.random()*(1<<24)|0).toString(16)).slice(-6)
 
 export default class PPVs extends React.Component {
 
   static propTypes = {
-    onPPVClick: React.PropTypes.func,
-    ppvs: React.PropTypes.array.isRequired,
+    onPPVClick: PropTypes.func,
+    ppvs: PropTypes.array.isRequired,
   }
 
   static defaultProps = {

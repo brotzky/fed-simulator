@@ -1,27 +1,28 @@
-import "./stylesheets/brand"
+import "./stylesheets/brand.scss"
 import { connect } from "react-redux"
 import { Droppable } from "react-drag-and-drop"
 import { filterFemales } from "../../helpers/filters"
 import * as wrestlersActions from "../../actions/wrestlers"
 import Icon from "../icon/icon"
 import React from "react"
+import PropTypes from "prop-types"
 import Search from "../search/search"
 import Wrestlers from "../wrestlers/wrestlers"
 
 class Brand extends React.Component {
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
-    canDragAndDrop: React.PropTypes.bool,
-    onWrestlerClick: React.PropTypes.func,
-    byPassBrandFilter: React.PropTypes.bool,
-    showBrandLogo: React.PropTypes.bool,
-    model: React.PropTypes.shape({
-      id: React.PropTypes.string.required,
-      name: React.PropTypes.string.required,
-      bgColour: React.PropTypes.string.required,
-      textColour: React.PropTypes.string.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    wrestlers: PropTypes.array.isRequired,
+    canDragAndDrop: PropTypes.bool,
+    onWrestlerClick: PropTypes.func,
+    byPassBrandFilter: PropTypes.bool,
+    showBrandLogo: PropTypes.bool,
+    model: PropTypes.shape({
+      id: PropTypes.string.required,
+      name: PropTypes.string.required,
+      bgColour: PropTypes.string.required,
+      textColour: PropTypes.string.isRequired,
     }),
   }
 
@@ -30,7 +31,7 @@ class Brand extends React.Component {
   }
 
   static contextTypes = {
-    toSlug: React.PropTypes.func,
+    toSlug: PropTypes.func,
   }
 
   state = {

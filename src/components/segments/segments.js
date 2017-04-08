@@ -1,15 +1,16 @@
-import "./stylesheets/segments"
+import "./stylesheets/segments.scss"
 import React from "react"
+import PropTypes from "prop-types"
 
 export default class Segments extends React.Component {
 
   static propTypes = {
-    segments: React.PropTypes.arrayOf(React.PropTypes.shape({
-      name: React.PropTypes.string.isRequired,
-      textColour: React.PropTypes.string.isRequired,
-      bgColour: React.PropTypes.string.isRequired,
-      percent: React.PropTypes.number,
-      value: React.PropTypes.number,
+    segments: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      textColour: PropTypes.string.isRequired,
+      bgColour: PropTypes.string.isRequired,
+      percent: PropTypes.number,
+      value: PropTypes.number,
     })),
   }
 

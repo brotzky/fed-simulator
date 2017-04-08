@@ -1,13 +1,14 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Chrome from "react-color"
 
 export default class ColourPicker extends React.Component {
 
   static propTypes = {
-    changeHandler: React.PropTypes.func.isRequired,
-    name: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.any.isRequired,
-    showPreview: React.PropTypes.bool,
+    changeHandler: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    defaultValue: PropTypes.any.isRequired,
+    showPreview: PropTypes.bool,
   }
 
   static defaultProps = {

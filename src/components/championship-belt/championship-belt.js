@@ -1,24 +1,25 @@
 import React from "react"
-import "./stylesheets/championship-belt"
+import "./stylesheets/championship-belt.scss"
 import sizeMe from "react-sizeme"
 import leatherIMG from "./leather.png"
 import metalIMG from "./metal.png"
+import PropTypes from "prop-types"
 
 class ChampionshipBelt extends React.Component {
 
   displayName = "ChampionshipBelt"
 
   static propTypes = {
-    size: React.PropTypes.object,
-    name: React.PropTypes.string,
-    centerStrapShape: React.PropTypes.string,
-    centerPlateShape: React.PropTypes.string,
-    centerPlateColor: React.PropTypes.string,
-    centerPlateBackgroundColor: React.PropTypes.string,
-    sideplateBackgroundColor: React.PropTypes.string,
-    strapBackgroundColor: React.PropTypes.string,
-    sideplateShape: React.PropTypes.string,
-    centerPlateOverflow: React.PropTypes.bool,
+    size: PropTypes.object,
+    name: PropTypes.string,
+    centerStrapShape: PropTypes.string,
+    centerPlateShape: PropTypes.string,
+    centerPlateColor: PropTypes.string,
+    centerPlateBackgroundColor: PropTypes.string,
+    sideplateBackgroundColor: PropTypes.string,
+    strapBackgroundColor: PropTypes.string,
+    sideplateShape: PropTypes.string,
+    centerPlateOverflow: PropTypes.bool,
   }
 
   render() {

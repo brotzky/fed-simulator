@@ -124,11 +124,11 @@ function runDevServer(port) {
     colors: true,
     clientLogLevel: "error",
     devServer: {
-      hot: true
+      hot: true,
     },
     watchOptions: {
-      ignored: /node_modules/
-    }
+      ignored: /node_modules/,
+    },
   }).listen(port, (err) => {
     if (err) {
       alertTerminal()

@@ -1,14 +1,15 @@
 import React from "react"
-import "./stylesheets/search"
+import PropTypes from "prop-types"
+import "./stylesheets/search.scss"
 
 export default class Search extends React.Component {
 
   displayName = "Search"
 
   static propTypes = {
-    brandName: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    onSearchUpdated: React.PropTypes.func,
+    brandName: PropTypes.string,
+    placeholder: PropTypes.string,
+    onSearchUpdated: PropTypes.func,
   }
 
   state = {

@@ -1,5 +1,5 @@
 import _cloneDeep from "lodash.clonedeep"
-import "./stylesheets/creationism"
+import "./stylesheets/creationism.scss"
 import { connect } from "react-redux"
 import { hashCode } from "../../helpers/hash"
 import { Link } from "react-router"
@@ -11,6 +11,7 @@ import Form from "../../components/form/form"
 import Helmet from "react-helmet"
 import Presets from "./presets"
 import React from "react"
+import PropTypes from "prop-types"
 import Resets from "../../components/navigation/resets"
 import Skeleton from "./skeleton"
 
@@ -19,7 +20,7 @@ class CreationismPage extends React.Component {
   displayName = "CreationismPage"
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
+    dispatch: PropTypes.func.isRequired,
   }
 
   state = {

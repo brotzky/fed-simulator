@@ -1,4 +1,4 @@
-import "./stylesheets/evolution"
+import "./stylesheets/evolution.scss"
 import { connect } from "react-redux"
 import * as brandsAction from "../../actions/brands"
 import * as championshipAction from "../../actions/championship"
@@ -6,6 +6,7 @@ import * as wrestlersAction from "../../actions/wrestlers"
 import Bucket from "../../components/bucket/bucket"
 import Helmet from "react-helmet"
 import React from "react"
+import PropTypes from "prop-types"
 import Resets from "../../components/navigation/resets"
 import Skeleton from "./skeleton"
 
@@ -14,9 +15,9 @@ class EvolutionPage extends React.Component {
   displayName = "EvolutionPage"
 
   static propTypes = {
-    brands: React.PropTypes.array.isRequired,
-    championships: React.PropTypes.array.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
+    brands: PropTypes.array.isRequired,
+    championships: PropTypes.array.isRequired,
+    wrestlers: PropTypes.array.isRequired,
   }
 
   onSaveWrestler = (wrestler) => {

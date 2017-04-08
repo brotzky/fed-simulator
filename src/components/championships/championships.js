@@ -1,21 +1,22 @@
 import React from "react"
+import PropTypes from "prop-types"
 import ChampionshipBelt from "../championship-belt/championship-belt"
 import * as championshipsActions from "../../actions/championship"
 import { connect } from "react-redux"
 import { Droppable } from "react-drag-and-drop"
-import "./stylesheets/championships"
+import "./stylesheets/championships.scss"
 
 class Championships extends React.Component {
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    championships: React.PropTypes.array.isRequired,
-    canDragAndDrop: React.PropTypes.bool,
-    showBadge: React.PropTypes.bool,
+    dispatch: PropTypes.func.isRequired,
+    championships: PropTypes.array.isRequired,
+    canDragAndDrop: PropTypes.bool,
+    showBadge: PropTypes.bool,
   }
 
   static contextTypes = {
-    toSlug: React.PropTypes.func.isRequired,
+    toSlug: PropTypes.func.isRequired,
   }
 
   static defaultProps = {

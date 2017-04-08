@@ -1,14 +1,15 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Sound from "react-sound"
 import bellImage from "./bell.png"
 import bellSound from "./bell.mp3"
-import "./stylesheets/main"
+import "./stylesheets/main.scss"
 
 export default class Bell extends React.Component {
 
   static propTypes = {
-    onBellRung: React.PropTypes.func.isRequired,
-    title: React.PropTypes.string.isRequired,
+    onBellRung: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
   }
 
   static defaultProps = {

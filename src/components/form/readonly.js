@@ -1,11 +1,12 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 export default class ReadOnly extends React.Component {
 
   static propTypes = {
-    name: React.PropTypes.string.isRequired,
-    label: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.any.isRequired,
+    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
+    defaultValue: PropTypes.any.isRequired,
   }
 
   render() {

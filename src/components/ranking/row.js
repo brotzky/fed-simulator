@@ -1,15 +1,16 @@
-import "./stylesheets/ranking"
+import "./stylesheets/ranking.scss"
 import Label from "../label/label"
 import React from "react"
+import PropTypes from "prop-types"
 
 const isActive = (wins, losses) => wins > 0 || losses > 0
 
 export default class RankingRow extends React.Component {
 
   static propTypes = {
-    position: React.PropTypes.number.isRequired,
-    wrestler: React.PropTypes.object.isRequired,
-    showLabels: React.PropTypes.bool,
+    position: PropTypes.number.isRequired,
+    wrestler: PropTypes.object.isRequired,
+    showLabels: PropTypes.bool,
   }
 
   static defaultProps = {

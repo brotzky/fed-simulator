@@ -1,16 +1,17 @@
 import React from "react"
+import PropTypes from "prop-types"
 import Dropzone from "react-dropzone"
-import "./stylesheets/image"
+import "./stylesheets/image.scss"
 
 export default class Input extends React.Component {
 
   static propTypes = {
-    changeHandler: React.PropTypes.func.isRequired,
-    name: React.PropTypes.string.isRequired,
-    maxImageWidth: React.PropTypes.number.isRequired,
-    maxImageHeight: React.PropTypes.number.isRequired,
-    label: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.any.isRequired,
+    changeHandler: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    maxImageWidth: PropTypes.number.isRequired,
+    maxImageHeight: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired,
+    defaultValue: PropTypes.any.isRequired,
   }
 
   static defaultProps = {

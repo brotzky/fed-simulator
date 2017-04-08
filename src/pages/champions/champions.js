@@ -1,4 +1,4 @@
-import "./stylesheets/champions"
+import "./stylesheets/champions.scss"
 import { connect } from "react-redux"
 import { Link } from "react-router"
 import * as championshipActions from "../../actions/championship"
@@ -6,14 +6,15 @@ import Brand from "../../components/brand/brand"
 import Championships from "../../components/championships/championships"
 import Helmet from "react-helmet"
 import React from "react"
+import PropTypes from "prop-types"
 
 class ChampionsPage extends React.Component {
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    brands: React.PropTypes.array.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
-    championships: React.PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    brands: PropTypes.array.isRequired,
+    wrestlers: PropTypes.array.isRequired,
+    championships: PropTypes.array.isRequired,
   }
 
   displayName = "ChampionsPage"

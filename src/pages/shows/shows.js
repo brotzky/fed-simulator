@@ -1,10 +1,11 @@
-import "./stylesheets/shows"
+import "./stylesheets/shows.scss"
 import { connect } from "react-redux"
 import { Link } from "react-router"
 import * as showActions from "../../actions/show"
 import Helmet from "react-helmet"
 import Moment from "moment"
 import React from "react"
+import PropTypes from "prop-types"
 
 const sortByDate = (previous, next) => {
   let dateFormat = "D/M/YYYY"
@@ -14,11 +15,11 @@ const sortByDate = (previous, next) => {
 class ShowsPage extends React.Component {
 
   static propTypes = {
-    shows: React.PropTypes.array.isRequired,
+    shows: PropTypes.array.isRequired,
   }
 
   static contextTypes = {
-    toSlug: React.PropTypes.func.isRequired,
+    toSlug: PropTypes.func.isRequired,
   }
 
   onDeleteShow = (id) => {

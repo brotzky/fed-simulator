@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import { randomiseWrestlers, simulateMatch, logMatch } from "../../helpers/match"
 import * as wrestlersActions from "../../actions/wrestlers"
 import React from "react"
+import PropTypes from "prop-types"
 
 const amountOfSims = [
   1,
@@ -13,11 +14,11 @@ const amountOfSims = [
 class PageSecondary extends React.Component {
 
   static propTypes = {
-    brands: React.PropTypes.array.isRequired,
-    dispatch: React.PropTypes.func.isRequired,
-    moves: React.PropTypes.array.isRequired,
-    showClear: React.PropTypes.bool,
-    wrestlers: React.PropTypes.array.isRequired,
+    brands: PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    moves: PropTypes.array.isRequired,
+    showClear: PropTypes.bool,
+    wrestlers: PropTypes.array.isRequired,
   }
 
   static defaultProps = {

@@ -1,5 +1,6 @@
 import * as settingsAction from "../../actions/settings"
 import React from "react"
+import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 class Resets extends React.Component {
@@ -7,13 +8,13 @@ class Resets extends React.Component {
   displayName = "Resets"
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    brands: React.PropTypes.array.isRequired,
-    championships: React.PropTypes.array.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
-    shows: React.PropTypes.array.isRequired,
-    ppvs: React.PropTypes.array.isRequired,
-    children: React.PropTypes.object,
+    dispatch: PropTypes.func.isRequired,
+    brands: PropTypes.array.isRequired,
+    championships: PropTypes.array.isRequired,
+    wrestlers: PropTypes.array.isRequired,
+    shows: PropTypes.array.isRequired,
+    ppvs: PropTypes.array.isRequired,
+    children: PropTypes.object,
   }
 
   onReset = () => {

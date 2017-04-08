@@ -2,14 +2,15 @@ import { connect } from "react-redux"
 import Helmet from "react-helmet"
 import PPVs from "../../components/ppvs/ppvs"
 import React from "react"
+import PropTypes from "prop-types"
 
 class PPVsPage extends React.Component {
 
   displayName = "PPVsPage"
 
   static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    ppvs: React.PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    ppvs: PropTypes.array.isRequired,
   }
 
   render() {

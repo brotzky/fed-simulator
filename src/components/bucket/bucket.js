@@ -2,15 +2,16 @@ import _cloneDeep from "lodash.clonedeep"
 import "./stylesheets/bucket.scss"
 import Form from "../form/form"
 import React from "react"
+import PropTypes from "prop-types"
 import Select from "../form/select"
 
 export default class Bucket extends React.Component {
 
   static propTypes = {
-    options: React.PropTypes.array.isRequired,
-    name: React.PropTypes.string.isRequired,
-    onSave: React.PropTypes.func.isRequired,
-    skeleton: React.PropTypes.array.isRequired,
+    options: PropTypes.array.isRequired,
+    name: PropTypes.string.isRequired,
+    onSave: PropTypes.func.isRequired,
+    skeleton: PropTypes.array.isRequired,
   }
 
   displayName = "Bucket"

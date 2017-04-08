@@ -1,11 +1,12 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 export default class Checkbox extends React.Component {
 
   static propTypes = {
-    changeHandler: React.PropTypes.func.isRequired,
-    name: React.PropTypes.string.isRequired,
-    defaultValue: React.PropTypes.any,
+    changeHandler: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    defaultValue: PropTypes.any,
   }
 
   constructor(props) {

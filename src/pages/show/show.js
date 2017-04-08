@@ -1,4 +1,4 @@
-import "./stylesheets/show"
+import "./stylesheets/show.scss"
 import { connect } from "react-redux"
 import * as settingsActions from "../../actions/settings"
 import * as showActions from "../../actions/show"
@@ -9,20 +9,21 @@ import Helmet from "react-helmet"
 import Match from "../../components/match/match"
 import PPVs from "../../components/ppvs/ppvs"
 import React from "react"
+import PropTypes from "prop-types"
 import Model from "../../reducers/show.model"
 
 class ShowPage extends React.Component {
 
   static propTypes = {
-    brands: React.PropTypes.array.isRequired,
-    moves: React.PropTypes.array.isRequired,
-    ppvs: React.PropTypes.array.isRequired,
-    shows: React.PropTypes.array.isRequired,
-    wrestlers: React.PropTypes.array.isRequired,
+    brands: PropTypes.array.isRequired,
+    moves: PropTypes.array.isRequired,
+    ppvs: PropTypes.array.isRequired,
+    shows: PropTypes.array.isRequired,
+    wrestlers: PropTypes.array.isRequired,
   }
 
   static contextTypes = {
-    toSlug: React.PropTypes.func.isRequired,
+    toSlug: PropTypes.func.isRequired,
   }
 
   state = {

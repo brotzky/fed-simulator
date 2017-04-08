@@ -1,14 +1,15 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { toSlug } from "../../helpers/slugs"
 import "./stylesheets/icon.scss"
 
 export default class Icon extends React.Component {
 
   static propTypes = {
-    onClick: React.PropTypes.func,
-    name: React.PropTypes.string.isRequired,
-    active: React.PropTypes.bool,
-    image: React.PropTypes.string,
+    onClick: PropTypes.func,
+    name: PropTypes.string.isRequired,
+    active: PropTypes.bool,
+    image: PropTypes.string,
   }
 
   static defaultProps = {

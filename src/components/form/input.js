@@ -1,13 +1,14 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 export default class Input extends React.Component {
 
   static propTypes = {
-    changeHandler: React.PropTypes.func,
-    name: React.PropTypes.string,
-    label: React.PropTypes.string,
-    maxLength: React.PropTypes.number,
-    value: React.PropTypes.any,
+    changeHandler: PropTypes.func,
+    name: PropTypes.string,
+    label: PropTypes.string,
+    maxLength: PropTypes.number,
+    value: PropTypes.any,
   }
 
   static defaultProps = {

@@ -1,4 +1,4 @@
-import "./stylesheets/wrestler"
+import "./stylesheets/wrestler.scss"
 import classNames from "classnames"
 import React from "react"
 const noop = () => {}

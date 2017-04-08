@@ -1,16 +1,17 @@
 import "./stylesheets/label.scss"
 import React from "react"
+import PropTypes from "prop-types"
 
 export default class Label extends React.Component {
 
   static propTypes = {
-    bgColour: React.PropTypes.string,
-    name: React.PropTypes.string.isRequired,
-    textColour: React.PropTypes.string,
+    bgColour: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    textColour: PropTypes.string,
   }
 
   static contextTypes = {
-    toSlug: React.PropTypes.func.isRequired,
+    toSlug: PropTypes.func.isRequired,
   }
 
   shouldComponentUpdate(nextProps) {
