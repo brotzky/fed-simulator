@@ -21,7 +21,7 @@ module.exports = {
     publicPath: "/",
     path: path.resolve("build"),
     filename: "[name].[chunkhash:6].js",
-    chunkFilename: "chunk[id].[chunkhash:6].js",
+    chunkFilename: "chunk.[id].[chunkhash:6].js",
   },
   module: {
     rules: [
@@ -54,8 +54,11 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      mangle: true,
       compress: {
         warnings: false,
+        drop_console: true,
       },
     }),
     new HtmlWebpackPlugin({
