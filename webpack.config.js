@@ -2,6 +2,22 @@ const path = require("path")
 const webpack = require("webpack")
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+
+const HTMLMinifier = {
+  removeComments: true,
+  removeCommentsFromCDATA: true,
+  removeCDATASectionsFromCDATA: true,
+  collapseWhitespace: true,
+  collapseBooleanAttributes: true,
+  removeAttributeQuotes: true,
+  removeRedundantAttributes: true,
+  useShortDoctype: true,
+  removeEmptyAttributes: true,
+  removeOptionalTags: true,
+  minifyJS: true,
+  minifyCSS: true,
+}
 
 module.exports = {
   entry: {
@@ -20,8 +36,8 @@ module.exports = {
   output: {
     publicPath: "/",
     path: path.resolve("build"),
-    filename: "[name].[chunkhash:6].js",
-    chunkFilename: "chunk.[id].[chunkhash:6].js",
+    filename: "static/[name].[chunkhash:6].js",
+    chunkFilename: "static/chunk.[id].[chunkhash:6].js",
   },
   module: {
     rules: [
@@ -61,8 +77,19 @@ module.exports = {
         drop_console: true,
       },
     }),
+    new CopyWebpackPlugin([
+      {
+        from: "src/public/DragDropTouch.js",
+        to: "static/DragDropTouch.js",
+      },
+      {
+        from: "src/public/manifest.webmanifest",
+        to: "static/manifest.webmanifest",
+      },
+    ]),
     new HtmlWebpackPlugin({
       inject: true,
+      minify: HTMLMinifier,
       template: path.resolve("src/public/index.html"),
     }),
   ],
