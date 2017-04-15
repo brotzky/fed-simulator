@@ -42,7 +42,7 @@ export class SimMatch {
   }
 
   ringBell() {
-    if (this.wrestlers.length === 0) return
+    if (this.wrestlers.length < 2) return
     let lowest = this.wrestlers.sort((a, b) => a.damage > b.damage)[0],
       highest = this.wrestlers.filter(wrestler => wrestler.id !== lowest.id).sort((a, b) => a.damage < b.damage)[0],
       lowestId = lowest.id,
