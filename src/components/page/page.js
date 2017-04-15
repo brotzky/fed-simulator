@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Header from "./header"
 import Footer from "./footer"
-import PerfProfiler from "../perf-profiler/perf-profiler"
+// import PerfProfiler from "../perf-profiler/perf-profiler"
 import { connect } from "react-redux"
 import * as versionActions from "../../actions/version"
 import "../../stylesheets/base.scss"
@@ -35,9 +35,11 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        <If condition={process && process.env && process.env.NODE_ENV === "development"}>
-          <PerfProfiler />
-        </If>
+        {/*
+          <If condition={process && process.env && process.env.NODE_ENV === "development"}>
+            <PerfProfiler />
+          </If>
+        */}
         <Header />
         {this.props.children}
         <Footer />
