@@ -1,8 +1,8 @@
-const path = require("path")
-const webpack = require("webpack")
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const CopyWebpackPlugin = require("copy-webpack-plugin")
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const HTMLMinifier = {
   removeComments: true,
@@ -22,75 +22,71 @@ const HTMLMinifier = {
 module.exports = {
   entry: {
     vendors: [
-      "react",
-      "react-dom",
-      "react-helmet",
-      "react-router",
-      "redux",
-      "react-redux",
-      "moment",
+      'react',
+      'react-dom',
+      'react-helmet',
+      'react-router',
+      'redux',
+      'react-redux',
+      'moment',
     ],
-    polyfill: require.resolve("./config/polyfills"),
-    app: require.resolve("./src/index.js"),
+    polyfill: require.resolve('./config/polyfills'),
+    app: require.resolve('./src/index.js'),
   },
   output: {
-    publicPath: "/",
-    path: path.resolve("build"),
-    filename: "static/[name].[chunkhash:6].js",
-    chunkFilename: "static/chunk.[id].[chunkhash:6].js",
+    publicPath: '/',
+    path: path.resolve('build'),
+    filename: 'static/[name].[chunkhash:6].js',
+    chunkFilename: 'static/chunk.[id].[chunkhash:6].js',
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: path.resolve("src"),
-        loader: "babel-loader",
+        include: path.resolve('src'),
+        loader: 'babel-loader',
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: "css-loader",
+          fallback: 'style-loader',
+          use: 'css-loader',
         }),
       },
       {
         test: /\.scss$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          "postcss-loader",
-          "sass-loader",
-        ],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader',],
       },
       {
         test: /\.(ot|svg|woff|woff2|mp3|jpg|png)(\?.*)?$/,
-        use: "file-loader",
+        use: 'file-loader',
       },
     ],
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: false,
-      mangle: true,
-      compress: {
-        warnings: false,
-        drop_console: true,
-      },
+      sourceMap: true,
+      mangle: false,
+      compress: false,
+      // {
+      //   warnings: false,
+      //   drop_console: true,
+      // },
     }),
     new CopyWebpackPlugin([
       {
-        from: "src/public/DragDropTouch.js",
-        to: "static/DragDropTouch.js",
-      },
-      {
-        from: "src/public/manifest.webmanifest",
-        to: "static/manifest.webmanifest",
+        from: 'src/public/DragDropTouch.js',
+        to: 'static/DragDropTouch.js',
       },
     ]),
     new HtmlWebpackPlugin({
       inject: true,
       minify: HTMLMinifier,
-      template: path.resolve("src/public/index.html"),
+      template: path.resolve('src/public/index.html'),
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react',
     }),
   ],
 }

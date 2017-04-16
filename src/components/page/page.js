@@ -1,14 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Header from "./header"
-import Footer from "./footer"
+import React from 'react'
+import PropTypes from 'prop-types'
 // import PerfProfiler from "../perf-profiler/perf-profiler"
-import { connect } from "react-redux"
-import * as versionActions from "../../actions/version"
-import "../../stylesheets/base.scss"
+import {connect} from 'react-redux'
+import * as versionActions from '../../actions/version'
+import '../../stylesheets/base.scss'
 
 class Page extends React.Component {
-
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     version: PropTypes.number.isRequired,
@@ -19,15 +16,13 @@ class Page extends React.Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(
-      versionActions.checkVersion()
-    )
+    this.props.dispatch(versionActions.checkVersion())
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.version !== this.props.version) {
       this.props.dispatch({
-        type: "RESET",
+        type: 'RESET',
       })
     }
   }
@@ -35,19 +30,11 @@ class Page extends React.Component {
   render() {
     return (
       <div>
-        {/*
-          <If condition={process && process.env && process.env.NODE_ENV === "development"}>
-            <PerfProfiler />
-          </If>
-        */}
-        <Header />
         {this.props.children}
-        <Footer />
       </div>
     )
   }
 }
-
 
 export default connect(state => ({
   version: state.version,
