@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import emptyFunction from "emptyfunction"
+const emptyFunction = () => {}
 
 class ContextHolder extends React.Component {
 

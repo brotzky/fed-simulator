@@ -1,32 +1,55 @@
-/* eslint-disable */
-import React from 'react'
+import React, { Component } from 'react'
 import Page from './components/page/page'
-import {IndexRoute, Route} from 'react-router'
+import { Route, Router, hashHistory } from 'react-router'
+import { Champions, Default, eventResults, Events, Name, PPVS, Roster, Size } from './Pages/index'
 
-const onChange = (previousRoute, nextRoute) => {
-  if (ga && nextRoute.location && nextRoute.location.pathname[0] !== '/') {
-    ga('send', 'pageview', nextRoute.location.pathname)
+export const routes = [
+  {
+     'pattern':'/champions',
+     'component': Champions,
+  },
+   {
+    'pattern':'/',
+    'component': Default,
+    'exactly': true,
+ },
+ {
+    'pattern':'/eventResults',
+    'component': eventResults,
+ },
+ {
+    'pattern':'/events',
+    'component': Events,
+ },
+ {
+    'pattern':'/name',
+    'component': Name,
+ },
+ {
+    'pattern':'/ppvs',
+    'component': PPVS,
+ },
+ {
+    'pattern':'/roster',
+    'component': Roster,
+ },
+ {
+    'pattern':'/Ssze',
+    'component': Size,
+ },
+]
+export default class Routes extends Component {
+  render() {
+    return (
+      <Router history={hashHistory}>
+        <Page>
+          <main>
+            {routes.map((route, index) => (
+              <Route key={index} path={route.pattern} component={route.component} />
+            ))}
+          </main>
+        </Page>
+      </Router>
+    )
   }
-}
-
-export default () => {
-  return (
-    <Route path="/" onChange={onChange} component={Page}>
-      <IndexRoute
-        getComponent={(nextState, callback) => {
-          require.ensure([], require => {
-            callback(null, require('./pages/default').default)
-          })
-        }}
-      />
-      <Route
-        path="*"
-        getComponent={(nextState, callback) => {
-          require.ensure([], require => {
-            callback(null, require('./pages/default').default)
-          })
-        }}
-      />
-    </Route>
-  )
 }

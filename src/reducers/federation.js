@@ -10,7 +10,7 @@ export default (state = defaultState, action) => {
       newState = defaultState
       break
     case 'UPDATE_FEDERATION':
-      newState = action.federation
+      newState = action.payload
       break
     default:
       break
