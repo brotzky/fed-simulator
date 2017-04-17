@@ -15,7 +15,7 @@ export default () => {
       <IndexRoute
         getComponent={(nextState, callback) => {
           require.ensure([], require => {
-            callback(null, require('./pages/default/default').default)
+            callback(null, require('./pages/default').default)
           })
         }}
       />
@@ -23,7 +23,7 @@ export default () => {
         path="*"
         getComponent={(nextState, callback) => {
           require.ensure([], require => {
-            callback(null, require('./pages/default/default').default)
+            callback(null, require('./pages/default').default)
           })
         }}
       />

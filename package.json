@@ -88,6 +88,7 @@
     "hapi": "^16.0.2",
     "inert": "^4.0.4",
     "jquery": "^3.1.1",
+    "jsx-control-statements": "^3.1.5",
     "loader-utils": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "lodash.maxby": "^4.6.0",

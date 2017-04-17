@@ -1,10 +1,20 @@
 import {combineReducers} from 'redux'
-import version from './version.js'
-import settings from './settings.js'
+import champions from './champions'
+import federation from './federation'
+import events from './events'
+import ppvs from './ppvs'
+import roster from './roster'
+import settings from './settings'
+import version from './version'
 
 const rootReducer = combineReducers({
-  version,
+  champions,
+  events,
+  federation,
+  ppvs,
+  roster,
   settings,
+  version,
 })
 
 export default rootReducer

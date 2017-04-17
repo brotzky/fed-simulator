@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import PerfProfiler from "../perf-profiler/perf-profiler"
+import PerfProfiler from "../perf-profiler/perf-profiler"
 import {connect} from 'react-redux'
 import * as versionActions from '../../actions/version'
 import '../../stylesheets/base.scss'
@@ -30,6 +30,7 @@ class Page extends React.Component {
   render() {
     return (
       <div>
+        <PerfProfiler />
         {this.props.children}
       </div>
     )
