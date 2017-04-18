@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
-import {React, Component} from 'react'
+import React, {Component} from 'react'
 import PropTypes from "prop-types"
+import Page from '../components/page/page'
 
 class Default extends Component {
 
@@ -19,7 +20,7 @@ class Default extends Component {
     const props = Object.keys(this.props)
 
     return (
-      <section className="page default">
+      <Page classNames="default">
         <h1>Default</h1>
         {props.map((name, key) => {
           return (
@@ -29,7 +30,7 @@ class Default extends Component {
             </div>
           )
         })}
-      </section>
+      </Page>
     )
   }
 }

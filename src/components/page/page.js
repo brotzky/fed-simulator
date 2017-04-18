@@ -7,12 +7,14 @@ import '../../stylesheets/base.scss'
 
 class Page extends React.Component {
   static propTypes = {
+    classNames: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
     version: PropTypes.number.isRequired,
   }
 
   static defaultProps = {
     version: 1,
+    classNames: '',
   }
 
   componentWillMount() {
@@ -29,10 +31,16 @@ class Page extends React.Component {
 
   render() {
     return (
-      <div>
+      <section className={`page ${this.props.classNames}`}>
         <PerfProfiler />
+        <header>
+          <h3>Header</h3>
+        </header>
         {this.props.children}
-      </div>
+        <footer>
+          <h3>Footer</h3>
+        </footer>
+      </section>
     )
   }
 }

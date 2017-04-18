@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Page from './components/page/page'
 import { Route, Router, hashHistory } from 'react-router'
 import { Champions, Default, eventResults, Events, Name, PPVS, Roster, Size } from './Pages/index'
 
@@ -34,7 +33,7 @@ export const routes = [
     'component': Roster,
  },
  {
-    'pattern':'/Ssze',
+    'pattern':'/size',
     'component': Size,
  },
 ]
@@ -42,13 +41,9 @@ export default class Routes extends Component {
   render() {
     return (
       <Router history={hashHistory}>
-        <Page>
-          <main>
-            {routes.map((route, index) => (
-              <Route key={index} path={route.pattern} component={route.component} />
-            ))}
-          </main>
-        </Page>
+        {routes.map((route, index) => (
+          <Route key={index} path={route.pattern} component={route.component} />
+        ))}
       </Router>
     )
   }

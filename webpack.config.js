@@ -68,11 +68,10 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       mangle: false,
-      compress: false,
-      // {
-      //   warnings: false,
-      //   drop_console: true,
-      // },
+      compress: {
+        warnings: false,
+        drop_console: false,
+      },
     }),
     new CopyWebpackPlugin([
       {
