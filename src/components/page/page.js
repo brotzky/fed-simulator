@@ -5,6 +5,7 @@ import PerfProfiler from '../perf-profiler/perf-profiler'
 import {connect} from 'react-redux'
 import * as versionActions from '../../actions/version'
 import '../../stylesheets/base.scss'
+import './page.scss'
 
 class Page extends React.Component {
   static propTypes = {
@@ -35,17 +36,12 @@ class Page extends React.Component {
       <main className={`page ${this.props.classNames}`}>
         <Navigation />
         <div className="row around-xs center-xs middle-xs">
-          <aside className="col-xs-2">
-            <div className="box">
-              Left
-            </div>
-          </aside>
           <div className="col-xs-8 start-xs">
-            <div className="box">
+            <div className="box children">
               {this.props.children}
             </div>
           </div>
-          <aside className="col-xs-2 center-xs middle-xs">
+          <aside className="col-xs-4 center-xs middle-xs">
             <div className="box">
               Right
             </div>
