@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PerfProfiler from "../perf-profiler/perf-profiler"
+import PerfProfiler from '../perf-profiler/perf-profiler'
 import {connect} from 'react-redux'
 import * as versionActions from '../../actions/version'
 import '../../stylesheets/base.scss'
@@ -34,7 +34,7 @@ class Page extends React.Component {
       <section className={`page ${this.props.classNames}`}>
         <PerfProfiler />
         <header>
-          <h3>Header</h3>
+          <h1 />
         </header>
         {this.props.children}
         <footer>

@@ -1,19 +1,14 @@
-import React from "react"
-import Perf from "react-addons-perf"
-import "./stylesheets/main.scss"
+import React from 'react'
+import Perf from 'react-addons-perf'
+import './stylesheets/main.scss'
 
 export default class PerfProfiler extends React.Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      started: false,
-    }
+  state = {
+    started: false,
   }
 
   toggle = () => {
-    const { started, } = this.state
+    const {started,} = this.state
 
     started ? Perf.stop() : Perf.start()
 
@@ -35,7 +30,7 @@ export default class PerfProfiler extends React.Component {
   }
 
   render() {
-    const { started, } = this.state
+    const {started,} = this.state
 
     return (
       <div className="perf-profiler">
@@ -43,7 +38,7 @@ export default class PerfProfiler extends React.Component {
           Performance Profiler
         </h5>
         <button onClick={this.toggle}>
-          {started ? "Stop" : "Start"}
+          {started ? 'Stop' : 'Start'}
         </button>
         <button onClick={this.printWasted}>
           Print Wasted
