@@ -28,7 +28,6 @@ module.exports = {
       'react-router',
       'redux',
       'react-redux',
-      'moment',
     ],
     polyfill: require.resolve('./config/polyfills'),
     app: require.resolve('./src/index.js'),
