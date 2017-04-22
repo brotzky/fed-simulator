@@ -1,0 +1,22 @@
+$name-font-size: 16rem;
+$name-input-font-size: 12rem;
+$name-button-font-size: 7rem;
+
+.page.name {
+  h1 {
+    font-size: $name-font-size;
+    line-height: $name-font-size;
+    margin: 0;
+  }
+  input {
+    font-size: $name-input-font-size;
+    height: $name-input-font-size + 1;
+    line-height: $name-input-font-size + 1;
+    font-weight: bolder;
+  }
+  button {
+    font-size: $name-button-font-size;
+    height: 100%;
+    width: 100%;
+  }
+}

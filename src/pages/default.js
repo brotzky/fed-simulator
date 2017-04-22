@@ -3,16 +3,15 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 class Default extends Component {
-  static propTypes = {
-    federation: PropTypes.object.isRequired,
-    events: PropTypes.array.isRequired,
-    shows: PropTypes.array.isRequired,
-    roster: PropTypes.array.isRequired,
-    settings: PropTypes.object.isRequired,
-    version: PropTypes.number.isRequired,
-  }
-
   displayName = 'Default'
+
+  componentWillMount() {
+    if (this.props.federation.name === '') {
+      this.props.router.push('/name')
+    } else {
+      this.props.router.push('/size')
+    }
+  }
 
   render() {
     const props = Object.keys(this.props)
@@ -31,6 +30,19 @@ class Default extends Component {
       </section>
     )
   }
+}
+
+Default.propTypes = {
+  federation: PropTypes.object.isRequired,
+  events: PropTypes.array.isRequired,
+  shows: PropTypes.array.isRequired,
+  roster: PropTypes.array.isRequired,
+  settings: PropTypes.object.isRequired,
+  version: PropTypes.number.isRequired,
+}
+
+Default.contextTypes = {
+  router: PropTypes.object.isRequired,
 }
 
 export default connect(state => ({

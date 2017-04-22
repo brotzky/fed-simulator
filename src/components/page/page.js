@@ -36,12 +36,12 @@ class Page extends React.Component {
       <main className={`page ${this.props.classNames}`}>
         <Navigation />
         <div className="row around-xs center-xs middle-xs">
-          <div className="col-xs-8 start-xs">
+          <div className="col-xs-12 col-lg-8 start-xs">
             <div className="box children">
               {this.props.children}
             </div>
           </div>
-          <aside className="col-xs-4 center-xs middle-xs">
+          <aside className="col-xs-12 col-lg-4 center-xs middle-xs">
             <div className="box">
               Right
             </div>
