@@ -11,15 +11,15 @@ class Name extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       value: event.target.value,
     })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
-    
+
     this.props.dispatch(
       updateFederation({
         name: this.state.value,
@@ -31,17 +31,17 @@ class Name extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
+      <section className="page name">
+        <h1>Federation Name</h1>
+        <form onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={this.state.value}
             onChange={this.handleChange}
           />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+          <input type="submit" value="Submit" />
+        </form>
+      </section>
     )
   }
 }

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Brock Lesnar",
+    "points": 100,
+    "wins": 10,
+    "losses": 0,
+    "previous_names": ""
+  },
+  {
+    "name": "Randy Orton",
+    "points": 90,
+    "wins": 5,
+    "losses": 0,
+    "previous_names": ""
+  }
+]

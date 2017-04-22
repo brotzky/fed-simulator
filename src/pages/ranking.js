@@ -1,11 +1,10 @@
 import React from 'react'
-import Page from '../components/page/page'
 
 const Ranking = () => {
   return (
-    <Page classNames="ppvs">
-      <h2>Ranking</h2>
-    </Page>
+    <section className="page ranking">
+      <h1>Ranking</h1>
+    </section>
   )
 }
 

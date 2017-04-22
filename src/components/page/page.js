@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Navigation from '../navigation/navigation'
 import PerfProfiler from '../perf-profiler/perf-profiler'
 import {connect} from 'react-redux'
 import * as versionActions from '../../actions/version'
@@ -31,26 +32,27 @@ class Page extends React.Component {
 
   render() {
     return (
-      <section className={`page ${this.props.classNames}`}>
-        <PerfProfiler />
+      <main className={`page ${this.props.classNames}`}>
+        <Navigation />
         <div className="row around-xs">
-          <div className="col-xs-2">
+          <aside className="col-xs-2">
             <div className="box">
-              Side
+              Left
             </div>
-          </div>
-          <div className="col-xs-2">
+          </aside>
+          <div className="col-xs-8">
             <div className="box">
               {this.props.children}
             </div>
           </div>
-          <div className="col-xs-2">
+          <aside className="col-xs-2">
             <div className="box">
-              Side
+              Right
             </div>
-          </div>
+          </aside>
         </div>
-      </section>
+        <PerfProfiler />
+      </main>
     )
   }
 }

@@ -14,7 +14,7 @@ export default () => {
       <IndexRoute
         getComponent={(nextState, callback) => {
           require.ensure([], require => {
-            callback(null, require('./pages/default').default)
+            callback(null, require('./pages/default').default, 'default')
           })
         }}
       />
@@ -22,7 +22,7 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/champions').default)
+              callback(null, require('./pages/champions').default, 'champions')
             })
           }}
         />
@@ -31,7 +31,11 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/event-results').default)
+              callback(
+                null,
+                require('./pages/event-results').default,
+                'eventResults'
+              )
             })
           }}
         />
@@ -40,7 +44,7 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/calendar').default)
+              callback(null, require('./pages/calendar').default, 'calendar')
             })
           }}
         />
@@ -49,7 +53,7 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/name').default)
+              callback(null, require('./pages/name').default, 'name')
             })
           }}
         />
@@ -58,16 +62,16 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/size').default)
+              callback(null, require('./pages/size').default, 'size')
             })
           }}
         />
       </Route>
-      <Route path="ppvs">
+      <Route path="shows">
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/ppvs').default)
+              callback(null, require('./pages/shows').default, 'shows')
             })
           }}
         />
@@ -76,7 +80,7 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/roster').default)
+              callback(null, require('./pages/roster').default, 'roster')
             })
           }}
         />
@@ -85,7 +89,7 @@ export default () => {
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require('./pages/ranking').default)
+              callback(null, require('./pages/ranking').default, 'ranking')
             })
           }}
         />
@@ -94,7 +98,11 @@ export default () => {
         path="*"
         getComponent={(nextState, callback) => {
           require.ensure([], require => {
-            callback(null, require('./pages/default').default)
+            callback(
+              null,
+              require('./pages/default').default,
+              'default-fallback'
+            )
           })
         }}
       />
