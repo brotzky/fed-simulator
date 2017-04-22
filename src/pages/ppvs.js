@@ -1,11 +1,12 @@
-import React, {PureComponent} from 'react'
+import React from 'react'
+import Page from '../components/page/page'
 
-export default class PPVs extends PureComponent {
-  render() {
-    return (
-      <section className="page ppvs">
-        <h1>PPVs</h1>
-      </section>
-    )
-  }
+const PPVs = () => {
+  return (
+    <Page classNames="ppvs">
+      <h2>PPs</h2>
+    </Page>
+  )
 }
+
+export default PPVs
