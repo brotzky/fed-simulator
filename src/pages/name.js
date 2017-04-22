@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {updateFederation} from '../actions/federation'
+import PropTypes from 'prop-types'
 
 class Name extends Component {
   state = {
@@ -18,6 +19,7 @@ class Name extends Component {
     const newState = Object.assign(this.props.federation, this.state)
 
     this.props.dispatch(updateFederation(newState))
+    this.props.router.push('/size')
   }
 
   displayName = 'Name'
@@ -40,6 +42,10 @@ class Name extends Component {
       </section>
     )
   }
+}
+
+Name.contextTypes = {
+  router: PropTypes.object.isRequired,
 }
 
 export default connect(state => ({
