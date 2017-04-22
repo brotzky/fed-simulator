@@ -1,13 +1,12 @@
 .perf-profiler {
+  background: white;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  right: 50px;
-  top: 20px;
   padding: 10px;
-  background: #bada55;
-  border: 2px solid black;
+  position: absolute;
+  right: 0;
   text-align: center;
+  top: 50%;
   z-index: 300;
 }
 

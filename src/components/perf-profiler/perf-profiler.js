@@ -1,6 +1,6 @@
 import React from 'react'
 import Perf from 'react-addons-perf'
-import './stylesheets/main.scss'
+import './perf-profiler.scss'
 
 export default class PerfProfiler extends React.Component {
   state = {
@@ -34,9 +34,6 @@ export default class PerfProfiler extends React.Component {
 
     return (
       <div className="perf-profiler">
-        <h5>
-          Performance Profiler
-        </h5>
         <button onClick={this.toggle}>
           {started ? 'Stop' : 'Start'}
         </button>
