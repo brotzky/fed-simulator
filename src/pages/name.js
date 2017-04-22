@@ -3,28 +3,21 @@ import {connect} from 'react-redux'
 import {updateFederation} from '../actions/federation'
 
 class Name extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      value: '',
-    }
+  state = {
+    name: '',
   }
 
   handleChange = event => {
     this.setState({
-      value: event.target.value,
+      name: event.target.value,
     })
   }
 
   handleSubmit = event => {
     event.preventDefault()
+    const newState = Object.assign(this.props.federation, this.state)
 
-    this.props.dispatch(
-      updateFederation({
-        name: this.state.value,
-      })
-    )
+    this.props.dispatch(updateFederation(newState))
   }
 
   displayName = 'Name'
@@ -32,14 +25,17 @@ class Name extends Component {
   render() {
     return (
       <section className="page name">
-        <h1>Federation Name</h1>
+        <h1>Name your federation!</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
-            value={this.state.value}
+            name="name"
+            value={this.state.name}
             onChange={this.handleChange}
           />
-          <input type="submit" value="Submit" />
+          <button type="submit">
+            Save and decide the size of your federation
+          </button>
         </form>
       </section>
     )
