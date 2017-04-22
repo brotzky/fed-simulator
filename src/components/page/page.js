@@ -33,13 +33,23 @@ class Page extends React.Component {
     return (
       <section className={`page ${this.props.classNames}`}>
         <PerfProfiler />
-        <header>
-          <h1 />
-        </header>
-        {this.props.children}
-        <footer>
-          <h3>Footer</h3>
-        </footer>
+        <div className="row around-xs">
+          <div className="col-xs-2">
+            <div className="box">
+              Side
+            </div>
+          </div>
+          <div className="col-xs-2">
+            <div className="box">
+              {this.props.children}
+            </div>
+          </div>
+          <div className="col-xs-2">
+            <div className="box">
+              Side
+            </div>
+          </div>
+        </div>
       </section>
     )
   }

@@ -20,7 +20,7 @@ class Default extends Component {
 
     return (
       <Page classNames="default">
-        <h1>Default!</h1>
+        <h1>Default</h1>
         {props.map((name, key) => {
           return (
             <div key={key}>

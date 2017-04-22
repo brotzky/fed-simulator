@@ -2,22 +2,17 @@ const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const execSync = require('child_process').execSync
-const opn = require('opn')
 const detect = require('./utils/detectPort')
 const prompt = require('./utils/prompt')
 const config = require('../config/webpack.config.dev')
-import { log, error } from '../config/log'
-var player = require('play-sound')()
+import {log, error} from '../config/log'
 
 log('Start development server')
 
 const DEFAULT_PORT = process.env.PORT || 3000
 
-function alertTerminal(fileName = "bell.mp3") {
-  player.play(`src/components/bell/${fileName}`, function(err){
-    if (err) throw err
-  })
+function alertTerminal() {
+  log(chalk.green('Done!'))
 }
 
 var compiler
@@ -26,7 +21,7 @@ var compiler
 var handleCompile
 var isSmokeTest = process.argv.some(arg => arg.indexOf('--smoke-test') > -1)
 if (isSmokeTest) {
-  handleCompile = function (err, stats) {
+  handleCompile = function(err, stats) {
     if (err || stats.hasErrors() || stats.hasWarnings()) {
       process.exit(1)
     } else {
@@ -45,22 +40,24 @@ function isLikelyASyntaxError(message) {
 // It would be easier if webpack provided a rich error object.
 
 function formatMessage(message) {
-  return message
-    // Make some common errors shorter:
-    .replace(
-      // Babel syntax error
-      'Module build failed: SyntaxError:',
-      friendlySyntaxErrorLabel
-    )
-    .replace(
-      // Webpack file not found error
-      /Module not found: Error: Cannot resolve 'file' or 'directory'/,
-      'Module not found:'
-    )
-    // Internal stacks are generally useless so we strip them
-    .replace(/^\s*at\s.*:\d+:\d+[\s\)]*\n/gm, '') // at ... ...:x:y
-    // Webpack loader names obscure CSS filenames
-    .replace('./~/css-loader!./~/postcss-loader!', '')
+  return (
+    message
+      // Make some common errors shorter:
+      .replace(
+        // Babel syntax error
+        'Module build failed: SyntaxError:',
+        friendlySyntaxErrorLabel
+      )
+      .replace(
+        // Webpack file not found error
+        /Module not found: Error: Cannot resolve 'file' or 'directory'/,
+        'Module not found:'
+      )
+      // Internal stacks are generally useless so we strip them
+      .replace(/^\s*at\s.*:\d+:\d+[\s\)]*\n/gm, '') // at ... ...:x:y
+      // Webpack loader names obscure CSS filenames
+      .replace('./~/css-loader!./~/postcss-loader!', '')
+  )
 }
 
 function setupCompiler(port) {
@@ -77,16 +74,15 @@ function setupCompiler(port) {
       log(chalk.green('Compiled successfully'))
       const url = 'http://localhost:' + port + '/'
       log(url)
-      // opn(url)
       return
     }
 
     var json = stats.toJson()
-    var formattedErrors = json.errors.map(message =>
-      'Error in ' + formatMessage(message)
+    var formattedErrors = json.errors.map(
+      message => 'Error in ' + formatMessage(message)
     )
-    var formattedWarnings = json.warnings.map(message =>
-      'Warning in ' + formatMessage(message)
+    var formattedWarnings = json.warnings.map(
+      message => 'Warning in ' + formatMessage(message)
     )
 
     if (hasErrors) {
@@ -95,7 +91,7 @@ function setupCompiler(port) {
         formattedErrors = formattedErrors.filter(isLikelyASyntaxError)
       }
       formattedErrors.forEach(message => {
-        alertTerminal("error.mp3")
+        alertTerminal('error.mp3')
         error(message)
       })
       return
@@ -108,8 +104,16 @@ function setupCompiler(port) {
       })
 
       log('You may use special comments to disable some warnings.')
-      log('Use ' + chalk.yellow('// eslint-disable-next-line') + ' to ignore the next line.')
-      log('Use ' + chalk.yellow('/* eslint-disable */') + ' to ignore all warnings in a file.')
+      log(
+        'Use ' +
+          chalk.yellow('// eslint-disable-next-line') +
+          ' to ignore the next line.'
+      )
+      log(
+        'Use ' +
+          chalk.yellow('/* eslint-disable */') +
+          ' to ignore all warnings in a file.'
+      )
     }
   })
 }
@@ -122,14 +126,14 @@ function runDevServer(port) {
     quiet: true,
     progress: true,
     colors: true,
-    clientLogLevel: "error",
+    clientLogLevel: 'error',
     devServer: {
       hot: true,
     },
     watchOptions: {
       ignored: /node_modules/,
     },
-  }).listen(port, (err) => {
+  }).listen(port, err => {
     if (err) {
       alertTerminal()
       return error(err)

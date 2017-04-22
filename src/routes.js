@@ -1,59 +1,103 @@
-import React, {Component} from 'react'
-import {Route, Router, hashHistory} from 'react-router'
-import {
-  Champions,
-  Default,
-  eventResults,
-  Events,
-  Name,
-  PPVS,
-  Roster,
-  Size
-} from './Pages/index'
+import React from 'react'
+import Page from './components/page/page'
+import {IndexRoute, Route} from 'react-router'
 
-export const routes = [
-  {
-    pattern: '/champions',
-    component: Champions,
-  },
-  {
-    pattern: '/',
-    component: Default,
-    exactly: true,
-  },
-  {
-    pattern: '/eventResults',
-    component: eventResults,
-  },
-  {
-    pattern: '/events',
-    component: Events,
-  },
-  {
-    pattern: '/name',
-    component: Name,
-  },
-  {
-    pattern: '/ppvs',
-    component: PPVS,
-  },
-  {
-    pattern: '/roster',
-    component: Roster,
-  },
-  {
-    pattern: '/size',
-    component: Size,
-  },
-]
-export default class Routes extends Component {
-  render() {
-    return (
-      <Router history={hashHistory}>
-        {routes.map((route, index) => (
-          <Route key={index} path={route.pattern} component={route.component} />
-        ))}
-      </Router>
-    )
+const onChange = (previousRoute, nextRoute) => {
+  if (ga && nextRoute.location && nextRoute.location.pathname[0] != '/') {
+    ga('send', 'pageview', nextRoute.location.pathname)
   }
+}
+
+export default () => {
+  return (
+    <Route path="/" onChange={onChange} component={Page}>
+      <IndexRoute
+        getComponent={(nextState, callback) => {
+          require.ensure([], require => {
+            callback(null, require('./pages/default').default)
+          })
+        }}
+      />
+      <Route path="champions">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/champions').default)
+            })
+          }}
+        />
+      </Route>
+      <Route path="eventResults">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/event-results').default)
+            })
+          }}
+        />
+      </Route>
+      <Route path="calendar">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/calendar').default)
+            })
+          }}
+        />
+      </Route>
+      <Route path="name">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/name').default)
+            })
+          }}
+        />
+      </Route>
+      <Route path="size">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/size').default)
+            })
+          }}
+        />
+      </Route>
+      <Route path="ppvs">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/ppvs').default)
+            })
+          }}
+        />
+      </Route>
+      <Route path="roster">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/roster').default)
+            })
+          }}
+        />
+      </Route>
+      <Route path="ranking">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/ranking').default)
+            })
+          }}
+        />
+      </Route>
+      <Route
+        path="*"
+        getComponent={(nextState, callback) => {
+          require.ensure([], require => {
+            callback(null, require('./pages/default').default)
+          })
+        }}
+      />
+    </Route>
+  )
 }

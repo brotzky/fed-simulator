@@ -1,11 +1,10 @@
 import React from 'react'
-import Page from '../components/page/page'
 
 const PPVs = () => {
   return (
-    <Page classNames="ppvs">
-      <h2>PPs</h2>
-    </Page>
+    <section className="page ppvs">
+      <h2>PPVs</h2>
+    </section>
   )
 }
 
