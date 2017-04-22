@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Backyard Fed",
+    "id": "backyard",
+    "size": "xs"
+  },
+  {
+    "name": "Gym & Internet Fed",
+    "id": "gym",
+    "size": "sm"
+  },
+  {
+    "name": "Bingo Halls",
+    "id": "bingo",
+    "size": "md"
+  },
+  {
+    "name": "Stadium",
+    "id": "Stadium",
+    "size": "lg"
+  }
+]

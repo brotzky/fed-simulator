@@ -1,0 +1,29 @@
+$size-font-size: 16rem;
+$size-options-font-size: 5rem;
+$size-button-font-size: 3rem;
+
+.page.size {
+  h1 {
+    font-size: $size-font-size;
+    line-height: $size-font-size;
+    margin: 0;
+  }
+
+  .option {
+    border: 1rem solid transparent;
+
+    &.active {
+      border: 1rem solid white;
+    }
+
+    font-size: $size-options-font-size;
+    height: $size-options-font-size + 1;
+    line-height: $size-options-font-size + 1;
+    font-weight: bolder;
+  }
+  button {
+    font-size: $size-button-font-size;
+    height: 100%;
+    width: 100%;
+  }
+}
