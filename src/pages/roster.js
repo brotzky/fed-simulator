@@ -61,7 +61,6 @@ class RosterPage extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <section className="page roster">
         <h1>
