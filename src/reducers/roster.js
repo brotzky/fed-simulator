@@ -7,6 +7,7 @@ export default (state = defaultState, action) => {
       newState = defaultState
       break
     case 'UPDATE_ROSTER':
+      newState = action.payload
       break
     default:
       break

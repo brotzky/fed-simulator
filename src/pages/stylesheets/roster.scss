@@ -1,6 +1,14 @@
 .page.roster {
-	.icon {
-		filter: invert(100%);
-		width: 10%;
+	label {
+		font-size: 3rem;
+	}
+	textarea {
+		line-height: 2rem;
+		font-size: 2rem;
+	}
+	.circle {
+		width: 20rem;
+		height: 20rem;
+		border-radius: 50%;
 	}
 }
