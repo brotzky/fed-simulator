@@ -1,24 +1,10 @@
-$name-font-size: 14rem;
 $name-input-font-size: 10rem;
-$name-button-font-size: 5rem;
 
 .page.name {
-  h1 {
-    font-size: $name-font-size;
-    line-height: $name-font-size;
-    margin: 0 0 4rem;
-  }
-
   input {
     font-size: $name-input-font-size;
     height: $name-input-font-size + 1;
     line-height: $name-input-font-size + 1;
     font-weight: bolder;
-  }
-
-  button {
-    font-size: $name-button-font-size;
-    height: 100%;
-    width: 100%;
   }
 }

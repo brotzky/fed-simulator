@@ -40,6 +40,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="branding">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/branding').default, 'branding')
+            })
+          }}
+        />
+      </Route>
       <Route path="calendar">
         <IndexRoute
           getComponent={(nextState, callback) => {
