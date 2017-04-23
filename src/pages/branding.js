@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {updateFederation} from '../actions/federation'
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
+import {SwatchesPicker} from 'react-color'
 
 class BrandingPage extends Component {
   state = {
@@ -19,12 +20,6 @@ class BrandingPage extends Component {
     }
   }
 
-  // handleChange = size => {
-  //   this.setState({
-  //     backgroundColor: this.state.backgroun,
-  //   })
-  // }
-
   handleSubmit = event => {
     event.preventDefault()
     const newState = Object.assign(this.props.federation, this.state)
@@ -33,21 +28,40 @@ class BrandingPage extends Component {
     this.props.router.push('/roster')
   }
 
-  displayName = 'Size'
+  handeBackgroundColorChange = color => {
+    this.setState({backgroundColor: color.hex,})
+  }
+
+  handleColorChange = color => {
+    this.setState({color: color.hex,})
+  }
+
+  displayName = 'BrandingPage'
 
   render() {
+    const style = {
+      backgroundColor: this.state.backgroundColor,
+      color: this.state.color,
+    }
+    console.log(this.state, style)
     return (
       <section className="page branding">
-        <h1>
+        <h1 style={style}>
           What colours represent you???
         </h1>
         <div className="row colours">
-          <h4>Background Colour</h4>
-          Swatch
-        </div>
-        <div className="row colours">
-          <h4>Font Colour</h4>
-          Swatch
+          <div className="col-xs-12 col-lg-6 center-xs middle-xs">
+            <div className="box">
+              <h5>Background</h5>
+              <SwatchesPicker onChange={this.handeBackgroundColorChange} />
+            </div>
+          </div>
+          <div className="col-xs-12 col-lg-6 center-xs middle-xs right">
+            <div className="box">
+              <h5>Font</h5>
+              <SwatchesPicker onChange={this.handleColorChange} />
+            </div>
+          </div>
         </div>
         <form onSubmit={this.handleSubmit}>
           <button type="submit">

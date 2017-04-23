@@ -1,0 +1,18 @@
+$branding-font-size: 10rem;
+$branding-border-color: red;
+
+.page.branding {
+  h1 {
+    font-size: $branding-font-size;
+  }
+  h5 {
+    font-size: $branding-font-size - 2;
+  }
+  .right {
+    border-left: 1rem solid $branding-border-color;
+  }
+  .swatches-picker {
+    height: 100% !important;
+    width: 100% !important;
+  }
+}

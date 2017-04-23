@@ -31,7 +31,7 @@ class SizePage extends Component {
     const newState = Object.assign(this.props.federation, this.state)
 
     this.props.dispatch(updateFederation(newState))
-    this.props.router.push('/roster')
+    this.props.router.push('/branding')
   }
 
   displayName = 'Size'
@@ -40,7 +40,7 @@ class SizePage extends Component {
     return (
       <section className="page size">
         <h1>
-          How big are you {acronymLongName(this.props.federation.name)}?!
+          How big are you `{acronymLongName(this.props.federation.name)}`?!
         </h1>
         <div className="row sizes">
           {defaultOptions.map(option => {
@@ -61,7 +61,7 @@ class SizePage extends Component {
         </div>
         <form onSubmit={this.handleSubmit}>
           <button type="submit">
-            Save and build your dream roster
+            Save and brand your federation!
           </button>
         </form>
       </section>

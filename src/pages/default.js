@@ -8,8 +8,12 @@ class Default extends Component {
   componentWillMount() {
     if (this.props.federation.name === '') {
       this.props.router.push('/name')
-    } else {
+    } else if (this.props.federation.size === '') {
       this.props.router.push('/size')
+    } else if (this.props.federation.backgroundColor === '') {
+      this.props.router.push('/branding')
+    } else {
+      this.props.router.push('/roster')
     }
   }
 
