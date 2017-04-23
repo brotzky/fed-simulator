@@ -1,15 +1,15 @@
-$size-font-size: 16rem;
-$size-options-font-size: 5rem;
-$size-button-font-size: 3rem;
+$size-font-size: 14rem;
+$size-options-font-size: 4rem;
+$size-button-font-size: 5rem;
 
 .page.size {
   h1 {
     font-size: $size-font-size;
     line-height: $size-font-size;
-    margin: 0;
+    margin: 0 0 4rem;
   }
 
-  .option {
+  .size {
     border: 1rem solid transparent;
 
     &.active {
@@ -17,7 +17,6 @@ $size-button-font-size: 3rem;
     }
 
     font-size: $size-options-font-size;
-    height: $size-options-font-size + 1;
     line-height: $size-options-font-size + 1;
     font-weight: bolder;
   }
