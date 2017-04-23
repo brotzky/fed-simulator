@@ -303,7 +303,6 @@ button {
 }
 
 $basepage-font-size: 12rem;
-$basepage-options-font-size: 4rem;
 $basepage-button-font-size: 5rem;
 
 .page {
@@ -319,7 +318,7 @@ $basepage-button-font-size: 5rem;
 
   font-size: $basepage-font-size;
   font-weight: bolder;
-  line-height: $basepage-font-size + 1;
+  line-height: auto;
 
   button {
     font-size: $basepage-button-font-size;
