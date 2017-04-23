@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {updateRoster} from '../actions/roster'
 import React, {Component} from 'react'
-
+import pointsToRandomValue from '../helpers/points-to-random-value'
 const noop = () => {}
 
 const RosterSection = ({section, name, rows = 3, onChange = noop,}) => {
@@ -40,24 +40,24 @@ class RosterPage extends Component {
     event.preventDefault()
     let wrestlers = []
 
-    Object.keys(this.state).map(stateKey => {
+    Object.keys(this.state).forEach(stateKey => {
       let stateSplit = stateKey.split('-')
       let male = stateSplit[0] === 'male'
       let points = stateSplit[1]
 
       let wrestler = {
-        points,
         male,
       }
 
       let newWrestlers = this.state[stateKey]
         .split(',')
-        .map(name => Object.assign({name,}, wrestler))
+        .map(name =>
+          Object.assign({name, points: pointsToRandomValue(points),}, wrestler)
+        )
 
       wrestlers = wrestlers.concat(newWrestlers)
-
-      this.props.dispatch(updateRoster(wrestlers))
     })
+    this.props.dispatch(updateRoster(wrestlers))
   }
 
   render() {
@@ -73,22 +73,22 @@ class RosterPage extends Component {
                 <div className="fa fa-mars" />
                 <RosterSection
                   section={'Men Top Tier'}
-                  name="male-top"
+                  name="male-mainevent"
                   onChange={this.handleChange}
                 />
                 <RosterSection
                   section={'Mid card'}
-                  name="male-mid"
+                  name="male-midcard"
                   onChange={this.handleChange}
                 />
                 <RosterSection
                   section={'Lower card'}
-                  name="male-lower"
+                  name="male-lowercard"
                   onChange={this.handleChange}
                 />
                 <RosterSection
                   section={'Jobbers'}
-                  name="male-jobbers"
+                  name="male-jobber"
                   onChange={this.handleChange}
                 />
               </div>
@@ -98,22 +98,22 @@ class RosterPage extends Component {
                 <div className="fa fa-venus" />
                 <RosterSection
                   section={'Female Top Tier'}
-                  name="female-top"
+                  name="female-mainevent"
                   onChange={this.handleChange}
                 />
                 <RosterSection
                   section={'Mid card'}
-                  name="female-mid"
+                  name="female-midcard"
                   onChange={this.handleChange}
                 />
                 <RosterSection
                   section={'Lower card'}
-                  name="female-lower"
+                  name="female-lowercard"
                   onChange={this.handleChange}
                 />
                 <RosterSection
                   section={'Jobbers'}
-                  name="female-jobbers"
+                  name="female-jobber"
                   onChange={this.handleChange}
                 />
               </div>
