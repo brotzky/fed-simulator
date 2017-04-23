@@ -16,7 +16,7 @@ $focus-border-color: $border-color !default;
 $focus-font-color: $font-color !default;
 $allow-select-vendor-styling: true !default;
 $fieldset-bare: false !default;
-$button-height: 40px !default;
+$button-height: auto !default;
 $button-width: auto !default;
 $button-max-width: auto !default;
 $button-font-color: #fff !default;
@@ -255,7 +255,7 @@ input[type="image"] {
   -moz-appearance: none;
 
   border-radius: $border-radius;
-  border: $border-width $border-style $border-color;
+  border: none;
 }
 
 input[type="image"] {
@@ -296,4 +296,8 @@ input[type="submit"]:focus,
 input[type="reset"]:focus {
   background-color: $button-hover-bg-color;
   color: $button-hover-font-color !important;
+}
+
+button {
+  font-variant: small-caps;
 }

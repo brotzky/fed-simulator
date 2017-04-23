@@ -14,8 +14,7 @@ class SizePage extends Component {
     size: 'xs',
   }
 
-  onSetSize = size => {
-    console.log('got called')
+  handleChange = size => {
     this.setState({
       size,
     })
@@ -46,7 +45,7 @@ class SizePage extends Component {
               <div
                 className={classes}
                 key={option.id}
-                onClick={() => this.onSetSize(option.size)}
+                onClick={() => this.handleChange(option.size)}
               >
                 <h3>{option.name}</h3>
                 <p>{option.size}</p>
@@ -56,7 +55,7 @@ class SizePage extends Component {
         </div>
         <form onSubmit={this.handleSubmit}>
           <button type="submit">
-            Save and decide the size of your federation
+            Save and build your dream roster
           </button>
         </form>
       </section>
@@ -71,3 +70,7 @@ SizePage.contextTypes = {
 export default connect(state => ({
   federation: state.federation,
 }))(SizePage)
+
+// Bingohall by Creative Stall from the Noun Project; https://thenounproject.com/search/?i=145426
+// Garden by Star and Anchor Design; https://thenounproject.com/search/?i=566413
+// Gymnasium by Ismael Ruiz; https://thenounproject.com/search/?i=684754

@@ -1,28 +1,28 @@
 [{
 	"url": "/",
 	"title": "Home"
-}, {
-	"url": "champions",
-	"title": "Champions"
-}, {
-	"url": "eventResults",
-	"title": "Event Results"
-}, {
-	"url": "calendar",
-	"title": "Calendar"
-}, {
+},{
 	"url": "name",
 	"title": "Name"
-}, {
+},{
 	"url": "size",
 	"title": "Organisation size"
-}, {
+},{
+	"url": "champions",
+	"title": "Champions"
+},{
+	"url": "eventResults",
+	"title": "Event Results"
+},{
+	"url": "calendar",
+	"title": "Calendar"
+},{
 	"url": "shows",
 	"title": "Shows"
-}, {
+},{
 	"url": "roster",
 	"title": "Roster"
-}, {
+},{
 	"url": "ranking",
 	"title": "Ranking"
 }]

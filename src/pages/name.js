@@ -30,12 +30,14 @@ class Name extends Component {
       <section className="page name">
         <h1>Name your federation!</h1>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
+          <div>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </div>
           <button type="submit">
             Save and decide the size of your federation
           </button>
