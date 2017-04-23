@@ -9,6 +9,14 @@ class Name extends Component {
     name: '',
   }
 
+  componentDidMount() {
+    if (this.props.federation.name !== '') {
+      this.setState({
+        name: this.props.federation.name,
+      })
+    }
+  }
+
   handleChange = event => {
     this.setState({
       name: event.target.value,

@@ -5,13 +5,19 @@ import {updateFederation} from '../actions/federation'
 import defaultOptions from './size.options.json'
 import PropTypes from 'prop-types'
 import React, {Component} from 'react'
-
-const acronymLongName = name =>
-  (name.length > 4 ? name.match(/\b\w/g).join('') : name)
+import acronymLongName from '../helpers/acronym-long-name'
 
 class SizePage extends Component {
   state = {
-    size: 'xs',
+    size: defaultOptions.find(size => size.default).size,
+  }
+
+  componentDidMount() {
+    if (this.props.federation.size !== '') {
+      this.setState({
+        size: this.props.federation.size,
+      })
+    }
   }
 
   handleChange = size => {

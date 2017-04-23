@@ -2,21 +2,25 @@
   {
     "name": "Backyard Fed",
     "id": "backyard",
-    "size": "xs"
+    "size": "xs",
+    "default": true
   },
   {
     "name": "Gym & Internet Fed",
     "id": "gym",
-    "size": "sm"
+    "size": "sm",
+    "default": false
   },
   {
     "name": "Bingo Halls",
     "id": "bingo",
-    "size": "md"
+    "size": "md",
+    "default": false
   },
   {
     "name": "Stadium",
     "id": "Stadium",
-    "size": "lg"
+    "size": "lg",
+    "default": false
   }
 ]
