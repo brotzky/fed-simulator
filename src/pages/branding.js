@@ -45,8 +45,9 @@ class BrandingPage extends Component {
     }
     return (
       <section className="page branding">
-        <h1 style={style}>
+        <h1 className="col-xs-12" style={style}>
           What colours represent you???
+          <br /> 🏳️🏳️🏳️
         </h1>
         <div className="row colours">
           <div className="col-xs-12 col-lg-6 center-xs middle-xs">

@@ -72,7 +72,7 @@ class RosterPage extends Component {
     return (
       <section className="page roster">
         <h1>
-          Whos on the books?
+          Whos on the 📖?
         </h1>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
