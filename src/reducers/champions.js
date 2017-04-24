@@ -8,6 +8,7 @@ export default (state = defaultState, action) => {
       newState = defaultState
       break
     case 'UPDATE_CHAMPIONS':
+      newState = action.payload
       break
     default:
       break

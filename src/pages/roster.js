@@ -80,7 +80,7 @@ class RosterPage extends Component {
               <div className="box">
                 <div className="fa fa-mars" />
                 <RosterSection
-                  section={'Male main event'}
+                  section={'Mens main event'}
                   name="male-mainevent"
                   onChange={this.handleChange}
                   placeholder={'Brock Lesnar, Randy Orton, John Cena,'}
@@ -113,7 +113,7 @@ class RosterPage extends Component {
               <div className="box">
                 <div className="fa fa-venus" />
                 <RosterSection
-                  section={'Female Main Event'}
+                  section={'Womens Main Event'}
                   name="female-mainevent"
                   onChange={this.handleChange}
                   placeholder={'Charlotte, Bayley, Alexa Bliss'}

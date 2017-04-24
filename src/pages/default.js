@@ -12,7 +12,7 @@ class Default extends Component {
       this.props.router.push('/size')
     } else if (this.props.federation.backgroundColor === '') {
       this.props.router.push('/branding')
-    } else {
+    } else if (this.props.roster.length === 0) {
       this.props.router.push('/roster')
     }
   }
