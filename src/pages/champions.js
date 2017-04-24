@@ -48,11 +48,11 @@ class ChampionsPage extends Component {
       male: this.props.champions
         .filter(champion => champion.male)
         .map(champion => champion.name)
-        .join(),
+        .join(', '),
       female: this.props.champions
         .filter(champion => !champion.male)
         .map(champion => champion.name)
-        .join(),
+        .join(', '),
     })
   }
 
