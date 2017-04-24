@@ -17,15 +17,6 @@
 	"url": "champions",
 	"title": "Champions"
 }, {
-	"url": "eventResults",
-	"title": "Event Results"
-}, {
-	"url": "calendar",
-	"title": "Calendar"
-}, {
 	"url": "shows",
 	"title": "Shows"
-}, {
-	"url": "ranking",
-	"title": "Ranking"
 }]
