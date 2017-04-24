@@ -16,13 +16,15 @@ class SizePage extends Component {
     if (this.props.federation.size !== '') {
       this.setState({
         size: this.props.federation.size,
+        cash: this.props.federation.cash,
       })
     }
   }
 
-  handleChange = size => {
+  handleChange = (size, cash) => {
     this.setState({
       size,
+      cash,
     })
   }
 
@@ -40,7 +42,10 @@ class SizePage extends Component {
     return (
       <section className="page size">
         <h1>
-          How big are you `{acronymLongName(this.props.federation.name)}`?!
+          How big are you `<span className="orange">
+            {acronymLongName(this.props.federation.name)}`
+          </span>
+          ?!
         </h1>
         <div className="row sizes">
           {defaultOptions.map(option => {
@@ -51,7 +56,7 @@ class SizePage extends Component {
               <div
                 className={classes}
                 key={option.id}
-                onClick={() => this.handleChange(option.size)}
+                onClick={() => this.handleChange(option.size, option.cash)}
               >
                 <h3>{option.name}</h3>
                 <p>{option.size}</p>
