@@ -80,7 +80,7 @@ class RosterPage extends Component {
               <div className="box">
                 <div className="fa fa-mars" />
                 <RosterSection
-                  section={'Mens main event'}
+                  section={'Mens Main event'}
                   name="male-mainevent"
                   onChange={this.handleChange}
                   placeholder={'Brock Lesnar, Randy Orton, John Cena,'}
