@@ -14,6 +14,8 @@ class Default extends Component {
       this.props.router.push('/branding')
     } else if (this.props.roster.length === 0) {
       this.props.router.push('/roster')
+    } else {
+      this.props.router.push('/shows')
     }
   }
 
