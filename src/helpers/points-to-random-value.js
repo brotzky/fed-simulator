@@ -16,6 +16,9 @@ export default function pointsToRandomValue(points) {
     case 'mainevent':
       newPoints = getRandomArbitrary(80, 100)
       break
+    case 'commentators':
+      newPoints = getRandomArbitrary(0, 5)
+      break
   }
   return newPoints
 }

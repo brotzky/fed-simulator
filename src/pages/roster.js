@@ -6,7 +6,13 @@ import React, {Component} from 'react'
 import pointsToRandomValue from '../helpers/points-to-random-value'
 const noop = () => {}
 
-const RosterSection = ({section, name, rows = 3, onChange = noop,}) => {
+const RosterSection = ({
+  section,
+  name,
+  rows = 3,
+  onChange = noop,
+  placeholder = '',
+}) => {
   return (
     <div className="row">
       <div className="col-xs-12">
@@ -19,6 +25,7 @@ const RosterSection = ({section, name, rows = 3, onChange = noop,}) => {
             type="text"
             rows={rows}
             name={name}
+            placeholder={placeholder}
             onChange={onChange}
           />
         </div>
@@ -58,6 +65,7 @@ class RosterPage extends Component {
       wrestlers = wrestlers.concat(newWrestlers)
     })
     this.props.dispatch(updateRoster(wrestlers))
+    this.props.router.push('/champions')
   }
 
   render() {
@@ -72,23 +80,31 @@ class RosterPage extends Component {
               <div className="box">
                 <div className="fa fa-mars" />
                 <RosterSection
-                  section={'Men Top Tier'}
+                  section={'Male main event'}
                   name="male-mainevent"
                   onChange={this.handleChange}
+                  placeholder={'Brock Lesnar, Randy Orton, John Cena,'}
                 />
                 <RosterSection
                   section={'Mid card'}
                   name="male-midcard"
                   onChange={this.handleChange}
+                  placeholder={'Dean Ambrose, Dolph Ziggler, The Miz,'}
                 />
                 <RosterSection
                   section={'Lower card'}
                   name="male-lowercard"
                   onChange={this.handleChange}
+                  placeholder={('Fandango', 'Primo', 'James Elsworth')}
                 />
                 <RosterSection
                   section={'Jobbers'}
                   name="male-jobber"
+                  onChange={this.handleChange}
+                />
+                <RosterSection
+                  section={'Commentators'}
+                  name="male-commentators"
                   onChange={this.handleChange}
                 />
               </div>
@@ -97,14 +113,16 @@ class RosterPage extends Component {
               <div className="box">
                 <div className="fa fa-venus" />
                 <RosterSection
-                  section={'Female Top Tier'}
+                  section={'Female Main Event'}
                   name="female-mainevent"
                   onChange={this.handleChange}
+                  placeholder={'Charlotte, Bayley, Alexa Bliss'}
                 />
                 <RosterSection
                   section={'Mid card'}
                   name="female-midcard"
                   onChange={this.handleChange}
+                  placeholder={'Becky Lynch'}
                 />
                 <RosterSection
                   section={'Lower card'}
@@ -115,13 +133,19 @@ class RosterPage extends Component {
                   section={'Jobbers'}
                   name="female-jobber"
                   onChange={this.handleChange}
+                  placeholder={'Bluepants'}
+                />
+                <RosterSection
+                  section={'Commentators'}
+                  name="female-commentators"
+                  onChange={this.handleChange}
                 />
               </div>
             </div>
           </div>
           <div>
             <button type="submit">
-              Update the books and open the calendar
+              Update the books and get some gold
             </button>
           </div>
         </form>
