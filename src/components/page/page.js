@@ -34,7 +34,9 @@ class Page extends React.Component {
   render() {
     return (
       <main className={`page ${this.props.classNames}`}>
-        <Navigation />
+        <If condition={this.props.shows.length > 0}>
+          <Navigation />
+        </If>
         <div className="row around-xs center-xs middle-xs">
           <div className={`col-xs-12 start-xs`}>
             <div className="box children">
@@ -51,4 +53,5 @@ class Page extends React.Component {
 export default connect(state => ({
   version: state.version,
   federation: state.federation,
+  shows: state.shows,
 }))(Page)

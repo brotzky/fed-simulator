@@ -1,26 +1,14 @@
 [{
-	"url": "/",
-	"title": "Home"
-}, {
-	"url": "name",
-	"title": "Name"
-}, {
-	"url": "size",
-	"title": "size"
-}, {
-	"url": "branding",
-	"title": "Branding"
-}, {
-	"url": "roster",
-	"title": "Roster"
-}, {
-	"url": "champions",
-	"title": "Champions"
-}, {
-	"url": "shows",
-	"title": "Shows"
-}, {
 	"url": "ranking",
 	"title": "Ranking"
+}, {
+	"url": "calendar",
+	"title": "Calendar"
+}, {
+	"url": "next-show",
+	"title": "Next Show"
+}, {
+	"url": "/name",
+	"title": "Start All Over Again"
 }
 ]

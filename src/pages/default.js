@@ -14,8 +14,10 @@ class Default extends Component {
       this.props.router.push('/branding')
     } else if (this.props.roster.length === 0) {
       this.props.router.push('/roster')
-    } else {
+    } else if (this.props.shows.length === 0) {
       this.props.router.push('/shows')
+    } else {
+      this.props.router.push('/ranking')
     }
   }
 

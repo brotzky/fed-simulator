@@ -103,6 +103,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="next-show">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/next-show').default, 'next-show')
+            })
+          }}
+        />
+      </Route>
       <Route
         path="*"
         getComponent={(nextState, callback) => {
