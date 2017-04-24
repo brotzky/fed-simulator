@@ -1,0 +1,58 @@
+
+.ranking {
+  font-size: 3rem;
+
+  thead tr td {
+    font-size: 2rem;
+    font-weight: 500;
+    vertical-align: bottom;
+  }
+
+  &__title {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  tbody tr {
+    td {
+      line-height: 3rem;
+      vertical-align: middle;
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    &.inactive {
+      color: #ccc;
+    }
+
+    .ranking__name {
+      font-weight: 100;
+    }
+
+    .ranking__order {
+      text-align: center;
+      vertical-align: middle;
+      width: 1%;
+    }
+
+    .ranking__wrestler {
+      text-align: left;
+      width: 1%;
+    }
+
+    .ranking__wins,
+    .ranking__losses {
+      text-align: center;
+      width: 5%;
+    }
+
+    .ranking__wins,
+    .ranking__losses,
+    .ranking__name {
+      vertical-align: middle;
+    }
+  }
+}
