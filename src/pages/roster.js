@@ -12,6 +12,7 @@ const RosterSection = ({
   rows = 3,
   onChange = noop,
   placeholder = '',
+  defaultValue = '',
 }) => {
   return (
     <div className="row">
@@ -27,6 +28,7 @@ const RosterSection = ({
             name={name}
             placeholder={placeholder}
             onChange={onChange}
+            defaultValue={defaultValue}
           />
         </div>
       </div>
@@ -36,6 +38,40 @@ const RosterSection = ({
 
 class RosterPage extends Component {
   displayName = 'RosterPage'
+
+  state = {
+    'male-commentators': '',
+    'male-lowercard': '',
+    'male-midcard': '',
+    'male-mainevent': '',
+    'female-commentators': '',
+    'female-lowercard': '',
+    'female-midcard': '',
+    'female-mainevent': '',
+  }
+
+  componentWillMount() {
+    const filterByMinMax = (male = true, min = 0, max = 100) =>
+      this.props.roster
+        .filter(
+          wrestler =>
+            wrestler.male === male &&
+            wrestler.points >= min &&
+            wrestler.points <= max
+        )
+        .map(wrestler => wrestler.name)
+        .join(', ')
+    this.setState({
+      'male-commentators': filterByMinMax(true, 0, 30),
+      'male-lowercard': filterByMinMax(true, 30, 60),
+      'male-midcard': filterByMinMax(true, 60, 80),
+      'male-mainevent': filterByMinMax(true, 80, 100),
+      'female-commentators': filterByMinMax(false, 0, 30),
+      'female-lowercard': filterByMinMax(false, 30, 60),
+      'female-midcard': filterByMinMax(false, 60, 80),
+      'female-mainevent': filterByMinMax(false, 80, 100),
+    })
+  }
 
   handleChange = event => {
     this.setState({
@@ -85,29 +121,31 @@ class RosterPage extends Component {
                   section={'Mens Main event'}
                   name="male-mainevent"
                   onChange={this.handleChange}
-                  placeholder={'Brock Lesnar, Randy Orton, John Cena,'}
+                  defaultValue={this.state['male-mainevent']}
                 />
                 <RosterSection
                   section={'Mid card'}
                   name="male-midcard"
                   onChange={this.handleChange}
-                  placeholder={'Dean Ambrose, Dolph Ziggler, The Miz,'}
+                  defaultValue={this.state['male-midcard']}
                 />
                 <RosterSection
                   section={'Lower card'}
                   name="male-lowercard"
                   onChange={this.handleChange}
-                  placeholder={('Fandango', 'Primo', 'James Elsworth')}
+                  defaultValue={this.state['male-lowercard']}
                 />
                 <RosterSection
                   section={'Jobbers'}
-                  name="male-jobber"
+                  name="male-jobbers"
                   onChange={this.handleChange}
+                  defaultValue={this.state['male-jobbers']}
                 />
                 <RosterSection
                   section={'Commentators'}
                   name="male-commentators"
                   onChange={this.handleChange}
+                  defaultValue={this.state['male-commentators']}
                 />
               </div>
             </div>
@@ -118,29 +156,31 @@ class RosterPage extends Component {
                   section={'Womens Main Event'}
                   name="female-mainevent"
                   onChange={this.handleChange}
-                  placeholder={'Charlotte, Bayley, Alexa Bliss'}
+                  defaultValue={this.state['female-mainevent']}
                 />
                 <RosterSection
                   section={'Mid card'}
                   name="female-midcard"
                   onChange={this.handleChange}
-                  placeholder={'Becky Lynch'}
+                  defaultValue={this.state['female-midcard']}
                 />
                 <RosterSection
                   section={'Lower card'}
                   name="female-lowercard"
                   onChange={this.handleChange}
+                  defaultValue={this.state['female-lowercard']}
                 />
                 <RosterSection
                   section={'Jobbers'}
-                  name="female-jobber"
+                  name="female-jobbers"
                   onChange={this.handleChange}
-                  placeholder={'Bluepants'}
+                  defaultValue={this.state['female-jobbers']}
                 />
                 <RosterSection
                   section={'Commentators'}
                   name="female-commentators"
                   onChange={this.handleChange}
+                  defaultValue={this.state['female-commentators']}
                 />
               </div>
             </div>
@@ -162,6 +202,7 @@ RosterPage.contextTypes = {
 
 export default connect(state => ({
   federation: state.federation,
+  roster: state.roster,
 }))(RosterPage)
 
 // Gender icons by Icon Geek; https://thenounproject.com/icongeek/collection/gender/?oq=gender&cidx=0&i=801870

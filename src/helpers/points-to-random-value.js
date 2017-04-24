@@ -4,7 +4,7 @@ function getRandomArbitrary(min, max) {
 export default function pointsToRandomValue(points) {
   let newPoints
   switch (points) {
-    case 'jobber':
+    case 'jobbers':
       newPoints = getRandomArbitrary(0, 30)
       break
     case 'lowercard':
