@@ -43,7 +43,6 @@ class BrandingPage extends Component {
       backgroundColor: this.state.backgroundColor,
       color: this.state.color,
     }
-    console.log(this.state, style)
     return (
       <section className="page branding">
         <h1 style={style}>
