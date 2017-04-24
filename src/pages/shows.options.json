@@ -1,0 +1,29 @@
+[{
+  "placeholder": "Wrestlemania, Summerslam",
+  "frequency": "yearly",
+  "size": "lg",
+  "max_attendance": 10000000,
+  "max_cost": 6000000,
+  "max_gross": 12000000
+}, {
+  "name": "Payback, Backlash",
+  "frequency": "monthly",
+  "size": "md",
+  "max_attendance": 15000,
+  "max_cost": 200000,
+  "max_gross": 600000
+},{
+  "name": "Raw, Impact",
+  "frequency": "weekly",
+  "size": "sm",
+  "max_attendance": 1500,
+  "max_cost": 25000,
+  "max_gross": 50000
+},{
+  "name": "Backyard Battle",
+  "frequency": "weekly",
+  "size": "xs",
+  "max_attendance": 100,
+  "max_cost": 2000,
+  "max_gross": 5000
+}]

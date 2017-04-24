@@ -6,7 +6,8 @@ export default (state = defaultState, action) => {
     case 'RESET':
       newState = defaultState
       break
-    case 'UPDATE_PPVS':
+    case 'UPDATE_SHOWS':
+      newState = action.payload
       break
     default:
       break
