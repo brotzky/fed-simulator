@@ -89,7 +89,10 @@ class ChampionsPage extends Component {
     return (
       <section className="page champions">
         <h1>
-          What Championship gold <br /> do you have?!
+          What
+          <span className="gold"> Championship gold </span>
+          <br />
+          do you have?!
         </h1>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
