@@ -1,27 +1,15 @@
-process.on('unhandledRejection', err => {
-	console.trace(err)
-});
-
 const path = require('path')
 const chalk = require('chalk')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const getProcessForPort = require('./utils/getProcessForPort');
-const detect = require('detect-port');
+const detect = require('./utils/detectPort')
 const prompt = require('./utils/prompt')
 const config = require('../config/webpack.config.dev')
 import {log, error} from '../config/log'
-const isInteractive = process.stdout.isTTY;
-
-function clearConsole() {
-  process.stdout.write(
-    process.platform === 'win32' ? '\x1Bc' : '\x1B[2J\x1B[3J\x1B[H'
-  );
-}
 
 log('Start development server')
 
-const DEFAULT_PORT = process.env.PORT || 8080
+const DEFAULT_PORT = process.env.PORT || 3000
 
 function alertTerminal() {
   log(chalk.green('Done!'))
@@ -160,30 +148,19 @@ function run(port) {
   runDevServer(port)
 }
 
-// We attempt to use the default port but if it is busy, we offer the user to
-// run on a different port. `detect()` Promise resolves to the next free port.
 detect(DEFAULT_PORT).then(port => {
   if (port === DEFAULT_PORT) {
-    run(port);
-    return;
+    run(port)
+    return
   }
 
-  if (isInteractive) {
-    clearConsole();
-    const existingProcess = getProcessForPort(DEFAULT_PORT);
-    const question = chalk.yellow(
-      `Something is already running on port ${DEFAULT_PORT}.` +
-        `${existingProcess ? ` Probably:\n  ${existingProcess}` : ''}`
-    ) + '\n\nWould you like to run the app on another port instead?';
+  var question =
+    chalk.yellow('Something is already running at port ' + DEFAULT_PORT + '.') +
+    '\n\nWould you like to run the app at another port instead?'
 
-    prompt(question, true).then(shouldChangePort => {
-      if (shouldChangePort) {
-        run(port);
-      }
-    });
-  } else {
-    console.log(
-      chalk.red(`Something is already running on port ${DEFAULT_PORT}.`)
-    );
-  }
-});
+  prompt(question, true).then(shouldChangePort => {
+    if (shouldChangePort) {
+      run(port)
+    }
+  })
+})

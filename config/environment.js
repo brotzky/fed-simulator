@@ -7,4 +7,4 @@ const setEnvDefault = (key, val) => {
 }
 
 setEnvDefault('NODE_ENV', 'development')
-setEnvDefault('PORT', 8080)
+setEnvDefault('PORT', 3000)
