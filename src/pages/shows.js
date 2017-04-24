@@ -47,23 +47,16 @@ class ChampionsPage extends Component {
   }
 
   componentWillMount() {
+    const filterBySize = size =>
+      this.props.shows
+        .filter(show => show.size === size)
+        .map(champion => champion.name)
+        .join(', ')
     this.setState({
-      xs: this.props.shows
-        .filter(show => show.size === 'xs')
-        .map(champion => champion.name)
-        .join(', '),
-      sm: this.props.shows
-        .filter(show => show.size === 'sm')
-        .map(champion => champion.name)
-        .join(', '),
-      md: this.props.shows
-        .filter(show => show.size === 'md')
-        .map(champion => champion.name)
-        .join(', '),
-      lg: this.props.shows
-        .filter(show => show.size === 'lg')
-        .map(champion => champion.name)
-        .join(', '),
+      xs: filterBySize('xs'),
+      sm: filterBySize('sm'),
+      md: filterBySize('md'),
+      lg: filterBySize('lg'),
     })
   }
 
