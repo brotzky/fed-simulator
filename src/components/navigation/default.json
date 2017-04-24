@@ -19,4 +19,8 @@
 }, {
 	"url": "shows",
 	"title": "Shows"
-}]
+}, {
+	"url": "ranking",
+	"title": "Ranking"
+}
+]

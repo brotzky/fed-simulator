@@ -54,6 +54,8 @@ class RosterPage extends Component {
 
       let wrestler = {
         male,
+        wins: 0,
+        losses: 0,
       }
 
       let newWrestlers = this.state[stateKey]

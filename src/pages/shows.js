@@ -90,7 +90,7 @@ class ChampionsPage extends Component {
       }
     })
     this.props.dispatch(updateShows(shows))
-    this.props.router.push('/shows')
+    this.props.router.push('/ranking')
   }
 
   render() {
