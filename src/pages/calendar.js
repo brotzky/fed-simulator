@@ -1,11 +1,39 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
-const Calendar = () => {
-  return (
-    <section className="page calendar">
-      <h1>Calendar</h1>
-    </section>
-  )
+class CalendarPage extends Component {
+  displayName = 'ChampionsPage'
+
+  render() {
+    return (
+      <section className="page calendar">
+        <h1>Calendar</h1>
+        <ul>
+          {this.props.shows.map((show, key) => {
+            return (
+              <li key={key}>
+                {show.name}
+                :
+                {' '}
+                {show.frequency}
+                :
+                {' '}
+                {show.size}
+                :
+                {' '}
+                {show.max_cost}
+                :
+                {' '}
+                {show.max_gross}
+              </li>
+            )
+          })}
+        </ul>
+      </section>
+    )
+  }
 }
 
-export default Calendar
+export default connect(state => ({
+  shows: state.shows,
+}))(CalendarPage)

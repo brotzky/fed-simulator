@@ -1,17 +1,19 @@
 import './ranking.scss'
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import Row from './row'
 
 export default class Ranking extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    wrestlers: PropTypes.array.isRequired,
+    rows: PropTypes.array.isRequired,
+    columns: PropTypes.array.isRequired,
     amountToShow: PropTypes.number,
   }
 
   static defaultProps = {
     amountToShow: 10,
+    rows: [],
+    columns: [],
   }
 
   displayName = 'Ranking'
@@ -19,32 +21,29 @@ export default class Ranking extends Component {
   render() {
     return (
       <div className="ranking">
+        <h2>{this.props.title}</h2>
         <table className="ranking__table table table-striped">
           <thead>
             <tr>
-              <td colSpan="2">
-                <h3 className="ranking__title">
-                  {this.props.title}
-                </h3>
-              </td>
-              <td className="ranking__wins">
-                Wins
-              </td>
-              <td className="ranking__losses">
-                Losses
-              </td>
+              {this.props.columns.map((column, key) => {
+                return <td className={column} key={key}>{column}</td>
+              })}
             </tr>
           </thead>
           <tbody>
-            {this.props.wrestlers
+            {this.props.rows
               .slice(0, this.props.amountToShow)
-              .map((wrestler, key) => {
+              .map((row, rowKey) => {
                 return (
-                  <Row
-                    key={wrestler.id}
-                    position={key + 1}
-                    wrestler={wrestler}
-                  />
+                  <tr key={rowKey}>
+                    {this.props.columns.map((column, key) => {
+                      return (
+                        <td className={column} key={key}>
+                          {column === 'position' ? rowKey + 1 : row[column]}
+                        </td>
+                      )
+                    })}
+                  </tr>
                 )
               })}
           </tbody>

@@ -1,0 +1,28 @@
+.page.ranking {
+  font-size: 3rem;
+
+  .table,
+  h2 {
+    width: 90%;
+    margin: 0;
+  }
+
+  .position,
+  .losses,
+  .wins {
+    width: 1%;
+    text-align: center;
+  }
+
+  thead {
+     font-weight: 500;
+     font-variant-caps: small-caps;
+  }
+
+  tbody {
+    .name {
+      font-size: 3rem;
+      font-weight: 100;
+    }
+  }
+}

@@ -5,17 +5,15 @@ import React, {Component} from 'react'
 import orderBy from 'lodash/orderBy'
 import Ranking from '../components/ranking/ranking'
 
-const RankingCollection = ({title = '', wrestlers = [],}) => {
-  wrestlers = orderBy(wrestlers, 'points', 'desc')
-  return <Ranking title={title} wrestlers={wrestlers} />
-}
+const COLUMNS = ['position', 'name', 'wins', 'losses',]
 
 class RankingPage extends Component {
   displayName = 'RankingPage'
 
   render() {
-    const maleWrestlers = this.props.roster.filter(wrestler => wrestler.male)
-    const femaleWrestlers = this.props.roster.filter(wrestler => !wrestler.male)
+    const wrestlers = orderBy(this.props.roster, 'points', 'desc')
+    const maleWrestlers = wrestlers.filter(wrestler => wrestler.male)
+    const femaleWrestlers = wrestlers.filter(wrestler => !wrestler.male)
     return (
       <section className="page ranking">
         <h1>
@@ -25,17 +23,19 @@ class RankingPage extends Component {
         <div className="row top-xs">
           <div className="col-xs-12 col-lg-6">
             <div className="box">
-              <RankingCollection
-                title={'Male Wrestlers'}
-                wrestlers={maleWrestlers}
+              <Ranking
+                title="Male Wrestlers"
+                rows={maleWrestlers}
+                columns={COLUMNS}
               />
             </div>
           </div>
           <div className="col-xs-12 col-lg-6">
             <div className="box">
-              <RankingCollection
-                title={'Female Wrestlers'}
-                wrestlers={femaleWrestlers}
+              <Ranking
+                title="Female Wrestlers"
+                rows={femaleWrestlers}
+                columns={COLUMNS}
               />
             </div>
           </div>
@@ -52,3 +52,14 @@ RankingPage.contextTypes = {
 export default connect(state => ({
   roster: state.roster,
 }))(RankingPage)
+
+{
+  /* <div className="col-xs-12 col-lg-6">
+  <div className="box">
+    <RankingCollection
+      title={'Male Wrestlers'}
+      wrestlers={maleWrestlers}
+    />
+  </div>
+</div> */
+}
