@@ -60,7 +60,7 @@ class RosterPage extends Component {
             wrestler.points <= max
         )
         .map(wrestler => wrestler.name)
-        .join(', ')
+        .join()
     this.setState({
       'male-commentators': filterByMinMax(true, 0, 30),
       'male-lowercard': filterByMinMax(true, 30, 60),
