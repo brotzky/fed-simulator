@@ -326,3 +326,8 @@ $basepage-button-font-size: 5rem;
     width: 100%;
   }
 }
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
+}
