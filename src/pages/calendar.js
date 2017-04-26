@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import './stylesheets/calendar'
 
 class CalendarPage extends Component {
   displayName = 'ChampionsPage'
