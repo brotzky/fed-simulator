@@ -1,6 +1,6 @@
 [{
   "placeholder": "Wrestlemania, Summerslam",
-  "frequency": "yearly",
+  "frequency": "monthly",
   "size": "lg",
   "max_attendance": 10000000,
   "max_cost": 6000000,
@@ -20,8 +20,8 @@
   "max_cost": 25000,
   "max_gross": 50000
 },{
-  "name": "Backyard Battle",
-  "frequency": "weekly",
+  "name": "House Show",
+  "frequency": "daily",
   "size": "xs",
   "max_attendance": 100,
   "max_cost": 2000,
