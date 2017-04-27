@@ -305,20 +305,20 @@ button {
 .male textarea:focus {
   outline: none;
   border-color: #ccc;
-  box-shadow: 0 0 3rem blue;
+  box-shadow: 0 0 1rem blue;
 }
 .male textarea:hover {
   outline: none;
   border-color: #ccc;
-  box-shadow: 0 0 5rem blue;
+  box-shadow: 0 0 3rem blue;
 }
 .female textarea:hover {
   outline: none;
   border-color: #ccc;
-  box-shadow: 0 0 5rem violet;
+  box-shadow: 0 0 3rem violet;
 }
 .female textarea:focus {
   outline: none;
   border-color: #ccc;
-  box-shadow: 0 0 3rem violet;
+  box-shadow: 0 0 1rem violet;
 }

@@ -9,6 +9,7 @@ class BrandingPage extends Component {
   state = {
     backgroundColor: '',
     color: '',
+    currentTitle: 'What colours represent you?? 🏳️',
   }
 
   componentDidMount() {
@@ -36,6 +37,12 @@ class BrandingPage extends Component {
     this.setState({color: color.hex,})
   }
 
+  onClickTitle = () => {
+    this.setState({
+      currentTitle: this.props.federation.name,
+    })
+  }
+
   displayName = 'BrandingPage'
 
   render() {
@@ -45,8 +52,12 @@ class BrandingPage extends Component {
     }
     return (
       <section className="page branding">
-        <h1 className="col-xs-12 skew-forward" style={style}>
-          What colours represent you?? 🏳️
+        <h1
+          className="col-xs-12 skew-forward"
+          style={style}
+          onClick={this.onClickTitle}
+        >
+          {this.state.currentTitle}
         </h1>
         <div className="row colours">
           <div className="col-xs-12 col-lg-6 center-xs middle-xs">
