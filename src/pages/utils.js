@@ -1,4 +1,6 @@
+import {connect} from 'react-redux'
 import React, {Component} from 'react'
+
 import './stylesheets/utils'
 
 class Utils extends Component {
@@ -21,14 +23,30 @@ class Utils extends Component {
 
   render() {
     return (
-      <section className={`page utils ${this.state.stage}`}>
-        <h1>Utils</h1>
-        <p>
-          <a onClick={this._onClearStorage}>Clear Local Storage</a>
-        </p>
+      <section className="page utils">
+        <div className={this.state.stage}>
+          <h1>Utils</h1>
+          <p>
+            <a onClick={this._onClearStorage}>Clear Local Storage</a>
+          </p>
+        </div>
+        <br />
+        <div className={this.state.stage}>
+          <p>Shows: {this.props.shows.length}</p>
+          <p>Roster: {this.props.roster.length}</p>
+          <p>Events: {this.props.events.length}</p>
+          <p>Federation: {JSON.stringify(this.props.federation)}</p>
+        </div>
       </section>
     )
   }
 }
 
-export default Utils
+export default connect(state => ({
+  federation: state.federation,
+  events: state.events,
+  shows: state.shows,
+  roster: state.roster,
+  settings: state.settings,
+  version: state.version,
+}))(Utils)
