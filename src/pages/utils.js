@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import React, {Component} from 'react'
-
+import {Link} from 'react-router'
 import './stylesheets/utils'
 
 class Utils extends Component {
@@ -24,8 +24,13 @@ class Utils extends Component {
   render() {
     return (
       <section className="page utils">
+        <Link to="/">
+          <div className="fa fa-arrow-left" />
+        </Link>
         <div className={this.state.stage}>
-          <h1>Utils</h1>
+          <h1>
+            &nbsp; Utils
+          </h1>
           <p>
             <a onClick={this._onClearStorage}>Clear Local Storage</a>
           </p>
