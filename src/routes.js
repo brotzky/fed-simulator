@@ -112,6 +112,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="utils">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require('./pages/utils').default, 'utils')
+            })
+          }}
+        />
+      </Route>
       <Route
         path="*"
         getComponent={(nextState, callback) => {

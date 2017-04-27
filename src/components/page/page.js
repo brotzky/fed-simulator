@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Navigation from '../navigation/navigation'
-import PerfProfiler from '../perf-profiler/perf-profiler'
+// import PerfProfiler from '../perf-profiler/perf-profiler'
 import {connect} from 'react-redux'
 import * as versionActions from '../../actions/version'
 import '../../stylesheets/base.scss'
@@ -44,7 +44,6 @@ class Page extends React.Component {
             </div>
           </div>
         </div>
-        <PerfProfiler />
       </main>
     )
   }
@@ -55,3 +54,5 @@ export default connect(state => ({
   federation: state.federation,
   shows: state.shows,
 }))(Page)
+
+// <PerfProfiler />

@@ -1,0 +1,12 @@
+.page.utils {
+  h1 {
+    font-size: 10rem;
+  }
+  font-size: 3rem;
+  &.start {
+    background-color: #333;
+  }
+  &.complete {
+    background-color: green;
+  }
+}

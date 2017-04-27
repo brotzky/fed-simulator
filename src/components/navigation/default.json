@@ -10,5 +10,8 @@
 }, {
 	"url": "/name",
 	"title": "Start All Over Again"
+}, {
+	"url": "/utils",
+	"title": "Game Utils"
 }
 ]
