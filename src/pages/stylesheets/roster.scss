@@ -1,9 +1,18 @@
+$roster-font-size: 2.5rem;
+$roster-heading-font-size: 9rem;
+
 .page.roster {
+	h1 {
+		font-size: $roster-heading-font-size;
+		line-height: $roster-heading-font-size;
+		padding: 0;
+		margin: 0;
+	}
 	label {
-		font-size: 3rem;
+		font-size: $roster-font-size;
 	}
 	textarea {
-		line-height: 2rem;
-		font-size: 2rem;
+		line-height: $roster-font-size;
+		font-size: $roster-font-size;
 	}
 }

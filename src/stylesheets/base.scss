@@ -101,11 +101,6 @@ a:hover, .cursor-pointer {
   display: none;
 }
 
-span.text-center,
-div.text-center {
-  text-align: center;
-}
-
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -119,10 +114,4 @@ div.text-center {
 .zoom:hover {
   transform: scale(1.1);
   transition: all 400ms ease-in;
-}
-
-h5 {
-  font-size: 2rem;
-  margin: 0;
-  padding: 0;
 }

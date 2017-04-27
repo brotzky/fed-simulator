@@ -1,3 +1,34 @@
-.children {
-  padding: 40px 20px;
+$basepage-font-size: 12rem;
+$basepage-button-font-size: 5rem;
+$basepage-gutter: 5rem;
+
+.page {
+  h1 {
+    font-size: $basepage-font-size;
+    line-height: $basepage-font-size;
+    margin: 0 0 2rem 0;
+  }
+
+  .children {
+    padding: $basepage-gutter;
+  }
+
+  .active {
+    border: 1rem solid white;
+  }
+
+  font-size: $basepage-font-size;
+  font-weight: bolder;
+  line-height: auto;
+
+  button {
+    font-size: $basepage-button-font-size;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #999;
 }

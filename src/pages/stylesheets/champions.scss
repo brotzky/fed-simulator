@@ -1,9 +1,17 @@
+$champions-header-font-size: 9rem;
+$champions-font-size: 2.5rem;
+$champions-input-font-size: 2.5rem;
+
 .page.champions {
+	h1 {
+		font-size: $champions-header-font-size;
+		font-weight: 700;
+	}
 	label {
-		font-size: 3rem;
+		font-size: $champions-font-size;
 	}
 	textarea {
-		line-height: 2rem;
-		font-size: 2rem;
+		font-size: $champions-input-font-size;
+		line-height: $champions-input-font-size;
 	}
 }
