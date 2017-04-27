@@ -60,6 +60,12 @@ class ChampionsPage extends Component {
     })
   }
 
+  componentDidMount() {
+    if (this.props.roster.length === 0) {
+      this.props.router.push('/champions')
+    }
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -157,4 +163,5 @@ ChampionsPage.contextTypes = {
 
 export default connect(state => ({
   shows: state.shows,
+  roster: state.roster,
 }))(ChampionsPage)

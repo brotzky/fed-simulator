@@ -10,6 +10,12 @@ const COLUMNS = ['position', 'name', 'wins', 'losses',]
 class RankingPage extends Component {
   displayName = 'RankingPage'
 
+  componentDidMount() {
+    if (this.props.shows.length === 0) {
+      this.props.router.push('/shows')
+    }
+  }
+
   render() {
     const wrestlers = orderBy(this.props.roster, 'points', 'desc')
     const maleWrestlers = wrestlers.filter(wrestler => wrestler.male)
@@ -51,6 +57,7 @@ RankingPage.contextTypes = {
 
 export default connect(state => ({
   roster: state.roster,
+  shows: state.shows,
 }))(RankingPage)
 
 {

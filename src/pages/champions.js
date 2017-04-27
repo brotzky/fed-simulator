@@ -43,6 +43,12 @@ class ChampionsPage extends Component {
     female: '',
   }
 
+  componentDidMount() {
+    if (this.props.roster.length === 0) {
+      this.props.router.push('/roster')
+    }
+  }
+
   componentWillMount() {
     this.setState({
       male: this.props.champions
@@ -140,4 +146,5 @@ ChampionsPage.contextTypes = {
 
 export default connect(state => ({
   champions: state.champions,
+  roster: state.roster,
 }))(ChampionsPage)
