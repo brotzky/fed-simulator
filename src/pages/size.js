@@ -49,9 +49,15 @@ class SizePage extends Component {
         </h1>
         <div className="row sizes">
           {defaultOptions.map(option => {
-            const classes = classNames('col-xs-3', 'size', 'cursor-pointer', {
-              active: option.size === this.state.size,
-            })
+            const classes = classNames(
+              'col-xs-3',
+              'size',
+              'grow',
+              'cursor-pointer',
+              {
+                active: option.size === this.state.size,
+              }
+            )
             return (
               <div
                 className={classes}

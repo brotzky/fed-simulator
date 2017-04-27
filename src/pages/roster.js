@@ -114,9 +114,9 @@ class RosterPage extends Component {
           Whos on the 📖?
         </h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="row top-xs">
+          <div className="row">
             <div className="col-xs-12 col-lg-6">
-              <div className="box">
+              <div className="box male">
                 <div className="fa fa-mars" />
                 <RosterSection
                   section={'Mens Main event'}
@@ -151,7 +151,7 @@ class RosterPage extends Component {
               </div>
             </div>
             <div className="col-xs-12 col-lg-6">
-              <div className="box">
+              <div className="box female">
                 <div className="fa fa-venus" />
                 <RosterSection
                   section={'Womens Main Event'}

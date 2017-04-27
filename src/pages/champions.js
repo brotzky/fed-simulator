@@ -8,7 +8,7 @@ const noop = () => {}
 const ChampionshipSection = ({
   section,
   name,
-  rows = 1,
+  rows = 2,
   onChange = noop,
   placeholder = '',
   defaultValue = '',
@@ -103,7 +103,7 @@ class ChampionsPage extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12 col-lg-6">
-              <div className="box">
+              <div className="box male">
                 <div className="fa fa-mars" />
                 <ChampionshipSection
                   section={'Mens'}
@@ -117,7 +117,7 @@ class ChampionsPage extends Component {
               </div>
             </div>
             <div className="col-xs-12 col-lg-6">
-              <div className="box">
+              <div className="box female">
                 <div className="fa fa-venus" />
                 <ChampionshipSection
                   section={'Womens'}

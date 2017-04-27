@@ -6,4 +6,10 @@ $size-font-size: 3rem;
     font-weight: bolder;
     line-height: $size-font-size + 1;
   }
+  .size {
+    padding: 0 3rem;
+  }
+  .active {
+    background-color: #ff6f00;
+  }
 }

@@ -105,11 +105,11 @@ class ChampionsPage extends Component {
         <h1>
           What
           {' '}
-          <span className="gold">shows</span>
+          <span className="hot-red">shows</span>
           {' '}
           do we
           {' '}
-          <span className="violet">produce</span>
+          <span className="hot-pink">produce</span>
           ?
         </h1>
         <form onSubmit={this.handleSubmit}>

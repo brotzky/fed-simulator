@@ -23,26 +23,31 @@ class RankingPage extends Component {
     return (
       <section className="page ranking">
         <h1>
-          <span className="gold">🌟 Winners </span> and
-          <span className="gray"> 🗑 Losers</span>
+          <span className="gold pop">🌟 Winners </span>
+          <span>&nbsp; and &nbsp;</span>
+          <span className="gray push"> 🗑 Losers</span>
         </h1>
         <div className="row top-xs">
           <div className="col-xs-12 col-lg-6">
-            <div className="box">
-              <Ranking
-                title="Male Wrestlers"
-                rows={maleWrestlers}
-                columns={COLUMNS}
-              />
+            <div className="box grow">
+              <If condition={maleWrestlers.length > 0}>
+                <Ranking
+                  title="Male Wrestlers"
+                  rows={maleWrestlers}
+                  columns={COLUMNS}
+                />
+              </If>
             </div>
           </div>
           <div className="col-xs-12 col-lg-6">
-            <div className="box">
-              <Ranking
-                title="Female Wrestlers"
-                rows={femaleWrestlers}
-                columns={COLUMNS}
-              />
+            <div className="box grow">
+              <If condition={femaleWrestlers.length > 0}>
+                <Ranking
+                  title="Female Wrestlers"
+                  rows={femaleWrestlers}
+                  columns={COLUMNS}
+                />
+              </If>
             </div>
           </div>
         </div>

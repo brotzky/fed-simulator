@@ -6,6 +6,8 @@
 @import 'flexboxgrid';
 @import 'form';
 @import 'colours';
+@import 'table';
+@import 'animation';
 
 @include breakpoint(xs) {
   [class*='col-'] {

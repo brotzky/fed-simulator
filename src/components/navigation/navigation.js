@@ -8,7 +8,7 @@ const Navigation = ({navigation = defaultState,}) => {
       <ul className="navigation__list">
         {navigation.map((navigationItem, key) => {
           return (
-            <li key={key} className="navigation__item">
+            <li key={key} className="navigation__item pulse">
               <Link to={navigationItem.url}>
                 {navigationItem.title}
               </Link>

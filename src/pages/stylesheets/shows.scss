@@ -1,8 +1,9 @@
+$shows-header-font-size: 9rem;
 $shows-font-size: 3rem;
 
 .page.shows {
 	h1 {
-		font-size: 10rem;
+		font-size: $shows-header-font-size;
 	}
 	label {
 		font-size: $shows-font-size;
