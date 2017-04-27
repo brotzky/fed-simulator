@@ -1,9 +1,14 @@
+$shows-font-size: 3rem;
+
 .page.shows {
+	h1 {
+		font-size: 10rem;
+	}
 	label {
-		font-size: 3rem;
+		font-size: $shows-font-size;
 	}
 	textarea {
-		line-height: 2rem;
-		font-size: 2rem;
+		line-height: $shows-font-size;
+		font-size: $shows-font-size;
 	}
 }

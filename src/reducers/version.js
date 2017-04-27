@@ -1,4 +1,4 @@
-import defaultState from './version.default.json'
+const defaultState = 5
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))

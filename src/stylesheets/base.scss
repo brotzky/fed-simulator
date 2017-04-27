@@ -1,14 +1,11 @@
 @import 'typography';
-@import 'animate';
-@import 'animations/main';
 @import 'breakpoints';
 @import 'clearfix';
-@import 'dropdown';
 @import 'navigation';
 @import 'variables';
 @import 'flexboxgrid';
 @import 'form';
-@import 'table';
+@import 'colours';
 
 @include breakpoint(xs) {
   [class*='col-'] {
@@ -128,21 +125,4 @@ h5 {
   font-size: 2rem;
   margin: 0;
   padding: 0;
-}
-
-
-.gold {
-  color: gold;
-}
-
-.blue {
-  color: blue;
-}
-
-.orange {
-  color: orange;
-}
-
-.gray {
-  color: gray;
 }

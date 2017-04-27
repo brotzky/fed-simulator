@@ -8,7 +8,7 @@ const noop = () => {}
 const ChampionshipSection = ({
   section,
   name,
-  rows = 3,
+  rows = 1,
   onChange = noop,
   placeholder = '',
   defaultValue = '',

@@ -1,4 +1,4 @@
-import defaultState from './roster.default.json'
+const defaultState = []
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))

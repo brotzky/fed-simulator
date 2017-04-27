@@ -9,7 +9,7 @@ import defaultShows from './shows.options.json'
 const ShowSection = ({
   section,
   name,
-  rows = 3,
+  rows = 1,
   onChange = noop,
   placeholder = '',
   defaultValue = '',
@@ -109,7 +109,7 @@ class ChampionsPage extends Component {
           {' '}
           do we
           {' '}
-          <span className="blue">produce</span>
+          <span className="violet">produce</span>
           ?
         </h1>
         <form onSubmit={this.handleSubmit}>
