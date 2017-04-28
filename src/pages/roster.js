@@ -4,37 +4,7 @@ import PropTypes from 'prop-types'
 import {updateRoster} from '../actions/roster'
 import React, {Component} from 'react'
 import pointsToRandomValue from '../helpers/points-to-random-value'
-const noop = () => {}
-
-const RosterSection = ({
-  section,
-  name,
-  rows = 3,
-  onChange = noop,
-  placeholder = '',
-  defaultValue = '',
-}) => {
-  return (
-    <div className="row">
-      <div className="col-xs-12">
-        <div className="box">
-          <label htmlFor={name}>
-            {section}
-          </label>
-          <textarea
-            id={name}
-            type="text"
-            rows={rows}
-            name={name}
-            placeholder={placeholder}
-            onChange={onChange}
-            defaultValue={defaultValue}
-          />
-        </div>
-      </div>
-    </div>
-  )
-}
+import Textarea from '../components/form/textarea.js'
 
 class RosterPage extends Component {
   displayName = 'RosterPage'
@@ -118,70 +88,70 @@ class RosterPage extends Component {
             <div className="col-xs-12 col-lg-6">
               <div className="box male">
                 <div className="fa fa-mars" />
-                <RosterSection
-                  section={'Mens Main event'}
+                <Textarea
+                  defaultValue={this.state['male-mainevent']}
                   name="male-mainevent"
                   onChange={this.handleChange}
-                  defaultValue={this.state['male-mainevent']}
+                  label="Mens Main event"
                 />
-                <RosterSection
-                  section={'Mid card'}
+                <Textarea
+                  defaultValue={this.state['male-midcard']}
                   name="male-midcard"
                   onChange={this.handleChange}
-                  defaultValue={this.state['male-midcard']}
+                  label="Mid card"
                 />
-                <RosterSection
-                  section={'Lower card'}
+                <Textarea
+                  defaultValue={this.state['male-lowercard']}
                   name="male-lowercard"
                   onChange={this.handleChange}
-                  defaultValue={this.state['male-lowercard']}
+                  label="Lower card"
                 />
-                <RosterSection
-                  section={'Jobbers'}
+                <Textarea
+                  defaultValue={this.state['male-jobbers']}
                   name="male-jobbers"
                   onChange={this.handleChange}
-                  defaultValue={this.state['male-jobbers']}
+                  label="Jobbers"
                 />
-                <RosterSection
-                  section={'Commentators'}
+                <Textarea
+                  defaultValue={this.state['male-commentators']}
                   name="male-commentators"
                   onChange={this.handleChange}
-                  defaultValue={this.state['male-commentators']}
+                  label="Commentators"
                 />
               </div>
             </div>
             <div className="col-xs-12 col-lg-6">
               <div className="box female">
                 <div className="fa fa-venus" />
-                <RosterSection
-                  section={'Womens Main Event'}
+                <Textarea
+                  defaultValue={this.state['female-mainevent']}
                   name="female-mainevent"
                   onChange={this.handleChange}
-                  defaultValue={this.state['female-mainevent']}
+                  label="Womens Main Event"
                 />
-                <RosterSection
-                  section={'Mid card'}
+                <Textarea
+                  defaultValue={this.state['female-midcard']}
                   name="female-midcard"
                   onChange={this.handleChange}
-                  defaultValue={this.state['female-midcard']}
+                  label="Mid card"
                 />
-                <RosterSection
-                  section={'Lower card'}
+                <Textarea
+                  defaultValue={this.state['female-lowercard']}
                   name="female-lowercard"
                   onChange={this.handleChange}
-                  defaultValue={this.state['female-lowercard']}
+                  label="Lower card"
                 />
-                <RosterSection
-                  section={'Jobbers'}
+                <Textarea
+                  defaultValue={this.state['female-jobbers']}
                   name="female-jobbers"
                   onChange={this.handleChange}
-                  defaultValue={this.state['female-jobbers']}
+                  label="Jobbers"
                 />
-                <RosterSection
-                  section={'Commentators'}
+                <Textarea
+                  defaultValue={this.state['female-commentators']}
                   name="female-commentators"
                   onChange={this.handleChange}
-                  defaultValue={this.state['female-commentators']}
+                  label="Commentators"
                 />
               </div>
             </div>

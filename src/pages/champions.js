@@ -3,37 +3,7 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {updateChampions} from '../actions/champions'
 import React, {Component} from 'react'
-const noop = () => {}
-
-const ChampionshipSection = ({
-  section,
-  name,
-  rows = 2,
-  onChange = noop,
-  placeholder = '',
-  defaultValue = '',
-}) => {
-  return (
-    <div className="row">
-      <div className="col-xs-12">
-        <div className="box">
-          <label htmlFor={name}>
-            {section}
-          </label>
-          <textarea
-            id={name}
-            type="text"
-            rows={rows}
-            name={name}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            onChange={onChange}
-          />
-        </div>
-      </div>
-    </div>
-  )
-}
+import Textarea from '../components/form/textarea.js'
 
 class ChampionsPage extends Component {
   displayName = 'ChampionsPage'
@@ -105,26 +75,24 @@ class ChampionsPage extends Component {
             <div className="col-xs-12 col-lg-6">
               <div className="box male">
                 <div className="fa fa-mars" />
-                <ChampionshipSection
-                  section={'Mens'}
+                <Textarea
+                  defaultValue={this.state.male}
                   name="male"
                   onChange={this.handleChange}
-                  placeholder={
-                    'World Heavyweight Championship, Cruiserweight Championship'
-                  }
-                  defaultValue={this.state.male}
+                  placeholder="World Heavyweight Championship, Cruiserweight Championship"
+                  label="Mens"
                 />
               </div>
             </div>
             <div className="col-xs-12 col-lg-6">
               <div className="box female">
                 <div className="fa fa-venus" />
-                <ChampionshipSection
-                  section={'Womens'}
+                <Textarea
+                  defaultValue={this.state.female}
                   name="female"
                   onChange={this.handleChange}
                   placeholder={'Womens World Championship'}
-                  defaultValue={this.state.female}
+                  label="Womens"
                 />
               </div>
             </div>

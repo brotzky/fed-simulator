@@ -3,38 +3,8 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {updateShows} from '../actions/shows'
 import React, {Component} from 'react'
-const noop = () => {}
 import defaultShows from './shows.options.json'
-
-const ShowSection = ({
-  section,
-  name,
-  rows = 1,
-  onChange = noop,
-  placeholder = '',
-  defaultValue = '',
-}) => {
-  return (
-    <div className="row">
-      <div className="col-xs-12">
-        <div className="box">
-          <label htmlFor={name}>
-            {section}
-          </label>
-          <textarea
-            id={name}
-            type="text"
-            rows={rows}
-            name={name}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-            onChange={onChange}
-          />
-        </div>
-      </div>
-    </div>
-  )
-}
+import Textarea from '../components/form/textarea.js'
 
 class ChampionsPage extends Component {
   displayName = 'ChampionsPage'
@@ -116,33 +86,38 @@ class ChampionsPage extends Component {
           <div className="row top-xs">
             <div className="col-xs-12">
               <div className="box">
-                <ShowSection
-                  section={'Big Four'}
+                <Textarea
+                  defaultValue={this.state.lg}
                   name="lg"
                   onChange={this.handleChange}
-                  placeholder={'Wrestlemania, Summerslam'}
-                  defaultValue={this.state.lg}
+                  placeholder="Wrestlemania, Summerslam"
+                  rows="1"
+                  label="Big Four"
+                  rows="2"
                 />
-                <ShowSection
-                  section={'Monthy PPV'}
+                <Textarea
+                  defaultValue={this.state.md}
                   name="md"
                   onChange={this.handleChange}
-                  placeholder={'Backlash, Payback'}
-                  defaultValue={this.state.md}
+                  placeholder="Backlash, Payback"
+                  label="Monthy PPV"
+                  rows="2"
                 />
-                <ShowSection
-                  section={'Weekly TV'}
+                <Textarea
+                  defaultValue={this.state.sm}
                   name="sm"
                   onChange={this.handleChange}
                   placeholder={'Raw, Smackdown'}
-                  defaultValue={this.state.sm}
+                  label="Weekly TV"
+                  rows="2"
                 />
-                <ShowSection
-                  section={'Gym Show, House Show, Back Garden'}
+                <Textarea
+                  defaultValue={this.state.xs}
                   name="xs"
                   onChange={this.handleChange}
-                  placeholder={'Light tube Smash, Backyard Killers'}
-                  defaultValue={this.state.xs}
+                  placeholder="Light tube Smash, Backyard Killers"
+                  label="Gym Show, House Show, Back Garden"
+                  rows="2"
                 />
               </div>
             </div>
