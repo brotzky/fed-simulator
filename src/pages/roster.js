@@ -75,7 +75,7 @@ class RosterPage extends Component {
         .map(name =>
           Object.assign({name, points: pointsToRandomValue(points),}, wrestler)
         )
-        .filter(wrestler => wrestler.name !== '')
+        .filter(wrestler => wrestler.name !== '' || wrestler.name === ' ')
 
       wrestlers = wrestlers.concat(newWrestlers)
     })
