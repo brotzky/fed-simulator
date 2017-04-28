@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {updateFederation} from '../actions/federation'
 import PropTypes from 'prop-types'
+import Textarea from '../components/form/textarea.js'
+
 import './stylesheets/name.scss'
 
 class Name extends Component {
@@ -39,11 +41,13 @@ class Name extends Component {
         <h1>Name your federation!</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <input
-              type="text"
+            <Textarea
+              defaultValue={this.props.federation.name}
               name="name"
-              value={this.state.name}
               onChange={this.handleChange}
+              rows="1"
+              label=""
+              rows="2"
             />
           </div>
           <button type="submit">

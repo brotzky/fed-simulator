@@ -1,7 +1,7 @@
 $name-input-font-size: 12rem;
 
 .page.name {
-  input {
+  textarea {
     font-size: $name-input-font-size;
     height: $name-input-font-size + 1;
     line-height: $name-input-font-size + 1;
