@@ -18,6 +18,12 @@ class ChampionsPage extends Component {
     female: '',
   }
 
+  componentDidMount() {
+    if (this.props.roster.length === 0) {
+      this.props.router.push('/roster')
+    }
+  }
+
   componentWillMount() {
     this.setState({
       male: this.props.champions
