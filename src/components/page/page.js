@@ -12,16 +12,11 @@ class Page extends React.Component {
     classNames: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
     version: PropTypes.number.isRequired,
-    federation: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
     version: 1,
     classNames: '',
-    federation: {
-      backgroundColor: '',
-      color: '',
-    },
   }
 
   componentWillMount() {
@@ -37,12 +32,8 @@ class Page extends React.Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: this.props.federation.backgroundColor,
-      color: this.props.federation.color,
-    }
     return (
-      <main style={style} className={`page ${this.props.classNames}`}>
+      <main className={`page ${this.props.classNames}`}>
         <If condition={this.props.shows.length > 0}>
           <Navigation />
         </If>
@@ -60,7 +51,6 @@ class Page extends React.Component {
 
 export default connect(state => ({
   version: state.version,
-  federation: state.federation,
   shows: state.shows,
 }))(Page)
 

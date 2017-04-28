@@ -19,6 +19,8 @@
 html,
 body {
   height: 100%;
+  background-color: black;
+  color: white;
 }
 
 body {
@@ -26,6 +28,7 @@ body {
   flex-direction: column;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 #root,
@@ -37,48 +40,7 @@ body {
 
 .page-section {
   flex: 1 0 auto;
-}
-
-.inpage-content {
-  margin: 2rem 2rem 0;
-  z-index: 0;
-
-  @include breakpoint(xs) {
-    margin: .2rem;
-  }
-}
-
-a {
-  color: $color;
-  &:active {
-    color: $active;
-  }
-}
-
-.statistic {
-  font-family: 'Roboto Slab', 'Verdana', sans-serif;
-}
-
-.spaced {
-  letter-spacing: .25rem;
-  word-spacing: .5rem;
-
-  @include breakpoint(xs) {
-    letter-spacing: inherit;
-    word-spacing: inherit;
-  }
-}
-
-sup {
-  font-size: 50%;
-  letter-spacing: .2;
-  vertical-align: super;
-}
-
-a:hover,
-.btn:focus,
-.btn:hover {
-  color: $active;
+  height: 100%;
 }
 
 ul {

@@ -90,7 +90,6 @@ textarea,
 select,
 option,
 optgroup,
-button,
 legend,
 fieldset {
   margin: 10px 0;
@@ -236,8 +235,6 @@ legend {
   }
 }
 
-button,
-input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="image"] {
@@ -245,17 +242,10 @@ input[type="image"] {
   width: $button-width;
   max-width: $button-max-width;
   background-color: $button-bg-color;
-  padding: $input-height / 5;
-  cursor: pointer;
-
   color: $button-font-color;
-  font-weight: 700;
 
   -webkit-appearance: none;
   -moz-appearance: none;
-
-  border-radius: $border-radius;
-  border: none;
 }
 
 input[type="image"] {
@@ -274,8 +264,7 @@ button[disabled] {
 input:focus,
 textarea:focus,
 select:focus,
-option:focus,
-button:focus  {
+option:focus {
   background-color: $focus-bg-color;
   border-color: $focus-border-color;
 }
@@ -285,19 +274,10 @@ input[type="radio"]:focus {
   outline: $focus-border-color solid 2px;
 }
 
-button:hover,
-button:hover a,
-input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
-button:focus,
-input[type="button"]:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus {
   background-color: $button-hover-bg-color;
   color: $button-hover-font-color !important;
-}
-
-button {
-  font-variant: small-caps;
 }

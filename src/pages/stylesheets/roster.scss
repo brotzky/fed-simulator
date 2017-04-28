@@ -1,17 +1,10 @@
 $roster-font-size: 2.5rem;
 $roster-icon-font-size: 6rem;
 $roster-input-font-size: 2rem;
-$roster-heading-font-size: 7rem;
 
 .page.roster {
 	font-size: $roster-font-size;
 
-	h1 {
-		font-size: $roster-heading-font-size;
-		line-height: $roster-heading-font-size;
-		padding: 0;
-		margin: 0;
-	}
 	.fa {
 		font-size: $roster-icon-font-size;
 	}

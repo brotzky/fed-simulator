@@ -1,8 +1,15 @@
-$basepage-font-size: 12rem;
-$basepage-button-font-size: 5rem;
+$basepage-font-size: 9rem;
 $basepage-gutter: 5rem;
 
+$basepage-button-font-size: 4rem;
+$basepage-button-color: white;
+$basepage-button-background-color: #3f3f3f;
+$basepage-button-border-radius: 0;
+$basepage-button-padding: .5rem !default;
+
 .page {
+  height: 100%;
+
   h1 {
     font-size: $basepage-font-size;
     line-height: $basepage-font-size;
@@ -22,8 +29,16 @@ $basepage-gutter: 5rem;
   line-height: auto;
 
   button {
+    background-color: $basepage-button-background-color;
+    border-radius: $basepage-button-border-radius;
+    border: 0;
+    color: $basepage-button-color;
+    cursor: pointer;
     font-size: $basepage-button-font-size;
+    font-variant: small-caps;
+    font-weight: 500;
     height: 100%;
+    padding: $basepage-button-padding;
     width: 100%;
   }
 }
