@@ -301,24 +301,3 @@ input[type="reset"]:focus {
 button {
   font-variant: small-caps;
 }
-
-.male textarea:focus {
-  outline: none;
-  border-color: #ccc;
-  box-shadow: 0 0 1rem blue;
-}
-.male textarea:hover {
-  outline: none;
-  border-color: #ccc;
-  box-shadow: 0 0 3rem blue;
-}
-.female textarea:hover {
-  outline: none;
-  border-color: #ccc;
-  box-shadow: 0 0 3rem violet;
-}
-.female textarea:focus {
-  outline: none;
-  border-color: #ccc;
-  box-shadow: 0 0 1rem violet;
-}
