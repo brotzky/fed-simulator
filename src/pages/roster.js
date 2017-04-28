@@ -5,6 +5,8 @@ import {updateRoster} from '../actions/roster'
 import React, {Component} from 'react'
 import pointsToRandomValue from '../helpers/points-to-random-value'
 import Textarea from '../components/form/textarea.js'
+import GenerateRandom from '../components/generate-random/index'
+import faker from 'faker'
 
 class RosterPage extends Component {
   displayName = 'RosterPage'
@@ -33,11 +35,13 @@ class RosterPage extends Component {
         .join()
     this.setState({
       'male-commentators': filterByMinMax(true, 0, 30),
+      'male-jobbers': filterByMinMax(true, 0, 20),
       'male-lowercard': filterByMinMax(true, 30, 60),
       'male-midcard': filterByMinMax(true, 60, 80),
       'male-mainevent': filterByMinMax(true, 80, 100),
       'female-commentators': filterByMinMax(false, 0, 30),
       'female-lowercard': filterByMinMax(false, 30, 60),
+      'female-jobbers': filterByMinMax(false, 0, 20),
       'female-midcard': filterByMinMax(false, 60, 80),
       'female-mainevent': filterByMinMax(false, 80, 100),
     })
@@ -77,6 +81,26 @@ class RosterPage extends Component {
     this.props.router.push('/champions')
   }
 
+  _generateRandomRoster = event => {
+    event.preventDefault
+
+    let newState = {}
+    let numberOfNames = 6
+
+    Object.keys(this.state).map(key => {
+      let newNames = ''
+      let x = 0
+      while (numberOfNames > x) {
+        newNames = `${faker.name.findName()}, ${newNames}`
+        x++
+      }
+      newState[key] = newNames
+    })
+    this.setState({
+      ...newState,
+    })
+  }
+
   render() {
     return (
       <section className="page roster">
@@ -88,32 +112,33 @@ class RosterPage extends Component {
             <div className="col-xs-12 col-lg-6">
               <div className="box male">
                 <div className="fa fa-mars" />
+                <GenerateRandom onClick={this._generateRandomRoster} />
                 <Textarea
-                  defaultValue={this.state['male-mainevent']}
+                  value={this.state['male-mainevent']}
                   name="male-mainevent"
                   onChange={this.handleChange}
                   label="Mens Main event"
                 />
                 <Textarea
-                  defaultValue={this.state['male-midcard']}
+                  value={this.state['male-midcard']}
                   name="male-midcard"
                   onChange={this.handleChange}
                   label="Mid card"
                 />
                 <Textarea
-                  defaultValue={this.state['male-lowercard']}
+                  value={this.state['male-lowercard']}
                   name="male-lowercard"
                   onChange={this.handleChange}
                   label="Lower card"
                 />
                 <Textarea
-                  defaultValue={this.state['male-jobbers']}
+                  value={this.state['male-jobbers']}
                   name="male-jobbers"
                   onChange={this.handleChange}
                   label="Jobbers"
                 />
                 <Textarea
-                  defaultValue={this.state['male-commentators']}
+                  value={this.state['male-commentators']}
                   name="male-commentators"
                   onChange={this.handleChange}
                   label="Commentators"
@@ -124,31 +149,31 @@ class RosterPage extends Component {
               <div className="box female">
                 <div className="fa fa-venus" />
                 <Textarea
-                  defaultValue={this.state['female-mainevent']}
+                  value={this.state['female-mainevent']}
                   name="female-mainevent"
                   onChange={this.handleChange}
                   label="Womens Main Event"
                 />
                 <Textarea
-                  defaultValue={this.state['female-midcard']}
+                  value={this.state['female-midcard']}
                   name="female-midcard"
                   onChange={this.handleChange}
                   label="Mid card"
                 />
                 <Textarea
-                  defaultValue={this.state['female-lowercard']}
+                  value={this.state['female-lowercard']}
                   name="female-lowercard"
                   onChange={this.handleChange}
                   label="Lower card"
                 />
                 <Textarea
-                  defaultValue={this.state['female-jobbers']}
+                  value={this.state['female-jobbers']}
                   name="female-jobbers"
                   onChange={this.handleChange}
                   label="Jobbers"
                 />
                 <Textarea
-                  defaultValue={this.state['female-commentators']}
+                  value={this.state['female-commentators']}
                   name="female-commentators"
                   onChange={this.handleChange}
                   label="Commentators"

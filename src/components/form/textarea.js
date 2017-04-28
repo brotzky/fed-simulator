@@ -3,7 +3,7 @@ import React from 'react'
 const noop = () => {}
 
 const Textarea = ({
-  defaultValue = '',
+  value = '',
   label = '',
   name = '',
   onChange = noop,
@@ -18,7 +18,7 @@ const Textarea = ({
             {label}
           </label>
           <textarea
-            defaultValue={defaultValue}
+            value={value}
             id={name}
             name={name}
             onChange={onChange}
