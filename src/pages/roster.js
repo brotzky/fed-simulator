@@ -10,6 +10,7 @@ import faker from 'faker'
 
 const CONFIRM_MESSAGE =
   'Are you sure you want to reset all wrestlers and generate random replacements?'
+
 class RosterPage extends Component {
   displayName = 'RosterPage'
 

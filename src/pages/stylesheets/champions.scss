@@ -1,10 +1,17 @@
 $champions-font-size: 2.5rem;
 $champions-input-font-size: 2.5rem;
+$champions-icon-font-size: 6rem;
 
 .page.champions {
 	label {
 		font-size: $champions-font-size;
 	}
+
+	.fa {
+		font-size: $champions-icon-font-size;
+		margin-right: 3rem;
+	}
+
 	textarea {
 		font-size: $champions-input-font-size;
 		line-height: $champions-input-font-size;

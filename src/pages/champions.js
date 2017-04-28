@@ -4,6 +4,11 @@ import PropTypes from 'prop-types'
 import {updateChampions} from '../actions/champions'
 import React, {Component} from 'react'
 import Textarea from '../components/form/textarea.js'
+import GenerateRandom from '../components/generate-random/index'
+import faker from 'faker'
+
+const CONFIRM_MESSAGE =
+  'Are you sure you want to reset all champions and generate random replacements?'
 
 class ChampionsPage extends Component {
   displayName = 'ChampionsPage'
@@ -11,12 +16,6 @@ class ChampionsPage extends Component {
   state = {
     male: '',
     female: '',
-  }
-
-  componentDidMount() {
-    if (this.props.roster.length === 0) {
-      this.props.router.push('/roster')
-    }
   }
 
   componentWillMount() {
@@ -61,6 +60,28 @@ class ChampionsPage extends Component {
     this.props.router.push('/shows')
   }
 
+  _generateRandomChampions = event => {
+    event.preventDefault
+
+    if (confirm(CONFIRM_MESSAGE)) {
+      let newState = {}
+      let numberOfNames = 3
+
+      Object.keys(this.state).map(key => {
+        let newNames = ''
+        let x = 0
+        while (numberOfNames > x) {
+          newNames = `${faker.company.catchPhraseAdjective()}, ${newNames}`
+          x++
+        }
+        newState[key] = newNames
+      })
+      this.setState({
+        ...newState,
+      })
+    }
+  }
+
   render() {
     return (
       <section className="page champions">
@@ -75,6 +96,7 @@ class ChampionsPage extends Component {
             <div className="col-xs-12 col-lg-6">
               <div className="box male">
                 <div className="fa fa-mars" />
+                <GenerateRandom onClick={this._generateRandomChampions} />
                 <Textarea
                   value={this.state.male}
                   name="male"
