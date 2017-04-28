@@ -76,7 +76,7 @@ class ChampionsPage extends Component {
               <div className="box male">
                 <div className="fa fa-mars" />
                 <Textarea
-                  defaultValue={this.state.male}
+                  value={this.state.male}
                   name="male"
                   onChange={this.handleChange}
                   placeholder="World Heavyweight Championship, Cruiserweight Championship"
@@ -88,7 +88,7 @@ class ChampionsPage extends Component {
               <div className="box female">
                 <div className="fa fa-venus" />
                 <Textarea
-                  defaultValue={this.state.female}
+                  value={this.state.female}
                   name="female"
                   onChange={this.handleChange}
                   placeholder={'Womens World Championship'}

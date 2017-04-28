@@ -8,28 +8,37 @@ import './stylesheets/name.scss'
 
 class Name extends Component {
   state = {
-    name: '',
+    federation: {
+      name: '',
+    },
   }
 
   componentDidMount() {
     if (this.props.federation.name !== '') {
       this.setState({
-        name: this.props.federation.name,
+        federation: {
+          name: this.props.federation.name,
+        },
       })
     }
   }
 
   handleChange = event => {
     this.setState({
-      name: event.target.value,
+      federation: {
+        name: event.target.value,
+      },
     })
   }
 
   handleSubmit = event => {
     event.preventDefault()
-    const newState = Object.assign(this.props.federation, this.state)
+    const federation = Object.assign(
+      this.props.federation,
+      this.state.federation
+    )
 
-    this.props.dispatch(updateFederation(newState))
+    this.props.dispatch(updateFederation(federation))
     this.props.router.push('/size')
   }
 
@@ -42,7 +51,7 @@ class Name extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <Textarea
-              defaultValue={this.props.federation.name}
+              value={this.state.federation.name}
               name="name"
               onChange={this.handleChange}
               rows="1"
