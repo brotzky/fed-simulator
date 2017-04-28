@@ -8,6 +8,8 @@ import Textarea from '../components/form/textarea.js'
 import GenerateRandom from '../components/generate-random/index'
 import faker from 'faker'
 
+const CONFIRM_MESSAGE =
+  'Are you sure you want to reset all wrestlers and generate random replacements?'
 class RosterPage extends Component {
   displayName = 'RosterPage'
 
@@ -84,21 +86,23 @@ class RosterPage extends Component {
   _generateRandomRoster = event => {
     event.preventDefault
 
-    let newState = {}
-    let numberOfNames = 6
+    if (confirm(CONFIRM_MESSAGE)) {
+      let newState = {}
+      let numberOfNames = 6
 
-    Object.keys(this.state).map(key => {
-      let newNames = ''
-      let x = 0
-      while (numberOfNames > x) {
-        newNames = `${faker.name.findName()}, ${newNames}`
-        x++
-      }
-      newState[key] = newNames
-    })
-    this.setState({
-      ...newState,
-    })
+      Object.keys(this.state).map(key => {
+        let newNames = ''
+        let x = 0
+        while (numberOfNames > x) {
+          newNames = `${faker.name.findName()}, ${newNames}`
+          x++
+        }
+        newState[key] = newNames
+      })
+      this.setState({
+        ...newState,
+      })
+    }
   }
 
   render() {
