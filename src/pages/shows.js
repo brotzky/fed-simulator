@@ -74,8 +74,9 @@ class ChampionsPage extends Component {
       <section className="page shows">
         <h1>
           What
-          <span className="hot-red"> &nbsp; shows</span>
-          <span className="hot-pink"> &nbsp; produce</span>
+          <span className="hot-red"> shows</span>
+          &nbsp;do we
+          <span className="hot-pink"> produce</span>
           ?
         </h1>
         <form onSubmit={this.handleSubmit}>
