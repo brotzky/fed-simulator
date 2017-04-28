@@ -5,6 +5,9 @@ import PropTypes from 'prop-types'
 import React, {Component} from 'react'
 import {SwatchesPicker} from 'react-color'
 
+const noop = () => {}
+const EVENT_STUB = {preventDefault: noop,}
+
 class BrandingPage extends Component {
   state = {
     backgroundColor: '',
@@ -21,20 +24,28 @@ class BrandingPage extends Component {
     }
   }
 
-  handleSubmit = event => {
-    event.preventDefault()
-    const newState = Object.assign(this.props.federation, this.state)
+  handleSubmit = (event = EVENT_STUB, forward = true) => {
+    event && event.preventDefault()
+    const newState = Object.assign({}, this.props.federation, {
+      color: this.state.color,
+      backgroundColor: this.state.backgroundColor,
+    })
 
     this.props.dispatch(updateFederation(newState))
-    this.props.router.push('/roster')
+
+    if (forward) {
+      this.props.router.push('/roster')
+    }
   }
 
   handeBackgroundColorChange = color => {
     this.setState({backgroundColor: color.hex,})
+    this.handleSubmit(false, false)
   }
 
   handleColorChange = color => {
     this.setState({color: color.hex,})
+    this.handleSubmit(false, false)
   }
 
   onClickTitle = () => {
