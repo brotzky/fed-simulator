@@ -1,7 +1,7 @@
 $basepage-font-size: 9rem;
 $basepage-gutter: 5rem;
 
-$basepage-button-font-size: 4rem;
+$basepage-button-font-size: 6rem;
 $basepage-button-color: white;
 $basepage-button-background-color: #3f3f3f;
 $basepage-button-border-radius: 0;
@@ -37,7 +37,6 @@ $basepage-button-padding: .5rem !default;
     font-size: $basepage-button-font-size;
     font-variant: small-caps;
     font-weight: 500;
-    height: 100%;
     padding: $basepage-button-padding;
     width: 100%;
   }
