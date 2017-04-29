@@ -65,18 +65,17 @@ class RosterPage extends Component {
       let male = stateSplit[0] === 'male'
       let points = stateSplit[1]
 
-      let wrestler = {
-        male,
-        wins: 0,
-        losses: 0,
-      }
-
       let newWrestlers = this.state[stateKey]
         .split(',')
-        .map(name =>
-          Object.assign({name, points: pointsToRandomValue(points),}, wrestler)
-        )
-        .filter(wrestler => wrestler.name !== '' || wrestler.name === ' ')
+        .filter(name => name.length > 2)
+        .filter(String)
+        .map(name => {
+          return {
+            name,
+            male,
+            points: pointsToRandomValue(points),
+          }
+        })
 
       wrestlers = wrestlers.concat(newWrestlers)
     })

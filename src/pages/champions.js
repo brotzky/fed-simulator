@@ -50,15 +50,15 @@ class ChampionsPage extends Component {
     Object.keys(this.state).forEach(stateKey => {
       let male = stateKey === 'male'
 
-      let champion = {
-        male,
-        current_champion: '',
-        losses: 0,
-      }
-
       let newChampionship = this.state[stateKey]
         .split(',')
-        .map(name => Object.assign({name: name.trim(),}, champion))
+        .filter(name => name.length > 2)
+        .map(name => {
+          return {
+            name: name.trim(),
+            male,
+          }
+        })
 
       championships = championships.concat(newChampionship)
     })

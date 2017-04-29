@@ -49,15 +49,17 @@ class ChampionsPage extends Component {
     Object.keys(this.state).forEach(size => {
       let defaultShow = defaultShows.find(show => show.size === size)
       if (defaultShow) {
-        let show = {
-          size: defaultShow.size,
-          frequency: defaultShow.frequency,
-        }
-
         let newShow = this.state[size]
           .split(',')
+          .filter(name => name.length > 2)
           .filter(String)
-          .map(name => Object.assign({name: name.trim(),}, show))
+          .map(name => {
+            return {
+              name: name.trim(),
+              size: defaultShow.size,
+              frequency: defaultShow.frequency,
+            }
+          })
 
         shows = shows.concat(newShow)
       }
