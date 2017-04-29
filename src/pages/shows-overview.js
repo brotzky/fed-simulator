@@ -19,15 +19,15 @@ class ShowsOverview extends React.Component {
 
   render() {
     return (
-      <div className="ppvs">
-        <ul className="ppvs__list">
-          {shuffle(this.props.shows).map(ppv => {
+      <div className="shows">
+        <ul className="shows__list">
+          {shuffle(this.props.shows).map(show => {
             const style = {
               color: getRandomHex(),
             }
             return (
-              <li key={ppv.name} style={style} className="ppvs__item pulse">
-                {ppv.name}
+              <li key={show.name} style={style} className="shows__item pulse">
+                {show.name}
               </li>
             )
           })}
