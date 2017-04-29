@@ -108,15 +108,14 @@ class RosterPage extends Component {
   render() {
     return (
       <section className="page roster">
-        <h1>
-          Whos on the 📖?
+        <h1 className="sparkle">
+          Dream Roster? <GenerateRandom onClick={this._generateRandomRoster} />
         </h1>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col-xs-12 col-lg-6">
               <div className="box male">
                 <div className="fa fa-mars" />
-                <GenerateRandom onClick={this._generateRandomRoster} />
                 <Textarea
                   value={this.state['male-mainevent']}
                   name="male-mainevent"

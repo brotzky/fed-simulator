@@ -94,16 +94,16 @@ class ChampionsPage extends Component {
       <section className="page champions">
         <h1>
           What
-          <span className="gold"> Championship gold </span>
-          <br />
+          <span className="gold"> gold </span>
           do you have?!
+          {' '}
+          <GenerateRandom onClick={this._generateRandomChampions} />
         </h1>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12 col-lg-6">
               <div className="box male">
                 <div className="fa fa-mars" />
-                <GenerateRandom onClick={this._generateRandomChampions} />
                 <Textarea
                   value={this.state.male}
                   name="male"

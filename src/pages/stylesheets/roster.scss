@@ -1,14 +1,8 @@
 $roster-font-size: 2.5rem;
-$roster-icon-font-size: 6rem;
 $roster-input-font-size: 2rem;
 
 .page.roster {
 	font-size: $roster-font-size;
-
-	.fa {
-		font-size: $roster-icon-font-size;
-		margin-right: 3rem;
-	}
 
 	textarea {
 		font-size: $roster-input-font-size;
