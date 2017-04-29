@@ -6,11 +6,11 @@ const Navigation = ({navigation = defaultState,}) => {
   return (
     <nav className="navigation">
       <ul className="navigation__list">
-        {navigation.map((navigationItem, key) => {
+        {navigation.map((item, key) => {
           return (
-            <li key={key} className="navigation__item pulse">
-              <Link to={navigationItem.url}>
-                {navigationItem.title}
+            <li key={key} className={`navigation__item pulse ${item.url}`}>
+              <Link to={item.url}>
+                {item.title}
               </Link>
             </li>
           )

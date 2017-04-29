@@ -29,7 +29,7 @@ class RankingPage extends Component {
         </h1>
         <div className="row top-xs">
           <div className="col-xs-12 col-lg-6">
-            <div className="box grow">
+            <div className="box shrink">
               <If condition={maleWrestlers.length > 0}>
                 <Ranking
                   title="Male Wrestlers"
@@ -40,7 +40,7 @@ class RankingPage extends Component {
             </div>
           </div>
           <div className="col-xs-12 col-lg-6">
-            <div className="box grow">
+            <div className="box shrink">
               <If condition={femaleWrestlers.length > 0}>
                 <Ranking
                   title="Female Wrestlers"

@@ -2,28 +2,11 @@
 
 .navigation {
   background-color: #232828;
-  font-family: 'Roboto';
-  font-size: 2rem;
-  font-weight: bolder;
+  font-size: 3rem;
+  font-weight: 100;
   text-transform: capitalize;
   color: white;
-
-  .icon {
-    zoom: .2;
-
-    &.icon-default {
-      background-image: none;
-      height: auto;
-      width: auto;
-      zoom: inherit;
-      overflow: inherit;
-
-      &::before {
-        content: "All brands";
-        color: white;
-      }
-    }
-  }
+  font-variant: small-caps;
 
   &__list {
     flex-wrap: wrap;
@@ -69,18 +52,7 @@
   }
 }
 
-.navigation--primary {
-  text-transform: uppercase;
-  letter-spacing: .17rem;
-  font-weight: bold;
-
-  .navigation__list {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+.footer {
+  .navigation {
   }
-}
-
-.navigation--secondary {
-  background-color: #141516;
-  font-size: 1.5rem;
 }

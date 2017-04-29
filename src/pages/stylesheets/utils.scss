@@ -3,11 +3,18 @@
 
   .fa {
     font-size: 6rem;
-    margin: 0 0rem 5rem 0;
+    margin: 3rem;
   }
+
+  .start,
+  .complete {
+    padding: 3rem;
+  }
+
   .start {
     background-color: #333;
   }
+
   .complete {
     background-color: green;
   }

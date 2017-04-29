@@ -28,9 +28,6 @@ class Utils extends Component {
           <div className="fa fa-arrow-left" />
         </Link>
         <div className={this.state.stage}>
-          <h1>
-            &nbsp; Utils
-          </h1>
           <p>
             <a onClick={this._onClearStorage}>Clear Local Storage</a>
           </p>

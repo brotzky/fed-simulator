@@ -1,4 +1,5 @@
 $basepage-font-size: 9rem;
+$basepage-header-font-size: 9rem;
 $basepage-gutter: 5rem;
 
 $basepage-button-font-size: 6rem;
@@ -11,9 +12,10 @@ $basepage-button-padding: .5rem !default;
   height: 100%;
 
   h1 {
-    font-size: $basepage-font-size;
-    line-height: $basepage-font-size;
+    font-size: $basepage-header-font-size;
+    line-height: $basepage-header-font-size;
     margin: 0 0 2rem 0;
+    text-transform: capitalize;
   }
 
   .children {

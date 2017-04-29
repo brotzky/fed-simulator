@@ -32,6 +32,16 @@ class Page extends React.Component {
   }
 
   render() {
+    const navigationItems = [
+      {
+        url: 'name',
+        title: 'Start All Over Again',
+      },
+      {
+        url: 'utils',
+        title: 'Game Utils',
+      },
+    ]
     return (
       <main className={`page ${this.props.classNames}`}>
         <If condition={this.props.shows.length > 0}>
@@ -44,6 +54,9 @@ class Page extends React.Component {
             </div>
           </div>
         </div>
+        <footer className="footer">
+          <Navigation navigation={navigationItems} />
+        </footer>
       </main>
     )
   }
