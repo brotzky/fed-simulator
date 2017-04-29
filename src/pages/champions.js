@@ -26,11 +26,11 @@ class ChampionsPage extends Component {
 
   componentWillMount() {
     this.setState({
-      male: this.props.champions
+      male: this.props.championships
         .filter(champion => champion.male)
         .map(champion => champion.name)
         .join(', '),
-      female: this.props.champions
+      female: this.props.championships
         .filter(champion => !champion.male)
         .map(champion => champion.name)
         .join(', '),
@@ -141,6 +141,6 @@ ChampionsPage.contextTypes = {
 }
 
 export default connect(state => ({
-  champions: state.champions,
+  championships: state.championships,
   roster: state.roster,
 }))(ChampionsPage)

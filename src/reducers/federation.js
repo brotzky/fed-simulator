@@ -1,4 +1,5 @@
-import defaultState from './federation.default.json'
+const defaultState = {}
+import Model from './federation.model'
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
@@ -12,5 +13,5 @@ export default (state = defaultState, action) => {
     default:
       break
   }
-  return newState
+  return new Model(newState).toJSON()
 }

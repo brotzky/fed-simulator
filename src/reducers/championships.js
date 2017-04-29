@@ -1,4 +1,5 @@
 const defaultState = []
+import Model from './championship.model'
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
@@ -13,5 +14,5 @@ export default (state = defaultState, action) => {
     default:
       break
   }
-  return newState
+  return newState.map(championship => new Model(championship).toJSON())
 }

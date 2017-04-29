@@ -9,7 +9,7 @@ import acronymLongName from '../helpers/acronym-long-name'
 
 class SizePage extends Component {
   state = {
-    size: defaultOptions.find(size => size.default).size,
+    size: '',
   }
 
   componentDidMount() {
