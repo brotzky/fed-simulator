@@ -1,10 +1,21 @@
+$calendar-border-width: .3rem;
+$calendar-font-size: 3rem;
+$calendar-show-width: 10%;
+$calendar-show-inactive-border-color: silver;
+$calendar-show-active-border-color: gold;
+
 .page.calendar {
-  font-size: 3rem;
+  font-size: $calendar-font-size;
 
   .show {
-    border: .5rem solid violet;
+    border: $calendar-border-width solid $calendar-show-inactive-border-color;
+    margin-bottom: 1.5rem;
+    margin-right: 1%;
+    padding: 2rem;
+    width: $calendar-show-width;
   }
+
   .active {
-    border: .5rem solid gold;
+    border: $calendar-border-width solid $calendar-show-active-border-color;
   }
 }
