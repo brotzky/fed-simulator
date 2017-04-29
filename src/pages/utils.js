@@ -18,6 +18,7 @@ class Utils extends Component {
       this.setState({
         stage: 'start',
       })
+      location.reload()
     }, 3000)
   }
 
