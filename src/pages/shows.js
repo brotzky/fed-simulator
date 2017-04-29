@@ -52,9 +52,6 @@ class ChampionsPage extends Component {
         let show = {
           size: defaultShow.size,
           frequency: defaultShow.frequency,
-          max_attendance: defaultShow.max_attendance,
-          max_cost: defaultShow.max_cost,
-          max_gross: defaultShow.max_gross,
         }
 
         let newShow = this.state[size]

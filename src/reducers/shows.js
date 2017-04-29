@@ -1,4 +1,5 @@
 const defaultState = []
+import Model from './show.model'
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
@@ -12,5 +13,5 @@ export default (state = defaultState, action) => {
     default:
       break
   }
-  return newState
+  return newState.map(show => new Model(show).toJSON())
 }
