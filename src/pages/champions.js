@@ -53,6 +53,7 @@ class ChampionsPage extends Component {
       let newChampionship = this.state[stateKey]
         .split(',')
         .filter(name => name.length > 2)
+        .filter(String)
         .map(name => {
           return {
             name: name.trim(),
