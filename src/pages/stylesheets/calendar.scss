@@ -1,3 +1,10 @@
 .page.calendar {
   font-size: 3rem;
+
+  .show {
+    border: .5rem solid violet;
+  }
+  .active {
+    border: .5rem solid gold;
+  }
 }
