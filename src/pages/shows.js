@@ -5,6 +5,11 @@ import {updateShows} from '../actions/shows'
 import React, {Component} from 'react'
 import defaultShows from './shows.options.json'
 import Textarea from '../components/form/textarea.js'
+import GenerateRandom from '../components/generate-random/index'
+import faker from 'faker'
+
+const CONFIRM_MESSAGE =
+  'Are you sure you want to reset all shows and generate random replacements?'
 
 class ChampionsPage extends Component {
   displayName = 'ChampionsPage'
@@ -68,6 +73,28 @@ class ChampionsPage extends Component {
     this.props.router.push('/ranking')
   }
 
+  _generateRandomShows = event => {
+    event.preventDefault
+
+    if (confirm(CONFIRM_MESSAGE)) {
+      let newState = {}
+      let numberOfNames = 3
+
+      Object.keys(this.state).map(key => {
+        let newNames = ''
+        let x = 0
+        while (numberOfNames > x) {
+          newNames = `${faker.company.catchPhraseAdjective()}, ${newNames}`
+          x++
+        }
+        newState[key] = newNames
+      })
+      this.setState({
+        ...newState,
+      })
+    }
+  }
+
   render() {
     return (
       <section className="page shows">
@@ -76,7 +103,7 @@ class ChampionsPage extends Component {
           <span className="hot-red"> shows</span>
           &nbsp;do we
           <span className="hot-pink"> produce</span>
-          ?
+          ? <GenerateRandom onClick={this._generateRandomShows} />
         </h1>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
