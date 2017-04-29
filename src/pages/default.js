@@ -17,7 +17,7 @@ class Default extends Component {
     } else if (this.props.shows.length === 0) {
       this.props.router.push('/shows')
     } else {
-      this.props.router.push('/ranking')
+      // this.props.router.push('/ranking')
     }
   }
 

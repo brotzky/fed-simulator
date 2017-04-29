@@ -7,5 +7,8 @@
 }, {
 	"url": "next-show",
 	"title": "Next Show"
+}, {
+	"url": "showsOverview",
+	"title": "Shows Overview"
 }
 ]

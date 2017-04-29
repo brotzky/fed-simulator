@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import './stylesheets/next-show.scss'
 
 class NextShow extends Component {
   render() {
@@ -15,9 +16,9 @@ class NextShow extends Component {
                 Roster
               </h2>
               <ul>
-                {this.props.roster.map(wrestler => {
+                {this.props.roster.map((wrestler, key) => {
                   return (
-                    <li key={wrestler.name}>
+                    <li key={key}>
                       {wrestler.name}
                     </li>
                   )

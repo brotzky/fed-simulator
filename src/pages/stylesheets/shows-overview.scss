@@ -1,0 +1,35 @@
+@import "src/stylesheets/breakpoints";
+
+.ppvs {}
+
+.ppvs__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ppvs__name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.ppvs__item {
+  align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  height: 10rem;
+  justify-content: center;
+  list-style: none;
+  margin: .72rem;
+  width: auto;
+  font-weight: 700;
+  font-size: 4rem;
+
+  @include breakpoint(xs) {
+    height: 6rem;
+    margin: .5rem;
+    width: 8.6rem;
+  }
+}
