@@ -6,7 +6,7 @@ import {hashCode} from '../helpers/hash'
 const Model = Backbone.Model.extend({
   defaults: {
     id: hashCode(new Date().toString()),
-    name: 'Default',
+    name: '',
     size: 'xs',
     cash: 0,
     backgroundColor: 'black',
