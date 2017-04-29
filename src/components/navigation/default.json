@@ -1,14 +1,24 @@
-[{
-	"url": "ranking",
-	"title": "Ranking"
-}, {
-	"url": "calendar",
-	"title": "Calendar"
-}, {
-	"url": "next-show",
-	"title": "Next Show"
-}, {
-	"url": "showsOverview",
-	"title": "Shows Overview"
-}
+[
+	{
+		"url": "ranking",
+		"title": "Ranking"
+	}, {
+		"url": "calendar",
+		"title": "Calendar"
+	}, {
+		"url": "next-show",
+		"title": "Next Show"
+	}, {
+		"url": "branding",
+		"title": "Branding"
+	}, {
+		"url": "champions",
+		"title": "Champions"
+	}, {
+		"url": "roster",
+		"title": "Roster"
+	}, {
+		"url": "shows",
+		"title": "Shows"
+	}
 ]
