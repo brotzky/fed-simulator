@@ -45,6 +45,9 @@ class CalendarPage extends Component {
     return (
       <section className="page calendar">
         <h1>{this.state.activeDateObj.format('MMMM YYYY')}</h1>
+        {this.props.shows.map(show => {
+          return <div>{show.name} ({show.size})</div>
+        })}
         <div className="row">
           {this.state.dateRange.map((date, key) => {
             const currentDate = moment(date).format('Do')
