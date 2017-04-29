@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import defaultState from './default.json'
+import './navigation.scss'
 
 const Navigation = ({navigation = defaultState,}) => {
   return (

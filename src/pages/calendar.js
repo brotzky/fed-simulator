@@ -1,10 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import './stylesheets/calendar'
-import {getDateRange} from '../helpers/get-date-range'
 import moment from 'moment'
 
-import {YEAR_FORMAT, DATE_FORMAT} from '../constants/calendar'
+import {YEAR_FORMAT} from '../constants/calendar'
 
 class CalendarPage extends Component {
   displayName = 'CalendarPage'
