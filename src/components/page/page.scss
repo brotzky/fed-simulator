@@ -10,6 +10,9 @@ $basepage-button-padding: .5rem !default;
 
 .page {
   height: 100%;
+  font-size: $basepage-font-size;
+  font-weight: bolder;
+  line-height: auto;
 
   h1 {
     font-size: $basepage-header-font-size;
@@ -25,10 +28,6 @@ $basepage-button-padding: .5rem !default;
   .active {
     border: 1rem solid white;
   }
-
-  font-size: $basepage-font-size;
-  font-weight: bolder;
-  line-height: auto;
 
   button {
     background-color: $basepage-button-background-color;
