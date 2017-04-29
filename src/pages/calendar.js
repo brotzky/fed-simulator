@@ -1,33 +1,56 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import './stylesheets/calendar'
+import groupBy from 'lodash/groupBy'
 import moment from 'moment'
 import {getDateRange} from '../helpers/get-date-range'
-import {YEAR_FORMAT, DATE_FORMAT} from '../constants/calendar'
+import {DATE_FORMAT} from '../constants/calendar'
+import {generateEventsForMonth} from '../actions/events'
 
 class CalendarPage extends Component {
   displayName = 'CalendarPage'
 
-  render() {
+  componentWillMount() {
+    this._getCalendarInformation()
+  }
+
+  componentDidMount() {
+    if (this.props.events.length === 0) {
+      this.props.dispatch(
+        generateEventsForMonth({
+          ...this.state,
+        })
+      )
+    }
+  }
+
+  _getCalendarInformation() {
     const date = new Date(this.props.federation.currentDate)
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0)
-    const dateRange = getDateRange(firstDay, lastDay)
-    const activeDate = moment(this.props.federation.currentDate).format(
-      DATE_FORMAT
-    )
+    const activeDateObj = moment(this.props.federation.currentDate)
+
+    this.setState({
+      date,
+      firstDay,
+      lastDay,
+      dateRange: getDateRange(firstDay, lastDay),
+      activeDateObj,
+      activeDate: activeDateObj.format(DATE_FORMAT),
+      showsGroupedBySize: groupBy(this.props.shows, show => show.size),
+    })
+  }
+
+  render() {
     return (
       <section className="page calendar">
-        <h1>Calendar</h1>
-        <h3>
-          Current date:
-          {' '}
-          {moment(this.props.federation.currentDate).format(YEAR_FORMAT)}
-        </h3>
+        <h1>{this.state.activeDateObj.format('MMMM YYYY')}</h1>
         <div className="row">
-          {dateRange.map((date, key) => {
-            const currentDate = moment(date).format(DATE_FORMAT)
-            const isActive = currentDate === activeDate ? 'active' : 'inactive'
+          {this.state.dateRange.map((date, key) => {
+            const currentDate = moment(date).format('Do')
+            const isActive = currentDate === this.state.activeDate
+              ? 'active'
+              : 'inactive'
             return (
               <div key={key} className={`box show ${isActive}`}>
                 <h3>
@@ -44,5 +67,6 @@ class CalendarPage extends Component {
 
 export default connect(state => ({
   shows: state.shows,
+  events: state.events,
   federation: state.federation,
 }))(CalendarPage)

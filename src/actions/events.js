@@ -5,3 +5,10 @@ export function reset() {
     type: types.RESET,
   }
 }
+
+export function generateEventsForMonth(payload) {
+  return {
+    type: types.CREATE_EVENTS,
+    payload,
+  }
+}

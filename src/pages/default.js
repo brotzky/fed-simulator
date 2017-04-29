@@ -16,8 +16,10 @@ class Default extends Component {
       this.props.router.push('/roster')
     } else if (this.props.shows.length === 0) {
       this.props.router.push('/shows')
+    } else if (this.props.events.length === 0) {
+      this.props.router.push('/calendar')
     } else {
-      // this.props.router.push('/ranking')
+      this.props.router.push('/ranking')
     }
   }
 
