@@ -1,13 +1,14 @@
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import groupBy from 'lodash/groupBy'
 import moment from 'moment'
-import React, {Component} from 'react'
+import {NativeTypes} from 'react-dnd-html5-backend'
 
-import {DATE_FORMAT} from '../constants/calendar'
+import {DATE_FORMAT, DAY_FORMAT, MONTH_YEAR_FORMAT} from '../constants/calendar'
 import {generateEventsForMonth} from '../actions/events'
 import {getDateRange} from '../helpers/get-date-range'
-import Show from '../components/show/show'
-
+import Calendar from '../components/calendar/container'
+import * as itemType from '../actions/types'
 import './stylesheets/calendar'
 
 class CalendarPage extends Component {
@@ -19,11 +20,7 @@ class CalendarPage extends Component {
 
   componentDidMount() {
     if (this.props.events.length === 0) {
-      this.props.dispatch(
-        generateEventsForMonth({
-          ...this.state,
-        })
-      )
+      this.props.dispatch(generateEventsForMonth())
     }
   }
 
@@ -45,26 +42,36 @@ class CalendarPage extends Component {
   }
 
   render() {
+    const dustbins = this.state.dateRange.map(date => {
+      let accepts = [itemType['xs'], itemType['sm'], itemType['md'],]
+      date = moment(date)
+      let day = date.day()
+
+      if (day === 0) {
+        accepts = [itemType['lg'],]
+      }
+      return {
+        name: date.format(DAY_FORMAT),
+        accepts,
+        lastDroppedItem: null,
+      }
+    })
+    const boxes = this.props.shows.map(event => {
+      return {
+        name: `${event.name} (${event.size})`,
+        type: itemType[event.size],
+      }
+    })
     return (
       <section className="page calendar">
-        <h1>{this.state.activeDateObj.format('MMMM YYYY')}</h1>
-        {this.props.shows.map(show => {
-          return <div>{show.name} ({show.size})</div>
-        })}
+        <h1>{moment(this.state.date).format(MONTH_YEAR_FORMAT)}</h1>
         <div className="row">
-          {this.state.dateRange.map((date, key) => {
-            const currentDate = moment(date).format('Do')
-            const isActive = currentDate === this.state.activeDate
-              ? 'active'
-              : 'inactive'
-            return (
-              <div key={key} className={`box show ${isActive}`}>
-                <h3>
-                  {currentDate}
-                </h3>
-              </div>
-            )
-          })}
+          <div className="col-xs-10">
+            <Calendar dustbins={dustbins} boxes={boxes} />
+          </div>
+          <div className="col-xs-2">
+            Accounting
+          </div>
         </div>
       </section>
     )

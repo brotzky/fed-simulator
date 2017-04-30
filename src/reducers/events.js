@@ -13,8 +13,6 @@ export default (state = defaultState, action) => {
       dateRange.forEach(date => {
         newState.push(new Model({date: date,}).toJSON())
       })
-
-      console.log(dateRange, firstDay, lastDay)
       break
     case 'SIMULATE_EVENT':
       break
