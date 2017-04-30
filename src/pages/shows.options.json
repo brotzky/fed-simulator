@@ -1,29 +1,41 @@
 [{
-  "placeholder": "Wrestlemania, Summerslam",
+  "placeholder": "Big Four",
   "frequency": "monthly",
   "size": "lg",
   "max_attendance": 10000000,
   "max_cost": 6000000,
-  "max_gross": 12000000
+  "max_gross": 12000000,
+  "min_attendance": 10000,
+  "min_cost": 300000,
+  "min_gross": 3000000
 }, {
-  "name": "Payback, Backlash",
+  "name": "PPV",
   "frequency": "monthly",
   "size": "md",
   "max_attendance": 15000,
   "max_cost": 200000,
-  "max_gross": 600000
+  "max_gross": 600000,
+  "min_attendance": 5000,
+  "min_cost": 100000,
+  "min_gross": 30000
 },{
-  "name": "Raw, Impact",
+  "name": "TV Show",
   "frequency": "weekly",
   "size": "sm",
-  "max_attendance": 1500,
-  "max_cost": 25000,
-  "max_gross": 50000
+  "max_attendance": 15000,
+  "max_cost": 200000,
+  "max_gross": 600000,
+  "min_attendance": 5000,
+  "min_cost": 100000,
+  "min_gross": 30000
 },{
   "name": "House Show",
   "frequency": "daily",
   "size": "xs",
   "max_attendance": 100,
   "max_cost": 2000,
-  "max_gross": 5000
+  "max_gross": 5000,
+  "min_attendance": 5,
+  "min_cost": 1000,
+  "min_gross": 2000
 }]

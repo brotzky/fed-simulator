@@ -21,7 +21,9 @@ class CalendarPage extends Component {
 
   componentDidMount() {
     if (this.props.events.length === 0) {
-      this.props.dispatch(generateEventsForMonth())
+      this.props.dispatch(
+        generateEventsForMonth({dateRange: this.state.dateRange,})
+      )
     }
   }
 

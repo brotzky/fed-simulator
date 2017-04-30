@@ -8,9 +8,7 @@ export default (state = defaultState, action) => {
       newState = defaultState
       break
     case 'CREATE_EVENTS':
-      const {dateRange, firstDay, lastDay,} = action.payload
-
-      dateRange.forEach(date => {
+      action.payload.dateRange.forEach(date => {
         newState.push(new Model({date: date,}).toJSON())
       })
       break

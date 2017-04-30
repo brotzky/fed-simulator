@@ -1,12 +1,12 @@
 import React from 'react'
 
-const AccountingCollection = ({collection,}) => {
+const AccountingCollection = ({events,}) => {
   return (
     <ul>
-      {collection.map((item, key) => {
+      {events.map((event, key) => {
         return (
           <li key={key}>
-            {item.name}
+            {event.name} {event.cost}
           </li>
         )
       })}

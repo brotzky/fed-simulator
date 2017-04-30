@@ -12,6 +12,8 @@ const Model = Backbone.Model.extend({
     size: 'xs',
     rating: 0,
     matches: [],
+    completed: false,
+    cost: 200,
   },
 
   initialize() {

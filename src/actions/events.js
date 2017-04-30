@@ -6,9 +6,9 @@ export function reset() {
   }
 }
 
-export function generateEventsForMonth(payload) {
+export function generateEventsForMonth(shows) {
   return {
     type: types.CREATE_EVENTS,
-    payload,
+    payload: shows,
   }
 }
