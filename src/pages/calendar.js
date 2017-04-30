@@ -2,13 +2,14 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import groupBy from 'lodash/groupBy'
 import moment from 'moment'
-import {NativeTypes} from 'react-dnd-html5-backend'
 
 import {DATE_FORMAT, DAY_FORMAT, MONTH_YEAR_FORMAT} from '../constants/calendar'
 import {generateEventsForMonth} from '../actions/events'
 import {getDateRange} from '../helpers/get-date-range'
 import Calendar from '../components/calendar/container'
 import * as itemType from '../actions/types'
+import Accounting from '../components/accounting/container'
+
 import './stylesheets/calendar'
 
 class CalendarPage extends Component {
@@ -48,7 +49,11 @@ class CalendarPage extends Component {
       let day = date.day()
 
       if (day === 0) {
-        accepts = [itemType['lg'],]
+        accepts = [itemType['lg'], itemType['md'],]
+      } else if (day > 0 && day < 6) {
+        accepts = [itemType['sm'], itemType['xs'],]
+      } else {
+        accepts = [itemType['md'],]
       }
       return {
         name: date.format(DAY_FORMAT),
@@ -64,13 +69,13 @@ class CalendarPage extends Component {
     })
     return (
       <section className="page calendar">
-        <h1>{moment(this.state.date).format(MONTH_YEAR_FORMAT)}</h1>
         <div className="row">
           <div className="col-xs-10">
+            <h1>{moment(this.state.date).format(MONTH_YEAR_FORMAT)}</h1>
             <Calendar dustbins={dustbins} boxes={boxes} />
           </div>
           <div className="col-xs-2">
-            Accounting
+            <Accounting />
           </div>
         </div>
       </section>

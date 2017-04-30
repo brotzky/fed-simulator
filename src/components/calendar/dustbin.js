@@ -27,7 +27,6 @@ export default class Dustbin extends Component {
   render() {
     const {
       name,
-      accepts,
       isOver,
       canDrop,
       connectDropTarget,
