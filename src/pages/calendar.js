@@ -1,11 +1,14 @@
-import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import './stylesheets/calendar'
 import groupBy from 'lodash/groupBy'
 import moment from 'moment'
-import {getDateRange} from '../helpers/get-date-range'
+import React, {Component} from 'react'
+
 import {DATE_FORMAT} from '../constants/calendar'
 import {generateEventsForMonth} from '../actions/events'
+import {getDateRange} from '../helpers/get-date-range'
+import Show from '../components/show/show'
+
+import './stylesheets/calendar'
 
 class CalendarPage extends Component {
   displayName = 'CalendarPage'

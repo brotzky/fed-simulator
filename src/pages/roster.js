@@ -1,12 +1,15 @@
-import './stylesheets/roster.scss'
+import React, {Component} from 'react'
+
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
+import faker from 'faker'
+
 import {updateRoster} from '../actions/roster'
-import React, {Component} from 'react'
 import pointsToRandomValue from '../helpers/points-to-random-value'
 import Textarea from '../components/form/textarea.js'
 import GenerateRandom from '../components/generate-random/index'
-import faker from 'faker'
+
+import './stylesheets/roster.scss'
 
 const CONFIRM_MESSAGE =
   'Are you sure you want to reset all wrestlers and generate random replacements?'
