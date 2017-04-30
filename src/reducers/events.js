@@ -12,6 +12,9 @@ export default (state = defaultState, action) => {
         newState.push(new Model({date: date,}).toJSON())
       })
       break
+    case 'UPDATE_EVENTS':
+      newState = action.payload
+      break
     case 'SIMULATE_EVENT':
       break
     default:

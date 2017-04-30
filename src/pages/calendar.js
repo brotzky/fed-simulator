@@ -65,7 +65,7 @@ class CalendarPage extends Component {
     })
     const boxes = this.props.shows.map(event => {
       return {
-        name: `${event.name} (${event.size})`,
+        name: event.name,
         type: itemType[event.size],
       }
     })

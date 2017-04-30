@@ -12,3 +12,10 @@ export function generateEventsForMonth(shows) {
     payload: shows,
   }
 }
+
+export function updateEvents(events) {
+  return {
+    type: types.UPDATE_EVENTS,
+    payload: events,
+  }
+}
