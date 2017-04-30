@@ -4,7 +4,8 @@ import Collection from './collection'
 
 class AccountingContainer extends Component {
   render() {
-    return <Collection events={this.props.events} />
+    const events = this.props.events.filter(event => event.cost > 0)
+    return <Collection events={events} />
   }
 }
 

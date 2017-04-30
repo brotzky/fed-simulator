@@ -36,7 +36,7 @@ class ChampionsPage extends Component {
   }
 
   componentDidMount() {
-    if (this.props.roster.length === 0) {
+    if (this.props.champions.length === 0) {
       this.props.router.push('/champions')
     }
   }

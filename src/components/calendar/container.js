@@ -1,9 +1,7 @@
-const container = require('./container')
 import React, {Component} from 'react'
 import update from 'react/lib/update'
 import {DragDropContext} from 'react-dnd'
-import HTML5Backend, {NativeTypes} from 'react-dnd-html5-backend'
-import ItemTypes from './ItemTypes'
+import HTML5Backend from 'react-dnd-html5-backend'
 
 import Dustbin from './dustbin'
 import Box from './box'

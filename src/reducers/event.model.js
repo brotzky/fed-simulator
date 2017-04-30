@@ -8,12 +8,13 @@ const Model = Backbone.Model.extend({
   defaults: {
     id: hashCode(new Date().toString()),
     name: 'Default',
-    date: Date(),
-    size: 'xs',
-    rating: 0,
-    matches: [],
     completed: false,
-    cost: 200,
+    cost: 0,
+    date: Date(),
+    matches: [],
+    rating: 0,
+    size: 'xs',
+    showId: false,
   },
 
   initialize() {
