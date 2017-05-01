@@ -74,7 +74,11 @@ class CalendarPage extends Component {
         <div className="row">
           <div className="col-xs-10">
             <h1>{moment(this.state.date).format(MONTH_YEAR_FORMAT)}</h1>
-            <Calendar dustbins={dustbins} boxes={boxes} />
+            <Calendar
+              dustbins={dustbins}
+              boxes={boxes}
+              calendar={this.props.calendar}
+            />
           </div>
           <div className="col-xs-2">
             <Accounting />
@@ -87,6 +91,7 @@ class CalendarPage extends Component {
 
 export default connect(state => ({
   shows: state.shows,
+  calendar: state.calendar,
   events: state.events,
   federation: state.federation,
 }))(CalendarPage)

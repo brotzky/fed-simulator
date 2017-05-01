@@ -6,6 +6,7 @@ $border-color: silver;
 $border-width: 0.5rem;
 $available: gold;
 $active: green;
+$used: blue;
 $day-width: 10%;
 
 .calendar-inline {
@@ -37,6 +38,10 @@ $day-width: 10%;
     cursor: move;
     float: left;
     font-size: 3rem;
+
+    .used {
+      background-color: $used;
+    }
   }
 
   .active {

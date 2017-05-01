@@ -29,7 +29,9 @@ export default class Box extends Component {
 
     return connectDragSource(
       <div className="boxes" style={{opacity,}}>
-        {isDropped ? <s>{name}</s> : name}
+        <div className={isDropped ? 'used' : ''}>
+          {name}
+        </div>
       </div>
     )
   }

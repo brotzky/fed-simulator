@@ -5,6 +5,7 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import groupBy from 'lodash.groupby'
 import {connect} from 'react-redux'
 
+import {updateCalendar} from '../../actions/calendar'
 import {updateEvents} from '../../actions/events'
 import showsOptions from '../../pages/shows.options.json'
 import {getRandomArbitrary} from '../../helpers/math.js'
@@ -27,7 +28,10 @@ class Container extends Component {
   }
 
   isDropped(boxName) {
-    return this.state.droppedBoxNames.indexOf(boxName) > -1
+    return (
+      this.state.droppedBoxNames &&
+      this.state.droppedBoxNames.indexOf(boxName) > -1
+    )
   }
 
   render() {
@@ -79,13 +83,15 @@ class Container extends Component {
           : {},
       })
     )
-    const events = Object.assign([], this.props.events)
+
+    let events = Object.assign([], this.props.events)
     events[index].name = name
     events[index].cost = getRandomArbitrary(
       groupedShowOptions[events[index].size][0].min_cost,
       groupedShowOptions[events[index].size][0].max_cost
     )
     this.props.dispatch(updateEvents(events))
+    this.props.dispatch(updateCalendar(this.state))
   }
 }
 
