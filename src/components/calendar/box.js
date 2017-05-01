@@ -2,15 +2,6 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {DragSource} from 'react-dnd'
 
-const style = {
-  border: '1px dashed gray',
-  padding: '0.5rem 1rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  cursor: 'move',
-  float: 'left',
-}
-
 const boxSource = {
   beginDrag(props) {
     return {
@@ -37,7 +28,7 @@ export default class Box extends Component {
     const opacity = isDragging ? 0.4 : 1
 
     return connectDragSource(
-      <div style={{...style, opacity,}}>
+      <div className="boxes" style={{opacity,}}>
         {isDropped ? <s>{name}</s> : name}
       </div>
     )

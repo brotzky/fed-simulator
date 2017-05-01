@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+
 import Collection from './collection'
 
 function amount(item) {
@@ -12,8 +13,13 @@ function sum(current, next) {
 
 class AccountingContainer extends Component {
   render() {
-    const events = this.props.events.filter(event => event.cost > 0)
-    const totalCost = events.map(amount).reduce(sum)
+    let events = this.props.events.filter(event => event.cost > 0)
+
+    if (events.length === 0) {
+      return null
+    }
+
+    let totalCost = events.map(amount).reduce(sum)
     return (
       <Collection
         events={events}
