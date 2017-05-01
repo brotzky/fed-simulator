@@ -31,24 +31,15 @@ class CalendarPage extends Component {
     const date = new Date(this.props.federation.currentDate)
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0)
-    const activeDateObj = moment(this.props.federation.currentDate)
-
-    this.setState({
-      date,
-      firstDay,
-      lastDay,
-      dateRange: getDateRange(firstDay, lastDay),
-      activeDateObj,
-      activeDate: activeDateObj.format(DATE_FORMAT),
-      showsGroupedBySize: groupBy(this.props.shows, show => show.size),
-    })
-  }
-
-  render() {
-    const dustbins = this.state.dateRange.map(date => {
+    const activeDate = moment(this.props.federation.currentDate).format(
+      DATE_FORMAT
+    )
+    const dateRange = getDateRange(firstDay, lastDay)
+    const showsGroupedBySize = groupBy(this.props.shows, show => show.size)
+    const dustBins = dateRange.map(date => {
       let accepts = [itemType['xs'], itemType['sm'], itemType['md'],]
-      date = moment(date)
-      let day = date.day()
+      let momentDate = moment(date)
+      let day = momentDate.day()
 
       if (day === 0) {
         accepts = [itemType['lg'], itemType['md'],]
@@ -58,9 +49,13 @@ class CalendarPage extends Component {
         accepts = [itemType['md'],]
       }
       return {
-        name: date.format(DAY_FORMAT),
+        name: momentDate.format(DAY_FORMAT),
         accepts,
-        lastDroppedItem: null,
+        lastDroppedItem: this.props.events.find(
+          event =>
+            moment(event.date).format(DATE_FORMAT) ===
+            momentDate.toDate(DATE_FORMAT)
+        ),
       }
     })
     const boxes = this.props.shows.map(event => {
@@ -69,14 +64,28 @@ class CalendarPage extends Component {
         type: itemType[event.size],
       }
     })
+
+    this.setState({
+      date,
+      firstDay,
+      dustBins,
+      boxes,
+      lastDay,
+      dateRange,
+      activeDate,
+      showsGroupedBySize,
+    })
+  }
+
+  render() {
     return (
       <section className="page calendar">
         <div className="row">
           <div className="col-xs-10">
             <h1>{moment(this.state.date).format(MONTH_YEAR_FORMAT)}</h1>
             <Calendar
-              dustbins={dustbins}
-              boxes={boxes}
+              dustbins={this.state.dustBins}
+              boxes={this.state.boxes}
               calendar={this.props.calendar}
             />
           </div>
