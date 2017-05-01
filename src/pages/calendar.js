@@ -27,6 +27,20 @@ class CalendarPage extends Component {
     }
   }
 
+  _getAcceptedSizes(date) {
+    let accepts = [itemType['xs'], itemType['sm'], itemType['md'],]
+    let day = moment(date).day()
+
+    if (day === 0) {
+      accepts = [itemType['lg'], itemType['md'],]
+    } else if (day > 0 && day < 6) {
+      accepts = [itemType['sm'], itemType['xs'],]
+    } else {
+      accepts = [itemType['md'],]
+    }
+    return accepts
+  }
+
   _getCalendarInformation() {
     const date = new Date(this.props.federation.currentDate)
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
@@ -37,16 +51,7 @@ class CalendarPage extends Component {
     const dateRange = getDateRange(firstDay, lastDay)
     const showsGroupedBySize = groupBy(this.props.shows, show => show.size)
     const dustBins = dateRange.map(date => {
-      let accepts = [itemType['xs'], itemType['sm'], itemType['md'],]
-      let day = moment(date).day()
-
-      if (day === 0) {
-        accepts = [itemType['lg'], itemType['md'],]
-      } else if (day > 0 && day < 6) {
-        accepts = [itemType['sm'], itemType['xs'],]
-      } else {
-        accepts = [itemType['md'],]
-      }
+      let accepts = this._getAcceptedSizes(date)
       return {
         name: moment(date).format(DAY_FORMAT),
         accepts,
