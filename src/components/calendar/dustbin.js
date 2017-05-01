@@ -48,10 +48,7 @@ export default class Dustbin extends Component {
             <span className="drop">
               {isActive ? 'Release to drop' : ''}
             </span>}
-          {lastDroppedItem &&
-            <span className="name">
-              {lastDroppedItem.name}
-            </span>}
+          &nbsp;
         </p>
       </div>
     )
