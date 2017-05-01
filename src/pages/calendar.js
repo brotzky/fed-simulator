@@ -38,8 +38,7 @@ class CalendarPage extends Component {
     const showsGroupedBySize = groupBy(this.props.shows, show => show.size)
     const dustBins = dateRange.map(date => {
       let accepts = [itemType['xs'], itemType['sm'], itemType['md'],]
-      let momentDate = moment(date)
-      let day = momentDate.day()
+      let day = moment(date).day()
 
       if (day === 0) {
         accepts = [itemType['lg'], itemType['md'],]
@@ -49,12 +48,12 @@ class CalendarPage extends Component {
         accepts = [itemType['md'],]
       }
       return {
-        name: momentDate.format(DAY_FORMAT),
+        name: moment(date).format(DAY_FORMAT),
         accepts,
         lastDroppedItem: this.props.events.find(
           event =>
             moment(event.date).format(DATE_FORMAT) ===
-            momentDate.toDate(DATE_FORMAT)
+            moment(date).toDate(DATE_FORMAT)
         ),
       }
     })
