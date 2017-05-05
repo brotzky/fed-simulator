@@ -4,7 +4,8 @@ import groupBy from 'lodash/groupBy'
 import moment from 'moment'
 
 import {DATE_FORMAT, DAY_FORMAT, MONTH_YEAR_FORMAT} from '../constants/calendar'
-import {generateEventsForMonth} from '../actions/events'
+import {generateEventsForMonth, resetEvents} from '../actions/events'
+import {resetCalendar} from '../actions/calendar'
 import {getDateRange} from '../helpers/get-date-range'
 import Calendar from '../components/calendar/container'
 import * as itemType from '../actions/types'
@@ -17,9 +18,7 @@ class CalendarPage extends Component {
 
   componentWillMount() {
     this._getCalendarInformation()
-  }
 
-  componentDidMount() {
     if (this.props.events.length === 0) {
       this.props.dispatch(
         generateEventsForMonth({dateRange: this.state.dateRange,})
@@ -41,6 +40,11 @@ class CalendarPage extends Component {
     return accepts
   }
 
+  onClear = () => {
+    this.props.dispatch(resetCalendar())
+    this.props.dispatch(resetEvents())
+  }
+
   _getCalendarInformation() {
     const date = new Date(this.props.federation.currentDate)
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1)
@@ -50,15 +54,13 @@ class CalendarPage extends Component {
     )
     const dateRange = getDateRange(firstDay, lastDay)
     const showsGroupedBySize = groupBy(this.props.shows, show => show.size)
-    const dustBins = dateRange.map(date => {
+    const dustbins = dateRange.map(date => {
       let accepts = this._getAcceptedSizes(date)
       return {
         name: moment(date).format(DAY_FORMAT),
         accepts,
         lastDroppedItem: this.props.events.find(
-          event =>
-            moment(event.date).format(DATE_FORMAT) ===
-            moment(date).toDate(DATE_FORMAT)
+          event => moment(event.date).format() === moment(date).format()
         ),
       }
     })
@@ -72,7 +74,7 @@ class CalendarPage extends Component {
     this.setState({
       date,
       firstDay,
-      dustBins,
+      dustbins,
       boxes,
       lastDay,
       dateRange,
@@ -86,9 +88,14 @@ class CalendarPage extends Component {
       <section className="page calendar">
         <div className="row">
           <div className="col-xs-10">
-            <h1>{moment(this.state.date).format(MONTH_YEAR_FORMAT)}</h1>
+            <h1>
+              {moment(this.state.date).format(MONTH_YEAR_FORMAT)}
+              <a onClick={this.onClear}>
+                <div className="fa fa-trash-o fa-md" />
+              </a>
+            </h1>
             <Calendar
-              dustbins={this.state.dustBins}
+              dustbins={this.state.dustbins}
               boxes={this.state.boxes}
               calendar={this.props.calendar}
             />

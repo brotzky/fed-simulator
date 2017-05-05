@@ -6,6 +6,12 @@ export function reset() {
   }
 }
 
+export function resetEvents() {
+  return {
+    type: types.RESET_EVENTS,
+  }
+}
+
 export function generateEventsForMonth(shows) {
   return {
     type: types.CREATE_EVENTS,
@@ -17,5 +23,12 @@ export function updateEvents(events) {
   return {
     type: types.UPDATE_EVENTS,
     payload: events,
+  }
+}
+
+export function updateEvent(payload) {
+  return {
+    type: types.UPDATE_EVENT,
+    payload,
   }
 }

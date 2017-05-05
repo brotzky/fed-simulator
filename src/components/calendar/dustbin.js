@@ -49,6 +49,7 @@ export default class Dustbin extends Component {
               {isActive ? 'Release to drop' : ''}
             </span>}
           &nbsp;
+          {lastDroppedItem && lastDroppedItem.name}
         </p>
       </div>
     )

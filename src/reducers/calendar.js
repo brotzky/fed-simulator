@@ -5,6 +5,7 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case 'RESET':
+    case 'RESET_CALENDAR':
       newState = defaultState
       break
     case 'UPDATE_CALENDAR':

@@ -2,17 +2,12 @@ import React, {Component} from 'react'
 import update from 'react/lib/update'
 import {DragDropContext} from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
-import groupBy from 'lodash.groupby'
 import {connect} from 'react-redux'
 
 import {updateCalendar} from '../../actions/calendar'
-import {updateEvents} from '../../actions/events'
-import showsOptions from '../../pages/shows.options.json'
-import {getRandomArbitrary} from '../../helpers/math.js'
+import {updateEvent} from '../../actions/events'
 import Dustbin from './dustbin'
 import Box from './box'
-
-const groupedShowOptions = groupBy(showsOptions, 'size')
 
 import './calendar.scss'
 
@@ -21,9 +16,11 @@ class Container extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dustbins: this.props.dustbins,
-      boxes: this.props.boxes,
-      droppedBoxNames: [],
+      dustbins: this.props.calendar.dustbins,
+      boxes: this.props.calendar ? this.props.calendar.boxes : [],
+      droppedBoxNames: this.props.calendar.droppedBoxNames
+        ? this.props.calendar.droppedBoxNames
+        : [],
     }
   }
 
@@ -36,7 +33,6 @@ class Container extends Component {
 
   render() {
     const {boxes, dustbins,} = this.state
-
     return (
       <div className="calendar-inline">
         <div className="row">
@@ -54,7 +50,7 @@ class Container extends Component {
             <Dustbin
               name={name}
               accepts={accepts}
-              lastDroppedItem={lastDroppedItem}
+              lastDroppedItem={boxes[index]}
               onDrop={item => this.handleDrop(index, item)}
               key={index}
             />
@@ -84,17 +80,15 @@ class Container extends Component {
       })
     )
 
-    let events = Object.assign([], this.props.events)
-    events[index].name = name
-    events[index].cost = getRandomArbitrary(
-      groupedShowOptions[events[index].size][0].min_cost,
-      groupedShowOptions[events[index].size][0].max_cost
-    )
-    this.props.dispatch(updateEvents(events))
+    let event = this.props.events.find(event => event.name === name)
+    event = Object.assign({name,}, event)
+
+    this.props.dispatch(updateEvent({event,}))
     this.props.dispatch(updateCalendar(this.state))
   }
 }
 
 export default connect(state => ({
   events: state.events,
+  calendar: state.calendar,
 }))(Container)

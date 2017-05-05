@@ -12,3 +12,9 @@ export function updateCalendar(payload) {
     payload,
   }
 }
+
+export function resetCalendar() {
+  return {
+    type: types.RESET_CALENDAR,
+  }
+}
