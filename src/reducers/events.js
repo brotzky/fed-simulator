@@ -41,10 +41,12 @@ export default (state = defaultState, action) => {
       const index = newState.collection.findIndex(
         event => event.id === action.payload.event.id
       )
-      newState.collection[index].cost = getRandomArbitrary(
-        groupedShowOptions[newState.collection[index].size][0].min_cost,
-        groupedShowOptions[newState.collection[index].size][0].max_cost
-      )
+      if (index > -1) {
+        newState.collection[index].cost = getRandomArbitrary(
+          groupedShowOptions[newState.collection[index].size][0].min_cost,
+          groupedShowOptions[newState.collection[index].size][0].max_cost
+        )
+      }
       break
     case 'SIMULATE_EVENT':
       break
