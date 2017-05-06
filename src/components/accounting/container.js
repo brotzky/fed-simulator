@@ -13,7 +13,7 @@ function sum(current, next) {
 
 class AccountingContainer extends Component {
   render() {
-    let events = this.props.events.collection.filter(event => event.cost > 0)
+    let events = this.props.events.filter(event => event.cost > 0)
 
     if (events.length === 0) {
       return null
@@ -31,6 +31,6 @@ class AccountingContainer extends Component {
 }
 
 export default connect(state => ({
-  events: state.events,
+  events: state.events.collection,
   federation: state.federation,
 }))(AccountingContainer)

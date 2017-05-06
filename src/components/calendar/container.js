@@ -19,7 +19,7 @@ class Container extends Component {
       dustbins: this.props.events.dustbins,
       boxes: this.props.events ? this.props.events.boxes : [],
       droppedBoxNames: this.props.events.droppedBoxNames
-        ? this.props.calendar.droppedBoxNames
+        ? this.props.events.droppedBoxNames
         : [],
     }
   }
