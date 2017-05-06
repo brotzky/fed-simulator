@@ -46,10 +46,10 @@ class Container extends Component {
       }
     })
 
-    const boxes = props.events.collection.map(event => {
+    const boxes = props.shows.map(show => {
       return {
-        name: event.name,
-        type: itemType[event.size],
+        name: show.name,
+        type: itemType[show.size],
       }
     })
     const droppedBoxNames = props.events.collection.map(event => event.name)
@@ -127,5 +127,6 @@ class Container extends Component {
 
 export default connect(state => ({
   events: state.events,
+  shows: state.shows,
   calendar: state.calendar,
 }))(Container)
