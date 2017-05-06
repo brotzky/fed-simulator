@@ -16,9 +16,9 @@ class Container extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dustbins: this.props.calendar.dustbins,
-      boxes: this.props.calendar ? this.props.calendar.boxes : [],
-      droppedBoxNames: this.props.calendar.droppedBoxNames
+      dustbins: this.props.events.dustbins,
+      boxes: this.props.events ? this.props.events.boxes : [],
+      droppedBoxNames: this.props.events.droppedBoxNames
         ? this.props.calendar.droppedBoxNames
         : [],
     }
