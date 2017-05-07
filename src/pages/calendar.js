@@ -62,18 +62,26 @@ class CalendarPage extends Component {
                 isComplete={this.props.calendar.isComplete}
                 showDelete={!this.props.calendar.isComplete}
               />
-              <br />
-              <If condition={!this.props.calendar.isComplete}>
-                <Button
-                  value="Simulate Live Shows for the Month"
-                  onClick={this.onSimulateMonth}
-                />
-              </If>
-              <If condition={this.props.calendar.isComplete}>
-                <Button
-                  value="Start the new month"
-                  onClick={this.onStartNextMonth}
-                />
+              <If
+                condition={
+                  this.props.calendar.collection.filter(
+                    show => show.showId !== false
+                  ).length > 0
+                }
+              >
+                <br />
+                <If condition={!this.props.calendar.isComplete}>
+                  <Button
+                    value="Simulate Live Shows for the Month"
+                    onClick={this.onSimulateMonth}
+                  />
+                </If>
+                <If condition={this.props.calendar.isComplete}>
+                  <Button
+                    value="Start the new month"
+                    onClick={this.onStartNextMonth}
+                  />
+                </If>
               </If>
             </div>
           </div>
