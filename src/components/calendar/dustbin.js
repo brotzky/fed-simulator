@@ -20,7 +20,7 @@ export default class Dustbin extends Component {
     isOver: PropTypes.bool.isRequired,
     canDrop: PropTypes.bool.isRequired,
     accepts: PropTypes.arrayOf(PropTypes.string).isRequired,
-    lastDroppedItem: PropTypes.object,
+    droppedItem: PropTypes.object,
     onDrop: PropTypes.func.isRequired,
   }
 
@@ -33,7 +33,6 @@ export default class Dustbin extends Component {
       {active: isActive,},
       {available: canDrop,}
     )
-
     return connectDropTarget(
       <div className={classes}>
         <p className="dustbin__name">{name}</p>

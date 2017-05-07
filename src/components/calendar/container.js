@@ -43,6 +43,10 @@ class Container extends Component {
     this.generateDropzones({dateRange, liveShows: collection, shows,})
   }
 
+  shouldComponentUpdate() {
+    return true
+  }
+
   render() {
     const {boxes, dustbins,} = this.state
     return (
@@ -53,11 +57,11 @@ class Container extends Component {
           ))}
         </div>
         <div className="row">
-          {dustbins.map(({name, accepts, lastDroppedItem,}, index) => (
+          {dustbins.map(({name, accepts, droppedItem,}, index) => (
             <Dustbin
               name={name}
               accepts={accepts}
-              lastDroppedItem={boxes[index]}
+              droppedItem={droppedItem}
               onDrop={item => this.handleDrop(index, item)}
               key={index}
             />
@@ -67,11 +71,12 @@ class Container extends Component {
     )
   }
 
-  generateDropzones({liveShows, dateRange, shows,}) {
-    const dustbins = dateRange.map((date, index) => {
-      const name = moment(date).format(DAY_FORMAT)
-      const accepts = getAcceptedSizes(date)
-      const droppedItem = liveShows[index]
+  generateDropzones({liveShows, shows,}) {
+    const dustbins = liveShows.map(liveShow => {
+      const name = moment(liveShow.date).format(DAY_FORMAT)
+      const accepts = getAcceptedSizes(liveShow.date)
+      const droppedItem = liveShow.showId ? {name: liveShow.name,} : {}
+
       return {
         name,
         accepts,
@@ -92,14 +97,17 @@ class Container extends Component {
     })
   }
 
-  handleDrop(index, item) {
+  handleDrop(dateIndex, item) {
     const {name,} = item
+    const show = this.props.shows.find(show => show.name === name)
 
-    let show = this.props.shows.find(show => show.name === name)
-    let liveShow = this.props.calendar.collection[index]
-    liveShow = Object.assign(liveShow, {name, showId: show.id,})
-
-    this.props.dispatch(updateCalendarLiveShow({liveShow,}))
+    this.props.dispatch(
+      updateCalendarLiveShow({
+        dateIndex,
+        show,
+        name: item.name,
+      })
+    )
   }
 }
 

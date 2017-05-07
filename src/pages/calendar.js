@@ -35,10 +35,7 @@ class CalendarPage extends Component {
               </a>
             </h1>
             <If condition={this.props.calendar.inProgress}>
-              <Calendar
-                dustbins={this.props.calendar.dustbins}
-                boxes={this.props.calendar.boxes}
-              />
+              <Calendar />
             </If>
           </div>
           <div className="col-xs-12 col-md-4 col-lg-2">
@@ -52,6 +49,4 @@ class CalendarPage extends Component {
 
 export default connect(state => ({
   calendar: state.calendar,
-  federation: state.federation,
-  shows: state.shows,
 }))(CalendarPage)

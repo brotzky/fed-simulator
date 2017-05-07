@@ -14,8 +14,6 @@ const defaultState = {
   currentDate: firstDay,
   dateRange: [],
   collection: [],
-  dustbins: [],
-  boxes: [],
 }
 
 export default (state = defaultState, action) => {
@@ -36,24 +34,15 @@ export default (state = defaultState, action) => {
       newState.collection = action.payload
       break
     case 'UPDATE_CALENDAR_LIVESHOW':
-      // newState = Object.assign(newState, action.payload)
-      // we need min and max cost to generate a cost
-      const options = showsOptions.find(
-        show => show.size === action.payload.size
+      const {show, dateIndex,} = action.payload
+      const options = showsOptions.find(options => options.size === show.size)
+
+      newState.collection[dateIndex].name = show.name
+      newState.collection[dateIndex].showId = show.id
+      newState.collection[dateIndex].cost = getRandomArbitrary(
+        options.min_cost,
+        options.max_cost
       )
-      // we need the show
-      let liveShow = newState.collection.find(
-        liveShow => Date(liveShow.date) === Date(action.payload.date)
-      )
-      // if this show exists
-      if (liveShow && options) {
-        const size = liveShow.size
-        // generate a random cost
-        liveShow.cost = getRandomArbitrary(
-          options[size].min_cost,
-          options[size].max_cost
-        )
-      }
       break
     case 'SIMULATE_EVENT':
       break
