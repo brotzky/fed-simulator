@@ -7,7 +7,7 @@
   }
 
   .start,
-  .complete {
+  .isComplete {
     padding: 3rem;
   }
 
@@ -15,7 +15,7 @@
     background-color: #333;
   }
 
-  .complete {
+  .isComplete {
     background-color: green;
   }
 }

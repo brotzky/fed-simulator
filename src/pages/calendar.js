@@ -59,17 +59,17 @@ class CalendarPage extends Component {
           <div className="col-xs-12 col-md-4 col-lg-2">
             <div>
               <Accounting
-                complete={this.props.calendar.complete}
-                showDelete={!this.props.calendar.complete}
+                isComplete={this.props.calendar.isComplete}
+                showDelete={!this.props.calendar.isComplete}
               />
               <br />
-              <If condition={!this.props.calendar.complete}>
+              <If condition={!this.props.calendar.isComplete}>
                 <Button
                   value="Simulate Live Shows for the Month"
                   onClick={this.onSimulateMonth}
                 />
               </If>
-              <If condition={this.props.calendar.complete}>
+              <If condition={this.props.calendar.isComplete}>
                 <Button
                   value="Start the new month"
                   onClick={this.onStartNextMonth}

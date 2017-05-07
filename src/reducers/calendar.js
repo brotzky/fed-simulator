@@ -8,10 +8,10 @@ import LiveShowModel from './liveShow.model'
 const firstDay = new Date(new Date().getFullYear(), new Date().getMonth(), 1)
 const lastDay = new Date(firstDay.getFullYear(), firstDay.getMonth() + 1, 0)
 const inProgress = false
-const complete = false
+const isComplete = false
 
 const defaultState = {
-  complete,
+  isComplete,
   inProgress,
   firstDay,
   lastDay,
@@ -47,7 +47,7 @@ export default (state = defaultState, action) => {
     case 'START_CALENDAR_MONTH':
       newState.collection = []
       newState.inProgress = true
-      newState.complete = false
+      newState.isComplete = false
       newState.firstDay = moment(newState.firstDay).add(1, 'M').toDate()
       newState.lastDay = moment(newState.firstDay).endOf('month').toDate()
       newState.currentDay = newState.firstDay
@@ -63,7 +63,7 @@ export default (state = defaultState, action) => {
         const options = showsOptions.find(
           options => options.size === liveShow.size
         )
-        liveShow.completed = true
+        liveShow.isCompleted = true
         liveShow.gross = getRandomArbitrary(
           options.min_gross,
           options.max_gross
@@ -71,7 +71,7 @@ export default (state = defaultState, action) => {
         liveShow.rating = getRandomArbitrary(1, 10)
         return liveShow
       })
-      newState.complete = true
+      newState.isComplete = true
       newState.currentDay = newState.lastDay
       break
     case 'UPDATE_CALENDAR_LIVESHOW':

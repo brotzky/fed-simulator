@@ -5,7 +5,7 @@ import sanitizer from 'sanitizer'
 const Model = Backbone.Model.extend({
   defaults: {
     name: '',
-    completed: false,
+    isCompleted: false,
     cost: 0,
     gross: 0,
     rating: 0,

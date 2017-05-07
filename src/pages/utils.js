@@ -9,7 +9,7 @@ class Utils extends Component {
   }
   _onClearStorage = () => {
     this.setState({
-      stage: 'complete',
+      stage: 'isComplete',
     })
 
     localStorage.clear()

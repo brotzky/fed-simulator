@@ -8,7 +8,7 @@ const AccountingCollection = ({
   liveShows = [],
   totalCost = 0,
   totalGross = 0,
-  complete = false,
+  isComplete = false,
   onClickDelete = noop,
   federationCash,
 }) => {
@@ -32,7 +32,7 @@ const AccountingCollection = ({
                       <tbody>
                         <tr>
                           <td colSpan="2">
-                            <If condition={!complete}>
+                            <If condition={!isComplete}>
                               <span
                                 className="item__delete fa fa-trash red"
                                 data-date={show.date}
@@ -70,7 +70,7 @@ const AccountingCollection = ({
         <span className="total__title">Total Cost</span>
         <span className="total__cost total">{nFormatter(totalCost)}</span>
       </div>
-      <If condition={complete}>
+      <If condition={isComplete}>
         <div className="total">
           <span className="total__title">Total Gross</span>
           <span className="total__cost gross">{nFormatter(totalGross)}</span>

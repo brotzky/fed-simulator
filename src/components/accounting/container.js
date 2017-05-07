@@ -40,7 +40,7 @@ class AccountingContainer extends Component {
         liveShows={liveShows}
         totalCost={totalCost}
         showDelete={this.props.showDelete}
-        complete={this.props.complete}
+        isComplete={this.props.isComplete}
         totalGross={totalGross}
         federationCash={this.props.federation.cash}
       />
