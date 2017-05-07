@@ -39,3 +39,9 @@ export function deleteLiveShow(payload) {
     payload,
   }
 }
+
+export function simulateLiveShows() {
+  return {
+    type: types.SIMULATE_CALENDAR_LIVESHOWS,
+  }
+}

@@ -43,6 +43,21 @@ export default (state = defaultState, action) => {
     case 'UPDATE_CALENDAR_LIVESHOWS':
       newState.collection = action.payload
       break
+    case 'SIMULATE_CALENDAR_LIVESHOWS':
+      newState.collection = newState.collection.map(liveShow => {
+        const options = showsOptions.find(
+          options => options.size === liveShow.size
+        )
+        liveShow.completed = true
+        liveShow.gross = getRandomArbitrary(
+          options.min_gross,
+          options.max_gross
+        )
+        liveShow.rating = getRandomArbitrary(1, 10)
+        return liveShow
+      })
+      newState.currentDay = newState.lastDay
+      break
     case 'UPDATE_CALENDAR_LIVESHOW':
       const {show, dateIndex,} = action.payload
       const options = showsOptions.find(options => options.size === show.size)
@@ -62,8 +77,5 @@ export default (state = defaultState, action) => {
   }
 
   newState.dateRange = getDateRange(newState.firstDay, newState.lastDay)
-  // newState.collection = newState.collection.map(show =>
-  //   new LiveShowModel(show).toJSON()
-  // )
   return newState
 }

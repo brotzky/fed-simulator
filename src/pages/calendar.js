@@ -6,6 +6,8 @@ import {MONTH_YEAR_FORMAT} from '../constants/calendar'
 import {generateLiveShowsForMonth, resetCalendar} from '../actions/calendar'
 import Calendar from '../components/calendar/container'
 import Accounting from '../components/accounting/container'
+import {simulateLiveShows} from '../actions/calendar'
+import SimulateMonthButton from '../components/buttons/simulate-month'
 
 import './stylesheets/calendar'
 
@@ -21,6 +23,10 @@ class CalendarPage extends Component {
   onClear = () => {
     this.props.dispatch(resetCalendar())
     this.props.dispatch(generateLiveShowsForMonth())
+  }
+
+  onSimulateMonth = () => {
+    this.props.dispatch(simulateLiveShows())
   }
 
   shouldComponentUpdate() {
@@ -45,6 +51,7 @@ class CalendarPage extends Component {
           </div>
           <div className="col-xs-12 col-md-4 col-lg-2">
             <Accounting />
+            <SimulateMonthButton onClick={this.onSimulateMonth} />
           </div>
         </div>
       </section>
