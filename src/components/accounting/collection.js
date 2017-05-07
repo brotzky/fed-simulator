@@ -2,7 +2,14 @@ import React from 'react'
 import groupBy from 'lodash.groupby'
 import {nFormatter} from '../../helpers/nFormatter'
 
-const AccountingCollection = ({liveShows, totalCost, federationCash,}) => {
+const noop = () => {}
+
+const AccountingCollection = ({
+  liveShows,
+  totalCost,
+  onClickDelete = noop,
+  federationCash,
+}) => {
   liveShows = groupBy(liveShows, 'size')
   return (
     <div className="accounting">
@@ -19,11 +26,15 @@ const AccountingCollection = ({liveShows, totalCost, federationCash,}) => {
                 return (
                   <li className="item" key={key}>
                     <span className="item__name">
-                      {show.name}
+                      {show.name}&nbsp;
                     </span>
-                    <span className="item__cost green">
+                    <span className="item__cost">
                       {nFormatter(show.cost)}
                     </span>
+                    <span
+                      className="item__delete fa fa-trash red"
+                      onClick={() => onClickDelete()}
+                    />
                   </li>
                 )
               })}
@@ -32,8 +43,9 @@ const AccountingCollection = ({liveShows, totalCost, federationCash,}) => {
         )
       })}
       <hr />
-      <div>
-        Total Cost = {nFormatter(totalCost)}
+      <div className="total">
+        <span className="total__title">Total Cost</span>
+        <span className="total__cost">{nFormatter(totalCost)}</span>
       </div>
     </div>
   )

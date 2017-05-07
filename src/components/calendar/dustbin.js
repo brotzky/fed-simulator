@@ -48,7 +48,7 @@ export default class Dustbin extends Component {
           &nbsp;
           <If condition={droppedItem}>
             <span className="show__name">{droppedItem.name}</span>
-            <span className="show__size gold">{droppedItem.size}</span>
+            <span className="show__size">{droppedItem.size}</span>
           </If>
         </p>
       </div>

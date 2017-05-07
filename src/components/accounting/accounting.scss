@@ -1,15 +1,8 @@
 .accounting {
 
-  &__collection {
-
-  }
-
   &__header {
     margin-bottom: 1rem;
     text-decoration: underline;
-  }
-
-  &__list {
   }
 
   .item {
@@ -19,9 +12,10 @@
     &__name {
       text-align: left;
     }
+  }
 
-    &__cost {
-      float: right;
-    }
+  .item__cost,
+  .total__cost {
+    float: right;
   }
 }

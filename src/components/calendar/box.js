@@ -36,7 +36,7 @@ export default class Box extends Component {
       <div className="boxes" style={{opacity,}}>
         <div className={isDropped ? 'used' : ''}>
           {name} (
-          <span className="orange">{size}</span>
+          <span className="boxes__size">{size}</span>
           )
         </div>
       </div>
