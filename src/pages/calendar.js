@@ -31,7 +31,9 @@ class CalendarPage extends Component {
         <div className="row">
           <div className="col-xs-10">
             <h1>
-              {moment(this.props.events.firstDay).format(MONTH_YEAR_FORMAT)}
+              {moment(this.props.events.firstDay).format(
+                MONTH_YEAR_FORMAT
+              )}&nbsp;
               <a onClick={this.onClear}>
                 <div className="fa fa-trash-o fa-md" />
               </a>
