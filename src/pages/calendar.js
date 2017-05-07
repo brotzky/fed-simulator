@@ -27,7 +27,7 @@ class CalendarPage extends Component {
     return (
       <section className="page calendar">
         <div className="row">
-          <div className="col-xs-10">
+          <div className="col-xs-12 col-md-8 col-lg-10">
             <h1>
               {title}&nbsp;
               <a onClick={this.onClear}>
@@ -39,7 +39,7 @@ class CalendarPage extends Component {
               boxes={this.props.calendar.boxes}
             />
           </div>
-          <div className="col-xs-2">
+          <div className="col-xs-12 col-md-4 col-lg-2">
             <Accounting />
           </div>
         </div>
