@@ -13,8 +13,9 @@ const AccountingCollection = ({
   liveShows = groupBy(liveShows, 'size')
   return (
     <div className="accounting">
-      <div className="accounting_available">
-        Cash available: {nFormatter(federationCash)}
+      <div className="total">
+        <span className="total__title">Cash available:</span>
+        <span className="total__cost">{nFormatter(federationCash)}</span>
       </div>
       <hr />
       {Object.keys(liveShows).map(index => {
@@ -25,17 +26,18 @@ const AccountingCollection = ({
               {liveShows[index].map((show, key) => {
                 return (
                   <li className="item" key={key}>
-                    <span className="item__name">
-                      {show.name}&nbsp;
-                    </span>
-                    <span className="item__cost">
-                      {nFormatter(show.cost)}
-                    </span>
                     <span
                       className="item__delete fa fa-trash red"
                       data-date={show.date}
                       onClick={onClickDelete}
                     />
+                    &nbsp;
+                    <span className="item__name">
+                      {show.name}
+                    </span>
+                    <span className="item__cost">
+                      {nFormatter(show.cost)}
+                    </span>
                   </li>
                 )
               })}
