@@ -24,6 +24,10 @@ export default class Dustbin extends Component {
     onDrop: PropTypes.func.isRequired,
   }
 
+  shouldComponentUpdate() {
+    return true
+  }
+
   render() {
     const {name, isOver, canDrop, connectDropTarget, droppedItem,} = this.props
     const isActive = isOver && canDrop

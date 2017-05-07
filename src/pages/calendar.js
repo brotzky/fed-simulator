@@ -22,6 +22,10 @@ class CalendarPage extends Component {
     this.props.dispatch(resetCalendar())
   }
 
+  shouldComponentUpdate() {
+    return true
+  }
+
   render() {
     const title = moment(this.props.calendar.firstDay).format(MONTH_YEAR_FORMAT)
     return (

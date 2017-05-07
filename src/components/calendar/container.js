@@ -36,8 +36,8 @@ class Container extends Component {
     this.generateDropzones({dateRange, liveShows: collection, shows,})
   }
 
-  componentWillReceieveProps(nextProps) {
-    const {calendar, shows,} = nextProps.calendar
+  componentWillReceiveProps(nextProps) {
+    const {calendar, shows,} = nextProps
     const {dateRange, collection,} = calendar
 
     this.generateDropzones({dateRange, liveShows: collection, shows,})

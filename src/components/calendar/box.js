@@ -23,6 +23,10 @@ export default class Box extends Component {
     isDropped: PropTypes.bool,
   }
 
+  shouldComponentUpdate() {
+    return true
+  }
+
   render() {
     const {name, isDropped, isDragging, connectDragSource,} = this.props
     const opacity = isDragging ? 0.4 : 1
