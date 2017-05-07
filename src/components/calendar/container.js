@@ -52,8 +52,8 @@ class Container extends Component {
     return (
       <div className="calendar-inline">
         <div className="row">
-          {boxes.map(({name, type,}, index) => (
-            <Box name={name} type={type} key={index} />
+          {boxes.map(({name, size, type,}, index) => (
+            <Box name={name} size={size} type={type} key={index} />
           ))}
         </div>
         <div className="row">
@@ -101,14 +101,15 @@ class Container extends Component {
   }
 
   handleDrop(dateIndex, item) {
-    const {name,} = item
+    const {name, size,} = item
     const show = this.props.shows.find(show => show.name === name)
 
     this.props.dispatch(
       updateCalendarLiveShow({
         dateIndex,
         show,
-        name: item.name,
+        name,
+        size,
       })
     )
   }

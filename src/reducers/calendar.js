@@ -38,6 +38,7 @@ export default (state = defaultState, action) => {
       const options = showsOptions.find(options => options.size === show.size)
 
       newState.collection[dateIndex].name = show.name
+      newState.collection[dateIndex].size = show.size
       newState.collection[dateIndex].showId = show.id
       newState.collection[dateIndex].cost = getRandomArbitrary(
         options.min_cost,

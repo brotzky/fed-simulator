@@ -53,3 +53,14 @@ $day-width: 10%;
     color: black;
   }
 }
+
+
+.show {
+
+  &__name {
+    display: block;
+  }
+  &__size {
+    display: block;
+  }
+}

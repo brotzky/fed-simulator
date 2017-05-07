@@ -5,20 +5,25 @@ import {nFormatter} from '../../helpers/nFormatter'
 const AccountingCollection = ({liveShows, totalCost, federationCash,}) => {
   liveShows = groupBy(liveShows, 'size')
   return (
-    <div>
-      <div>
+    <div className="accounting">
+      <div className="accounting_available">
         Cash available: {nFormatter(federationCash)}
       </div>
       <hr />
       {Object.keys(liveShows).map((key, shows) => {
         return (
-          <div key={key}>
-            <h4>Size: {key}</h4>
-            <ul>
+          <div className="accounting__collection" key={key}>
+            <h4 className="accounting__header">Size: {key}</h4>
+            <ul className="accounting__list">
               {liveShows[key].map((show, key) => {
                 return (
-                  <li key={key}>
-                    {show.name} {nFormatter(show.cost)}
+                  <li className="item" key={key}>
+                    <span className="item__name">
+                      {show.name}
+                    </span>
+                    <span className="item__cost green">
+                      {nFormatter(show.cost)}
+                    </span>
                   </li>
                 )
               })}

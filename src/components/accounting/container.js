@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 
 import Collection from './collection'
 
+import './accounting.scss'
+
 function amount(item) {
   return item.cost
 }

@@ -20,6 +20,7 @@ class CalendarPage extends Component {
 
   onClear = () => {
     this.props.dispatch(resetCalendar())
+    this.props.dispatch(generateLiveShowsForMonth())
   }
 
   shouldComponentUpdate() {
