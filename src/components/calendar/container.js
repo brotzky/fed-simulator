@@ -75,7 +75,9 @@ class Container extends Component {
     const dustbins = liveShows.map(liveShow => {
       const name = moment(liveShow.date).format(DAY_FORMAT)
       const accepts = getAcceptedSizes(liveShow.date)
-      const droppedItem = liveShow.showId ? {name: liveShow.name,} : {}
+      const droppedItem = liveShow.showId
+        ? {name: liveShow.name, size: liveShow.size,}
+        : {}
 
       return {
         name,
@@ -87,6 +89,7 @@ class Container extends Component {
     const boxes = shows.map(show => {
       return {
         name: show.name,
+        size: show.size,
         type: itemType[show.size],
       }
     })
