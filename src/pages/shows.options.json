@@ -3,9 +3,9 @@
   "frequency": "monthly",
   "size": "lg",
   "max_attendance": 10000000,
+  "min_attendance": 10000,
   "max_cost": 6000000,
   "max_gross": 12000000,
-  "min_attendance": 10000,
   "min_cost": 300000,
   "min_gross": 3000000
 }, {
@@ -22,20 +22,30 @@
   "name": "TV Show",
   "frequency": "weekly",
   "size": "sm",
-  "max_attendance": 15000,
   "max_cost": 200000,
   "max_gross": 600000,
   "min_attendance": 5000,
+  "max_attendance": 15000,
   "min_cost": 100000,
   "min_gross": 30000
 },{
   "name": "House Show",
   "frequency": "daily",
   "size": "xs",
-  "max_attendance": 100,
-  "max_cost": 2000,
-  "max_gross": 5000,
-  "min_attendance": 5,
-  "min_cost": 1000,
-  "min_gross": 2000
+  "max_cost": 4000,
+  "min_cost": 2000,
+  "min_attendance": 100,
+  "max_attendance": 450,
+  "max_gross": 10000,
+  "min_gross": 3500
+},{
+  "name": "Backyard Show",
+  "frequency": "daily",
+  "size": "xxs",
+  "max_cost": 650,
+  "min_cost": 250,
+  "max_gross": 2000,
+  "min_gross": 50,
+  "min_attendance": 1,
+  "max_attendance": 30
 }]

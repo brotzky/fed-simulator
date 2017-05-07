@@ -20,7 +20,7 @@ export default class Box extends Component {
     isDragging: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    isDropped: PropTypes.bool.isRequired,
+    isDropped: PropTypes.bool,
   }
 
   render() {

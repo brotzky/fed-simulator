@@ -2,19 +2,16 @@ import Backbone from 'backbone'
 import _each from 'lodash/each'
 import sanitizer from 'sanitizer'
 
-import {hashCode} from '../helpers/hash'
-
 const Model = Backbone.Model.extend({
   defaults: {
-    id: hashCode(new Date().toString()),
-    name: 'Default',
+    name: '',
     completed: false,
     cost: 0,
     date: Date(),
     matches: [],
     rating: 0,
-    size: 'xs',
     showId: false,
+    size: 'xs',
   },
 
   initialize() {

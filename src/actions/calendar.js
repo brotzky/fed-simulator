@@ -6,15 +6,29 @@ export function reset() {
   }
 }
 
-export function updateCalendar(payload) {
-  return {
-    type: types.UPDATE_CALENDAR,
-    payload,
-  }
-}
-
 export function resetCalendar() {
   return {
     type: types.RESET_CALENDAR,
+  }
+}
+
+export function generateLiveShowsForMonth(liveShows) {
+  return {
+    type: types.GENERATE_CALENDAR_LIVESHOWS,
+    payload: liveShows,
+  }
+}
+
+export function updateCalendarLiveShows(liveShows) {
+  return {
+    type: types.UPDATE_CALENDAR_LIVESHOWS,
+    payload: liveShows,
+  }
+}
+
+export function updateCalendarLiveShow(payload) {
+  return {
+    type: types.UPDATE_CALENDAR_LIVESHOW,
+    payload,
   }
 }

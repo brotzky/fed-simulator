@@ -16,7 +16,7 @@ class Default extends Component {
       this.props.router.push('/roster')
     } else if (this.props.shows.length === 0) {
       this.props.router.push('/shows')
-    } else if (this.props.events.length === 0) {
+    } else if (this.props.calendar.collection.length === 0) {
       this.props.router.push('/calendar')
     } else {
       this.props.router.push('/ranking')
@@ -44,7 +44,7 @@ class Default extends Component {
 
 Default.propTypes = {
   federation: PropTypes.object.isRequired,
-  events: PropTypes.array.isRequired,
+  calendar: PropTypes.object.isRequired,
   shows: PropTypes.array.isRequired,
   roster: PropTypes.array.isRequired,
   settings: PropTypes.object.isRequired,
@@ -57,7 +57,7 @@ Default.contextTypes = {
 
 export default connect(state => ({
   federation: state.federation,
-  events: state.events,
+  calendar: state.calendar,
   shows: state.shows,
   roster: state.roster,
   settings: state.settings,

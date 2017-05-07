@@ -13,16 +13,16 @@ function sum(current, next) {
 
 class AccountingContainer extends Component {
   render() {
-    let events = this.props.events.filter(event => event.cost > 0)
+    let liveShows = this.props.liveShows.filter(event => event.cost > 0)
 
-    if (events.length === 0) {
+    if (liveShows.length === 0) {
       return null
     }
 
-    let totalCost = events.map(amount).reduce(sum)
+    let totalCost = liveShows.map(amount).reduce(sum)
     return (
       <Collection
-        events={events}
+        liveShows={liveShows}
         totalCost={totalCost}
         federationCash={this.props.federation.cash}
       />
@@ -31,6 +31,6 @@ class AccountingContainer extends Component {
 }
 
 export default connect(state => ({
-  events: state.events.collection,
+  liveShows: state.calendar.collection,
   federation: state.federation,
 }))(AccountingContainer)

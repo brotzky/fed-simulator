@@ -37,7 +37,7 @@ class Utils extends Component {
         <div className={this.state.stage}>
           <p>Shows: {this.props.shows.length}</p>
           <p>Roster: {this.props.roster.length}</p>
-          <p>Events: {this.props.events.length}</p>
+          <p>Live Shows: {this.props.calendar.collection.length}</p>
           <p>Federation: {JSON.stringify(this.props.federation)}</p>
         </div>
       </section>
@@ -47,7 +47,7 @@ class Utils extends Component {
 
 export default connect(state => ({
   federation: state.federation,
-  events: state.events,
+  calendar: state.calendar,
   shows: state.shows,
   roster: state.roster,
   settings: state.settings,

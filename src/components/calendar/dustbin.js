@@ -25,13 +25,7 @@ export default class Dustbin extends Component {
   }
 
   render() {
-    const {
-      name,
-      isOver,
-      canDrop,
-      connectDropTarget,
-      lastDroppedItem,
-    } = this.props
+    const {name, isOver, canDrop, connectDropTarget, droppedItem,} = this.props
     const isActive = isOver && canDrop
 
     const classes = classNames(
@@ -44,12 +38,12 @@ export default class Dustbin extends Component {
       <div className={classes}>
         <p className="dustbin__name">{name}</p>
         <p className="dustbin__details">
-          {!lastDroppedItem &&
+          {!droppedItem &&
             <span className="drop">
               {isActive ? 'Release to drop' : ''}
             </span>}
           &nbsp;
-          {lastDroppedItem && lastDroppedItem.name}
+          {droppedItem && droppedItem.name}
         </p>
       </div>
     )
