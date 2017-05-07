@@ -6,10 +6,13 @@ import {MONTH_YEAR_FORMAT} from '../constants/calendar'
 import {generateLiveShowsForMonth, resetCalendar} from '../actions/calendar'
 import Calendar from '../components/calendar/container'
 import Accounting from '../components/accounting/container'
-import {simulateLiveShows} from '../actions/calendar'
-import SimulateMonthButton from '../components/buttons/simulate-month'
-
+import {simulateLiveShows, startNextCalendarMonth} from '../actions/calendar'
+import Button from '../components/button/button'
 import './stylesheets/calendar'
+
+const CONFIRM_SIMULATE =
+  'Are you sure you want to simulate the live shows for the month?'
+const CONFIRM_START = 'Are you sure you want to move onto the new month?'
 
 class CalendarPage extends Component {
   displayName = 'CalendarPage'
@@ -26,7 +29,11 @@ class CalendarPage extends Component {
   }
 
   onSimulateMonth = () => {
-    this.props.dispatch(simulateLiveShows())
+    confirm(CONFIRM_SIMULATE, this.props.dispatch(simulateLiveShows()))
+  }
+
+  onStartNextMonth = () => {
+    confirm(CONFIRM_START, this.props.dispatch(startNextCalendarMonth()))
   }
 
   shouldComponentUpdate() {
@@ -50,8 +57,25 @@ class CalendarPage extends Component {
             </If>
           </div>
           <div className="col-xs-12 col-md-4 col-lg-2">
-            <Accounting />
-            <SimulateMonthButton onClick={this.onSimulateMonth} />
+            <div>
+              <Accounting
+                complete={this.props.calendar.complete}
+                showDelete={!this.props.calendar.complete}
+              />
+              <br />
+              <If condition={!this.props.calendar.complete}>
+                <Button
+                  value="Simulate Live Shows for the Month"
+                  onClick={this.onSimulateMonth}
+                />
+              </If>
+              <If condition={this.props.calendar.complete}>
+                <Button
+                  value="Start the new month"
+                  onClick={this.onStartNextMonth}
+                />
+              </If>
+            </div>
           </div>
         </div>
       </section>

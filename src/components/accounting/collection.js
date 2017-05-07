@@ -5,8 +5,10 @@ import {nFormatter} from '../../helpers/nFormatter'
 const noop = () => {}
 
 const AccountingCollection = ({
-  liveShows,
-  totalCost,
+  liveShows = [],
+  totalCost = 0,
+  totalGross = 0,
+  complete = false,
   onClickDelete = noop,
   federationCash,
 }) => {
@@ -26,18 +28,36 @@ const AccountingCollection = ({
               {liveShows[index].map((show, key) => {
                 return (
                   <li className="item" key={key}>
-                    <span
-                      className="item__delete fa fa-trash red"
-                      data-date={show.date}
-                      onClick={onClickDelete}
-                    />
-                    &nbsp;
-                    <span className="item__name">
-                      {show.name}
-                    </span>
-                    <span className="item__cost">
-                      {nFormatter(show.cost)}
-                    </span>
+                    <table className="table">
+                      <tbody>
+                        <tr>
+                          <td colSpan="2">
+                            <If condition={!complete}>
+                              <span
+                                className="item__delete fa fa-trash red"
+                                data-date={show.date}
+                                onClick={onClickDelete}
+                              />
+                              &nbsp;
+                            </If>
+                            {show.name}
+                            <span className="item__cost">
+                              {nFormatter(show.cost)}
+                            </span>
+                          </td>
+                        </tr>
+                        <If condition={show.gross > 0}>
+                          <tr>
+                            <td colSpan="2">
+                              Gross
+                              <span className="item__cost">
+                                {nFormatter(show.gross)}
+                              </span>
+                            </td>
+                          </tr>
+                        </If>
+                      </tbody>
+                    </table>
                   </li>
                 )
               })}
@@ -48,8 +68,20 @@ const AccountingCollection = ({
       <hr />
       <div className="total">
         <span className="total__title">Total Cost</span>
-        <span className="total__cost">{nFormatter(totalCost)}</span>
+        <span className="total__cost total">{nFormatter(totalCost)}</span>
       </div>
+      <If condition={complete}>
+        <div className="total">
+          <span className="total__title">Total Gross</span>
+          <span className="total__cost gross">{nFormatter(totalGross)}</span>
+        </div>
+        <div className="total">
+          <span className="total__title">Total Profit</span>
+          <span className="total__cost profit">
+            {nFormatter(totalGross - totalCost)}
+          </span>
+        </div>
+      </If>
     </div>
   )
 }

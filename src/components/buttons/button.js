@@ -1,5 +1,7 @@
 import React from 'react'
 
+import './simulate-month.scss'
+
 const noop = () => {}
 
 const SimulateMonthButton = ({
@@ -10,7 +12,11 @@ const SimulateMonthButton = ({
     <div className="row">
       <div className="col-xs-12">
         <div className="box">
-          <button type="submit" onClick={onClick}>
+          <button
+            type="submit"
+            className="btn btn-simulate-month"
+            onClick={onClick}
+          >
             {value}
           </button>
         </div>

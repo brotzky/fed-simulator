@@ -1,4 +1,6 @@
-import showsOptions from '../pages/shows.options.json'
+import moment from 'moment'
+
+import showsOptions from '../constants/shows.options.json'
 import {getRandomArbitrary} from '../helpers/math.js'
 import {getDateRange} from '../helpers/get-date-range'
 import LiveShowModel from './liveShow.model'
@@ -6,8 +8,10 @@ import LiveShowModel from './liveShow.model'
 const firstDay = new Date(new Date().getFullYear(), new Date().getMonth(), 1)
 const lastDay = new Date(firstDay.getFullYear(), firstDay.getMonth() + 1, 0)
 const inProgress = false
+const complete = false
 
 const defaultState = {
+  complete,
   inProgress,
   firstDay,
   lastDay,
@@ -40,6 +44,17 @@ export default (state = defaultState, action) => {
         newState.collection.push(new LiveShowModel({date: date,}).toJSON())
       })
       break
+    case 'START_CALENDAR_MONTH':
+      newState.collection = []
+      newState.inProgress = true
+      newState.complete = false
+      newState.firstDay = moment(newState.firstDay).add(1, 'M').toDate()
+      newState.lastDay = moment(newState.firstDay).endOf('month').toDate()
+      newState.currentDay = newState.firstDay
+      newState.dateRange.forEach(date => {
+        newState.collection.push(new LiveShowModel({date: date,}).toJSON())
+      })
+      break
     case 'UPDATE_CALENDAR_LIVESHOWS':
       newState.collection = action.payload
       break
@@ -56,6 +71,7 @@ export default (state = defaultState, action) => {
         liveShow.rating = getRandomArbitrary(1, 10)
         return liveShow
       })
+      newState.complete = true
       newState.currentDay = newState.lastDay
       break
     case 'UPDATE_CALENDAR_LIVESHOW':

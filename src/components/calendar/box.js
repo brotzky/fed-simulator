@@ -21,7 +21,6 @@ export default class Box extends Component {
     size: PropTypes.string,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
-    isDropped: PropTypes.bool,
   }
 
   shouldComponentUpdate() {
@@ -29,16 +28,12 @@ export default class Box extends Component {
   }
 
   render() {
-    const {name, size, isDropped, isDragging, connectDragSource,} = this.props
+    const {name, size, isDragging, connectDragSource,} = this.props
     const opacity = isDragging ? 0.4 : 1
 
     return connectDragSource(
       <div className="boxes" style={{opacity,}}>
-        <div className={isDropped ? 'used' : ''}>
-          {name} (
-          <span className="boxes__size">{size}</span>
-          )
-        </div>
+        {name} (<span className="boxes__size">{size}</span>)
       </div>
     )
   }

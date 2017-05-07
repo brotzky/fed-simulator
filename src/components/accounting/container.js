@@ -6,8 +6,12 @@ import Collection from './collection'
 
 import './accounting.scss'
 
-function amount(item) {
+function cost(item) {
   return item.cost
+}
+
+function gross(item) {
+  return item.gross
 }
 
 function sum(current, next) {
@@ -28,12 +32,16 @@ class AccountingContainer extends Component {
       return null
     }
 
-    let totalCost = liveShows.map(amount).reduce(sum)
+    let totalCost = liveShows.map(cost).reduce(sum)
+    let totalGross = liveShows.map(gross).reduce(sum)
     return (
       <Collection
         onClickDelete={this.onClickDelete}
         liveShows={liveShows}
         totalCost={totalCost}
+        showDelete={this.props.showDelete}
+        complete={this.props.complete}
+        totalGross={totalGross}
         federationCash={this.props.federation.cash}
       />
     )

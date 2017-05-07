@@ -12,6 +12,12 @@ export function resetCalendar() {
   }
 }
 
+export function startNextCalendarMonth() {
+  return {
+    type: types.START_CALENDAR_MONTH,
+  }
+}
+
 export function generateLiveShowsForMonth(liveShows) {
   return {
     type: types.GENERATE_CALENDAR_LIVESHOWS,
