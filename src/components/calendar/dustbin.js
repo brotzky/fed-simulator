@@ -46,7 +46,10 @@ export default class Dustbin extends Component {
               {isActive ? 'Release to drop' : ''}
             </span>}
           &nbsp;
-          {droppedItem && droppedItem.name}
+          <If condition={droppedItem}>
+            <p className="show__name">{droppedItem.name}</p>
+            <p className="show__size">{droppedItem.size}</p>
+          </If>
         </p>
       </div>
     )
