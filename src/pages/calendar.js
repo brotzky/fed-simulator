@@ -34,10 +34,12 @@ class CalendarPage extends Component {
                 <div className="fa fa-trash-o fa-md" />
               </a>
             </h1>
-            <Calendar
-              dustbins={this.props.calendar.dustbins}
-              boxes={this.props.calendar.boxes}
-            />
+            <If condition={this.props.calendar.inProgress}>
+              <Calendar
+                dustbins={this.props.calendar.dustbins}
+                boxes={this.props.calendar.boxes}
+              />
+            </If>
           </div>
           <div className="col-xs-12 col-md-4 col-lg-2">
             <Accounting />

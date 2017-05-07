@@ -29,14 +29,18 @@ const getAcceptedSizes = date => {
 
 @DragDropContext(HTML5Backend)
 class Container extends Component {
-  constructor(props) {
-    super(props)
+  componentWillMount() {
+    const {calendar, shows,} = this.props
+    const {dateRange, collection,} = calendar
 
-    this.generateDropzones(props.calendar, props.shows)
+    this.generateDropzones({dateRange, liveShows: collection, shows,})
   }
 
   componentWillReceieveProps(nextProps) {
-    this.generateDropzones(nextProps.calendar, nextProps.shows)
+    const {calendar, shows,} = nextProps.calendar
+    const {dateRange, collection,} = calendar
+
+    this.generateDropzones({dateRange, liveShows: collection, shows,})
   }
 
   render() {
@@ -63,13 +67,11 @@ class Container extends Component {
     )
   }
 
-  generateDropzones(calendar, shows) {
-    const dustbins = calendar.dateRange.map(date => {
+  generateDropzones({liveShows, dateRange, shows,}) {
+    const dustbins = dateRange.map((date, index) => {
       const name = moment(date).format(DAY_FORMAT)
       const accepts = getAcceptedSizes(date)
-      const droppedItem = calendar.collection.find(event => {
-        return Date(event.date) === Date(date)
-      })
+      const droppedItem = liveShows[index]
       return {
         name,
         accepts,
@@ -84,10 +86,10 @@ class Container extends Component {
       }
     })
 
-    this.state = {
-      dustbins,
+    this.setState({
       boxes,
-    }
+      dustbins,
+    })
   }
 
   handleDrop(index, item) {
