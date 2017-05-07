@@ -23,6 +23,16 @@ export default (state = defaultState, action) => {
     case 'RESET_CALENDAR':
       newState = defaultState
       break
+    case 'DELETE_CALENDAR_LIVESHOW':
+      newState.collection = newState.collection.map(liveShow => {
+        if (liveShow.date === action.payload) {
+          liveShow.name = ''
+          liveShow.cost = 0
+          liveShow.showId = false
+        }
+        return liveShow
+      })
+      break
     case 'GENERATE_CALENDAR_LIVESHOWS':
       newState.collection = []
       newState.inProgress = true

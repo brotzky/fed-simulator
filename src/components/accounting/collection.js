@@ -17,12 +17,12 @@ const AccountingCollection = ({
         Cash available: {nFormatter(federationCash)}
       </div>
       <hr />
-      {Object.keys(liveShows).map((key, shows) => {
+      {Object.keys(liveShows).map(index => {
         return (
-          <div className="accounting__collection" key={key}>
-            <h4 className="accounting__header">Size: {key}</h4>
+          <div className="accounting__collection" key={index}>
+            <h4 className="accounting__header">Size: {index}</h4>
             <ul className="accounting__list">
-              {liveShows[key].map((show, key) => {
+              {liveShows[index].map((show, key) => {
                 return (
                   <li className="item" key={key}>
                     <span className="item__name">
@@ -33,7 +33,8 @@ const AccountingCollection = ({
                     </span>
                     <span
                       className="item__delete fa fa-trash red"
-                      onClick={() => onClickDelete()}
+                      data-date={show.date}
+                      onClick={onClickDelete}
                     />
                   </li>
                 )

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
+import {deleteLiveShow} from '../../actions/calendar'
 import Collection from './collection'
 
 import './accounting.scss'
@@ -14,8 +15,14 @@ function sum(current, next) {
 }
 
 class AccountingContainer extends Component {
+  onClickDelete = el => {
+    const date = el.currentTarget.dataset.date
+
+    this.props.dispatch(deleteLiveShow(date))
+  }
+
   render() {
-    let liveShows = this.props.liveShows.filter(event => event.cost > 0)
+    let liveShows = this.props.liveShows.filter(liveShow => liveShow.cost > 0)
 
     if (liveShows.length === 0) {
       return null
@@ -24,6 +31,7 @@ class AccountingContainer extends Component {
     let totalCost = liveShows.map(amount).reduce(sum)
     return (
       <Collection
+        onClickDelete={this.onClickDelete}
         liveShows={liveShows}
         totalCost={totalCost}
         federationCash={this.props.federation.cash}

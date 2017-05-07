@@ -32,3 +32,10 @@ export function updateCalendarLiveShow(payload) {
     payload,
   }
 }
+
+export function deleteLiveShow(payload) {
+  return {
+    type: types.DELETE_CALENDAR_LIVESHOW,
+    payload,
+  }
+}
