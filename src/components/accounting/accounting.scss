@@ -1,26 +1,12 @@
-$accounting-cost-color: green;
+$accounting-cost-color: #28e23b;
 $accounting-gross-color: gold;
-$accounting-font-size: 1rem;
+$accounting-font-size: 3rem;
 
 .accounting {
+	font-size: $accounting-font-size;
 
-  &__header {
-    margin-bottom: $accounting-font-size;
-  }
-
-  .item {
-    font-size: 2.5rem;
-    list-style: none;
-
-    &__name {
-      text-align: left;
-    }
-  }
-
-  .item__cost,
-  .total__cost {
+  .cost {
     color: $accounting-cost-color;
-    float: right;
   }
 
   .gross {
