@@ -19,7 +19,7 @@ class Default extends Component {
     } else if (this.props.calendar.collection.length === 0) {
       this.props.router.push('/calendar')
     } else {
-      this.props.router.push('/ranking')
+      this.props.router.push('/calendar')
     }
   }
 
