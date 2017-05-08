@@ -57,4 +57,10 @@ $day-width: 10%;
     background-color: $available;
     color: black;
   }
+
+  .sidebar {
+    .btn {
+      font-size: 2rem;
+    }
+  }
 }

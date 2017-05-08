@@ -1,10 +1,11 @@
 $accounting-cost-color: green;
 $accounting-gross-color: gold;
+$accounting-font-size: 1rem;
 
 .accounting {
 
   &__header {
-    margin-bottom: 1rem;
+    margin-bottom: $accounting-font-size;
   }
 
   .item {
@@ -18,8 +19,8 @@ $accounting-gross-color: gold;
 
   .item__cost,
   .total__cost {
-    float: right;
     color: $accounting-cost-color;
+    float: right;
   }
 
   .gross {

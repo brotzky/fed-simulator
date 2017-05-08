@@ -1,7 +1,15 @@
 $calendar-font-size: 3rem;
 $calendar-accounting-cost-color: green;
 $calendar-calendar-size-color: orange;
+$accounting-button-font-size: 2.5rem;
 
 .page.calendar {
   font-size: $calendar-font-size;
+
+  .sidebar {
+
+    .btn {
+      font-size: $accounting-button-font-size;
+    }
+  }
 }

@@ -48,7 +48,7 @@ class CalendarPage extends Component {
     return (
       <section className="page calendar">
         <div className="row">
-          <div className="col-xs-12 col-md-8 col-lg-10">
+          <div className="col-xs-12 col-md-8 col-lg-9">
             <h1>
               {title}&nbsp;
               <a onClick={this.onClear}>
@@ -59,8 +59,8 @@ class CalendarPage extends Component {
               <Calendar />
             </If>
           </div>
-          <div className="col-xs-12 col-md-4 col-lg-2">
-            <div>
+          <div className="col-xs-12 col-md-4 col-lg-3">
+            <div className="sidebar">
               <Accounting
                 isComplete={this.props.calendar.isComplete}
                 showDelete={!this.props.calendar.isComplete}
