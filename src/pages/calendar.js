@@ -10,6 +10,7 @@ import {simulateLiveShows, startNextCalendarMonth} from '../actions/calendar'
 import Button from '../components/button/button'
 import './stylesheets/calendar'
 
+const CONFIRM_CLEAR = 'Are you sure you want to clear your calendar history?'
 const CONFIRM_SIMULATE =
   'Are you sure you want to simulate the live shows for the month?'
 const CONFIRM_START = 'Are you sure you want to move onto the new month?'
@@ -24,8 +25,10 @@ class CalendarPage extends Component {
   }
 
   onClear = () => {
-    this.props.dispatch(resetCalendar())
-    this.props.dispatch(generateLiveShowsForMonth())
+    confirm(CONFIRM_CLEAR, () => {
+      this.props.dispatch(resetCalendar())
+      this.props.dispatch(generateLiveShowsForMonth())
+    })
   }
 
   onSimulateMonth = () => {
