@@ -79,6 +79,7 @@
     "jquery": "^3.1.1",
     "lodash.groupby": "^4.6.0",
     "lodash.orderby": "^4.6.0",
+    "moment": "^2.18.1",
     "promise": "7.1.1",
     "react": "^15.2.1",
     "react-color": "^2.11.4",

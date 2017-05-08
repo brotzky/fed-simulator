@@ -132,6 +132,11 @@
       "from": "babylon@>=6.11.0 <7.0.0",
       "resolved": "https://registry.npmjs.org/babylon/-/babylon-6.17.0.tgz"
     },
+    "backbone": {
+      "version": "1.3.3",
+      "from": "backbone@>=1.3.3 <2.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/backbone/-/backbone-1.3.3.tgz"
+    },
     "balanced-match": {
       "version": "0.4.2",
       "from": "balanced-match@>=0.4.1 <0.5.0",
@@ -338,6 +343,16 @@
         }
       }
     },
+    "disposables": {
+      "version": "1.0.1",
+      "from": "disposables@>=1.0.1 <2.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/disposables/-/disposables-1.0.1.tgz"
+    },
+    "dnd-core": {
+      "version": "2.3.0",
+      "from": "dnd-core@>=2.3.0 <3.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/dnd-core/-/dnd-core-2.3.0.tgz"
+    },
     "element-resize-detector": {
       "version": "1.1.11",
       "from": "element-resize-detector@>=1.1.11 <2.0.0",
@@ -397,6 +412,11 @@
       "version": "0.3.2",
       "from": "extglob@>=0.3.1 <0.4.0",
       "resolved": "https://registry.npmjs.org/extglob/-/extglob-0.3.2.tgz"
+    },
+    "faker": {
+      "version": "3.1.0",
+      "from": "faker@>=3.1.0 <4.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/faker/-/faker-3.1.0.tgz"
     },
     "fastclick": {
       "version": "1.0.6",
@@ -1209,6 +1229,11 @@
       "from": "home-or-tmp@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/home-or-tmp/-/home-or-tmp-2.0.0.tgz"
     },
+    "icepick": {
+      "version": "1.3.0",
+      "from": "icepick@>=1.1.0 <2.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/icepick/-/icepick-1.3.0.tgz"
+    },
     "iconv-lite": {
       "version": "0.4.16",
       "from": "iconv-lite@>=0.4.13 <0.5.0",
@@ -1406,6 +1431,16 @@
       "from": "lodash._getnative@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/lodash._getnative/-/lodash._getnative-3.9.1.tgz"
     },
+    "lodash.get": {
+      "version": "4.4.2",
+      "from": "lodash.get@>=4.4.2 <4.5.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/lodash.get/-/lodash.get-4.4.2.tgz"
+    },
+    "lodash.groupby": {
+      "version": "4.6.0",
+      "from": "lodash.groupby@>=4.6.0 <5.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/lodash.groupby/-/lodash.groupby-4.6.0.tgz"
+    },
     "lodash.isarguments": {
       "version": "3.1.0",
       "from": "lodash.isarguments@>=3.0.0 <4.0.0",
@@ -1420,6 +1455,16 @@
       "version": "3.1.2",
       "from": "lodash.keys@>=3.1.2 <4.0.0",
       "resolved": "https://registry.npmjs.org/lodash.keys/-/lodash.keys-3.1.2.tgz"
+    },
+    "lodash.orderby": {
+      "version": "4.6.0",
+      "from": "lodash.orderby@>=4.6.0 <5.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/lodash.orderby/-/lodash.orderby-4.6.0.tgz"
+    },
+    "lodash.topath": {
+      "version": "4.5.2",
+      "from": "lodash.topath@>=4.5.2 <4.6.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/lodash.topath/-/lodash.topath-4.5.2.tgz"
     },
     "loose-envify": {
       "version": "1.3.1",
@@ -1480,6 +1525,11 @@
       "version": "0.5.1",
       "from": "mkdirp@>=0.5.1 <0.6.0",
       "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz"
+    },
+    "moment": {
+      "version": "2.18.1",
+      "from": "moment@latest",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/moment/-/moment-2.18.1.tgz"
     },
     "ms": {
       "version": "0.7.3",
@@ -1628,6 +1678,16 @@
         }
       }
     },
+    "react-dnd": {
+      "version": "2.3.0",
+      "from": "react-dnd@>=2.3.0 <3.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/react-dnd/-/react-dnd-2.3.0.tgz"
+    },
+    "react-dnd-html5-backend": {
+      "version": "2.3.0",
+      "from": "react-dnd-html5-backend@>=2.3.0 <3.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/react-dnd-html5-backend/-/react-dnd-html5-backend-2.3.0.tgz"
+    },
     "react-dom": {
       "version": "15.5.4",
       "from": "react-dom@>=15.4.2 <16.0.0",
@@ -1647,6 +1707,11 @@
       "version": "4.4.8",
       "from": "react-redux@>=4.4.5 <5.0.0",
       "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-4.4.8.tgz"
+    },
+    "react-redux-form": {
+      "version": "1.11.0",
+      "from": "react-redux-form@>=1.11.0 <2.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/react-redux-form/-/react-redux-form-1.11.0.tgz"
     },
     "react-router": {
       "version": "3.0.5",
@@ -1750,6 +1815,11 @@
       "from": "rimraf@2.5.4",
       "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-2.5.4.tgz"
     },
+    "sanitizer": {
+      "version": "0.1.3",
+      "from": "sanitizer@>=0.1.3 <0.2.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/sanitizer/-/sanitizer-0.1.3.tgz"
+    },
     "semver": {
       "version": "5.3.0",
       "from": "semver@>=5.0.3 <6.0.0",
@@ -1765,10 +1835,20 @@
       "from": "setimmediate@>=1.0.5 <2.0.0",
       "resolved": "https://registry.npmjs.org/setimmediate/-/setimmediate-1.0.5.tgz"
     },
+    "shallow-compare": {
+      "version": "1.2.1",
+      "from": "shallow-compare@1.2.1",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/shallow-compare/-/shallow-compare-1.2.1.tgz"
+    },
     "shallowequal": {
       "version": "0.2.2",
       "from": "shallowequal@>=0.2.2 <0.3.0",
       "resolved": "https://registry.npmjs.org/shallowequal/-/shallowequal-0.2.2.tgz"
+    },
+    "shuffle-array": {
+      "version": "1.0.1",
+      "from": "shuffle-array@>=1.0.1 <2.0.0",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/shuffle-array/-/shuffle-array-1.0.1.tgz"
     },
     "slash": {
       "version": "1.0.0",
@@ -1849,6 +1929,11 @@
       "version": "0.7.12",
       "from": "ua-parser-js@>=0.7.9 <0.8.0",
       "resolved": "https://registry.npmjs.org/ua-parser-js/-/ua-parser-js-0.7.12.tgz"
+    },
+    "underscore": {
+      "version": "1.8.3",
+      "from": "underscore@>=1.8.3",
+      "resolved": "http://npm.cloud.platforms.gamesys.corp:4873/underscore/-/underscore-1.8.3.tgz"
     },
     "user-home": {
       "version": "1.1.1",
