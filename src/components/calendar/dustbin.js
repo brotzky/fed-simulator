@@ -22,6 +22,7 @@ export default class Dustbin extends Component {
     accepts: PropTypes.arrayOf(PropTypes.string).isRequired,
     droppedItem: PropTypes.object,
     onDrop: PropTypes.func.isRequired,
+    style: PropTypes.object,
   }
 
   shouldComponentUpdate() {
@@ -39,16 +40,19 @@ export default class Dustbin extends Component {
     )
     return connectDropTarget(
       <div className={classes}>
-        <p className="dustbin__name">{name}</p>
+        <p className="dustbin__name">
+          {name}
+        </p>
         <p className="dustbin__details">
           {!droppedItem &&
             <span className="drop">
               {isActive ? 'Release to drop' : ''}
             </span>}
           &nbsp;
-          <If condition={droppedItem}>
-            <span className="show__name">{droppedItem.name}</span>
-            <span className="show__size">{droppedItem.size}</span>
+          <If condition={droppedItem.name}>
+            <span className="show__name" style={this.props.style}>
+              {droppedItem.name} ({droppedItem.size})
+            </span>
           </If>
         </p>
       </div>

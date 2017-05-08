@@ -16,7 +16,7 @@ const AccountingCollection = ({
   return (
     <div className="accounting">
       <div className="total">
-        <span className="total__title">Cash available:</span>
+        <span className="total__title">Cash available</span>
         <span className="total__cost">{nFormatter(federationCash)}</span>
       </div>
       <hr />
@@ -48,7 +48,7 @@ const AccountingCollection = ({
                         </tr>
                         <If condition={show.gross > 0}>
                           <tr>
-                            <td colSpan="2">
+                            <td className="gross" colSpan="2">
                               Gross
                               <span className="item__cost">
                                 {nFormatter(show.gross)}

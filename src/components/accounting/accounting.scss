@@ -1,8 +1,10 @@
+$accounting-cost-color: green;
+$accounting-gross-color: gold;
+
 .accounting {
 
   &__header {
     margin-bottom: 1rem;
-    text-decoration: underline;
   }
 
   .item {
@@ -17,5 +19,10 @@
   .item__cost,
   .total__cost {
     float: right;
+    color: $accounting-cost-color;
+  }
+
+  .gross {
+    color: $accounting-gross-color;
   }
 }

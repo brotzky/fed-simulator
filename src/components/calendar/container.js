@@ -49,17 +49,29 @@ class Container extends Component {
 
   render() {
     const {boxes, dustbins,} = this.state
+    const style = {
+      backgroundColor: this.props.federation.backgroundColor,
+      color: this.props.federation.color,
+    }
     return (
       <div className="calendar-inline">
         <div className="row">
           {boxes.map(({name, size, type,}, index) => (
-            <Box name={name} size={size} type={type} key={index} />
+            <Box
+              style={style}
+              name={name}
+              size={size}
+              type={type}
+              key={index}
+              canDrag={!this.props.complete}
+            />
           ))}
         </div>
         <div className="row">
           {dustbins.map(({name, accepts, droppedItem,}, index) => (
             <Dustbin
               name={name}
+              style={style}
               accepts={accepts}
               droppedItem={droppedItem}
               onDrop={item => this.handleDrop(index, item)}
@@ -101,6 +113,7 @@ class Container extends Component {
   }
 
   handleDrop(dateIndex, item) {
+    if (this.props.calendar.isComplete) return
     const {name, size,} = item
     const show = this.props.shows.find(show => show.name === name)
 
@@ -117,5 +130,6 @@ class Container extends Component {
 
 export default connect(state => ({
   shows: state.shows,
+  federation: state.federation,
   calendar: state.calendar,
 }))(Container)

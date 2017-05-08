@@ -3,7 +3,7 @@ $calendar-show-width: 10%;
 $calendar-font-size: 2.5rem;
 
 $border-color: silver;
-$border-width: 0.5rem;
+$border-width: .5rem;
 $available: gold;
 $active: green;
 $used: blue;
@@ -14,11 +14,11 @@ $day-width: 10%;
 
   .dustbin {
     border: $border-width solid $border-color;
+    font-weight: 500;
     margin-bottom: 1.5rem;
     margin-right: 1%;
-    padding: 2rem;
+    padding: 1rem;
     width: $day-width;
-    font-weight: 500;
 
     p {
       margin-bottom: 1.5rem;
@@ -27,17 +27,22 @@ $day-width: 10%;
 
     &__details {
       font-weight: 100;
+
+      .show__name {
+        display: inline-block;
+        padding: .5rem;
+      }
     }
   }
 
   .boxes {
     border: 1px dashed gray;
-    padding: 0.5rem 1rem;
-    margin-right: 1.5rem;
-    margin-bottom: 1.5rem;
     cursor: move;
     float: left;
     font-size: 3rem;
+    margin-bottom: 1.5rem;
+    margin-right: 1.5rem;
+    padding: .5rem;
 
     .used {
       background-color: $used;
@@ -51,16 +56,5 @@ $day-width: 10%;
   .available {
     background-color: $available;
     color: black;
-  }
-}
-
-
-.show {
-
-  &__name {
-    display: block;
-  }
-  &__size {
-    display: block;
   }
 }

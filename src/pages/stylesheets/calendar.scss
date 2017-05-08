@@ -1,21 +1,7 @@
 $calendar-font-size: 3rem;
 $calendar-accounting-cost-color: green;
 $calendar-calendar-size-color: orange;
-$calendar-calendar-date-size-color: gold;
 
 .page.calendar {
   font-size: $calendar-font-size;
-
-  .boxes__size {
-    color: $calendar-calendar-date-size-color;
-  }
-
-  .item__cost,
-  .total__cost {
-    color: $calendar-accounting-cost-color;
-  }
-
-  .show__size {
-    color: $calendar-calendar-size-color;
-  }
 }
