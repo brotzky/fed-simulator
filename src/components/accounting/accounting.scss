@@ -1,9 +1,13 @@
 $accounting-cost-color: #28e23b;
 $accounting-gross-color: gold;
-$accounting-font-size: 3rem;
+$accounting-font-size: 2rem;
 
 .accounting {
 	font-size: $accounting-font-size;
+
+  &__collection {
+    margin-bottom: 3rem;
+  }
 
   .cost {
     color: $accounting-cost-color;
