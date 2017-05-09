@@ -1,15 +1,15 @@
-import Backbone from 'backbone'
-import _each from 'lodash/each'
-import sanitizer from 'sanitizer'
+import Backbone from "backbone"
+import _each from "lodash/each"
+import sanitizer from "sanitizer"
 
-import {hashCode} from '../helpers/hash'
+import { hashCode } from "../helpers/hash"
 
 const Model = Backbone.Model.extend({
   defaults: {
     id: hashCode(new Date().toString()),
-    name: 'Default',
-    size: 'xs',
-    frequency: 'weekly',
+    name: "Default",
+    size: "xs",
+    frequency: "weekly",
   },
 
   initialize() {
@@ -17,7 +17,7 @@ const Model = Backbone.Model.extend({
   },
 
   sanitize(str) {
-    if (typeof str === 'string') {
+    if (typeof str === "string") {
       str = sanitizer.escape(str)
     }
     return str

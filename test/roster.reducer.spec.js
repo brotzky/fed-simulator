@@ -1,74 +1,74 @@
-import reducer from '../src/reducers/roster'
-import * as types from '../src/actions/types'
-import Model from '../src/reducers/wrestler.model'
+import reducer from "../src/reducers/roster"
+import * as types from "../src/actions/types"
+import Model from "../src/reducers/wrestler.model"
 
 const defaultModel = new Model()
 const defaultMaleWrestler = {
-	name: 'man',
-	male: true,
+  name: "man",
+  male: true,
 }
 const defaultFemaleWrestler = {
-	name: 'woman',
-	male: false,
+  name: "woman",
+  male: false,
 }
-const defaultCollection = [defaultMaleWrestler, defaultFemaleWrestler]
+const defaultCollection = [defaultMaleWrestler, defaultFemaleWrestler,]
 const action = {
-	type: types.UPDATE_ROSTER,
-	payload: [],
+  type: types.UPDATE_ROSTER,
+  payload: [],
 }
 
-describe('given a roster reducer', () => {
-	let rosterReducer
+describe("given a roster reducer", () => {
+  let rosterReducer
 
-	before(() => (rosterReducer = reducer(undefined, action)))
+  before(() => (rosterReducer = reducer(undefined, action)))
 
-	it('should return the initial state', () => {
-		expect(rosterReducer).to.be.empty
-	})
+  it("should return the initial state", () => {
+    expect(rosterReducer).to.be.empty
+  })
 
-	describe('and a roster collection is passed in', () => {
-		before(() => {
-			action.payload = defaultCollection
-			rosterReducer = reducer(undefined, action)
-		})
+  describe("and a collection is passed in", () => {
+    before(() => {
+      action.payload = defaultCollection
+      rosterReducer = reducer(undefined, action)
+    })
 
-		it('should now two wrestlers', () => {
-			expect(rosterReducer.length).to.equal(2)
-		})
-	})
+    it("should now have two in the collection", () => {
+      expect(rosterReducer.length).to.equal(2)
+    })
+  })
 
-	describe('and the roster has been passed through the model', () => {
-		let rosterReducer
+  describe("and the roster has been passed through the model", () => {
+    let rosterReducer
 
-		before(() => {
-			action.payload = defaultCollection
-			rosterReducer = reducer(undefined, action)
-		})
+    before(() => {
+      action.payload = defaultCollection
+      rosterReducer = reducer(undefined, action)
+    })
 
-		it('should have a male with an id', () => {
-			expect(rosterReducer[0].male).to.equal(true)
-			expect(rosterReducer[0].id).to.not.be.empty
-		})
+    it("should have a male with an id", () => {
+      expect(rosterReducer[0].male).to.equal(true)
+      expect(rosterReducer[0].id).to.not.be.empty
+    })
 
-		it('should have a female with an id', () => {
-			expect(rosterReducer[1].male).to.equal(false)
-			expect(rosterReducer[1].id).to.not.be.empty
-		})
+    it("should have a female with an id", () => {
+      expect(rosterReducer[1].male).to.equal(false)
+      expect(rosterReducer[1].id).to.not.be.empty
+    })
 
-		it('should have correct stats', () => {
-			expect(rosterReducer[0].losses).to.equal(defaultModel.toJSON().losses)
-			expect(rosterReducer[0].points).to.equal(defaultModel.toJSON().points)
-		})
+    it("should have correct stats", () => {
+      expect(rosterReducer[0].losses).to.equal(defaultModel.toJSON().losses)
+      expect(rosterReducer[0].points).to.equal(defaultModel.toJSON().points)
+    })
 
-		describe('and reset is called', () => {
-			before(() => {
-				action.type = types.RESET
-				rosterReducer = reducer(undefined, action)
-			})
+    describe("and reset is called", () => {
+      before(() => {
+        action.type = types.RESET
+        rosterReducer = reducer(undefined, action)
+      })
 
-			it('should have NO wrestlers', () => {
-				expect(rosterReducer.length).to.equal(0)
-			})
-		})
-	})
+      it("should have NO wrestlers", () => {
+        expect(rosterReducer.length).to.equal(0)
+      })
+    })
+  })
 })
