@@ -3,15 +3,15 @@ import * as types from "../src/actions/types"
 import Model from "../src/reducers/wrestler.model"
 
 const defaultModel = new Model()
-const defaultMaleWrestler = {
+const defaultMale = {
   name: "man",
   male: true,
 }
-const defaultFemaleWrestler = {
+const defaultFemale = {
   name: "woman",
   male: false,
 }
-const defaultCollection = [defaultMaleWrestler, defaultFemaleWrestler,]
+const defaultCollection = [defaultMale, defaultFemale,]
 const action = {
   type: types.UPDATE_ROSTER,
   payload: [],

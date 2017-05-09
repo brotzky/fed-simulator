@@ -1,14 +1,14 @@
 const defaultState = []
-import Model from './championship.model'
+import Model from "./championship.model"
 
 export default (state = defaultState, action) => {
   let newState = JSON.parse(JSON.stringify(state))
 
   switch (action.type) {
-    case 'RESET':
+    case "RESET":
       newState = defaultState
       break
-    case 'UPDATE_CHAMPIONS':
+    case "UPDATE_CHAMPIONS":
       newState = action.payload
       break
     default:
