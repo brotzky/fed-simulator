@@ -1,4 +1,4 @@
 --bail
 -r mock-local-storage
---compilers js:babel-core/register,js:./src/helpers/css-modules-compiler.js
+--compilers js:babel-core/register,js:./src/helpers/css-modules-compiler,js:./src/helpers/test-register.js
 test/*.spec.js
