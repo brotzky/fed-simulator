@@ -45,14 +45,30 @@ describe('given a roster reducer', () => {
 			rosterReducer = reducer(undefined, action)
 		})
 
-		it('should have id', () => {
+		it('should have a male with an id', () => {
+			expect(rosterReducer[0].male).to.equal(true)
 			expect(rosterReducer[0].id).to.not.be.empty
+		})
+
+		it('should have a female with an id', () => {
+			expect(rosterReducer[1].male).to.equal(false)
 			expect(rosterReducer[1].id).to.not.be.empty
 		})
 
 		it('should have correct stats', () => {
 			expect(rosterReducer[0].losses).to.equal(defaultModel.toJSON().losses)
 			expect(rosterReducer[0].points).to.equal(defaultModel.toJSON().points)
+		})
+
+		describe('and reset is called', () => {
+			before(() => {
+				action.type = types.RESET
+				rosterReducer = reducer(undefined, action)
+			})
+
+			it('should have NO wrestlers', () => {
+				expect(rosterReducer.length).to.equal(0)
+			})
 		})
 	})
 })
