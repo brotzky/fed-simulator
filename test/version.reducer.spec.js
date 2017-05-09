@@ -1,29 +1,16 @@
-import reducer from '../src/reducers/roster'
+import reducer from '../src/reducers/version'
 import * as types from '../src/actions/types'
 
-const defaultMaleWrestler = {
-	name: "man",
-	male: true,
-}
-const defaultFemaleWrestler = {
-        name: "woman",
-        male: false,
-}
-const defaultCollection = [defaultMaleWrestler, defaultFemaleWrestler,]
 const action = {
 	type: types.CHECK_VERSION,
 }
 
-describe('version reducer', () => {
-  it('should return the initial state', () => {
-    expect(
-      reducer(undefined, action)
-    ).to.be.empty
-  })
+describe('given a version reducer', () => {
+	it('should set a default version of 5', () => {
+		expect(reducer(undefined, action)).to.equal(5)
+	})
 
-	it('should return the updated state', () => {
-		expect(
-			reducer(defaultCollection, action).length
-		).to.equal(2)
+	it('and the version number is now 6', () => {
+		expect(reducer(6, action)).to.equal(6)
 	})
 })
