@@ -26,6 +26,15 @@ const defaultState = {
     },
   ],
 }
+
+const loadInDefaultCollection = () => {
+  const action = {
+    payload: defaultState.collection,
+    type: types.UPDATE_CALENDAR_LIVESHOWS,
+  }
+  return reducer(undefined, action)
+}
+
 const action = {
   type: "",
   payload: "",
@@ -41,21 +50,19 @@ describe("given a calendars reducer", () => {
   })
 
   describe("and a collection is passed in", () => {
-    before(() => {
-      action.payload = defaultState.collection
-      action.type = types.UPDATE_CALENDAR_LIVESHOWS
-      calendarReducer = reducer(undefined, action)
-    })
+    let calendarReducer
+
+    before(() => (calendarReducer = loadInDefaultCollection()))
 
     it("should now have two in the collection", () => {
       expect(calendarReducer.collection.length).to.equal(2)
     })
 
-    it("should have a first day with an id", () => {
+    it("should have a first liveShow with an id", () => {
       expect(calendarReducer.collection[0].id).to.not.be.empty
     })
 
-    it("should have a female championship with an id", () => {
+    it("should have a second liveShow with an id", () => {
       expect(calendarReducer.collection[1].id).to.not.be.empty
     })
 
@@ -68,16 +75,11 @@ describe("given a calendars reducer", () => {
     describe("and a live show is updated", () => {
       let calendarReducer
 
-      before(() => {
-        action.payload = defaultState.collection
-        action.type = types.UPDATE_CALENDAR_LIVESHOWS
-        calendarReducer = reducer(undefined, action)
-      })
+      before(() => (calendarReducer = loadInDefaultCollection()))
 
       it("should expect the model to update", () => {
         let show = calendarReducer.collection[0]
-        show.name = "Test"
-        show.size = "lg"
+        show = Object.assign(show, { name: "Test", size: "lg", })
 
         action.type = types.UPDATE_CALENDAR_LIVESHOW
         action.payload = {
