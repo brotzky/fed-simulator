@@ -1,18 +1,18 @@
 const defaultState = []
-import Model from './wrestler.model'
+import Model from "./wrestler.model"
 
 export default (state = defaultState, action) => {
-	let newState = JSON.parse(JSON.stringify(state))
+	state = JSON.parse(JSON.stringify(state))
 
 	switch (action.type) {
-		case 'RESET':
-			newState = defaultState
+		case "RESET":
+			state = defaultState
 			break
-		case 'UPDATE_ROSTER':
-			newState = action.payload
+		case "UPDATE_ROSTER":
+			state = action.payload
 			break
 		default:
 			break
 	}
-	return newState.map(wrestler => new Model(wrestler).toJSON())
+	return state.map(wrestler => new Model(wrestler).toJSON())
 }

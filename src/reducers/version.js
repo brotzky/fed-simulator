@@ -1,13 +1,14 @@
 const defaultState = 5
 
 export default (state = defaultState, action) => {
-  let newState = JSON.parse(JSON.stringify(state))
-  switch (action.type) {
-    case 'CHECK_VERSION':
-      newState = state
-      break
-    default:
-      break
-  }
-  return newState
+	state = JSON.parse(JSON.stringify(state))
+
+	switch (action.type) {
+		case "CHECK_VERSION":
+			state = state
+			break
+		default:
+			break
+	}
+	return state
 }
