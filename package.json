@@ -10,7 +10,7 @@
     "instrument": false
   },
   "scripts": {
-    "start": "NODE_ENV=development DEBUG=app:* babel-node ./scripts/start.js",
+    "start": "NODE_ENV=development DEBUG=app:* babel-node ./scripts/start.js | npm run test",
     "build": "NODE_ENV=production DEBUG=app:* babel-node ./scripts/build.js",
     "lint": "eslint src",
     "test": "NODE_ENV=test nyc mocha --opts mocha.opts"
