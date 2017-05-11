@@ -102,17 +102,32 @@ describe("given a calendars reducer", () => {
       before(() => (calendarReducer = loadReducer()))
 
       it("should expect the model to update", () => {
-        let show = calendarReducer.collection[0]
+        let { date, } = calendarReducer.collection[0]
         action.type = types.DELETE_CALENDAR_LIVESHOW
-        action.payload = show.date
+        action.payload = date
 
         calendarReducer = reducer(calendarReducer, action)
 
         const liveShow = calendarReducer.collection.find(
-          liveShow => liveShow.date === show.date
+          liveShow => liveShow.date === date
         )
 
         expect(liveShow.name).to.be.empty()
+      })
+    })
+
+    describe("and a show generator is called", () => {
+      let calendarReducer
+
+      before(() => (calendarReducer = loadReducer()))
+
+      it("should have different ids generated", () => {
+        let { inProgress, } = calendarReducer.collection[0]
+        action.type = types.GENERATE_CALENDAR_LIVESHOWS
+
+        let newCalendarReducer = reducer(calendarReducer, action)
+
+        expect(inProgress !== newCalendarReducer.inProgress)
       })
     })
 
