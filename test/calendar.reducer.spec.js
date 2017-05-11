@@ -27,7 +27,7 @@ const defaultState = {
   ],
 }
 
-const loadInDefaultCollection = () => {
+const loadReducer = () => {
   const action = {
     payload: defaultState.collection,
     type: types.UPDATE_CALENDAR_LIVESHOWS,
@@ -52,7 +52,7 @@ describe("given a calendars reducer", () => {
   describe("and a collection is passed in", () => {
     let calendarReducer
 
-    before(() => (calendarReducer = loadInDefaultCollection()))
+    before(() => (calendarReducer = loadReducer()))
 
     it("should now have two in the collection", () => {
       expect(calendarReducer.collection.length).to.equal(2)
@@ -75,7 +75,7 @@ describe("given a calendars reducer", () => {
     describe("and a live show is updated", () => {
       let calendarReducer
 
-      before(() => (calendarReducer = loadInDefaultCollection()))
+      before(() => (calendarReducer = loadReducer()))
 
       it("should expect the model to update", () => {
         let show = calendarReducer.collection[0]
@@ -93,6 +93,26 @@ describe("given a calendars reducer", () => {
 
         expect(matchingShow.name).to.equal("Test")
         expect(matchingShow.size).to.equal("lg")
+      })
+    })
+
+    describe("and a live show is deleted", () => {
+      let calendarReducer
+
+      before(() => (calendarReducer = loadReducer()))
+
+      it("should expect the model to update", () => {
+        let show = calendarReducer.collection[0]
+        action.type = types.DELETE_CALENDAR_LIVESHOW
+        action.payload = show.date
+
+        calendarReducer = reducer(calendarReducer, action)
+
+        const liveShow = calendarReducer.collection.find(
+          liveShow => liveShow.date === show.date
+        )
+
+        expect(liveShow.name).to.be.empty()
       })
     })
 
