@@ -1,9 +1,9 @@
-import React from 'react'
-import {Link} from 'react-router'
-import defaultState from './default.json'
-import './navigation.scss'
+import React from "react"
+import { Link } from "react-router"
+import defaultState from "./default.json"
+import "./navigation.scss"
 
-const Navigation = ({navigation = defaultState,}) => {
+const Navigation = ({ navigation = defaultState, }) => {
   return (
     <nav className="navigation">
       <ul className="navigation__list">

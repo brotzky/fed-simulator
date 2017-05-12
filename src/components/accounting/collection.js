@@ -44,12 +44,12 @@ const heading = ({ first = "", second = "", third = "", }) => (
 )
 
 const AccountingCollection = ({
+  federationCash,
+  isComplete = false,
   liveShows = [],
+  onClickDelete = noop,
   totalCost = 0,
   totalGross = 0,
-  isComplete = false,
-  onClickDelete = noop,
-  federationCash,
 }) => {
   liveShows = groupBy(liveShows, "size")
   federationCash = nFormatter(federationCash)
@@ -69,9 +69,10 @@ const AccountingCollection = ({
               second: "Cost",
               third: "Gross",
             })}
-            {liveShows[index].map(show => {
+            {liveShows[index].map((show, key) => {
               const { name, date, } = show
               return heading({
+                key: key,
                 first: liveShowName(isComplete, name, date, onClickDelete),
                 second: nFormatter(show.cost),
                 third: show.gross > 0 ? nFormatter(show.gross) : "",
@@ -82,6 +83,7 @@ const AccountingCollection = ({
       })}
       <br />
       {heading({
+        key: "totals",
         first: "Totals",
         second: nFormatter(totalCost),
         third: nFormatter(totalGross),
@@ -89,6 +91,7 @@ const AccountingCollection = ({
       <If condition={isComplete}>
         <br />
         {heading({
+          key: "profit",
           first: "Profit",
           second: "",
           third: nFormatter(totalGross - totalCost),

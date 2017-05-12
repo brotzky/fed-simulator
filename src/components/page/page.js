@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 import Navigation from "../navigation/navigation"
-import ColorPickers from "./color-pickers"
+import ColorPickers from "../quick/color-pickers"
 import * as versionActions from "../../actions/version"
 // import PerfProfiler from '../perf-profiler/perf-profiler'
 

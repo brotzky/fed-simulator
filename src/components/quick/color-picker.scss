@@ -2,10 +2,17 @@
   position: absolute;
   z-index: 2;
 }
+
 .cover {
   bottom: 0px;
-  left: 0px
+  left: 0px;
   position: fixed;
   right: 0px;
   top: 0px;
+}
+
+.color-picker {
+  width: 4rem;
+  height: 4rem;
+  display: block;
 }

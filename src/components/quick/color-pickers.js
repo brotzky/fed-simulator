@@ -7,8 +7,11 @@ import { updateFederation } from "../../actions/federation"
 
 const noop = () => {}
 
+import "./color-pickers.scss"
+
 class ColorPickers extends React.Component {
   onHandleColorChange = color => {
+    console.log("onHandleColorChange")
     const newState = Object.assign({}, this.props.federation, {
       color: color.hex,
     })
@@ -16,9 +19,10 @@ class ColorPickers extends React.Component {
     this.props.dispatch(updateFederation(newState))
   }
 
-  onHandleColorChange = color => {
+  handleBackgroundColorChange = color => {
+    console.log("handleBackgroundColorChange")
     const newState = Object.assign({}, this.props.federation, {
-      color: color.hex,
+      backgroundColor: color.hex,
     })
 
     this.props.dispatch(updateFederation(newState))
@@ -31,10 +35,19 @@ class ColorPickers extends React.Component {
       color,
     }
     return (
-      <div>
-        <span style={style}>{name}</span>
-        <span><QuickColorPicker onChange={this.handleChange} /></span>
-        <span><QuickColorPicker onChange={this.onHandleColorChange} /></span>
+      <div className="color-picker" style={style}>
+        <span>
+          {name}
+        </span>
+        <span style={style}>
+          <QuickColorPicker
+            style={style}
+            onChange={this.handleBackgroundColorChange}
+          />
+        </span>
+        <span style={style}>
+          <QuickColorPicker style={style} onChange={this.onHandleColorChange} />
+        </span>
       </div>
     )
   }

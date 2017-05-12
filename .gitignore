@@ -6,3 +6,4 @@ npm-debug.log
 typings
 jsconfig.json
 coverage
+.nyc_output
