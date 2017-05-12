@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react"
 
-import './button.scss'
+import "./button.scss"
 
 const noop = () => {}
 
-const Button = ({value = '', onClick = noop,}) => {
+const Button = ({ value = "", onClick = noop, }) => {
   return (
     <div className="row">
       <div className="col-xs-12">
