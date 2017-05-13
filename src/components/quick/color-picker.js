@@ -1,10 +1,11 @@
 import React from "react"
-import { ChromePicker } from "react-color"
+import { CompactPicker as Picker } from "react-color"
 import PropTypes from "prop-types"
 
-import "./color-picker.scss"
-
 const noop = () => {}
+const colors = [
+  ["#B80000", "#BEDADC", "#C4DEF6", "#BED3F3", "#D4C4FB", "#000000", "#FFFFFF",],
+]
 
 class ColorPicker extends React.Component {
   state = {
@@ -21,17 +22,23 @@ class ColorPicker extends React.Component {
     this.setState({
       displayColorPicker: false,
     })
-    this.props.onHandleChange()
+  }
+
+  onChange = color => {
+    this.props.onChange(color.hex)
   }
 
   render() {
     return (
-      <div className="color-picker">
-        <button onClick={this.handleClick}>something</button>
+      <div
+        style={this.props.style}
+        onClick={this.handleClick}
+        className="colorPicker"
+      >
         {this.state.displayColorPicker
-          ? <div className="popover">
-              <div className="cover" onClick={this.handleClose} />
-              <ChromePicker onChange={this.onHandleChange} />
+          ? <div className="popover" onClick={this.handleClose}>
+              <div className="cover" />
+              <Picker color={colors} width="220px" onChange={this.onChange} />
             </div>
           : null}
       </div>
@@ -43,12 +50,14 @@ ColorPicker.displayName = "ColorPicker"
 
 ColorPicker.propTypes = {
   onClick: PropTypes.func,
-  onHandleChange: PropTypes.func,
+  onChange: PropTypes.func,
+  style: PropTypes.object,
 }
 
 ColorPicker.defaultProps = {
   onClick: noop,
-  onHandleChange: noop,
+  onChange: noop,
+  style: {},
 }
 
 export default ColorPicker

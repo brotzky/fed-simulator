@@ -6,9 +6,6 @@
 		"url": "calendar",
 		"title": "Calendar"
 	}, {
-		"url": "branding",
-		"title": "Branding"
-	}, {
 		"url": "champions",
 		"title": "Champions"
 	}, {
@@ -17,5 +14,8 @@
 	}, {
 		"url": "shows",
 		"title": "Shows"
+	}, {
+		"url": "branding",
+		"title": "Branding"
 	}
 ]

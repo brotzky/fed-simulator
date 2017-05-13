@@ -41,6 +41,10 @@ $basepage-button-padding: .5rem !default;
     padding: $basepage-button-padding;
     width: 100%;
   }
+
+  .colorPickers {
+    float: right;
+  }
 }
 
 input::placeholder,

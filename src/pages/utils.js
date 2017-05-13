@@ -1,22 +1,22 @@
-import {connect} from 'react-redux'
-import React, {Component} from 'react'
-import {Link} from 'react-router'
-import './stylesheets/utils'
+import { connect } from "react-redux"
+import React, { Component } from "react"
+import { Link } from "react-router"
+import "./stylesheets/utils"
 
 class Utils extends Component {
   state = {
-    stage: 'start',
+    stage: "start",
   }
   _onClearStorage = () => {
     this.setState({
-      stage: 'isComplete',
+      stage: "isComplete",
     })
 
     localStorage.clear()
 
     setTimeout(() => {
       this.setState({
-        stage: 'start',
+        stage: "start",
       })
       location.reload()
     }, 3000)
@@ -25,12 +25,17 @@ class Utils extends Component {
   render() {
     return (
       <section className="page utils">
-        <Link to="/">
-          <div className="fa fa-arrow-left" />
-        </Link>
+        <h1>
+          Game Utils
+        </h1>
         <div className={this.state.stage}>
           <p>
-            <a onClick={this._onClearStorage}>Clear Local Storage</a>
+            <Link to="/">
+              <div className="fa fa-arrow-left" /> Go back
+            </Link>
+          </p>
+          <p>
+            <a onClick={this._onClearStorage}>Clear game data</a>
           </p>
         </div>
         <br />

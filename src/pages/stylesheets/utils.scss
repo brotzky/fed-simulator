@@ -1,9 +1,10 @@
 .page.utils {
   font-size: 3rem;
 
-  .fa {
-    font-size: 6rem;
-    margin: 3rem;
+  .fa, a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
   }
 
   .start,

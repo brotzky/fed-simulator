@@ -1,11 +1,9 @@
 @import "src/stylesheets/breakpoints";
 
 .navigation {
-  background-color: #232828;
   font-size: 3rem;
   font-weight: 100;
   text-transform: capitalize;
-  color: white;
   font-variant: small-caps;
 
   &__list {
@@ -20,11 +18,9 @@
 
   &__item {
     align-items: flex-start;
-    color: white;
     margin-right: 5rem;
 
     a {
-      color: white;
       text-decoration: none;
     }
   }

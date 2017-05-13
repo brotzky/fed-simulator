@@ -1,7 +1,8 @@
 .footer {
   .navigation {
-      width: 50%;
-      float: right;
-      background-color: transparent;
+    display: flex;
+    float: right;
+    justify-content: space-around;
+    width: auto;
   }
 }

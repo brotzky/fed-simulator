@@ -10,44 +10,46 @@ const noop = () => {}
 import "./color-pickers.scss"
 
 class ColorPickers extends React.Component {
-  onHandleColorChange = color => {
-    console.log("onHandleColorChange")
+  onChangeColor = color => {
     const newState = Object.assign({}, this.props.federation, {
-      color: color.hex,
+      color,
     })
 
     this.props.dispatch(updateFederation(newState))
   }
 
-  handleBackgroundColorChange = color => {
-    console.log("handleBackgroundColorChange")
+  onChangeBGColor = backgroundColor => {
     const newState = Object.assign({}, this.props.federation, {
-      backgroundColor: color.hex,
+      backgroundColor,
     })
 
     this.props.dispatch(updateFederation(newState))
+  }
+
+  shouldComponentUpdate() {
+    return true
   }
 
   render() {
-    const { backgroundColor, color, name, } = this.props.federation
-    const style = {
+    const { backgroundColor, color, } = this.props.federation
+    const bgColorContainer = {
+      border: ".1rem solid white",
       backgroundColor,
-      color,
+    }
+    const colorContainer = {
+      border: ".1rem solid white",
+      backgroundColor: color,
     }
     return (
-      <div className="color-picker" style={style}>
-        <span>
-          {name}
-        </span>
-        <span style={style}>
-          <QuickColorPicker
-            style={style}
-            onChange={this.handleBackgroundColorChange}
-          />
-        </span>
-        <span style={style}>
-          <QuickColorPicker style={style} onChange={this.onHandleColorChange} />
-        </span>
+      <div className="colorPickers">
+        <QuickColorPicker
+          style={bgColorContainer}
+          onChange={this.onChangeBGColor}
+        />
+        <QuickColorPicker
+          style={colorContainer}
+          onChange={this.onChangeColor}
+        />
       </div>
     )
   }

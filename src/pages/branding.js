@@ -1,22 +1,16 @@
-import './stylesheets/branding.scss'
-import {connect} from 'react-redux'
-import {updateFederation} from '../actions/federation'
-import PropTypes from 'prop-types'
-import React, {Component} from 'react'
-import {SwatchesPicker} from 'react-color'
+import "./stylesheets/branding.scss"
+import { connect } from "react-redux"
+import { updateFederation } from "../actions/federation"
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import { SwatchesPicker } from "react-color"
 
 const noop = () => {}
-const EVENT_STUB = {preventDefault: noop,}
+const EVENT_STUB = { preventDefault: noop, }
 
 class BrandingPage extends Component {
-  state = {
-    backgroundColor: '',
-    color: '',
-    currentTitle: 'What colours represent you?? 🏳️',
-  }
-
   componentDidMount() {
-    if (this.props.federation.backgroundColor !== '') {
+    if (this.props.federation.backgroundColor !== "") {
       this.setState({
         backgroundColor: this.props.federation.backgroundColor,
         color: this.props.federation.color,
@@ -24,68 +18,61 @@ class BrandingPage extends Component {
     }
   }
 
-  handleSubmit = (event = EVENT_STUB, forward = true) => {
+  shouldComponentUpdate() {
+    return true
+  }
+
+  onHandleSubmit = event => {
     event && event.preventDefault()
+    this.props.router.push("/roster")
+  }
+
+  onChangeColor = color => {
     const newState = Object.assign({}, this.props.federation, {
-      color: this.state.color,
-      backgroundColor: this.state.backgroundColor,
+      color: color.hex,
     })
 
     this.props.dispatch(updateFederation(newState))
-
-    if (forward) {
-      this.props.router.push('/roster')
-    }
   }
 
-  handeBackgroundColorChange = color => {
-    this.setState({backgroundColor: color.hex,})
-    this.handleSubmit(false, false)
-  }
-
-  handleColorChange = color => {
-    this.setState({color: color.hex,})
-    this.handleSubmit(false, false)
-  }
-
-  onClickTitle = () => {
-    this.setState({
-      currentTitle: this.props.federation.name,
+  onChangeBGColor = backgroundColor => {
+    console.log("handleBackgroundColorChange")
+    const newState = Object.assign({}, this.props.federation, {
+      backgroundColor: backgroundColor.hex,
     })
+
+    this.props.dispatch(updateFederation(newState))
   }
 
-  displayName = 'BrandingPage'
+  displayName = "BrandingPage"
 
   render() {
+    const { backgroundColor, color, name, } = this.props.federation
     const style = {
-      backgroundColor: this.state.backgroundColor,
-      color: this.state.color,
+      backgroundColor,
+      color,
     }
     return (
       <section className="page branding">
-        <h1
-          className="col-xs-12 skew-forward"
-          style={style}
-          onClick={this.onClickTitle}
-        >
-          {this.state.currentTitle}
+        <h1 className="col-xs-12 skew-forward" style={style}>
+          🏳️ What colours represent you {name}? 🏳️
         </h1>
         <div className="row colours">
           <div className="col-xs-12 col-lg-6 center-xs middle-xs">
             <div className="box">
               <h5>Background</h5>
-              <SwatchesPicker onChange={this.handeBackgroundColorChange} />
+              <SwatchesPicker onChange={this.onChangeBGColor} />
             </div>
           </div>
           <div className="col-xs-12 col-lg-6 center-xs middle-xs right">
             <div className="box">
               <h5>Font</h5>
-              <SwatchesPicker onChange={this.handleColorChange} />
+              <SwatchesPicker onChange={this.onChangeColor} />
             </div>
           </div>
         </div>
         <form onSubmit={this.handleSubmit}>
-          <button type="submit">
+          <button type="submit" onClick={this.onHandleSubmit}>
             Paint Save and build your dream roster
           </button>
         </form>
