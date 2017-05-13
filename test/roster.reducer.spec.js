@@ -56,6 +56,7 @@ describe("given a roster reducer", () => {
     })
 
     it("should have correct stats", () => {
+      expect(rosterReducer[0].wins).to.equal(defaultModel.toJSON().wins)
       expect(rosterReducer[0].losses).to.equal(defaultModel.toJSON().losses)
       expect(rosterReducer[0].points).to.equal(defaultModel.toJSON().points)
     })
