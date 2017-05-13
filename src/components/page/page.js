@@ -2,8 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
+import FooterNavigationItems from "./footer.json"
 import Navigation from "../navigation/navigation"
-import ColorPickers from "../quick/color-pickers"
 import * as versionActions from "../../actions/version"
 // import PerfProfiler from '../perf-profiler/perf-profiler'
 
@@ -28,24 +28,10 @@ class Page extends React.Component {
   }
 
   render() {
-    const { backgroundColor, color, name, } = this.props.federation
-
-    const navigationItems = [
-      {
-        url: "name",
-        title: "Start All Over Again",
-      },
-      {
-        url: "utils",
-        title: "Game Utils",
-      },
-    ]
-
     return (
       <main className={`page ${this.props.classNames}`}>
         <If condition={this.props.shows.length > 0}>
           <Navigation />
-          <ColorPickers />
         </If>
         <div className="row around-xs center-xs middle-xs">
           <div className={`col-xs-12 start-xs`}>
@@ -55,7 +41,7 @@ class Page extends React.Component {
           </div>
         </div>
         <footer className="footer">
-          <Navigation navigation={navigationItems} />
+          <Navigation navigation={FooterNavigationItems} />
         </footer>
       </main>
     )
@@ -76,7 +62,6 @@ Page.defaultProps = {
 
 export default connect(state => ({
   version: state.version,
-  federation: state.federation,
   shows: state.shows,
 }))(Page)
 
