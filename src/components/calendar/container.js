@@ -2,30 +2,17 @@ import React, { Component } from "react"
 import { DragDropContext } from "react-dnd"
 import HTML5Backend from "react-dnd-html5-backend"
 import { connect } from "react-redux"
+import groupBy from "lodash.groupby"
 import moment from "moment"
-import groupBy from "lodash.groupBy"
 
 import { DAY_FORMAT } from "../../constants/calendar"
 import * as itemType from "../../actions/types"
 import { updateCalendarLiveShow } from "../../actions/calendar"
 import Dustbin from "./dustbin"
 import Box from "./box"
+import getAcceptedSizes from "../../helpers/get-accepted-sizes"
 
 import "./calendar.scss"
-
-const getAcceptedSizes = date => {
-  let accepts = [itemType["xs"], itemType["sm"], itemType["md"],]
-  const day = moment(date).day()
-
-  if (day === 0) {
-    accepts = [itemType["lg"], itemType["md"],]
-  } else if (day > 0 && day < 6) {
-    accepts = [itemType["sm"], itemType["xs"],]
-  } else {
-    accepts = [itemType["md"],]
-  }
-  return accepts
-}
 
 @DragDropContext(HTML5Backend)
 class Container extends Component {
@@ -58,16 +45,17 @@ class Container extends Component {
       <div className="calendar-inline">
         {Object.keys(groupedBoxes).map(index => {
           return (
-            <div className="row">
-              {groupedBoxes[index].map(({ name, size, type, }, index) => {
+            <div key={index} className="row">
+              {groupedBoxes[index].map(({ name, size, date, type, }, index) => {
                 return (
                   <Box
+                    key={date}
                     style={style}
                     name={name}
                     size={size}
                     type={type}
                     key={index}
-                    canDrag={!this.props.complete}
+                    canDrag={!this.props.calendar.isComplete}
                   />
                 )
               })}

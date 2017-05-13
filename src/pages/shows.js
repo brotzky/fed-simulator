@@ -1,24 +1,24 @@
-import './stylesheets/shows.scss'
-import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
-import {updateShows} from '../actions/shows'
-import React, {Component} from 'react'
-import defaultShows from '../constants/shows.options.json'
-import Textarea from '../components/form/textarea.js'
-import GenerateRandom from '../components/generate-random/index'
-import faker from 'faker'
+import "./stylesheets/shows.scss"
+import { connect } from "react-redux"
+import PropTypes from "prop-types"
+import { updateShows } from "../actions/shows"
+import React, { Component } from "react"
+import defaultShows from "../constants/shows.options.json"
+import Textarea from "../components/form/textarea.js"
+import GenerateRandom from "../components/generate-random/index"
+import faker from "faker"
 
 const CONFIRM_MESSAGE =
-  'Are you sure you want to reset all shows and generate random replacements?'
+  "Are you sure you want to reset all shows and generate random replacements?"
 
 class ChampionsPage extends Component {
-  displayName = 'ChampionsPage'
+  displayName = "ChampionsPage"
 
   state = {
-    xs: '',
-    sm: '',
-    md: '',
-    lg: '',
+    xs: "",
+    sm: "",
+    md: "",
+    lg: "",
   }
 
   componentWillMount() {
@@ -26,18 +26,18 @@ class ChampionsPage extends Component {
       this.props.shows
         .filter(show => show.size === size)
         .map(champion => champion.name)
-        .join(', ')
+        .join(", ")
     this.setState({
-      xs: filterBySize('xs'),
-      sm: filterBySize('sm'),
-      md: filterBySize('md'),
-      lg: filterBySize('lg'),
+      xs: filterBySize("xs"),
+      sm: filterBySize("sm"),
+      md: filterBySize("md"),
+      lg: filterBySize("lg"),
     })
   }
 
   componentDidMount() {
-    if (this.props.champions.length === 0) {
-      this.props.router.push('/champions')
+    if (this.props.championships.length === 0) {
+      this.props.router.push("/champions")
     }
   }
 
@@ -55,7 +55,7 @@ class ChampionsPage extends Component {
       let defaultShow = defaultShows.find(show => show.size === size)
       if (defaultShow) {
         let newShow = this.state[size]
-          .split(',')
+          .split(",")
           .filter(name => name.length > 2)
           .filter(String)
           .map(name => {
@@ -70,7 +70,7 @@ class ChampionsPage extends Component {
       }
     })
     this.props.dispatch(updateShows(shows))
-    this.props.router.push('/ranking')
+    this.props.router.push("/ranking")
   }
 
   _generateRandomShows = event => {
@@ -130,7 +130,7 @@ class ChampionsPage extends Component {
                   value={this.state.sm}
                   name="sm"
                   onChange={this.handleChange}
-                  placeholder={'Raw, Smackdown'}
+                  placeholder={"Raw, Smackdown"}
                   label="Weekly TV"
                   rows="2"
                 />
@@ -161,5 +161,6 @@ ChampionsPage.contextTypes = {
 
 export default connect(state => ({
   shows: state.shows,
+  championships: state.championships,
   roster: state.roster,
 }))(ChampionsPage)
