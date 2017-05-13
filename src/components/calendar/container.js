@@ -1,28 +1,28 @@
-import React, {Component} from 'react'
-import {DragDropContext} from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
-import {connect} from 'react-redux'
-import moment from 'moment'
+import React, { Component } from "react"
+import { DragDropContext } from "react-dnd"
+import HTML5Backend from "react-dnd-html5-backend"
+import { connect } from "react-redux"
+import moment from "moment"
+import groupBy from "lodash.groupBy"
 
-import {DAY_FORMAT} from '../../constants/calendar'
+import { DAY_FORMAT } from "../../constants/calendar"
+import * as itemType from "../../actions/types"
+import { updateCalendarLiveShow } from "../../actions/calendar"
+import Dustbin from "./dustbin"
+import Box from "./box"
 
-import * as itemType from '../../actions/types'
-import {updateCalendarLiveShow} from '../../actions/calendar'
-import Dustbin from './dustbin'
-import Box from './box'
-
-import './calendar.scss'
+import "./calendar.scss"
 
 const getAcceptedSizes = date => {
-  let accepts = [itemType['xs'], itemType['sm'], itemType['md'],]
+  let accepts = [itemType["xs"], itemType["sm"], itemType["md"],]
   const day = moment(date).day()
 
   if (day === 0) {
-    accepts = [itemType['lg'], itemType['md'],]
+    accepts = [itemType["lg"], itemType["md"],]
   } else if (day > 0 && day < 6) {
-    accepts = [itemType['sm'], itemType['xs'],]
+    accepts = [itemType["sm"], itemType["xs"],]
   } else {
-    accepts = [itemType['md'],]
+    accepts = [itemType["md"],]
   }
   return accepts
 }
@@ -30,17 +30,17 @@ const getAcceptedSizes = date => {
 @DragDropContext(HTML5Backend)
 class Container extends Component {
   componentWillMount() {
-    const {calendar, shows,} = this.props
-    const {dateRange, collection,} = calendar
+    const { calendar, shows, } = this.props
+    const { dateRange, collection, } = calendar
 
-    this.generateDropzones({dateRange, liveShows: collection, shows,})
+    this.generateDropzones({ dateRange, liveShows: collection, shows, })
   }
 
   componentWillReceiveProps(nextProps) {
-    const {calendar, shows,} = nextProps
-    const {dateRange, collection,} = calendar
+    const { calendar, shows, } = nextProps
+    const { dateRange, collection, } = calendar
 
-    this.generateDropzones({dateRange, liveShows: collection, shows,})
+    this.generateDropzones({ dateRange, liveShows: collection, shows, })
   }
 
   shouldComponentUpdate() {
@@ -48,27 +48,34 @@ class Container extends Component {
   }
 
   render() {
-    const {boxes, dustbins,} = this.state
+    const { boxes, dustbins, } = this.state
     const style = {
       backgroundColor: this.props.federation.backgroundColor,
       color: this.props.federation.color,
     }
+    const groupedBoxes = groupBy(boxes, "size")
     return (
       <div className="calendar-inline">
+        {Object.keys(groupedBoxes).map(index => {
+          return (
+            <div className="row">
+              {groupedBoxes[index].map(({ name, size, type, }, index) => {
+                return (
+                  <Box
+                    style={style}
+                    name={name}
+                    size={size}
+                    type={type}
+                    key={index}
+                    canDrag={!this.props.complete}
+                  />
+                )
+              })}
+            </div>
+          )
+        })}
         <div className="row">
-          {boxes.map(({name, size, type,}, index) => (
-            <Box
-              style={style}
-              name={name}
-              size={size}
-              type={type}
-              key={index}
-              canDrag={!this.props.complete}
-            />
-          ))}
-        </div>
-        <div className="row">
-          {dustbins.map(({name, accepts, droppedItem,}, index) => (
+          {dustbins.map(({ name, accepts, droppedItem, }, index) => (
             <Dustbin
               name={name}
               style={style}
@@ -83,12 +90,12 @@ class Container extends Component {
     )
   }
 
-  generateDropzones({liveShows, shows,}) {
+  generateDropzones({ liveShows, shows, }) {
     const dustbins = liveShows.map(liveShow => {
       const name = moment(liveShow.date).format(DAY_FORMAT)
       const accepts = getAcceptedSizes(liveShow.date)
       const droppedItem = liveShow.showId
-        ? {name: liveShow.name, size: liveShow.size,}
+        ? { name: liveShow.name, size: liveShow.size, }
         : {}
 
       return {
@@ -114,7 +121,7 @@ class Container extends Component {
 
   handleDrop(dateIndex, item) {
     if (this.props.calendar.isComplete) return
-    const {name, size,} = item
+    const { name, size, } = item
     const show = this.props.shows.find(show => show.name === name)
 
     this.props.dispatch(
