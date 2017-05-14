@@ -36,10 +36,8 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins, } = this.state
-    const style = {
-      backgroundColor: this.props.federation.backgroundColor,
-      color: this.props.federation.color,
-    }
+    const { backgroundColor, color, } = this.props.federation
+    const style = { backgroundColor, color, }
     const groupedBoxes = groupBy(boxes, "size")
     return (
       <div className="calendar-inline">
