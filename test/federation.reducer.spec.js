@@ -7,7 +7,7 @@ const defaultFederation = { name: "WWE", }
 
 const action = {
   type: types.UPDATE_FEDERATION,
-  payload: {},
+  payload: defaultFederation,
 }
 
 describe("given a federation reducer", () => {
@@ -22,7 +22,7 @@ describe("given a federation reducer", () => {
   describe("and the name of federation is passed in", () => {
     before(() => {
       action.payload = defaultFederation
-      federationReducer = reducer(undefined, action)
+      federationReducer = reducer(federationReducer, action)
     })
   })
 
