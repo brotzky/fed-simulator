@@ -1,23 +1,21 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import moment from 'moment'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import moment from "moment"
 
-import {MONTH_YEAR_FORMAT} from '../constants/calendar'
-import {generateLiveShowsForMonth, resetCalendar} from '../actions/calendar'
-import Calendar from '../components/calendar/container'
-import Accounting from '../components/accounting/container'
-import {simulateLiveShows, startNextCalendarMonth} from '../actions/calendar'
-import Button from '../components/button/button'
-import './stylesheets/calendar'
+import { MONTH_YEAR_FORMAT } from "../constants/calendar"
+import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
+import Calendar from "../components/calendar/container"
+import Accounting from "../components/accounting/container"
+import { simulateLiveShows, startNextCalendarMonth } from "../actions/calendar"
+import Button from "../components/button/button"
+import "./stylesheets/calendar"
 
-const CONFIRM_CLEAR = 'Are you sure you want to clear your calendar history?'
+const CONFIRM_CLEAR = "Are you sure you want to clear your calendar history?"
 const CONFIRM_SIMULATE =
-  'Are you sure you want to simulate the live shows for the month?'
-const CONFIRM_START = 'Are you sure you want to move onto the new month?'
+  "Are you sure you want to simulate the live shows for the month?"
+const CONFIRM_START = "Are you sure you want to move onto the new month?"
 
 class CalendarPage extends Component {
-  displayName = 'CalendarPage'
-
   componentWillMount() {
     if (!this.props.calendar.inProgress) {
       this.props.dispatch(generateLiveShowsForMonth())
@@ -25,18 +23,22 @@ class CalendarPage extends Component {
   }
 
   onClear = () => {
-    confirm(CONFIRM_CLEAR, () => {
+    if (confirm(CONFIRM_CLEAR)) {
       this.props.dispatch(resetCalendar())
       this.props.dispatch(generateLiveShowsForMonth())
-    })
+    }
   }
 
   onSimulateMonth = () => {
-    confirm(CONFIRM_SIMULATE, this.props.dispatch(simulateLiveShows()))
+    if (confirm(CONFIRM_SIMULATE)) {
+      this.props.dispatch(simulateLiveShows())
+    }
   }
 
   onStartNextMonth = () => {
-    confirm(CONFIRM_START, this.props.dispatch(startNextCalendarMonth()))
+    if (confirm(CONFIRM_START)) {
+      this.props.dispatch(startNextCalendarMonth())
+    }
   }
 
   shouldComponentUpdate() {
@@ -93,6 +95,8 @@ class CalendarPage extends Component {
     )
   }
 }
+
+CalendarPage.displayName = "CalendarPage"
 
 export default connect(state => ({
   calendar: state.calendar,
