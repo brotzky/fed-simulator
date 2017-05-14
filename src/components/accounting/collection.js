@@ -56,6 +56,7 @@ const AccountingCollection = ({
   return (
     <div className="accounting">
       {heading({
+        key: "cash",
         first: "Cash Available",
         second: "",
         third: federationCash,
@@ -72,7 +73,7 @@ const AccountingCollection = ({
             {liveShows[index].map((show, key) => {
               const { name, date, } = show
               return heading({
-                key: key,
+                key: date,
                 first: liveShowName(isComplete, name, date, onClickDelete),
                 second: nFormatter(show.cost),
                 third: show.gross > 0 ? nFormatter(show.gross) : "",
