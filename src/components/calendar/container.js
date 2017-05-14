@@ -81,15 +81,17 @@ class Container extends Component {
   generateDropzones({ liveShows, shows, }) {
     const dustbins = liveShows.map(liveShow => {
       const name = moment(liveShow.date).format(DAY_FORMAT)
+      const date = liveShow.date
       const accepts = getAcceptedSizes(liveShow.date)
       const droppedItem = liveShow.showId
         ? { name: liveShow.name, size: liveShow.size, }
         : {}
 
       return {
-        name,
         accepts,
+        date,
         droppedItem,
+        name,
       }
     })
 
