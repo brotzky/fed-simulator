@@ -46,34 +46,35 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const title = moment(this.props.calendar.firstDay).format(MONTH_YEAR_FORMAT)
+    const { calendar, } = this.props
+    const liveShows = calendar.collection.filter(liveShow => liveShow.cost > 0)
+    const title = moment(calendar.firstDay).format(MONTH_YEAR_FORMAT)
+    const hasLiveShows = liveShows.length > 0
     return (
       <section className="page calendar">
+        <h1>
+          {title}&nbsp;
+          <a onClick={this.onClear}>
+            <div className="fa fa-trash-o fa-md" />
+          </a>
+        </h1>
         <div className="row">
-          <div className="col-xs-12 col-md-8 col-lg-9">
-            <h1>
-              {title}&nbsp;
-              <a onClick={this.onClear}>
-                <div className="fa fa-trash-o fa-md" />
-              </a>
-            </h1>
-            <If condition={this.props.calendar.inProgress}>
-              <Calendar />
-            </If>
+          <div
+            className={`col-xs-12 ${hasLiveShows ? "col-sm-12 col-md-8 col-lg-9" : ""}`}
+          >
+            <div className="box">
+              <If condition={this.props.calendar.inProgress}>
+                <Calendar />
+              </If>
+            </div>
           </div>
-          <div className="col-xs-12 col-md-4 col-lg-3">
-            <div className="sidebar">
+          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+            <div className="box">
               <Accounting
                 isComplete={this.props.calendar.isComplete}
                 showDelete={!this.props.calendar.isComplete}
               />
-              <If
-                condition={
-                  this.props.calendar.collection.filter(
-                    show => show.showId !== false
-                  ).length > 0
-                }
-              >
+              <If condition={hasLiveShows}>
                 <br />
                 <If condition={!this.props.calendar.isComplete}>
                   <Button

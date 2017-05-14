@@ -25,7 +25,6 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case "RESET":
     case "RESET_CALENDAR":
-      console.log("it got reset;")
       state = defaultState
       break
     case "DELETE_CALENDAR_LIVESHOW":
