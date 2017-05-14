@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 
 import QuickColorPicker from "../quick/color-picker"
 import { updateFederation } from "../../actions/federation"
+import invertHex from "../../helpers/invert-hex"
 
 const noop = () => {}
 
@@ -33,11 +34,11 @@ class ColorPickers extends React.Component {
   render() {
     const { backgroundColor, color, } = this.props.federation
     const bgColorContainer = {
-      border: ".1rem solid white",
+      border: `.2rem solid ${invertHex(backgroundColor)}`,
       backgroundColor,
     }
     const colorContainer = {
-      border: ".1rem solid white",
+      border: `.2rem solid ${invertHex(color)}`,
       backgroundColor: color,
     }
     return (
