@@ -4,30 +4,28 @@ import Model from "./game.model"
 
 const defaultState = new Model().toJSON()
 
-// const firstDay = moment().startOf("month").utc().toDate()
-// const lastDay = moment().endOf("month").utc().toDate()
-// const inProgress = false
-// const isComplete = false
-// state.dateRange = getDateRange(state.firstDay, state.lastDay)
-
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
+
   switch (action.type) {
     case "RESET":
+    case "RESET_GAME":
       state = defaultState
       break
     case "UPDATE_GAME":
       state = Object.assign(state, action.payload)
       break
     case "ADD_ONE_MONTH":
-      const currentDate = Date(
-        `${state.currentDate}/${state.currentMonth}/${state.currentYear}`
-      )
+      let currentDate = moment().set({
+        year: state.currentYear,
+        month: state.currentMonth,
+        date: state.currentDate,
+      })
       const nextMonth = moment(currentDate).add(1, "month").toDate()
 
-      state.currentDate = new Date(nextMonth).getUTCDate()
-      state.currentMonth = new Date(nextMonth).getUTCMonth()
-      state.currentYear = new Date(nextMonth).getFullYear()
+      state.currentDate = nextMonth.getUTCDate()
+      state.currentMonth = nextMonth.getUTCMonth()
+      state.currentYear = nextMonth.getFullYear()
       break
     case "TOGGLE_PLAN":
       state.canPlan = !state.canPlan
@@ -37,10 +35,14 @@ export default (state = defaultState, action) => {
       break
   }
 
-  const currentDate = moment().set({
+  let currentDate = moment().set({
     year: state.currentYear,
     month: state.currentMonth,
     date: state.currentDate,
+    hour: 0,
+    minute: 0,
+    second: 1,
+    millisecond: 0,
   })
 
   state.date = currentDate.utc().toDate()

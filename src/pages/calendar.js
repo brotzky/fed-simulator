@@ -4,6 +4,7 @@ import moment from "moment"
 
 import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
+import { togglePlan, addOneMonth, resetGame } from "../actions/game"
 import Calendar from "../components/calendar/container"
 import Accounting from "../components/accounting/container"
 import { simulateLiveShows, startNextCalendarMonth } from "../actions/calendar"
@@ -19,6 +20,15 @@ class CalendarPage extends Component {
   componentWillMount() {
     if (this.props.calendar.length === 0) {
       const { currentMonth: month, currentYear: year, } = this.props.game
+
+      this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.calendar.length === 0) {
+      const { currentMonth: month, currentYear: year, } = nextProps.game
+
       this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
@@ -28,19 +38,22 @@ class CalendarPage extends Component {
       const { currentMonth: month, currentYear: year, } = this.props.game
 
       this.props.dispatch(resetCalendar())
+      this.props.dispatch(resetGame())
       this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
 
   onSimulateMonth = () => {
     if (confirm(CONFIRM_SIMULATE)) {
+      this.props.dispatch(togglePlan())
       this.props.dispatch(simulateLiveShows())
     }
   }
 
   onStartNextMonth = () => {
     if (confirm(CONFIRM_START)) {
-      this.props.dispatch(startNextCalendarMonth())
+      this.props.dispatch(addOneMonth())
+      this.props.dispatch(resetCalendar())
     }
   }
 
@@ -50,8 +63,8 @@ class CalendarPage extends Component {
 
   render() {
     const { calendar, game, } = this.props
-    const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
     const title = moment(game.date).format(MONTH_YEAR_FORMAT)
+    const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
     const hasLiveShows = liveShows.length > 0
     const classes = `col-xs-12 ${hasLiveShows ? "col-sm-12 col-md-8 col-lg-9" : ""}`
     return (
@@ -65,9 +78,7 @@ class CalendarPage extends Component {
         <div className="row">
           <div className={classes}>
             <div className="box">
-              <If condition={this.props.game.canPlan}>
-                <Calendar />
-              </If>
+              <Calendar />
             </div>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
@@ -78,13 +89,13 @@ class CalendarPage extends Component {
                 <Choose>
                   <When condition={this.props.game.canPlan}>
                     <Button
-                      value="Simulate Live Shows for the Month"
+                      value="Simulate liveshows"
                       onClick={this.onSimulateMonth}
                     />
                   </When>
                   <Otherwise>
                     <Button
-                      value="Start the new month"
+                      value="Move onto next month"
                       onClick={this.onStartNextMonth}
                     />
                   </Otherwise>

@@ -1,5 +1,6 @@
 import moment from "moment"
 
+import { DATE_IMPORT_FORMAT } from "../constants/calendar"
 import showsOptions from "../constants/shows.options.json"
 import { getRandomArbitrary } from "../helpers/math.js"
 import { getDateRange } from "../helpers/get-date-range"
@@ -32,7 +33,7 @@ export default (state = defaultState, action) => {
       break
     case "GENERATE_CALENDAR_LIVESHOWS":
       const { month, year, } = action.payload
-      const firstDay = moment(`01/${month}/${year}`)
+      const firstDay = moment(`01-${month}-${year}`, DATE_IMPORT_FORMAT)
         .startOf("month")
         .utc()
         .toDate()
@@ -50,7 +51,7 @@ export default (state = defaultState, action) => {
         const options = showsOptions.find(
           options => options.size === liveShow.size
         )
-        liveShow.isCompleted = true
+        liveShow.canPlan = false
         liveShow.gross = getRandomArbitrary(
           options.min_gross,
           options.max_gross
