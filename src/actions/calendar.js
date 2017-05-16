@@ -1,4 +1,4 @@
-import * as types from './types'
+import * as types from "./types"
 
 export function reset() {
   return {
@@ -18,10 +18,10 @@ export function startNextCalendarMonth() {
   }
 }
 
-export function generateLiveShowsForMonth(liveShows) {
+export function generateLiveShowsForMonth({ month, year, }) {
   return {
     type: types.GENERATE_CALENDAR_LIVESHOWS,
-    payload: liveShows,
+    payload: { month, year, },
   }
 }
 

@@ -4,7 +4,7 @@ import { nFormatter } from "../../helpers/nFormatter"
 
 const noop = () => {}
 
-const liveShowName = (
+const calendarEvent = (
   isComplete = false,
   name = "",
   date = Date(),
@@ -46,12 +46,12 @@ const heading = ({ first = "", second = "", third = "", }) => (
 const AccountingCollection = ({
   federationCash,
   isComplete = false,
-  liveShows = [],
+  calendarEvents = [],
   onClickDelete = noop,
   totalCost = 0,
   totalGross = 0,
 }) => {
-  liveShows = groupBy(liveShows, "size")
+  calendarEvents = groupBy(calendarEvents, "size")
   federationCash = nFormatter(federationCash)
   return (
     <div className="accounting">
@@ -62,7 +62,7 @@ const AccountingCollection = ({
         third: federationCash,
       })}
       <hr />
-      {Object.keys(liveShows).map(index => {
+      {Object.keys(calendarEvents).map(index => {
         return (
           <div className="accounting__collection" key={index}>
             {heading({
@@ -70,11 +70,11 @@ const AccountingCollection = ({
               second: "Cost",
               third: "Gross",
             })}
-            {liveShows[index].map((show, key) => {
+            {calendarEvents[index].map(show => {
               const { name, date, } = show
               return heading({
                 key: date,
-                first: liveShowName(isComplete, name, date, onClickDelete),
+                first: calendarEvent(isComplete, name, date, onClickDelete),
                 second: nFormatter(show.cost),
                 third: show.gross > 0 ? nFormatter(show.gross) : "",
               })
