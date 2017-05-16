@@ -35,11 +35,8 @@ class CalendarPage extends Component {
 
   onClear = () => {
     if (confirm(CONFIRM_CLEAR)) {
-      const { currentMonth: month, currentYear: year, } = this.props.game
-
       this.props.dispatch(resetCalendar())
       this.props.dispatch(resetGame())
-      this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
 
