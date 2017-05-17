@@ -13,7 +13,7 @@ export default (state = defaultState, action) => {
       state = defaultState
       break
     case "UPDATE_GAME":
-      state = Object.assign(state, action.payload)
+      state = Object.assign(action.payload, state)
       break
     case "ADD_ONE_MONTH":
       let currentDate = moment().set({
@@ -30,7 +30,8 @@ export default (state = defaultState, action) => {
     case "TOGGLE_PLAN":
       state.canPlan = !state.canPlan
       break
-
+    case "ADD_PROFIT":
+      state.cash = state.cash + action.payload.profit
     default:
       break
   }

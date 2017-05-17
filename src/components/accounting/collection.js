@@ -44,7 +44,7 @@ const heading = ({ first = "", second = "", third = "", }) => (
 )
 
 const AccountingCollection = ({
-  federationCash,
+  cash,
   isComplete = false,
   calendarEvents = [],
   onClickDelete = noop,
@@ -52,14 +52,14 @@ const AccountingCollection = ({
   totalGross = 0,
 }) => {
   calendarEvents = groupBy(calendarEvents, "size")
-  federationCash = nFormatter(federationCash)
+  cash = nFormatter(cash)
   return (
     <div className="accounting">
       {heading({
         key: "cash",
         first: "Cash Available",
         second: "",
-        third: federationCash,
+        third: cash,
       })}
       <hr />
       {Object.keys(calendarEvents).map(index => {

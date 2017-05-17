@@ -21,3 +21,10 @@ export function resetGame() {
     type: types.RESET_GAME,
   }
 }
+
+export function addProfitToTotal(profit) {
+  return {
+    type: types.ADD_PROFIT,
+    payload: profit,
+  }
+}

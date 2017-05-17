@@ -10,7 +10,6 @@ const Model = Backbone.Model.extend({
     id: hashCode(new Date().toString()),
     name: "",
     size: "xs",
-    cash: 0,
     backgroundColor: "black",
     color: "white",
   },

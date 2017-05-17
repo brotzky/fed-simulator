@@ -8,6 +8,7 @@ const Model = Backbone.Model.extend({
     currentMonth: new Date().getUTCMonth(),
     currentYear: new Date().getFullYear(),
     canPlan: true,
+    cash: 0,
   },
 
   initialize() {

@@ -4,10 +4,15 @@ import moment from "moment"
 
 import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
-import { togglePlan, addOneMonth, resetGame } from "../actions/game"
+import {
+  togglePlan,
+  addOneMonth,
+  resetGame,
+  addProfitToTotal
+} from "../actions/game"
 import Calendar from "../components/calendar/container"
 import Accounting from "../components/accounting/container"
-import { simulateLiveShows, startNextCalendarMonth } from "../actions/calendar"
+import { simulateLiveShows } from "../actions/calendar"
 import Button from "../components/button/button"
 import "./stylesheets/calendar"
 
@@ -49,6 +54,13 @@ class CalendarPage extends Component {
 
   onStartNextMonth = () => {
     if (confirm(CONFIRM_START)) {
+      const { calendar, } = this.props
+      const profit = calendar.reduce(
+        (prev, el) => prev + (el.cost - el.gross),
+        0
+      )
+
+      this.props.dispatch(addProfitToTotal(profit))
       this.props.dispatch(togglePlan())
       this.props.dispatch(addOneMonth())
       this.props.dispatch(resetCalendar())

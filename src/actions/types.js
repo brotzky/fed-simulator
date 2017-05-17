@@ -14,6 +14,9 @@ export const START_CALENDAR_MONTH = "START_CALENDAR_MONTH"
 export const ADD_ONE_MONTH = "ADD_ONE_MONTH"
 export const TOGGLE_PLAN = "TOGGLE_PLAN"
 
+export const UPDATE_GAME = "UPDATE_GAME"
+export const ADD_PROFIT = "ADD_PROFIT"
+
 export const RESET = "RESET"
 export const RESET_CALENDAR = "RESET_CALENDAR"
 export const RESET_GAME = "RESET_GAME"

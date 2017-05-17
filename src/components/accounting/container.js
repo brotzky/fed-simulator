@@ -43,7 +43,7 @@ class AccountingContainer extends Component {
         totalCost={totalCost}
         showDelete={this.props.showDelete}
         totalGross={totalGross}
-        federationCash={this.props.federation.cash}
+        cash={this.props.game.cash}
       />
     )
   }
@@ -52,4 +52,5 @@ class AccountingContainer extends Component {
 export default connect(state => ({
   calendar: state.calendar,
   federation: state.federation,
+  game: state.game,
 }))(AccountingContainer)
