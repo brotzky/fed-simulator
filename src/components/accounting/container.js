@@ -1,10 +1,10 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
+import React, { Component } from "react"
+import { connect } from "react-redux"
 
-import {deleteLiveShow} from '../../actions/calendar'
-import Collection from './collection'
+import { deleteLiveShow } from "../../actions/calendar"
+import Collection from "./collection"
 
-import './accounting.scss'
+import "./accounting.scss"
 
 function cost(item) {
   return item.cost
@@ -26,29 +26,31 @@ class AccountingContainer extends Component {
   }
 
   render() {
-    let liveShows = this.props.liveShows.filter(liveShow => liveShow.cost > 0)
+    let calendarEvents = this.props.calendar.filter(
+      calendarEvent => calendarEvent.cost > 0
+    )
 
-    if (liveShows.length === 0) {
+    if (calendarEvents.length === 0) {
       return null
     }
 
-    let totalCost = liveShows.map(cost).reduce(sum)
-    let totalGross = liveShows.map(gross).reduce(sum)
+    let totalCost = calendarEvents.map(cost).reduce(sum)
+    let totalGross = calendarEvents.map(gross).reduce(sum)
     return (
       <Collection
         onClickDelete={this.onClickDelete}
-        liveShows={liveShows}
+        calendarEvents={calendarEvents}
         totalCost={totalCost}
         showDelete={this.props.showDelete}
-        isComplete={this.props.isComplete}
         totalGross={totalGross}
-        federationCash={this.props.federation.cash}
+        cash={this.props.game.cash}
       />
     )
   }
 }
 
 export default connect(state => ({
-  liveShows: state.calendar.collection,
+  calendar: state.calendar,
   federation: state.federation,
+  game: state.game,
 }))(AccountingContainer)

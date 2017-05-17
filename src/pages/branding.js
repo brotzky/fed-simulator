@@ -22,8 +22,8 @@ class BrandingPage extends Component {
     return true
   }
 
-  onHandleSubmit = event => {
-    event && event.preventDefault()
+  onHandleSubmit = (event = EVENT_STUB) => {
+    event.preventDefault()
     this.props.router.push("/roster")
   }
 
@@ -36,7 +36,6 @@ class BrandingPage extends Component {
   }
 
   onChangeBGColor = backgroundColor => {
-    console.log("handleBackgroundColorChange")
     const newState = Object.assign({}, this.props.federation, {
       backgroundColor: backgroundColor.hex,
     })

@@ -4,9 +4,15 @@ import moment from "moment"
 
 import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
+import {
+  togglePlan,
+  addOneMonth,
+  resetGame,
+  addProfitToTotal
+} from "../actions/game"
 import Calendar from "../components/calendar/container"
 import Accounting from "../components/accounting/container"
-import { simulateLiveShows, startNextCalendarMonth } from "../actions/calendar"
+import { simulateLiveShows } from "../actions/calendar"
 import Button from "../components/button/button"
 import "./stylesheets/calendar"
 
@@ -17,27 +23,47 @@ const CONFIRM_START = "Are you sure you want to move onto the new month?"
 
 class CalendarPage extends Component {
   componentWillMount() {
-    if (!this.props.calendar.inProgress) {
-      this.props.dispatch(generateLiveShowsForMonth())
+    if (this.props.calendar.length === 0) {
+      const { currentMonth: month, currentYear: year, } = this.props.game
+
+      this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.calendar.length === 0) {
+      const { currentMonth: month, currentYear: year, } = nextProps.game
+
+      this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
 
   onClear = () => {
     if (confirm(CONFIRM_CLEAR)) {
       this.props.dispatch(resetCalendar())
-      this.props.dispatch(generateLiveShowsForMonth())
+      this.props.dispatch(resetGame())
     }
   }
 
   onSimulateMonth = () => {
     if (confirm(CONFIRM_SIMULATE)) {
+      this.props.dispatch(togglePlan())
       this.props.dispatch(simulateLiveShows())
     }
   }
 
   onStartNextMonth = () => {
     if (confirm(CONFIRM_START)) {
-      this.props.dispatch(startNextCalendarMonth())
+      const { calendar, } = this.props
+      const profit = calendar.reduce(
+        (prev, el) => prev + (el.cost - el.gross),
+        0
+      )
+
+      this.props.dispatch(addProfitToTotal(profit))
+      this.props.dispatch(togglePlan())
+      this.props.dispatch(addOneMonth())
+      this.props.dispatch(resetCalendar())
     }
   }
 
@@ -46,10 +72,11 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const { calendar, } = this.props
-    const liveShows = calendar.collection.filter(liveShow => liveShow.cost > 0)
-    const title = moment(calendar.firstDay).format(MONTH_YEAR_FORMAT)
+    const { calendar, game, } = this.props
+    const title = moment(game.date).format(MONTH_YEAR_FORMAT)
+    const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
     const hasLiveShows = liveShows.length > 0
+    const classes = `col-xs-12 ${hasLiveShows ? "col-sm-12 col-md-8 col-lg-9" : ""}`
     return (
       <section className="page calendar">
         <h1>
@@ -59,35 +86,30 @@ class CalendarPage extends Component {
           </a>
         </h1>
         <div className="row">
-          <div
-            className={`col-xs-12 ${hasLiveShows ? "col-sm-12 col-md-8 col-lg-9" : ""}`}
-          >
+          <div className={classes}>
             <div className="box">
-              <If condition={this.props.calendar.inProgress}>
-                <Calendar />
-              </If>
+              <Calendar />
             </div>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
             <div className="box">
-              <Accounting
-                isComplete={this.props.calendar.isComplete}
-                showDelete={!this.props.calendar.isComplete}
-              />
+              <Accounting showDelete={!this.props.game.canPlan} />
+              <br />
               <If condition={hasLiveShows}>
-                <br />
-                <If condition={!this.props.calendar.isComplete}>
-                  <Button
-                    value="Simulate Live Shows for the Month"
-                    onClick={this.onSimulateMonth}
-                  />
-                </If>
-                <If condition={this.props.calendar.isComplete}>
-                  <Button
-                    value="Start the new month"
-                    onClick={this.onStartNextMonth}
-                  />
-                </If>
+                <Choose>
+                  <When condition={this.props.game.canPlan}>
+                    <Button
+                      value="Simulate liveshows"
+                      onClick={this.onSimulateMonth}
+                    />
+                  </When>
+                  <Otherwise>
+                    <Button
+                      value="Move onto next month"
+                      onClick={this.onStartNextMonth}
+                    />
+                  </Otherwise>
+                </Choose>
               </If>
             </div>
           </div>
@@ -100,5 +122,6 @@ class CalendarPage extends Component {
 CalendarPage.displayName = "CalendarPage"
 
 export default connect(state => ({
+  game: state.game,
   calendar: state.calendar,
 }))(CalendarPage)

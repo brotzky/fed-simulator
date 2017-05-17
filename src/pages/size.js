@@ -1,22 +1,24 @@
-import './stylesheets/size.scss'
-import {connect} from 'react-redux'
-import classNames from 'classNames'
-import {updateFederation} from '../actions/federation'
-import defaultOptions from '../constants/size.options.json'
-import PropTypes from 'prop-types'
-import React, {Component} from 'react'
-import acronymLongName from '../helpers/acronym-long-name'
+import "./stylesheets/size.scss"
+import { connect } from "react-redux"
+import classNames from "classNames"
+import { updateFederation } from "../actions/federation"
+import { updateGame } from "../actions/game"
+import defaultOptions from "../constants/size.options.json"
+import PropTypes from "prop-types"
+import React, { Component } from "react"
+import acronymLongName from "../helpers/acronym-long-name"
 
 class SizePage extends Component {
   state = {
-    size: '',
+    size: "",
+    cash: "",
   }
 
   componentDidMount() {
-    if (this.props.federation.size !== '') {
+    if (this.props.federation.size !== "") {
       this.setState({
         size: this.props.federation.size,
-        cash: this.props.federation.cash,
+        cash: this.props.game.cash,
       })
     }
   }
@@ -30,13 +32,16 @@ class SizePage extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    const newState = Object.assign(this.props.federation, this.state)
 
-    this.props.dispatch(updateFederation(newState))
-    this.props.router.push('/branding')
+    const { cash, size, } = this.state
+    const { federation, game, } = this.props
+    const fedState = Object.assign(federation, { size, })
+    const gameState = Object.assign(game, { cash, })
+
+    this.props.dispatch(updateFederation(fedState))
+    this.props.dispatch(updateGame(gameState))
+    this.props.router.push("/branding")
   }
-
-  displayName = 'Size'
 
   render() {
     return (
@@ -50,13 +55,11 @@ class SizePage extends Component {
         <div className="row sizes">
           {defaultOptions.map(option => {
             const classes = classNames(
-              'col-xs-3',
-              'size',
-              'grow',
-              'cursor-pointer',
-              {
-                active: option.size === this.state.size,
-              }
+              "col-xs-3",
+              "size",
+              "grow",
+              "cursor-pointer",
+              { active: option.size === this.state.size, }
             )
             return (
               <div
@@ -84,8 +87,11 @@ SizePage.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
+SizePage.displayName = "Size"
+
 export default connect(state => ({
   federation: state.federation,
+  game: state.game,
 }))(SizePage)
 
 // Bingohall by Creative Stall from the Noun Project; https://thenounproject.com/search/?i=145426

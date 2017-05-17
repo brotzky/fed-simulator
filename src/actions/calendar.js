@@ -1,10 +1,4 @@
-import * as types from './types'
-
-export function reset() {
-  return {
-    type: types.RESET,
-  }
-}
+import * as types from "./types"
 
 export function resetCalendar() {
   return {
@@ -18,10 +12,10 @@ export function startNextCalendarMonth() {
   }
 }
 
-export function generateLiveShowsForMonth(liveShows) {
+export function generateLiveShowsForMonth({ month, year, }) {
   return {
     type: types.GENERATE_CALENDAR_LIVESHOWS,
-    payload: liveShows,
+    payload: { month, year, },
   }
 }
 
@@ -36,6 +30,12 @@ export function updateCalendarLiveShow(payload) {
   return {
     type: types.UPDATE_CALENDAR_LIVESHOW,
     payload,
+  }
+}
+
+export function deleteLiveShows() {
+  return {
+    type: types.DELETE_CALENDAR_LIVESHOWS,
   }
 }
 

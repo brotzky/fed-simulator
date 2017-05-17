@@ -18,16 +18,14 @@ import "./calendar.scss"
 class Container extends Component {
   componentWillMount() {
     const { calendar, shows, } = this.props
-    const { dateRange, collection, } = calendar
 
-    this.generateDropzones({ dateRange, liveShows: collection, shows, })
+    this.generateDropzones({ liveShows: calendar, shows, })
   }
 
   componentWillReceiveProps(nextProps) {
     const { calendar, shows, } = nextProps
-    const { dateRange, collection, } = calendar
 
-    this.generateDropzones({ dateRange, liveShows: collection, shows, })
+    this.generateDropzones({ liveShows: calendar, shows, })
   }
 
   shouldComponentUpdate() {
@@ -126,5 +124,6 @@ class Container extends Component {
 export default connect(state => ({
   shows: state.shows,
   federation: state.federation,
+  game: state.game,
   calendar: state.calendar,
 }))(Container)

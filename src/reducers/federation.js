@@ -6,6 +6,7 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case "RESET":
+    case "RESET_FEDERATION":
       state = defaultState
       break
     case "UPDATE_FEDERATION":

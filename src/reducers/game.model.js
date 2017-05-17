@@ -1,17 +1,14 @@
 import Backbone from "backbone"
 import _each from "lodash/each"
-import _escape from "lodash/escape"
 import sanitizer from "sanitizer"
-
-import { hashCode } from "../helpers/hash"
 
 const Model = Backbone.Model.extend({
   defaults: {
-    id: hashCode(new Date().toString()),
-    name: "",
-    size: "xs",
-    backgroundColor: "black",
-    color: "white",
+    currentDate: new Date().getUTCDate(),
+    currentMonth: new Date().getUTCMonth(),
+    currentYear: new Date().getFullYear(),
+    canPlan: true,
+    cash: 0,
   },
 
   initialize() {

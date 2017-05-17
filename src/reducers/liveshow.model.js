@@ -4,13 +4,13 @@ import sanitizer from "sanitizer"
 
 const Model = Backbone.Model.extend({
   defaults: {
-    name: "",
-    isCompleted: false,
+    canPlan: false,
     cost: 0,
-    gross: 0,
-    rating: 0,
     date: Date(),
+    gross: 0,
     matches: [],
+    name: "",
+    rating: 0,
     showId: false,
     size: "xs",
   },
