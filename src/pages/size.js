@@ -34,15 +34,14 @@ class SizePage extends Component {
     event.preventDefault()
 
     const { cash, size, } = this.state
-    const fedState = Object.assign(this.props.federation, { size, })
-    const gameState = Object.assign(this.props.game, { cash, })
+    const { federation, game, } = this.props
+    const fedState = Object.assign(federation, { size, })
+    const gameState = Object.assign(game, { cash, })
 
     this.props.dispatch(updateFederation(fedState))
     this.props.dispatch(updateGame(gameState))
     this.props.router.push("/branding")
   }
-
-  displayName = "Size"
 
   render() {
     return (
@@ -60,9 +59,7 @@ class SizePage extends Component {
               "size",
               "grow",
               "cursor-pointer",
-              {
-                active: option.size === this.state.size,
-              }
+              { active: option.size === this.state.size, }
             )
             return (
               <div
@@ -89,6 +86,8 @@ class SizePage extends Component {
 SizePage.contextTypes = {
   router: PropTypes.object.isRequired,
 }
+
+SizePage.displayName = "Size"
 
 export default connect(state => ({
   federation: state.federation,
