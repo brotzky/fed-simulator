@@ -23,15 +23,15 @@ export default (state = defaultState, action) => {
       })
       const nextMonth = moment(currentDate).add(1, "month").toDate()
 
-      state.currentDate = nextMonth.getUTCDate()
-      state.currentMonth = nextMonth.getUTCMonth()
+      state.currentDate = nextMonth.getDate()
+      state.currentMonth = nextMonth.getMonth()
       state.currentYear = nextMonth.getFullYear()
       break
     case "TOGGLE_PLAN":
       state.canPlan = !state.canPlan
       break
     case "ADD_PROFIT":
-      state.cash = state.cash + action.payload.profit
+      state.cash = state.cash + Number(action.payload)
     default:
       break
   }
@@ -46,6 +46,6 @@ export default (state = defaultState, action) => {
     millisecond: 0,
   })
 
-  state.date = currentDate.utc().toDate()
+  state.date = currentDate.toDate()
   return new Model(state).toJSON()
 }

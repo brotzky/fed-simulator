@@ -33,11 +33,10 @@ export default (state = defaultState, action) => {
       break
     case "GENERATE_CALENDAR_LIVESHOWS":
       const { month, year, } = action.payload
-      const firstDay = moment(`01-${month}-${year}`, DATE_IMPORT_FORMAT)
+      const firstDay = moment(`${month}/01/${year}`, DATE_IMPORT_FORMAT)
         .startOf("month")
-        .utc()
         .toDate()
-      const lastDay = moment(firstDay).endOf("month").utc().toDate()
+      const lastDay = moment(firstDay).endOf("month").toDate()
       const dateRange = getDateRange(firstDay, lastDay)
 
       state = []

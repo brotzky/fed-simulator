@@ -55,11 +55,9 @@ class CalendarPage extends Component {
   onStartNextMonth = () => {
     if (confirm(CONFIRM_START)) {
       const { calendar, } = this.props
-      const profit = calendar.reduce(
-        (prev, el) => prev + (el.cost - el.gross),
-        0
-      )
-
+      const profit = calendar.reduce((prev, el) => {
+        return prev + (el.gross - el.cost)
+      }, 0)
       this.props.dispatch(addProfitToTotal(profit))
       this.props.dispatch(togglePlan())
       this.props.dispatch(addOneMonth())
@@ -76,7 +74,6 @@ class CalendarPage extends Component {
     const title = moment(game.date).format(MONTH_YEAR_FORMAT)
     const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
     const hasLiveShows = liveShows.length > 0
-    const classes = `col-xs-12 ${hasLiveShows ? "col-sm-12 col-md-8 col-lg-9" : ""}`
     return (
       <section className="page calendar">
         <h1>
@@ -86,14 +83,14 @@ class CalendarPage extends Component {
           </a>
         </h1>
         <div className="row">
-          <div className={classes}>
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9">
             <div className="box">
               <Calendar />
             </div>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
             <div className="box">
-              <Accounting showDelete={!this.props.game.canPlan} />
+              <Accounting />
               <br />
               <If condition={hasLiveShows}>
                 <Choose>

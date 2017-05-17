@@ -4,8 +4,8 @@ import sanitizer from "sanitizer"
 
 const Model = Backbone.Model.extend({
   defaults: {
-    currentDate: new Date().getUTCDate(),
-    currentMonth: new Date().getUTCMonth(),
+    currentDate: new Date().getDate(),
+    currentMonth: new Date().getMonth(),
     currentYear: new Date().getFullYear(),
     canPlan: true,
     cash: 0,

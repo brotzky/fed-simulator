@@ -6,7 +6,7 @@ const action = {
   payload: false,
 }
 
-describe.only("given a game reducer", () => {
+describe("given a game reducer", () => {
   let gameReducer
   before(() => (gameReducer = reducer(undefined, action)))
 

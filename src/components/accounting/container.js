@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import PropTypes from "prop-types"
 
 import { deleteLiveShow } from "../../actions/calendar"
 import Collection from "./collection"
@@ -29,24 +30,31 @@ class AccountingContainer extends Component {
     let calendarEvents = this.props.calendar.filter(
       calendarEvent => calendarEvent.cost > 0
     )
+    let hasEvents = calendarEvents.length > 0
 
-    if (calendarEvents.length === 0) {
-      return null
-    }
+    let totalCost = hasEvents ? calendarEvents.map(cost).reduce(sum) : ""
+    let totalGross = hasEvents ? calendarEvents.map(gross).reduce(sum) : ""
 
-    let totalCost = calendarEvents.map(cost).reduce(sum)
-    let totalGross = calendarEvents.map(gross).reduce(sum)
     return (
       <Collection
         onClickDelete={this.onClickDelete}
         calendarEvents={calendarEvents}
         totalCost={totalCost}
-        showDelete={this.props.showDelete}
+        showDelete={this.props.game.canPlan}
         totalGross={totalGross}
         cash={this.props.game.cash}
       />
     )
   }
+}
+
+AccountingContainer.propTypes = {
+  game: PropTypes.object,
+  calendar: PropTypes.array,
+}
+
+AccountingContainer.defaultProps = {
+  calendar: [],
 }
 
 export default connect(state => ({
