@@ -49,6 +49,7 @@ class CalendarPage extends Component {
 
   onStartNextMonth = () => {
     if (confirm(CONFIRM_START)) {
+      this.props.dispatch(togglePlan())
       this.props.dispatch(addOneMonth())
       this.props.dispatch(resetCalendar())
     }
