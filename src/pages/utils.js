@@ -42,7 +42,7 @@ class Utils extends Component {
         <div className={this.state.stage}>
           <p>Shows: {this.props.shows.length}</p>
           <p>Roster: {this.props.roster.length}</p>
-          <p>Live Shows: {this.props.calendar.collection.length}</p>
+          <p>Live Shows: {this.props.calendar.length}</p>
           <p>Federation: {JSON.stringify(this.props.federation)}</p>
         </div>
       </section>
