@@ -18,17 +18,17 @@
 
 html,
 body {
-  height: 100%;
   background-color: black;
   color: white;
+  height: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
+  height: 100%;
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 #root,
@@ -73,7 +73,6 @@ a:hover, .cursor-pointer {
   text-transform: capitalize;
 }
 
-.zoom:hover {
-  transform: scale(1.1);
-  transition: all 400ms ease-in;
+.uppercase {
+  text-transform: uppercase;
 }

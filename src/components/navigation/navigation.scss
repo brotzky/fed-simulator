@@ -1,50 +1,55 @@
 @import "src/stylesheets/breakpoints";
 
+$navigation-font-size: 1.5rem;
+
 .navigation {
-  font-size: 3rem;
+  font-size: $navigation-font-size;
+  font-variant: small-caps;
   font-weight: 100;
   text-transform: capitalize;
-  font-variant: small-caps;
 
   &__list {
+    align-items: center;
+    display: flex;
     flex-wrap: wrap;
     list-style: none;
-    display: flex;
-    align-items: center;
     margin: 0;
-    padding: 1rem 2rem;
-    display: flex;
+    padding: .2rem 2rem;
   }
 
   &__item {
     align-items: flex-start;
-    margin-right: 5rem;
+    margin-right: 3rem;
 
     a {
       text-decoration: none;
-      text-shadow: .1rem .1rem .1rem white;
+      text-shadow: 0 .1rem .1rem white;
     }
   }
 
 
   @include breakpoint(xs) {
     &__list {
-      padding: 1rem;
       display: block;
       line-height: 0;
       overflow-y: scroll;
-      white-space: nowrap;
+      padding: 1rem;
       position: relative;
+      white-space: nowrap;
     }
 
     &__item {
-      padding: .5rem;
-      margin-right: 2rem;
       display: inline-block;
+      margin-right: 2rem;
+      padding: .5rem;
 
       .icon {
         zoom: .1;
       }
     }
   }
+}
+
+.colorPickers {
+  float: right;
 }

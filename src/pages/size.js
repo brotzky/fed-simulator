@@ -47,7 +47,7 @@ class SizePage extends Component {
     return (
       <section className="page size">
         <h1>
-          How big are you `<span className="orange">
+          How big are you `<span className="uppercase orange">
             {acronymLongName(this.props.federation.name)}`
           </span>
           ?!
@@ -73,6 +73,7 @@ class SizePage extends Component {
             )
           })}
         </div>
+        <br />
         <form onSubmit={this.handleSubmit}>
           <button type="submit">
             Save and brand your federation!

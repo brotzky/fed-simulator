@@ -1,8 +1,8 @@
-$basepage-font-size: 9rem;
-$basepage-header-font-size: 9rem;
-$basepage-gutter: 5rem;
+$basepage-font-size: 2rem;
+$basepage-header-font-size: 4rem;
+$basepage-gutter: 2rem;
 
-$basepage-button-font-size: 6rem;
+$basepage-button-font-size: 2rem;
 $basepage-button-color: white;
 $basepage-button-background-color: #3f3f3f;
 $basepage-button-border-radius: 0;
@@ -17,7 +17,7 @@ $basepage-button-padding: .5rem !default;
   h1 {
     font-size: $basepage-header-font-size;
     line-height: $basepage-header-font-size;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1rem 0;
     text-transform: capitalize;
   }
 
@@ -42,8 +42,13 @@ $basepage-button-padding: .5rem !default;
     width: 100%;
   }
 
-  .colorPickers {
-    float: right;
+  .footer {
+    .navigation {
+      display: flex;
+      float: right;
+      justify-content: space-around;
+      width: auto;
+    }
   }
 }
 

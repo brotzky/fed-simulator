@@ -4,6 +4,7 @@ import HTML5Backend from "react-dnd-html5-backend"
 import { connect } from "react-redux"
 import groupBy from "lodash.groupby"
 import moment from "moment"
+import classNames from "classNames"
 
 import { DAY_FORMAT } from "../../constants/calendar"
 import * as itemType from "../../actions/types"
@@ -82,19 +83,21 @@ class Container extends Component {
           })}
         </div>
         <div className="row">
-          {dustbins.map(
-            ({ name, accepts, previous, droppedItem, date, }, index) => (
+          {dustbins.map((dustbin, index) => {
+            const classes = classNames({ clearfix: index % 6 === 0, })
+            return (
               <Dustbin
-                name={name}
-                previous={previous}
+                classes={classes}
+                name={dustbin.name}
+                previous={dustbin.previous}
                 style={style}
-                accepts={accepts}
-                droppedItem={droppedItem}
-                onDrop={item => this.onHandleDrop(date, item)}
+                accepts={dustbin.accepts}
+                droppedItem={dustbin.droppedItem}
+                onDrop={item => this.onHandleDrop(dustbin.date, item)}
                 key={index}
               />
             )
-          )}
+          })}
         </div>
       </div>
     )

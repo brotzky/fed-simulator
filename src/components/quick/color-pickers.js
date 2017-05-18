@@ -34,11 +34,11 @@ class ColorPickers extends React.Component {
   render() {
     const { backgroundColor, color, } = this.props.federation
     const bgColorContainer = {
-      border: `.2rem solid ${invertHex(backgroundColor)}`,
+      border: `.1rem solid ${invertHex(backgroundColor)}`,
       backgroundColor,
     }
     const colorContainer = {
-      border: `.2rem solid ${invertHex(color)}`,
+      border: `.1rem solid ${invertHex(color)}`,
       backgroundColor: color,
     }
     return (

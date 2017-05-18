@@ -1,23 +1,28 @@
 $calendar-border-width: .2rem;
 $calendar-show-width: 10%;
-$calendar-font-size: 2.5rem;
+$calendar-font-size: 1rem;
+$calendar-boxes-font-size: 1rem;
+$calendar-dustbin-font-size: 1.2rem;
 
 $border-color: silver;
-$border-width: .5rem;
+$border-width: .2rem;
 $available: gold;
 $active: green;
 $used: blue;
 $header-bg: #666;
-$day-width: 11%;
+$day-width: 12%;
 
 $previous-bg: #ccc;
 $previous-color: #999;
+
+$show-name-font-size: 1rem;
 
 .calendar-inline {
   font-size: $calendar-font-size;
 
   .header {
     background-color: $header-bg;
+    text-align: center;
   }
 
   .previous {
@@ -25,27 +30,32 @@ $previous-color: #999;
     color: $previous-color;
   }
 
+  .dustbin {
+    min-height: 5rem;
+  }
+
   .dustbin,
   .header {
     border: $border-width solid $border-color;
+    font-size: $calendar-dustbin-font-size;
     font-weight: 300;
-    margin-bottom: 1.5rem;
+    margin-bottom: .8rem;
     margin-right: 1%;
-    padding: 1rem;
     width: $day-width;
 
     p {
-      margin-bottom: 1.5rem;
-      margin-top: 0;
+      margin: 0;
+      padding: $calendar-dustbin-font-size / 5;
     }
 
     &__details {
-      font-weight: 100;å
+      font-weight: 100;
 
       .show__name {
         display: inline-block;
-        font-size: 2rem;
-        padding: .5rem;
+        font-size: $show-name-font-size;
+        padding: .5rem 0;
+        width: 100%;
       }
     }
   }
@@ -53,7 +63,7 @@ $previous-color: #999;
   .boxes {
     cursor: move;
     float: left;
-    font-size: 2.5rem;
+    font-size: $calendar-boxes-font-size;
     font-weight: 100;
     margin-bottom: 1rem;
     margin-right: 1rem;

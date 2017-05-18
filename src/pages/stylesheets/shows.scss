@@ -1,4 +1,5 @@
-$shows-font-size: 3rem;
+$shows-font-size: 2rem;
+$shows-input-font-size: 1.3rem;
 
 .page.shows {
 	label {
@@ -6,7 +7,7 @@ $shows-font-size: 3rem;
 	}
 
 	textarea {
-		line-height: $shows-font-size;
-		font-size: $shows-font-size;
+		font-size: $shows-input-font-size;
+		line-height: $shows-input-font-size;
 	}
 }

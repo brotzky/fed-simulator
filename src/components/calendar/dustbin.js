@@ -16,11 +16,12 @@ const dustbinTarget = {
 }))
 export default class Dustbin extends Component {
   static propTypes = {
-    connectDropTarget: PropTypes.func.isRequired,
-    isOver: PropTypes.bool.isRequired,
-    canDrop: PropTypes.bool.isRequired,
     accepts: PropTypes.arrayOf(PropTypes.string).isRequired,
+    canDrop: PropTypes.bool.isRequired,
+    classes: PropTypes.string,
+    connectDropTarget: PropTypes.func.isRequired,
     droppedItem: PropTypes.object,
+    isOver: PropTypes.bool.isRequired,
     onDrop: PropTypes.func.isRequired,
     style: PropTypes.object,
   }
@@ -31,23 +32,24 @@ export default class Dustbin extends Component {
 
   render() {
     const {
-      name,
-      previous,
-      isOver,
       canDrop,
+      classes,
       connectDropTarget,
       droppedItem,
+      isOver,
+      name,
+      previous,
     } = this.props
     const isActive = isOver && canDrop
-    const classes = classNames(
+    const outerClasses = classNames(
+      classes,
       "dustbin",
       { active: isActive, },
       { available: canDrop, },
       { previous: previous, }
     )
-
     return connectDropTarget(
-      <div className={classes}>
+      <div className={outerClasses}>
         <p className="dustbin__name">
           {name}
         </p>

@@ -1,4 +1,4 @@
-$size-font-size: 3rem;
+$size-font-size: 1.5rem;
 
 .page.size {
   .sizes {
@@ -8,11 +8,11 @@ $size-font-size: 3rem;
     word-wrap: break-word;
   }
   .size {
-    padding: 0 2rem;
+    padding: 2rem;
 
     h3 {
-      line-height: 3rem;
-      height: 6rem;
+      line-height: 2rem;
+      height: 2.5rem;
     }
   }
   .active {

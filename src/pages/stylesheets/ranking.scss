@@ -1,31 +1,34 @@
-$ranking-table-header-font-size: 3.5rem;
+$ranking-table-header-font-size: 2rem;
+$ranking-font-size: 1.5rem;
+$ranking-tbody-font-size: 1.5rem;
 
 .page.ranking {
-  font-size: 3rem;
+  font-size: $ranking-font-size;
 
   .table,
   h2 {
-    width: 90%;
-    margin: 0;
     font-size: $ranking-table-header-font-size;
+    margin: 0;
+    width: 90%;
   }
 
   .position,
   .losses,
   .wins {
-    width: 1%;
     text-align: center;
+    width: 1%;
   }
 
   thead {
-     font-weight: 500;
      font-variant-caps: small-caps;
+     font-weight: 500;
   }
 
   tbody {
     .name {
-      font-size: 3rem;
+      font-size: $ranking-tbody-font-size;
       font-weight: 100;
+      line-height: $ranking-tbody-font-size * 2;
     }
   }
 }

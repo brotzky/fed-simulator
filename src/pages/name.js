@@ -1,20 +1,20 @@
-import React, {Component} from 'react'
-import {connect} from 'react-redux'
-import {updateFederation} from '../actions/federation'
-import PropTypes from 'prop-types'
-import Textarea from '../components/form/textarea.js'
+import React, { Component } from "react"
+import { connect } from "react-redux"
+import { updateFederation } from "../actions/federation"
+import PropTypes from "prop-types"
+import Input from "../components/form/input"
 
-import './stylesheets/name.scss'
+import "./stylesheets/name.scss"
 
 class Name extends Component {
   state = {
     federation: {
-      name: '',
+      name: "",
     },
   }
 
   componentDidMount() {
-    if (this.props.federation.name !== '') {
+    if (this.props.federation.name !== "") {
       this.setState({
         federation: {
           name: this.props.federation.name,
@@ -39,10 +39,10 @@ class Name extends Component {
     )
 
     this.props.dispatch(updateFederation(federation))
-    this.props.router.push('/size')
+    this.props.router.push("/size")
   }
 
-  displayName = 'Name'
+  displayName = "Name"
 
   render() {
     return (
@@ -50,13 +50,11 @@ class Name extends Component {
         <h1>Name your federation!</h1>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <Textarea
+            <Input
               value={this.state.federation.name}
               name="name"
               onChange={this.handleChange}
-              rows="1"
               label=""
-              rows="2"
             />
           </div>
           <button type="submit">
