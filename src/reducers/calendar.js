@@ -1,6 +1,3 @@
-import moment from "moment"
-
-import { DATE_IMPORT_FORMAT } from "../constants/calendar"
 import showsOptions from "../constants/shows.options.json"
 import { getRandomArbitrary } from "../helpers/math.js"
 import { getDateRange } from "../helpers/get-date-range"
@@ -33,13 +30,12 @@ export default (state = defaultState, action) => {
       break
     case "GENERATE_CALENDAR_LIVESHOWS":
       const { month, year, } = action.payload
-      const firstDay = moment(`${month}/01/${year}`, DATE_IMPORT_FORMAT)
-        .startOf("month")
-        .toDate()
-      const lastDay = moment(firstDay).endOf("month").toDate()
-      const dateRange = getDateRange(firstDay, lastDay)
 
       state = []
+
+      const firstDate = new Date(year, month, 1, 0, 0, 0, 0)
+      const lastDate = new Date(year, month + 1, 0)
+      const dateRange = getDateRange(firstDate, lastDate)
 
       dateRange.forEach(date => {
         state.push(new Model({ date: date, }).toJSON())
@@ -60,8 +56,9 @@ export default (state = defaultState, action) => {
       })
       break
     case "UPDATE_CALENDAR_LIVESHOW":
-      const { show, dateIndex, } = action.payload
+      const { show, date, } = action.payload
       const options = showsOptions.find(options => options.size === show.size)
+      const dateIndex = state.findIndex(liveShow => liveShow.date === date)
 
       if (state[dateIndex]) {
         state[dateIndex] = Object.assign(state[dateIndex], {

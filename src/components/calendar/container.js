@@ -19,30 +19,45 @@ class Container extends Component {
   componentWillMount() {
     const { calendar, shows, } = this.props
 
-    this.generateDropzones({ liveShows: calendar, shows, })
+    this._generateDropzones({ liveShows: calendar, shows, })
   }
 
   componentWillReceiveProps(nextProps) {
     const { calendar, shows, } = nextProps
 
-    this.generateDropzones({ liveShows: calendar, shows, })
+    this._generateDropzones({ liveShows: calendar, shows, })
   }
 
   shouldComponentUpdate() {
     return true
   }
 
+  onHandleDrop(date, item) {
+    if (!this.props.game.canPlan) return
+    const { name, size, } = item
+    const show = this.props.shows.find(show => show.name === name)
+
+    this.props.dispatch(
+      updateCalendarLiveShow({
+        date,
+        show,
+        name,
+        size,
+      })
+    )
+  }
+
   render() {
     const { boxes, dustbins, } = this.state
-    const { backgroundColor, color, } = this.props.federation
-    const style = { backgroundColor, color, }
+    const style = this._getStyle()
     const groupedBoxes = groupBy(boxes, "size")
+    const weekDays = this._getWeekdaysNames()
     return (
       <div className="calendar-inline">
         {Object.keys(groupedBoxes).map(index => {
           return (
             <div key={index} className="row">
-              {groupedBoxes[index].map(({ name, size, date, type, }, index) => {
+              {groupedBoxes[index].map(({ name, size, date, type, }) => {
                 return (
                   <Box
                     key={date}
@@ -50,7 +65,6 @@ class Container extends Component {
                     name={name}
                     size={size}
                     type={type}
-                    key={index}
                     canDrag={!this.props.calendar.isComplete}
                   />
                 )
@@ -59,23 +73,77 @@ class Container extends Component {
           )
         })}
         <div className="row">
-          {dustbins.map(({ name, accepts, droppedItem, }, index) => (
-            <Dustbin
-              name={name}
-              style={style}
-              accepts={accepts}
-              droppedItem={droppedItem}
-              onDrop={item => this.handleDrop(index, item)}
-              key={index}
-            />
-          ))}
+          {weekDays.map(day => {
+            return (
+              <div className="header">
+                {day}
+              </div>
+            )
+          })}
+        </div>
+        <div className="row">
+          {dustbins.map(
+            ({ name, accepts, previous, droppedItem, date, }, index) => (
+              <Dustbin
+                name={name}
+                previous={previous}
+                style={style}
+                accepts={accepts}
+                droppedItem={droppedItem}
+                onDrop={item => this.onHandleDrop(date, item)}
+                key={index}
+              />
+            )
+          )}
         </div>
       </div>
     )
   }
 
-  generateDropzones({ liveShows, shows, }) {
-    const dustbins = liveShows.map(liveShow => {
+  _getStyle() {
+    const { backgroundColor, color, } = this.props.federation
+
+    return { backgroundColor, color, }
+  }
+
+  _getWeekdaysNames() {
+    return [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ]
+  }
+
+  _getOffsetDustbins() {
+    const firstDate = new Date(this.props.calendar[0].date)
+    const daysOffset = firstDate.getDay()
+    const oneDay = 24 * 60 * 60 * 1000
+
+    let emptyDates = []
+    let accepts = []
+    let droppedItem = {}
+    let date = firstDate
+
+    for (let i = 0; i < daysOffset; i++) {
+      date = new Date(date.getTime() - oneDay)
+      emptyDates.push({
+        date,
+        accepts,
+        name: moment(date).format(DAY_FORMAT),
+        droppedItem,
+        previous: true,
+      })
+    }
+
+    return emptyDates.reverse()
+  }
+
+  _generateDropzones({ liveShows, shows, }) {
+    let dustbins = liveShows.map(liveShow => {
       const name = moment(liveShow.date).format(DAY_FORMAT)
       const date = liveShow.date
       const accepts = getAcceptedSizes(liveShow.date)
@@ -88,6 +156,7 @@ class Container extends Component {
         date,
         droppedItem,
         name,
+        previous: false,
       }
     })
 
@@ -99,25 +168,14 @@ class Container extends Component {
       }
     })
 
+    const previousMonthDustbins = this._getOffsetDustbins()
+
+    dustbins = previousMonthDustbins.concat(dustbins)
+
     this.setState({
       boxes,
       dustbins,
     })
-  }
-
-  handleDrop(dateIndex, item) {
-    if (this.props.calendar.isComplete) return
-    const { name, size, } = item
-    const show = this.props.shows.find(show => show.name === name)
-
-    this.props.dispatch(
-      updateCalendarLiveShow({
-        dateIndex,
-        show,
-        name,
-        size,
-      })
-    )
   }
 }
 

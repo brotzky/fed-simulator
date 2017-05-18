@@ -13,7 +13,7 @@
     "start": "NODE_ENV=development DEBUG=app:* babel-node ./scripts/start.js | npm run test",
     "build": "NODE_ENV=production DEBUG=app:* babel-node ./scripts/build.js",
     "lint": "eslint src",
-    "test": "NODE_ENV=test nyc mocha --opts mocha.opts"
+    "test": "NODE_ENV=test mocha --opts mocha.opts"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.1",
@@ -87,7 +87,6 @@
     "lodash.groupby": "^4.6.0",
     "lodash.orderby": "^4.6.0",
     "moment": "^2.18.1",
-    "nyc": "^10.3.2",
     "promise": "7.1.1",
     "react": "^15.2.1",
     "react-color": "^2.11.4",

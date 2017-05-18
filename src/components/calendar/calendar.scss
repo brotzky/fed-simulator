@@ -7,12 +7,26 @@ $border-width: .5rem;
 $available: gold;
 $active: green;
 $used: blue;
+$header-bg: #666;
 $day-width: 11%;
+
+$previous-bg: #ccc;
+$previous-color: #999;
 
 .calendar-inline {
   font-size: $calendar-font-size;
 
-  .dustbin {
+  .header {
+    background-color: $header-bg;
+  }
+
+  .previous {
+    background-color: $previous-bg;
+    color: $previous-color;
+  }
+
+  .dustbin,
+  .header {
     border: $border-width solid $border-color;
     font-weight: 300;
     margin-bottom: 1.5rem;
@@ -26,12 +40,12 @@ $day-width: 11%;
     }
 
     &__details {
-      font-weight: 100;
+      font-weight: 100;å
 
       .show__name {
         display: inline-block;
-        padding: .5rem;
         font-size: 2rem;
+        padding: .5rem;
       }
     }
   }

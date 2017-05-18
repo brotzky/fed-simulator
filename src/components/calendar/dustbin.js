@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import classNames from 'classNames'
-import PropTypes from 'prop-types'
-import {DropTarget} from 'react-dnd'
+import React, { Component } from "react"
+import classNames from "classNames"
+import PropTypes from "prop-types"
+import { DropTarget } from "react-dnd"
 
 const dustbinTarget = {
   drop(props, monitor) {
@@ -30,14 +30,22 @@ export default class Dustbin extends Component {
   }
 
   render() {
-    const {name, isOver, canDrop, connectDropTarget, droppedItem,} = this.props
+    const {
+      name,
+      previous,
+      isOver,
+      canDrop,
+      connectDropTarget,
+      droppedItem,
+    } = this.props
     const isActive = isOver && canDrop
-
     const classes = classNames(
-      'dustbin',
-      {active: isActive,},
-      {available: canDrop,}
+      "dustbin",
+      { active: isActive, },
+      { available: canDrop, },
+      { previous: previous, }
     )
+
     return connectDropTarget(
       <div className={classes}>
         <p className="dustbin__name">
@@ -46,7 +54,7 @@ export default class Dustbin extends Component {
         <p className="dustbin__details">
           {!droppedItem &&
             <span className="drop">
-              {isActive ? 'Release to drop' : ''}
+              {isActive ? "Release to drop" : ""}
             </span>}
           &nbsp;
           <If condition={droppedItem.name}>

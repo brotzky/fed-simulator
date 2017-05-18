@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
-import {DragSource} from 'react-dnd'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import { DragSource } from "react-dnd"
 
 const boxSource = {
   beginDrag(props) {
@@ -29,7 +29,7 @@ export default class Box extends Component {
   }
 
   render() {
-    const {name, size, style, isDragging, connectDragSource,} = this.props
+    const { name, size, style, isDragging, connectDragSource, } = this.props
     const opacity = isDragging ? 0.4 : 1
 
     return connectDragSource(

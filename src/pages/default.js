@@ -1,25 +1,25 @@
-import {connect} from 'react-redux'
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import { connect } from "react-redux"
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 class Default extends Component {
-  displayName = 'Default'
+  displayName = "Default"
 
   componentWillMount() {
-    if (this.props.federation.name === '') {
-      this.props.router.push('/name')
-    } else if (this.props.federation.size === '') {
-      this.props.router.push('/size')
-    } else if (this.props.federation.backgroundColor === '') {
-      this.props.router.push('/branding')
+    if (this.props.federation.name === "") {
+      this.props.router.push("/name")
+    } else if (this.props.federation.size === "") {
+      this.props.router.push("/size")
+    } else if (this.props.federation.backgroundColor === "") {
+      this.props.router.push("/branding")
     } else if (this.props.roster.length === 0) {
-      this.props.router.push('/roster')
+      this.props.router.push("/roster")
     } else if (this.props.shows.length === 0) {
-      this.props.router.push('/shows')
-    } else if (this.props.calendar.collection.length === 0) {
-      this.props.router.push('/calendar')
+      this.props.router.push("/shows")
+    } else if (this.props.calendar.length === 0) {
+      this.props.router.push("/calendar")
     } else {
-      this.props.router.push('/calendar')
+      this.props.router.push("/calendar")
     }
   }
 
