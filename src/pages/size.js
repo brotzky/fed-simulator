@@ -55,7 +55,7 @@ class SizePage extends Component {
         <div className="row sizes">
           {defaultOptions.map(option => {
             const classes = classNames(
-              "col-xs-3",
+              "col-xs-12 col-sm-12 col-md-6 col-lg-3",
               "size",
               "grow",
               "cursor-pointer",
