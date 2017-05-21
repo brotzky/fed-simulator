@@ -5,7 +5,7 @@ const defaultConfig = require("./webpack.common")
 const path = require("path")
 const constants = require("../src/constants")
 const paths = require("./paths")
-const ManifestPlugin = require("webpack-manifest-plugin")
+const workboxPlugin = require("workbox-webpack-plugin")
 
 const HTMLMinifier = {
   removeComments: true,
@@ -59,11 +59,13 @@ pluginPush(
     },
   })
 )
-// pluginPush(
-//   new ManifestPlugin({
-//     fileName: 'asset-manifest.json',
-//   })
-// )
+pluginPush(
+  new workboxPlugin({
+    globDirectory: paths.appBuild,
+    staticFileGlobs: ["**/*.{html,js,css}",],
+    swDest: path.join(paths.appBuild, "sw.js"),
+  })
+)
 pluginPush(new ExtractTextPlugin("static/[name].css"))
 pluginPush(
   new HtmlWebpackPlugin({
