@@ -52,6 +52,7 @@ function getServedPath(appPackageJson) {
 module.exports = {
   dotenv: resolveApp(".env"),
   appBuild: resolveApp("build"),
+  appImgs: resolveApp("src/public/imgs"),
   appPublic: resolveApp("src/public"),
   appHtml: resolveApp("src/public/index.html"),
   appIndexJs: resolveApp("src/index.js"),
@@ -59,30 +60,9 @@ module.exports = {
   appSrc: resolveApp("src"),
   yarnLockFile: resolveApp("yarn.lock"),
   testsSetup: resolveApp("src/setupTests.js"),
+  appStylesheets: resolveApp("src/stylesheets"),
+  ownNodeModules: resolveApp("node_modules"),
   appNodeModules: resolveApp("node_modules"),
   publicUrl: getPublicUrl(resolveApp("package.json")),
   servedPath: getServedPath(resolveApp("package.json")),
-}
-
-// @remove-on-eject-begin
-const resolveOwn = relativePath => path.resolve(__dirname, "..", relativePath)
-
-// config before eject: we're in ./node_modules/react-scripts/config/
-module.exports = {
-  dotenv: resolveApp(".env"),
-  appPath: resolveApp("."),
-  appBuild: resolveApp("build"),
-  appPublic: resolveApp("src/public"),
-  appHtml: resolveApp("src/public/index.html"),
-  appIndexJs: resolveApp("src/index.js"),
-  appPackageJson: resolveApp("package.json"),
-  appSrc: resolveApp("src"),
-  yarnLockFile: resolveApp("yarn.lock"),
-  testsSetup: resolveApp("src/setupTests.js"),
-  appNodeModules: resolveApp("node_modules"),
-  publicUrl: getPublicUrl(resolveApp("package.json")),
-  servedPath: getServedPath(resolveApp("package.json")),
-  // These properties only exist before ejecting:
-  ownPath: resolveOwn("."),
-  ownNodeModules: resolveOwn("node_modules"), // This is empty on npm 3
 }
