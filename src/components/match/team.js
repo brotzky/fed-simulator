@@ -37,13 +37,20 @@ export default class Team extends Component {
       onRemoveWrestler,
     } = this.props
     const hasWinner = wrestlers.find(wrestler => wrestler.winner)
-      ? "has-winner"
-      : ""
+    const hasManyWrestlers = wrestlers.length > 1
+    const teamClasses = classNames(
+      "team",
+      "col-lg-6 col-sm-6 col-xs-12",
+      {
+        "has-winner": hasWinner,
+      },
+      {
+        "has-many-wrestlers": hasManyWrestlers,
+      }
+    )
+
     return connectDropTarget(
-      <div
-        data-teamId={teamId}
-        className={`${classes} ${hasWinner} team col-lg-6 col-sm-6 col-xs-12`}
-      >
+      <div data-teamId={teamId} className={teamClasses}>
         <div className="box">
           <Choose>
             <When condition={wrestlers.length > 0}>
