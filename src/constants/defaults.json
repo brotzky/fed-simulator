@@ -1,20 +1,20 @@
 {
   "roster": {
-    "male-lowercard": "male lowercard!",
-    "male-midcard": "male midcard! ",
-    "male-mainevent": "male main events!",
-    "female-lowercard": "female lower cards!",
-    "female-midcard": "female mid cards!",
-    "female-mainevent": "female main eventers!"
+    "male-lowercard": "Viktor, Konnor, Tyler Breeze, Sunil Singh, Sin Cara, Samir Singh, Primo Colon, Aiden English, Zack Ryder, Fandango, James Ellsworth",
+    "male-midcard": "Rusev, Chad Gable, Baron Corbin, Curt Hawkins, Daniel Bryan, Dolph Ziggler, Erick Rowan, Jason Jordan, JBL, Jey Uso, Jimmy Uso, John Cena, Luke Harper, Mojo Rawley",
+    "male-mainevent": "Chris Jericho, Aj Styles, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena",
+    "female-lowercard": "Lana, Carmella",
+    "female-midcard": "Nia Jax, Becky Lynch, Tamina",
+    "female-mainevent": "Charlotte, Naomi, Natalya, Nikki Bella"
   },
   "championships": {
-    "male": "male championships!",
-    "female": "female championships!"
+    "male": "United States Championship, Tag Team Championship, World Heavyweight Championship",
+    "female": "Womens Championship"
   },
   "shows": {
-    "xs": "shows xs",
-    "sm": "shows sm",
-    "md": "shows md",
-    "lg": "shows lg"
+    "xs": "House Show",
+    "sm": "Live TV",
+    "md": "Elimination Chamber, Clash of Champions, Fastlane, Extreme Rules, Money In The Bank, Hell in a Cell, TLC, ",
+    "lg": "Wrestlemania, Summerslam, Survivor Series, Royal Rumble"
   }
 }
