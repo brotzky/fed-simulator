@@ -1,5 +1,4 @@
 import { connect } from "react-redux"
-import faker from "faker"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
 
@@ -7,6 +6,7 @@ import { CHAMPIONSHIP_RESET_CONFIRM } from "../constants/confirmations"
 import { updateChampions } from "../actions/champions"
 import GenerateRandom from "../components/generate-random"
 import Textarea from "../components/form/textarea.js"
+import constantDefaults from "../constants/defaults.json"
 
 import "./stylesheets/champions.scss"
 
@@ -37,58 +37,6 @@ class ChampionsPage extends Component {
     })
   }
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    })
-  }
-
-  handleSubmit = event => {
-    event.preventDefault()
-    let championships = []
-
-    Object.keys(this.state).forEach(stateKey => {
-      let male = stateKey === "male"
-
-      let newChampionship = this.state[stateKey]
-        .split(",")
-        .filter(name => name.length > 2)
-        .filter(String)
-        .map(name => {
-          return {
-            name: name.trim(),
-            male,
-          }
-        })
-
-      championships = championships.concat(newChampionship)
-    })
-    this.props.dispatch(updateChampions(championships))
-    this.props.router.push("/shows")
-  }
-
-  _generateRandomChampions = event => {
-    event.preventDefault
-
-    if (confirm(CHAMPIONSHIP_RESET_CONFIRM)) {
-      let newState = {}
-      let numberOfNames = 3
-
-      Object.keys(this.state).forEach(key => {
-        let newNames = ""
-        let x = 0
-        while (numberOfNames > x) {
-          newNames = `${faker.company.catchPhraseAdjective()}, ${newNames}`
-          x++
-        }
-        newState[key] = newNames
-      })
-      this.setState({
-        ...newState,
-      })
-    }
-  }
-
   render() {
     return (
       <section className="page champions">
@@ -96,8 +44,8 @@ class ChampionsPage extends Component {
           What
           <span className="gold"> gold </span>
           do you have?!
-          {" "}
-          <GenerateRandom onClick={this._generateRandomChampions} />
+          &nbsp;
+          <GenerateRandom onClick={this._generateDefaultChampions} />
         </h1>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
@@ -134,6 +82,46 @@ class ChampionsPage extends Component {
         </form>
       </section>
     )
+  }
+
+  _generateDefaultChampions = event => {
+    event.preventDefault
+
+    if (confirm(CHAMPIONSHIP_RESET_CONFIRM)) {
+      this.setState({
+        ...constantDefaults.championships,
+      })
+    }
+  }
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    let championships = []
+
+    Object.keys(this.state).forEach(stateKey => {
+      let male = stateKey === "male"
+
+      let newChampionship = this.state[stateKey]
+        .split(",")
+        .filter(name => name.length > 2)
+        .filter(String)
+        .map(name => {
+          return {
+            name: name.trim(),
+            male,
+          }
+        })
+
+      championships = championships.concat(newChampionship)
+    })
+    this.props.dispatch(updateChampions(championships))
+    this.props.router.push("/shows")
   }
 }
 

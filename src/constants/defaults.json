@@ -5,16 +5,16 @@
     "male-mainevent": "male main events!",
     "female-lowercard": "female lower cards!",
     "female-midcard": "female mid cards!",
-    "female-mainevent": "female main eventers!",
+    "female-mainevent": "female main eventers!"
   },
   "championships": {
     "male": "male championships!",
-    "female": "female championships!",
+    "female": "female championships!"
   },
   "shows": {
     "xs": "shows xs",
     "sm": "shows sm",
     "md": "shows md",
-    "lg": "shows lg",
+    "lg": "shows lg"
   }
 }

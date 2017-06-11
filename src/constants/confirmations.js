@@ -11,7 +11,7 @@ export const CHAMPIONSHIP_RESET_CONFIRM =
 export const MATCH_CONFIRM_RESET =
   "Are you sure you want to clear your match history?"
 
-export const SHOWS_CONFIRM_RESET =
+export const SHOWS_CONFIRM_GENERATE =
   "Are you sure you want to reset all shows and generate random replacements?"
 
 export const ROSTER_CONFIRM_RESET =
