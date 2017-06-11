@@ -14,7 +14,11 @@ $match-border-color: #929292;
     }
   }
 
-  &.last {
+  &.has-many-wrestlers .wrestler:hover {
+    border: .2rem dashed $inner-color;
+  }
+
+  &:last-of-type {
     opacity: .2;
   }
 
@@ -45,8 +49,6 @@ $match-border-color: #929292;
     }
 
     &:hover {
-      border: .2rem dashed $inner-color;
-
       .icon {
         opacity: 1;
       }
