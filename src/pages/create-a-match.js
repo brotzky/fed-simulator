@@ -143,13 +143,16 @@ class CreateAMatch extends Component {
             </div>
             <div className={storySideclasses}>
               <div className="box">
-                <If condition={currentMatch.story.length > 0}>
-                  <Story story={currentMatch.story} />
-                </If>
                 <If condition={winner}>
                   <h2 className="story winner pulse">
                     {winner.name} Wins
                   </h2>
+                  <h3 className="story loser shake">
+                    {loser.name} Loses
+                  </h3>
+                </If>
+                <If condition={currentMatch.story.length > 0}>
+                  <Story story={currentMatch.story} />
                 </If>
               </div>
             </div>
