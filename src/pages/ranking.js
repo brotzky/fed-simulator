@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import orderBy from "lodash/orderBy"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
+import { SlideRight, SlideLeft } from "animate-components"
 
 import Ranking from "../components/ranking/ranking"
 
@@ -30,25 +31,30 @@ class RankingPage extends Component {
           <span className="gray push"> 🗑 Losers</span>
         </h1>
         <div className="row top-xs">
+
           <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
             <div className="box">
               <If condition={maleWrestlers.length > 0}>
-                <Ranking
-                  title="Male Wrestlers"
-                  rows={maleWrestlers}
-                  columns={COLUMNS}
-                />
+                <SlideLeft duration="500ms">
+                  <Ranking
+                    title="Male Wrestlers"
+                    rows={maleWrestlers}
+                    columns={COLUMNS}
+                  />
+                </SlideLeft>
               </If>
             </div>
           </div>
           <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
             <div className="box">
               <If condition={femaleWrestlers.length > 0}>
-                <Ranking
-                  title="Female Wrestlers"
-                  rows={femaleWrestlers}
-                  columns={COLUMNS}
-                />
+                <SlideRight duration="500ms">
+                  <Ranking
+                    title="Female Wrestlers"
+                    rows={femaleWrestlers}
+                    columns={COLUMNS}
+                  />
+                </SlideRight>
               </If>
             </div>
           </div>

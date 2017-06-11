@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import moment from "moment"
-import { SlideRight } from "animate-components"
+import { SlideRight, SlideLeft } from "animate-components"
 
 import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
@@ -44,6 +44,56 @@ class CalendarPage extends Component {
     return true
   }
 
+  render() {
+    const { calendar, game, } = this.props
+    const title = moment(game.date).format(MONTH_YEAR_FORMAT)
+    const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
+    const hasLiveShows = liveShows.length > 0
+
+    return (
+      <section className="page calendar">
+        <h1>
+          {title}&nbsp;
+          <a onClick={this.onClear}>
+            <div className="fa fa-trash-o fa-md" />
+          </a>
+        </h1>
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div className="box">
+              <SlideLeft duration="500ms">
+                <Calendar />
+              </SlideLeft>
+            </div>
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
+            <div className="box">
+              <If condition={hasLiveShows}>
+                <SlideRight duration="500ms">
+                  <Accounting />
+                  <Choose>
+                    <When condition={this.props.game.canPlan}>
+                      <Button
+                        value="Simulate liveshows"
+                        onClick={this.onSimulateMonth}
+                      />
+                    </When>
+                    <Otherwise>
+                      <Button
+                        value="Move onto next month"
+                        onClick={this.onStartNextMonth}
+                      />
+                    </Otherwise>
+                  </Choose>
+                </SlideRight>
+              </If>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   onClear = () => {
     if (confirm(CALENDAR_CONFIRM_CLEAR)) {
       this.props.dispatch(resetCalendar())
@@ -70,58 +120,6 @@ class CalendarPage extends Component {
       this.props.dispatch(addOneMonth())
       this.props.dispatch(resetCalendar())
     }
-  }
-
-  shouldComponentUpdate() {
-    return true
-  }
-
-  render() {
-    const { calendar, game, } = this.props
-    const title = moment(game.date).format(MONTH_YEAR_FORMAT)
-    const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
-    const hasLiveShows = liveShows.length > 0
-
-    return (
-      <section className="page calendar">
-        <h1>
-          {title}&nbsp;
-          <a onClick={this.onClear}>
-            <div className="fa fa-trash-o fa-md" />
-          </a>
-        </h1>
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-            <div className="box">
-              <Calendar />
-            </div>
-          </div>
-          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
-            <div className="box">
-              <If condition={hasLiveShows}>
-                <SlideRight duration="2s">
-                  <Accounting />
-                  <Choose>
-                    <When condition={this.props.game.canPlan}>
-                      <Button
-                        value="Simulate liveshows"
-                        onClick={this.onSimulateMonth}
-                      />
-                    </When>
-                    <Otherwise>
-                      <Button
-                        value="Move onto next month"
-                        onClick={this.onStartNextMonth}
-                      />
-                    </Otherwise>
-                  </Choose>
-                </SlideRight>
-              </If>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
   }
 }
 
