@@ -29,6 +29,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="dashboard">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require("./pages/dashboard").default, "dashboard")
+            })
+          }}
+        />
+      </Route>
       <Route path="champions">
         <IndexRoute
           getComponent={(nextState, callback) => {

@@ -1,5 +1,9 @@
 [
 	{
+		"url": "dashboard",
+		"title": "Dashboard"
+	},
+	{
 		"url": "ranking",
 		"title": "Ranking"
 	}, {
