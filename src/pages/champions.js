@@ -1,14 +1,14 @@
-import "./stylesheets/champions.scss"
 import { connect } from "react-redux"
-import PropTypes from "prop-types"
-import { updateChampions } from "../actions/champions"
-import React, { Component } from "react"
-import Textarea from "../components/form/textarea.js"
-import GenerateRandom from "../components/generate-random"
 import faker from "faker"
+import PropTypes from "prop-types"
+import React, { Component } from "react"
 
-const CONFIRM_MESSAGE =
-  "Are you sure you want to reset all champions and generate random replacements?"
+import { CHAMPIONSHIP_RESET_CONFIRM } from "../constants/confirmations"
+import { updateChampions } from "../actions/champions"
+import GenerateRandom from "../components/generate-random"
+import Textarea from "../components/form/textarea.js"
+
+import "./stylesheets/champions.scss"
 
 class ChampionsPage extends Component {
   displayName = "ChampionsPage"
@@ -70,7 +70,7 @@ class ChampionsPage extends Component {
   _generateRandomChampions = event => {
     event.preventDefault
 
-    if (confirm(CONFIRM_MESSAGE)) {
+    if (confirm(CHAMPIONSHIP_RESET_CONFIRM)) {
       let newState = {}
       let numberOfNames = 3
 

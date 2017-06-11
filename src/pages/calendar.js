@@ -15,12 +15,13 @@ import Calendar from "../components/calendar/container"
 import Accounting from "../components/accounting/container"
 import { simulateLiveShows } from "../actions/calendar"
 import Button from "../components/button/button"
-import "./stylesheets/calendar"
+import {
+  CALENDAR_CONFIRM_CLEAR,
+  CALENDAR_CONFIRM_SIMULATE,
+  CALENDAR_CONFIRM_START
+} from "../constants/confirmations"
 
-const CONFIRM_CLEAR = "Are you sure you want to clear your calendar history?"
-const CONFIRM_SIMULATE =
-  "Are you sure you want to simulate the live shows for the month?"
-const CONFIRM_START = "Are you sure you want to move onto the new month?"
+import "./stylesheets/calendar"
 
 class CalendarPage extends Component {
   componentWillMount() {
@@ -39,26 +40,31 @@ class CalendarPage extends Component {
     }
   }
 
+  shouldComponentUpdate() {
+    return true
+  }
+
   onClear = () => {
-    if (confirm(CONFIRM_CLEAR)) {
+    if (confirm(CALENDAR_CONFIRM_CLEAR)) {
       this.props.dispatch(resetCalendar())
       this.props.dispatch(resetGame())
     }
   }
 
   onSimulateMonth = () => {
-    if (confirm(CONFIRM_SIMULATE)) {
+    if (confirm(CALENDAR_CONFIRM_SIMULATE)) {
       this.props.dispatch(togglePlan())
       this.props.dispatch(simulateLiveShows())
     }
   }
 
   onStartNextMonth = () => {
-    if (confirm(CONFIRM_START)) {
+    if (confirm(CALENDAR_CONFIRM_START)) {
       const { calendar, } = this.props
       const profit = calendar.reduce((prev, el) => {
         return prev + (el.gross - el.cost)
       }, 0)
+
       this.props.dispatch(addProfitToTotal(profit))
       this.props.dispatch(togglePlan())
       this.props.dispatch(addOneMonth())

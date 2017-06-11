@@ -1,15 +1,15 @@
-import "./stylesheets/shows.scss"
 import { connect } from "react-redux"
-import PropTypes from "prop-types"
-import { updateShows } from "../actions/shows"
-import React, { Component } from "react"
-import defaultShows from "../constants/shows.options.json"
-import Textarea from "../components/form/textarea.js"
-import GenerateRandom from "../components/generate-random"
 import faker from "faker"
+import PropTypes from "prop-types"
+import React, { Component } from "react"
 
-const CONFIRM_MESSAGE =
-  "Are you sure you want to reset all shows and generate random replacements?"
+import { SHOWS_CONFIRM_RESET } from "../constants/confirmations"
+import { updateShows } from "../actions/shows"
+import defaultShows from "../constants/shows.options.json"
+import GenerateRandom from "../components/generate-random"
+import Textarea from "../components/form/textarea.js"
+
+import "./stylesheets/shows.scss"
 
 class ChampionsPage extends Component {
   displayName = "ChampionsPage"
@@ -76,7 +76,7 @@ class ChampionsPage extends Component {
   _generateRandomShows = event => {
     event.preventDefault
 
-    if (confirm(CONFIRM_MESSAGE)) {
+    if (confirm(SHOWS_CONFIRM_RESET)) {
       let newState = {}
       let numberOfNames = 3
 

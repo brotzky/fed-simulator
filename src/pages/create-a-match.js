@@ -11,10 +11,9 @@ import { getId } from "../helpers/hash"
 import Match from "../components/match/container"
 import { resetMatches, simulateMatch } from "../actions/matches"
 import * as matchesAction from "../actions/matches"
+import { MATCH_CONFIRM_RESET } from "../constants/confirmations"
 
 import "./stylesheets/create-a-match.scss"
-
-const CONFIRM_CLEAR = "Are you sure you want to clear your match history?"
 
 const pickRandom = items =>
   items[Math.floor(Math.random() * (items.length - 1))]
@@ -180,7 +179,7 @@ class CreateAMatch extends Component {
   }
 
   onResetMatches = () => {
-    if (confirm(CONFIRM_CLEAR)) {
+    if (confirm(MATCH_CONFIRM_RESET)) {
       this.props.dispatch(resetMatches())
     }
   }
