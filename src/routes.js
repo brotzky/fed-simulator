@@ -38,19 +38,6 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="eventResults">
-        <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(
-                null,
-                require("./pages/event-results").default,
-                "eventResults"
-              )
-            })
-          }}
-        />
-      </Route>
       <Route path="showsOverview">
         <IndexRoute
           getComponent={(nextState, callback) => {
