@@ -5,7 +5,6 @@ const defaultConfig = require("./webpack.common")
 const path = require("path")
 const constants = require("../src/constants")
 const paths = require("./paths")
-const workboxPlugin = require("workbox-webpack-plugin")
 
 const HTMLMinifier = {
   removeComments: true,
@@ -57,13 +56,6 @@ pluginPush(
       warnings: false,
       drop_console: true,
     },
-  })
-)
-pluginPush(
-  new workboxPlugin({
-    globDirectory: paths.appBuild,
-    staticFileGlobs: ["**/*.{html,js,css}",],
-    swDest: path.join(paths.appBuild, "sw.js"),
   })
 )
 pluginPush(new ExtractTextPlugin("static/[name].css"))
