@@ -32,6 +32,7 @@ export default (state = defaultState, action) => {
       break
     case "ADD_PROFIT":
       state.cash = state.cash + Number(action.payload)
+      break
     default:
       break
   }

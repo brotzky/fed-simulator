@@ -1,0 +1,69 @@
+$wrestler-choice-color: #fff;
+$wrestler-text-shadow: #ddd;
+$wrestler-background-color: #fff;
+$wrestler-color: #000;
+
+.wrestlers {
+  bottom: 0;
+  height: 30%;
+  left: 0;
+  overflow: scroll;
+  padding: 1%;
+  position: fixed;
+  width: 98%;
+  z-index: 100;
+
+  .box-filters {
+    display: flex;
+    font-size: 3rem;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .fa.active {
+    text-shadow: .5rem .5rem .5rem currentColor;
+  }
+
+  input[type=text] {
+    background-color: transparent;
+    border-bottom: .2rem solid $wrestler-choice-color;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    font-size: 2rem;
+    height: 1rem;
+
+    &::placeholder {
+      color: $wrestler-choice-color;
+    }
+  }
+
+  .wrestler {
+    align-items: center;
+    background-color: $wrestler-background-color;
+    border-radius: 100%;
+    color: $wrestler-color;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    height: 6rem;
+    justify-content: center;
+    line-height: 1rem;
+    margin: 0 .5rem 1rem;
+    text-align: center;
+    text-shadow: .1rem .1rem .1rem $wrestler-text-shadow;
+    transition: text-shadow .3s linear;
+    width: 6rem;
+    word-wrap: break-word;
+
+    sup {
+      font-size: .8rem;
+      font-weight: 500;
+    }
+
+    &:hover {
+      cursor: pointer;
+      text-shadow: .1rem .2rem .2rem darken($wrestler-text-shadow, 70%);
+    }
+  }
+}

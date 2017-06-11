@@ -1,21 +1,22 @@
 import React, { Component } from "react"
-import { DragDropContext } from "react-dnd"
-import HTML5Backend from "react-dnd-html5-backend"
 import { connect } from "react-redux"
 import groupBy from "lodash.groupby"
 import moment from "moment"
 import classNames from "classNames"
 
+import Liveshow from "../liveshow"
+import { getContrastRatioColor, getShadeBySize } from "../../helpers/colours"
+import { deleteLiveShow } from "../../actions/calendar"
 import { DAY_FORMAT } from "../../constants/calendar"
 import * as itemType from "../../actions/types"
 import { updateCalendarLiveShow } from "../../actions/calendar"
 import Dustbin from "./dustbin"
 import Box from "./box"
+import WeekDays from "./weekdays"
 import getAcceptedSizes from "../../helpers/get-accepted-sizes"
 
 import "./calendar.scss"
 
-@DragDropContext(HTML5Backend)
 class Container extends Component {
   componentWillMount() {
     const { calendar, shows, } = this.props
@@ -50,75 +51,54 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins, } = this.state
-    const style = this._getStyle()
     const groupedBoxes = groupBy(boxes, "size")
-    const weekDays = this._getWeekdaysNames()
+
     return (
       <div className="calendar-inline">
-        {Object.keys(groupedBoxes).map(index => {
+        {Object.keys(groupedBoxes).map(size => {
           return (
-            <div key={index} className="row">
-              {groupedBoxes[index].map(({ name, size, date, type, }) => {
+            <div key={`calendar-show-${size}`} className="row">
+              {groupedBoxes[size].map(({ name, size, type, }) => {
                 return (
                   <Box
-                    key={date}
-                    style={style}
+                    key={`calendar-box-${name}`}
                     name={name}
-                    size={size}
                     type={type}
-                    canDrag={!this.props.calendar.isComplete}
-                  />
+                    canDrag={this.props.game.canPlan}
+                  >
+                    <Liveshow
+                      name={name}
+                      size={size}
+                      style={this.props.style}
+                    />
+                  </Box>
                 )
               })}
             </div>
           )
         })}
-        <div className="row">
-          {weekDays.map(day => {
-            return (
-              <div className="header">
-                {day}
-              </div>
-            )
-          })}
-        </div>
+        <WeekDays />
         <div className="row">
           {dustbins.map((dustbin, index) => {
             const classes = classNames({ clearfix: index % 6 === 0, })
             return (
               <Dustbin
+                key={`calendar-dustbin-${dustbin.date}`}
                 classes={classes}
                 name={dustbin.name}
                 previous={dustbin.previous}
-                style={style}
+                style={this.props.style}
                 accepts={dustbin.accepts}
                 droppedItem={dustbin.droppedItem}
+                canDelete={this.props.game.canPlan}
+                onClickDelete={item => this.onClickDelete(dustbin.date, item)}
                 onDrop={item => this.onHandleDrop(dustbin.date, item)}
-                key={index}
               />
             )
           })}
         </div>
       </div>
     )
-  }
-
-  _getStyle() {
-    const { backgroundColor, color, } = this.props.federation
-
-    return { backgroundColor, color, }
-  }
-
-  _getWeekdaysNames() {
-    return [
-      "Sunday",
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-    ]
   }
 
   _getOffsetDustbins() {
@@ -180,11 +160,15 @@ class Container extends Component {
       dustbins,
     })
   }
+
+  onClickDelete = date => {
+    this.props.dispatch(deleteLiveShow(date))
+  }
 }
 
 export default connect(state => ({
   shows: state.shows,
-  federation: state.federation,
+  style: state.style,
   game: state.game,
   calendar: state.calendar,
 }))(Container)

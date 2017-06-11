@@ -8,6 +8,9 @@ const boxSource = {
       name: props.name,
     }
   },
+  canDrag(props) {
+    return props.canDrag
+  },
 }
 
 @DragSource(props => props.type, boxSource, (connect, monitor) => ({
@@ -18,7 +21,7 @@ export default class Box extends Component {
   static propTypes = {
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
-    size: PropTypes.string,
+    canDrag: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     style: PropTypes.object,
@@ -29,12 +32,11 @@ export default class Box extends Component {
   }
 
   render() {
-    const { name, size, style, isDragging, connectDragSource, } = this.props
-    const opacity = isDragging ? 0.4 : 1
+    const { connectDragSource, } = this.props
 
     return connectDragSource(
-      <div className="boxes" style={Object.assign(style, opacity)}>
-        {name} (<span className="boxes__size">{size}</span>)
+      <div className="boxes">
+        {this.props.children}
       </div>
     )
   }

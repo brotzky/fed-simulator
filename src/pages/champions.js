@@ -1,26 +1,26 @@
-import './stylesheets/champions.scss'
-import {connect} from 'react-redux'
-import PropTypes from 'prop-types'
-import {updateChampions} from '../actions/champions'
-import React, {Component} from 'react'
-import Textarea from '../components/form/textarea.js'
-import GenerateRandom from '../components/generate-random/index'
-import faker from 'faker'
+import "./stylesheets/champions.scss"
+import { connect } from "react-redux"
+import PropTypes from "prop-types"
+import { updateChampions } from "../actions/champions"
+import React, { Component } from "react"
+import Textarea from "../components/form/textarea.js"
+import GenerateRandom from "../components/generate-random"
+import faker from "faker"
 
 const CONFIRM_MESSAGE =
-  'Are you sure you want to reset all champions and generate random replacements?'
+  "Are you sure you want to reset all champions and generate random replacements?"
 
 class ChampionsPage extends Component {
-  displayName = 'ChampionsPage'
+  displayName = "ChampionsPage"
 
   state = {
-    male: '',
-    female: '',
+    male: "",
+    female: "",
   }
 
   componentDidMount() {
     if (this.props.roster.length === 0) {
-      this.props.router.push('/roster')
+      this.props.router.push("/roster")
     }
   }
 
@@ -29,11 +29,11 @@ class ChampionsPage extends Component {
       male: this.props.championships
         .filter(champion => champion.male)
         .map(champion => champion.name)
-        .join(', '),
+        .join(", "),
       female: this.props.championships
         .filter(champion => !champion.male)
         .map(champion => champion.name)
-        .join(', '),
+        .join(", "),
     })
   }
 
@@ -48,10 +48,10 @@ class ChampionsPage extends Component {
     let championships = []
 
     Object.keys(this.state).forEach(stateKey => {
-      let male = stateKey === 'male'
+      let male = stateKey === "male"
 
       let newChampionship = this.state[stateKey]
-        .split(',')
+        .split(",")
         .filter(name => name.length > 2)
         .filter(String)
         .map(name => {
@@ -64,7 +64,7 @@ class ChampionsPage extends Component {
       championships = championships.concat(newChampionship)
     })
     this.props.dispatch(updateChampions(championships))
-    this.props.router.push('/shows')
+    this.props.router.push("/shows")
   }
 
   _generateRandomChampions = event => {
@@ -74,8 +74,8 @@ class ChampionsPage extends Component {
       let newState = {}
       let numberOfNames = 3
 
-      Object.keys(this.state).map(key => {
-        let newNames = ''
+      Object.keys(this.state).forEach(key => {
+        let newNames = ""
         let x = 0
         while (numberOfNames > x) {
           newNames = `${faker.company.catchPhraseAdjective()}, ${newNames}`
@@ -96,7 +96,7 @@ class ChampionsPage extends Component {
           What
           <span className="gold"> gold </span>
           do you have?!
-          {' '}
+          {" "}
           <GenerateRandom onClick={this._generateRandomChampions} />
         </h1>
         <form onSubmit={this.handleSubmit}>
@@ -120,7 +120,7 @@ class ChampionsPage extends Component {
                   value={this.state.female}
                   name="female"
                   onChange={this.handleChange}
-                  placeholder={'Womens World Championship'}
+                  placeholder={"Womens World Championship"}
                   label="Womens"
                 />
               </div>

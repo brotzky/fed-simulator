@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "react-router"
 import { connect } from "react-redux"
 
-import ColorPickers from "../quick/color-pickers"
+import ColorPickers from "../color-pickers/color-pickers"
 import defaultState from "./default.json"
 
 import "./navigation.scss"
@@ -17,6 +17,7 @@ const Navigation = ({
     <nav style={style} className="navigation">
       <ul className="navigation__list">
         {navigation.map((item, key) => {
+          const title = { __html: item.title, }
           return (
             <li key={key} className={`navigation__item ${item.url}`}>
               <Choose>
@@ -25,7 +26,7 @@ const Navigation = ({
                 </When>
                 <Otherwise>
                   <Link className="pulse" style={{ color, }} to={item.url}>
-                    {item.title}
+                    <div dangerouslySetInnerHTML={title} />
                   </Link>
                 </Otherwise>
               </Choose>
@@ -38,7 +39,7 @@ const Navigation = ({
 }
 
 export default connect(state => ({
-  color: state.federation.color,
-  backgroundColor: state.federation.backgroundColor,
+  color: state.style.color,
+  backgroundColor: state.style.backgroundColor,
 }))(Navigation)
 // export default Navigation

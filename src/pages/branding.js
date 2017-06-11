@@ -1,6 +1,6 @@
 import "./stylesheets/branding.scss"
 import { connect } from "react-redux"
-import { updateFederation } from "../actions/federation"
+import { updateStyle } from "../actions/style"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { SwatchesPicker } from "react-color"
@@ -10,12 +10,7 @@ const EVENT_STUB = { preventDefault: noop, }
 
 class BrandingPage extends Component {
   componentDidMount() {
-    if (this.props.federation.backgroundColor !== "") {
-      this.setState({
-        backgroundColor: this.props.federation.backgroundColor,
-        color: this.props.federation.color,
-      })
-    }
+    this.setState(this.props.style)
   }
 
   shouldComponentUpdate() {
@@ -28,33 +23,29 @@ class BrandingPage extends Component {
   }
 
   onChangeColor = color => {
-    const newState = Object.assign({}, this.props.federation, {
+    const newState = Object.assign({}, this.props.style, {
       color: color.hex,
     })
 
-    this.props.dispatch(updateFederation(newState))
+    this.props.dispatch(updateStyle(newState))
   }
 
   onChangeBGColor = backgroundColor => {
-    const newState = Object.assign({}, this.props.federation, {
+    const newState = Object.assign({}, this.props.style, {
       backgroundColor: backgroundColor.hex,
     })
 
-    this.props.dispatch(updateFederation(newState))
+    this.props.dispatch(updateStyle(newState))
   }
 
   displayName = "BrandingPage"
 
   render() {
-    const { backgroundColor, color, name, } = this.props.federation
-    const style = {
-      backgroundColor,
-      color,
-    }
+    const style = this.props.style
     return (
       <section className="page branding">
         <h1 className="col-xs-12 skew-forward" style={style}>
-          🏳️ What colours represent you {name}? 🏳️
+          🏳️ What colours represent you {this.props.federationName}? 🏳️
         </h1>
         <div className="row colours">
           <div className="col-xs-12 col-lg-6 center-xs middle-xs">
@@ -86,5 +77,6 @@ BrandingPage.contextTypes = {
 }
 
 export default connect(state => ({
-  federation: state.federation,
+  federationName: state.federation.name,
+  style: state.style,
 }))(BrandingPage)

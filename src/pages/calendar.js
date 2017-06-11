@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import moment from "moment"
+import { SlideRight } from "animate-components"
 
 import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
@@ -74,6 +75,7 @@ class CalendarPage extends Component {
     const title = moment(game.date).format(MONTH_YEAR_FORMAT)
     const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
     const hasLiveShows = liveShows.length > 0
+
     return (
       <section className="page calendar">
         <h1>
@@ -83,30 +85,31 @@ class CalendarPage extends Component {
           </a>
         </h1>
         <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9">
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <div className="box">
               <Calendar />
             </div>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3">
+          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
             <div className="box">
-              <Accounting />
-              <br />
               <If condition={hasLiveShows}>
-                <Choose>
-                  <When condition={this.props.game.canPlan}>
-                    <Button
-                      value="Simulate liveshows"
-                      onClick={this.onSimulateMonth}
-                    />
-                  </When>
-                  <Otherwise>
-                    <Button
-                      value="Move onto next month"
-                      onClick={this.onStartNextMonth}
-                    />
-                  </Otherwise>
-                </Choose>
+                <SlideRight duration="2s">
+                  <Accounting />
+                  <Choose>
+                    <When condition={this.props.game.canPlan}>
+                      <Button
+                        value="Simulate liveshows"
+                        onClick={this.onSimulateMonth}
+                      />
+                    </When>
+                    <Otherwise>
+                      <Button
+                        value="Move onto next month"
+                        onClick={this.onStartNextMonth}
+                      />
+                    </Otherwise>
+                  </Choose>
+                </SlideRight>
               </If>
             </div>
           </div>

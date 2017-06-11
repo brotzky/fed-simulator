@@ -7,6 +7,8 @@ import Collection from "./collection"
 
 import "./accounting.scss"
 
+const currency = "$"
+
 function cost(item) {
   return item.cost
 }
@@ -27,22 +29,24 @@ class AccountingContainer extends Component {
   }
 
   render() {
-    let calendarEvents = this.props.calendar.filter(
+    const calendarEvents = this.props.calendar.filter(
       calendarEvent => calendarEvent.cost > 0
     )
-    let hasEvents = calendarEvents.length > 0
+    const hasEvents = calendarEvents.length > 0
 
-    let totalCost = hasEvents ? calendarEvents.map(cost).reduce(sum) : ""
-    let totalGross = hasEvents ? calendarEvents.map(gross).reduce(sum) : ""
+    const totalCost = hasEvents ? calendarEvents.map(cost).reduce(sum) : ""
+    const totalGross = hasEvents ? calendarEvents.map(gross).reduce(sum) : ""
 
     return (
       <Collection
+        currency={currency}
         onClickDelete={this.onClickDelete}
         calendarEvents={calendarEvents}
         totalCost={totalCost}
         showDelete={this.props.game.canPlan}
         totalGross={totalGross}
         cash={this.props.game.cash}
+        style={this.props.style}
       />
     )
   }
@@ -59,6 +63,6 @@ AccountingContainer.defaultProps = {
 
 export default connect(state => ({
   calendar: state.calendar,
-  federation: state.federation,
+  style: state.style,
   game: state.game,
 }))(AccountingContainer)

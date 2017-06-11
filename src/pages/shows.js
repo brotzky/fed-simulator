@@ -5,7 +5,7 @@ import { updateShows } from "../actions/shows"
 import React, { Component } from "react"
 import defaultShows from "../constants/shows.options.json"
 import Textarea from "../components/form/textarea.js"
-import GenerateRandom from "../components/generate-random/index"
+import GenerateRandom from "../components/generate-random"
 import faker from "faker"
 
 const CONFIRM_MESSAGE =
@@ -80,8 +80,8 @@ class ChampionsPage extends Component {
       let newState = {}
       let numberOfNames = 3
 
-      Object.keys(this.state).map(key => {
-        let newNames = ''
+      Object.keys(this.state).forEach(key => {
+        let newNames = ""
         let x = 0
         while (numberOfNames > x) {
           newNames = `${faker.company.catchPhraseAdjective()}, ${newNames}`
@@ -101,7 +101,7 @@ class ChampionsPage extends Component {
         <h1>
           What
           <span className="hot-red"> shows</span>
-          &nbsp;do we
+          &nbsp;do we&nbsp;
           <span className="hot-pink"> produce</span>
           ? <GenerateRandom onClick={this._generateRandomShows} />
         </h1>

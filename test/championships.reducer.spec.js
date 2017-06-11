@@ -67,7 +67,7 @@ describe("given a championships reducer", () => {
         championshipsReducer = reducer(undefined, action)
       })
 
-      it("should have NO wrestlers", () => {
+      it("should have NO items in the collection", () => {
         expect(championshipsReducer.length).to.equal(0)
       })
     })

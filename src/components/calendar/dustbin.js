@@ -3,6 +3,8 @@ import classNames from "classNames"
 import PropTypes from "prop-types"
 import { DropTarget } from "react-dnd"
 
+import Liveshow from "../liveshow"
+
 const dustbinTarget = {
   drop(props, monitor) {
     props.onDrop(monitor.getItem())
@@ -35,10 +37,13 @@ export default class Dustbin extends Component {
       canDrop,
       classes,
       connectDropTarget,
+      onClickDelete,
+      canDelete,
       droppedItem,
       isOver,
       name,
       previous,
+      style,
     } = this.props
     const isActive = isOver && canDrop
     const outerClasses = classNames(
@@ -53,18 +58,23 @@ export default class Dustbin extends Component {
         <p className="dustbin__name">
           {name}
         </p>
-        <p className="dustbin__details">
+        <div className="dustbin__details">
           {!droppedItem &&
             <span className="drop">
               {isActive ? "Release to drop" : ""}
             </span>}
           &nbsp;
           <If condition={droppedItem.name}>
-            <span className="show__name" style={this.props.style}>
-              {droppedItem.name} ({droppedItem.size})
-            </span>
+            <Liveshow
+              canBeDeleted={canDelete}
+              date={droppedItem.date}
+              name={droppedItem.name}
+              onClickDelete={onClickDelete}
+              size={droppedItem.size}
+              style={style}
+            />
           </If>
-        </p>
+        </div>
       </div>
     )
   }

@@ -1,0 +1,60 @@
+$active-color: #ffd700;
+$main-color: #fff;
+$inner-color: #3d3c3c;
+$match-border-color: #929292;
+
+.match .team {
+  margin-bottom: 1rem;
+
+  &.has-winner .box {
+    border-style: solid;
+
+    .icon.active {
+      opacity: 1;
+    }
+  }
+
+  &.last {
+    opacity: .2;
+  }
+
+  .box {
+    align-items: center;
+    border: .2rem dashed $match-border-color;
+    display: flex;
+    justify-content: center;
+    min-height: 5rem;
+    min-width: 12rem;
+    text-transform: capitalize;
+  }
+
+  .active {
+    color: $active-color;
+  }
+
+  .wrestler {
+    border: .2rem dashed transparent;
+    flex-grow: 1;
+    margin: .5rem;
+    text-align: center;
+    transition: border .5s linear;
+
+    .icon {
+      opacity: .2;
+      transition: opacity .5s linear;
+    }
+
+    &:hover {
+      border: .2rem dashed $inner-color;
+
+      .icon {
+        opacity: 1;
+      }
+    }
+
+    &__icons {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

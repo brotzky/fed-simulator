@@ -18,8 +18,8 @@
 
 html,
 body {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   height: 100%;
 }
 
@@ -52,10 +52,6 @@ a:hover, .cursor-pointer {
 }
 
 .no-select {
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
   user-select: none;
 }
 

@@ -55,6 +55,7 @@ class Name extends Component {
               name="name"
               onChange={this.handleChange}
               label=""
+              placeholder="WWE, NXT, ROH, Smackdown, Raw"
             />
           </div>
           <button type="submit">

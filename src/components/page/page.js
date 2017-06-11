@@ -1,11 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
 import { connect } from "react-redux"
+import PropTypes from "prop-types"
+import React from "react"
+import { SlideDown, FadeIn, FadeInUp } from "animate-components"
+import HTML5Backend from "react-dnd-html5-backend"
+import { DragDropContext } from "react-dnd"
+import Wrestlers from "../wrestlers/container"
 
+import Notifications from "../notifications/notifications"
+import * as versionActions from "../../actions/version"
 import FooterNavigationItems from "./footer.json"
 import Navigation from "../navigation/navigation"
-import * as versionActions from "../../actions/version"
-// import PerfProfiler from '../perf-profiler/perf-profiler'
 
 import "../../stylesheets/base.scss"
 import "./page.scss"
@@ -28,22 +32,35 @@ class Page extends React.Component {
   }
 
   render() {
+    const { shows, style, classNames, children, } = this.props
+    const { pathname, } = this.context.router.location
+
     return (
-      <main className={`page ${this.props.classNames}`}>
-        <If condition={this.props.shows.length > 0}>
-          <Navigation />
+      <div className="page-container no-select">
+        <Notifications />
+        <If condition={shows.length > 0}>
+          <SlideDown duration="1s">
+            <Navigation style={style} />
+          </SlideDown>
         </If>
-        <div className="row around-xs center-xs middle-xs">
-          <div className={`col-xs-12 start-xs`}>
-            <div className="box children">
-              {this.props.children}
-            </div>
-          </div>
-        </div>
-        <footer className="footer">
-          <Navigation navigation={FooterNavigationItems} />
-        </footer>
-      </main>
+        <main className={classNames}>
+          <FadeIn duration="1s">
+            {children}
+          </FadeIn>
+        </main>
+        <FadeIn>
+          <Choose>
+            <When condition={pathname.startsWith("/create-a-match")}>
+              <Wrestlers />
+            </When>
+            <Otherwise>
+              <footer style={style} className="footer">
+                <Navigation navigation={FooterNavigationItems} />
+              </footer>
+            </Otherwise>
+          </Choose>
+        </FadeIn>
+      </div>
     )
   }
 }
@@ -60,9 +77,15 @@ Page.defaultProps = {
   classNames: "",
 }
 
-export default connect(state => ({
-  version: state.version,
-  shows: state.shows,
-}))(Page)
+Page.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
 
-// <PerfProfiler />
+Page = DragDropContext(HTML5Backend)(Page)
+
+export default connect(state => ({
+  federation: state.federation,
+  style: state.style,
+  shows: state.shows,
+  version: state.version,
+}))(Page)

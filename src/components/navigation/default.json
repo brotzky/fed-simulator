@@ -12,10 +12,10 @@
 		"url": "roster",
 		"title": "Roster"
 	}, {
+		"url": "create-a-match",
+		"title": "Create a match"
+	}, {
 		"url": "shows",
 		"title": "Shows"
-	}, {
-		"url": "branding",
-		"title": "Branding"
 	}
 ]

@@ -1,0 +1,34 @@
+.popover {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  z-index: 200;
+}
+
+.cover {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.colorPickers {
+	height: 2rem;
+	width: 4rem;
+
+  .colorPicker {
+  	display: flex;
+  	height: 100%;
+  	width: 100%;
+  }
+
+  .col {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.compact-picker .flexbox-fix {
+  display: none;
+}

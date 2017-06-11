@@ -1,53 +1,53 @@
 $basepage-font-size: 2rem;
-$basepage-header-font-size: 4rem;
-$basepage-gutter: 2rem;
+$basepage-h1-font-size: 5rem;
+$basepage-gutter: 1rem 3rem 2rem;
 
-$basepage-button-font-size: 2rem;
+$basepage-button-font-size: 3rem;
 $basepage-button-color: white;
 $basepage-button-background-color: #3f3f3f;
 $basepage-button-border-radius: 0;
 $basepage-button-padding: .5rem !default;
 
-.page {
-  height: 100%;
-  font-size: $basepage-font-size;
-  font-weight: bolder;
-  line-height: auto;
-
-  h1 {
-    font-size: $basepage-header-font-size;
-    line-height: $basepage-header-font-size;
-    margin: 0 0 1rem 0;
-    text-transform: capitalize;
-  }
-
-  .children {
+.page-container {
+  main {
+    flex: 1 0 auto;
     padding: $basepage-gutter;
-  }
 
-  .active {
-    border: 1rem solid white;
-  }
+    h1 {
+      font-size: $basepage-h1-font-size;
+      font-variant: small-caps;
+      font-weight: 100;
+      line-height: $basepage-h1-font-size;
+      margin: 0 0 1rem;
 
-  button {
-    background-color: $basepage-button-background-color;
-    border-radius: $basepage-button-border-radius;
-    border: 0;
-    color: $basepage-button-color;
-    cursor: pointer;
-    font-size: $basepage-button-font-size;
-    font-variant: small-caps;
-    font-weight: 500;
-    padding: $basepage-button-padding;
-    width: 100%;
-  }
+      .fa {
+        font-size: 4rem;
+      }
+    }
 
-  .footer {
-    .navigation {
-      display: flex;
-      float: right;
-      justify-content: space-around;
-      width: auto;
+    .children {
+      padding: $basepage-gutter;
+    }
+
+    button {
+      background-color: $basepage-button-background-color;
+      border: 0;
+      color: $basepage-button-color;
+      cursor: pointer;
+      font-size: $basepage-button-font-size;
+      font-variant: small-caps;
+      font-weight: 500;
+      padding: $basepage-button-padding;
+      width: 100%;
+    }
+
+    .footer {
+      .navigation {
+        display: flex;
+        float: right;
+        justify-content: space-around;
+        width: auto;
+      }
     }
   }
 }

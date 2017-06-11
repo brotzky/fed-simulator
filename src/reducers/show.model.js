@@ -1,27 +1,12 @@
-import Backbone from "backbone"
-import _each from "lodash/each"
-import sanitizer from "sanitizer"
+import BaseModel from "./base.model"
 
-import { hashCode } from "../helpers/hash"
-
-const Model = Backbone.Model.extend({
-  defaults: {
-    id: hashCode(new Date().toString()),
-    name: "Default",
-    size: "xs",
-    frequency: "weekly",
-  },
-
-  initialize() {
-    _each(this.attributes, (val, key) => this.set(key, this.sanitize(val)))
-  },
-
-  sanitize(str) {
-    if (typeof str === "string") {
-      str = sanitizer.escape(str)
+export default class extends BaseModel {
+  defaults() {
+    return {
+      id: false,
+      name: "Default",
+      size: "xs",
+      frequency: "weekly",
     }
-    return str
-  },
-})
-
-export default Model
+  }
+}

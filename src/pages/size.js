@@ -94,7 +94,3 @@ export default connect(state => ({
   federation: state.federation,
   game: state.game,
 }))(SizePage)
-
-// Bingohall by Creative Stall from the Noun Project; https://thenounproject.com/search/?i=145426
-// Garden by Star and Anchor Design; https://thenounproject.com/search/?i=566413
-// Gymnasium by Ismael Ruiz; https://thenounproject.com/search/?i=684754

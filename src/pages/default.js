@@ -10,14 +10,12 @@ class Default extends Component {
       this.props.router.push("/name")
     } else if (this.props.federation.size === "") {
       this.props.router.push("/size")
-    } else if (this.props.federation.backgroundColor === "") {
+    } else if (this.props.style.unTouched === "") {
       this.props.router.push("/branding")
     } else if (this.props.roster.length === 0) {
       this.props.router.push("/roster")
     } else if (this.props.shows.length === 0) {
       this.props.router.push("/shows")
-    } else if (this.props.calendar.length === 0) {
-      this.props.router.push("/calendar")
     } else {
       this.props.router.push("/calendar")
     }
@@ -56,10 +54,11 @@ Default.contextTypes = {
 }
 
 export default connect(state => ({
-  federation: state.federation,
   calendar: state.calendar,
-  shows: state.shows,
+  federation: state.federation,
   roster: state.roster,
   settings: state.settings,
+  shows: state.shows,
+  style: state.style,
   version: state.version,
 }))(Default)

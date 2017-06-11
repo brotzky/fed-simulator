@@ -1,26 +1,14 @@
-import Backbone from "backbone"
-import _each from "lodash/each"
-import sanitizer from "sanitizer"
+import BaseModel from "./base.model"
 
-const Model = Backbone.Model.extend({
-  defaults: {
-    currentDate: new Date().getDate(),
-    currentMonth: new Date().getMonth(),
-    currentYear: new Date().getFullYear(),
-    canPlan: true,
-    cash: 0,
-  },
-
-  initialize() {
-    _each(this.attributes, (val, key) => this.set(key, this.sanitize(val)))
-  },
-
-  sanitize(str) {
-    if (typeof str === "string") {
-      str = sanitizer.escape(str)
+export default class extends BaseModel {
+  defaults() {
+    return {
+      id: false,
+      canPlan: true,
+      cash: 0,
+      currentDate: new Date().getDate(),
+      currentMonth: new Date().getMonth(),
+      currentYear: new Date().getFullYear(),
     }
-    return str
-  },
-})
-
-export default Model
+  }
+}

@@ -2,7 +2,8 @@ $calendar-border-width: .2rem;
 $calendar-show-width: 10%;
 $calendar-font-size: 1rem;
 $calendar-boxes-font-size: 1rem;
-$calendar-dustbin-font-size: 1.2rem;
+$calendar-dustbin-font-size: .9rem;
+$show-name-font-size: .8rem;
 
 $border-color: silver;
 $border-width: .2rem;
@@ -14,8 +15,6 @@ $day-width: 12%;
 
 $previous-bg: #ccc;
 $previous-color: #999;
-
-$show-name-font-size: 1rem;
 
 .calendar-inline {
   font-size: $calendar-font-size;
@@ -51,26 +50,26 @@ $show-name-font-size: 1rem;
     &__details {
       font-weight: 100;
 
-      .show__name {
+      .liveshow {
         display: inline-block;
         font-size: $show-name-font-size;
         padding: .5rem 0;
         width: 100%;
+        word-break: break-all;
       }
     }
   }
 
   .boxes {
-    cursor: move;
-    float: left;
-    font-size: $calendar-boxes-font-size;
-    font-weight: 100;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-    padding: .5rem;
+    margin-bottom: .5rem;
+    margin-right: .5rem;
 
-    .used {
-      background-color: $used;
+    .liveshow {
+      cursor: move;
+      float: left;
+      font-size: $calendar-boxes-font-size;
+      font-weight: 100;
+      padding: .2rem 1rem;
     }
   }
 

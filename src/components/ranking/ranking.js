@@ -1,13 +1,14 @@
-import './ranking.scss'
-import React, {Component} from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+
+import "./ranking.scss"
 
 export default class Ranking extends Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
-    rows: PropTypes.array.isRequired,
-    columns: PropTypes.array.isRequired,
     amountToShow: PropTypes.number,
+    columns: PropTypes.array.isRequired,
+    rows: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
@@ -16,7 +17,7 @@ export default class Ranking extends Component {
     columns: [],
   }
 
-  displayName = 'Ranking'
+  displayName = "Ranking"
 
   render() {
     return (
@@ -39,7 +40,7 @@ export default class Ranking extends Component {
                     {this.props.columns.map((column, key) => {
                       return (
                         <td className={column} key={key}>
-                          {column === 'position' ? rowKey + 1 : row[column]}
+                          {column === "rank" ? rowKey + 1 : row[column]}
                         </td>
                       )
                     })}

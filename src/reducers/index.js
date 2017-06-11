@@ -3,9 +3,12 @@ import calendar from "./calendar"
 import championships from "./championships"
 import federation from "./federation"
 import game from "./game"
+import matches from "./matches"
+import notifications from "./notifications"
 import roster from "./roster"
 import settings from "./settings"
 import shows from "./shows"
+import style from "./style"
 import version from "./version"
 
 const rootReducer = combineReducers({
@@ -13,9 +16,12 @@ const rootReducer = combineReducers({
   championships,
   federation,
   game,
+  matches,
+  notifications,
   roster,
   settings,
   shows,
+  style,
   version,
 })
 
