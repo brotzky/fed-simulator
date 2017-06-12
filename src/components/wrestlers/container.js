@@ -71,10 +71,10 @@ class WrestlersContainer extends Component {
   }
 
   render() {
-    const sortClasses = classNames("fa fa-sort", {
+    const sortClasses = classNames("icon", "fa", "fa-sort", {
       active: this.state.sortByPoints,
     })
-    const genderClasses = classNames("fa fa-venus", {
+    const genderClasses = classNames("fa", "fa-venus", {
       active: this.state.showFemalesOnly,
     })
 

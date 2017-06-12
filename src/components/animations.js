@@ -11,7 +11,7 @@ class Animation extends Component {
     return (
       <i
         onClick={this.handleClick}
-        className={`fa fa-spinner ${animationsActive}`}
+        className={`icon fa fa-spinner ${animationsActive}`}
       />
     )
   }

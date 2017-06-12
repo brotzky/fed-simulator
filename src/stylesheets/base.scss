@@ -66,3 +66,12 @@ a:hover,
 .uppercase {
   text-transform: uppercase;
 }
+
+.icon a,
+a.icon,
+.icon {
+  color: white;
+  &:hover {
+    color: hotpink;
+  }
+}

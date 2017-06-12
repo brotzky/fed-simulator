@@ -77,7 +77,7 @@ class ChampionsPage extends Component {
                 duration={ANIMATION_SPEED}
               >
                 <div className="box female">
-                  <i className="fa fa-venus" />
+                  <i className="icon fa fa-venus" />
                   <Textarea
                     value={this.state.female}
                     name="female"

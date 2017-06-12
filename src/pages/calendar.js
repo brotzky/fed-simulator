@@ -59,7 +59,7 @@ class CalendarPage extends Component {
         <HeaderOne>
           {title}&nbsp;
           <a onClick={this.onClear}>
-            <div className="fa fa-trash-o fa-md" />
+            <div className="icon fa fa-trash-o fa-md" />
           </a>
         </HeaderOne>
         <div className="row">

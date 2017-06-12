@@ -1,7 +1,7 @@
 [
   {
     "url": "/",
-    "title": "<i class=\"fa fa-arrow-left\"></i> Go back"
+    "title": "<i class=\"icon fa fa-arrow-left\"></i> Go back"
   }, {
     "url": "name",
     "title": "Change Federation Name"
