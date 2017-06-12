@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import moment from "moment"
 import { SlideRight, SlideLeft } from "animate-components"
 
-import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
 import {
   togglePlan,
@@ -15,6 +14,9 @@ import Calendar from "../components/calendar/container"
 import Accounting from "../components/accounting/container"
 import { simulateLiveShows } from "../actions/calendar"
 import Button from "../components/button/button"
+
+import { ANIMATION_SPEED } from "../constants/animation"
+import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import {
   CALENDAR_CONFIRM_CLEAR,
   CALENDAR_CONFIRM_SIMULATE,
@@ -61,7 +63,7 @@ class CalendarPage extends Component {
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <div className="box">
-              <SlideLeft duration="500ms">
+              <SlideLeft duration={ANIMATION_SPEED}>
                 <Calendar />
               </SlideLeft>
             </div>
@@ -69,7 +71,7 @@ class CalendarPage extends Component {
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
             <div className="box">
               <If condition={hasLiveShows}>
-                <SlideRight duration="500ms">
+                <SlideRight duration={ANIMATION_SPEED}>
                   <Accounting />
                   <Choose>
                     <When condition={this.props.game.canPlan}>
