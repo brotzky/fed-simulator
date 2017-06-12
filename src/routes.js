@@ -110,11 +110,11 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="utils">
+      <Route path="settings">
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require("./pages/utils").default, "utils")
+              callback(null, require("./pages/settings").default, "settings")
             })
           }}
         />

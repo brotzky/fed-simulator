@@ -7,16 +7,16 @@ import { ANIMATION_SPEED } from "../constants/animation"
 
 class DashboardPage extends Component {
   render() {
+    const { animations, game, } = this.props
+
     return (
       <section className="page dashboard">
-        <FadeInUp duration={ANIMATION_SPEED}>
-          <HeaderOne className="green">
-            🤑 CEO Stuff
-          </HeaderOne>
-        </FadeInUp>
+        <HeaderOne className="green">
+          🤑 CEO Stuff
+        </HeaderOne>
         <div className="row">
           <div className="col-xs-4">
-            <div className="box">Large Cash count</div>
+            <div className="box">Large Cash count {game.cash}</div>
           </div>
           <div className="col-xs-4">
             <div className="box">expensive</div>
@@ -38,6 +38,6 @@ class DashboardPage extends Component {
 DashboardPage.displayName = "DashboardPage"
 
 export default connect(state => ({
-  federation: state.federation,
+  animations: state.game.animations,
   game: state.game,
 }))(DashboardPage)

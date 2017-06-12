@@ -23,9 +23,10 @@ class RankingPage extends Component {
   }
 
   render() {
-    const wrestlers = orderBy(this.props.roster, "points", "desc")
-    const maleWrestlers = wrestlers.filter(wrestler => wrestler.male)
-    const femaleWrestlers = wrestlers.filter(wrestler => !wrestler.male)
+    const { animations, roster, } = this.props
+    const orderedRoster = orderBy(roster, "points", "desc")
+    const maleWrestlers = orderedRoster.filter(wrestler => wrestler.male)
+    const femaleWrestlers = orderedRoster.filter(wrestler => !wrestler.male)
 
     return (
       <section className="page ranking">
@@ -38,7 +39,10 @@ class RankingPage extends Component {
           <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
             <div className="box">
               <If condition={maleWrestlers.length > 0}>
-                <SlideLeft duration={ANIMATION_SPEED}>
+                <SlideLeft
+                  iterations={Number(animations)}
+                  duration={ANIMATION_SPEED}
+                >
                   <Ranking
                     title="Male Wrestlers"
                     rows={maleWrestlers}
@@ -51,7 +55,10 @@ class RankingPage extends Component {
           <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
             <div className="box">
               <If condition={femaleWrestlers.length > 0}>
-                <SlideRight duration={ANIMATION_SPEED}>
+                <SlideRight
+                  iterations={Number(animations)}
+                  duration={ANIMATION_SPEED}
+                >
                   <Ranking
                     title="Female Wrestlers"
                     rows={femaleWrestlers}
@@ -74,4 +81,5 @@ RankingPage.contextTypes = {
 export default connect(state => ({
   roster: state.roster,
   shows: state.shows,
+  animations: state.game.animations,
 }))(RankingPage)

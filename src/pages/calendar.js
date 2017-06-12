@@ -49,6 +49,7 @@ class CalendarPage extends Component {
 
   render() {
     const { calendar, game, } = this.props
+    const animations = game.animations
     const title = moment(game.date).format(MONTH_YEAR_FORMAT)
     const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
     const hasLiveShows = liveShows.length > 0
@@ -64,7 +65,10 @@ class CalendarPage extends Component {
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <div className="box">
-              <SlideLeft duration={ANIMATION_SPEED}>
+              <SlideLeft
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
                 <Calendar />
               </SlideLeft>
             </div>
@@ -72,7 +76,10 @@ class CalendarPage extends Component {
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
             <div className="box">
               <If condition={hasLiveShows}>
-                <SlideRight duration={ANIMATION_SPEED}>
+                <SlideRight
+                  iterations={Number(animations)}
+                  duration={ANIMATION_SPEED}
+                >
                   <Accounting />
                   <Choose>
                     <When condition={this.props.game.canPlan}>

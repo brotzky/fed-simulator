@@ -105,6 +105,7 @@ class CreateAMatch extends Component {
       loser = currentMatch.story.reverse()[0].defender
     }
 
+    const { animations, } = this.props
     const hasSidebar = currentMatch.story.length > 0
     const numberOfTeams = Object.keys(this.state.teams).length
     const numberOfWrestlers = this.state.currentMatch.wrestlers.length
@@ -141,7 +142,10 @@ class CreateAMatch extends Component {
                     </Link>
                   </If>
                 </HeaderOne>
-                <FadeIn duration={ANIMATION_SPEED}>
+                <FadeIn
+                  iterations={Number(animations)}
+                  duration={ANIMATION_SPEED}
+                >
                   <Match {...this.state} />
                 </FadeIn>
                 <If condition={numberOfWrestlers > 1 && numberOfTeams > 2}>
@@ -153,7 +157,10 @@ class CreateAMatch extends Component {
             </div>
             <div className={storySideclasses}>
               <div className="box">
-                <SlideRight duration={ANIMATION_SPEED}>
+                <SlideRight
+                  iterations={Number(animations)}
+                  duration={ANIMATION_SPEED}
+                >
                   <If condition={winner}>
                     <h2 className="story winner pulse">
                       {winner.name} Wins
@@ -210,4 +217,5 @@ CreateAMatch.propTypes = {
 
 export default connect(state => ({
   matches: state.matches,
+  animations: state.game.animations,
 }))(CreateAMatch)

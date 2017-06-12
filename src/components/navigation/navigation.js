@@ -28,6 +28,11 @@ const Navigation = ({
                 <When condition={item.title === "Animations"}>
                   <Animations />
                 </When>
+                <When condition={item.title === "Settings"}>
+                  <Link to={item.url}>
+                    <i className="icon fa fa-cog" />
+                  </Link>
+                </When>
                 <Otherwise>
                   <Link className="pulse" style={{ color, }} to={item.url}>
                     <div dangerouslySetInnerHTML={title} />

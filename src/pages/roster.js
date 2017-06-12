@@ -49,6 +49,7 @@ class RosterPage extends Component {
   }
 
   render() {
+    const { animations, } = this.props
     return (
       <section className="page roster">
         <HeaderOne className="sparkle">
@@ -58,9 +59,10 @@ class RosterPage extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col-xs-12 col-lg-6">
-
-              <SlideLeft duration={ANIMATION_SPEED}>
-
+              <SlideLeft
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
                 <div className="box male">
                   <i className="icon fa fa-mars" />
                   <Textarea
@@ -85,7 +87,10 @@ class RosterPage extends Component {
               </SlideLeft>
             </div>
             <div className="col-xs-12 col-lg-6">
-              <SlideRight duration={ANIMATION_SPEED}>
+              <SlideRight
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
                 <div className="box female">
                   <i className="icon fa fa-venus" />
                   <Textarea
@@ -169,6 +174,7 @@ RosterPage.contextTypes = {
 }
 
 export default connect(state => ({
+  animations: state.game.animations,
   federation: state.federation,
   roster: state.roster,
 }))(RosterPage)

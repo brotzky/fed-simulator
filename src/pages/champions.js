@@ -42,6 +42,7 @@ class ChampionsPage extends Component {
   }
 
   render() {
+    const { animations, } = this.props
     return (
       <section className="page champions">
         <HeaderOne>
@@ -54,7 +55,10 @@ class ChampionsPage extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12 col-lg-6">
-              <SlideLeft duration={ANIMATION_SPEED}>
+              <SlideLeft
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
                 <div className="box male">
                   <i className="icon fa fa-mars" />
                   <Textarea
@@ -68,7 +72,10 @@ class ChampionsPage extends Component {
               </SlideLeft>
             </div>
             <div className="col-xs-12 col-lg-6">
-              <SlideRight duration={ANIMATION_SPEED}>
+              <SlideRight
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
                 <div className="box female">
                   <i className="fa fa-venus" />
                   <Textarea
@@ -138,6 +145,7 @@ ChampionsPage.contextTypes = {
 }
 
 export default connect(state => ({
+  animations: state.game.animations,
   championships: state.championships,
   roster: state.roster,
 }))(ChampionsPage)

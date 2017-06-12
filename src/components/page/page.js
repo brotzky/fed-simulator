@@ -34,23 +34,23 @@ class Page extends React.Component {
   }
 
   render() {
-    const { shows, style, classNames, children, } = this.props
+    const { shows, style, classNames, children, animations, } = this.props
     const { pathname, } = this.context.router.location
 
     return (
       <div className="page-container no-select">
         <Notifications />
         <If condition={shows.length > 0}>
-          <SlideDown duration={ANIMATION_SPEED}>
+          <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>
             <Navigation style={style} />
           </SlideDown>
         </If>
         <main className={classNames}>
-          <FadeIn duration={ANIMATION_SPEED}>
+          <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
             {children}
           </FadeIn>
         </main>
-        <FadeIn duration={ANIMATION_SPEED}>
+        <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
           <Choose>
             <When condition={pathname.startsWith("/create-a-match")}>
               <Wrestlers />
@@ -86,6 +86,7 @@ Page.contextTypes = {
 Page = DragDropContext(HTML5Backend)(Page)
 
 export default connect(state => ({
+  animations: state.game.animations,
   federation: state.federation,
   style: state.style,
   shows: state.shows,

@@ -2,12 +2,12 @@ import { connect } from "react-redux"
 import React, { Component } from "react"
 
 import HeaderOne from "../components/h1"
-import utilsNavigation from "./utils.navigation.json"
+import utilsNavigation from "./settings.navigation.json"
 import Navigation from "../components/navigation/navigation"
 
-import "./stylesheets/utils"
+import "./stylesheets/settings"
 
-class Utils extends Component {
+class Settings extends Component {
   state = {
     stage: "start",
   }
@@ -31,9 +31,9 @@ class Utils extends Component {
 
     const style = { backgroundColor, color, }
     return (
-      <section className="page utils">
+      <section className="page settings">
         <HeaderOne>
-          Game Utils
+          Settings
         </HeaderOne>
         <Navigation style={style} navigation={utilsNavigation} />
         <br />
@@ -65,4 +65,4 @@ export default connect(state => ({
   settings: state.settings,
   shows: state.shows,
   version: state.version,
-}))(Utils)
+}))(Settings)
