@@ -65,7 +65,9 @@ export default class Team extends Component {
                     key={key}
                     data-wrestlerId={wrestler.id}
                   >
-                    <span className="wrestler__name">{wrestler.name}</span>
+                    <span className="wrestler__name">
+                      {wrestler.name}<sup>{wrestler.points}</sup>
+                    </span>
                     &nbsp;
                     <span className="wrestler__icons">
                       <i
