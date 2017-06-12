@@ -45,3 +45,5 @@ export const xs = "xs"
 export const CHECK_VERSION = "CHECK_VERSION"
 
 export const WRESTLER = "WRESTLER"
+
+export const TOGGLE_ANIMATIONS = "TOGGLE_ANIMATIONS"

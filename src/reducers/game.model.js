@@ -6,6 +6,7 @@ export default class extends BaseModel {
       id: false,
       canPlan: true,
       cash: 0,
+      animations: true,
       currentDate: new Date().getDate(),
       currentMonth: new Date().getMonth(),
       currentYear: new Date().getFullYear(),

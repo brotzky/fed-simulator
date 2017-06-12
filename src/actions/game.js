@@ -5,6 +5,13 @@ export function togglePlan() {
     type: types.TOGGLE_PLAN,
   }
 }
+
+export function toggleAnimations() {
+  return {
+    type: types.TOGGLE_ANIMATIONS,
+  }
+}
+
 export function updateGame(payload) {
   return {
     type: types.UPDATE_GAME,

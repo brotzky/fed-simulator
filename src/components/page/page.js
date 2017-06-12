@@ -1,11 +1,11 @@
+import React from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import React from "react"
 import { FadeIn, SlideDown } from "animate-components"
 import HTML5Backend from "react-dnd-html5-backend"
 import { DragDropContext } from "react-dnd"
-import Wrestlers from "../wrestlers/container"
 
+import Wrestlers from "../wrestlers/container"
 import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
 import FooterNavigationItems from "./footer.json"

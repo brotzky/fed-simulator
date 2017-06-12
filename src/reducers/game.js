@@ -12,8 +12,11 @@ export default (state = defaultState, action) => {
     case "RESET_GAME":
       state = defaultState
       break
+    case "TOGGLE_ANIMATIONS":
+      state = Object.assign({}, state, { animations: !state.animations, })
+      break
     case "UPDATE_GAME":
-      state = Object.assign(action.payload, state)
+      state = Object.assign({}, state, action.payload)
       break
     case "ADD_ONE_MONTH":
       let currentDate = moment().set({

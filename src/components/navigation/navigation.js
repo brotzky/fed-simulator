@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router"
 import { connect } from "react-redux"
 
+import Animations from "../animations"
 import ColorPickers from "../color-pickers/color-pickers"
 import defaultState from "./default.json"
 
@@ -24,6 +25,9 @@ const Navigation = ({
                 <When condition={item.title === "Branding"}>
                   <ColorPickers />
                 </When>
+                <When condition={item.title === "Animations"}>
+                  <Animations />
+                </When>
                 <Otherwise>
                   <Link className="pulse" style={{ color, }} to={item.url}>
                     <div dangerouslySetInnerHTML={title} />
@@ -39,7 +43,7 @@ const Navigation = ({
 }
 
 export default connect(state => ({
+  animations: state.game.animations,
   color: state.style.color,
   backgroundColor: state.style.backgroundColor,
 }))(Navigation)
-// export default Navigation
