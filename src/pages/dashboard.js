@@ -1,14 +1,14 @@
 import { connect } from "react-redux"
-import PropTypes from "prop-types"
 import React, { Component } from "react"
-import { Rubber } from "animate-components"
 import { FadeInUp } from "animate-components"
+
+import { ANIMATION_SPEED } from "../constants/animation"
 
 class DashboardPage extends Component {
   render() {
     return (
       <section className="page dashboard">
-        <FadeInUp>
+        <FadeInUp duration={ANIMATION_SPEED}>
           <h1 className="green">
             🤑 CEO Stuff
           </h1>
