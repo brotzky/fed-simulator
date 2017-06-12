@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import groupBy from "lodash.groupby"
 import { Link } from "react-router"
 import classNames from "classNames"
+import { SlideRight, SlideLeft } from "animate-components"
 
 import Story from "../components/story/story"
 import Model from "../reducers/match.model"
@@ -11,7 +12,9 @@ import { getId } from "../helpers/hash"
 import Match from "../components/match/container"
 import { resetMatches, simulateMatch } from "../actions/matches"
 import * as matchesAction from "../actions/matches"
+
 import { MATCH_CONFIRM_RESET } from "../constants/confirmations"
+import { ANIMATION_SPEED } from "../constants/animation"
 
 import "./stylesheets/create-a-match.scss"
 
@@ -102,6 +105,8 @@ class CreateAMatch extends Component {
     }
 
     const hasSidebar = currentMatch.story.length > 0
+    const numberOfTeams = Object.keys(this.state.teams).length
+    const numberOfWrestlers = this.state.currentMatch.wrestlers.length
     const mainClasses = classNames(
       { "col-xs": !hasSidebar, },
       { "col-lg-8": hasSidebar, }
@@ -117,43 +122,49 @@ class CreateAMatch extends Component {
           <div className="row">
             <div className={mainClasses}>
               <div className="box">
-                <h1>
-                  Create a match
-                  &nbsp;
-                  <i
-                    className="icon fa fa-trash"
-                    onClick={this.onResetMatches}
-                  />
-                  &nbsp;
-                  <If condition={currentMatch.id}>
-                    <Link to={`/create-a-match?id=${currentMatch.id}`}>
-                      <i
-                        className="icon fa fa-external-link"
-                        aria-hidden="true"
-                        title="Save Match Link"
-                      />
-                    </Link>
+                <SlideLeft duration={ANIMATION_SPEED}>
+                  <h1>
+                    Create a match
+                    &nbsp;
+                    <i
+                      className="icon fa fa-trash"
+                      onClick={this.onResetMatches}
+                    />
+                    &nbsp;
+                    <If condition={currentMatch.id}>
+                      <Link to={`/create-a-match?id=${currentMatch.id}`}>
+                        <i
+                          className="icon fa fa-external-link"
+                          aria-hidden="true"
+                          title="Save Match Link"
+                        />
+                      </Link>
+                    </If>
+                  </h1>
+                  <Match {...this.state} />
+                  <If condition={numberOfWrestlers > 1 && numberOfTeams > 2}>
+                    <button type="submit">
+                      {buttonText}
+                    </button>
                   </If>
-                </h1>
-                <Match {...this.state} />
-                <button type="submit">
-                  {buttonText}
-                </button>
+                </SlideLeft>
               </div>
             </div>
             <div className={storySideclasses}>
               <div className="box">
-                <If condition={winner}>
-                  <h2 className="story winner pulse">
-                    {winner.name} Wins
-                  </h2>
-                  <h3 className="story loser shake">
-                    {loser.name} Loses
-                  </h3>
-                </If>
-                <If condition={currentMatch.story.length > 0}>
-                  <Story story={currentMatch.story} />
-                </If>
+                <SlideRight duration={ANIMATION_SPEED}>
+                  <If condition={winner}>
+                    <h2 className="story winner pulse">
+                      {winner.name} Wins
+                    </h2>
+                    <h3 className="story loser shake">
+                      {loser.name} Loses
+                    </h3>
+                  </If>
+                  <If condition={currentMatch.story.length > 0}>
+                    <Story story={currentMatch.story} />
+                  </If>
+                </SlideRight>
               </div>
             </div>
           </div>
