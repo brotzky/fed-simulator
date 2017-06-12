@@ -1,12 +1,16 @@
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
+import { SlideRight, SlideLeft } from "animate-components"
 
 import { CHAMPIONSHIP_RESET_CONFIRM } from "../constants/confirmations"
+import { ANIMATION_SPEED } from "../constants/animation"
+
 import { updateChampions } from "../actions/champions"
 import GenerateRandom from "../components/generate-random"
 import Textarea from "../components/form/textarea.js"
 import constantDefaults from "../constants/defaults.json"
+import HeaderOne from "../components/h1"
 
 import "./stylesheets/champions.scss"
 
@@ -40,38 +44,42 @@ class ChampionsPage extends Component {
   render() {
     return (
       <section className="page champions">
-        <h1>
+        <HeaderOne>
           What
           <span className="gold"> gold </span>
           do you have?!
           &nbsp;
           <GenerateRandom onClick={this._generateDefaultChampions} />
-        </h1>
+        </HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12 col-lg-6">
-              <div className="box male">
-                <div className="fa fa-mars" />
-                <Textarea
-                  value={this.state.male}
-                  name="male"
-                  onChange={this.handleChange}
-                  placeholder="World Heavyweight Championship, Cruiserweight Championship"
-                  label="Mens"
-                />
-              </div>
+              <SlideLeft duration={ANIMATION_SPEED}>
+                <div className="box male">
+                  <i className="icon fa fa-mars" />
+                  <Textarea
+                    value={this.state.male}
+                    name="male"
+                    onChange={this.handleChange}
+                    placeholder="World Heavyweight Championship, Cruiserweight Championship"
+                    label="Mens"
+                  />
+                </div>
+              </SlideLeft>
             </div>
             <div className="col-xs-12 col-lg-6">
-              <div className="box female">
-                <div className="fa fa-venus" />
-                <Textarea
-                  value={this.state.female}
-                  name="female"
-                  onChange={this.handleChange}
-                  placeholder={"Womens World Championship"}
-                  label="Womens"
-                />
-              </div>
+              <SlideRight duration={ANIMATION_SPEED}>
+                <div className="box female">
+                  <i className="fa fa-venus" />
+                  <Textarea
+                    value={this.state.female}
+                    name="female"
+                    onChange={this.handleChange}
+                    placeholder={"Womens World Championship"}
+                    label="Womens"
+                  />
+                </div>
+              </SlideRight>
             </div>
           </div>
           <div>

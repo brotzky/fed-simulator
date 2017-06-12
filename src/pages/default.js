@@ -2,6 +2,8 @@ import { connect } from "react-redux"
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 
+import HeaderOne from "../components/h1"
+
 class Default extends Component {
   displayName = "Default"
 
@@ -22,11 +24,13 @@ class Default extends Component {
   }
 
   render() {
+    return null
+
     const props = Object.keys(this.props)
 
     return (
       <section className="default">
-        <h1>Default</h1>
+        <HeaderOne>Default</HeaderOne>
         {props.map((name, key) => {
           return (
             <div key={key}>

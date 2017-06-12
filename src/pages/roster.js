@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import { SlideRight, SlideLeft } from "animate-components"
 
 import { updateRoster } from "../actions/roster"
 import pointsToRandomValue from "../helpers/points-to-random-value"
@@ -8,6 +9,9 @@ import Textarea from "../components/form/textarea.js"
 import GenerateRandom from "../components/generate-random"
 import { ROSTER_CONFIRM_RESET } from "../constants/confirmations"
 import constantDefaults from "../constants/defaults.json"
+import HeaderOne from "../components/h1"
+
+import { ANIMATION_SPEED } from "../constants/animation"
 
 import "./stylesheets/roster.scss"
 
@@ -47,57 +51,63 @@ class RosterPage extends Component {
   render() {
     return (
       <section className="page roster">
-        <h1 className="sparkle">
+        <HeaderOne className="sparkle">
           <span className="hang">🌚 Dream</span> Roster?&nbsp;
           <GenerateRandom onClick={this._generateDefaultRoster} />
-        </h1>
+        </HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div className="row">
             <div className="col-xs-12 col-lg-6">
-              <div className="box male">
-                <div className="fa fa-mars" />
-                <Textarea
-                  value={this.state["male-mainevent"]}
-                  name="male-mainevent"
-                  onChange={this.handleChange}
-                  label="Mens Main event"
-                />
-                <Textarea
-                  value={this.state["male-midcard"]}
-                  name="male-midcard"
-                  onChange={this.handleChange}
-                  label="Mid card"
-                />
-                <Textarea
-                  value={this.state["male-lowercard"]}
-                  name="male-lowercard"
-                  onChange={this.handleChange}
-                  label="Lower card"
-                />
-              </div>
+
+              <SlideLeft duration={ANIMATION_SPEED}>
+
+                <div className="box male">
+                  <i className="icon fa fa-mars" />
+                  <Textarea
+                    value={this.state["male-mainevent"]}
+                    name="male-mainevent"
+                    onChange={this.handleChange}
+                    label="Mens Main event"
+                  />
+                  <Textarea
+                    value={this.state["male-midcard"]}
+                    name="male-midcard"
+                    onChange={this.handleChange}
+                    label="Mid card"
+                  />
+                  <Textarea
+                    value={this.state["male-lowercard"]}
+                    name="male-lowercard"
+                    onChange={this.handleChange}
+                    label="Lower card"
+                  />
+                </div>
+              </SlideLeft>
             </div>
             <div className="col-xs-12 col-lg-6">
-              <div className="box female">
-                <div className="fa fa-venus" />
-                <Textarea
-                  value={this.state["female-mainevent"]}
-                  name="female-mainevent"
-                  onChange={this.handleChange}
-                  label="Womens Main Event"
-                />
-                <Textarea
-                  value={this.state["female-midcard"]}
-                  name="female-midcard"
-                  onChange={this.handleChange}
-                  label="Mid card"
-                />
-                <Textarea
-                  value={this.state["female-lowercard"]}
-                  name="female-lowercard"
-                  onChange={this.handleChange}
-                  label="Lower card"
-                />
-              </div>
+              <SlideRight duration={ANIMATION_SPEED}>
+                <div className="box female">
+                  <i className="icon fa fa-venus" />
+                  <Textarea
+                    value={this.state["female-mainevent"]}
+                    name="female-mainevent"
+                    onChange={this.handleChange}
+                    label="Womens Main Event"
+                  />
+                  <Textarea
+                    value={this.state["female-midcard"]}
+                    name="female-midcard"
+                    onChange={this.handleChange}
+                    label="Mid card"
+                  />
+                  <Textarea
+                    value={this.state["female-lowercard"]}
+                    name="female-lowercard"
+                    onChange={this.handleChange}
+                    label="Lower card"
+                  />
+                </div>
+              </SlideRight>
             </div>
           </div>
           <div>

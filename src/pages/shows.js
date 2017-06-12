@@ -8,6 +8,7 @@ import defaultShows from "../constants/shows.options.json"
 import GenerateRandom from "../components/generate-random"
 import Textarea from "../components/form/textarea.js"
 import constantDefaults from "../constants/defaults.json"
+import HeaderOne from "../components/h1"
 
 import "./stylesheets/shows.scss"
 
@@ -86,7 +87,7 @@ class ChampionsPage extends Component {
   render() {
     return (
       <section className="page shows">
-        <h1>
+        <HeaderOne>
           What
           <span className="hot-red"> shows</span>
           &nbsp;do we&nbsp;
@@ -94,7 +95,7 @@ class ChampionsPage extends Component {
           ?
           {" "}
           <GenerateRandom onClick={this._generateDefaultShows} />
-        </h1>
+        </HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12">

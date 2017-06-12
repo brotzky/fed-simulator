@@ -48,14 +48,18 @@ $previous-color: #999;
     }
 
     &__details {
+      display: flex;
       font-weight: 100;
+      justify-content: center;
 
       .liveshow {
-        display: inline-block;
+        align-items: center;
+        display: flex;
         font-size: $show-name-font-size;
+        justify-content: center;
         padding: .5rem 0;
-        width: 100%;
-        word-break: break-all;
+        width: 88%;
+        word-break: word-break;
       }
     }
   }

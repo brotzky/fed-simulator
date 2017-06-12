@@ -4,14 +4,15 @@ import PropTypes from "prop-types"
 import groupBy from "lodash.groupby"
 import { Link } from "react-router"
 import classNames from "classNames"
-import { SlideRight, SlideLeft } from "animate-components"
+import { SlideRight, FadeIn } from "animate-components"
 
-import Story from "../components/story/story"
-import Model from "../reducers/match.model"
 import { getId } from "../helpers/hash"
-import Match from "../components/match/container"
 import { resetMatches, simulateMatch } from "../actions/matches"
 import * as matchesAction from "../actions/matches"
+import HeaderOne from "../components/h1"
+import Match from "../components/match/container"
+import Model from "../reducers/match.model"
+import Story from "../components/story/story"
 
 import { MATCH_CONFIRM_RESET } from "../constants/confirmations"
 import { ANIMATION_SPEED } from "../constants/animation"
@@ -122,32 +123,32 @@ class CreateAMatch extends Component {
           <div className="row">
             <div className={mainClasses}>
               <div className="box">
-                <SlideLeft duration={ANIMATION_SPEED}>
-                  <h1>
-                    Create a match
-                    &nbsp;
-                    <i
-                      className="icon fa fa-trash"
-                      onClick={this.onResetMatches}
-                    />
-                    &nbsp;
-                    <If condition={currentMatch.id}>
-                      <Link to={`/create-a-match?id=${currentMatch.id}`}>
-                        <i
-                          className="icon fa fa-external-link"
-                          aria-hidden="true"
-                          title="Save Match Link"
-                        />
-                      </Link>
-                    </If>
-                  </h1>
-                  <Match {...this.state} />
-                  <If condition={numberOfWrestlers > 1 && numberOfTeams > 2}>
-                    <button type="submit">
-                      {buttonText}
-                    </button>
+                <HeaderOne>
+                  Create a match
+                  &nbsp;
+                  <i
+                    className="icon fa fa-trash"
+                    onClick={this.onResetMatches}
+                  />
+                  &nbsp;
+                  <If condition={currentMatch.id}>
+                    <Link to={`/create-a-match?id=${currentMatch.id}`}>
+                      <i
+                        className="icon fa fa-external-link"
+                        aria-hidden="true"
+                        title="Save Match Link"
+                      />
+                    </Link>
                   </If>
-                </SlideLeft>
+                </HeaderOne>
+                <FadeIn duration={ANIMATION_SPEED}>
+                  <Match {...this.state} />
+                </FadeIn>
+                <If condition={numberOfWrestlers > 1 && numberOfTeams > 2}>
+                  <button type="submit">
+                    {buttonText}
+                  </button>
+                </If>
               </div>
             </div>
             <div className={storySideclasses}>

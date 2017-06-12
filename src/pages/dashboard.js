@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import React, { Component } from "react"
 import { FadeInUp } from "animate-components"
 
+import HeaderOne from "../components/h1"
 import { ANIMATION_SPEED } from "../constants/animation"
 
 class DashboardPage extends Component {
@@ -9,9 +10,9 @@ class DashboardPage extends Component {
     return (
       <section className="page dashboard">
         <FadeInUp duration={ANIMATION_SPEED}>
-          <h1 className="green">
+          <HeaderOne className="green">
             🤑 CEO Stuff
-          </h1>
+          </HeaderOne>
         </FadeInUp>
         <div className="row">
           <div className="col-xs-4">

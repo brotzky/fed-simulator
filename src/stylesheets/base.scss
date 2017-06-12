@@ -9,13 +9,6 @@
 @import 'animation';
 @import 'overrides';
 
-@include breakpoint(xs) {
-  [class*='col-'] {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
 html,
 body {
   background-color: #000;

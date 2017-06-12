@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import moment from "moment"
 import { SlideRight, SlideLeft } from "animate-components"
+import HeaderOne from "../components/h1"
 
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
 import {
@@ -54,12 +55,12 @@ class CalendarPage extends Component {
 
     return (
       <section className="page calendar">
-        <h1>
+        <HeaderOne>
           {title}&nbsp;
           <a onClick={this.onClear}>
             <div className="fa fa-trash-o fa-md" />
           </a>
-        </h1>
+        </HeaderOne>
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <div className="box">

@@ -1,12 +1,15 @@
-import "./stylesheets/size.scss"
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import classNames from "classNames"
+
 import { updateFederation } from "../actions/federation"
 import { updateGame } from "../actions/game"
 import defaultOptions from "../constants/size.options.json"
-import PropTypes from "prop-types"
-import React, { Component } from "react"
+import HeaderOne from "../components/h1"
 import acronymLongName from "../helpers/acronym-long-name"
+
+import "./stylesheets/size.scss"
 
 class SizePage extends Component {
   state = {
@@ -46,12 +49,12 @@ class SizePage extends Component {
   render() {
     return (
       <section className="page size">
-        <h1>
+        <HeaderOne>
           How big are you `<span className="uppercase orange">
             {acronymLongName(this.props.federation.name)}`
           </span>
           ?!
-        </h1>
+        </HeaderOne>
         <div className="row sizes">
           {defaultOptions.map(option => {
             const classes = classNames(

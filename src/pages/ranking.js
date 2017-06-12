@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { SlideRight, SlideLeft } from "animate-components"
 
+import HeaderOne from "../components/h1"
 import Ranking from "../components/ranking/ranking"
 
 import { ANIMATION_SPEED } from "../constants/animation"
@@ -25,13 +26,14 @@ class RankingPage extends Component {
     const wrestlers = orderBy(this.props.roster, "points", "desc")
     const maleWrestlers = wrestlers.filter(wrestler => wrestler.male)
     const femaleWrestlers = wrestlers.filter(wrestler => !wrestler.male)
+
     return (
       <section className="page ranking">
-        <h1>
+        <HeaderOne>
           <span className="gold pop">🌟 Winners </span>
           <span>&nbsp; and &nbsp;</span>
           <span className="gray push"> 🗑 Losers</span>
-        </h1>
+        </HeaderOne>
         <div className="row top-xs">
           <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
             <div className="box">

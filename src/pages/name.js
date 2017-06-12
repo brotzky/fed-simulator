@@ -1,8 +1,10 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { updateFederation } from "../actions/federation"
 import PropTypes from "prop-types"
+
+import { updateFederation } from "../actions/federation"
 import Input from "../components/form/input"
+import HeaderOne from "../components/h1"
 
 import "./stylesheets/name.scss"
 
@@ -47,7 +49,7 @@ class Name extends Component {
   render() {
     return (
       <section className="page name">
-        <h1>Name your federation!</h1>
+        <HeaderOne>Name your federation!</HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div>
             <Input

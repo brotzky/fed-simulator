@@ -1,6 +1,7 @@
 import { connect } from "react-redux"
 import React, { Component } from "react"
 
+import HeaderOne from "../components/h1"
 import utilsNavigation from "./utils.navigation.json"
 import Navigation from "../components/navigation/navigation"
 
@@ -31,14 +32,11 @@ class Utils extends Component {
     const style = { backgroundColor, color, }
     return (
       <section className="page utils">
-        <h1>
+        <HeaderOne>
           Game Utils
-        </h1>
-
+        </HeaderOne>
         <Navigation style={style} navigation={utilsNavigation} />
-
         <br />
-
         <div className={this.state.stage}>
           <p>
             <a onClick={this._onClearStorage}>Clear game data</a>
@@ -50,7 +48,9 @@ class Utils extends Component {
           <p>Roster: {this.props.roster.length}</p>
           <p>Championships: {this.props.championships.length}</p>
           <p>Live Shows: {this.props.calendar.length}</p>
-          <p>Federation: {JSON.stringify(this.props.federation)}</p>
+          <p>
+            Federation: <code>{JSON.stringify(this.props.federation)}</code>
+          </p>
         </div>
       </section>
     )
