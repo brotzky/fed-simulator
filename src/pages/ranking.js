@@ -6,6 +6,8 @@ import { SlideRight, SlideLeft } from "animate-components"
 
 import Ranking from "../components/ranking/ranking"
 
+import { ANIMATION_SPEED } from "../constants/animation"
+
 import "./stylesheets/ranking.scss"
 
 const COLUMNS = ["rank", "name", "points", "wins", "losses",]
@@ -31,11 +33,10 @@ class RankingPage extends Component {
           <span className="gray push"> 🗑 Losers</span>
         </h1>
         <div className="row top-xs">
-
           <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
             <div className="box">
               <If condition={maleWrestlers.length > 0}>
-                <SlideLeft duration="500ms">
+                <SlideLeft duration={ANIMATION_SPEED}>
                   <Ranking
                     title="Male Wrestlers"
                     rows={maleWrestlers}
@@ -48,7 +49,7 @@ class RankingPage extends Component {
           <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
             <div className="box">
               <If condition={femaleWrestlers.length > 0}>
-                <SlideRight duration="500ms">
+                <SlideRight duration={ANIMATION_SPEED}>
                   <Ranking
                     title="Female Wrestlers"
                     rows={femaleWrestlers}
