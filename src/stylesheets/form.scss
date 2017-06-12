@@ -186,3 +186,8 @@ input[type="reset"]:focus {
   background-color: $button-hover-bg-color;
   color: $button-hover-font-color !important;
 }
+
+input::placeholder,
+textarea::placeholder {
+  color: #ccc;
+}
