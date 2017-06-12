@@ -47,19 +47,6 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="showsOverview">
-        <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(
-                null,
-                require("./pages/shows-overview").default,
-                "showsOverview"
-              )
-            })
-          }}
-        />
-      </Route>
       <Route path="branding">
         <IndexRoute
           getComponent={(nextState, callback) => {
