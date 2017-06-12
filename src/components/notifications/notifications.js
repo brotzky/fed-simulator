@@ -4,6 +4,8 @@ import { SlideDown } from "animate-components"
 
 import * as notificationsActions from "../../actions/notifications"
 
+import { ANIMATION_SPEED } from "../../constants/animation"
+
 import "./notifications.scss"
 
 class Notifications extends Component {
@@ -25,7 +27,7 @@ class Notifications extends Component {
     return (
       <ul className="notifications">
         <If condition={notifications.length > 0}>
-          <SlideDown duration="1s">
+          <SlideDown duration={ANIMATION_SPEED}>
             <a onClick={this.resetNotifications}>Clear All</a>
             {notifications.map(notification => {
               const { id, title, } = notification
