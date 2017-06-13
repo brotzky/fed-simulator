@@ -20,7 +20,10 @@ const Navigation = ({
         {navigation.map((item, key) => {
           const title = { __html: item.title, }
           return (
-            <li key={key} className={`navigation__item ${item.url}`}>
+            <li
+              key={key}
+              className={`navigation__item navigation--${item.url}`}
+            >
               <Choose>
                 <When condition={item.title === "Branding"}>
                   <ColorPickers />
