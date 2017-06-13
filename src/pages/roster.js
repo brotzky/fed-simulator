@@ -157,7 +157,7 @@ class RosterPage extends Component {
       wrestlers = wrestlers.concat(newWrestlers)
     })
     this.props.dispatch(updateRoster(wrestlers))
-    // this.props.router.push("/champions")
+    this.props.router.push("/champions")
   }
 
   _generateDefaultRoster = event => {
