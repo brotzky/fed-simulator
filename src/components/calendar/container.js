@@ -62,6 +62,7 @@ class Container extends Component {
                 return (
                   <Box
                     key={`calendar-box-${name}`}
+                    classes="hang"
                     name={name}
                     type={type}
                     canDrag={this.props.game.canPlan}
