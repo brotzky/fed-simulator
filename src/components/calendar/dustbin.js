@@ -58,12 +58,12 @@ export default class Dustbin extends Component {
         <p className="dustbin__name">
           {name}
         </p>
-        <div className="dustbin__details">
+        <p className="dustbin__details">
           {!droppedItem &&
             <span className="drop">
               {isActive ? "Release to drop" : ""}
+              &nbsp;
             </span>}
-          &nbsp;
           <If condition={droppedItem.name}>
             <Liveshow
               canBeDeleted={canDelete}
@@ -74,7 +74,7 @@ export default class Dustbin extends Component {
               style={style}
             />
           </If>
-        </div>
+        </p>
       </div>
     )
   }
