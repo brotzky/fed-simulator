@@ -1,12 +1,12 @@
 [
   {
+		"url": "branding",
+		"title": "Branding"
+	}, {
     "url": "animations",
     "title": "Animations"
   },
-  {
-		"url": "branding",
-		"title": "Branding"
-	},
+
   {
     "url": "settings",
     "title": "Settings"

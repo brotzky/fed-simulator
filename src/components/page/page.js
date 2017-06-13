@@ -8,7 +8,7 @@ import { DragDropContext } from "react-dnd"
 import Wrestlers from "../wrestlers/container"
 import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
-import FooterNavigationItems from "./footer.json"
+import FooterNavigationItems from "../../constants/footer.navigation.json"
 import Navigation from "../navigation/navigation"
 
 import { ANIMATION_SPEED } from "../../constants/animation"
