@@ -1,0 +1,11 @@
+$calendar-liveshow-font-size: 1.3rem;
+
+.liveshow {
+  cursor: move;
+  font-size: $calendar-liveshow-font-size;
+  font-variant: small-caps;
+  font-weight: 100;
+  line-height: $calendar-liveshow-font-size;
+  margin-bottom: 0;
+  padding: .2rem 1rem;
+}

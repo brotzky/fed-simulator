@@ -67,11 +67,6 @@ a:hover,
   text-transform: uppercase;
 }
 
-.icon a,
-a.icon,
-.icon {
-  color: white;
-  &:hover {
-    color: hotpink;
-  }
+.icon:hover {
+  color: hotpink;
 }

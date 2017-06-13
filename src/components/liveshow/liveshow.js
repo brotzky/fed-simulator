@@ -1,7 +1,9 @@
 import React, { Component } from "react"
 import moment from "moment"
 
-import { getContrastRatioColor, getShadeBySize } from "../helpers/colours"
+import { getContrastRatioColor, getShadeBySize } from "../../helpers/colours"
+
+import "./liveshow.scss"
 
 const noop = () => {}
 
@@ -30,7 +32,11 @@ export default class Liveshow extends Component {
     return (
       <div className="liveshow" style={style}>
         <If condition={canBeDeleted}>
-          <i className="fa fa-trash" data-date={date} onClick={onClickDelete} />
+          <i
+            className="icon fa fa-trash"
+            data-date={date}
+            onClick={onClickDelete}
+          />
           &nbsp;
         </If>
         <span className="name">{name}</span>

@@ -55,7 +55,7 @@ class CalendarPage extends Component {
     const hasLiveShows = liveShows.length > 0
 
     return (
-      <section className="page calendar">
+      <section className="page page-calendar">
         <HeaderOne>
           {title}&nbsp;
           <a onClick={this.onClear}>

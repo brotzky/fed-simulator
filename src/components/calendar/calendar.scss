@@ -1,80 +1,87 @@
-$calendar-border-width: .2rem;
 $calendar-show-width: 10%;
 $calendar-font-size: 1rem;
-$calendar-boxes-font-size: 1rem;
-$calendar-dustbin-font-size: .9rem;
-$show-name-font-size: .8rem;
+$calendar-liveshow-font-size: 1.3rem;
+$calendar-date-font-size: 1rem;
 
-$border-color: silver;
-$border-width: .2rem;
-$available: gold;
+$available: hotpink;
 $active: green;
 $used: blue;
-$header-bg: #666;
-$day-width: 12%;
+$calendar-header-bg: #666;
 
 $previous-bg: #ccc;
 $previous-color: #999;
 
-.calendar-inline {
+$calendar-date-hover-bg-color: #333;
+$calendar-date-bg-color: #1d1d1d;
+
+.calendar {
   font-size: $calendar-font-size;
 
   .header {
-    background-color: $header-bg;
-    text-align: center;
+    background-color: $calendar-header-bg;
   }
 
   .previous {
     background-color: $previous-bg;
-    color: $previous-color;
-  }
+    color: darken($previous-color, 10%);
 
-  .dustbin {
-    min-height: 5rem;
+    &:hover {
+      background-color: darken($previous-bg, 30%);
+      color: darken($previous-color, 30%);
+    }
   }
 
   .dustbin,
   .header {
-    border: $border-width solid $border-color;
-    font-size: $calendar-dustbin-font-size;
+    font-size: 1.3rem;
+    font-variant: small-caps;
     font-weight: 300;
+    line-height: 2rem;
     margin-bottom: .8rem;
     margin-right: 1%;
-    width: $day-width;
+    padding: .33%;
+    width: 12.627%;
+  }
+
+  .dustbin {
+    background-color: $calendar-date-bg-color;
+
+    &:hover {
+      background-color: $calendar-date-hover-bg-color;
+    }
+
+    .liveshow {
+      align-items: center;
+      display: flex;
+      font-size: 1rem;
+      height: 90%;
+      justify-content: center;
+      line-height: $calendar-liveshow-font-size;
+      word-break: inherit;
+    }
 
     p {
       margin: 0;
-      padding: $calendar-dustbin-font-size / 5;
+      padding: $calendar-date-font-size / 5;
+    }
+
+    &__name {
+      align-items: stretch;
+      height: auto;
+      justify-content: center;
     }
 
     &__details {
-      display: flex;
-      font-weight: 100;
+      align-items: center;
+      height: 2.5rem;
       justify-content: center;
-
-      .liveshow {
-        align-items: center;
-        display: flex;
-        font-size: $show-name-font-size;
-        justify-content: center;
-        padding: .5rem 0;
-        width: 88%;
-        word-break: word-break;
-      }
+      padding: .5rem;
     }
   }
 
   .boxes {
     margin-bottom: .5rem;
     margin-right: .5rem;
-
-    .liveshow {
-      cursor: move;
-      float: left;
-      font-size: $calendar-boxes-font-size;
-      font-weight: 100;
-      padding: .2rem 1rem;
-    }
   }
 
   .active {

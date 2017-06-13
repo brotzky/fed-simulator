@@ -1,6 +1,6 @@
 import React from "react"
 
-import Liveshow from "../liveshow"
+import Liveshow from "../liveshow/liveshow"
 import { formatCurrency } from "../../helpers/currency"
 
 const noop = () => {}

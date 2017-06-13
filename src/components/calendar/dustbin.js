@@ -3,7 +3,7 @@ import classNames from "classNames"
 import PropTypes from "prop-types"
 import { DropTarget } from "react-dnd"
 
-import Liveshow from "../liveshow"
+import Liveshow from "../liveshow/liveshow"
 
 const dustbinTarget = {
   drop(props, monitor) {
