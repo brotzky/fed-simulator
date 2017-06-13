@@ -138,7 +138,8 @@ class RosterPage extends Component {
     Object.keys(this.state).forEach(stateKey => {
       let stateSplit = stateKey.split("-")
       let male = stateSplit[0] === "male"
-      let points = stateSplit[1]
+      let points = pointsToRandomValue(stateSplit[1])
+      let cost = points * 200
 
       let newWrestlers = this.state[stateKey]
         .split(",")
@@ -148,14 +149,15 @@ class RosterPage extends Component {
           return {
             name,
             male,
-            points: pointsToRandomValue(points),
+            points,
+            cost,
           }
         })
 
       wrestlers = wrestlers.concat(newWrestlers)
     })
     this.props.dispatch(updateRoster(wrestlers))
-    this.props.router.push("/champions")
+    // this.props.router.push("/champions")
   }
 
   _generateDefaultRoster = event => {

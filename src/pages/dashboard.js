@@ -1,33 +1,64 @@
-import { connect } from "react-redux"
 import React, { Component } from "react"
-import { FadeInUp } from "animate-components"
+import { connect } from "react-redux"
+import { SlideRight, SlideLeft, SlideUp } from "animate-components"
 
-import HeaderOne from "../components/h1"
+import Ranking from "../components/ranking/ranking"
+import { formatCurrency } from "../helpers/currency"
+
 import { ANIMATION_SPEED } from "../constants/animation"
+import { COLUMNS_COST } from "../constants/ranking"
+import currency from "../constants/currency"
+
+import "./stylesheets/dashboard.scss"
+
+const currencySymbol = currency.symbol
 
 class DashboardPage extends Component {
   render() {
-    const { animations, game, } = this.props
+    const { cash, animations, } = this.props
+    console.log(animations)
 
     return (
       <section className="page dashboard">
-        <HeaderOne className="green">
-          🤑 CEO Stuff
-        </HeaderOne>
         <div className="row">
           <div className="col-xs-4">
-            <div className="box">Large Cash count {game.cash}</div>
+            <SlideLeft
+              iterations={Number(animations)}
+              duration={ANIMATION_SPEED}
+            >
+              <div className="box game-cash">
+                {formatCurrency(currencySymbol, cash)}
+                <br />
+                🤑
+              </div>
+            </SlideLeft>
           </div>
           <div className="col-xs-4">
-            <div className="box">expensive</div>
+            <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
+              <div className="box">
+                <Ranking
+                  amountToShow={5}
+                  rows={this.props.expensiveWrestlers}
+                  columns={COLUMNS_COST}
+                  title="Expensive Wrestlers"
+                />
+              </div>
+            </SlideUp>
           </div>
           <div className="col-xs-4">
-            <div className="box">cheap</div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-xs">
-            Liveshows table
+            <SlideRight
+              iterations={Number(animations)}
+              duration={ANIMATION_SPEED}
+            >
+              <div className="box">
+                <Ranking
+                  amountToShow={5}
+                  rows={this.props.cheapWrestlers}
+                  columns={COLUMNS_COST}
+                  title="Cheaper Wrestlers"
+                />
+              </div>
+            </SlideRight>
           </div>
         </div>
       </section>
@@ -38,6 +69,8 @@ class DashboardPage extends Component {
 DashboardPage.displayName = "DashboardPage"
 
 export default connect(state => ({
-  animations: state.game.animations,
-  game: state.game,
+  roster: state.roster,
+  cheapWrestlers: state.roster.sort((a, b) => a.cost > b.cost),
+  expensiveWrestlers: state.roster.sort((a, b) => a.cost < b.cost),
+  ...state.game,
 }))(DashboardPage)

@@ -1,7 +1,8 @@
 const currency = {
-  style: 'currency',
-  currency: 'USD',
-  currencyDisplay: 'symbol',
+  style: "currency",
+  currency: "USD",
+  symbol: "$",
+  currencyDisplay: "symbol",
   maximumSignificantDigits: 1,
 }
 
