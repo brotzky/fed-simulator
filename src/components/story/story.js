@@ -11,10 +11,10 @@ const Story = ({ story = [], }) => (
 
         return (
           <li className="story__action" key={id}>
-            <strong>{attacker.name}</strong>
+            &nbsp;<span className="attacker">{attacker.name}</span>
             &nbsp;{move.name} for
             &nbsp;{move.damage} damage on
-            <strong> {defender.name}</strong>
+            <span className="defender"> {defender.name}</span>
           </li>
         )
       })}

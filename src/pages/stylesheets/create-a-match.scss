@@ -1,6 +1,10 @@
 .page.create-a-match {
   padding-bottom: 20%;
 
+  h3 {
+    font-size: 2rem;
+  }
+
   a {
     color: white;
   }
@@ -12,5 +16,6 @@
   .story.winner {
     font-size: 3rem;
     font-variant: small-caps;
+    font-weight: 900;
   }
 }

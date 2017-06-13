@@ -163,10 +163,22 @@ class CreateAMatch extends Component {
                 >
                   <If condition={winner}>
                     <h2 className="story winner pulse">
-                      {winner.name} Wins
+                      <span>
+                        <i
+                          className="icon green fa fa-angle-double-up"
+                          aria-hidden="true"
+                        />
+                        &nbsp;{winner.name} Wins
+                      </span>
                     </h2>
                     <h3 className="story loser shake">
-                      {loser.name} Loses
+                      <span>
+                        <i
+                          className="icon red fa fa-angle-double-down"
+                          aria-hidden="true"
+                        />
+                        &nbsp;{loser.name} Loses 😵
+                      </span>
                     </h3>
                   </If>
                   <If condition={currentMatch.story.length > 0}>
