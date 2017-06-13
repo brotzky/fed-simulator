@@ -74,7 +74,7 @@ class WrestlersContainer extends Component {
     const sortClasses = classNames("icon", "fa", "fa-sort", {
       active: this.state.sortByPoints,
     })
-    const genderClasses = classNames("fa", "fa-venus", {
+    const genderClasses = classNames("icon", "fa", "fa-venus", {
       active: this.state.showFemalesOnly,
     })
 

@@ -20,18 +20,20 @@ $wrestler-color: #000;
     justify-content: space-between;
   }
 
-  .fa.active {
+  .icon.active {
     text-shadow: .5rem .5rem .5rem currentColor;
   }
 
   input[type=text] {
     background-color: transparent;
-    border-bottom: .2rem solid $wrestler-choice-color;
+    border-bottom: .01rem solid $wrestler-choice-color;
     border-left: 0;
     border-right: 0;
     border-top: 0;
-    font-size: 2rem;
-    height: 1rem;
+    color: $wrestler-choice-color;
+    font-size: 1.5rem;
+    height: 1.3rem;
+    line-height: 1.2rem;
 
     &::placeholder {
       color: $wrestler-choice-color;
@@ -41,7 +43,6 @@ $wrestler-color: #000;
   .wrestler {
     align-items: center;
     background-color: $wrestler-background-color;
-    border-radius: 100%;
     color: $wrestler-color;
     display: flex;
     flex-wrap: wrap;
@@ -51,7 +52,6 @@ $wrestler-color: #000;
     line-height: 1rem;
     margin: 0 .5rem 1rem;
     text-align: center;
-    text-shadow: .1rem .1rem .1rem $wrestler-text-shadow;
     transition: text-shadow .3s linear;
     width: 6rem;
     word-wrap: break-word;
@@ -63,7 +63,7 @@ $wrestler-color: #000;
 
     &:hover {
       cursor: pointer;
-      text-shadow: .1rem .2rem .2rem darken($wrestler-text-shadow, 70%);
+      text-shadow: .1rem .1rem .4rem darken($wrestler-text-shadow, 70%);
     }
   }
 }
