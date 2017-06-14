@@ -1,6 +1,7 @@
 $calendar-liveshow-font-size: 1.3rem;
 
 .liveshow {
+  display: inline-flex;
   cursor: move;
   font-size: $calendar-liveshow-font-size;
   font-variant: small-caps;

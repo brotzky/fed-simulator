@@ -30,7 +30,7 @@ export default class Liveshow extends Component {
     } = this.props
     style = this._getStyle(style, size)
     return (
-      <div className="liveshow" style={style}>
+      <span className="liveshow" style={style}>
         <If condition={canBeDeleted}>
           <i
             className="icon fa fa-trash"
@@ -44,7 +44,7 @@ export default class Liveshow extends Component {
           &nbsp;
           ({moment(date).format("Do")})
         </If>
-      </div>
+      </span>
     )
   }
 
