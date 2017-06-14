@@ -2,8 +2,10 @@ import React from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { FadeIn, SlideDown } from "animate-components"
-import HTML5Backend from "react-dnd-html5-backend"
 import { DragDropContext } from "react-dnd"
+import HTML5Backend from "react-dnd-html5-backend"
+import TouchBackend from "react-dnd-touch-backend"
+import MultiBackend, { TouchTransition } from "react-dnd-multi-backend"
 
 import Wrestlers from "../wrestlers/container"
 import Notifications from "../notifications/notifications"
@@ -15,6 +17,19 @@ import { ANIMATION_SPEED } from "../../constants/animation"
 
 import "../../stylesheets/base.scss"
 import "./page.scss"
+
+const HTML5toTouch = {
+  backends: [
+    {
+      backend: HTML5Backend,
+    },
+    {
+      backend: TouchBackend({ enableMouseEvents: true, }), // Note that you can call your backends with options
+      preview: true,
+      transition: TouchTransition,
+    },
+  ],
+}
 
 class Page extends React.Component {
   componentWillMount() {
@@ -67,6 +82,8 @@ class Page extends React.Component {
   }
 }
 
+Page.displayName = "Page"
+
 Page.propTypes = {
   classNames: PropTypes.string,
   shows: PropTypes.array,
@@ -83,7 +100,7 @@ Page.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
-Page = DragDropContext(HTML5Backend)(Page)
+Page = DragDropContext(MultiBackend(HTML5toTouch))(Page)
 
 export default connect(state => ({
   animations: state.game.animations,
