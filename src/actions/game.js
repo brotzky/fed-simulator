@@ -6,6 +6,12 @@ export function togglePlan() {
   }
 }
 
+export function startGame() {
+  return {
+    type: types.START_GAME,
+  }
+}
+
 export function toggleAnimations() {
   return {
     type: types.TOGGLE_ANIMATIONS,

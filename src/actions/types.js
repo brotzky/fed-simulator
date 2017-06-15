@@ -13,6 +13,9 @@ export const START_CALENDAR_MONTH = "START_CALENDAR_MONTH"
 export const ADD_ONE_MONTH = "ADD_ONE_MONTH"
 export const TOGGLE_PLAN = "TOGGLE_PLAN"
 
+// game
+export const START_GAME = "START_GAME"
+
 // matches
 export const CREATE_MATCH = "CREATE_MATCH"
 export const SELECT_WINNER_IN_MATCH = "SELECT_WINNER_IN_MATCH"

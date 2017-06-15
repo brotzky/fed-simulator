@@ -12,6 +12,9 @@ export default (state = defaultState, action) => {
     case "RESET_GAME":
       state = defaultState
       break
+		case "START_GAME":
+			state.started = true
+			break;
     case "TOGGLE_ANIMATIONS":
       state = Object.assign({}, state, { animations: !state.animations, })
       break

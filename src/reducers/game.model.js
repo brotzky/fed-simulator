@@ -4,6 +4,7 @@ export default class extends BaseModel {
   defaults() {
     return {
       id: false,
+			started: false,
       canPlan: true,
       cash: 0,
       animations: true,

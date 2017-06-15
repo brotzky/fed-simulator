@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 import { updateFederation } from "../actions/federation"
+import { startGame } from "../actions/game"
 import Input from "../components/form/input"
 import HeaderOne from "../components/h1"
 
@@ -41,6 +42,7 @@ class Name extends Component {
     )
 
     this.props.dispatch(updateFederation(federation))
+		this.props.dispatch(startGame())
     this.props.router.push("/size")
   }
 
