@@ -3,11 +3,6 @@
 		"url": "branding",
 		"title": "Branding"
 	}, {
-    "url": "animations",
-    "title": "Animations"
-  },
-
-  {
     "url": "settings",
     "title": "Settings"
   }

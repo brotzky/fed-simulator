@@ -3,10 +3,9 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 
 class DefaultPage extends Component {
-
   componentWillMount() {
-		const { game, federation, router, roster, shows, style, } = this.props
-		let pathName = "calendar"
+    const { game, federation, router, roster, shows, style, } = this.props
+    let pathName = "calendar"
 
     if (game.started === false || federation.name === "") {
       pathName = "/name"
@@ -20,7 +19,7 @@ class DefaultPage extends Component {
       pathName = "/shows"
     }
 
-		router.push(pathName)
+    router.push(pathName)
   }
 
   render() {
@@ -36,6 +35,7 @@ DefaultPage.contextTypes = {
 
 export default connect(state => ({
   federation: state.federation,
+  game: state.game,
   roster: state.roster,
   shows: state.shows,
   style: state.style,
