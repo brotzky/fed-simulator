@@ -135,9 +135,9 @@ class CreateAMatch extends Component {
                   <If condition={currentMatch.id}>
                     <Link to={`/create-a-match?id=${currentMatch.id}`}>
                       <i
-                        className="icon fa fa-external-link"
+                        className="icon fa fa-refresh"
                         aria-hidden="true"
-                        title="Save Match Link"
+                        title="Refresh Match Link"
                       />
                     </Link>
                   </If>
