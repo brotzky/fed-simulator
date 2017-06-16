@@ -33,7 +33,7 @@ const Navigation = ({
                 </When>
                 <When condition={item.title === "Settings"}>
                   <Link to={item.url}>
-                    <i className="icon fa fa-cog" />
+                    <i className="icon fa fa-cog" style={style} />
                   </Link>
                 </When>
                 <Otherwise>
