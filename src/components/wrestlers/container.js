@@ -81,8 +81,17 @@ class WrestlersContainer extends Component {
     return (
       <div className="wrestlers" style={this.props.style}>
         <div className="row">
-          <div className="col-lg-1 col-xs-12">
-            <div className="box box-filters">
+          <div className="col-lg-11">
+            <div className="box">
+              <Input
+                value={this.state.nameSearch}
+                onChange={this.onFilterByName}
+                placeholder="Filter wrestlers by name"
+              />
+            </div>
+          </div>
+          <div className="col-lg-1">
+            <div className="box center-xs">
               <i
                 className={sortClasses}
                 aria-hidden="true"
@@ -93,15 +102,6 @@ class WrestlersContainer extends Component {
                 aria-hidden="true"
                 onClick={this.onToggleWomenWrestlers}
               />&nbsp;
-            </div>
-          </div>
-          <div className="col-lg-10 col-xs-12">
-            <div className="box">
-              <Input
-                value={this.state.nameSearch}
-                onChange={this.onFilterByName}
-                placeholder="Filter wrestlers by name"
-              />
             </div>
           </div>
         </div>
