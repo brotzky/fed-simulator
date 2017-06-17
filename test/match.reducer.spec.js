@@ -12,6 +12,7 @@ const action = {
   type: null,
   payload: [],
 }
+const MAX_MATCHES = 100
 
 describe("given a roster reducer", () => {
   let matchesReducer
@@ -232,12 +233,83 @@ describe("given a roster reducer", () => {
       it("and that first story item should have an defender", () => {
         expect(storyItem.defender).to.not.be.empty()
       })
+      it("and that first story item should have a winner", () => {
+        expect(currentMatch.winner).to.not.be.empty()
+      })
+      it("and that first story item should have a loser", () => {
+        expect(currentMatch.loser).to.not.be.empty()
+      })
       it("and that first story item should have an attacker", () => {
         expect(storyItem.attacker).to.not.be.empty()
       })
       it("and that first story item should have an move", () => {
         expect(storyItem.move).to.not.be.empty()
       })
+    })
+  })
+
+  // due to the random nature we take 100 as a base number to repeat a match
+  describe(`and a ${MAX_MATCHES} matches are simulated`, () => {
+    before(() => {
+      let matchId = 1
+      //reset matches
+      action.payload = {
+        type: types.RESET_MATCH,
+      }
+
+      matchesReducer = reducer(matchesReducer, action)
+
+      let x = 1
+
+      while (x < MAX_MATCHES) {
+        //create matchId
+        action.type = types.CREATE_MATCH
+        action.payload = {
+          id: x,
+        }
+        matchesReducer = reducer(matchesReducer, action)
+        matchId = matchesReducer.find(currentMatch => currentMatch.id == x).id
+        // add wrestler
+        action.type = types.ADD_WRESTLER_TO_MATCH
+        action.payload = {
+          matchId,
+          wrestler: new WrestlerModel().toJSON(),
+        }
+        matchesReducer = reducer(matchesReducer, action)
+        action.payload = {
+          matchId,
+          wrestler: new WrestlerModel().toJSON(),
+        }
+        matchesReducer = reducer(matchesReducer, action)
+
+        // simulate the match
+        action.type = types.SIMULATE_MATCH
+        action.payload = {
+          matchId,
+        }
+
+        matchesReducer = reducer(matchesReducer, action)
+        x++
+      }
+    })
+
+    it(`it has ${MAX_MATCHES} matches`, () => {
+      expect(matchesReducer).to.have.length(MAX_MATCHES)
+    })
+
+    it("and it never had had the last person alive", () => {
+      let numberOfIncidents = 0
+      matchesReducer.forEach(currentMatch => {
+        let { wrestlers, story } = currentMatch
+        let lastStoryAttackerId = story.reverse()[0].attacker.id
+
+        if (currentMatch.winner.id !== lastStoryAttackerId) {
+          numberOfIncidents++
+          console.log("what", numberOfIncidents)
+        }
+      })
+
+      expect(numberOfIncidents).to.equal(0)
     })
   })
 

@@ -97,14 +97,6 @@ class CreateAMatch extends Component {
   render() {
     const buttonText = pickRandom(buttonTexts)
     const { currentMatch, } = this.state
-
-    let winner, loser
-
-    if (currentMatch.story.length > 0) {
-      winner = currentMatch.wrestlers.find(wrestler => wrestler.winner)
-      loser = currentMatch.story.reverse()[0].defender
-    }
-
     const { animations, } = this.props
     const hasSidebar = currentMatch.story.length > 0
     const numberOfTeams = Object.keys(this.state.teams).length
@@ -155,20 +147,21 @@ class CreateAMatch extends Component {
                 </If>
               </div>
             </div>
+            <br />
             <div className={storySideclasses}>
               <div className="box">
                 <SlideRight
                   iterations={Number(animations)}
                   duration={ANIMATION_SPEED}
                 >
-                  <If condition={winner}>
+                  <If condition={currentMatch.winner}>
                     <h2 className="story winner pulse">
                       <span>
                         <i
                           className="icon green fa fa-angle-double-up"
                           aria-hidden="true"
                         />
-                        &nbsp;{winner.name} Wins
+                        &nbsp;{currentMatch.winner.name} Wins
                       </span>
                     </h2>
                     <h3 className="story loser shake">
@@ -177,7 +170,7 @@ class CreateAMatch extends Component {
                           className="icon red fa fa-angle-double-down"
                           aria-hidden="true"
                         />
-                        &nbsp;{loser.name} Loses 😵
+                        &nbsp;{currentMatch.loser.name} Loses 😵
                       </span>
                     </h3>
                   </If>
