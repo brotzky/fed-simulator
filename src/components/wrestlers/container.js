@@ -81,7 +81,7 @@ class WrestlersContainer extends Component {
     return (
       <div className="wrestlers" style={this.props.style}>
         <div className="row">
-          <div className="col-lg-11">
+          <div className="col-xs-10">
             <div className="box">
               <Input
                 value={this.state.nameSearch}
@@ -90,7 +90,7 @@ class WrestlersContainer extends Component {
               />
             </div>
           </div>
-          <div className="col-lg-1">
+          <div className="col-xs-2">
             <div className="box center-xs">
               <i
                 className={sortClasses}
