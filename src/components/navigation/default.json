@@ -2,22 +2,21 @@
 	{
 		"url": "dashboard",
 		"title": "Dashboard"
-	},
-	{
+	}, {
 		"url": "ranking",
 		"title": "Ranking"
 	}, {
 		"url": "calendar",
 		"title": "Calendar"
 	}, {
+		"url": "create-a-match",
+		"title": "Create a match"
+	},{
 		"url": "champions",
 		"title": "Champions"
 	}, {
 		"url": "roster",
 		"title": "Roster"
-	}, {
-		"url": "create-a-match",
-		"title": "Create a match"
 	}, {
 		"url": "shows",
 		"title": "Shows"
