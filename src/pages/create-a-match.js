@@ -175,7 +175,7 @@ class CreateAMatch extends Component {
                     </h3>
                   </If>
                   <If condition={currentMatch.story.length > 0}>
-                    <Story story={currentMatch.story} />
+                    <Story story={[]} />
                   </If>
                 </SlideRight>
               </div>
