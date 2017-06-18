@@ -6,6 +6,8 @@ export default class extends BaseModel {
       id: false,
       started: false,
       canPlan: true,
+      name: "",
+      size: "xs",
       cash: 0,
       currency: "$",
       animations: true,
