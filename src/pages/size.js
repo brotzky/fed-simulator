@@ -6,7 +6,7 @@ import classNames from "classNames"
 import { updateFederation } from "../actions/federation"
 import { updateGame } from "../actions/game"
 import defaultOptions from "../constants/size.options.json"
-import HeaderOne from "../components/h1"
+import HeaderOne from "../components/h1/h1"
 import acronymLongName from "../helpers/acronym-long-name"
 
 import "./stylesheets/size.scss"

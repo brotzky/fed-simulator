@@ -10,7 +10,7 @@ import { updateChampions } from "../actions/champions"
 import GenerateRandom from "../components/generate-random"
 import Textarea from "../components/form/textarea.js"
 import constantDefaults from "../constants/defaults.json"
-import HeaderOne from "../components/h1"
+import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/champions.scss"
 

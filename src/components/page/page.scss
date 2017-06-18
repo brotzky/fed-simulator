@@ -1,9 +1,7 @@
 $basepage-font-size: 2rem;
-$basepage-icon-font-size: 4rem;
-$basepage-h1-font-size: 5rem;
-$basepage-gutter: 1.5rem 5rem;
+$basepage-gutter: 2vh 3vw;
 
-$basepage-button-font-size: 3rem;
+$basepage-button-font-size: 5vw;
 $basepage-button-color: white;
 $basepage-button-background-color: #3f3f3f;
 $basepage-button-border-radius: 0;
@@ -12,18 +10,6 @@ $basepage-button-padding: .5rem !default;
 .page-container main {
   flex: 1 0 auto;
   padding: $basepage-gutter;
-
-  h1 {
-    font-size: $basepage-h1-font-size;
-    font-variant: small-caps;
-    font-weight: 100;
-    line-height: $basepage-h1-font-size;
-    margin: 0 0 1rem;
-
-    .icon {
-      font-size: $basepage-icon-font-size;
-    }
-  }
 
   .children {
     padding: $basepage-gutter;

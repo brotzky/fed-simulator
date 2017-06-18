@@ -9,7 +9,7 @@ import Textarea from "../components/form/textarea.js"
 import GenerateRandom from "../components/generate-random"
 import { ROSTER_CONFIRM_RESET } from "../constants/confirmations"
 import constantDefaults from "../constants/defaults.json"
-import HeaderOne from "../components/h1"
+import HeaderOne from "../components/h1/h1"
 
 import { ANIMATION_SPEED } from "../constants/animation"
 

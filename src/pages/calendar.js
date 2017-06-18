@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import moment from "moment"
 import { SlideRight, SlideLeft } from "animate-components"
-import HeaderOne from "../components/h1"
+import HeaderOne from "../components/h1/h1"
 
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
 import {

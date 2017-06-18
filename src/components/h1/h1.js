@@ -1,7 +1,9 @@
 import React from "react"
 import { SlideUp } from "animate-components"
 
-import { SHORT_ANIMATION_SPEED } from "../constants/animation"
+import { SHORT_ANIMATION_SPEED } from "../../constants/animation"
+
+import "./h1.scss"
 
 const HeaderOne = ({ className = "", children = undefined, }) => (
   <SlideUp duration={SHORT_ANIMATION_SPEED}>

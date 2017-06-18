@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { SlideRight, SlideLeft } from "animate-components"
 
-import HeaderOne from "../components/h1"
+import HeaderOne from "../components/h1/h1"
 import Ranking from "../components/ranking/ranking"
 
 import { ANIMATION_SPEED } from "../constants/animation"

@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import React, { Component } from "react"
 
-import HeaderOne from "../components/h1"
+import HeaderOne from "../components/h1/h1"
 import utilsNavigation from "./settings.navigation.json"
 import Navigation from "../components/navigation/navigation"
 

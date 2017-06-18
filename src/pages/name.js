@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import { updateFederation } from "../actions/federation"
 import { startGame } from "../actions/game"
 import Input from "../components/form/input"
-import HeaderOne from "../components/h1"
+import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/name.scss"
 
