@@ -1,6 +1,6 @@
 $calendar-show-width: 10%;
 $calendar-font-size: 1rem;
-$calendar-liveshow-font-size: 1.3rem;
+$calendar-liveshow-font-size: 1rem;
 $calendar-date-font-size: 1rem;
 
 $available: hotpink;
@@ -54,7 +54,7 @@ $calendar-date-bg-color: #1d1d1d;
     .liveshow {
       align-items: center;
       display: flex;
-      font-size: 1rem;
+      font-size: $calendar-liveshow-font-size;
       height: 90%;
       justify-content: center;
       line-height: $calendar-liveshow-font-size;
