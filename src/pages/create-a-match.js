@@ -110,11 +110,11 @@ class CreateAMatch extends Component {
     const hasSidebar = wrestlers.findIndex(wrestler => wrestler.winner) > -1
     const mainClasses = classNames(
       { "col-xs": !hasSidebar, },
-      { "col-lg-8": hasSidebar, }
+      { "col-lg-8 col-md-8 col-sm-8 col-xs-6": hasSidebar, }
     )
     const storySideclasses = classNames(
       { hide: !hasSidebar, },
-      { "col-lg-4": hasSidebar, }
+      { "col-lg-4 col-md-4 col-sm-4 col-xs-6": hasSidebar, }
     )
 
     return (
@@ -181,7 +181,6 @@ class CreateAMatch extends Component {
                       </span>
                     </h3>
                   </If>
-                  <Story story={[]} />
                 </SlideRight>
               </div>
             </div>
