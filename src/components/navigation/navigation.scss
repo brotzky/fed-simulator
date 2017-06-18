@@ -2,15 +2,19 @@ $navigation-font-size: 1.5rem;
 $navigation-font-weight: 100;
 $navigation-link-color: currentColor;
 $navigation-link-text-shadow: 0 0 .5rem $navigation-link-color;
-
+$navigation-list-padding: 2vh 4vw;
 .navigation {
+  margin: 0;
+  padding: 0;
+
   &__list {
     align-items: center;
     display: flex;
     justify-content: space-between;
     list-style: none;
-    margin: 0 .5%;
+    margin: 0;
     overflow-y: scroll;
+    padding: $navigation-list-padding;
     white-space: nowrap;
   }
 
@@ -18,9 +22,9 @@ $navigation-link-text-shadow: 0 0 .5rem $navigation-link-color;
     font-size: $navigation-font-size;
     font-variant: small-caps;
     font-weight: $navigation-font-weight;
-    margin: 1% 2%;
 
     a {
+      padding: 0 2rem;
       text-decoration: none;
       text-shadow: $navigation-link-text-shadow;
     }
