@@ -1,12 +1,9 @@
 import weighted from "weighted"
-import minBy from "lodash.minby"
 import groupBy from "lodash.groupby"
 
 import WrestlerModel from "./wrestler.model"
 import Model from "./match.model"
 import { getId } from "../helpers/hash"
-import Moves from "./moves.json"
-import { getPercentageAmount } from "../helpers/math"
 
 const defaultState = []
 const defaultAction = {}
@@ -46,7 +43,7 @@ export default (state = defaultState, action = defaultAction) => {
           const losersRandomWeighting = arrayOfLength(losers.length)
           const loser = weighted.select(losers, losersRandomWeighting)
 
-          wrestlers.map(wrestler => {
+          const newWrestlers = wrestlers.map(wrestler => {
             wrestler.loser = false
             wrestler.winner = false
 
@@ -59,7 +56,7 @@ export default (state = defaultState, action = defaultAction) => {
             return wrestler
           })
 
-          state[index].wrestlers = wrestlers
+          state[index].wrestlers = newWrestlers
         }
       }
       break
@@ -67,21 +64,15 @@ export default (state = defaultState, action = defaultAction) => {
     case "SELECT_WINNER_IN_MATCH":
       index = getIndexById(action.payload.matchId)
 
-      let winner
-
-      state[index].wrestlers.map(newWrestler => {
+      state[index].wrestlers = state[index].wrestlers.map(newWrestler => {
         const isAlreadyWinner = newWrestler.winner
-        winner = newWrestler.id === action.payload.wrestlerId
+        const isWinningWrestler = newWrestler.id === action.payload.wrestlerId
 
-        newWrestler.winner = winner
-
-        if (isAlreadyWinner && winner) {
-          newWrestler.winner = false
-        }
+        newWrestler.winner = isWinningWrestler
+        newWrestler.loser = false
 
         return newWrestler
       })
-      state[index].winner = winner
       break
 
     case "REMOVE_WRESTLER_FROM_MATCH":

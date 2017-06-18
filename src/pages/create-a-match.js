@@ -171,6 +171,8 @@ class CreateAMatch extends Component {
                         &nbsp;{winner.name} Wins
                       </span>
                     </h2>
+                  </If>
+                  <If condition={loser}>
                     <h3 className="story loser shake">
                       <span>
                         <i
