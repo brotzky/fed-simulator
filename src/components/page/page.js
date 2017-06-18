@@ -104,7 +104,6 @@ Page = DragDropContext(MultiBackend(HTML5toTouch))(Page)
 
 export default connect(state => ({
   animations: state.game.animations,
-  federation: state.federation,
   style: state.style,
   shows: state.shows,
   version: state.version,

@@ -2,60 +2,38 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import { updateFederation } from "../actions/federation"
+import { updateGame } from "../actions/game"
 import { startGame } from "../actions/game"
 import Input from "../components/form/input"
 import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/name.scss"
 
-class Name extends Component {
+class NamePage extends Component {
   state = {
-    federation: {
+    game: {
       name: "",
     },
   }
 
   componentDidMount() {
-    if (this.props.federation.name !== "") {
+    if (this.props.game.name !== "") {
       this.setState({
-        federation: {
-          name: this.props.federation.name,
+        game: {
+          name: this.props.game.name,
         },
       })
     }
   }
 
-  handleChange = event => {
-    this.setState({
-      federation: {
-        name: event.target.value,
-      },
-    })
-  }
-
-  handleSubmit = event => {
-    event.preventDefault()
-    const federation = Object.assign(
-      this.props.federation,
-      this.state.federation
-    )
-
-    this.props.dispatch(updateFederation(federation))
-		this.props.dispatch(startGame())
-    this.props.router.push("/size")
-  }
-
-  displayName = "Name"
-
   render() {
     return (
       <section className="page name">
-        <HeaderOne>Name your federation!</HeaderOne>
+        <HeaderOne>Name your game!</HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div>
             <Input
-              value={this.state.federation.name}
+              value={this.state.game.name}
               name="name"
               onChange={this.handleChange}
               label=""
@@ -63,18 +41,40 @@ class Name extends Component {
             />
           </div>
           <button type="submit">
-            Save and decide the size of your federation
+            Save and decide the size of your game
           </button>
         </form>
       </section>
     )
   }
+
+  handleChange = event => {
+    this.setState({
+      game: {
+        name: String(event.target.value),
+      },
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+
+    const game = Object.assign({}, this.props.game, this.state.game)
+    const { dispatch, router, } = this.props
+
+    dispatch(updateGame(game))
+    dispatch(startGame())
+
+    router.push("/size")
+  }
 }
 
-Name.contextTypes = {
+NamePage.displayName = "NamePage"
+
+NamePage.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
 export default connect(state => ({
-  federation: state.federation,
-}))(Name)
+  game: state.game,
+}))(NamePage)

@@ -131,7 +131,6 @@ class WrestlersContainer extends Component {
 }
 
 export default connect(state => ({
-  federation: state.federation,
   style: state.style,
   roster: state.roster,
 }))(WrestlersContainer)

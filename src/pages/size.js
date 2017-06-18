@@ -13,37 +13,29 @@ import "./stylesheets/size.scss"
 
 class SizePage extends Component {
   state = {
-    size: "",
-    cash: "",
+    size: "xs",
+    cash: 0,
   }
 
   componentDidMount() {
-    if (this.props.federation.size !== "") {
-      this.setState({
-        size: this.props.federation.size,
-        cash: this.props.game.cash,
-      })
+    if (this.props.game.size !== "") {
+      this.setState({ ...this.props.game, })
     }
   }
 
   handleChange = (size, cash) => {
-    this.setState({
-      size,
-      cash,
-    })
+    this.setState({ size, cash, })
   }
 
   handleSubmit = event => {
     event.preventDefault()
 
-    const { cash, size, } = this.state
-    const { federation, game, } = this.props
-    const fedState = Object.assign(federation, { size, })
-    const gameState = Object.assign(game, { cash, })
+    const { game, dispatch, router, } = this.props
+    const gameState = Object.assign({}, game, { ...this.state, })
 
-    this.props.dispatch(updateFederation(fedState))
-    this.props.dispatch(updateGame(gameState))
-    this.props.router.push("/branding")
+    dispatch(updateGame(gameState))
+
+    router.push("/branding")
   }
 
   render() {
@@ -51,7 +43,7 @@ class SizePage extends Component {
       <section className="page size">
         <HeaderOne>
           How big are you `<span className="uppercase orange">
-            {acronymLongName(this.props.federation.name)}`
+            {acronymLongName(this.props.game.name)}`
           </span>
           ?!
         </HeaderOne>
@@ -94,6 +86,5 @@ SizePage.contextTypes = {
 SizePage.displayName = "Size"
 
 export default connect(state => ({
-  federation: state.federation,
   game: state.game,
 }))(SizePage)

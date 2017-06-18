@@ -27,9 +27,8 @@ class Settings extends Component {
   }
 
   render() {
-    const { backgroundColor, color, } = this.props.federation
+    const { style, } = this.props
 
-    const style = { backgroundColor, color, }
     return (
       <section className="page settings">
         <HeaderOne>
@@ -49,7 +48,7 @@ class Settings extends Component {
           <p>Championships: {this.props.championships.length}</p>
           <p>Live Shows: {this.props.calendar.length}</p>
           <p>
-            Federation: <code>{JSON.stringify(this.props.federation)}</code>
+            Game: <code>{JSON.stringify(this.props.game)}</code>
           </p>
         </div>
       </section>
@@ -60,7 +59,8 @@ class Settings extends Component {
 export default connect(state => ({
   calendar: state.calendar,
   championships: state.championships,
-  federation: state.federation,
+  game: state.game,
+  style: state.style,
   roster: state.roster,
   settings: state.settings,
   shows: state.shows,

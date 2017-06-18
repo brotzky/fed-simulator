@@ -17,7 +17,7 @@ const currencySymbol = currency.symbol
 
 class DashboardPage extends Component {
   render() {
-    const { cash, animations, federation, } = this.props
+    const { cash, animations, game, } = this.props
 
     return (
       <section className="page dashboard">
@@ -28,7 +28,7 @@ class DashboardPage extends Component {
               duration={ANIMATION_SPEED}
             >
               <div className="box game-cash">
-                🤑 {acronymLongName(federation.name)}
+                🤑 {acronymLongName(game.name)}
                 <br />
                 {formatCurrency(currencySymbol, cash)}
               </div>
@@ -72,7 +72,7 @@ DashboardPage.displayName = "DashboardPage"
 
 export default connect(state => ({
   roster: state.roster,
-  federation: state.federation,
+  game: state.game,
   cheapWrestlers: sortBy(state.roster, "cost"),
   expensiveWrestlers: sortBy(state.roster, "cost").reverse(),
   ...state.game,

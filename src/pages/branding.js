@@ -19,6 +19,7 @@ class BrandingPage extends Component {
 
   onHandleSubmit = (event = EVENT_STUB) => {
     event.preventDefault()
+
     this.props.router.push("/roster")
   }
 
@@ -45,7 +46,7 @@ class BrandingPage extends Component {
     return (
       <section className="page branding">
         <h1 className="col-xs-12 skew-forward" style={style}>
-          🏳️ What colours represent you {this.props.federationName}? 🏳️
+          🏳️ What colours represent you {this.props.name}? 🏳️
         </h1>
         <div className="row colours">
           <div className="col-xs-12 col-lg-6 center-xs middle-xs">
@@ -77,6 +78,6 @@ BrandingPage.contextTypes = {
 }
 
 export default connect(state => ({
-  federationName: state.federation.name,
+  name: state.game.name,
   style: state.style,
 }))(BrandingPage)
