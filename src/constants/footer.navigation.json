@@ -2,7 +2,10 @@
   {
 		"url": "branding",
 		"title": "Branding"
-	}, {
+    }, {
+      "url": "cash",
+      "title": "Cash"
+  	}, {
     "url": "settings",
     "title": "Settings"
   }
