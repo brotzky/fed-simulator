@@ -67,11 +67,14 @@ const AccountingCollection = ({
           </div>
         )
       })}
-      {heading({
-        first: "Totals",
-        second: formatCurrency(currency, totalCost),
-        third: formatCurrency(currency, totalGross),
-      })}
+      <If condition={calendarEvents.length > 0}>
+        <hr />
+        {heading({
+          first: "Totals",
+          second: formatCurrency(currency, totalCost),
+          third: formatCurrency(currency, totalGross),
+        })}
+      </If>
       <If condition={isComplete}>
         {heading({
           first: "Profit",
