@@ -2,9 +2,11 @@ $active-color: #ffd700;
 $main-color: #fff;
 $inner-color: #3d3c3c;
 $match-border-color: #929292;
+$match-font-size: 1.3rem;
 
 .match .team {
   margin-bottom: 1rem;
+  font-size: $match-font-size;
 
   &.has-winner .box {
     border-style: solid;
@@ -27,8 +29,7 @@ $match-border-color: #929292;
     border: .2rem dashed $match-border-color;
     display: flex;
     justify-content: center;
-    min-height: 5rem;
-    min-width: 12rem;
+    min-height: 4rem;
     text-transform: capitalize;
   }
 
@@ -39,7 +40,7 @@ $match-border-color: #929292;
   .wrestler {
     border: .2rem dashed transparent;
     flex-grow: 1;
-    margin: .5rem;
+    margin: .1rem;
     text-align: center;
     transition: border .5s linear;
 
