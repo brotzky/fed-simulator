@@ -27,6 +27,9 @@ import {
 import "./stylesheets/calendar"
 
 class CalendarPage extends Component {
+  state = {
+    confirmAction: true,
+  }
   componentWillMount() {
     if (this.props.calendar.length === 0) {
       const { currentMonth: month, currentYear: year, } = this.props.game
@@ -48,20 +51,12 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const { calendar, game, } = this.props
+    const { game, } = this.props
     const animations = game.animations
     const title = moment(game.date).format(MONTH_YEAR_FORMAT)
-    const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
-    const hasLiveShows = liveShows.length > 0
 
     return (
       <section className="page page-calendar">
-        <HeaderOne>
-          {title}&nbsp;
-          <a onClick={this.onClear}>
-            <div className="icon fa fa-trash-o fa-md" />
-          </a>
-        </HeaderOne>
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <div className="box">
@@ -75,28 +70,32 @@ class CalendarPage extends Component {
           </div>
           <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
             <div className="box">
-              <If condition={hasLiveShows}>
-                <SlideRight
-                  iterations={Number(animations)}
-                  duration={ANIMATION_SPEED}
-                >
-                  <Accounting />
-                  <Choose>
-                    <When condition={this.props.game.canPlan}>
-                      <Button
-                        value="Simulate liveshows"
-                        onClick={this.onSimulateMonth}
-                      />
-                    </When>
-                    <Otherwise>
-                      <Button
-                        value="Move onto next month"
-                        onClick={this.onStartNextMonth}
-                      />
-                    </Otherwise>
-                  </Choose>
-                </SlideRight>
-              </If>
+              <SlideRight
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
+                <HeaderOne>
+                  {title}&nbsp;
+                  <a onClick={this.onClear}>
+                    <div className="icon fa fa-trash-o fa-md" />
+                  </a>
+                </HeaderOne>
+                <Accounting />
+                <Choose>
+                  <When condition={this.props.game.canPlan}>
+                    <Button
+                      value="Simulate liveshows"
+                      onClick={this.onSimulateMonth}
+                    />
+                  </When>
+                  <Otherwise>
+                    <Button
+                      value="Move onto next month"
+                      onClick={this.onStartNextMonth}
+                    />
+                  </Otherwise>
+                </Choose>
+              </SlideRight>
             </div>
           </div>
         </div>
@@ -112,14 +111,24 @@ class CalendarPage extends Component {
   }
 
   onSimulateMonth = () => {
-    if (confirm(CALENDAR_CONFIRM_SIMULATE)) {
+    const { confirmAction, } = this.state
+
+    if (!confirmAction || confirm(CALENDAR_CONFIRM_SIMULATE)) {
       this.props.dispatch(togglePlan())
       this.props.dispatch(simulateLiveShows())
     }
   }
 
+  onToggleConfirmations = () => {
+    this.setState({
+      confirmAction: !this.state.confirmAction,
+    })
+  }
+
   onStartNextMonth = () => {
-    if (confirm(CALENDAR_CONFIRM_START)) {
+    const { confirmAction, } = this.state
+
+    if (!confirmAction || confirm(CALENDAR_CONFIRM_START)) {
       const { calendar, } = this.props
       const profit = calendar.reduce((prev, el) => {
         return prev + (el.gross - el.cost)
@@ -129,6 +138,12 @@ class CalendarPage extends Component {
       this.props.dispatch(togglePlan())
       this.props.dispatch(addOneMonth())
       this.props.dispatch(resetCalendar())
+
+      if (confirmAction) {
+        this.setState({
+          confirmAction: false,
+        })
+      }
     }
   }
 }
