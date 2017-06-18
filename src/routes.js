@@ -29,37 +29,20 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="dashboard">
+        <IndexRoute
+          getComponent={(nextState, callback) => {
+            require.ensure([], require => {
+              callback(null, require("./pages/dashboard").default, "dashboard")
+            })
+          }}
+        />
+      </Route>
       <Route path="champions">
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
               callback(null, require("./pages/champions").default, "champions")
-            })
-          }}
-        />
-      </Route>
-      <Route path="eventResults">
-        <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(
-                null,
-                require("./pages/event-results").default,
-                "eventResults"
-              )
-            })
-          }}
-        />
-      </Route>
-      <Route path="showsOverview">
-        <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(
-                null,
-                require("./pages/shows-overview").default,
-                "showsOverview"
-              )
             })
           }}
         />
@@ -127,11 +110,11 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="utils">
+      <Route path="settings">
         <IndexRoute
           getComponent={(nextState, callback) => {
             require.ensure([], require => {
-              callback(null, require("./pages/utils").default, "utils")
+              callback(null, require("./pages/settings").default, "settings")
             })
           }}
         />

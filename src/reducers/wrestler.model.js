@@ -7,6 +7,7 @@ export default class extends BaseModel {
       name: "Default",
       damage: 100,
       losses: 0,
+      cost: 500,
       male: true,
       points: 50,
       wins: 0,

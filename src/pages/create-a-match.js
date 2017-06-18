@@ -4,17 +4,20 @@ import PropTypes from "prop-types"
 import groupBy from "lodash.groupby"
 import { Link } from "react-router"
 import classNames from "classNames"
+import { SlideRight, FadeIn } from "animate-components"
 
-import Story from "../components/story/story"
-import Model from "../reducers/match.model"
 import { getId } from "../helpers/hash"
-import Match from "../components/match/container"
 import { resetMatches, simulateMatch } from "../actions/matches"
 import * as matchesAction from "../actions/matches"
+import HeaderOne from "../components/h1/h1"
+import Match from "../components/match/container"
+import Model from "../reducers/match.model"
+import Story from "../components/story/story"
+
+import { MATCH_CONFIRM_RESET } from "../constants/confirmations"
+import { ANIMATION_SPEED } from "../constants/animation"
 
 import "./stylesheets/create-a-match.scss"
-
-const CONFIRM_CLEAR = "Are you sure you want to clear your match history?"
 
 const pickRandom = items =>
   items[Math.floor(Math.random() * (items.length - 1))]
@@ -94,15 +97,10 @@ class CreateAMatch extends Component {
   render() {
     const buttonText = pickRandom(buttonTexts)
     const { currentMatch, } = this.state
-
-    let winner, loser
-
-    if (currentMatch.story.length > 0) {
-      winner = currentMatch.wrestlers.find(wrestler => wrestler.winner)
-      loser = currentMatch.story.reverse()[0].defender
-    }
-
+    const { animations, } = this.props
     const hasSidebar = currentMatch.story.length > 0
+    const numberOfTeams = Object.keys(this.state.teams).length
+    const numberOfWrestlers = this.state.currentMatch.wrestlers.length
     const mainClasses = classNames(
       { "col-xs": !hasSidebar, },
       { "col-lg-8": hasSidebar, }
@@ -118,7 +116,7 @@ class CreateAMatch extends Component {
           <div className="row">
             <div className={mainClasses}>
               <div className="box">
-                <h1>
+                <HeaderOne>
                   Create a match
                   &nbsp;
                   <i
@@ -129,29 +127,57 @@ class CreateAMatch extends Component {
                   <If condition={currentMatch.id}>
                     <Link to={`/create-a-match?id=${currentMatch.id}`}>
                       <i
-                        className="icon fa fa-external-link"
+                        className="icon fa fa-refresh"
                         aria-hidden="true"
-                        title="Save Match Link"
+                        title="Refresh Match Link"
                       />
                     </Link>
                   </If>
-                </h1>
-                <Match {...this.state} />
-                <button type="submit">
-                  {buttonText}
-                </button>
+                </HeaderOne>
+                <FadeIn
+                  iterations={Number(animations)}
+                  duration={ANIMATION_SPEED}
+                >
+                  <Match {...this.state} />
+                </FadeIn>
+                <If condition={numberOfWrestlers > 1 && numberOfTeams > 2}>
+                  <button type="submit">
+                    {buttonText}
+                  </button>
+                </If>
               </div>
             </div>
+            <br />
             <div className={storySideclasses}>
               <div className="box">
-                <If condition={currentMatch.story.length > 0}>
-                  <Story story={currentMatch.story} />
-                </If>
-                <If condition={winner}>
-                  <h2 className="story winner pulse">
-                    {winner.name} Wins
-                  </h2>
-                </If>
+                <SlideRight
+                  iterations={Number(animations)}
+                  duration={ANIMATION_SPEED}
+                >
+                  <If condition={currentMatch.winner}>
+                    <h2 className="story winner pulse">
+                      <span>
+                        <i
+                          className="icon green fa fa-angle-double-up"
+                          aria-hidden="true"
+                        />
+                        &nbsp;{currentMatch.winner.name} Wins
+                      </span>
+                    </h2>
+                    <h3 className="story loser shake">
+                      <span>
+                        <i
+                          className="icon red fa fa-angle-double-down"
+                          aria-hidden="true"
+                        />
+                        &nbsp;{currentMatch.loser.name} Loses 😵
+                      </span>
+                    </h3>
+                  </If>
+                  <If condition={currentMatch.story.length > 0}>
+                    <Story story={currentMatch.story} />
+                  </If>
+                </SlideRight>
               </div>
             </div>
           </div>
@@ -180,7 +206,7 @@ class CreateAMatch extends Component {
   }
 
   onResetMatches = () => {
-    if (confirm(CONFIRM_CLEAR)) {
+    if (confirm(MATCH_CONFIRM_RESET)) {
       this.props.dispatch(resetMatches())
     }
   }
@@ -196,4 +222,5 @@ CreateAMatch.propTypes = {
 
 export default connect(state => ({
   matches: state.matches,
+  animations: state.game.animations,
 }))(CreateAMatch)

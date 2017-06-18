@@ -35,7 +35,7 @@ class ColorPickers extends React.Component {
     let { backgroundColor, color, } = this.props.style
     const borderColor = chromatism.mid(backgroundColor, color).hex
     const borderStyle = {
-      border: `.3rem solid ${borderColor}`,
+      border: `.33rem solid ${borderColor}`,
     }
     const colorContainer = {
       backgroundColor: color,

@@ -1,11 +1,11 @@
-@import "src/stylesheets/breakpoints";
-
-$navigation-font-size: 2rem;
-
+$navigation-font-size: 1.5rem;
+$navigation-font-weight: 100;
+$navigation-link-color: currentColor;
+$navigation-link-text-shadow: 0 0 .5rem $navigation-link-color;
+$navigation-list-padding: 2vh 4vw;
 .navigation {
-  font-size: $navigation-font-size;
-  font-variant: small-caps;
-  font-weight: 100;
+  margin: 0;
+  padding: 0;
 
   &__list {
     align-items: center;
@@ -13,42 +13,20 @@ $navigation-font-size: 2rem;
     justify-content: space-between;
     list-style: none;
     margin: 0;
-    padding: 1rem 4rem;
+    overflow-y: scroll;
+    padding: $navigation-list-padding;
+    white-space: nowrap;
   }
 
   &__item {
-    flex: 0 1 auto;
-    flex-wrap: wrap;
+    font-size: $navigation-font-size;
+    font-variant: small-caps;
+    font-weight: $navigation-font-weight;
 
     a {
+      padding: 0 2rem;
       text-decoration: none;
-      text-shadow: 0 0 .5rem currentColor
+      text-shadow: $navigation-link-text-shadow;
     }
   }
-
-
-  @include breakpoint(xs) {
-    &__list {
-      display: block;
-      line-height: 0;
-      overflow-y: scroll;
-      padding: 1rem;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    &__item {
-      display: inline-block;
-      margin-right: 2rem;
-      padding: .5rem;
-
-      .icon {
-        zoom: .1;
-      }
-    }
-  }
-}
-
-.colorPickers {
-  float: right;
 }

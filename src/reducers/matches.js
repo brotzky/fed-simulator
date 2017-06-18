@@ -67,6 +67,7 @@ export default (state = defaultState, action = defaultAction) => {
             // multi-man match, choose a defender
             if (defenders.length > 1) {
               const defendersWeights = getWrestlersWeights(defenders.length)
+
               defender = weighted.select(defenders, defendersWeights)
             } else {
               defender = defenders[0]
@@ -94,6 +95,9 @@ export default (state = defaultState, action = defaultAction) => {
               state[index].wrestlers[defenderIndex].winner = false
             }
 
+            state[index].winner = attacker
+            state[index].loser = defender
+
             state[index].story.push({
               id: getId(),
               attacker,
@@ -101,20 +105,22 @@ export default (state = defaultState, action = defaultAction) => {
               move,
             })
           }
+          state[index].wrestlers.map(wrestler => {
+            wrestler.damage = 100
+            return wrestler
+          })
         }
       }
-      state[index].wrestlers.map(wrestler => {
-        wrestler.damage = 100
-        return wrestler
-      })
       break
 
     case "SELECT_WINNER_IN_MATCH":
       index = getIndexById(action.payload.matchId)
 
+      let winner
+
       state[index].wrestlers.map(newWrestler => {
         const isAlreadyWinner = newWrestler.winner
-        const winner = newWrestler.id === action.payload.wrestlerId
+        winner = newWrestler.id === action.payload.wrestlerId
 
         newWrestler.winner = winner
 
@@ -124,6 +130,7 @@ export default (state = defaultState, action = defaultAction) => {
 
         return newWrestler
       })
+      state[index].winner = winner
       break
 
     case "REMOVE_WRESTLER_FROM_MATCH":

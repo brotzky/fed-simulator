@@ -1,6 +1,6 @@
 import React from "react"
 
-import Liveshow from "../liveshow"
+import Liveshow from "../liveshow/liveshow"
 import { formatCurrency } from "../../helpers/currency"
 
 const noop = () => {}
@@ -67,11 +67,14 @@ const AccountingCollection = ({
           </div>
         )
       })}
-      {heading({
-        first: "Totals",
-        second: formatCurrency(currency, totalCost),
-        third: formatCurrency(currency, totalGross),
-      })}
+      <If condition={calendarEvents.length > 0}>
+        <hr />
+        {heading({
+          first: "Totals",
+          second: formatCurrency(currency, totalCost),
+          third: formatCurrency(currency, totalGross),
+        })}
+      </If>
       <If condition={isComplete}>
         {heading({
           first: "Profit",

@@ -14,8 +14,12 @@ $match-border-color: #929292;
     }
   }
 
-  &.last {
-    opacity: .2;
+  &.has-many-wrestlers .wrestler:hover {
+    border: .2rem dashed $inner-color;
+  }
+
+  &:last-of-type {
+    opacity: .4;
   }
 
   .box {
@@ -45,8 +49,6 @@ $match-border-color: #929292;
     }
 
     &:hover {
-      border: .2rem dashed $inner-color;
-
       .icon {
         opacity: 1;
       }

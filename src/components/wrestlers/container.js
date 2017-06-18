@@ -71,18 +71,27 @@ class WrestlersContainer extends Component {
   }
 
   render() {
-    const sortClasses = classNames("fa fa-sort", {
+    const sortClasses = classNames("icon", "fa", "fa-sort", {
       active: this.state.sortByPoints,
     })
-    const genderClasses = classNames("fa fa-venus", {
+    const genderClasses = classNames("icon", "fa", "fa-venus", {
       active: this.state.showFemalesOnly,
     })
 
     return (
       <div className="wrestlers" style={this.props.style}>
         <div className="row">
-          <div className="col-lg-1 col-xs-12">
-            <div className="box box-filters">
+          <div className="col-xs-10">
+            <div className="box">
+              <Input
+                value={this.state.nameSearch}
+                onChange={this.onFilterByName}
+                placeholder="Filter wrestlers by name"
+              />
+            </div>
+          </div>
+          <div className="col-xs-2">
+            <div className="box">
               <i
                 className={sortClasses}
                 aria-hidden="true"
@@ -93,15 +102,6 @@ class WrestlersContainer extends Component {
                 aria-hidden="true"
                 onClick={this.onToggleWomenWrestlers}
               />&nbsp;
-            </div>
-          </div>
-          <div className="col-lg-10 col-xs-12">
-            <div className="box">
-              <Input
-                value={this.state.nameSearch}
-                onChange={this.onFilterByName}
-                placeholder="Filter wrestlers by name"
-              />
             </div>
           </div>
         </div>

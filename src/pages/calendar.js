@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import moment from "moment"
-import { SlideRight } from "animate-components"
+import { SlideRight, SlideLeft } from "animate-components"
+import HeaderOne from "../components/h1/h1"
 
-import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
 import {
   togglePlan,
@@ -15,14 +15,21 @@ import Calendar from "../components/calendar/container"
 import Accounting from "../components/accounting/container"
 import { simulateLiveShows } from "../actions/calendar"
 import Button from "../components/button/button"
+
+import { ANIMATION_SPEED } from "../constants/animation"
+import { MONTH_YEAR_FORMAT } from "../constants/calendar"
+import {
+  CALENDAR_CONFIRM_CLEAR,
+  CALENDAR_CONFIRM_SIMULATE,
+  CALENDAR_CONFIRM_START
+} from "../constants/confirmations"
+
 import "./stylesheets/calendar"
 
-const CONFIRM_CLEAR = "Are you sure you want to clear your calendar history?"
-const CONFIRM_SIMULATE =
-  "Are you sure you want to simulate the live shows for the month?"
-const CONFIRM_START = "Are you sure you want to move onto the new month?"
-
 class CalendarPage extends Component {
+  state = {
+    confirmAction: true,
+  }
   componentWillMount() {
     if (this.props.calendar.length === 0) {
       const { currentMonth: month, currentYear: year, } = this.props.game
@@ -39,83 +46,105 @@ class CalendarPage extends Component {
     }
   }
 
+  shouldComponentUpdate() {
+    return true
+  }
+
+  render() {
+    const { game, } = this.props
+    const animations = game.animations
+    const title = moment(game.date).format(MONTH_YEAR_FORMAT)
+
+    return (
+      <section className="page page-calendar">
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div className="box">
+              <SlideLeft
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
+                <Calendar />
+              </SlideLeft>
+            </div>
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
+            <div className="box">
+              <SlideRight
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
+                <HeaderOne>
+                  {title}&nbsp;
+                  <a onClick={this.onClear}>
+                    <div className="icon fa fa-trash-o fa-md" />
+                  </a>
+                </HeaderOne>
+                <Accounting />
+                <Choose>
+                  <When condition={this.props.game.canPlan}>
+                    <Button
+                      value="Simulate liveshows"
+                      onClick={this.onSimulateMonth}
+                    />
+                  </When>
+                  <Otherwise>
+                    <Button
+                      value="Move onto next month"
+                      onClick={this.onStartNextMonth}
+                    />
+                  </Otherwise>
+                </Choose>
+              </SlideRight>
+            </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   onClear = () => {
-    if (confirm(CONFIRM_CLEAR)) {
+    if (confirm(CALENDAR_CONFIRM_CLEAR)) {
       this.props.dispatch(resetCalendar())
       this.props.dispatch(resetGame())
     }
   }
 
   onSimulateMonth = () => {
-    if (confirm(CONFIRM_SIMULATE)) {
+    const { confirmAction, } = this.state
+
+    if (!confirmAction || confirm(CALENDAR_CONFIRM_SIMULATE)) {
       this.props.dispatch(togglePlan())
       this.props.dispatch(simulateLiveShows())
     }
   }
 
+  onToggleConfirmations = () => {
+    this.setState({
+      confirmAction: !this.state.confirmAction,
+    })
+  }
+
   onStartNextMonth = () => {
-    if (confirm(CONFIRM_START)) {
+    const { confirmAction, } = this.state
+
+    if (!confirmAction || confirm(CALENDAR_CONFIRM_START)) {
       const { calendar, } = this.props
       const profit = calendar.reduce((prev, el) => {
         return prev + (el.gross - el.cost)
       }, 0)
+
       this.props.dispatch(addProfitToTotal(profit))
       this.props.dispatch(togglePlan())
       this.props.dispatch(addOneMonth())
       this.props.dispatch(resetCalendar())
+
+      if (confirmAction) {
+        this.setState({
+          confirmAction: false,
+        })
+      }
     }
-  }
-
-  shouldComponentUpdate() {
-    return true
-  }
-
-  render() {
-    const { calendar, game, } = this.props
-    const title = moment(game.date).format(MONTH_YEAR_FORMAT)
-    const liveShows = calendar.filter(liveShow => liveShow.cost > 0)
-    const hasLiveShows = liveShows.length > 0
-
-    return (
-      <section className="page calendar">
-        <h1>
-          {title}&nbsp;
-          <a onClick={this.onClear}>
-            <div className="fa fa-trash-o fa-md" />
-          </a>
-        </h1>
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
-            <div className="box">
-              <Calendar />
-            </div>
-          </div>
-          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
-            <div className="box">
-              <If condition={hasLiveShows}>
-                <SlideRight duration="2s">
-                  <Accounting />
-                  <Choose>
-                    <When condition={this.props.game.canPlan}>
-                      <Button
-                        value="Simulate liveshows"
-                        onClick={this.onSimulateMonth}
-                      />
-                    </When>
-                    <Otherwise>
-                      <Button
-                        value="Move onto next month"
-                        onClick={this.onStartNextMonth}
-                      />
-                    </Otherwise>
-                  </Choose>
-                </SlideRight>
-              </If>
-            </div>
-          </div>
-        </div>
-      </section>
-    )
   }
 }
 

@@ -3,7 +3,7 @@ import classNames from "classNames"
 import PropTypes from "prop-types"
 import { DropTarget } from "react-dnd"
 
-import Liveshow from "../liveshow"
+import Liveshow from "../liveshow/liveshow"
 
 const dustbinTarget = {
   drop(props, monitor) {
@@ -58,14 +58,15 @@ export default class Dustbin extends Component {
         <p className="dustbin__name">
           {name}
         </p>
-        <div className="dustbin__details">
+        <p className="dustbin__details">
           {!droppedItem &&
             <span className="drop">
               {isActive ? "Release to drop" : ""}
+              &nbsp;
             </span>}
-          &nbsp;
           <If condition={droppedItem.name}>
             <Liveshow
+              shortenName={true}
               canBeDeleted={canDelete}
               date={droppedItem.date}
               name={droppedItem.name}
@@ -74,7 +75,7 @@ export default class Dustbin extends Component {
               style={style}
             />
           </If>
-        </div>
+        </p>
       </div>
     )
   }

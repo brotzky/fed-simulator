@@ -1,12 +1,13 @@
 import { connect } from "react-redux"
 import React, { Component } from "react"
 
-import utilsNavigation from "./utils.navigation.json"
+import HeaderOne from "../components/h1/h1"
+import utilsNavigation from "./settings.navigation.json"
 import Navigation from "../components/navigation/navigation"
 
-import "./stylesheets/utils"
+import "./stylesheets/settings"
 
-class Utils extends Component {
+class Settings extends Component {
   state = {
     stage: "start",
   }
@@ -30,15 +31,12 @@ class Utils extends Component {
 
     const style = { backgroundColor, color, }
     return (
-      <section className="page utils">
-        <h1>
-          Game Utils
-        </h1>
-
+      <section className="page settings">
+        <HeaderOne>
+          Settings
+        </HeaderOne>
         <Navigation style={style} navigation={utilsNavigation} />
-
         <br />
-
         <div className={this.state.stage}>
           <p>
             <a onClick={this._onClearStorage}>Clear game data</a>
@@ -50,7 +48,9 @@ class Utils extends Component {
           <p>Roster: {this.props.roster.length}</p>
           <p>Championships: {this.props.championships.length}</p>
           <p>Live Shows: {this.props.calendar.length}</p>
-          <p>Federation: {JSON.stringify(this.props.federation)}</p>
+          <p>
+            Federation: <code>{JSON.stringify(this.props.federation)}</code>
+          </p>
         </div>
       </section>
     )
@@ -65,4 +65,4 @@ export default connect(state => ({
   settings: state.settings,
   shows: state.shows,
   version: state.version,
-}))(Utils)
+}))(Settings)

@@ -2,10 +2,8 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import groupBy from "lodash.groupby"
 import moment from "moment"
-import classNames from "classNames"
 
-import Liveshow from "../liveshow"
-import { getContrastRatioColor, getShadeBySize } from "../../helpers/colours"
+import Liveshow from "../liveshow/liveshow"
 import { deleteLiveShow } from "../../actions/calendar"
 import { DAY_FORMAT } from "../../constants/calendar"
 import * as itemType from "../../actions/types"
@@ -54,7 +52,7 @@ class Container extends Component {
     const groupedBoxes = groupBy(boxes, "size")
 
     return (
-      <div className="calendar-inline">
+      <div className="calendar">
         {Object.keys(groupedBoxes).map(size => {
           return (
             <div key={`calendar-show-${size}`} className="row">
@@ -62,11 +60,14 @@ class Container extends Component {
                 return (
                   <Box
                     key={`calendar-box-${name}`}
+                    classes="hang"
                     name={name}
                     type={type}
                     canDrag={this.props.game.canPlan}
                   >
                     <Liveshow
+                      shortenName={true}
+                      shortenNameLength={18}
                       name={name}
                       size={size}
                       style={this.props.style}
@@ -79,12 +80,10 @@ class Container extends Component {
         })}
         <WeekDays />
         <div className="row">
-          {dustbins.map((dustbin, index) => {
-            const classes = classNames({ clearfix: index % 6 === 0, })
+          {dustbins.map(dustbin => {
             return (
               <Dustbin
                 key={`calendar-dustbin-${dustbin.date}`}
-                classes={classes}
                 name={dustbin.name}
                 previous={dustbin.previous}
                 style={this.props.style}

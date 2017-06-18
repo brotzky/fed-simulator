@@ -1,14 +1,18 @@
-import "./stylesheets/champions.scss"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import { updateChampions } from "../actions/champions"
 import React, { Component } from "react"
-import Textarea from "../components/form/textarea.js"
-import GenerateRandom from "../components/generate-random"
-import faker from "faker"
+import { SlideRight, SlideLeft } from "animate-components"
 
-const CONFIRM_MESSAGE =
-  "Are you sure you want to reset all champions and generate random replacements?"
+import { CHAMPIONSHIP_RESET_CONFIRM } from "../constants/confirmations"
+import { ANIMATION_SPEED } from "../constants/animation"
+
+import { updateChampions } from "../actions/champions"
+import GenerateRandom from "../components/generate-random"
+import Textarea from "../components/form/textarea.js"
+import constantDefaults from "../constants/defaults.json"
+import HeaderOne from "../components/h1/h1"
+
+import "./stylesheets/champions.scss"
 
 class ChampionsPage extends Component {
   displayName = "ChampionsPage"
@@ -35,6 +39,74 @@ class ChampionsPage extends Component {
         .map(champion => champion.name)
         .join(", "),
     })
+  }
+
+  render() {
+    const { animations, } = this.props
+    return (
+      <section className="page champions">
+        <HeaderOne>
+          What
+          <span className="gold"> gold </span>
+          do you have?!
+          &nbsp;
+          <GenerateRandom onClick={this._generateDefaultChampions} />
+        </HeaderOne>
+        <form onSubmit={this.handleSubmit}>
+          <div className="row top-xs">
+            <div className="col-xs-12 col-lg-6">
+              <SlideLeft
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
+                <div className="box male">
+                  <i className="icon fa fa-mars" />
+                  <Textarea
+                    value={this.state.male}
+                    name="male"
+                    onChange={this.handleChange}
+                    placeholder="World Heavyweight Championship, Cruiserweight Championship"
+                    label="Mens"
+                  />
+                </div>
+              </SlideLeft>
+            </div>
+            <div className="col-xs-12 col-lg-6">
+              <SlideRight
+                iterations={Number(animations)}
+                duration={ANIMATION_SPEED}
+              >
+                <div className="box female">
+                  <i className="icon fa fa-venus" />
+                  <Textarea
+                    value={this.state.female}
+                    name="female"
+                    onChange={this.handleChange}
+                    placeholder={"Womens World Championship"}
+                    label="Womens"
+                  />
+                </div>
+              </SlideRight>
+            </div>
+          </div>
+          <div>
+            <button type="submit">
+              Press that gold and move on!
+            </button>
+          </div>
+        </form>
+      </section>
+    )
+  }
+
+  _generateDefaultChampions = event => {
+    event.preventDefault
+
+    if (confirm(CHAMPIONSHIP_RESET_CONFIRM)) {
+      this.setState({
+        ...constantDefaults.championships,
+      })
+    }
   }
 
   handleChange = event => {
@@ -66,75 +138,6 @@ class ChampionsPage extends Component {
     this.props.dispatch(updateChampions(championships))
     this.props.router.push("/shows")
   }
-
-  _generateRandomChampions = event => {
-    event.preventDefault
-
-    if (confirm(CONFIRM_MESSAGE)) {
-      let newState = {}
-      let numberOfNames = 3
-
-      Object.keys(this.state).forEach(key => {
-        let newNames = ""
-        let x = 0
-        while (numberOfNames > x) {
-          newNames = `${faker.company.catchPhraseAdjective()}, ${newNames}`
-          x++
-        }
-        newState[key] = newNames
-      })
-      this.setState({
-        ...newState,
-      })
-    }
-  }
-
-  render() {
-    return (
-      <section className="page champions">
-        <h1>
-          What
-          <span className="gold"> gold </span>
-          do you have?!
-          {" "}
-          <GenerateRandom onClick={this._generateRandomChampions} />
-        </h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="row top-xs">
-            <div className="col-xs-12 col-lg-6">
-              <div className="box male">
-                <div className="fa fa-mars" />
-                <Textarea
-                  value={this.state.male}
-                  name="male"
-                  onChange={this.handleChange}
-                  placeholder="World Heavyweight Championship, Cruiserweight Championship"
-                  label="Mens"
-                />
-              </div>
-            </div>
-            <div className="col-xs-12 col-lg-6">
-              <div className="box female">
-                <div className="fa fa-venus" />
-                <Textarea
-                  value={this.state.female}
-                  name="female"
-                  onChange={this.handleChange}
-                  placeholder={"Womens World Championship"}
-                  label="Womens"
-                />
-              </div>
-            </div>
-          </div>
-          <div>
-            <button type="submit">
-              Press that gold and move on!
-            </button>
-          </div>
-        </form>
-      </section>
-    )
-  }
 }
 
 ChampionsPage.contextTypes = {
@@ -142,6 +145,7 @@ ChampionsPage.contextTypes = {
 }
 
 export default connect(state => ({
+  animations: state.game.animations,
   championships: state.championships,
   roster: state.roster,
 }))(ChampionsPage)

@@ -1,6 +1,4 @@
 /* FormHack v1.2.0 (formhack.io) */
-
-$font-family: "Roboto", "Verdana", "Arial", sans-serif;
 $font-size: 4rem !default;
 $font-weight: 100;
 $font-color: #232828 !default;
@@ -36,7 +34,6 @@ fieldset {
   box-sizing: border-box;
   color: $font-color;
   display: $display;
-  font-family: $font-family;
   font-size: $font-size;
   font-weight: $font-weight;
   margin: 1rem 0;
@@ -185,4 +182,9 @@ input[type="submit"]:focus,
 input[type="reset"]:focus {
   background-color: $button-hover-bg-color;
   color: $button-hover-font-color !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ccc;
 }

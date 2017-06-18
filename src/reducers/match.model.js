@@ -8,6 +8,8 @@ export default class extends BaseModel {
       rating: 0,
       cost: 0,
       wrestlers: [],
+      winner: false,
+      loser: false,
       story: [],
     }
   }

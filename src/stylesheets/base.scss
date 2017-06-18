@@ -8,13 +8,7 @@
 @import 'table';
 @import 'animation';
 @import 'overrides';
-
-@include breakpoint(xs) {
-  [class*='col-'] {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
+@import 'mobile';
 
 html,
 body {
@@ -47,7 +41,8 @@ ul {
   padding: 0;
 }
 
-a:hover, .cursor-pointer {
+a:hover,
+.cursor-pointer {
   cursor: pointer;
 }
 
@@ -71,4 +66,20 @@ a:hover, .cursor-pointer {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.icon:hover {
+  color: hotpink;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }

@@ -1,58 +1,28 @@
 $basepage-font-size: 2rem;
-$basepage-h1-font-size: 5rem;
-$basepage-gutter: 1rem 3rem 2rem;
+$basepage-gutter: 4vh 4vw;
 
-$basepage-button-font-size: 3rem;
-$basepage-button-color: white;
+$basepage-button-font-size: 2rem;
+$basepage-button-color: #ffffff;
 $basepage-button-background-color: #3f3f3f;
 $basepage-button-border-radius: 0;
 $basepage-button-padding: .5rem !default;
 
-.page-container {
-  main {
-    flex: 1 0 auto;
+.page-container main {
+  flex: 1 0 auto;
+  padding: $basepage-gutter;
+
+  .children {
     padding: $basepage-gutter;
-
-    h1 {
-      font-size: $basepage-h1-font-size;
-      font-variant: small-caps;
-      font-weight: 100;
-      line-height: $basepage-h1-font-size;
-      margin: 0 0 1rem;
-
-      .fa {
-        font-size: 4rem;
-      }
-    }
-
-    .children {
-      padding: $basepage-gutter;
-    }
-
-    button {
-      background-color: $basepage-button-background-color;
-      border: 0;
-      color: $basepage-button-color;
-      cursor: pointer;
-      font-size: $basepage-button-font-size;
-      font-variant: small-caps;
-      font-weight: 500;
-      padding: $basepage-button-padding;
-      width: 100%;
-    }
-
-    .footer {
-      .navigation {
-        display: flex;
-        float: right;
-        justify-content: space-around;
-        width: auto;
-      }
-    }
   }
-}
 
-input::placeholder,
-textarea::placeholder {
-  color: #ccc;
+  button {
+    background-color: $basepage-button-background-color;
+    border: 0;
+    color: $basepage-button-color;
+    cursor: pointer;
+    font-size: $basepage-button-font-size;
+    font-weight: 100;
+    padding: $basepage-button-padding;
+    width: 100%;
+  }
 }

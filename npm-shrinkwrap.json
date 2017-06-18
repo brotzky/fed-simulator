@@ -3574,12 +3574,6 @@
       "resolved": "https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz",
       "integrity": "sha1-5HnICFjfDBsR3dppQPlgEfzaSpo="
     },
-    "is-utf8": {
-      "version": "0.2.1",
-      "resolved": "https://registry.npmjs.org/is-utf8/-/is-utf8-0.2.1.tgz",
-      "integrity": "sha1-Sw2hRCEE0bM2NA6AeX6GXPOffXI=",
-      "dev": true
-    },
     "is-wsl": {
       "version": "1.1.0",
       "resolved": "https://registry.npmjs.org/is-wsl/-/is-wsl-1.1.0.tgz",
@@ -5318,6 +5312,16 @@
       "resolved": "https://registry.npmjs.org/react-dnd-html5-backend/-/react-dnd-html5-backend-2.4.1.tgz",
       "integrity": "sha1-Q50ryvi9i4elE4a+tRwSiCYYLd0="
     },
+    "react-dnd-multi-backend": {
+      "version": "2.3.7",
+      "resolved": "https://registry.npmjs.org/react-dnd-multi-backend/-/react-dnd-multi-backend-2.3.7.tgz",
+      "integrity": "sha1-DzyO4hO3KKawVfTMw6HX9bfN9kI="
+    },
+    "react-dnd-touch-backend": {
+      "version": "0.3.11",
+      "resolved": "https://registry.npmjs.org/react-dnd-touch-backend/-/react-dnd-touch-backend-0.3.11.tgz",
+      "integrity": "sha1-/q+LOxRjFLsvxlLJVNGLu0Syh+s="
+    },
     "react-dom": {
       "version": "15.5.4",
       "resolved": "https://registry.npmjs.org/react-dom/-/react-dom-15.5.4.tgz",
@@ -6772,12 +6776,6 @@
       "version": "1.0.1",
       "resolved": "https://registry.npmjs.org/workbox-webpack-plugin/-/workbox-webpack-plugin-1.0.1.tgz",
       "integrity": "sha1-CKirumG9dZQ/qUx3IcX5UHttKVc="
-    },
-    "wrap-ansi": {
-      "version": "2.1.0",
-      "resolved": "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-2.1.0.tgz",
-      "integrity": "sha1-2Pw9KE3QV5T+hJc8rs3Rz4JP3YU=",
-      "dev": true
     },
     "wrappy": {
       "version": "1.0.2",

@@ -2,6 +2,8 @@ import React from "react"
 import { Link } from "react-router"
 import { connect } from "react-redux"
 
+import Animations from "../animations"
+import Cash from "../cash/container"
 import ColorPickers from "../color-pickers/color-pickers"
 import defaultState from "./default.json"
 
@@ -19,10 +21,24 @@ const Navigation = ({
         {navigation.map((item, key) => {
           const title = { __html: item.title, }
           return (
-            <li key={key} className={`navigation__item ${item.url}`}>
+            <li
+              key={key}
+              className={`navigation__item navigation--${item.url}`}
+            >
               <Choose>
                 <When condition={item.title === "Branding"}>
                   <ColorPickers />
+                </When>
+                <When condition={item.title === "Animations"}>
+                  <Animations />
+                </When>
+                <When condition={item.title === "Cash"}>
+                  <Cash />
+                </When>
+                <When condition={item.title === "Settings"}>
+                  <Link to={item.url}>
+                    <i className="icon fa fa-cog" style={style} />
+                  </Link>
                 </When>
                 <Otherwise>
                   <Link className="pulse" style={{ color, }} to={item.url}>
@@ -39,7 +55,7 @@ const Navigation = ({
 }
 
 export default connect(state => ({
+  game: state.game,
   color: state.style.color,
   backgroundColor: state.style.backgroundColor,
 }))(Navigation)
-// export default Navigation

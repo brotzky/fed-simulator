@@ -1,15 +1,16 @@
-import "./stylesheets/shows.scss"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import { updateShows } from "../actions/shows"
 import React, { Component } from "react"
-import defaultShows from "../constants/shows.options.json"
-import Textarea from "../components/form/textarea.js"
-import GenerateRandom from "../components/generate-random"
-import faker from "faker"
 
-const CONFIRM_MESSAGE =
-  "Are you sure you want to reset all shows and generate random replacements?"
+import { SHOWS_CONFIRM_GENERATE } from "../constants/confirmations"
+import { updateShows } from "../actions/shows"
+import defaultShows from "../constants/shows.options.json"
+import GenerateRandom from "../components/generate-random"
+import Textarea from "../components/form/textarea.js"
+import constantDefaults from "../constants/defaults.json"
+import HeaderOne from "../components/h1/h1"
+
+import "./stylesheets/shows.scss"
 
 class ChampionsPage extends Component {
   displayName = "ChampionsPage"
@@ -73,24 +74,12 @@ class ChampionsPage extends Component {
     this.props.router.push("/ranking")
   }
 
-  _generateRandomShows = event => {
+  _generateDefaultShows = event => {
     event.preventDefault
 
-    if (confirm(CONFIRM_MESSAGE)) {
-      let newState = {}
-      let numberOfNames = 3
-
-      Object.keys(this.state).forEach(key => {
-        let newNames = ""
-        let x = 0
-        while (numberOfNames > x) {
-          newNames = `${faker.company.catchPhraseAdjective()}, ${newNames}`
-          x++
-        }
-        newState[key] = newNames
-      })
+    if (confirm(SHOWS_CONFIRM_GENERATE)) {
       this.setState({
-        ...newState,
+        ...constantDefaults.shows,
       })
     }
   }
@@ -98,13 +87,15 @@ class ChampionsPage extends Component {
   render() {
     return (
       <section className="page shows">
-        <h1>
+        <HeaderOne>
           What
           <span className="hot-red"> shows</span>
           &nbsp;do we&nbsp;
           <span className="hot-pink"> produce</span>
-          ? <GenerateRandom onClick={this._generateRandomShows} />
-        </h1>
+          ?
+          {" "}
+          <GenerateRandom onClick={this._generateDefaultShows} />
+        </HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12">

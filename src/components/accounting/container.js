@@ -7,8 +7,6 @@ import Collection from "./collection"
 
 import "./accounting.scss"
 
-const currency = "$"
-
 function cost(item) {
   return item.cost
 }
@@ -29,6 +27,7 @@ class AccountingContainer extends Component {
   }
 
   render() {
+    const { game, style, } = this.props
     const calendarEvents = this.props.calendar.filter(
       calendarEvent => calendarEvent.cost > 0
     )
@@ -39,14 +38,14 @@ class AccountingContainer extends Component {
 
     return (
       <Collection
-        currency={currency}
+        currency={game.currency}
         onClickDelete={this.onClickDelete}
         calendarEvents={calendarEvents}
         totalCost={totalCost}
-        showDelete={this.props.game.canPlan}
+        showDelete={game.canPlan}
         totalGross={totalGross}
-        cash={this.props.game.cash}
-        style={this.props.style}
+        cash={game.cash}
+        style={style}
       />
     )
   }

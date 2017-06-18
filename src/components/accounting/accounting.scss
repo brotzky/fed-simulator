@@ -4,6 +4,7 @@ $accounting-font-size: 1rem;
 
 .accounting {
 	font-size: $accounting-font-size;
+	font-variant: small-caps;
 	margin-bottom: 1rem;
 
   &__collection {
@@ -17,9 +18,4 @@ $accounting-font-size: 1rem;
   .gross {
     color: $accounting-gross-color;
   }
-
-	.liveshow {
-		padding: .2rem;
-		margin-bottom: 0;
-	}
 }
