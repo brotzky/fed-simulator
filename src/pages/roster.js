@@ -177,7 +177,6 @@ RosterPage.contextTypes = {
 
 export default connect(state => ({
   animations: state.game.animations,
-  federation: state.federation,
   roster: state.roster,
 }))(RosterPage)
 

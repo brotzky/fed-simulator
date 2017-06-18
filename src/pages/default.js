@@ -4,12 +4,12 @@ import PropTypes from "prop-types"
 
 class DefaultPage extends Component {
   componentWillMount() {
-    const { game, federation, router, roster, shows, style, } = this.props
+    const { game, router, roster, shows, style, } = this.props
     let pathName = "calendar"
 
-    if (game.started === false || federation.name === "") {
+    if (game.started === false || game.name === "") {
       pathName = "/name"
-    } else if (federation.size === "") {
+    } else if (game.size === "") {
       pathName = "/size"
     } else if (style.unTouched === "") {
       pathName = "/branding"
@@ -34,7 +34,6 @@ DefaultPage.contextTypes = {
 }
 
 export default connect(state => ({
-  federation: state.federation,
   game: state.game,
   roster: state.roster,
   shows: state.shows,

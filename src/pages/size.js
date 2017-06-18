@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import classNames from "classNames"
 
-import { updateFederation } from "../actions/federation"
 import { updateGame } from "../actions/game"
 import defaultOptions from "../constants/size.options.json"
 import HeaderOne from "../components/h1/h1"
