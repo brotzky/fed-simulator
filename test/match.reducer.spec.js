@@ -202,22 +202,15 @@ describe("given a roster reducer", () => {
   })
 
   describe("and a match is simulated", () => {
-    let currentMatch, matchId
+    let currentMatch, matchId, storyItem
 
     before(() => {
-      const numberOfTeams = 3
       matchId = matchesReducer[0].id
-      let x = 0
-
-      while (x < numberOfTeams) {
-        action.type = types.ADD_WRESTLER_TO_MATCH
-        action.payload = {
-          matchId,
-          wrestler: new WrestlerModel({ teamId: x }).toJSON(),
-        }
-
-        matchesReducer = reducer(matchesReducer, action)
-        x++
+      // add an extra wrestler
+      action.type = types.ADD_WRESTLER_TO_MATCH
+      action.payload = {
+        matchId,
+        wrestler: defaultWrestler.toJSON(),
       }
 
       matchesReducer = reducer(matchesReducer, action)
@@ -230,13 +223,28 @@ describe("given a roster reducer", () => {
 
       matchesReducer = reducer(matchesReducer, action)
       currentMatch = matchesReducer.find(newMatch => newMatch.id === matchId)
+      storyItem = currentMatch.story[0]
     })
 
-    it("it should have a winner", () => {
-      expect(currentMatch.winner).to.not.be.empty()
-    })
-    it("it should have a loser", () => {
-      expect(currentMatch.loser).to.not.be.empty()
+    describe("and the match has a story", () => {
+      it("and it has atleast one item", () => {
+        expect(Object.keys(storyItem).length).to.be.greaterThan(1)
+      })
+      it("and that first story item should have an defender", () => {
+        expect(storyItem.defender).to.not.be.empty()
+      })
+      it("and that first story item should have a winner", () => {
+        expect(currentMatch.winner).to.not.be.empty()
+      })
+      it("and that first story item should have a loser", () => {
+        expect(currentMatch.loser).to.not.be.empty()
+      })
+      it("and that first story item should have an attacker", () => {
+        expect(storyItem.attacker).to.not.be.empty()
+      })
+      it("and that first story item should have an move", () => {
+        expect(storyItem.move).to.not.be.empty()
+      })
     })
   })
 
@@ -292,10 +300,12 @@ describe("given a roster reducer", () => {
     it("and it never had had the last person alive", () => {
       let numberOfIncidents = 0
       matchesReducer.forEach(currentMatch => {
-        let { winner, loser } = currentMatch
+        let { wrestlers, story } = currentMatch
+        let lastStoryAttackerId = story.reverse()[0].attacker.id
 
-        if (winner.id === loser.id) {
+        if (currentMatch.winner.id !== lastStoryAttackerId) {
           numberOfIncidents++
+          console.log("what", numberOfIncidents)
         }
       })
 
