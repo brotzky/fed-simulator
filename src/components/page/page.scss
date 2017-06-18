@@ -1,7 +1,7 @@
 $basepage-font-size: 2rem;
 $basepage-gutter: 4vh 4vw;
 
-$button-font-size: 2rem;
+$button-font-size: large;
 $button-color: #ffffff;
 $button-background-color: #3f3f3f;
 $button-border-radius: 0;
@@ -11,8 +11,8 @@ $button-font-weight: 300;
 
 .page-container main {
   flex: 1 0 auto;
-  padding: $basepage-gutter;
   font-size: $basepage-font-size;
+  padding: $basepage-gutter;
 
   button {
     background-color: $button-background-color;
@@ -20,6 +20,7 @@ $button-font-weight: 300;
     color: $button-color;
     cursor: pointer;
     font-size: $button-font-size;
+    font-variant: small-caps;
     font-weight: $button-font-weight;
     padding: $button-padding;
     width: 100%;
