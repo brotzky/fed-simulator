@@ -2,6 +2,7 @@ $wrestler-choice-color: #fff;
 $wrestler-text-shadow: #ddd;
 $wrestler-background-color: #fff;
 $wrestler-color: #000;
+$wrestler-height: 3.5rem;
 
 .wrestlers {
   bottom: 0;
@@ -47,13 +48,13 @@ $wrestler-color: #000;
     display: flex;
     flex-wrap: wrap;
     font-size: 1rem;
+    height: $wrestler-height;
     justify-content: center;
     line-height: 1rem;
     margin: 0 .5rem 1rem;
     text-align: center;
     transition: text-shadow .3s linear;
     word-wrap: break-word;
-    height: 5rem;
 
     sup {
       font-size: .8rem;
