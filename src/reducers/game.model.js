@@ -7,6 +7,7 @@ export default class extends BaseModel {
       started: false,
       canPlan: true,
       cash: 0,
+      currency: "$",
       animations: true,
       currentDate: new Date().getDate(),
       currentMonth: new Date().getMonth(),
