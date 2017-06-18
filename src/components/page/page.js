@@ -70,11 +70,11 @@ class Page extends React.Component {
             <When condition={pathname.startsWith("/create-a-match")}>
               <Wrestlers />
             </When>
-            <Otherwise>
+            <When condition={shows.length > 0}>
               <footer style={style} className="footer">
                 <Navigation navigation={FooterNavigationItems} />
               </footer>
-            </Otherwise>
+            </When>
           </Choose>
         </FadeIn>
       </div>
