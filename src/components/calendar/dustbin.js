@@ -66,6 +66,7 @@ export default class Dustbin extends Component {
             </span>}
           <If condition={droppedItem.name}>
             <Liveshow
+              shortenName={true}
               canBeDeleted={canDelete}
               date={droppedItem.date}
               name={droppedItem.name}

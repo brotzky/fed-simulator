@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import moment from "moment"
 
+import acronymLongName from "../../helpers/acronym-long-name"
 import { getContrastRatioColor, getShadeBySize } from "../../helpers/colours"
 
 import "./liveshow.scss"
@@ -9,6 +10,8 @@ const noop = () => {}
 
 export default class Liveshow extends Component {
   static defaultProps = {
+    shortenName: false,
+    shortenNameLength: 16,
     name: "",
     canBeDeleted: false,
     style: {},
@@ -21,14 +24,20 @@ export default class Liveshow extends Component {
   render() {
     let {
       name,
+      shortenNameLength,
       canBeDeleted,
       style,
+      shortenName,
       showDate,
       size,
       onClickDelete,
       date,
     } = this.props
     style = this._getStyle(style, size)
+
+    if (shortenName) {
+      name = acronymLongName(name, shortenNameLength)
+    }
     return (
       <span className="liveshow" style={style}>
         <If condition={canBeDeleted}>
@@ -39,10 +48,10 @@ export default class Liveshow extends Component {
           />
           &nbsp;
         </If>
-        <span className="name">{name}</span>
+        <span className="liveshow__date" title={this.props.name}>{name}</span>
         <If condition={showDate}>
           &nbsp;
-          ({moment(date).format("Do")})
+          <span className="liveshow__date">({moment(date).format("Do")})</span>
         </If>
       </span>
     )

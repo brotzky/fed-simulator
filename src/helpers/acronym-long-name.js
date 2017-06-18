@@ -1,3 +1,3 @@
-export default function acronymLongName(name) {
-  return name.length > 4 ? name.match(/\b\w/g).join('') : name
+export default function acronymLongName(name, length = 4) {
+  return name.length > length ? name.match(/\b\w/g).join("") : name
 }

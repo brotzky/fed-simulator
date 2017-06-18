@@ -2,10 +2,8 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import groupBy from "lodash.groupby"
 import moment from "moment"
-import classNames from "classNames"
 
 import Liveshow from "../liveshow/liveshow"
-import { getContrastRatioColor, getShadeBySize } from "../../helpers/colours"
 import { deleteLiveShow } from "../../actions/calendar"
 import { DAY_FORMAT } from "../../constants/calendar"
 import * as itemType from "../../actions/types"
@@ -68,6 +66,8 @@ class Container extends Component {
                     canDrag={this.props.game.canPlan}
                   >
                     <Liveshow
+                      shortenName={true}
+                      shortenNameLength={18}
                       name={name}
                       size={size}
                       style={this.props.style}
