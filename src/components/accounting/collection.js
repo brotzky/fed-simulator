@@ -68,7 +68,6 @@ const AccountingCollection = ({
         )
       })}
       <If condition={calendarEvents.length > 0}>
-        <hr />
         {heading({
           first: "Totals",
           second: formatCurrency(currency, totalCost),
