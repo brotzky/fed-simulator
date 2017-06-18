@@ -68,7 +68,7 @@ export default (state = defaultState, action = defaultAction) => {
         const isAlreadyWinner = newWrestler.winner
         const isWinningWrestler = newWrestler.id === action.payload.wrestlerId
 
-        newWrestler.winner = isWinningWrestler
+        newWrestler.winner = isWinningWrestler && !isAlreadyWinner
         newWrestler.loser = false
 
         return newWrestler

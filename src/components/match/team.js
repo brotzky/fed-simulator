@@ -58,6 +58,7 @@ export default class Team extends Component {
                 const key = `tw-${wrestler.id}`
                 const trophyClasses = classNames("icon fa fa-trophy", {
                   active: wrestler.winner,
+                  inactive: wrestler.loser,
                 })
                 return (
                   <div
