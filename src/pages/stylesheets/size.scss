@@ -1,21 +1,35 @@
-$size-font-size: 1.5rem;
+$size-font-size: 1rem;
+$size-font-weight: bolder;
+$size-padding: 1rem;
+$size-active-bg: #ff6f00;
+$size-word-wrap: break-word;
+$size-header-font-size: 1rem;
+$size-header-line-size: 1.5rem;
 
 .page.size {
   .sizes {
     font-size: $size-font-size;
-    font-weight: bolder;
+    font-weight: $size-font-weight;
     line-height: $size-font-size + 1;
-    word-wrap: break-word;
+    word-wrap: $size-word-wrap;
   }
+
   .size {
-    padding: 2rem;
+    padding: $size-padding;
 
     h3 {
-      line-height: 2rem;
-      height: 2.5rem;
+      font-size: $size-header-font-size;
+      height: $size-header-line-size;
+      line-height: $size-header-line-size;
+    }
+
+    h3,
+    p {
+      margin: 0 0 .4rem;
     }
   }
+
   .active {
-    background-color: #ff6f00;
+    background-color: $size-active-bg;
   }
 }
