@@ -33,10 +33,6 @@ describe("given a roster reducer", () => {
     it("should now have one match in the collection", () => {
       expect(matchesReducer.length).to.equal(1)
     })
-
-    it("and the first match has a a story", () => {
-      expect(matchesReducer[0].story.length).to.equal(0)
-    })
   })
 
   // ADD_WRESTLER_TO_MATCH
@@ -223,28 +219,18 @@ describe("given a roster reducer", () => {
 
       matchesReducer = reducer(matchesReducer, action)
       currentMatch = matchesReducer.find(newMatch => newMatch.id === matchId)
-      storyItem = currentMatch.story[0]
     })
 
-    describe("and the match has a story", () => {
-      it("and it has atleast one item", () => {
-        expect(Object.keys(storyItem).length).to.be.greaterThan(1)
-      })
-      it("and that first story item should have an defender", () => {
-        expect(storyItem.defender).to.not.be.empty()
-      })
-      it("and that first story item should have a winner", () => {
-        expect(currentMatch.winner).to.not.be.empty()
-      })
-      it("and that first story item should have a loser", () => {
-        expect(currentMatch.loser).to.not.be.empty()
-      })
-      it("and that first story item should have an attacker", () => {
-        expect(storyItem.attacker).to.not.be.empty()
-      })
-      it("and that first story item should have an move", () => {
-        expect(storyItem.move).to.not.be.empty()
-      })
+    it("should have a winner", () => {
+      const winner = currentMatch.wrestlers.find(wrestler => wrestler.winner)
+
+      expect(winner).to.not.be.empty
+    })
+
+    it("should have a loser", () => {
+      const loser = currentMatch.wrestlers.find(wrestler => wrestler.winner)
+
+      expect(loser).to.not.be.empty
     })
   })
 
@@ -295,21 +281,6 @@ describe("given a roster reducer", () => {
 
     it(`it has ${MAX_MATCHES} matches`, () => {
       expect(matchesReducer).to.have.length(MAX_MATCHES)
-    })
-
-    it("and it never had had the last person alive", () => {
-      let numberOfIncidents = 0
-      matchesReducer.forEach(currentMatch => {
-        let { wrestlers, story } = currentMatch
-        let lastStoryAttackerId = story.reverse()[0].attacker.id
-
-        if (currentMatch.winner.id !== lastStoryAttackerId) {
-          numberOfIncidents++
-          console.log("what", numberOfIncidents)
-        }
-      })
-
-      expect(numberOfIncidents).to.equal(0)
     })
   })
 
