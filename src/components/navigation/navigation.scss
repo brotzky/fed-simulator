@@ -1,53 +1,28 @@
-@import "src/stylesheets/breakpoints";
-
-$navigation-font-size: 2rem;
+$navigation-font-size: 1.5rem;
+$navigation-font-weight: 100;
+$navigation-link-color: currentColor;
+$navigation-link-text-shadow: 0 0 .5rem $navigation-link-color;
 
 .navigation {
-  font-size: $navigation-font-size;
-  font-variant: small-caps;
-  font-weight: 100;
-
   &__list {
     align-items: center;
     display: flex;
     justify-content: space-between;
     list-style: none;
-    margin: 0;
-    padding: 1rem 5rem;
+    margin: 0 .5%;
+    overflow-y: scroll;
+    white-space: nowrap;
   }
 
   &__item {
-    flex: 0 1 auto;
-    flex-wrap: wrap;
+    font-size: $navigation-font-size;
+    font-variant: small-caps;
+    font-weight: $navigation-font-weight;
+    margin: 1% 2%;
 
     a {
       text-decoration: none;
-      text-shadow: 0 0 .5rem currentColor;
-    }
-  }
-
-  .utils::after {
-    content: ""
-  }
-
-  @include breakpoint(xs) {
-    &__list {
-      display: block;
-      line-height: 0;
-      overflow-y: scroll;
-      padding: 1rem;
-      position: relative;
-      white-space: nowrap;
-    }
-
-    &__item {
-      display: inline-block;
-      margin-right: 2rem;
-      padding: .5rem;
-
-      .icon {
-        zoom: .1;
-      }
+      text-shadow: $navigation-link-text-shadow;
     }
   }
 }
