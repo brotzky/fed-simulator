@@ -3,10 +3,6 @@ import { connect } from "react-redux"
 
 import Cash from "./cash"
 
-import "./cash.scss"
-
-const currency = "$"
-
 class CashContainer extends Component {
   render() {
     const { cash, currency, } = this.props.game
