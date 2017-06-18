@@ -1,5 +1,6 @@
 import weighted from "weighted"
 import minBy from "lodash.minby"
+import groupBy from "lodash.groupby"
 
 import WrestlerModel from "./wrestler.model"
 import Model from "./match.model"
@@ -9,9 +10,7 @@ import { getPercentageAmount } from "../helpers/math"
 
 const defaultState = []
 const defaultAction = {}
-
-const getWrestlersWeights = arrayLength =>
-  new Array(arrayLength).fill(1 / arrayLength)
+const arrayOfLength = length => new Array(length).fill(1 / length)
 
 export default (state = defaultState, action = defaultAction) => {
   state = JSON.parse(JSON.stringify(state))
@@ -26,89 +25,41 @@ export default (state = defaultState, action = defaultAction) => {
     case "SIMULATE_MATCH":
       index = getIndexById(action.payload.matchId)
 
-      if (index !== -1) {
-        state[index].story = []
+      if (index > -1) {
         const { wrestlers, } = state[index]
+        const teams = groupBy(wrestlers, "teamId")
 
-        if (wrestlers.length > 1) {
-          const lowest = wrestlers.sort((a, b) => a.damage > b.damage)[0]
-          const highest = wrestlers
-            .filter(wrestler => wrestler.id !== lowest.id)
-            .sort((a, b) => a.damage < b.damage)[0]
-          const lowestId = lowest.id
-          const highestId = highest.id
-          const lowestIndex = wrestlers.findIndex(
-            wrestler => wrestler.id === lowestId
+        const numberOfTeams = Object.keys(teams).length
+        const numberOfWrestlers = wrestlers.length
+
+        const hasWinner = wrestlers.findIndex(wrestler => wrestler.winner) > -1
+        const wrestlerRandomWeighting = arrayOfLength(wrestlers.length)
+
+        if (numberOfWrestlers > 1 && numberOfTeams > 1) {
+          const winner = hasWinner
+            ? wrestlers.find(wrestler => wrestler.winner)
+            : weighted.select(wrestlers, wrestlerRandomWeighting)
+
+          const losers = wrestlers.filter(
+            loser => loser.teamId !== winner.teamId
           )
-          const highestIndex = wrestlers.findIndex(
-            wrestler => wrestler.id === highestId
-          )
-          const attackersWeights = getWrestlersWeights(wrestlers.length)
-          const highestAttackersPercentageGain = getPercentageAmount(
-            attackersWeights[lowestIndex],
-            20
-          )
+          const losersRandomWeighting = arrayOfLength(losers.length)
+          const loser = weighted.select(losers, losersRandomWeighting)
 
-          if (lowest.damage !== highest.damage) {
-            attackersWeights[lowestIndex] -= highestAttackersPercentageGain
-            attackersWeights[highestIndex] += highestAttackersPercentageGain
-          }
+          wrestlers.map(wrestler => {
+            wrestler.loser = false
+            wrestler.winner = false
 
-          while (minBy(wrestlers, "damage").damage > 0) {
-            let defender
-            const attacker = weighted.select(wrestlers, attackersWeights)
-            const defenders = wrestlers.filter(
-              wrestler =>
-                wrestler.id !== attacker.id &&
-                (wrestler.teamId === null ||
-                  wrestler.teamId !== attacker.teamId)
-            )
-
-            // multi-man match, choose a defender
-            if (defenders.length > 1) {
-              const defendersWeights = getWrestlersWeights(defenders.length)
-
-              defender = weighted.select(defenders, defendersWeights)
-            } else {
-              defender = defenders[0]
+            if (wrestler.id === winner.id) {
+              wrestler.winner = true
+            } else if (wrestler.id === loser.id) {
+              wrestler.loser = true
             }
 
-            const defenderIndex = wrestlers.findIndex(
-              wrestler => defender.id === wrestler.id
-            )
-            const attackerIndex = wrestlers.findIndex(
-              wrestler => attacker.id === wrestler.id
-            )
-
-            // select the move we'll be using
-            const moveWeights = Moves.reduce((a, b) => a.concat(b.weight), [])
-            const move = weighted.select(Moves, moveWeights)
-            const hasWinner =
-              wrestlers.findIndex(wrestler => wrestler.winner) > -1
-
-            state[index].wrestlers[defenderIndex].damage -= move.damage
-
-            const loserDamage = state[index].wrestlers[defenderIndex].damage
-
-            if (!hasWinner) {
-              state[index].wrestlers[attackerIndex].winner = loserDamage < 1
-              state[index].wrestlers[defenderIndex].winner = false
-            }
-
-            state[index].winner = attacker
-            state[index].loser = defender
-
-            state[index].story.push({
-              id: getId(),
-              attacker,
-              defender,
-              move,
-            })
-          }
-          state[index].wrestlers.map(wrestler => {
-            wrestler.damage = 100
             return wrestler
           })
+
+          state[index].wrestlers = wrestlers
         }
       }
       break

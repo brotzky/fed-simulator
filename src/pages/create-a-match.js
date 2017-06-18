@@ -95,12 +95,19 @@ class CreateAMatch extends Component {
   }
 
   render() {
-    const buttonText = pickRandom(buttonTexts)
-    const { currentMatch, } = this.state
     const { animations, } = this.props
-    const hasSidebar = currentMatch.story.length > 0
+    const buttonText = pickRandom(buttonTexts)
+
+    const { currentMatch, } = this.state
+    const { wrestlers, } = currentMatch
+
+    const winner = wrestlers && wrestlers.find(wrestler => wrestler.winner)
+    const loser = wrestlers && wrestlers.find(wrestler => wrestler.loser)
+
     const numberOfTeams = Object.keys(this.state.teams).length
-    const numberOfWrestlers = this.state.currentMatch.wrestlers.length
+    const numberOfWrestlers = wrestlers.length
+
+    const hasSidebar = wrestlers.findIndex(wrestler => wrestler.winner) > -1
     const mainClasses = classNames(
       { "col-xs": !hasSidebar, },
       { "col-lg-8": hasSidebar, }
@@ -154,14 +161,14 @@ class CreateAMatch extends Component {
                   iterations={Number(animations)}
                   duration={ANIMATION_SPEED}
                 >
-                  <If condition={currentMatch.winner}>
+                  <If condition={winner}>
                     <h2 className="story winner pulse">
                       <span>
                         <i
                           className="icon green fa fa-angle-double-up"
                           aria-hidden="true"
                         />
-                        &nbsp;{currentMatch.winner.name} Wins
+                        &nbsp;{winner.name} Wins
                       </span>
                     </h2>
                     <h3 className="story loser shake">
@@ -170,13 +177,11 @@ class CreateAMatch extends Component {
                           className="icon red fa fa-angle-double-down"
                           aria-hidden="true"
                         />
-                        &nbsp;{currentMatch.loser.name} Loses 😵
+                        &nbsp;{loser.name} Loses 😵
                       </span>
                     </h3>
                   </If>
-                  <If condition={currentMatch.story.length > 0}>
-                    <Story story={[]} />
-                  </If>
+                  <Story story={[]} />
                 </SlideRight>
               </div>
             </div>
