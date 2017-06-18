@@ -33,10 +33,10 @@ $calendar-date-bg-color: #1d1d1d;
 
   .dustbin,
   .header {
-    font-size: 1.3rem;
+    font-size: $calendar-date-font-size;
     font-variant: small-caps;
     font-weight: 300;
-    line-height: 2rem;
+    line-height: $calendar-date-font-size;
     margin-bottom: .8rem;
     margin-right: 1%;
     overflow: hidden;
@@ -82,7 +82,7 @@ $calendar-date-bg-color: #1d1d1d;
 
   .boxes {
     margin-bottom: .8rem;
-    margin-right: 0rem;
+    margin-right: 0;
   }
 
   .active {
