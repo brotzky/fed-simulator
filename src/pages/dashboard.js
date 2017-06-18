@@ -28,10 +28,11 @@ class DashboardPage extends Component {
               duration={ANIMATION_SPEED}
             >
               <div className="box game-cash">
-                {formatCurrency(currencySymbol, cash)}
-                <br />
                 🤑 {acronymLongName(federation.name)}
+                <br />
+                {formatCurrency(currencySymbol, cash)}
               </div>
+              <br />
             </SlideLeft>
           </div>
           <div className="col-lg-4 col-xs-12">
