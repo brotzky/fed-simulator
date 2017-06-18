@@ -5,10 +5,12 @@
   h2,
   h3,
   h4,
-  h5,
-  .icon {
-    font-size: 2rem !important;
-    line-height: 2rem !important;
+  h5 {
+    &,
+    & .icon {
+      font-size: 2rem !important;
+      line-height: 2rem !important;
+    }
   }
   .page-container main {
     padding: .5rem !important;
