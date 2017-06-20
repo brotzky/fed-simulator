@@ -102,6 +102,7 @@
     "react-dnd-touch-backend": "^0.3.11",
     "react-dom": "^15.4.2",
     "react-drag-and-drop": "^2.1.0",
+    "react-fittext": "^1.0.0",
     "react-helmet": "^3.1.0",
     "react-redux": "^4.4.5",
     "react-redux-form": "^1.11.0",

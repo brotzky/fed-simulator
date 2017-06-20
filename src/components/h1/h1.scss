@@ -1,14 +1,6 @@
-$h1-font-size: 4vw;
-$h1-icon-size: $h1-font-size;
-
 h1 {
-  font-size: $h1-font-size;
   font-variant: small-caps;
   font-weight: 100;
-  line-height: $h1-font-size;
-  margin: 0 0 1rem;
-
-  .icon {
-    font-size: $h1-icon-size;
-  }
+  margin: 0;
+	width: 100%;
 }
