@@ -29,7 +29,7 @@ class NamePage extends Component {
   render() {
     return (
       <section className="page name">
-        <HeaderOne>Name your game!</HeaderOne>
+        <HeaderOne>Name your Federation 🎈</HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div>
             <Input
