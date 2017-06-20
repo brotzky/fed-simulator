@@ -30,6 +30,7 @@ class CalendarPage extends Component {
   state = {
     confirmAction: true,
   }
+
   componentWillMount() {
     if (this.props.calendar.length === 0) {
       const { currentMonth: month, currentYear: year, } = this.props.game
@@ -130,8 +131,12 @@ class CalendarPage extends Component {
 
     if (!confirmAction || confirm(CALENDAR_CONFIRM_START)) {
       const { calendar, } = this.props
-      const profit = calendar.reduce((prev, el) => {
-        return prev + (el.gross - el.cost)
+      const profit = calendar.reduce((prev, currentDate) => {
+
+      if (currentDate.showId) {
+        return prev + (currentDate.gross - currentDate.cost)
+      }
+        return prev
       }, 0)
 
       this.props.dispatch(addProfitToTotal(profit))
