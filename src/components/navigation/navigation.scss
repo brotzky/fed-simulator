@@ -13,7 +13,7 @@ $navigation-list-padding: 2vh 4vw;
     justify-content: space-between;
     list-style: none;
     margin: 0;
-    overflow-y: scroll;
+    overflow: auto;
     padding: $navigation-list-padding;
     white-space: nowrap;
   }
