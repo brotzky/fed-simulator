@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import classNames from "classNames"
+import classnames from "classnames"
 import PropTypes from "prop-types"
 import { DropTarget } from "react-dnd"
 
@@ -46,7 +46,7 @@ export default class Dustbin extends Component {
       style,
     } = this.props
     const isActive = isOver && canDrop
-    const outerClasses = classNames(
+    const outerClasses = classnames(
       classes,
       "dustbin",
       { active: isActive, },

@@ -24,7 +24,7 @@ import {
   CALENDAR_CONFIRM_START
 } from "../constants/confirmations"
 
-import "./stylesheets/calendar"
+import "./stylesheets/calendar.scss"
 
 class CalendarPage extends Component {
   state = {

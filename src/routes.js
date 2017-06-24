@@ -10,125 +10,129 @@ const onChange = (previousRoute, nextRoute) => {
   }
 }
 
+function errorLoading(err) {
+  console.error("Dynamic page loading failed", err)
+}
+
+function loadRoute(cb) {
+  return module => cb(null, module.default)
+}
+
 export default () => {
   return (
     <Route path="/" onChange={onChange} component={Page}>
       <IndexRoute
-        getComponent={(nextState, callback) => {
-          require.ensure([], require => {
-            callback(null, require("./pages/default").default, "default")
-          })
+        getComponent={(location, cb) => {
+          System.import("./pages/default")
+            .then(loadRoute(cb))
+            .catch(errorLoading)
         }}
       />
       <Route path="create-a-match">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/create-a-match").default, "match")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/create-a-match")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="dashboard">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/dashboard").default, "dashboard")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/dashboard")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="champions">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/champions").default, "champions")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/champions")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="branding">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/branding").default, "branding")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/branding")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="calendar">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/calendar").default, "calendar")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/calendar")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="name">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/name").default, "name")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/name")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="size">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/size").default, "size")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/size")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="shows">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/shows").default, "shows")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/shows")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="roster">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/roster").default, "roster")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/roster")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="ranking">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/ranking").default, "ranking")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/ranking")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route path="settings">
         <IndexRoute
-          getComponent={(nextState, callback) => {
-            require.ensure([], require => {
-              callback(null, require("./pages/settings").default, "settings")
-            })
+          getComponent={(location, cb) => {
+            System.import("./pages/settings")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
           }}
         />
       </Route>
       <Route
         path="*"
-        getComponent={(nextState, callback) => {
-          require.ensure([], require => {
-            callback(
-              null,
-              require("./pages/default").default,
-              "default-fallback"
-            )
-          })
+        getComponent={(location, cb) => {
+          System.import("./pages/default")
+            .then(loadRoute(cb))
+            .catch(errorLoading)
         }}
       />
     </Route>

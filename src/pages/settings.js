@@ -5,7 +5,7 @@ import HeaderOne from "../components/h1/h1"
 import utilsNavigation from "./settings.navigation.json"
 import Navigation from "../components/navigation/navigation"
 
-import "./stylesheets/settings"
+import "./stylesheets/settings.scss"
 
 class Settings extends Component {
   state = {

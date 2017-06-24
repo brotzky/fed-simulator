@@ -1,17 +1,7 @@
-import chalk from "chalk"
-import { log, error, exit } from "../config/log"
-import { sync as rimrafSync } from "rimraf"
-
-const fs = require("fs-extra")
-const webpack = require("webpack")
-const config = require("../config/webpack.config.prod")
-const paths = require("../config/paths")
-const checkRequiredFiles = require("react-dev-utils/checkRequiredFiles")
-const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages")
-const FileSizeReporter = require("react-dev-utils/FileSizeReporter")
-;("use strict")
+"use strict"
 
 // Do this as the first thing so that any code reading it knows the right env.
+process.env.BABEL_ENV = "production"
 process.env.NODE_ENV = "production"
 
 // Makes the script crash on unhandled rejections instead of silently
@@ -24,8 +14,16 @@ process.on("unhandledRejection", err => {
 // Ensure environment variables are read.
 require("../config/env")
 
-log("Emptying build directory")
-rimrafSync(paths.appBuild + "/*")
+const path = require("path")
+const chalk = require("chalk")
+const fs = require("fs-extra")
+const webpack = require("webpack")
+const config = require("../config/webpack.config.prod")
+const paths = require("../config/paths")
+const checkRequiredFiles = require("react-dev-utils/checkRequiredFiles")
+const formatWebpackMessages = require("react-dev-utils/formatWebpackMessages")
+const printHostingInstructions = require("react-dev-utils/printHostingInstructions")
+const FileSizeReporter = require("react-dev-utils/FileSizeReporter")
 
 const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild
@@ -49,36 +47,50 @@ measureFileSizesBeforeBuild(paths.appBuild)
     return build(previousFileSizes)
   })
   .then(
-    ({ warnings, }) => {
+    ({ stats, previousFileSizes, warnings, }) => {
       if (warnings.length) {
-        error(chalk.yellow("Compiled with warnings.\n"))
-        error(warnings.join("\n\n"))
-        error(
+        console.log(chalk.yellow("Compiled with warnings.\n"))
+        console.log(warnings.join("\n\n"))
+        console.log(
           "\nSearch for the " +
             chalk.underline(chalk.yellow("keywords")) +
             " to learn more about each warning."
         )
-        error(
+        console.log(
           "To ignore, add " +
             chalk.cyan("// eslint-disable-next-line") +
             " to the line before.\n"
         )
       } else {
-        log(chalk.green("Compiled successfully.\n"))
+        console.log(chalk.green("Compiled successfully.\n"))
       }
 
-      exit()
+      console.log("File sizes after gzip:\n")
+      printFileSizesAfterBuild(stats, previousFileSizes, paths.appBuild)
+      console.log()
+
+      const appPackage = require(paths.appPackageJson)
+      const publicUrl = paths.publicUrl
+      const publicPath = config.output.publicPath
+      const buildFolder = path.relative(process.cwd(), paths.appBuild)
+      printHostingInstructions(
+        appPackage,
+        publicUrl,
+        publicPath,
+        buildFolder,
+        useYarn
+      )
     },
     err => {
-      error(chalk.red("Failed to compile.\n"))
-      error((err.message || err) + "\n")
+      console.log(chalk.red("Failed to compile.\n"))
+      console.log((err.message || err) + "\n")
       process.exit(1)
     }
   )
 
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
-  log("Creating an optimized production build...")
+  console.log("Creating an optimized production build...")
 
   let compiler = webpack(config)
   return new Promise((resolve, reject) => {
@@ -91,8 +103,8 @@ function build(previousFileSizes) {
         return reject(new Error(messages.errors.join("\n\n")))
       }
       if (process.env.CI && messages.warnings.length) {
-        log(
-          yellow(
+        console.log(
+          chalk.yellow(
             "\nTreating warnings as errors because process.env.CI = true.\n" +
               "Most CI servers set it automatically.\n"
           )

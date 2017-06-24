@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import classNames from "classNames"
+import classnames from "classnames"
 import sortBy from "lodash.sortby"
 
 import * as itemType from "../../actions/types"
@@ -71,10 +71,10 @@ class WrestlersContainer extends Component {
   }
 
   render() {
-    const sortClasses = classNames("icon", "fa", "fa-sort", {
+    const sortClasses = classnames("icon", "fa", "fa-sort", {
       active: this.state.sortByPoints,
     })
-    const genderClasses = classNames("icon", "fa", "fa-venus", {
+    const genderClasses = classnames("icon", "fa", "fa-venus", {
       active: this.state.showFemalesOnly,
     })
 

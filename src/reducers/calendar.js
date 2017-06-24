@@ -1,7 +1,7 @@
 import showsOptions from "../constants/shows.options.json"
 import { getRandomArbitrary } from "../helpers/math.js"
 import { getDateRange } from "../helpers/get-date-range"
-import Model from "./liveShow.model"
+import Model from "./liveshow.model"
 
 const defaultState = []
 

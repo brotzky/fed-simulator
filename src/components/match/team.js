@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import classNames from "classNames"
+import classnames from "classnames"
 import PropTypes from "prop-types"
 import { DropTarget } from "react-dnd"
 
@@ -38,7 +38,7 @@ export default class Team extends Component {
     } = this.props
     const hasWinner = wrestlers.find(wrestler => wrestler.winner)
     const hasManyWrestlers = wrestlers.length > 1
-    const teamClasses = classNames(
+    const teamClasses = classnames(
       "team",
       "col-lg-6 col-sm-6 col-xs-12",
       {
@@ -56,7 +56,7 @@ export default class Team extends Component {
             <When condition={wrestlers.length > 0}>
               {wrestlers.map(wrestler => {
                 const key = `tw-${wrestler.id}`
-                const trophyClasses = classNames("icon fa fa-trophy", {
+                const trophyClasses = classnames("icon fa fa-trophy", {
                   active: wrestler.winner,
                   inactive: wrestler.loser,
                 })

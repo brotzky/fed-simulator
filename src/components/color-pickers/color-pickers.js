@@ -12,19 +12,23 @@ import "./color-pickers.scss"
 
 class ColorPickers extends React.Component {
   onChangeColor = color => {
-    const newState = Object.assign({}, this.props.style, {
+    const { style, dispatch, } = this.props
+
+    const newState = Object.assign({}, style, {
       color,
     })
 
-    this.props.dispatch(updateStyle(newState))
+    dispatch(updateStyle(newState))
   }
 
   onChangeBGColor = backgroundColor => {
-    const newState = Object.assign({}, this.props.style, {
+    const { style, dispatch, } = this.props
+
+    const newState = Object.assign({}, style, {
       backgroundColor,
     })
 
-    this.props.dispatch(updateStyle(newState))
+    dispatch(updateStyle(newState))
   }
 
   shouldComponentUpdate() {
@@ -32,8 +36,8 @@ class ColorPickers extends React.Component {
   }
 
   render() {
-    let { backgroundColor, color, } = this.props.style
-    const borderColor = chromatism.mid(backgroundColor, color).hex
+    const { backgroundColor, color, } = this.props.style
+    const borderColor = chromatism.brightness(10, backgroundColor).hex
     const borderStyle = {
       border: `.33rem solid ${borderColor}`,
     }

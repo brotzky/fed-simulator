@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import classNames from "classNames"
+import classnames from "classnames"
 
 import { updateGame } from "../actions/game"
 import defaultOptions from "../constants/size.options.json"
@@ -16,7 +16,7 @@ class SizePage extends Component {
     cash: 0,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if (this.props.game.size !== "") {
       this.setState({ ...this.props.game, })
     }
@@ -48,7 +48,7 @@ class SizePage extends Component {
         </HeaderOne>
         <div className="row sizes">
           {defaultOptions.map(option => {
-            const classes = classNames(
+            const classes = classnames(
               "col-xs-12 col-sm-6 col-md-3 col-lg-3",
               "size",
               "grow",
@@ -79,6 +79,12 @@ class SizePage extends Component {
 }
 
 SizePage.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
+
+SizePage.propTypes = {
+  game: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
   router: PropTypes.object.isRequired,
 }
 

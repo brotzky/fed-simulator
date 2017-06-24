@@ -49,7 +49,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const { shows, style, classNames, children, animations, } = this.props
+    const { shows, style, classnames, children, animations, } = this.props
     const { pathname, } = this.context.router.location
 
     return (
@@ -60,7 +60,7 @@ class Page extends React.Component {
             <Navigation style={style} />
           </SlideDown>
         </If>
-        <main className={classNames}>
+        <main className={classnames}>
           <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
             {children}
           </FadeIn>
@@ -85,7 +85,7 @@ class Page extends React.Component {
 Page.displayName = "Page"
 
 Page.propTypes = {
-  classNames: PropTypes.string,
+  classnames: PropTypes.string,
   shows: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   version: PropTypes.number.isRequired,
@@ -93,7 +93,7 @@ Page.propTypes = {
 
 Page.defaultProps = {
   version: 1,
-  classNames: "",
+  classnames: "",
 }
 
 Page.contextTypes = {
