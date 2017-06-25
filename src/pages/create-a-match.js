@@ -167,6 +167,7 @@ class CreateAMatch extends Component {
                     <Loser name={loser.name} />
                   </If>
                   <If condition={winner && loser && !currentMatch.simulated}>
+                    <hr />
                     <button onClick={this.onConfirmMatchSimulated}>
                       Save Result
                     </button>
