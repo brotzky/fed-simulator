@@ -1,5 +1,4 @@
 import React from "react"
-import { SlideUp } from "animate-components"
 
 import "./story.scss"
 
