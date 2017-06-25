@@ -1,18 +1,23 @@
 import React, { Component } from "react"
-import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import groupBy from "lodash.groupby"
-import { Link } from "react-router"
 import classnames from "classnames"
+
+import { Link } from "react-router"
+import { connect } from "react-redux"
 import { SlideRight, FadeIn } from "animate-components"
 
 import { getId } from "../helpers/hash"
 import { resetMatches, simulateMatch } from "../actions/matches"
-import * as matchesAction from "../actions/matches"
+
+import { Winner, Loser } from "../components/winner"
 import HeaderOne from "../components/h1/h1"
 import Match from "../components/match/container"
 import Model from "../reducers/match.model"
 
+import * as matchesAction from "../actions/matches"
+
+import buttonTexts from "../constants/create-a-match-button-texts"
 import { MATCH_CONFIRM_RESET } from "../constants/confirmations"
 import { ANIMATION_SPEED } from "../constants/animation"
 
@@ -20,14 +25,6 @@ import "./stylesheets/create-a-match.scss"
 
 const pickRandom = items =>
   items[Math.floor(Math.random() * (items.length - 1))]
-
-const buttonTexts = [
-  "DING DING DING",
-  "Ring the bell",
-  "Start the match",
-  "Start the damn match",
-  "Simulate",
-]
 
 class CreateAMatch extends Component {
   state = {
@@ -94,6 +91,7 @@ class CreateAMatch extends Component {
 
   render() {
     const { animations, } = this.props
+    console.log(buttonTexts)
     const buttonText = pickRandom(buttonTexts)
 
     const { currentMatch, } = this.state
@@ -154,32 +152,16 @@ class CreateAMatch extends Component {
             </div>
             <br />
             <div className={storySideclasses}>
-              <div className="box">
+              <div className="box center-xs">
                 <SlideRight
                   iterations={Number(animations)}
                   duration={ANIMATION_SPEED}
                 >
                   <If condition={winner}>
-                    <h2 className="story winner pulse">
-                      <span>
-                        <i
-                          className="icon green fa fa-angle-double-up"
-                          aria-hidden="true"
-                        />
-                        &nbsp;{winner.name} Wins
-                      </span>
-                    </h2>
+                    <Winner name={winner.name} />
                   </If>
                   <If condition={loser}>
-                    <h3 className="story loser shake">
-                      <span>
-                        <i
-                          className="icon red fa fa-angle-double-down"
-                          aria-hidden="true"
-                        />
-                        &nbsp;{loser.name} Loses 😵
-                      </span>
-                    </h3>
+                    <Loser name={loser.name} />
                   </If>
                 </SlideRight>
               </div>
@@ -223,6 +205,9 @@ CreateAMatch.contextTypes = {
 CreateAMatch.propTypes = {
   dispatch: PropTypes.func.isRequired,
   animations: PropTypes.bool.isRequired,
+  location: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
+  matches: PropTypes.array.isRequired,
 }
 
 export default connect(state => ({
