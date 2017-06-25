@@ -8,14 +8,17 @@ import { connect } from "react-redux"
 import { SlideRight, FadeIn } from "animate-components"
 
 import { getId } from "../helpers/hash"
-import { resetMatches, simulateMatch } from "../actions/matches"
+import {
+  confirmSimulatedMatch,
+  createMatch,
+  resetMatches,
+  simulateMatch
+} from "../actions/matches"
 
 import { Winner, Loser } from "../components/winner"
 import HeaderOne from "../components/h1/h1"
 import Match from "../components/match/container"
 import Model from "../reducers/match.model"
-
-import * as matchesAction from "../actions/matches"
 
 import buttonTexts from "../constants/create-a-match-button-texts"
 import { MATCH_CONFIRM_RESET } from "../constants/confirmations"
@@ -74,7 +77,7 @@ class CreateAMatch extends Component {
         id: currentMatchId,
       }).toJSON()
 
-      this.props.dispatch(matchesAction.createMatch(currentMatch))
+      this.props.dispatch(createMatch(currentMatch))
     }
 
     const teams = this.getTeams(currentMatch)
@@ -91,7 +94,6 @@ class CreateAMatch extends Component {
 
   render() {
     const { animations, } = this.props
-    console.log(buttonTexts)
     const buttonText = pickRandom(buttonTexts)
 
     const { currentMatch, } = this.state
@@ -163,6 +165,11 @@ class CreateAMatch extends Component {
                   <If condition={loser}>
                     <Loser name={loser.name} />
                   </If>
+                  <If condition={winner && loser && !currentMatch.simulated}>
+                    <button onClick={this.onConfirmMatchSimulated}>
+                      Save Result
+                    </button>
+                  </If>
                 </SlideRight>
               </div>
             </div>
@@ -189,6 +196,12 @@ class CreateAMatch extends Component {
     event.preventDefault()
 
     this.props.dispatch(simulateMatch(this.state.currentMatch.id))
+  }
+
+  onConfirmMatchSimulated = event => {
+    event.preventDefault
+
+    this.props.dispatch(confirmSimulatedMatch(this.state.currentMatch.id))
   }
 
   onResetMatches = () => {

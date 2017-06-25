@@ -7,6 +7,7 @@ export default class extends BaseModel {
       id: false,
       rating: 0,
       cost: 0,
+      simulated: false,
       wrestlers: [],
     }
   }

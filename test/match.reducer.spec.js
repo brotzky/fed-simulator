@@ -175,6 +175,35 @@ describe("given a roster reducer", () => {
     })
   })
 
+  // CONFIRM_SIMULATED_MATCH
+  describe("and the match is confirmed simulated", () => {
+    let currentMatch, matchId
+
+    it("should have a simulated flag set to FALSE", () => {
+      matchId = matchesReducer[0].id
+
+      currentMatch = matchesReducer.find(newMatch => newMatch.id === matchId)
+
+      expect(currentMatch.simulated).to.equal(false)
+    })
+
+    describe("and the match is set to simulated", () => {
+      before(() => {
+        action.type = types.CONFIRM_SIMULATED_MATCH
+        action.payload = {
+          matchId,
+        }
+
+        matchesReducer = reducer(matchesReducer, action)
+        currentMatch = matchesReducer.find(newMatch => newMatch.id === matchId)
+      })
+
+      it("should have a simulated flag set to TRUE", () => {
+        expect(currentMatch.simulated).to.equal(true)
+      })
+    })
+  })
+
   // // REMOVE_WRESTLER_FROM_MATCH
   describe("and a wrestler is removed from the match", () => {
     let currentMatch, matchId
