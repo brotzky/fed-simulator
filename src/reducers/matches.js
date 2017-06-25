@@ -4,6 +4,7 @@ import groupBy from "lodash.groupby"
 import WrestlerModel from "./wrestler.model"
 import Model from "./match.model"
 import { getId } from "../helpers/hash"
+import { getPercentageAmount } from "../helpers/math"
 
 const defaultState = []
 const defaultAction = {}
@@ -37,12 +38,36 @@ export default (state = defaultState, action = defaultAction) => {
         const numberOfWrestlers = wrestlers.length
 
         const hasWinner = wrestlers.findIndex(wrestler => wrestler.winner) > -1
-        const wrestlerRandomWeighting = arrayOfLength(wrestlers.length)
+        let weightedWrestlers = arrayOfLength(wrestlers.length)
+
+        let lowest = wrestlers.sort((a, b) => a.points > b.points)[0],
+          highest = wrestlers
+            .filter(wrestler => wrestler.id !== lowest.id)
+            .sort((a, b) => a.points < b.points)[0],
+          lowestId = lowest.id,
+          highestId = highest.id,
+          lowestIndex = wrestlers.findIndex(
+            wrestler => wrestler.id === lowestId
+          ),
+          highestIndex = wrestlers.findIndex(
+            wrestler => wrestler.id === highestId
+          ),
+          highestAttackersPercentageGain = getPercentageAmount(
+            weightedWrestlers[lowestIndex],
+            20
+          )
+
+        if (lowest.points !== highest.points) {
+          weightedWrestlers[lowestIndex] =
+            weightedWrestlers[lowestIndex] - highestAttackersPercentageGain
+          weightedWrestlers[highestIndex] =
+            weightedWrestlers[highestIndex] + highestAttackersPercentageGain
+        }
 
         if (numberOfWrestlers > 1 && numberOfTeams > 1) {
           const winner = hasWinner
             ? wrestlers.find(wrestler => wrestler.winner)
-            : weighted.select(wrestlers, wrestlerRandomWeighting)
+            : weighted.select(wrestlers, weightedWrestlers)
 
           const losers = wrestlers.filter(
             loser => loser.teamId !== winner.teamId
