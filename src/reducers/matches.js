@@ -80,6 +80,8 @@ export default (state = defaultState, action = defaultAction) => {
 
         return newWrestler
       })
+
+      state[index].simulated = false
       break
 
     case "REMOVE_WRESTLER_FROM_MATCH":
@@ -88,6 +90,7 @@ export default (state = defaultState, action = defaultAction) => {
       state[index].wrestlers = state[index].wrestlers.filter(
         newWrestler => newWrestler.id !== action.payload.wrestlerId
       )
+      state[index].simulated = false
       break
 
     case "ADD_WRESTLER_TO_MATCH":
@@ -111,6 +114,7 @@ export default (state = defaultState, action = defaultAction) => {
             currentMatch.wrestlers[wrestlerExists].teamId =
               action.payload.wrestler.teamId
           }
+          currentMatch.simulated = false
         }
         return currentMatch
       })
