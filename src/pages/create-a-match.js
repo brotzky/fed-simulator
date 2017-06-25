@@ -145,7 +145,13 @@ class CreateAMatch extends Component {
                 >
                   <Match {...this.state} />
                 </FadeIn>
-                <If condition={numberOfWrestlers > 1 && numberOfTeams > 2}>
+                <If
+                  condition={
+                    numberOfWrestlers > 1 &&
+                      numberOfTeams > 2 &&
+                      !currentMatch.simulated
+                  }
+                >
                   <button type="submit">
                     {buttonText}
                   </button>
