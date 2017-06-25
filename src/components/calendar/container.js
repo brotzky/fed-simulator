@@ -33,11 +33,13 @@ class Container extends Component {
   }
 
   onHandleDrop(date, item) {
-    if (!this.props.game.canPlan) return
-    const { name, size, } = item
-    const show = this.props.shows.find(show => show.name === name)
+    const { game, shows, dispatch, } = this.props
+    if (!game.canPlan) return
 
-    this.props.dispatch(
+    const { name, size, } = item
+    const show = shows.find(show => show.name === name)
+
+    dispatch(
       updateCalendarLiveShow({
         date,
         show,
@@ -49,6 +51,7 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins, } = this.state
+    const { game, style, } = this.props
     const groupedBoxes = groupBy(boxes, "size")
 
     return (
@@ -63,14 +66,14 @@ class Container extends Component {
                     classes="hang"
                     name={name}
                     type={type}
-                    canDrag={this.props.game.canPlan}
+                    canDrag={game.canPlan}
                   >
                     <Liveshow
                       shortenName={true}
                       shortenNameLength={18}
                       name={name}
                       size={size}
-                      style={this.props.style}
+                      style={style}
                     />
                   </Box>
                 )
@@ -86,10 +89,10 @@ class Container extends Component {
                 key={`calendar-dustbin-${dustbin.date}`}
                 name={dustbin.name}
                 previous={dustbin.previous}
-                style={this.props.style}
+                style={style}
                 accepts={dustbin.accepts}
                 droppedItem={dustbin.droppedItem}
-                canDelete={this.props.game.canPlan}
+                canDelete={game.canPlan}
                 onClickDelete={item => this.onClickDelete(dustbin.date, item)}
                 onDrop={item => this.onHandleDrop(dustbin.date, item)}
               />

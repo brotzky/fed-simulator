@@ -61,12 +61,30 @@ export default (state = defaultState, action) => {
       const dateIndex = state.findIndex(liveShow => liveShow.date === date)
 
       if (state[dateIndex]) {
-        state[dateIndex] = Object.assign(state[dateIndex], {
+        state[dateIndex] = Object.assign({}, state[dateIndex], {
           name: show.name,
           size: show.size,
           showId: show.id,
           cost: getRandomArbitrary(options.min_cost, options.max_cost),
         })
+
+        if (show.size === "xs" || show.size === "sm") {
+          const weekDay = new Date(state[dateIndex].date).getDay()
+
+          state = state.map(liveShow => {
+            const liveShowWeekDay = new Date(liveShow.date).getDay()
+
+            if (liveShowWeekDay === weekDay) {
+              liveShow = Object.assign({}, liveShow, {
+                name: show.name,
+                size: show.size,
+                showId: show.id,
+                cost: getRandomArbitrary(options.min_cost, options.max_cost),
+              })
+            }
+            return liveShow
+          })
+        }
       }
       break
     case "SIMULATE_EVENT":
