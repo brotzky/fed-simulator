@@ -70,17 +70,14 @@ export default (state = defaultState, action) => {
 
         if (show.size === "xs" || show.size === "sm") {
           const dateNumber = new Date(state[dateIndex].date).getDate()
-          const weekDay = new Date(state[dateIndex].date).getDay()
+          const weekday = new Date(state[dateIndex].date).getDay()
 
           state = state.map(liveShow => {
             const lsDate = new Date(liveShow.date)
-            const liveShowWeekDay = lsDate.getDay()
-            const liveShowDateNumber = lsDate.getDate()
+            const lsWeekday = lsDate.getDay()
+            const lsDateNumber = lsDate.getDate()
 
-            if (
-              liveShowWeekDay === weekDay &&
-              liveShowDateNumber > dateNumber
-            ) {
+            if (lsWeekday === weekday && lsDateNumber > dateNumber) {
               liveShow = Object.assign({}, liveShow, {
                 name: show.name,
                 size: show.size,
