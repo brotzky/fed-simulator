@@ -14,10 +14,10 @@ export function simulateMatch(matchId) {
   }
 }
 
-export function confirmSimulatedMatch(matchId) {
+export function confirmSimulatedMatch({ matchId, winner, loser, }) {
   return {
     type: types.CONFIRM_SIMULATED_MATCH,
-    payload: { matchId, },
+    payload: { matchId, winner, loser, },
   }
 }
 

@@ -48,7 +48,7 @@ class CreateAMatch extends Component {
       currentMatch = new Model({
         id: getId(),
       }).toJSON()
-      dispatch(matchesAction.createMatch(currentMatch))
+      dispatch(createMatch(currentMatch))
     }
 
     const teams = this.getTeams(currentMatch)
@@ -201,7 +201,17 @@ class CreateAMatch extends Component {
   onConfirmMatchSimulated = event => {
     event.preventDefault
 
-    this.props.dispatch(confirmSimulatedMatch(this.state.currentMatch.id))
+    const { wrestlers, id: matchId, } = this.state.currentMatch
+    const winner = wrestlers.find(wrestler => wrestler.winner)
+    const loser = wrestlers.find(wrestler => wrestler.loser)
+
+    const details = {
+      matchId,
+      winner,
+      loser,
+    }
+
+    this.props.dispatch(confirmSimulatedMatch({ ...details, }))
   }
 
   onResetMatches = () => {

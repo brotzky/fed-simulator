@@ -6,6 +6,7 @@ export function updateRoster(payload) {
     payload,
   }
 }
+
 export function reset() {
   return {
     type: types.RESET,
