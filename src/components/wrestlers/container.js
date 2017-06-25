@@ -2,8 +2,10 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import classnames from "classnames"
 import sortBy from "lodash.sortby"
+import PropTypes from "prop-types"
 
 import * as itemType from "../../actions/types"
+
 import Input from "../form/input"
 import Wrestler from "./wrestler"
 
@@ -71,20 +73,22 @@ class WrestlersContainer extends Component {
   }
 
   render() {
+    const { showFemalesOnly, sortByPoints, nameSearch, } = this.state
+    const { style, } = this.props
     const sortClasses = classnames("icon", "fa", "fa-sort", {
-      active: this.state.sortByPoints,
+      active: sortByPoints,
     })
     const genderClasses = classnames("icon", "fa", "fa-venus", {
-      active: this.state.showFemalesOnly,
+      active: showFemalesOnly,
     })
 
     return (
-      <div className="wrestlers" style={this.props.style}>
+      <div className="wrestlers" style={style}>
         <div className="row">
           <div className="col-xs-10">
             <div className="box">
               <Input
-                value={this.state.nameSearch}
+                value={nameSearch}
                 onChange={this.onFilterByName}
                 placeholder="Filter wrestlers by name"
               />
@@ -128,6 +132,11 @@ class WrestlersContainer extends Component {
       </div>
     )
   }
+}
+
+WrestlersContainer.propTypes = {
+  roster: PropTypes.array.isRequired,
+  style: PropTypes.object.isRequired,
 }
 
 export default connect(state => ({
