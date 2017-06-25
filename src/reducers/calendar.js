@@ -69,12 +69,18 @@ export default (state = defaultState, action) => {
         })
 
         if (show.size === "xs" || show.size === "sm") {
+          const dateNumber = new Date(state[dateIndex].date).getDate()
           const weekDay = new Date(state[dateIndex].date).getDay()
 
           state = state.map(liveShow => {
-            const liveShowWeekDay = new Date(liveShow.date).getDay()
+            const lsDate = new Date(liveShow.date)
+            const liveShowWeekDay = lsDate.getDay()
+            const liveShowDateNumber = lsDate.getDate()
 
-            if (liveShowWeekDay === weekDay) {
+            if (
+              liveShowWeekDay === weekDay &&
+              liveShowDateNumber > dateNumber
+            ) {
               liveShow = Object.assign({}, liveShow, {
                 name: show.name,
                 size: show.size,
@@ -88,6 +94,15 @@ export default (state = defaultState, action) => {
       }
       break
     case "SIMULATE_EVENT":
+      break
+    case "CLEAR_CALENDAR_LIVESHOWS":
+      state = state.map(liveShow => {
+        liveShow.name = ""
+        liveShow.size = "xs"
+        liveShow.cost = 0
+        liveShow.showId = false
+        return liveShow
+      })
       break
     default:
       break

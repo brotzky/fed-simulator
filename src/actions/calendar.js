@@ -19,6 +19,12 @@ export function generateLiveShowsForMonth({ month, year, }) {
   }
 }
 
+export function clearLiveShows() {
+  return {
+    type: types.CLEAR_CALENDAR_LIVESHOWS,
+  }
+}
+
 export function updateCalendarLiveShows(liveShows) {
   return {
     type: types.UPDATE_CALENDAR_LIVESHOWS,

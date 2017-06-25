@@ -31,6 +31,7 @@ const AccountingCollection = ({
   isComplete = false,
   showDelete = true,
   calendarEvents = [],
+  onClearLiveShows = noop,
   onClickDelete = noop,
   totalCost = 0,
   totalGross = 0,
@@ -45,6 +46,12 @@ const AccountingCollection = ({
         third: cash,
       })}
       <hr />
+      <If condition={calendarEvents.length > 0}>
+        <button onClick={onClearLiveShows}>
+          Clear shows
+        </button>
+      </If>
+      <br /><br />
       {calendarEvents.map(show => {
         return (
           <div

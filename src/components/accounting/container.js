@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import { deleteLiveShow } from "../../actions/calendar"
+import { deleteLiveShow, clearLiveShows } from "../../actions/calendar"
 import Collection from "./collection"
 
 import "./accounting.scss"
@@ -20,12 +20,6 @@ function sum(current, next) {
 }
 
 class AccountingContainer extends Component {
-  onClickDelete = el => {
-    const date = el.currentTarget.dataset.date
-
-    this.props.dispatch(deleteLiveShow(date))
-  }
-
   render() {
     const { game, style, } = this.props
     const calendarEvents = this.props.calendar.filter(
@@ -38,22 +32,35 @@ class AccountingContainer extends Component {
 
     return (
       <Collection
-        currency={game.currency}
-        onClickDelete={this.onClickDelete}
         calendarEvents={calendarEvents}
-        totalCost={totalCost}
-        showDelete={game.canPlan}
-        totalGross={totalGross}
         cash={game.cash}
+        currency={game.currency}
+        onClearLiveShows={this.onClearLiveShows}
+        onClickDelete={this.onClickDelete}
+        showDelete={game.canPlan}
         style={style}
+        totalCost={totalCost}
+        totalGross={totalGross}
       />
     )
+  }
+
+  onClickDelete = el => {
+    const date = el.currentTarget.dataset.date
+
+    this.props.dispatch(deleteLiveShow(date))
+  }
+
+  onClearLiveShows = () => {
+    this.props.dispatch(clearLiveShows())
   }
 }
 
 AccountingContainer.propTypes = {
-  game: PropTypes.object,
   calendar: PropTypes.array,
+  dispatch: PropTypes.func.isRequired,
+  game: PropTypes.object,
+  style: PropTypes.object.isRequired,
 }
 
 AccountingContainer.defaultProps = {
@@ -62,6 +69,6 @@ AccountingContainer.defaultProps = {
 
 export default connect(state => ({
   calendar: state.calendar,
-  style: state.style,
   game: state.game,
+  style: state.style,
 }))(AccountingContainer)
