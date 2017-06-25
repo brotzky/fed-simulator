@@ -15,7 +15,7 @@ import {
   simulateMatch
 } from "../actions/matches"
 
-import { Winner, Loser } from "../components/winner"
+import { Winner, Loser } from "../components/winner/winner"
 import HeaderOne from "../components/h1/h1"
 import Match from "../components/match/container"
 import Model from "../reducers/match.model"
@@ -108,11 +108,11 @@ class CreateAMatch extends Component {
     const hasSidebar = wrestlers.findIndex(wrestler => wrestler.winner) > -1
     const mainClasses = classnames(
       { "col-xs": !hasSidebar, },
-      { "col-lg-8 col-md-8 col-sm-8 col-xs-6": hasSidebar, }
+      { "col-lg-9 col-md-8 col-sm-8 col-xs-12": hasSidebar, }
     )
     const storySideclasses = classnames(
       { hide: !hasSidebar, },
-      { "col-lg-4 col-md-4 col-sm-4 col-xs-6": hasSidebar, }
+      { "col-lg-3 col-md-4 col-sm-4 col-xs-12": hasSidebar, }
     )
 
     return (
@@ -160,6 +160,7 @@ class CreateAMatch extends Component {
                   duration={ANIMATION_SPEED}
                 >
                   <If condition={winner}>
+                    <br />
                     <Winner name={winner.name} />
                   </If>
                   <If condition={loser}>

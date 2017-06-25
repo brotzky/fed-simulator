@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import "./winner.scss"
+
 export const Winner = ({ name = "", animation = "float-shadow", }) => (
   <h2 className={`winner ${animation}`}>
     <span>
