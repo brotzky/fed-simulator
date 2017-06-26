@@ -52,6 +52,13 @@ const AccountingCollection = ({
         </button>
       </If>
       <br /><br />
+      <If condition={calendarEvents.length > 0}>
+        {heading({
+          first: "",
+          second: "Cost",
+          third: "Gross",
+        })}
+      </If>
       {calendarEvents.map(show => {
         return (
           <div
