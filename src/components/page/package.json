@@ -2,7 +2,7 @@
   "name": "page",
   "version": "0.0.1",
   "private": true,
-  "main": "./page.js",
+  "main": "./index.js",
   "contributors": [
     {
       "name": "Aaron Lote",
