@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 import { deleteLiveShow, clearLiveShows } from "../../actions/calendar"
-import Collection from "./collection"
+import Collection from "./index"
 
 import "./accounting.scss"
 

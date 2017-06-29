@@ -5,8 +5,8 @@ import { formatCurrency } from "../../helpers/currency"
 
 const noop = () => {}
 
-const heading = ({ first = "", second = "", third = "", }) => (
-  <div className="row heading text-left">
+const Heading = ({ first = "", second = "", third = "", }) => (
+  <div className="row Heading text-left">
     <div className="col-xs-8">
       <div className="box">
         {first}
@@ -40,11 +40,7 @@ const AccountingCollection = ({
   cash = formatCurrency(currency, cash)
   return (
     <div className="accounting">
-      {heading({
-        first: "Cash Available",
-        second: "",
-        third: cash,
-      })}
+      <Heading first="Cash Available" second="" third={cash} />
       <hr />
       <If condition={calendarEvents.length > 0}>
         <button onClick={onClearLiveShows}>
@@ -53,11 +49,7 @@ const AccountingCollection = ({
       </If>
       <br /><br />
       <If condition={calendarEvents.length > 0}>
-        {heading({
-          first: "",
-          second: "Cost",
-          third: "Gross",
-        })}
+        <Heading second="Cost" third="Gross" />
       </If>
       {calendarEvents.map(show => {
         return (
@@ -65,8 +57,8 @@ const AccountingCollection = ({
             className="accounting__collection"
             key={`accounting-collection-${show.date}`}
           >
-            {heading({
-              first: (
+            <Heading
+              first={
                 <Liveshow
                   onClickDelete={onClickDelete}
                   {...show}
@@ -74,25 +66,25 @@ const AccountingCollection = ({
                   showDate={true}
                   canBeDeleted={showDelete}
                 />
-              ),
-              second: formatCurrency(currency, show.cost),
-              third: show.gross > 0 ? formatCurrency(currency, show.gross) : "",
-            })}
+              }
+              second={formatCurrency(currency, show.cost)}
+              third={show.gross > 0 ? formatCurrency(currency, show.gross) : ""}
+            />
           </div>
         )
       })}
       <If condition={calendarEvents.length > 0}>
-        {heading({
-          first: "Totals",
-          second: formatCurrency(currency, totalCost),
-          third: formatCurrency(currency, totalGross),
-        })}
+        <Heading
+          first="Totals"
+          second={formatCurrency(currency, totalCost)}
+          third={formatCurrency(currency, totalGross)}
+        />
       </If>
       <If condition={isComplete}>
-        {heading({
-          first: "Profit",
-          third: formatCurrency(currency, totalGross - totalCost),
-        })}
+        <Heading
+          first="Profit"
+          third={formatCurrency(currency, totalGross - totalCost)}
+        />
       </If>
     </div>
   )
