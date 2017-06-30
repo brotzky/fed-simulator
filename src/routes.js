@@ -37,6 +37,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="bank">
+        <IndexRoute
+          getComponent={(location, cb) => {
+            System.import("./pages/bank")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
+          }}
+        />
+      </Route>
       <Route path="dashboard">
         <IndexRoute
           getComponent={(location, cb) => {

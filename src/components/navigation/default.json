@@ -11,7 +11,10 @@
 	}, {
 		"url": "create-a-match",
 		"title": "Create a match"
-	},{
+	}, {
+		"url": "bank",
+		"title": "Banking"
+	}, {
 		"url": "champions",
 		"title": "Champions"
 	}, {

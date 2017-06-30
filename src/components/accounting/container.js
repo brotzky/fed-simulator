@@ -21,7 +21,7 @@ function sum(current, next) {
 
 class AccountingContainer extends Component {
   render() {
-    const { game, style, } = this.props
+    const { game, style, roster, } = this.props
     const calendarEvents = this.props.calendar.filter(
       calendarEvent => calendarEvent.cost > 0
     )
@@ -29,6 +29,7 @@ class AccountingContainer extends Component {
 
     const totalCost = hasEvents ? calendarEvents.map(cost).reduce(sum) : ""
     const totalGross = hasEvents ? calendarEvents.map(gross).reduce(sum) : ""
+    const wages = roster.map(cost).reduce(sum)
 
     return (
       <Collection
@@ -41,6 +42,7 @@ class AccountingContainer extends Component {
         style={style}
         totalCost={totalCost}
         totalGross={totalGross}
+        wages={wages}
       />
     )
   }
@@ -60,6 +62,7 @@ AccountingContainer.propTypes = {
   calendar: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   game: PropTypes.object,
+  roster: PropTypes.array,
   style: PropTypes.object.isRequired,
 }
 
@@ -70,5 +73,6 @@ AccountingContainer.defaultProps = {
 export default connect(state => ({
   calendar: state.calendar,
   game: state.game,
+  roster: state.roster,
   style: state.style,
 }))(AccountingContainer)
