@@ -35,6 +35,7 @@ const AccountingCollection = ({
   onClickDelete = noop,
   totalCost = 0,
   totalGross = 0,
+  wages = 0,
   style,
 }) => {
   cash = formatCurrency(currency, cash)
@@ -73,6 +74,11 @@ const AccountingCollection = ({
           </div>
         )
       })}
+      <Heading
+        first="Wages per month"
+        second={formatCurrency(currency, wages)}
+      />
+      <hr />
       <If condition={calendarEvents.length > 0}>
         <Heading
           first="Totals"

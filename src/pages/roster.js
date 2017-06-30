@@ -28,8 +28,9 @@ class RosterPage extends Component {
   }
 
   componentWillMount() {
+    const { roster, } = this.props
     const filterByMinMax = (male = true, min = 0, max = 100) =>
-      this.props.roster
+      roster
         .filter(
           wrestler =>
             wrestler.male === male &&
@@ -134,30 +135,32 @@ class RosterPage extends Component {
   handleSubmit = event => {
     event.preventDefault()
     let wrestlers = []
+    const { dispatch, router, } = this.props
 
     Object.keys(this.state).forEach(stateKey => {
-      let stateSplit = stateKey.split("-")
-      let male = stateSplit[0] === "male"
-      let points = stateSplit[1]
-      let cost = points * 200
+      const stateSplit = stateKey.split("-")
+      const male = stateSplit[0] === "male"
+      const rawPoints = stateSplit[1]
 
       let newWrestlers = this.state[stateKey]
         .split(",")
         .filter(name => name.length > 2)
         .filter(String)
         .map(name => {
+          const points = pointsToRandomValue(rawPoints)
+          const cost = points * 150
           return {
             name,
             male,
-            points: pointsToRandomValue(points),
+            points,
             cost,
           }
         })
 
       wrestlers = wrestlers.concat(newWrestlers)
     })
-    this.props.dispatch(updateRoster(wrestlers))
-    this.props.router.push("/champions")
+    dispatch(updateRoster(wrestlers))
+    router.push("/champions")
   }
 
   _generateDefaultRoster = event => {

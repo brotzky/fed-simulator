@@ -83,7 +83,7 @@ class CalendarPage extends Component {
                 </HeaderOne>
                 <Accounting />
                 <Choose>
-                  <When condition={this.props.game.canPlan}>
+                  <When condition={game.canPlan}>
                     <Button
                       value="Simulate liveshows"
                       onClick={this.onSimulateMonth}
@@ -105,18 +105,21 @@ class CalendarPage extends Component {
   }
 
   onClear = () => {
+    const { dispatch, } = this.props
+
     if (confirm(CALENDAR_CONFIRM_CLEAR)) {
-      this.props.dispatch(resetCalendar())
-      this.props.dispatch(resetGame())
+      dispatch(resetCalendar())
+      dispatch(resetGame())
     }
   }
 
   onSimulateMonth = () => {
+    const { dispatch, } = this.props
     const { confirmAction, } = this.state
 
     if (!confirmAction || confirm(CALENDAR_CONFIRM_SIMULATE)) {
-      this.props.dispatch(togglePlan())
-      this.props.dispatch(simulateLiveShows())
+      dispatch(togglePlan())
+      dispatch(simulateLiveShows())
     }
   }
 
@@ -127,22 +130,21 @@ class CalendarPage extends Component {
   }
 
   onStartNextMonth = () => {
+    const { dispatch, calendar, } = this.props
     const { confirmAction, } = this.state
 
     if (!confirmAction || confirm(CALENDAR_CONFIRM_START)) {
-      const { calendar, } = this.props
       const profit = calendar.reduce((prev, currentDate) => {
-
-      if (currentDate.showId) {
-        return prev + (currentDate.gross - currentDate.cost)
-      }
+        if (currentDate.showId) {
+          return prev + (currentDate.gross - currentDate.cost)
+        }
         return prev
       }, 0)
 
-      this.props.dispatch(addProfitToTotal(profit))
-      this.props.dispatch(togglePlan())
-      this.props.dispatch(addOneMonth())
-      this.props.dispatch(resetCalendar())
+      dispatch(addProfitToTotal(profit))
+      dispatch(togglePlan())
+      dispatch(addOneMonth())
+      dispatch(resetCalendar())
 
       if (confirmAction) {
         this.setState({
