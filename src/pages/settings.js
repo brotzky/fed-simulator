@@ -2,8 +2,8 @@ import { connect } from "react-redux"
 import React, { Component } from "react"
 
 import HeaderOne from "../components/h1/h1"
-import utilsNavigation from "./settings.navigation.json"
-import Navigation from "../components/navigation/navigation"
+import utilsNav from "./settings.navigation.json"
+import Nav from "../components/nav/nav"
 
 import "./stylesheets/settings.scss"
 
@@ -34,7 +34,7 @@ class Settings extends Component {
         <HeaderOne>
           Settings
         </HeaderOne>
-        <Navigation style={style} navigation={utilsNavigation} />
+        <Nav style={style} navigation={utilsNav} />
         <br />
         <div className={this.state.stage}>
           <p>

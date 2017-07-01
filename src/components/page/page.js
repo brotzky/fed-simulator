@@ -1,3 +1,4 @@
+const page = require("./page")
 import React from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
@@ -11,7 +12,7 @@ import Wrestlers from "../wrestlers/container"
 import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
 import FooterNavigationItems from "../../constants/footer.navigation.json"
-import Navigation from "../navigation/navigation"
+import Nav from "../nav/nav"
 
 import { ANIMATION_SPEED } from "../../constants/animation"
 
@@ -24,7 +25,7 @@ const HTML5toTouch = {
       backend: HTML5Backend,
     },
     {
-      backend: TouchBackend({ enableMouseEvents: true, }), // Note that you can call your backends with options
+      backend: TouchBackend({ enableMouseEvents: true, }),
       preview: true,
       transition: TouchTransition,
     },
@@ -57,7 +58,7 @@ class Page extends React.Component {
         <Notifications />
         <If condition={shows.length > 0}>
           <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>
-            <Navigation style={style} />
+            <Nav style={style} />
           </SlideDown>
         </If>
         <main className={classnames}>
@@ -72,7 +73,7 @@ class Page extends React.Component {
             </When>
             <When condition={shows.length > 0}>
               <footer style={style} className="footer">
-                <Navigation navigation={FooterNavigationItems} />
+                <Nav navigation={FooterNavigationItems} />
               </footer>
             </When>
           </Choose>
@@ -89,6 +90,9 @@ Page.propTypes = {
   shows: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   version: PropTypes.number.isRequired,
+  style: PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
+  animations: PropTypes.bool.isRequired,
 }
 
 Page.defaultProps = {
@@ -100,11 +104,9 @@ Page.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
-Page = DragDropContext(MultiBackend(HTML5toTouch))(Page)
-
 export default connect(state => ({
   animations: state.game.animations,
   style: state.style,
   shows: state.shows,
   version: state.version,
-}))(Page)
+}))(DragDropContext(MultiBackend(HTML5toTouch))(Page))
