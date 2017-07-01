@@ -31,4 +31,21 @@ footer,
 .footer {
   font-size: 1rem;
   padding: 1rem;
+
+  a {
+    margin-right: 1rem;
+    text-decoration: none;
+    text-shadow: currentColor;
+    transition: text-shadow 0.2s linear;
+  }
+
+  a,
+  a:hover {
+    color: currentColor;
+  }
+
+  a:hover {
+    text-decoration: none;
+    text-shadow: .1rem .1rem 1rem currentColor;
+  }
 }

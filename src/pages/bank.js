@@ -1,7 +1,7 @@
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
-import { SlideRight } from "animate-components"
+import { SlideLeft } from "animate-components"
 
 import Accounting from "../components/accounting/container"
 import HeaderOne from "../components/h1/h1"
@@ -16,14 +16,16 @@ class BankPage extends Component {
     return (
       <section className="page ranking">
         <HeaderOne>
-          <span className="gold pop">Bank</span>
+          <span className="gold pop">Banking</span>
         </HeaderOne>
-        <SlideRight>
+        <SlideLeft>
           <div className="row">
             <div className="col-xs-4"><Accounting /></div>
-            <div className="col-xs-8">Roster ({roster.length})</div>
+            <div className="col-xs-offset-1 col-xs-7">
+              Roster ({roster.length})
+            </div>
           </div>
-        </SlideRight>
+        </SlideLeft>
       </section>
     )
   }
