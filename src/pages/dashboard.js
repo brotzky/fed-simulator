@@ -15,64 +15,59 @@ import "./stylesheets/dashboard.scss"
 
 const currencySymbol = currency.symbol
 
-class DashboardPage extends Component {
-  render() {
-    const { cash, animations, game, roster, } = this.props
-
-    return (
-      <section className="page dashboard">
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-lg-2 text-center">
-            <SlideLeft
-              iterations={Number(animations)}
-              duration={ANIMATION_SPEED}
-            >
-              <div className="box infopane">
-                <p className="infopane__name">
-                  {acronymLongName(game.name)}
-                </p>
-                <p className="infopane__cash">
-                  {formatCurrency(currencySymbol, cash)}
-                </p>
-                <p className="infopane__roster">
-                  {roster.length} Wrestlers
-                </p>
-              </div>
-              <br />
-            </SlideLeft>
+export const DashboardPage = ({
+  cash,
+  animations,
+  game,
+  roster,
+  expensiveWrestlers,
+  cheapWrestlers,
+}) => (
+  <section className="page dashboard">
+    <div className="row">
+      <div className="col-xs-12 col-sm-12 col-lg-2 text-center">
+        <SlideLeft iterations={Number(animations)} duration={ANIMATION_SPEED}>
+          <div className="box infopane">
+            <p className="infopane__name">
+              {acronymLongName(game.name)}
+            </p>
+            <p className="infopane__cash">
+              {formatCurrency(currencySymbol, cash)}
+            </p>
+            <p className="infopane__roster">
+              {roster.length} Wrestlers
+            </p>
           </div>
-          <div className="col-xs-12 col-sm-6 col-lg-5">
-            <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
-              <div className="box">
-                <Ranking
-                  amountToShow={5}
-                  rows={this.props.expensiveWrestlers}
-                  columns={COLUMNS_COST}
-                  title="Expensive Wrestlers"
-                />
-              </div>
-            </SlideUp>
+          <br />
+        </SlideLeft>
+      </div>
+      <div className="col-xs-12 col-sm-6 col-lg-5">
+        <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
+          <div className="box">
+            <Ranking
+              amountToShow={5}
+              rows={expensiveWrestlers}
+              columns={COLUMNS_COST}
+              title="Expensive Wrestlers"
+            />
           </div>
-          <div className="col-xs-12 col-sm-6 col-lg-5">
-            <SlideRight
-              iterations={Number(animations)}
-              duration={ANIMATION_SPEED}
-            >
-              <div className="box">
-                <Ranking
-                  amountToShow={5}
-                  rows={this.props.cheapWrestlers}
-                  columns={COLUMNS_COST}
-                  title="Cheaper Wrestlers"
-                />
-              </div>
-            </SlideRight>
+        </SlideUp>
+      </div>
+      <div className="col-xs-12 col-sm-6 col-lg-5">
+        <SlideRight iterations={Number(animations)} duration={ANIMATION_SPEED}>
+          <div className="box">
+            <Ranking
+              amountToShow={5}
+              rows={cheapWrestlers}
+              columns={COLUMNS_COST}
+              title="Cheaper Wrestlers"
+            />
           </div>
-        </div>
-      </section>
-    )
-  }
-}
+        </SlideRight>
+      </div>
+    </div>
+  </section>
+)
 
 DashboardPage.displayName = "DashboardPage"
 

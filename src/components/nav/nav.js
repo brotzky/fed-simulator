@@ -1,31 +1,28 @@
 import React from "react"
 import { Link } from "react-router"
 import { connect } from "react-redux"
+import PropTypes from "prop-types"
 
 import Animations from "../animations"
 import Cash from "../cash/container"
 import ColorPickers from "../color-pickers/color-pickers"
-import defaultState from "./default.json"
+import Burger from "../burger/burger"
 
-import "./navigation.scss"
+import "./nav.scss"
 
-const Navigation = ({
-  backgroundColor = "black",
-  color = "white",
-  navigation = defaultState,
-}) => {
+const Nav = ({ backgroundColor = "black", color = "white", links = [], }) => {
   const style = { backgroundColor, color, }
   return (
-    <nav style={style} className="navigation">
-      <ul className="navigation__list">
-        {navigation.map((item, key) => {
+    <nav style={style} className="nav">
+      <ul className="nav__list">
+        {links.map((item, key) => {
           const title = { __html: item.title, }
           return (
-            <li
-              key={key}
-              className={`navigation__item navigation--${item.url}`}
-            >
+            <li key={key} className={`nav__item nav--${item.url}`}>
               <Choose>
+                <When condition={item.title === "Burger"}>
+                  <Burger />
+                </When>
                 <When condition={item.title === "Branding"}>
                   <ColorPickers />
                 </When>
@@ -54,8 +51,14 @@ const Navigation = ({
   )
 }
 
+Nav.propTypes = {
+  backgroundColor: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  links: PropTypes.array,
+}
+
 export default connect(state => ({
   game: state.game,
   color: state.style.color,
   backgroundColor: state.style.backgroundColor,
-}))(Navigation)
+}))(Nav)

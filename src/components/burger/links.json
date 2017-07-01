@@ -1,0 +1,25 @@
+[{
+	"url": "dashboard",
+	"title": "Dashboard"
+}, {
+	"url": "ranking",
+	"title": "Ranking"
+}, {
+	"url": "calendar",
+	"title": "Calendar"
+}, {
+	"url": "create-a-match",
+	"title": "Create a match"
+}, {
+	"url": "bank",
+	"title": "Banking"
+}, {
+	"url": "champions",
+	"title": "Champions"
+}, {
+	"url": "roster",
+	"title": "Roster"
+}, {
+	"url": "shows",
+	"title": "Shows"
+}]

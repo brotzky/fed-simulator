@@ -11,8 +11,8 @@ import MultiBackend, { TouchTransition } from "react-dnd-multi-backend"
 import Wrestlers from "../wrestlers/container"
 import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
-import FooterNavigationItems from "../../constants/footer.navigation.json"
 import Nav from "../nav/nav"
+import headerLinks from "./header-links.json"
 
 import { ANIMATION_SPEED } from "../../constants/animation"
 
@@ -58,7 +58,7 @@ class Page extends React.Component {
         <Notifications />
         <If condition={shows.length > 0}>
           <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>
-            <Nav style={style} />
+            <Nav links={headerLinks} style={style} />
           </SlideDown>
         </If>
         <main className={classnames}>
@@ -72,8 +72,16 @@ class Page extends React.Component {
               <Wrestlers />
             </When>
             <When condition={shows.length > 0}>
-              <footer style={style} className="footer">
-                <Nav navigation={FooterNavigationItems} />
+              <footer style={style} className="footer nav">
+                <a
+                  target="_blank"
+                  href="https://github.com/azz0r/fed-simulator"
+                >
+                  <i className="icon fa fa-github" /> Github
+                </a>
+                <a target="_blank" href="https://twitter.com/universesimman">
+                  <i className="icon fa fa-twitter" /> Twitter
+                </a>
               </footer>
             </When>
           </Choose>
