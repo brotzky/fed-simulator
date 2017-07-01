@@ -22,8 +22,10 @@ const Burger = ({ toggleVisibility, isVisible, name, cash, }) => (
       aria-hidden="true"
       onClick={toggleVisibility}
     />
+    {" "}
+    {name}
     <div className={classnames("burger__container", { active: isVisible, })}>
-      <h3>{name}, {formatCurrency(currencySymbol, cash)}</h3>
+      <h3>{formatCurrency(currencySymbol, cash)}</h3>
       <ul className="burger__list">
         {links.map(currentLink => {
           return (
