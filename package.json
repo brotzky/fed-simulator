@@ -105,6 +105,7 @@
     "moment": "~2.18.1",
     "promise": "7.1.1",
     "react": "~15.6.1",
+    "react-close-on-escape": "^2.0.0",
     "react-color": "~2.11.4",
     "react-colorpicker": "~0.3.14",
     "react-dnd": "~2.3.0",
