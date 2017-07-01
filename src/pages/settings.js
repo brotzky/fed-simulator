@@ -2,7 +2,7 @@ import { connect } from "react-redux"
 import React, { Component } from "react"
 
 import HeaderOne from "../components/h1/h1"
-import utilsNav from "./settings.navigation.json"
+import links from "./settings.navigation.json"
 import Nav from "../components/nav/nav"
 
 import "./stylesheets/settings.scss"
@@ -27,28 +27,29 @@ class Settings extends Component {
   }
 
   render() {
-    const { style, } = this.props
+    const { stage, } = this.state
+    const { style, shows, roster, game, calendar, championships, } = this.props
 
     return (
       <section className="page settings">
         <HeaderOne>
           Settings
         </HeaderOne>
-        <Nav style={style} navigation={utilsNav} />
+        <Nav style={style} links={links} />
         <br />
-        <div className={this.state.stage}>
+        <div className={stage}>
           <p>
             <a onClick={this._onClearStorage}>Clear game data</a>
           </p>
         </div>
         <br />
-        <div className={this.state.stage}>
-          <p>Shows: {this.props.shows.length}</p>
-          <p>Roster: {this.props.roster.length}</p>
-          <p>Championships: {this.props.championships.length}</p>
-          <p>Live Shows: {this.props.calendar.length}</p>
+        <div className={stage}>
+          <p>Shows: {shows.length}</p>
+          <p>Roster: {roster.length}</p>
+          <p>Championships: {championships.length}</p>
+          <p>Live Shows: {calendar.length}</p>
           <p>
-            Game: <code>{JSON.stringify(this.props.game)}</code>
+            Game: <code>{JSON.stringify(game)}</code>
           </p>
         </div>
       </section>

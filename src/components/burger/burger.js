@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { Link } from "react-router"
 import PropTypes from "prop-types"
 import { compose, withState, withHandlers } from "recompose"
+import classnames from "classnames"
 
 import { formatCurrency } from "../../helpers/currency"
 import acronymLongName from "../../helpers/acronym-long-name"
@@ -21,13 +22,12 @@ const Burger = ({ toggleVisibility, isVisible, name, cash, }) => (
       aria-hidden="true"
       onClick={toggleVisibility}
     />
-    <If condition={isVisible}>
-      <h3>{name}</h3>
-      <h4>{formatCurrency(currencySymbol, cash)}</h4>
+    <div className={classnames("burger__container", { active: isVisible, })}>
+      <h3>{name}, {formatCurrency(currencySymbol, cash)}</h3>
       <ul className="burger__list">
         {links.map(currentLink => {
           return (
-            <li key={currentLink.url}>
+            <li className="burger__item" key={currentLink.url}>
               <Link to={currentLink.url}>
                 {currentLink.title}
               </Link>
@@ -35,7 +35,7 @@ const Burger = ({ toggleVisibility, isVisible, name, cash, }) => (
           )
         })}
       </ul>
-    </If>
+    </div>
   </nav>
 )
 
