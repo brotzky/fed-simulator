@@ -1,7 +1,8 @@
-import React, { Component } from "react"
+import React from "react"
 import { connect } from "react-redux"
 import { SlideRight, SlideLeft, SlideUp } from "animate-components"
 import sortBy from "lodash.sortby"
+import PropTypes from "prop-types"
 
 import Ranking from "../components/ranking/ranking"
 import { formatCurrency } from "../helpers/currency"
@@ -71,6 +72,14 @@ export const DashboardPage = ({
 
 DashboardPage.displayName = "DashboardPage"
 
+DashboardPage.propTypes = {
+  cash: PropTypes.string.isRequired,
+  animations: PropTypes.bool.isRequired,
+  game: PropTypes.object.isRequired,
+  roster: PropTypes.array.isRequired,
+  expensiveWrestlers: PropTypes.array.isRequired,
+  cheapWrestlers: PropTypes.array.isRequired,
+}
 export default connect(state => ({
   roster: state.roster,
   game: state.game,

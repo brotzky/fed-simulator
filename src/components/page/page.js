@@ -54,7 +54,7 @@ class Page extends React.Component {
     const { pathname, } = this.context.router.location
 
     return (
-      <div className="page-container no-select">
+      <div id="page-container" className="page-container no-select">
         <Notifications />
         <If condition={shows.length > 0}>
           <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>
