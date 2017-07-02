@@ -3,8 +3,9 @@ import reducer from "../src/reducers/matches"
 import * as types from "../src/actions/types"
 import Model from "../src/reducers/match.model"
 import WrestlerModel from "../src/reducers/wrestler.model"
+import Wrestlers from "./wrestlers.json"
 
-let defaultWrestlerId = 100
+const defaultWrestlerId = 100
 const defaultWrestler = new WrestlerModel({ id: defaultWrestlerId })
 const defaultModel = new Model()
 const defaultCollection = [new Model(), new Model()]
@@ -321,6 +322,24 @@ describe("given a roster reducer", () => {
 
     it("should have NO wrestlers", () => {
       expect(matchesReducer.length).to.equal(0)
+    })
+  })
+
+  // GENERATE_RANDOM_MATCHES
+  describe("and we generate random matches", () => {
+    let amountOfMatches = 20
+
+    before(() => {
+      action.type = types.GENERATE_RANDOM_MATCHES
+      action.payload = {
+        amountOfMatches,
+        roster: Wrestlers,
+      }
+      matchesReducer = reducer(undefined, action)
+    })
+
+    it(`should have ${amountOfMatches} matches`, () => {
+      expect(matchesReducer).to.have.length(amountOfMatches)
     })
   })
 })

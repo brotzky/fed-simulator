@@ -5,6 +5,7 @@ import WrestlerModel from "./wrestler.model"
 import Model from "./match.model"
 import { getId } from "../helpers/hash"
 import { getPercentageAmount } from "../helpers/math"
+import { randomiseWrestlers } from "../helpers/randomise-wrestlers.js"
 
 const defaultState = []
 const defaultAction = {}
@@ -25,6 +26,18 @@ export default (state = defaultState, action = defaultAction) => {
 
       if (index > -1) {
         state[index].simulated = true
+      }
+      break
+    case "GENERATE_RANDOM_MATCHES":
+      let amountOfMatches = action.payload.amountOfMatches || 100
+
+      while (amountOfMatches > 0) {
+        const selectedWrestlers = randomiseWrestlers({
+          wrestlers: action.payload.roster,
+        })
+
+        state.push(new Model({ wrestlers: selectedWrestlers, }).toJSON())
+        amountOfMatches--
       }
       break
     case "SIMULATE_MATCH":
