@@ -1,25 +1,25 @@
 [{
 	"url": "dashboard",
-	"title": "Dashboard"
+	"title": "👀 Dashboard"
 }, {
 	"url": "ranking",
-	"title": "Ranking"
+	"title": "📊 Ranking"
 }, {
 	"url": "calendar",
-	"title": "Calendar"
+	"title": "📆 Calendar"
 }, {
 	"url": "create-a-match",
-	"title": "Create a match"
+	"title": "🆚 Create a match"
 }, {
 	"url": "bank",
-	"title": "Banking"
+	"title": "🏦 Banking"
 }, {
 	"url": "champions",
-	"title": "Champions"
+	"title": "🏆 Champions"
 }, {
 	"url": "roster",
-	"title": "Roster"
+	"title": "🤼‍♂️ Roster"
 }, {
 	"url": "shows",
-	"title": "Shows"
+	"title": "🎭 Shows"
 }]
