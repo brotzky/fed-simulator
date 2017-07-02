@@ -36,7 +36,9 @@ export default (state = defaultState, action = defaultAction) => {
           wrestlers: action.payload.roster,
         })
 
-        state.push(new Model({ wrestlers: selectedWrestlers, }).toJSON())
+        state.push(
+          new Model({ generated: true, wrestlers: selectedWrestlers, }).toJSON()
+        )
         amountOfMatches--
       }
       break

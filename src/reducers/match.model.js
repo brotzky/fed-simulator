@@ -8,6 +8,7 @@ export default class extends BaseModel {
       rating: 0,
       cost: 0,
       simulated: false,
+      generated: true,
       wrestlers: [],
     }
   }
