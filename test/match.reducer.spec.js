@@ -327,7 +327,7 @@ describe("given a roster reducer", () => {
 
   // GENERATE_RANDOM_MATCHES
   describe("and we generate random matches", () => {
-    let amountOfMatches = 20
+    let amountOfMatches = 1000
 
     before(() => {
       action.type = types.GENERATE_RANDOM_MATCHES
@@ -340,6 +340,39 @@ describe("given a roster reducer", () => {
 
     it(`should have ${amountOfMatches} matches`, () => {
       expect(matchesReducer).to.have.length(amountOfMatches)
+    })
+
+    // SIMULATE_GENERATED_RANDOM_MATCHES
+    describe("and a simulate generated matches is called", () => {
+      before(() => {
+        action.type = types.SIMULATE_GENERATED_RANDOM_MATCHES
+        action.payload = false
+        matchesReducer = reducer(matchesReducer, action)
+      })
+
+      it(`should have ${amountOfMatches} simulated matches`, () => {
+        const numberOfSimulateMatches = matchesReducer.filter(
+          currentMatch => currentMatch.simulated
+        ).length
+
+        expect(numberOfSimulateMatches).to.equal(amountOfMatches)
+      })
+
+      it(`should winning wrestlers`, () => {
+        const winner = matchesReducer[0].wrestlers.filter(
+          wrestler => wrestler.winner
+        )
+
+        expect(winner).to.have.length(1)
+      })
+
+      it(`should winning wrestlers`, () => {
+        const loser = matchesReducer[0].wrestlers.filter(
+          wrestler => wrestler.winner
+        )
+
+        expect(loser).to.have.length(1)
+      })
     })
   })
 })

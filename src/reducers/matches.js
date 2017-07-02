@@ -42,6 +42,39 @@ export default (state = defaultState, action = defaultAction) => {
         amountOfMatches--
       }
       break
+    case "SIMULATE_GENERATED_RANDOM_MATCHES":
+      state.map(currentMatch => {
+        if (!currentMatch.simulate) {
+          const { wrestlers, } = currentMatch
+          const winner = wrestlers[Math.floor(Math.random() * wrestlers.length)]
+
+          const winnerTeamId = winner.teamId
+
+          const losers = wrestlers.filter(
+            wrestler => wrestler.teamId !== winnerTeamId
+          )
+
+          const loser = losers[Math.floor(Math.random() * losers.length)]
+
+          if (!loser) {
+            return
+          }
+
+          const loserIndex = wrestlers.findIndex(
+            wrestler => wrestler.id === loser.id
+          )
+
+          const winnerIndex = wrestlers.findIndex(
+            wrestler => wrestler.id === winner.id
+          )
+
+          currentMatch.wrestlers[winnerIndex].winner = true
+          currentMatch.wrestlers[loserIndex].loser = true
+        }
+        currentMatch.simulated = true
+        return currentMatch
+      })
+      break
     case "SIMULATE_MATCH":
       index = getIndexById(action.payload.matchId)
 
