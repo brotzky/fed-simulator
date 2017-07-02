@@ -5,13 +5,10 @@ $wrestler-color: #000;
 $wrestler-height: 3.5rem;
 
 .wrestlers {
-  bottom: 0;
   height: 30%;
-  left: 0;
   overflow: scroll;
   padding: 1%;
-  position: fixed;
-  width: 98%;
+  width: 100%;
   z-index: 100;
 
   .box-filters {
