@@ -20,8 +20,8 @@ class BankPage extends Component {
         </HeaderOne>
         <SlideLeft>
           <div className="row">
-            <div className="col-xs-4"><Accounting /></div>
-            <div className="col-xs-offset-1 col-xs-7">
+            <div className="col-lg-4 col-xs-12"><Accounting /></div>
+            <div className="col-lg-offset-1 col-lg-7 col-xs-12">
               Roster ({roster.length})
             </div>
           </div>
