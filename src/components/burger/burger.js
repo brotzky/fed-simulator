@@ -7,7 +7,6 @@ import classnames from "classnames"
 import CloseOnEscape from "react-close-on-escape"
 
 import { formatCurrency } from "../../helpers/currency"
-import acronymLongName from "../../helpers/acronym-long-name"
 import currency from "../../constants/currency"
 
 import links from "./links.json"
@@ -49,6 +48,7 @@ Burger.propTypes = {
   cash: PropTypes.number.isRequired,
   toggleVisibility: PropTypes.func.isRequired,
   isVisible: PropTypes.bool.isRequired,
+  onEscape: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = connect(state => ({
