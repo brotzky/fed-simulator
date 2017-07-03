@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import classnames from "classnames"
 import sortBy from "lodash.sortby"
 import PropTypes from "prop-types"
+import CloseOnEscape from "react-close-on-escape"
 
 import * as itemType from "../../actions/types"
 
@@ -72,6 +73,12 @@ class WrestlersContainer extends Component {
     this.roster = newRoster
   }
 
+  onEscape = () => {
+    this.setState({
+      nameSearch: "",
+    })
+  }
+
   render() {
     const { showFemalesOnly, sortByPoints, nameSearch, } = this.state
     const { style, } = this.props
@@ -87,11 +94,13 @@ class WrestlersContainer extends Component {
         <div className="row">
           <div className="col-xs-10">
             <div className="box">
-              <Input
-                value={nameSearch}
-                onChange={this.onFilterByName}
-                placeholder="Filter wrestlers by name"
-              />
+              <CloseOnEscape onEscape={this.onEscape}>
+                <Input
+                  value={nameSearch}
+                  onChange={this.onFilterByName}
+                  placeholder="Filter wrestlers by name"
+                />
+              </CloseOnEscape>
             </div>
           </div>
           <div className="col-xs-2">
@@ -137,6 +146,7 @@ class WrestlersContainer extends Component {
 WrestlersContainer.propTypes = {
   roster: PropTypes.array.isRequired,
   style: PropTypes.object.isRequired,
+  onEscape: PropTypes.func.isRequired,
 }
 
 export default connect(state => ({
