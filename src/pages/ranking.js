@@ -27,7 +27,7 @@ class RankingPage extends Component {
   }
 
   render() {
-    const { animations, roster, } = this.props
+    const { animations, roster, matches, } = this.props
     const orderedRoster = orderBy(roster, "points", "desc")
     const maleWrestlers = orderedRoster.filter(wrestler => wrestler.male)
     const femaleWrestlers = orderedRoster.filter(wrestler => !wrestler.male)
@@ -41,6 +41,8 @@ class RankingPage extends Component {
             <li><a onClick={() => this.simulateRandomMatches(100)}>100</a></li>
             <li><a onClick={() => this.simulateRandomMatches(150)}>150</a></li>
           </ul>
+          <strong>{matches.length} matches</strong>
+          <button>Save points</button>
         </nav>
         <section className="page ranking">
           <HeaderOne>
@@ -109,6 +111,7 @@ RankingPage.propTypes = {
 
 export default connect(state => ({
   roster: state.roster,
+  matches: state.matches,
   shows: state.shows,
   animations: state.game.animations,
 }))(RankingPage)
