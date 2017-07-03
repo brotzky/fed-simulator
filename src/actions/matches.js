@@ -7,6 +7,12 @@ export function createMatch(payload) {
   }
 }
 
+export function simulateGeneratedRandomMatches() {
+  return {
+    type: types.SIMULATE_GENERATED_RANDOM_MATCHES,
+  }
+}
+
 export function generateRandomMatches({ amountOfMatches = 100, roster = [], }) {
   return {
     type: types.GENERATE_RANDOM_MATCHES,

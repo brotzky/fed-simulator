@@ -48,6 +48,10 @@ export default (state = defaultState, action = defaultAction) => {
           const { wrestlers, } = currentMatch
           const winner = wrestlers[Math.floor(Math.random() * wrestlers.length)]
 
+          if (!winner) {
+            return
+          }
+
           const winnerTeamId = winner.teamId
 
           const losers = wrestlers.filter(
