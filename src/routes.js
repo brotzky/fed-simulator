@@ -37,10 +37,10 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="bank">
+      <Route path="banking">
         <IndexRoute
           getComponent={(location, cb) => {
-            System.import("./pages/bank")
+            System.import("./pages/banking")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}
