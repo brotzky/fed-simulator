@@ -11,6 +11,10 @@ export default (state = defaultState, action) => {
     //
     //   state = state.concat({ action, id, })
     //   break
+    case "SIMULATE_GENERATED_RANDOM_MATCHES":
+      break
+    case "GENERATE_RANDOM_MATCHES":
+      break
     case "RESET_NOTIFICATIONS":
     case "RESET":
       state = defaultState

@@ -12,3 +12,10 @@ export function reset() {
     type: types.RESET,
   }
 }
+
+export function saveMatchPointsToWrestlers({ matches, }) {
+  return {
+    type: types.SAVE_MATCH_POINTS_TO_WRESTLERS,
+    payload: matches,
+  }
+}
