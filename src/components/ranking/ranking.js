@@ -1,20 +1,20 @@
-import "./stylesheets/ranking.scss"
-import React from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
-import Row from "./row"
 
-export default class Ranking extends React.Component {
+import "./ranking.scss"
 
+export default class Ranking extends Component {
   static propTypes = {
-    title: PropTypes.string.isRequired,
-    wrestlers: PropTypes.array.isRequired,
     amountToShow: PropTypes.number,
-    showLabels: PropTypes.bool,
+    columns: PropTypes.array.isRequired,
+    rows: PropTypes.array.isRequired,
+    title: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
     amountToShow: 10,
-    showLabels: true,
+    rows: [],
+    columns: [],
   }
 
   displayName = "Ranking"
@@ -22,38 +22,33 @@ export default class Ranking extends React.Component {
   render() {
     return (
       <div className="ranking">
-        <If condition={this.props.wrestlers.length > 0}>
-          <table className="ranking__table table table-striped">
-            <thead>
-              <tr>
-                <td colSpan="2">
-                  <h3 className="ranking__title">
-                    {this.props.title}
-                  </h3>
-                </td>
-                <td className="ranking__wins">
-                  Wins
-                </td>
-                <td className="ranking__losses">
-                  Losses
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-            {this.props.wrestlers
+        <h2>{this.props.title}</h2>
+        <table className="ranking__table table table-striped">
+          <thead>
+            <tr>
+              {this.props.columns.map((column, key) => {
+                return <td className={column} key={key}>{column}</td>
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.rows
               .slice(0, this.props.amountToShow)
-              .map((wrestler, key) => {
+              .map((row, rowKey) => {
                 return (
-                  <Row key={wrestler.id}
-                    position={ (key + 1) }
-                    wrestler={wrestler}
-                    showLabels={this.props.showLabel}
-                  />
+                  <tr key={rowKey}>
+                    {this.props.columns.map((column, key) => {
+                      return (
+                        <td className={column} key={key}>
+                          {column === "rank" ? rowKey + 1 : row[column]}
+                        </td>
+                      )
+                    })}
+                  </tr>
                 )
-            })}
-            </tbody>
-          </table>
-        </If>
+              })}
+          </tbody>
+        </table>
       </div>
     )
   }

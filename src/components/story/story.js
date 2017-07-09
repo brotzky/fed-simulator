@@ -1,69 +1,24 @@
 import React from "react"
-import PropTypes from "prop-types"
-import "./stylesheets/story.scss"
 
-export default class Story extends React.Component {
+import "./story.scss"
 
-  static contextTypes = {
-    toSlug: PropTypes.func.isRequired,
-  }
+const Story = ({ story = [], }) => (
+  <ul className="story">
+    <If condition={story.length > 0}>
+      {story.map(storyItem => {
+        const { id, attacker, move, defender, } = storyItem
 
-  static propTypes = {
-    collection: PropTypes.array,
-    wrestlers: PropTypes.array,
-  }
+        return (
+          <li className="story__action" key={id}>
+            &nbsp;<span className="attacker">{attacker.name}</span>
+            &nbsp;{move.name} for
+            &nbsp;{move.damage} damage on
+            <span className="defender"> {defender.name}</span>
+          </li>
+        )
+      })}
+    </If>
+  </ul>
+)
 
-  static defaultProps = {
-    collection: [],
-    wrestlers: [],
-  }
-
-  state = {
-    colourIndex: [],
-  }
-
-  componentWillMount() {
-    this.getWrestlersColourIndex()
-  }
-
-  getTitle(action) {
-    return `${action.details.attacker.name}: ${action.details.move.name} for ${action.details.move.damage} on ${action.details.defender.name}`
-  }
-
-  getWrestlersColourIndex = () => {
-    this.props.wrestlers.forEach((wrestler, key) => {
-      this.state.colourIndex[wrestler.id] = key
-    })
-  }
-
-  render() {
-    return (
-      <ul className="story">
-        <If condition={this.props.collection.length > 0}>
-          {this.props.collection.map((action, key) => {
-            let indexClass = (action.action === "move")
-                ? `index-${this.state.colourIndex[action.details.attacker.id]}`
-                : ""
-            return (
-              <li className={`story__action story--${action.action} ${indexClass}`}
-                key={key}>
-                <Choose>
-                  <When condition={action.action === "move"}>
-                    <div className="wrestler">
-                      <strong>{action.details.attacker.name}</strong> {action.details.move.name} for {action.details.move.damage} damage on <strong>{action.details.defender.name}</strong>
-                    </div>
-                  </When>
-                  <When condition={action.action === "winner"}>
-                    <div className="story__winner">
-                      <strong>{action.details.winner.name}<sup>{action.details.winner.damage}</sup></strong> covers {action.details.loser.name}<sup>{action.details.loser.damage}</sup> for the win!
-                    </div>
-                  </When>
-                </Choose>
-              </li>
-            )
-          })}
-        </If>
-      </ul>
-    )
-  }
-}
+export default Story

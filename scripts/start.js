@@ -1,162 +1,92 @@
-const path = require('path')
-const chalk = require('chalk')
-const webpack = require('webpack')
-const WebpackDevServer = require('webpack-dev-server')
-const execSync = require('child_process').execSync
-const opn = require('opn')
-const detect = require('./utils/detectPort')
-const prompt = require('./utils/prompt')
-const config = require('../config/webpack.config.dev')
-import { log, error } from '../config/log'
-var player = require('play-sound')()
+"use strict"
 
-log('Start development server')
+// Do this as the first thing so that any code reading it knows the right env.
+process.env.BABEL_ENV = "development"
+process.env.NODE_ENV = "development"
 
-const DEFAULT_PORT = process.env.PORT || 3000
-
-function alertTerminal(fileName = "bell.mp3") {
-  player.play(`src/components/bell/${fileName}`, function(err){
-    if (err) throw err
-  })
-}
-
-var compiler
-// TODO: hide this behind a flag and eliminate dead code on eject.
-// This shouldn't be exposed to the user.
-var handleCompile
-var isSmokeTest = process.argv.some(arg => arg.indexOf('--smoke-test') > -1)
-if (isSmokeTest) {
-  handleCompile = function (err, stats) {
-    if (err || stats.hasErrors() || stats.hasWarnings()) {
-      process.exit(1)
-    } else {
-      process.exit(0)
-    }
-  }
-}
-
-var friendlySyntaxErrorLabel = 'Syntax error:'
-
-function isLikelyASyntaxError(message) {
-  return message.indexOf(friendlySyntaxErrorLabel) !== -1
-}
-
-// This is a little hacky.
-// It would be easier if webpack provided a rich error object.
-
-function formatMessage(message) {
-  return message
-    // Make some common errors shorter:
-    .replace(
-      // Babel syntax error
-      'Module build failed: SyntaxError:',
-      friendlySyntaxErrorLabel
-    )
-    .replace(
-      // Webpack file not found error
-      /Module not found: Error: Cannot resolve 'file' or 'directory'/,
-      'Module not found:'
-    )
-    // Internal stacks are generally useless so we strip them
-    .replace(/^\s*at\s.*:\d+:\d+[\s\)]*\n/gm, '') // at ... ...:x:y
-    // Webpack loader names obscure CSS filenames
-    .replace('./~/css-loader!./~/postcss-loader!', '')
-}
-
-function setupCompiler(port) {
-  compiler = webpack(config, handleCompile)
-
-  compiler.plugin('invalid', function() {
-    log('Compiling...')
-  })
-
-  compiler.plugin('done', function(stats) {
-    var hasErrors = stats.hasErrors()
-    var hasWarnings = stats.hasWarnings()
-    if (!hasErrors && !hasWarnings) {
-      log(chalk.green('Compiled successfully'))
-      const url = 'http://localhost:' + port + '/'
-      log(url)
-      // opn(url)
-      return
-    }
-
-    var json = stats.toJson()
-    var formattedErrors = json.errors.map(message =>
-      'Error in ' + formatMessage(message)
-    )
-    var formattedWarnings = json.warnings.map(message =>
-      'Warning in ' + formatMessage(message)
-    )
-
-    if (hasErrors) {
-      error('Failed to compile')
-      if (formattedErrors.some(isLikelyASyntaxError)) {
-        formattedErrors = formattedErrors.filter(isLikelyASyntaxError)
-      }
-      formattedErrors.forEach(message => {
-        alertTerminal("error.mp3")
-        error(message)
-      })
-      return
-    }
-
-    if (hasWarnings) {
-      log(chalk.yellow('Compiled with warnings.'))
-      formattedWarnings.forEach(message => {
-        error(message)
-      })
-
-      log('You may use special comments to disable some warnings.')
-      log('Use ' + chalk.yellow('// eslint-disable-next-line') + ' to ignore the next line.')
-      log('Use ' + chalk.yellow('/* eslint-disable */') + ' to ignore all warnings in a file.')
-    }
-  })
-}
-
-function runDevServer(port) {
-  new WebpackDevServer(compiler, {
-    publicPath: config.output.publicPath,
-    historyApiFallback: true,
-    hot: true,
-    quiet: true,
-    progress: true,
-    colors: true,
-    clientLogLevel: "error",
-    devServer: {
-      hot: true,
-    },
-    watchOptions: {
-      ignored: /node_modules/,
-    },
-  }).listen(port, (err) => {
-    if (err) {
-      alertTerminal()
-      return error(err)
-    }
-    alertTerminal()
-    log('Development server started')
-  })
-}
-
-function run(port) {
-  setupCompiler(port)
-  runDevServer(port)
-}
-
-detect(DEFAULT_PORT).then(port => {
-  if (port === DEFAULT_PORT) {
-    run(port)
-    return
-  }
-
-  var question =
-    chalk.yellow('Something is already running at port ' + DEFAULT_PORT + '.') +
-    '\n\nWould you like to run the app at another port instead?'
-
-  prompt(question, true).then(shouldChangePort => {
-    if (shouldChangePort) {
-      run(port)
-    }
-  })
+// Makes the script crash on unhandled rejections instead of silently
+// ignoring them. In the future, promise rejections that are not handled will
+// terminate the Node.js process with a non-zero exit code.
+process.on("unhandledRejection", err => {
+  throw err
 })
+
+// Ensure environment variables are read.
+require("../config/env")
+
+const fs = require("fs")
+const chalk = require("chalk")
+const webpack = require("webpack")
+const WebpackDevServer = require("webpack-dev-server")
+const clearConsole = require("react-dev-utils/clearConsole")
+const checkRequiredFiles = require("react-dev-utils/checkRequiredFiles")
+const {
+  choosePort,
+  createCompiler,
+  prepareProxy,
+  prepareUrls,
+} = require("react-dev-utils/WebpackDevServerUtils")
+const openBrowser = require("react-dev-utils/openBrowser")
+const paths = require("../config/paths")
+const config = require("../config/webpack.config.dev")
+const createDevServerConfig = require("../config/webpackDevServer.config")
+
+const useYarn = fs.existsSync(paths.yarnLockFile)
+const isInteractive = process.stdout.isTTY
+
+// Warn and crash if required files are missing
+if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs,])) {
+  process.exit(1)
+}
+
+// Tools like Cloud9 rely on this.
+const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000
+const HOST = process.env.HOST || "0.0.0.0"
+
+// We attempt to use the default port but if it is busy, we offer the user to
+// run on a different port. `detect()` Promise resolves to the next free port.
+choosePort(HOST, DEFAULT_PORT)
+  .then(port => {
+    if (port == null) {
+      // We have not found a port.
+      return
+    }
+    const protocol = process.env.HTTPS === "true" ? "https" : "http"
+    const appName = require(paths.appPackageJson).name
+    const urls = prepareUrls(protocol, HOST, port)
+    // Create a webpack compiler that is configured with custom messages.
+    const compiler = createCompiler(webpack, config, appName, urls, useYarn)
+    // Load proxy config
+    const proxySetting = require(paths.appPackageJson).proxy
+    const proxyConfig = prepareProxy(proxySetting, paths.appPublic)
+    // Serve webpack assets generated by the compiler over a web sever.
+    const serverConfig = createDevServerConfig(
+      proxyConfig,
+      urls.lanUrlForConfig
+    )
+    const devServer = new WebpackDevServer(compiler, serverConfig)
+    // Launch WebpackDevServer.
+    devServer.listen(port, HOST, err => {
+      if (err) {
+        return console.log(err)
+      }
+      if (isInteractive) {
+        clearConsole()
+      }
+      console.log(chalk.cyan("Starting the development server...\n"))
+      openBrowser(urls.localUrlForBrowser)
+    })
+
+    ;["SIGINT", "SIGTERM",].forEach(function(sig) {
+      process.on(sig, function() {
+        devServer.close()
+        process.exit()
+      })
+    })
+  })
+  .catch(err => {
+    if (err && err.message) {
+      console.log(err.message)
+    }
+    process.exit(1)
+  })

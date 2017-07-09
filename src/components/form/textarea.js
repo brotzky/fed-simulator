@@ -1,62 +1,35 @@
-import React from "react"
-import PropTypes from "prop-types"
-import "./stylesheets/textarea.scss"
+import React from 'react'
 
-export default class Textarea extends React.Component {
+const noop = () => {}
 
-  static propTypes = {
-    changeHandler: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    defaultValue: PropTypes.any.isRequired,
-  }
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      value: props.defaultValue,
-      active: false,
-    }
-  }
-
-  onFocus = () => {
-    this.setState({
-      active: true,
-    })
-  }
-
-  onBlur = () => {
-    this.setState({
-      active: false,
-    })
-  }
-
-  onChange = (event) => {
-    this.props.changeHandler(
-      this.props.name,
-      event.target.value,
-    )
-    this.setState({
-      value: event.target.value,
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <label htmlFor={this.props.name}>
-          {this.props.label}
-        </label>
-        <textarea type="textarea"
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
-          className={`form__textarea form-control ${this.state.active ? "active" : "inactive"}`}
-          name={this.props.name}
-          defaultValue={this.props.defaultValue}
-          onChange={this.onChange}
-        />
+const Textarea = ({
+  value = '',
+  label = '',
+  name = '',
+  onChange = noop,
+  placeholder = '',
+  rows = 3,
+}) => {
+  return (
+    <div className="row">
+      <div className="col-xs-12">
+        <div className="box">
+          <label htmlFor={name}>
+            {label}
+          </label>
+          <textarea
+            value={value}
+            id={name}
+            name={name}
+            onChange={onChange}
+            placeholder={placeholder}
+            rows={rows}
+            type="text"
+          />
+        </div>
       </div>
-    )
-  }
+    </div>
+  )
 }
+
+export default Textarea

@@ -1,0 +1,128 @@
+$calendar-show-width: 10%;
+$calendar-font-size: 1rem;
+$calendar-font-weight: 300;
+$calendar-liveshow-font-size: 1rem;
+
+$available: hotpink;
+$active: green;
+$used: blue;
+
+$calendar-date-font-size: 1rem;
+$calendar-date-font-weight: 300;
+
+$calendar-base-bg-color: #333;
+$calendar-base-color: #b2b2b2;
+
+$calendar-date-bg-color: $calendar-base-bg-color;
+$calendar-date-color: darken($calendar-base-color, 5%);
+
+$calendar-header-bg-color: lighten($calendar-base-bg-color, 30%);
+$calendar-header-color: lighten($calendar-base-color, 50%);
+
+$calendar-header-hover-bg-color: lighten($calendar-base-bg-color, 20%);
+$calendar-header-hover-color: lighten($calendar-base-color, 40%);
+
+$calendar-date-hover-bg-color: darken($calendar-base-bg-color, 5%);
+$calendar-date-hover-color: lighten($calendar-base-color, 10%);
+
+$calendar-date-hover-previous-bg-color: darken($calendar-base-bg-color, 10%);
+$calendar-date-hover-previous-color: darken($calendar-base-color, 60%);
+
+$calendar-date-previous-bg-color: darken($calendar-base-bg-color, 10%);
+$calendar-date-previous-color: darken($calendar-base-color, 50%);
+
+$calendar-date-hover-previous-bg-color: darken($calendar-base-bg-color, 15%);
+$calendar-date-hover-previous-color: darken($calendar-base-color, 55%);
+
+.calendar {
+  font-size: $calendar-font-size;
+
+  .header {
+    background-color: $calendar-header-bg-color;
+    color: $calendar-header-color;
+
+    &:hover {
+      background-color: $calendar-header-hover-bg-color;
+      color: $calendar-header-hover-color;
+    }
+  }
+
+  .no-drag {
+    cursor: no-drop;
+  }
+
+  .dustbin,
+  .header {
+    font-size: $calendar-date-font-size;
+    font-variant: small-caps;
+    font-weight: $calendar-date-font-weight;
+    line-height: $calendar-date-font-size;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    overflow: hidden;
+    padding: .33%;
+    width: 12.627%;
+  }
+
+  .dustbin {
+    background-color: $calendar-date-bg-color;
+    color: $calendar-date-color;
+
+    &:hover {
+      background-color: $calendar-date-hover-bg-color;
+      color: $calendar-date-hover-color;
+    }
+
+    &.previous {
+      background-color: $calendar-date-previous-bg-color;
+      color: $calendar-date-previous-color;
+
+      &:hover {
+        background-color: $calendar-date-hover-previous-bg-color;
+        color: $calendar-date-hover-previous-color;
+      }
+    }
+
+    .liveshow {
+      align-items: center;
+      display: flex;
+      font-size: $calendar-liveshow-font-size;
+      height: 90%;
+      justify-content: center;
+      line-height: $calendar-liveshow-font-size;
+      word-break: inherit;
+    }
+
+    p {
+      margin: 0;
+      padding: $calendar-date-font-size / 5;
+    }
+
+    &__name {
+      align-items: stretch;
+      height: auto;
+      justify-content: center;
+    }
+
+    &__details {
+      align-items: center;
+      height: 2.5rem;
+      justify-content: center;
+      padding: .5rem;
+    }
+  }
+
+  .boxes {
+    margin-bottom: .8rem;
+    margin-right: 0;
+  }
+
+  .active {
+    background-color: $active;
+  }
+
+  .available {
+    background-color: $available;
+    color: black;
+  }
+}

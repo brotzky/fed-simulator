@@ -1,135 +1,362 @@
-[
-  {
-    "id": "1",
-    "name": "Test Male 1",
-    "brand": "NXT",
-    "rating": 80,
-    "male": true
-  },
-  {
-    "id": "2",
-    "name": "Test Male 2",
-    "brand": "NXT",
-    "rating": 75,
-    "male": true
-  },
-  {
-    "id": "3",
-    "name": "Test Male 3",
-    "brand": "NXT",
-    "rating": 75,
-    "male": true
-  },
-  {
-    "id": "4",
-    "name": "Test Male 4",
-    "brand": "NXT",
-    "rating": 75,
-    "male": true
-  },
-  {
-    "id": "5",
-    "name": "Test Male 5",
-    "brand": "NXT",
-    "rating": 75,
-    "male": true
-  },
-  {
-    "id": "6",
-    "name": "Test Male 6",
-    "brand": "NXT",
-    "rating": 75,
-    "male": true
-  },
-  {
-    "id": "7",
-    "name": "Test Female 0",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "8",
-    "name": "Test Female 1",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "9",
-    "name": "Test Female 2",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "10",
-    "name": "Test Female 3",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "11",
-    "name": "Test Female 4",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "12",
-    "name": "Test Female 5",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "13",
-    "name": "Test Female 6",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "14",
-    "name": "Test Female 7",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "15",
-    "name": "Test Female 8",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "16",
-    "name": "Test Female 9",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "17",
-    "name": "Test Female 10",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "18",
-    "name": "Test Female 11",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  },
-  {
-    "id": "19",
-    "name": "Test Female 12",
-    "brand": "NXT",
-    "rating": 75,
-    "male": false
-  }
+[{
+		"id": "1",
+		"name": "Test Male 1",
+		"brand": "NXT",
+		"rating": 80,
+		"male": true
+	},
+	{
+		"id": "2",
+		"name": "Test Male 2",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "3",
+		"name": "Test Male 3",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "4",
+		"name": "Test Male 4",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "5",
+		"name": "Test Male 5",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "6",
+		"name": "Test Male 6",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "7",
+		"name": "Test Female 0",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "8",
+		"name": "Test Female 1",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "9",
+		"name": "Test Female 2",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "10",
+		"name": "Test Female 3",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "11",
+		"name": "Test Female 4",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "12",
+		"name": "Test Female 5",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "13",
+		"name": "Test Female 6",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "14",
+		"name": "Test Female 7",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "15",
+		"name": "Test Female 8",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "16",
+		"name": "Test Female 9",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "17",
+		"name": "Test Female 10",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "18",
+		"name": "Test Female 11",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "19",
+		"name": "Test Female 12",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	}, {
+		"id": "20",
+		"name": "Test Female 20",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "21",
+		"name": "Test Female 21",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "22",
+		"name": "Test Female 22",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "23",
+		"name": "Test Female 23",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "24",
+		"name": "Test Female 24",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "25",
+		"name": "Test Female 25",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "26",
+		"name": "Test Female 26",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	}, {
+		"id": "27",
+		"name": "Test Male 1",
+		"brand": "NXT",
+		"rating": 80,
+		"male": true
+	},
+	{
+		"id": "28",
+		"name": "Test Male 2",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "29",
+		"name": "Test Male 3",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "30",
+		"name": "Test Male 4",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "31",
+		"name": "Test Male 5",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "6",
+		"name": "Test Male 6",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "31",
+		"name": "Test Female 0",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "32",
+		"name": "Test Female 1",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "33",
+		"name": "Test Female 2",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "34",
+		"name": "Test Female 3",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "35",
+		"name": "Test Female 4",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "36",
+		"name": "Test Female 5",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "37",
+		"name": "Test Female 6",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "38",
+		"name": "Test Female 7",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "39",
+		"name": "Test Female 8",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "40",
+		"name": "Test Female 9",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "41",
+		"name": "Test Female 10",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "42",
+		"name": "Test Female 11",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "43",
+		"name": "Test Female 12",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	}, {
+		"id": "44",
+		"name": "Test Female 20",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "45",
+		"name": "Test Female 21",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "46",
+		"name": "Test Female 22",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "47",
+		"name": "Test Female 23",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "48",
+		"name": "Test Female 24",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "49",
+		"name": "Test Female 25",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "50",
+		"name": "Test Female 26",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	}
 ]

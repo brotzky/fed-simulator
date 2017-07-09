@@ -1,0 +1,10 @@
+$name-input-font-size: 8rem;
+
+.page.name {
+  textarea {
+    font-size: $name-input-font-size;
+    font-weight: bolder;
+    height: $name-input-font-size + .5;
+    line-height: $name-input-font-size + .5;
+  }
+}

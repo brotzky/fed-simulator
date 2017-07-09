@@ -1,0 +1,37 @@
+$ranking-table-header-font-size: 1.5rem;
+$ranking-font-size: 1rem;
+$ranking-tbody-font-size: 1rem;
+
+div.ranking {
+  font-size: $ranking-font-size;
+
+  .table,
+  h2 {
+    font-size: $ranking-table-header-font-size;
+    margin: 0;
+    width: 95%;
+    font-weight: 100;
+  }
+
+  .rank,
+  .points,
+  .losses,
+  .cost,
+  .wins {
+    color: #ccc;
+    text-align: center;
+  }
+
+  thead {
+    font-variant: small-caps;
+    font-weight: 500;
+  }
+
+  tbody {
+    .name {
+      font-size: $ranking-tbody-font-size;
+      font-weight: 100;
+      line-height: $ranking-tbody-font-size * 2;
+    }
+  }
+}

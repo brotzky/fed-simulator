@@ -1,9 +1,8 @@
-import React from "react"
-import PropTypes from "prop-types"
-import emptyFunction from "emptyfunction"
+import React from 'react'
+import PropTypes from 'prop-types'
+const emptyFunction = () => {}
 
 class ContextHolder extends React.Component {
-
   static propTypes = {
     context: PropTypes.shape({
       constants: PropTypes.object.required,
@@ -32,7 +31,6 @@ class ContextHolder extends React.Component {
   }
 
   render() {
-
     return React.Children.only(this.props.children)
   }
 }

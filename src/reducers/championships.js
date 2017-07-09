@@ -2,70 +2,21 @@ const defaultState = []
 import Model from "./championship.model"
 
 export default (state = defaultState, action) => {
-  let newState = JSON.parse(JSON.stringify(state)),
-    getIndexById = (id) => newState.findIndex(item => item.id === id),
-    key = 0
+  state = JSON.parse(JSON.stringify(state))
 
   switch (action.type) {
-    case "UPDATE_BRAND":
-      delete action.brand.image
-
-      newState.forEach((championship, key) => {
-        if (action.brand.id === championship.brand.id) {
-          newState[key].brand = action.brand
-        }
-      })
-      break
-    case "CREATE_CHAMPIONSHIP":
-      if (getIndexById(action.championship.id) < 0) {
-        newState.push(
-          new Model(action.championship).toJSON()
-        )
-      }
-      break
-    case "UPDATE_CHAMPIONSHIP":
-      let index = getIndexById(action.championship.id)
-      newState[index] = new Model(action.championship).toJSON()
-      break
-    case "MOVE_CHAMPIONSHIP":
-      key = newState.findIndex(championship => championship.id === action.championship.id)
-      newState[key].wrestlers.push(action.wrestler)
-      newState[key].brand = action.wrestler.brand
-      newState[key].changes++
-
-      let newLength = newState[key].wrestlers.length
-
-      if ((newState[key].tag && newLength === 3) || (!newState[key].tag && newLength === 2)) {
-        newState[key].wrestlers.shift()
-      }
-      break
-    case "SHOULD_MOVE_CHAMPIONSHIP":
-      newState.forEach((championship, key) => {
-        let numberOfLosers = newState[key].wrestlers.filter(wrestler => wrestler.id === action.loser.id).length
-
-        if (numberOfLosers > 0) {
-          if (newState[key].canMoveBrands) {
-            newState[key].brand = action.winner.brand
-          }
-          newState[key].changes++
-          newState[key].wrestlers = newState[key].wrestlers.filter(wrestler => wrestler.id !== action.loser.id)
-          newState[key].wrestlers.push({
-            ...action.winner,
-          })
-        }
-      })
-      break
-    case "CLEAR_CHAMPIONS":
-        newState.forEach((championship, key) => {
-          newState[key].wrestlers = []
-        })
-      break
-    case "RESET_CHAMPIONS":
     case "RESET":
-      newState = defaultState
+      state = defaultState
+      break
+    case "UPDATE_CHAMPIONS":
+      state = action.payload
+      state.map(item => {
+        item.name = item.name.trim()
+        return item
+      })
       break
     default:
       break
   }
-  return newState
+  return state.map(championship => new Model(championship).toJSON())
 }

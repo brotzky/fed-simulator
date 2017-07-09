@@ -1,15 +1,7 @@
-import * as types from "./types"
+import * as types from './types'
 
-export function create(ppv) {
+export function reset() {
   return {
-    type: types.CREATE_PPV,
-    ppv,
-  }
-}
-
-export function update(ppv) {
-  return {
-    type: types.UPDATE_PPV,
-    ppv,
+    type: types.RESET,
   }
 }

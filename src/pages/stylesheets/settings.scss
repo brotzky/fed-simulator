@@ -1,0 +1,22 @@
+.page.settings {
+  font-size: 1.5rem;
+
+  .fa, a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+  }
+
+  .start,
+  .isComplete {
+    padding: 3rem;
+  }
+
+  .start {
+    background-color: #333;
+  }
+
+  .isComplete {
+    background-color: green;
+  }
+}

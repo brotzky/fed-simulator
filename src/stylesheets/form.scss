@@ -1,7 +1,6 @@
 /* FormHack v1.2.0 (formhack.io) */
-
-$font-family: "Roboto", "Verdana", "Arial", sans-serif;
-$font-size: inherit !default;
+$font-size: 4rem !default;
+$font-weight: auto;
 $font-color: #232828 !default;
 $border-radius: .1rem !default;
 $border-width: .1rem !default;
@@ -15,103 +14,38 @@ $focus-bg-color: #F9FBFE !default;
 $focus-border-color: $border-color !default;
 $focus-font-color: $font-color !default;
 $allow-select-vendor-styling: true !default;
-$fieldset-bare: false !default;
-$button-height: 40px !default;
+$button-height: auto !default;
 $button-width: auto !default;
 $button-max-width: auto !default;
 $button-font-color: #fff !default;
 $button-bg-color: #232828 !default;
 $button-hover-bg-color: #1b1f1f !default;
 $button-hover-font-color: $button-font-color !default;
-$centered: false !default;
+
 $display: block !default;
-
-.form {
-  margin: 0 auto;
-  opacity: .8;
-  transition: opacity .3s ease-in;
-  width: 95%;
-
-  &:hover {
-    opacity: 1;
-    transition: opacity .3s ease-out;
-  }
-
-  label {
-    font-size: medium;
-    font-weight: bold;
-    text-transform: capitalize;
-  }
-}
-
-.checkbox-custom {
-  opacity: 0;
-  position: absolute;
-}
-.checkbox-custom,
-.checkbox-custom-label {
-  cursor: pointer;
-  display: inline-block;
-  margin: 5px;
-  vertical-align: middle;
-}
-
-.checkbox-custom-label {
-  position: relative;
-}
-
-.checkbox-custom + .checkbox-custom-label:before {
-  content: '';
-  background: #fff;
-  border: 2px solid #ddd;
-  display: inline-block;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  padding: 2px;
-  margin-right: 10px;
-  text-align: center;
-}
-
-.checkbox-custom:checked + .checkbox-custom-label:before {
-  background: rebeccapurple;
-  color: #fff;
-  content: "\f00c";
-  font-family: 'FontAwesome';
-  font-size: larger;
-}
-
-.checkbox-custom:focus + .checkbox-custom-label {
-  outline: 1px solid #ddd;
-}
 
 input,
 textarea,
 select,
 option,
 optgroup,
-button,
 legend,
 fieldset {
-  margin: 10px 0;
   box-sizing: border-box;
   color: $font-color;
   display: $display;
-  font-family: $font-family;
   font-size: $font-size;
+  font-weight: $font-weight;
+  margin: 1rem 0;
   outline: none;
   vertical-align: top;
 }
 
-
-datalist {
-  font-family: $font-family;
-  font-size: $font-size;
-}
-
 label {
   display: $display;
-  margin: 1rem 0;
+  font-size: 2rem;
+  font-variant: small-caps;
+  font-weight: 100;
 }
 
 input[list],
@@ -131,12 +65,12 @@ input[type="url"],
 input[type="week"],
 select,
 textarea {
-  width: $input-width;
-  max-width: $input-max-width;
-  padding: $input-height / 5;
   background-color: $input-bg-color;
   border-radius: $border-radius;
   border: $border-width $border-style $border-color;
+  max-width: $input-max-width;
+  padding: $input-height / 5;
+  width: $input-width;
 }
 
 input[type="text"],
@@ -154,11 +88,9 @@ input[type="url"],
 input[type="week"],
 input[list] {
   height: $input-height;
-  -webkit-appearance: none;
 }
 
 textarea {
-  -webkit-appearance: none;
   overflow: auto;
 }
 
@@ -173,8 +105,8 @@ input[type="file"] {
 }
 
 input[type="search"] {
-  height: $input-height;
   -webkit-appearance: none;
+  height: $input-height;
 }
 
 input[type="search"]::-webkit-search-cancel-button,
@@ -190,16 +122,6 @@ input[type="radio"] {
 
 select {
   height: $input-height;
-
-  @if $allow-select-vendor-styling == false {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    -o-appearance: none;
-    &::-ms-expand {
-      display: none;
-    }
-  }
 }
 
 select[multiple] {
@@ -213,54 +135,24 @@ select[multiple] {
   }
 }
 
-fieldset {
-  @if $fieldset-bare == true {
-    padding: 0;
-    border: 0;
-  }
-  @else {
-    padding: 10px 25px;
-    border-radius: $border-radius;
-    border: $border-width $border-style $border-color;
-  }
-}
-
 legend {
-  @if $fieldset-bare == true {
-    padding: 0;
-    font-weight: inherit;
-  }
-  @else {
-    padding: 0 5px;
-    font-weight: 700;
-  }
+  font-weight: 700;
+  padding: 0 5px;
 }
 
-button,
-input[type="button"],
 input[type="submit"],
 input[type="reset"],
 input[type="image"] {
-  height: $button-height;
-  width: $button-width;
-  max-width: $button-max-width;
   background-color: $button-bg-color;
-  padding: $input-height / 5;
-  cursor: pointer;
-
   color: $button-font-color;
-  font-weight: 700;
-
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  border-radius: $border-radius;
-  border: $border-width $border-style $border-color;
+  height: $button-height;
+  max-width: $button-max-width;
+  width: $button-width;
 }
 
 input[type="image"] {
-  text-align: center;
   padding: $input-height / 5;
+  text-align: center;
 }
 
 input[disabled],
@@ -274,8 +166,7 @@ button[disabled] {
 input:focus,
 textarea:focus,
 select:focus,
-option:focus,
-button:focus  {
+option:focus {
   background-color: $focus-bg-color;
   border-color: $focus-border-color;
 }
@@ -285,15 +176,15 @@ input[type="radio"]:focus {
   outline: $focus-border-color solid 2px;
 }
 
-button:hover,
-button:hover a,
-input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
-button:focus,
-input[type="button"]:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus {
   background-color: $button-hover-bg-color;
   color: $button-hover-font-color !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ccc;
 }

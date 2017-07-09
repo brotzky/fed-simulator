@@ -1,0 +1,22 @@
+$branding-font-size: 2rem;
+
+.page.branding {
+  h1 {
+    width: 100%;
+    word-break: break-word;
+  }
+
+  h5 {
+    font-size: $branding-font-size - 5;
+    margin: .5rem 0;
+  }
+
+  .circle-picker {
+    justify-content: center;
+    padding: 0 0 2rem 0;
+
+    span > div > div {
+      border: 1px solid currentColor;
+    }
+  }
+}

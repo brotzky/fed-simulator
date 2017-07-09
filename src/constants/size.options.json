@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Backyard Fed",
+    "id": "backyard",
+    "size": "xs",
+    "cash": 4000,
+    "default": true
+  },
+  {
+    "name": "Gym & Internet Fed",
+    "id": "gym",
+    "size": "sm",
+    "cash": 40000,
+    "default": false
+  },
+  {
+    "name": "Bingo Halls",
+    "id": "bingo",
+    "size": "md",
+    "cash": 400000,
+    "default": false
+  },
+  {
+    "name": "Stadium",
+    "id": "Stadium",
+    "size": "lg",
+    "cash": 400000000,
+    "default": false
+  }
+]

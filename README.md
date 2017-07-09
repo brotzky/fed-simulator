@@ -1,12 +1,6 @@
-# Universe SIM Manager
+# Fed Simulator
 
 ### [View a demo here](http://www.fedsimulator.com/)
-
-## 📕 Todos
- * Delete item (but no default)
- * Any kind of error handling on form submission
- * Consider the vertical vs horizontal form and consolidate
- * Promises on dispatch so we can do loaders
 
 ## 📕 Index
 * [Installing](#installing)
@@ -45,7 +39,6 @@ Powered by Mocha, Chai, Enzyme, Sinon.
 Tests are written by creating .spec files under a __tests__ directory.
 
 ## ✨ <a name="features">Features</a>
-* Hot reloading (v3)
 * Static compile
 * Bundle per route
 * SASS compiling with hot reload
