@@ -40,7 +40,7 @@ export const DashboardPage = ({
       </div>
       <div className="col-xs-6">
         <div className="box">
-          <Link to="/create-a-match">
+          <Link to="/calendar">
             <button className="btn">Calendar</button>
           </Link>
         </div>
