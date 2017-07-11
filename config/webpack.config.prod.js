@@ -14,11 +14,8 @@ const paths = require("./paths")
 const getClientEnvironment = require("./env")
 
 const publicPath = paths.servedPath
-
 const shouldUseRelativeAssetPaths = publicPath === "./"
-
 const publicUrl = publicPath.slice(0, -1)
-
 const env = getClientEnvironment(publicUrl)
 
 if (env.stringified["process.env"].NODE_ENV !== '"production"') {
@@ -38,7 +35,7 @@ const extractSass = new ExtractTextPlugin({
 
 module.exports = {
   bail: true,
-  devtool: false,
+  devtool: "source-map",
   entry: {
     vendors: [
       "react",
@@ -46,6 +43,7 @@ module.exports = {
       "react-helmet",
       "react-router",
       "redux",
+      "backbone",
       "react-redux",
       "moment",
     ],
@@ -80,7 +78,6 @@ module.exports = {
           /\.css$/,
           /\.scss$/,
           /\.json$/,
-          /\.bmp$/,
           /\.gif$/,
           /\.jpe?g$/,
           /\.png$/,
@@ -91,7 +88,7 @@ module.exports = {
         },
       },
       {
-        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/,],
+        test: [/\.gif$/, /\.jpe?g$/, /\.png$/,],
         loader: require.resolve("url-loader"),
         options: {
           limit: 10000,
@@ -161,7 +158,6 @@ module.exports = {
   },
   plugins: [
     new InterpolateHtmlPlugin(env.raw),
-
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
@@ -178,13 +174,10 @@ module.exports = {
         minifyURLs: true,
       },
     }),
-
     new webpack.DefinePlugin(env.stringified),
-
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
-
         comparisons: false,
       },
       output: {
@@ -192,13 +185,10 @@ module.exports = {
       },
       sourceMap: true,
     }),
-
     extractSass,
-
     new ManifestPlugin({
       fileName: "asset-manifest.json",
     }),
-
     new SWPrecacheWebpackPlugin({
       dontCacheBustUrlsMatching: /\.\w{8}\./,
       filename: "service-worker.js",
@@ -209,19 +199,13 @@ module.exports = {
         console.log(message)
       },
       minify: true,
-
       navigateFallback: publicUrl + "/index.html",
-
       navigateFallbackWhitelist: [/^(?!\/__).*/,],
-
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/,],
-
       stripPrefix: paths.appBuild.replace(/\\/g, "/") + "/",
     }),
-
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ],
-
   node: {
     fs: "empty",
     net: "empty",

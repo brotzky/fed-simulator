@@ -11,6 +11,8 @@ const defaultState = []
 const defaultAction = {}
 const arrayOfLength = length => new Array(length).fill(1 / length)
 
+const RANDOM_MATCH_DEFAULT_AMOUNT = 200
+
 export default (state = defaultState, action = defaultAction) => {
   state = JSON.parse(JSON.stringify(state))
   let index = false
@@ -29,7 +31,7 @@ export default (state = defaultState, action = defaultAction) => {
       }
       break
     case "GENERATE_RANDOM_MATCHES":
-      let amountOfMatches = action.payload.amountOfMatches || 100
+      let amountOfMatches = action.payload.amountOfMatches || RANDOM_MATCH_DEFAULT_AMOUNT
 
       while (amountOfMatches > 0) {
         const selectedWrestlers = randomiseWrestlers({

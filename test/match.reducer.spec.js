@@ -13,7 +13,7 @@ const action = {
   type: null,
   payload: [],
 }
-const MAX_MATCHES = 100
+const RANDOM_MATCH_DEFAULT_AMOUNT = 100
 
 describe("given a roster reducer", () => {
   let matchesReducer
@@ -265,7 +265,7 @@ describe("given a roster reducer", () => {
   })
 
   // due to the random nature we take 100 as a base number to repeat a match
-  describe(`and a ${MAX_MATCHES} matches are simulated`, () => {
+  describe(`and a ${RANDOM_MATCH_DEFAULT_AMOUNT} matches are simulated`, () => {
     before(() => {
       let matchId = 1
       //reset matches
@@ -277,7 +277,7 @@ describe("given a roster reducer", () => {
 
       let x = 1
 
-      while (x < MAX_MATCHES) {
+      while (x < RANDOM_MATCH_DEFAULT_AMOUNT) {
         //create matchId
         action.type = types.CREATE_MATCH
         action.payload = {
@@ -309,8 +309,8 @@ describe("given a roster reducer", () => {
       }
     })
 
-    it(`it has ${MAX_MATCHES} matches`, () => {
-      expect(matchesReducer).to.have.length(MAX_MATCHES)
+    it(`it has ${RANDOM_MATCH_DEFAULT_AMOUNT} matches`, () => {
+      expect(matchesReducer).to.have.length(RANDOM_MATCH_DEFAULT_AMOUNT)
     })
   })
 
@@ -327,7 +327,7 @@ describe("given a roster reducer", () => {
 
   // GENERATE_RANDOM_MATCHES
   describe("and we generate random matches", () => {
-    let amountOfMatches = 1000
+    let amountOfMatches = RANDOM_MATCH_DEFAULT_AMOUNT
 
     before(() => {
       action.type = types.GENERATE_RANDOM_MATCHES
