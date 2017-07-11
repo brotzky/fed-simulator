@@ -149,35 +149,35 @@
 		"name": "Test Female 22",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "23",
 		"name": "Test Female 23",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "24",
 		"name": "Test Female 24",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "25",
 		"name": "Test Female 25",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "26",
 		"name": "Test Female 26",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	}, {
 		"id": "27",
 		"name": "Test Male 1",
@@ -329,32 +329,53 @@
 		"name": "Test Female 22",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "47",
 		"name": "Test Female 23",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "48",
 		"name": "Test Female 24",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "49",
 		"name": "Test Female 25",
 		"brand": "NXT",
 		"rating": 75,
-		"male": true
+		"male": false
 	},
 	{
 		"id": "50",
 		"name": "Test Female 26",
+		"brand": "NXT",
+		"rating": 75,
+		"male": false
+	},
+	{
+		"id": "51",
+		"name": "Test Male 4",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "52",
+		"name": "Test Male 5",
+		"brand": "NXT",
+		"rating": 75,
+		"male": true
+	},
+	{
+		"id": "53",
+		"name": "Test Male 6",
 		"brand": "NXT",
 		"rating": 75,
 		"male": true
