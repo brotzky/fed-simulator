@@ -38,6 +38,10 @@ class Page extends React.Component {
     this.props.dispatch(versionActions.checkVersion())
   }
 
+	componentDidMount () {
+	  window.scrollTo(0, 0)
+	}
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.version !== this.props.version) {
       this.props.dispatch({
