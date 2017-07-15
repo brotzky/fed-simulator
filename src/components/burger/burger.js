@@ -26,13 +26,9 @@ const Burger = ({
   onEscape = noop,
 }) => (
   <nav className="burger">
-    <i
-      className="icon fa fa-bars"
-      aria-hidden="true"
-      onClick={toggleVisibility}
-    />
-    {" "}
-    {name}
+    <span className="cursor-pointer" onClick={toggleVisibility}>
+      <i className="icon fa fa-bars" aria-hidden="true" /> {name}
+    </span>
     <CloseOnEscape onEscape={onEscape}>
       <div className={classnames("burger__container", { active: isVisible, })}>
         <h3>{formatCurrency(currencySymbol, cash)}</h3>
