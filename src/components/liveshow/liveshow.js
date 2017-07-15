@@ -42,7 +42,7 @@ export default class Liveshow extends Component {
       <span className="liveshow" style={style}>
         <If condition={canBeDeleted}>
           <i
-            className="icon fa fa-trash"
+            className="icon fa fa-trash cursor-nodrop"
             data-date={date}
             onClick={onClickDelete}
           />

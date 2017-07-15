@@ -48,7 +48,10 @@ class ColorPickers extends React.Component {
       backgroundColor,
     }
     return (
-      <div className="row around-xs colorPickers" style={borderStyle}>
+      <div
+        className="row around-xs cursor-pointer colorPickers"
+        style={borderStyle}
+      >
         <div className="col-xs-6 col" style={bgColorContainer}>
           <QuickColorPicker onChange={this.onChangeBGColor} />
         </div>

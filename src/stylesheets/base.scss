@@ -46,6 +46,10 @@ a:hover,
   cursor: pointer;
 }
 
+.cursor-nodrop {
+  cursor: no-drop;
+}
+
 .no-select {
   user-select: none;
 }
