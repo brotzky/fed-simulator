@@ -6,12 +6,13 @@ import { SHORT_ANIMATION_SPEED } from "../../constants/animation"
 
 import "./h1.scss"
 
-const HeaderOne = ({ className = "", children = undefined, }) => (
+const HeaderOne = ({ className = "", children = undefined, }) =>
   <SlideUp duration={SHORT_ANIMATION_SPEED}>
-		<ReactFitText compressor={2}>
-			<h1 className={className}>{children}</h1>
-			</ReactFitText>
+    <ReactFitText compressor={2}>
+      <h1 className={className}>
+        {children}
+      </h1>
+    </ReactFitText>
   </SlideUp>
-)
 
 export default HeaderOne
