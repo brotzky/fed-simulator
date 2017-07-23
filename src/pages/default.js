@@ -6,7 +6,6 @@ class DefaultPage extends Component {
   componentWillMount() {
     const { game, router, roster, shows, style, championships, } = this.props
 
-    console.log(this.props)
     let pathName = "dashboard"
 
     if (game.started === false || game.name === "") {
