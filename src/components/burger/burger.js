@@ -24,14 +24,16 @@ const Burger = ({
   name = "",
   cash = 0,
   onEscape = noop,
-}) => (
+}) =>
   <nav className="burger">
     <span className="cursor-pointer" onClick={toggleVisibility}>
       <i className="icon fa fa-bars" aria-hidden="true" /> {name}
     </span>
     <CloseOnEscape onEscape={onEscape}>
       <div className={classnames("burger__container", { active: isVisible, })}>
-        <h3>{formatCurrency(currencySymbol, cash)}</h3>
+        <h3>
+          {formatCurrency(currencySymbol, cash)}
+        </h3>
         <ul className="burger__list">
           {links.map(currentLink => {
             return (
@@ -46,7 +48,6 @@ const Burger = ({
       </div>
     </CloseOnEscape>
   </nav>
-)
 
 Burger.propTypes = {
   cash: PropTypes.number.isRequired,
@@ -66,11 +67,6 @@ export default compose(
   mapStateToProps,
   withState("isVisible", "toggleVis", false),
   withHandlers({
-    onClick: ({ toggleVis, }) => {
-      return () => {
-        return toggleVis(false)
-      }
-    },
     onEscape: ({ toggleVis, }) => {
       return () => {
         return toggleVis(false)
