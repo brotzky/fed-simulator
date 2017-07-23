@@ -46,6 +46,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="update-wrestlers">
+        <IndexRoute
+          getComponent={(location, cb) => {
+            System.import("./pages/update-wrestlers")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
+          }}
+        />
+      </Route>
       <Route path="banking">
         <IndexRoute
           getComponent={(location, cb) => {
