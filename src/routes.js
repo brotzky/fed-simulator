@@ -28,6 +28,15 @@ export default () => {
             .catch(errorLoading)
         }}
       />
+      <Route path="welcome">
+        <IndexRoute
+          getComponent={(location, cb) => {
+            System.import("./pages/welcome")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
+          }}
+        />
+      </Route>
       <Route path="create-a-match">
         <IndexRoute
           getComponent={(location, cb) => {

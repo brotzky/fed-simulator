@@ -8,7 +8,9 @@ class DefaultPage extends Component {
 
     let pathName = "dashboard"
 
-    if (game.started === false || game.name === "") {
+    if (game.started === false) {
+      pathName = "/welcome"
+    } else if (game.name === "") {
       pathName = "/name"
     } else if (game.size === "") {
       pathName = "/size"
