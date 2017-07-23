@@ -37,7 +37,7 @@ class SizePage extends Component {
           {defaultOptions.map(option => {
             const classes = classnames(
               "col-xs-12 col-sm-6 col-md-3 col-lg-3",
-              "size",
+              "highlight",
               "pulse",
               "cursor-pointer",
               { active: option.size === this.state.size, }
@@ -48,17 +48,19 @@ class SizePage extends Component {
                 key={option.id}
                 onClick={() => this.handleChange(option.size, option.cash)}
               >
-                <h3>{option.name}</h3>
-                <p>{option.size}</p>
+                <h3>
+                  {option.name}
+                </h3>
+                <p>
+                  {option.size}
+                </p>
               </div>
             )
           })}
         </div>
         <br />
         <form onSubmit={this.handleSubmit}>
-          <button type="submit">
-            Save and brand your federation!
-          </button>
+          <button type="submit">Save and brand your federation!</button>
         </form>
       </section>
     )

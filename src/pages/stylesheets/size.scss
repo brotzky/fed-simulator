@@ -1,10 +1,6 @@
 $size-font-size: 1rem;
 $size-font-weight: bolder;
-$size-padding: 1rem;
-$size-active-bg: #ff6f00;
 $size-word-wrap: break-word;
-$size-header-font-size: 1rem;
-$size-header-line-size: 1.5rem;
 
 .page.size {
   .sizes {
@@ -12,24 +8,5 @@ $size-header-line-size: 1.5rem;
     font-weight: $size-font-weight;
     line-height: $size-font-size + 1;
     word-wrap: $size-word-wrap;
-  }
-
-  .size {
-    padding: $size-padding;
-
-    h3 {
-      font-size: $size-header-font-size;
-      height: $size-header-line-size;
-      line-height: $size-header-line-size;
-    }
-
-    h3,
-    p {
-      margin: 0 0 .4rem;
-    }
-  }
-
-  .active {
-    background-color: $size-active-bg;
   }
 }
