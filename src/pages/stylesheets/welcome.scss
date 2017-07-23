@@ -6,10 +6,10 @@ $welcome-bg-color: gold;
 .page.welcome {
   .highlight {
     background-color: $welcome-bg-color;
-    padding: 1rem;
     display: flex;
     font-size: $welcome-font-size;
     font-weight: $welcome-font-weight;
+    padding: 1rem;
 
     a {
       color: $welcome-color;
