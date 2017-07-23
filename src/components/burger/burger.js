@@ -1,29 +1,22 @@
 import React from "react"
-import { connect } from "react-redux"
 import { Link } from "react-router"
 import PropTypes from "prop-types"
-import { compose, withState, withHandlers } from "recompose"
 import classnames from "classnames"
 import CloseOnEscape from "react-close-on-escape"
 
 import { formatCurrency } from "../../helpers/currency"
-import currency from "../../constants/currency"
-
-import links from "./links.json"
-
-import "./burger.scss"
-
-const currencySymbol = currency.symbol
 
 const noop = () => {}
 
 const Burger = ({
-  toggleVisibility = noop,
-  isVisible = false,
-  onClick = noop,
-  name = "",
+  links = [],
   cash = 0,
+  currencySymbol = "$",
+  isVisible = false,
+  name = "",
+  onClick = noop,
   onEscape = noop,
+  toggleVisibility = noop,
 }) =>
   <nav className="burger">
     <span className="cursor-pointer" onClick={toggleVisibility}>
@@ -50,32 +43,14 @@ const Burger = ({
   </nav>
 
 Burger.propTypes = {
-  cash: PropTypes.number.isRequired,
-  isVisible: PropTypes.bool.isRequired,
-  name: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onEscape: PropTypes.func.isRequired,
-  toggleVisibility: PropTypes.func.isRequired,
+  cash: PropTypes.number,
+  isVisible: PropTypes.bool,
+  currencySymbol: PropTypes.string,
+  links: PropTypes.array,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  onEscape: PropTypes.func,
+  toggleVisibility: PropTypes.func,
 }
 
-const mapStateToProps = connect(state => ({
-  name: state.game.name,
-  cash: state.game.cash,
-}))
-
-export default compose(
-  mapStateToProps,
-  withState("isVisible", "toggleVis", false),
-  withHandlers({
-    onEscape: ({ toggleVis, }) => {
-      return () => {
-        return toggleVis(false)
-      }
-    },
-    toggleVisibility: ({ toggleVis, isVisible, }) => {
-      return () => {
-        return toggleVis(!isVisible)
-      }
-    },
-  })
-)(Burger)
+export default Burger

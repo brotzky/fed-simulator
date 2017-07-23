@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import Animations from "../animations"
 import Cash from "../cash/container"
 import ColorPickers from "../color-pickers/color-pickers"
-import Burger from "../burger/burger"
+import Burger from "../burger/container"
 
 import "./nav.scss"
 
