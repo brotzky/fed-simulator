@@ -81,7 +81,7 @@ class WrestlersContainer extends Component {
 
   render() {
     const { showFemalesOnly, sortByPoints, nameSearch, } = this.state
-    const { style, } = this.props
+    const { style, showFilter, } = this.props
     const sortClasses = classnames("icon", "fa", "fa-sort", {
       active: sortByPoints,
     })
@@ -91,33 +91,35 @@ class WrestlersContainer extends Component {
 
     return (
       <div className="wrestlers" style={style}>
-        <div className="row">
-          <div className="col-xs-10">
-            <div className="box">
-              <CloseOnEscape onEscape={this.onEscape}>
-                <Input
-                  value={nameSearch}
-                  onChange={this.onFilterByName}
-                  placeholder="Filter wrestlers by name"
-                />
-              </CloseOnEscape>
+        <If condition={showFilter}>
+          <div className="row">
+            <div className="col-xs-10">
+              <div className="box">
+                <CloseOnEscape onEscape={this.onEscape}>
+                  <Input
+                    value={nameSearch}
+                    onChange={this.onFilterByName}
+                    placeholder="Filter wrestlers by name"
+                  />
+                </CloseOnEscape>
+              </div>
+            </div>
+            <div className="col-xs-2">
+              <div className="box">
+                <i
+                  className={sortClasses}
+                  aria-hidden="true"
+                  onClick={this.onSortByPoints}
+                />&nbsp;
+                <i
+                  className={genderClasses}
+                  aria-hidden="true"
+                  onClick={this.onToggleWomenWrestlers}
+                />&nbsp;
+              </div>
             </div>
           </div>
-          <div className="col-xs-2">
-            <div className="box">
-              <i
-                className={sortClasses}
-                aria-hidden="true"
-                onClick={this.onSortByPoints}
-              />&nbsp;
-              <i
-                className={genderClasses}
-                aria-hidden="true"
-                onClick={this.onToggleWomenWrestlers}
-              />&nbsp;
-            </div>
-          </div>
-        </div>
+        </If>
         <div className="row">
           <div className="col-xs-12">
             <div className="box box-container">
@@ -143,8 +145,13 @@ class WrestlersContainer extends Component {
   }
 }
 
+WrestlersContainer.defaultProps = {
+  showFilter: true,
+}
+
 WrestlersContainer.propTypes = {
   roster: PropTypes.array.isRequired,
+  showFilter: PropTypes.bool,
   style: PropTypes.object.isRequired,
   onEscape: PropTypes.func.isRequired,
 }
