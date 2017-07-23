@@ -51,7 +51,7 @@ export default class Team extends Component {
 
     return connectDropTarget(
       <div data-teamId={teamId} className={teamClasses}>
-        <div className="box">
+        <div className="box dropzone">
           <Choose>
             <When condition={wrestlers.length > 0}>
               {wrestlers.map(wrestler => {
@@ -67,7 +67,10 @@ export default class Team extends Component {
                     data-wrestlerId={wrestler.id}
                   >
                     <span className="wrestler__name">
-                      {wrestler.name}<sup>{wrestler.points}</sup>
+                      {wrestler.name}
+                      <sup>
+                        {wrestler.points}
+                      </sup>
                     </span>
                     &nbsp;
                     <span className="wrestler__icons">
@@ -89,9 +92,7 @@ export default class Team extends Component {
                 )
               })}
             </When>
-            <Otherwise>
-              Drop Wrestlers Here
-            </Otherwise>
+            <Otherwise>Drop Wrestlers Here</Otherwise>
           </Choose>
         </div>
       </div>

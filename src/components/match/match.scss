@@ -6,8 +6,8 @@ $match-border-color: #929292;
 $match-font-size: 1.3rem;
 
 .match .team {
-  margin-bottom: 1rem;
   font-size: $match-font-size;
+  margin-bottom: 1rem;
 
   &.has-winner .box {
     border-style: solid;
@@ -23,15 +23,6 @@ $match-font-size: 1.3rem;
 
   &:last-of-type {
     opacity: .4;
-  }
-
-  .box {
-    align-items: center;
-    border: .2rem dashed $match-border-color;
-    display: flex;
-    justify-content: center;
-    min-height: 4rem;
-    text-transform: capitalize;
   }
 
   .active {
