@@ -343,7 +343,7 @@ describe("given a roster reducer", () => {
     })
 
     // SIMULATE_GENERATED_RANDOM_MATCHES
-    describe("and a simulate generated matches is called", () => {
+    describe.skip("and a simulate generated matches is called", () => {
       before(() => {
         action.type = types.SIMULATE_GENERATED_RANDOM_MATCHES
         action.payload = false
