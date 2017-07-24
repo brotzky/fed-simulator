@@ -1,25 +1,13 @@
-import { object, string, number, date } from "yup"
+import BaseModel from "./base.model"
 
-export const schema = object().shape({
-  id: string().default(() => {
-    return false
-  }),
-  current_champion: string(),
-  name: string().required(),
-  losses: number().positive().integer(),
-  createdOn: date().default(() => {
-    return new Date()
-  }),
-})
-
-export default class Model {
-  constructor(attributes) {
-    this.attributes = attributes
-  }
-
-  toJSON() {
-    return schema.cast({
-      ...this.attributes,
-    })
+export default class extends BaseModel {
+  defaults() {
+    return {
+      id: false,
+      current_champion: "",
+      name: "",
+			losses: 0,
+      createdOn: new Date().getDate()
+    }
   }
 }
