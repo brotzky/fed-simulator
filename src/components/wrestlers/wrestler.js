@@ -21,6 +21,7 @@ export default class Box extends Component {
     isDragging: PropTypes.bool.isRequired,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
     points: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
   }
@@ -30,11 +31,16 @@ export default class Box extends Component {
   }
 
   render() {
-    const { id, name, points, connectDragSource, } = this.props
+    const { id, name, image, points, connectDragSource, } = this.props
 
     return connectDragSource(
       <div className="wrestler" data-id={id}>
         <p>
+          <If condition={image}>
+            <span className="image">
+              <img src={image} />
+            </span>
+          </If>
           <span className="name">
             {name}
           </span>
