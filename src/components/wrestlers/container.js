@@ -128,7 +128,7 @@ class WrestlersContainer extends Component {
                   return (
                     <div
                       key={wrestler.id}
-                      onClick={onWrestlerClick}
+                      onClick={() => onWrestlerClick(wrestler.id)}
                       className="col-xs-3 col-sm-2 col-md-2 col-lg-1"
                     >
                       <div className="box">

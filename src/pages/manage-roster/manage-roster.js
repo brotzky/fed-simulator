@@ -8,13 +8,15 @@ import HeaderOne from "../../components/h1/h1"
 
 import "./manage-roster.scss"
 
+const NOOP = () => {}
+
 const UpdateWrestlersPage = ({
   showWrestlersFilters = false,
   currentWrestler = null,
-  onWrestlerPointsUpdated = () => {},
-  onWrestlersNameUpdated = () => {},
-  onImageUpdated = () => {},
-  onWrestlerChosen = () => {},
+  onWrestlerPointsUpdated = NOOP,
+  onWrestlersNameUpdated = NOOP,
+  onImageUpdated = NOOP,
+  onWrestlerClick = NOOP,
 }) => {
   return (
     <div className="page manage-roster">
@@ -26,7 +28,7 @@ const UpdateWrestlersPage = ({
         </If>
         <div className="col-xs-12">
           <Wrestlers
-            onClick={onWrestlerChosen}
+            onWrestlerClick={onWrestlerClick}
             showFilter={showWrestlersFilters}
           />
         </div>
@@ -61,7 +63,7 @@ const UpdateWrestlersPage = ({
               </table>
             </div>
             <div className="box center-xs">
-              <Image changeHandler={onImageUpdated} />
+              <Image name={"image"} changeHandler={onImageUpdated} />
             </div>
           </div>
         </div>
