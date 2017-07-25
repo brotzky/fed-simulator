@@ -5,34 +5,35 @@ import { updateWrestler } from "../../actions/roster"
 import ManageRoster from "./manage-roster"
 
 class ManageRosterContainer extends Component {
-  onWrestlerPointsUpdated = points => {
-    let wrestler = this.getCurrentWrestler()
-    wrestler.points = points
-
-    this.props.dispatch(updateWrestler(wrestler))
+  state = {
+    id: false,
   }
-  onWrestlersNameUpdated = () => {}
-  onImageUpdated = () => {}
+
+  onWrestlerPointsUpdated = e =>
+    this.props.dispatch(
+      updateWrestler({ points: Number(e.target.value), id: this.state.id, })
+    )
+  onWrestlersNameUpdated = e =>
+    this.props.dispatch(
+      updateWrestler({ name: String(e.target.value), id: this.state.id, })
+    )
+  onImageUpdated = e =>
+    this.props.dispatch(
+      updateWrestler({ image: String(e.target.value), id: this.state.id, })
+    )
+
   onWrestlerClick = id => {
     this.setState({
       id,
     })
   }
-  state = {
-    id: false,
-  }
-
-  getCurrentWrestler = () => {
-    const { roster, } = this.props
-
-    return roster.find(wrestler => wrestler.id === this.state.id)
-  }
 
   render() {
-    const currentWrestler = this.getCurrentWrestler()
     return (
       <ManageRoster
-        currentWrestler={currentWrestler}
+        currentWrestler={this.props.roster.find(
+          wrestler => wrestler.id === this.state.id
+        )}
         onWrestlerPointsUpdated={this.onWrestlerPointsUpdated}
         onWrestlersNameUpdated={this.onWrestlersNameUpdated}
         onImageUpdated={this.onImageUpdated}

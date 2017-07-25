@@ -18,6 +18,19 @@ export default (state = defaultState, action) => {
         return wrestler
       })
       break
+    case "UPDATE_WRESTLER":
+      const wrestlerIndex = state.findIndex(
+        wrestler => wrestler.id === action.payload.id
+      )
+
+      if (wrestlerIndex > -1) {
+        state[wrestlerIndex] = Object.assign(
+          {},
+          state[wrestlerIndex],
+          action.payload
+        )
+      }
+      break
     case "CONFIRM_SIMULATED_MATCH":
       const { winner, loser, } = action.payload
 

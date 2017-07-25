@@ -5,6 +5,7 @@ export default class extends BaseModel {
     return {
       id: false,
       name: "Default",
+      image: "",
       damage: 100,
       losses: 0,
       cost: 500,
