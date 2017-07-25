@@ -1,5 +1,6 @@
 import React from "react"
 import Helmet from "react-helmet"
+import PropTypes from "prop-types"
 
 import Wrestlers from "../../components/wrestlers/container"
 import Input from "../../components/form/input"
@@ -21,7 +22,7 @@ const UpdateWrestlersPage = ({
   return (
     <div className="page manage-roster">
       <Helmet title="Update the Wrestlers!" />
-      <HeaderOne>Update the Wrestlers!</HeaderOne>
+      <HeaderOne>Manage your Wrestlers</HeaderOne>
       <div className="row">
         <If condition={!currentWrestler}>
           <p>Click a wrestler to edit them!</p>
@@ -74,6 +75,15 @@ const UpdateWrestlersPage = ({
       </If>
     </div>
   )
+}
+
+UpdateWrestlersPage.propTypes = {
+  showWrestlersFilters: PropTypes.bool,
+  currentWrestler: PropTypes.object,
+  onWrestlerPointsUpdated: PropTypes.func.isRequired,
+  onWrestlersNameUpdated: PropTypes.func.isRequired,
+  onImageUpdated: PropTypes.func.isRequired,
+  onWrestlerClick: PropTypes.func.isRequired,
 }
 
 export default UpdateWrestlersPage

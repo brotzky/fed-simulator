@@ -4,7 +4,7 @@ $wrestler-choice-color: #fff;
 $wrestler-text-shadow: #ddd;
 $wrestler-background-color: #fff;
 $wrestler-color: #000;
-$wrestler-height: 3.5rem;
+$wrestler-height: 3rem;
 
 .wrestlers {
   height: 30vh;
@@ -52,6 +52,7 @@ $wrestler-height: 3.5rem;
     text-align: center;
     transition: text-shadow .3s linear;
     word-wrap: break-word;
+    padding: 0 .2rem;
 
     .image img {
       max-height: 2.5rem;
