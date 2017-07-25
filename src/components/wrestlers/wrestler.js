@@ -35,8 +35,12 @@ export default class Box extends Component {
     return connectDragSource(
       <div className="wrestler" data-id={id}>
         <p>
-          <span className="name">{name}</span>
-          <sup>{points}</sup>
+          <span className="name">
+            {name}
+          </span>
+          <sup>
+            {points}
+          </sup>
         </p>
       </div>
     )
