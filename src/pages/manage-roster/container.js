@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
 import { updateWrestler } from "../../actions/roster"
@@ -13,14 +14,17 @@ class ManageRosterContainer extends Component {
     this.props.dispatch(
       updateWrestler({ points: Number(e.target.value), id: this.state.id, })
     )
+
   onWrestlersNameUpdated = e =>
     this.props.dispatch(
       updateWrestler({ name: String(e.target.value), id: this.state.id, })
     )
-  onImageUpdated = e =>
+
+  onImageUpdated = (name, value) => {
     this.props.dispatch(
-      updateWrestler({ image: String(e.target.value), id: this.state.id, })
+      updateWrestler({ image: String(value), id: this.state.id, })
     )
+  }
 
   onWrestlerClick = id => {
     this.setState({
@@ -28,12 +32,15 @@ class ManageRosterContainer extends Component {
     })
   }
 
+  shouldComponentUpdate() {
+    return true
+  }
+
   render() {
+    const { roster, } = this.props
     return (
       <ManageRoster
-        currentWrestler={this.props.roster.find(
-          wrestler => wrestler.id === this.state.id
-        )}
+        currentWrestler={roster.find(wrestler => wrestler.id === this.state.id)}
         onWrestlerPointsUpdated={this.onWrestlerPointsUpdated}
         onWrestlersNameUpdated={this.onWrestlersNameUpdated}
         onImageUpdated={this.onImageUpdated}
@@ -41,6 +48,10 @@ class ManageRosterContainer extends Component {
       />
     )
   }
+}
+
+ManageRosterContainer.propTypes = {
+  roster: PropTypes.array.isRequired,
 }
 
 export default connect(state => ({

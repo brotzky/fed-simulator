@@ -63,7 +63,11 @@ const UpdateWrestlersPage = ({
               </table>
             </div>
             <div className="box center-xs">
-              <Image name={"image"} changeHandler={onImageUpdated} />
+              <Image
+                name="image"
+                value={currentWrestler.image}
+                onChange={onImageUpdated}
+              />
             </div>
           </div>
         </div>
