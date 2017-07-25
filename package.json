@@ -112,6 +112,7 @@
     "react-dnd-multi-backend": "~2.3.7",
     "react-dnd-touch-backend": "~0.3.11",
     "react-dom": "~15.6.1",
+    "react-dropzone": "^3.13.3",
     "react-fittext": "~1.0.0",
     "react-helmet": "~3.1.0",
     "react-redux": "~4.4.5",

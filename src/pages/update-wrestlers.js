@@ -3,6 +3,7 @@ import Helmet from "react-helmet"
 
 import Wrestlers from "../components/wrestlers/container"
 import Input from "../components/form/input"
+import Image from "../components/form/image"
 import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/update-wrestlers.scss"
@@ -22,37 +23,33 @@ const UpdateWrestlersPage = () => {
       <HeaderOne>Update the Wrestlers!</HeaderOne>
       <div className="row">
         <div className="col-xs-12">
-          <p>Click to select</p>
           <Wrestlers showFilter={false} />
         </div>
       </div>
       <div className="row">
         <div className="col-xs-12">
-          <table className="table table-striped">
-            <thead>
-              <tr>
-                <td>Name</td>
-                <td>Points</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <Input value={"Name"} />
-                </td>
-                <td>
-                  <Input value={"75"} />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div className="row center-xs middle-xs dropzone">
-        <div className="col-xs-12">
           <div className="box">
-            <h3>Drop Image Here</h3>
-            <img className="avatar" style={avatar} />
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <td>Name</td>
+                  <td>Points</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <Input value={"Name"} />
+                  </td>
+                  <td>
+                    <Input value={"75"} />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="box center-xs">
+            <Image />
           </div>
         </div>
       </div>
