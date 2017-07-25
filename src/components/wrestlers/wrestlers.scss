@@ -44,34 +44,18 @@ $wrestler-height: 3.5rem;
     background-color: $wrestler-background-color;
     color: $wrestler-color;
     display: flex;
-    flex-wrap: wrap;
     font-size: small;
     height: $wrestler-height;
     justify-content: space-around;
-    margin: 0 .5rem 1rem;
-    transition: text-shadow .3s linear;
-    word-wrap: break-word;
+    margin: .5rem 0;
     overflow: hidden;
     text-align: center;
+    transition: text-shadow .3s linear;
+    word-wrap: break-word;
 
-    &.has-image {
-      font-size: small;
-
-      .wrestler {
-        display: flex;
-        justify-content: space-around;
-      }
-
-      @include breakpoint(xs) {
-        .name {
-          display: none;
-        }
-      }
-
-      .image img {
-        max-height: 2.5rem;
-        max-width: 2.5rem;
-      }
+    .image img {
+      max-height: 2.5rem;
+      max-width: 2.5rem;
     }
 
     sup {
@@ -82,6 +66,20 @@ $wrestler-height: 3.5rem;
     &:hover {
       cursor: pointer;
       text-shadow: .1rem .1rem .4rem darken($wrestler-text-shadow, 70%);
+    }
+
+    @include breakpoint(xs) {
+      .name {
+        font-size: xx-small;
+      }
+      &.has-image {
+        .name {
+          display: none;
+        }
+        sup {
+          font-size: xx-small;
+        }
+      }
     }
   }
 }
