@@ -1,28 +1,38 @@
-[{
-	"url": "dashboard",
-	"title": "Dashboard"
-}, {
-	"url": "ranking",
-	"title": "Ranking"
-}, {
-	"url": "calendar",
-	"title": "Calendar"
-}, {
-	"url": "create-a-match",
-	"title": "Create a match"
-}, {
-	"url": "branding",
-	"title": "Colors"
-}, {
-	"url": "championships",
-	"title": "Championships"
-}, {
-	"url": "roster",
-	"title": "Roster"
-}, {
-	"url": "shows",
-	"title": "Shows"
-}, {
-	"url": "name",
-	"title": "Name"
-}]
+[
+  {
+    "url": "dashboard",
+    "title": "Dashboard"
+  },
+  {
+    "url": "ranking",
+    "title": "Ranking"
+  },
+  {
+    "url": "calendar",
+    "title": "Calendar"
+  },
+  {
+    "url": "create-a-match",
+    "title": "Create a match"
+  },
+  {
+    "url": "branding",
+    "title": "Colors"
+  },
+  {
+    "url": "championships",
+    "title": "Championships"
+  },
+  {
+    "url": "manage-roster",
+    "title": "Manage Roster"
+  },
+  {
+    "url": "shows",
+    "title": "Shows"
+  },
+  {
+    "url": "name",
+    "title": "Name"
+  }
+]
