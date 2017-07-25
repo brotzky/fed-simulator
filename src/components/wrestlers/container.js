@@ -81,7 +81,7 @@ class WrestlersContainer extends Component {
 
   render() {
     const { showFemalesOnly, sortByPoints, nameSearch, } = this.state
-    const { style, showFilter, } = this.props
+    const { style, showFilter, onWrestlerClick, } = this.props
     const sortClasses = classnames("icon", "fa", "fa-sort", {
       active: sortByPoints,
     })
@@ -128,6 +128,7 @@ class WrestlersContainer extends Component {
                   return (
                     <div
                       key={wrestler.id}
+                      onClick={onWrestlerClick}
                       className="col-xs-3 col-sm-2 col-md-2 col-lg-1"
                     >
                       <div className="box">
@@ -147,13 +148,14 @@ class WrestlersContainer extends Component {
 
 WrestlersContainer.defaultProps = {
   showFilter: true,
+  onWrestlerClick: () => {},
 }
 
 WrestlersContainer.propTypes = {
   roster: PropTypes.array.isRequired,
   showFilter: PropTypes.bool,
   style: PropTypes.object.isRequired,
-  onEscape: PropTypes.func.isRequired,
+  onWrestlerClick: PropTypes.func,
 }
 
 export default connect(state => ({

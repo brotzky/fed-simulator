@@ -46,10 +46,10 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="update-wrestlers">
+      <Route path="manage-roster">
         <IndexRoute
           getComponent={(location, cb) => {
-            System.import("./pages/update-wrestlers")
+            System.import("./pages/manage-roster/container")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}
