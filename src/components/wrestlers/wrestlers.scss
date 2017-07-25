@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 $wrestler-choice-color: #fff;
 $wrestler-text-shadow: #ddd;
 $wrestler-background-color: #fff;
@@ -45,12 +47,32 @@ $wrestler-height: 3.5rem;
     flex-wrap: wrap;
     font-size: small;
     height: $wrestler-height;
-    justify-content: center;
-    line-height: 1rem;
+    justify-content: space-around;
     margin: 0 .5rem 1rem;
-    text-align: center;
     transition: text-shadow .3s linear;
     word-wrap: break-word;
+    overflow: hidden;
+    text-align: center;
+
+    &.has-image {
+      font-size: small;
+
+      .wrestler {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      @include breakpoint(xs) {
+        .name {
+          display: none;
+        }
+      }
+
+      .image img {
+        max-height: 2.5rem;
+        max-width: 2.5rem;
+      }
+    }
 
     sup {
       font-size: .8rem;

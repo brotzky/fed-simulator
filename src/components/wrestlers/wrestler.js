@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { DragSource } from "react-dnd"
+import classnames from "classnames"
 
 const boxSource = {
   beginDrag(props) {
@@ -32,22 +33,23 @@ export default class Box extends Component {
 
   render() {
     const { id, name, image, points, connectDragSource, } = this.props
+    const classes = classnames("wrestler", {
+      "has-image": image,
+    })
 
     return connectDragSource(
-      <div className="wrestler" data-id={id}>
-        <p>
-          <If condition={image}>
-            <span className="image">
-              <img src={image} />
-            </span>
-          </If>
-          <span className="name">
-            {name}
+      <div className={classes} data-id={id}>
+        <If condition={image}>
+          <span className="image">
+            <img src={image} />
           </span>
-          <sup>
-            {points}
-          </sup>
-        </p>
+        </If>
+        <span className="name">
+          {name}
+        </span>
+        <sup>
+          {points}
+        </sup>
       </div>
     )
   }
