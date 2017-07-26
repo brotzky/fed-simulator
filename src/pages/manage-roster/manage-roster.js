@@ -17,6 +17,7 @@ const UpdateWrestlersPage = ({
   onWrestlerPointsUpdated = NOOP,
   onWrestlersNameUpdated = NOOP,
   onImageUpdated = NOOP,
+  onWrestlerDelete = NOOP,
   onWrestlerClick = NOOP,
 }) => {
   return (
@@ -69,6 +70,12 @@ const UpdateWrestlersPage = ({
                 value={currentWrestler.image}
                 onChange={onImageUpdated}
               />
+            </div>
+            <br />
+            <div className="box center-xs">
+              <button onClick={onWrestlerDelete}>
+                Click here to delete this wrestler
+              </button>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ const POINT_CHANGE_PER_MATCH = 1
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
+  let wrestlerIndex
 
   switch (action.type) {
     case "RESET":
@@ -18,8 +19,17 @@ export default (state = defaultState, action) => {
         return wrestler
       })
       break
+    case "REMOVE_WRESTLER":
+      wrestlerIndex = state.findIndex(
+        wrestler => wrestler.id === action.payload.id
+      )
+
+      if (wrestlerIndex > -1) {
+        state.splice(wrestlerIndex, 1)
+      }
+      break
     case "UPDATE_WRESTLER":
-      const wrestlerIndex = state.findIndex(
+      wrestlerIndex = state.findIndex(
         wrestler => wrestler.id === action.payload.id
       )
 

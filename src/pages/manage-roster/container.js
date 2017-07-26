@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
-import { updateWrestler } from "../../actions/roster"
+import { updateWrestler, removeWrestler } from "../../actions/roster"
 import ManageRoster from "./manage-roster"
 
 class ManageRosterContainer extends Component {
@@ -26,6 +26,16 @@ class ManageRosterContainer extends Component {
     )
   }
 
+  onWrestlerDelete = () => {
+    const { id, } = this.state
+    const { dispatch, } = this.props
+
+    this.setState({
+      id: false,
+    })
+    dispatch(removeWrestler(id))
+  }
+
   onWrestlerClick = id => {
     this.setState({
       id,
@@ -45,6 +55,7 @@ class ManageRosterContainer extends Component {
         onWrestlersNameUpdated={this.onWrestlersNameUpdated}
         onImageUpdated={this.onImageUpdated}
         onWrestlerClick={this.onWrestlerClick}
+        onWrestlerDelete={this.onWrestlerDelete}
       />
     )
   }
