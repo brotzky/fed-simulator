@@ -40,7 +40,6 @@ module.exports = {
     vendors: [
       "react",
       "react-dom",
-      "react-helmet",
       "react-router",
       "redux",
       "backbone",

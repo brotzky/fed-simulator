@@ -5694,16 +5694,6 @@ react-fittext@~1.0.0:
     create-react-class "^15.5.3"
     prop-types "^15.5.10"
 
-react-helmet@~3.1.0:
-  version "3.1.0"
-  resolved "http://npm.cloud.platforms.gamesys.corp:4873/react-helmet/-/react-helmet-3.1.0.tgz#63486194682f33004826f3687dc49a138b557050"
-  dependencies:
-    deep-equal "1.0.1"
-    object-assign "^4.0.1"
-    react-side-effect "1.0.2"
-    shallowequal "0.2.2"
-    warning "2.1.0"
-
 react-hot-loader@~3.0.0-beta.6:
   version "3.0.0-beta.7"
   resolved "http://npm.cloud.platforms.gamesys.corp:4873/react-hot-loader/-/react-hot-loader-3.0.0-beta.7.tgz#d5847b8165d731c4d5b30d86d5d4716227a0fa83"
