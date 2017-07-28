@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import Helmet from "react-helmet"
 
 import HeaderOne from "../components/h1/h1"
 
@@ -11,7 +10,6 @@ class BankingPage extends Component {
   render() {
     return (
       <section className="page ranking">
-        <Helmet title="Banking" />
         <HeaderOne>
           <span>Banking</span>
         </HeaderOne>

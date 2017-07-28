@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import moment from "moment"
 import { SlideRight, SlideLeft } from "animate-components"
 import HeaderOne from "../components/h1/h1"
-import Helmet from "react-helmet"
 
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
 import {
@@ -59,7 +58,6 @@ class CalendarPage extends Component {
 
     return (
       <section className="page page-calendar">
-        <Helmet title="Calendar" />
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
             <div className="box">

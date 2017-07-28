@@ -1,6 +1,5 @@
 import { connect } from "react-redux"
 import React, { Component } from "react"
-import Helmet from "react-helmet"
 
 import HeaderOne from "../components/h1/h1"
 import links from "./settings.navigation.json"
@@ -33,10 +32,7 @@ class Settings extends Component {
 
     return (
       <section className="page settings">
-        <Helmet title="Settings" />
-        <HeaderOne>
-          Settings
-        </HeaderOne>
+        <HeaderOne>Settings</HeaderOne>
         <Nav style={style} links={links} />
         <br />
         <div className={stage}>
@@ -46,10 +42,18 @@ class Settings extends Component {
         </div>
         <br />
         <div className={stage}>
-          <p>Shows: {shows.length}</p>
-          <p>Roster: {roster.length}</p>
-          <p>Championships: {championships.length}</p>
-          <p>Live Shows: {calendar.length}</p>
+          <p>
+            Shows: {shows.length}
+          </p>
+          <p>
+            Roster: {roster.length}
+          </p>
+          <p>
+            Championships: {championships.length}
+          </p>
+          <p>
+            Live Shows: {calendar.length}
+          </p>
           <p>
             Game: <code>{JSON.stringify(game)}</code>
           </p>

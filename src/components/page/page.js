@@ -8,7 +8,6 @@ import HTML5Backend from "react-dnd-html5-backend"
 import TouchBackend from "react-dnd-touch-backend"
 import MultiBackend, { TouchTransition } from "react-dnd-multi-backend"
 
-import Helmet from "../helmet"
 import Wrestlers from "../wrestlers/container"
 import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
@@ -60,7 +59,6 @@ class Page extends React.Component {
 
     return (
       <div id="page-container" className="page-container no-select">
-        <Helmet />
         <Notifications />
         <If condition={shows.length > 0}>
           <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>

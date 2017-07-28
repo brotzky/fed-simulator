@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import Helmet from "react-helmet"
 
 import { updateGame } from "../actions/game"
 import { startGame } from "../actions/game"
@@ -32,7 +31,6 @@ class NamePage extends Component {
   render() {
     return (
       <section className="page name">
-        <Helmet title="Name your federation!" />
         <HeaderOne>Name your Federation 🎈</HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div>
@@ -44,9 +42,7 @@ class NamePage extends Component {
               placeholder="WWE, NXT, ROH, GFW, TNA"
             />
           </div>
-          <button type="submit">
-            Print the merch, we got a name
-          </button>
+          <button type="submit">Print the merch, we got a name</button>
         </form>
       </section>
     )

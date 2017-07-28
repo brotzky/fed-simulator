@@ -2,7 +2,6 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { CirclePicker } from "react-color"
-import Helmet from "react-helmet"
 
 import { updateStyle } from "../actions/style"
 import { colors } from "../constants/colors"
@@ -25,7 +24,6 @@ class BrandingPage extends Component {
     const style = this.props.style
     return (
       <section className="page branding">
-        <Helmet title="Branding" />
         <h1 className="col-xs-12 skew-forward" style={style}>
           🏳️ What colours represent you {this.props.name}? 🏳️
         </h1>

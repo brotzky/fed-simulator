@@ -1,5 +1,4 @@
 import React from "react"
-import Helmet from "react-helmet"
 import { Link } from "react-router"
 
 import HeaderOne from "../components/h1/h1"
@@ -8,7 +7,6 @@ import "./stylesheets/welcome.scss"
 
 const WelcomePage = () =>
   <section className="page welcome">
-    <Helmet title="Choose your path" />
     <HeaderOne>Welcome to Fed Simulator</HeaderOne>
     <div className="row">
       <div className="col-xs-12 highlight pulse">

@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import classnames from "classnames"
-import Helmet from "react-helmet"
 
 import { updateGame } from "../actions/game"
 import defaultOptions from "../constants/size.options.json"
@@ -26,7 +25,6 @@ class SizePage extends Component {
   render() {
     return (
       <section className="page size">
-        <Helmet title="Size" />
         <HeaderOne>
           How big are you `<span className="uppercase orange">
             {acronymLongName(this.props.game.name)}`

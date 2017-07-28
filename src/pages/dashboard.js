@@ -4,7 +4,6 @@ import { SlideRight, SlideUp } from "animate-components"
 import sortBy from "lodash.sortby"
 import PropTypes from "prop-types"
 import { Link } from "react-router"
-import Helmet from "react-helmet"
 
 import Ranking from "../components/ranking/ranking"
 import HeaderOne from "../components/h1/h1"
@@ -19,16 +18,16 @@ export const DashboardPage = ({
   expensiveWrestlers,
   cheapWrestlers,
   iconColour,
-}) => (
+}) =>
   <section className="page dashboard zoom">
-    <Helmet title="Dashboard" />
     <HeaderOne>
       <i
         className="icon fa fa-binoculars"
         style={{
           color: iconColour,
         }}
-      /> Dashing dashboard
+      />{" "}
+      Dashing dashboard
     </HeaderOne>
     <div className="row">
       <div className="col-xs-6">
@@ -74,7 +73,6 @@ export const DashboardPage = ({
       </div>
     </div>
   </section>
-)
 
 DashboardPage.displayName = "DashboardPage"
 

@@ -2,7 +2,6 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { SlideRight, SlideLeft } from "animate-components"
-import Helmet from "react-helmet"
 
 import { CHAMPIONSHIP_RESET_CONFIRM } from "../constants/confirmations"
 import { ANIMATION_SPEED } from "../constants/animation"
@@ -40,12 +39,10 @@ class ChampionshipsPage extends Component {
     const { animations, } = this.props
     return (
       <section className="page championships">
-        <Helmet title="Championships" />
         <HeaderOne>
           What
           <span className="gold"> gold </span>
-          do you have?!
-          &nbsp;
+          do you have?! &nbsp;
           <GenerateRandom onClick={this._generateDefaultChampions} />
         </HeaderOne>
         <form onSubmit={this.handleSubmit}>
@@ -86,9 +83,7 @@ class ChampionshipsPage extends Component {
             </div>
           </div>
           <div>
-            <button type="submit">
-              Press that gold and move on!
-            </button>
+            <button type="submit">Press that gold and move on!</button>
           </div>
         </form>
       </section>

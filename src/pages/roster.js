@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { SlideRight, SlideLeft } from "animate-components"
-import Helmet from "react-helmet"
 
 import { updateRoster } from "../actions/roster"
 import pointsToRandomValue from "../helpers/points-to-random-value"
@@ -54,7 +53,6 @@ class RosterPage extends Component {
     const { animations, } = this.props
     return (
       <section className="page roster">
-        <Helmet title="Roster" />
         <HeaderOne className="sparkle">
           <span className="hang">🌚 Dream</span> Roster?&nbsp;
           <GenerateRandom onClick={this._generateDefaultRoster} />
@@ -119,9 +117,7 @@ class RosterPage extends Component {
             </div>
           </div>
           <div>
-            <button type="submit">
-              Update the books and get some gold
-            </button>
+            <button type="submit">Update the books and get some gold</button>
           </div>
         </form>
       </section>

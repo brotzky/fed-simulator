@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import groupBy from "lodash.groupby"
 import classnames from "classnames"
-import Helmet from "react-helmet"
 
 import { Link } from "react-router"
 import { connect } from "react-redux"
@@ -118,14 +117,12 @@ class CreateAMatch extends Component {
 
     return (
       <section className="page create-a-match">
-        <Helmet title="Create a Match" />
         <form onSubmit={this.onSimulateMatch}>
           <div className="row">
             <div className={mainClasses}>
               <div className="box">
                 <HeaderOne>
-                  Create a match
-                  &nbsp;
+                  Create a match &nbsp;
                   <i
                     className="icon fa fa-trash"
                     onClick={this.onResetMatches}
@@ -150,8 +147,8 @@ class CreateAMatch extends Component {
                 <If
                   condition={
                     numberOfWrestlers > 1 &&
-                      numberOfTeams > 2 &&
-                      !currentMatch.simulated
+                    numberOfTeams > 2 &&
+                    !currentMatch.simulated
                   }
                 >
                   <button type="submit">
@@ -190,13 +187,14 @@ class CreateAMatch extends Component {
   }
 
   getTeams(currentMatch) {
-    let teams = currentMatch &&
+    let teams =
+      currentMatch &&
       currentMatch.wrestlers &&
       currentMatch.wrestlers.length > 0
-      ? groupBy(currentMatch.wrestlers, "teamId")
-      : {
-          [getId()]: [],
-        }
+        ? groupBy(currentMatch.wrestlers, "teamId")
+        : {
+            [getId()]: [],
+          }
 
     // always add one more team
     return Object.assign({}, teams, { [getId()]: [], })

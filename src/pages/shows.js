@@ -1,7 +1,6 @@
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
-import Helmet from "react-helmet"
 
 import { SHOWS_CONFIRM_GENERATE } from "../constants/confirmations"
 import { updateShows } from "../actions/shows"
@@ -24,8 +23,9 @@ class ChampionsPage extends Component {
   }
 
   componentWillMount() {
+    const { shows, } = this.props
     const filterBySize = size =>
-      this.props.shows
+      shows
         .filter(show => show.size === size)
         .map(champion => champion.name)
         .join(", ")
@@ -40,15 +40,12 @@ class ChampionsPage extends Component {
   render() {
     return (
       <section className="page shows">
-        <Helmet title="Shows" />
         <HeaderOne>
           What
           <span className="cyan"> shows</span>
           &nbsp;do we&nbsp;
           <span className="hot-pink"> produce</span>
-          ?
-          {" "}
-          <GenerateRandom onClick={this._generateDefaultShows} />
+          ? <GenerateRandom onClick={this._generateDefaultShows} />
         </HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
@@ -90,9 +87,7 @@ class ChampionsPage extends Component {
               </div>
             </div>
             <div />
-            <button type="submit">
-              Save to disk and move on!
-            </button>
+            <button type="submit">Save to disk and move on!</button>
           </div>
         </form>
       </section>

@@ -3,7 +3,6 @@ import orderBy from "lodash/orderBy"
 import PropTypes from "prop-types"
 import React from "react"
 import { SlideRight, SlideLeft } from "animate-components"
-import Helmet from "react-helmet"
 
 import HeaderOne from "../components/h1/h1"
 import Ranking from "../components/ranking/ranking"
@@ -17,7 +16,6 @@ const COLUMNS = ["rank", "name", "points", "wins", "losses",]
 let RankingPage = ({ animations, femaleWrestlers, maleWrestlers, }) => {
   return (
     <section className="page ranking">
-      <Helmet title="Roster Ranking" />
       <HeaderOne>
         <span className="gold pop">🌟 Winners </span>
         <span>&nbsp; and &nbsp;</span>
