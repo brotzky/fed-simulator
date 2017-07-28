@@ -19,8 +19,8 @@ let defaultSettings = {
 
 let isTagMatch = true
 
-describe("randomiseWrestlers", () => {
-  it("Correctly chose female wrestlers only", () => {
+describe.skip("Given a randomiseWrestlers function", () => {
+  it("should choose female wrestlers only", () => {
     const result = randomiseWrestlers({
       wrestlers,
       settings: defaultSettings,
@@ -28,7 +28,8 @@ describe("randomiseWrestlers", () => {
     expect(result[0].male).to.equal(false)
     expect(result[1].male).to.equal(false)
   })
-  it("Correctly chose male wrestlers only", () => {
+
+  it("should choose male wrestlers only", () => {
     defaultSettings.male.weights = [1, 0,]
     const result = randomiseWrestlers({
       wrestlers,
@@ -37,14 +38,16 @@ describe("randomiseWrestlers", () => {
     expect(result[0].male).to.equal(true)
     expect(result[1].male).to.equal(true)
   })
-  it("Correctly chose 1 vs 1", () => {
+
+  it("should choose 1 vs 1", () => {
     const result = randomiseWrestlers({
       wrestlers,
       settings: defaultSettings,
     })
     expect(result.length).to.equal(2)
   })
-  it("Correctly chose a fatal fourway", () => {
+
+  it("should choose a fatal fourway", () => {
     defaultSettings.amount.weights = [0, 0, 1,]
     const total = defaultSettings.amount.weights.reduce(
       (sum, weight) => sum + weight
@@ -57,7 +60,8 @@ describe("randomiseWrestlers", () => {
     })
     expect(result.length).to.equal(4)
   })
-  it("Correctly chose a fatal fourway", () => {
+
+  it("should choose a fatal fourway", () => {
     defaultSettings.amount.weights = [0, 1, 0,]
     const total = defaultSettings.amount.weights.reduce(
       (sum, weight) => sum + weight
@@ -70,7 +74,8 @@ describe("randomiseWrestlers", () => {
     })
     expect(result.length).to.equal(3)
   })
-  it("Correctly created a 2 vs 2 tag match with 4 wrestlers", () => {
+
+  it("should create a 2 vs 2 tag match with 4 wrestlers", () => {
     defaultSettings.amount.weights = [1, 0, 0,]
     const result = randomiseWrestlers({
       wrestlers,
@@ -79,7 +84,8 @@ describe("randomiseWrestlers", () => {
     })
     expect(result.length).to.equal(4)
   })
-  it("Correctly created a 2 vs 2 tag match with team 0 with 2 wrestlers", () => {
+
+  it("should create a 2 vs 2 tag match with team 0 with 2 wrestlers", () => {
     defaultSettings.amount.weights = [1, 0, 0,]
     const result = randomiseWrestlers({
       wrestlers,
@@ -88,7 +94,8 @@ describe("randomiseWrestlers", () => {
     })
     expect(result.filter(wrestler => wrestler.teamId === 0).length).to.equal(2)
   })
-  it("Correctly created a 2 vs 2 tag match with team 1 with 2 wrestlers", () => {
+
+  it("should create a 2 vs 2 tag match with team 1 with 2 wrestlers", () => {
     defaultSettings.amount.weights = [1, 0, 0,]
     const result = randomiseWrestlers({
       wrestlers,
@@ -97,7 +104,8 @@ describe("randomiseWrestlers", () => {
     })
     expect(result.filter(wrestler => wrestler.teamId === 1).length).to.equal(2)
   })
-  it("Correctly created a 3 vs 3 vs 3 womens match match", () => {
+
+  it("should create a 3 vs 3 vs 3 womens match match", () => {
     defaultSettings.amount.weights = [0, 1, 0,]
     defaultSettings.male.weights = [0, 1,]
     defaultSettings.tag.perTeam = 3
