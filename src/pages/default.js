@@ -14,7 +14,7 @@ class DefaultPage extends Component {
       pathName = "/name"
     } else if (game.size === "") {
       pathName = "/size"
-    } else if (style.unTouched === "") {
+    } else if (style.unTouched === true) {
       pathName = "/branding"
     } else if (roster.length === 0) {
       pathName = "/roster"
