@@ -6,10 +6,9 @@ import { SlideRight, SlideLeft } from "animate-components"
 import { CHAMPIONSHIP_RESET_CONFIRM } from "../constants/confirmations"
 import { ANIMATION_SPEED } from "../constants/animation"
 
-import { updateChampions } from "../actions/champions"
+import { updateChampions, generateChampionships } from "../actions/champions"
 import GenerateRandom from "../components/generate-random"
 import Textarea from "../components/form/textarea.js"
-import constantDefaults from "../constants/defaults.json"
 import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/championships.scss"
@@ -94,9 +93,8 @@ class ChampionshipsPage extends Component {
     event.preventDefault
 
     if (confirm(CHAMPIONSHIP_RESET_CONFIRM)) {
-      this.setState({
-        ...constantDefaults.championships,
-      })
+      this.props.dispatch(generateChampionships())
+      this.redirect()
     }
   }
 
@@ -130,7 +128,11 @@ class ChampionshipsPage extends Component {
       championships = championships.concat(newChampionship)
     })
     dispatch(updateChampions(championships))
-    router.push("/default")
+    this.redirect()
+  }
+
+  redirect = () => {
+    this.props.router.push("/default")
   }
 }
 

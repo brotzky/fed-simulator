@@ -2,7 +2,9 @@ import React from "react"
 
 const GenerateRandom = ({ onClick, }) => {
   return (
-    <i className="icon fa fa-random" aria-hidden="true" onClick={onClick} />
+    <a className="cursor-pointer" onClick={onClick}>
+      Skip <i className="icon fa fa-angle-right" aria-hidden="true" />
+    </a>
   )
 }
 

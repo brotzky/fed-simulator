@@ -3,11 +3,10 @@ import PropTypes from "prop-types"
 import React, { Component } from "react"
 
 import { SHOWS_CONFIRM_GENERATE } from "../constants/confirmations"
-import { updateShows } from "../actions/shows"
+import { updateShows, generateShows } from "../actions/shows"
 import defaultShows from "../constants/shows.options.json"
 import GenerateRandom from "../components/generate-random"
 import Textarea from "../components/form/textarea.js"
-import constantDefaults from "../constants/defaults.json"
 import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/shows.scss"
@@ -125,17 +124,20 @@ class ChampionsPage extends Component {
       }
     })
     dispatch(updateShows(shows))
-    router.push("/default")
+    this.redirect()
   }
 
   _generateDefaultShows = event => {
     event.preventDefault
 
     if (confirm(SHOWS_CONFIRM_GENERATE)) {
-      this.setState({
-        ...constantDefaults.shows,
-      })
+      this.props.dispatch(generateShows())
+      this.redirect()
     }
+  }
+
+  redirect = () => {
+    this.props.router.push("/default")
   }
 }
 

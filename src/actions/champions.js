@@ -1,4 +1,4 @@
-import * as types from './types'
+import * as types from "./types"
 
 export function updateChampions(payload) {
   return {
@@ -6,6 +6,13 @@ export function updateChampions(payload) {
     payload,
   }
 }
+
+export function generateChampionships() {
+  return {
+    type: types.GENERATE_CHAMPIONSHIPS,
+  }
+}
+
 export function reset() {
   return {
     type: types.RESET,

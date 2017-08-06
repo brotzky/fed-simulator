@@ -7,6 +7,12 @@ export function updateWrestler(payload) {
   }
 }
 
+export function generateRoster() {
+  return {
+    type: types.GENERATE_ROSTER,
+  }
+}
+
 export function removeWrestler(id) {
   return {
     type: types.REMOVE_WRESTLER,

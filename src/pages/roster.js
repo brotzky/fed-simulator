@@ -3,8 +3,7 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { SlideRight, SlideLeft } from "animate-components"
 
-import { updateRoster } from "../actions/roster"
-import pointsToRandomValue from "../helpers/points-to-random-value"
+import { updateRoster, generateRoster } from "../actions/roster"
 import Textarea from "../components/form/textarea.js"
 import GenerateRandom from "../components/generate-random"
 import { ROSTER_CONFIRM_RESET } from "../constants/confirmations"
@@ -137,14 +136,20 @@ class RosterPage extends Component {
     const { dispatch, router, } = this.props
 
     dispatch(updateRoster(wrestlers))
-    router.push("/default")
+    this.redirect()
   }
 
   _generateDefaultRoster = event => {
     event.preventDefault
 
     if (confirm(ROSTER_CONFIRM_RESET)) {
+      this.props.dispatch(generateRoster())
+      this.redirect()
     }
+  }
+
+  redirect = () => {
+    this.props.router.push("/default")
   }
 }
 

@@ -1,4 +1,4 @@
-import * as types from './types'
+import * as types from "./types"
 
 export function updateShows(payload) {
   return {
@@ -6,6 +6,13 @@ export function updateShows(payload) {
     payload,
   }
 }
+
+export function generateShows() {
+  return {
+    type: types.GENERATE_SHOWS,
+  }
+}
+
 export function reset() {
   return {
     type: types.RESET,
