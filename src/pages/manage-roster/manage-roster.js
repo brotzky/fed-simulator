@@ -11,7 +11,7 @@ import "./manage-roster.scss"
 const NOOP = () => {}
 
 const UpdateWrestlersPage = ({
-  showWrestlersFilters = false,
+  showWrestlersFilters = true,
   currentWrestler = null,
   onWrestlerPointsUpdated = NOOP,
   onWrestlersNameUpdated = NOOP,
