@@ -32,18 +32,21 @@ class CalendarPage extends Component {
   }
 
   componentWillMount() {
-    if (this.props.calendar.length === 0) {
-      const { currentMonth: month, currentYear: year, } = this.props.game
+    const { calendar, game, dispatch, } = this.props
+    if (calendar.length === 0) {
+      const { currentMonth: month, currentYear: year, } = game
 
-      this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
+      dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.calendar.length === 0) {
-      const { currentMonth: month, currentYear: year, } = nextProps.game
+    const { calendar, game, dispatch, } = nextProps
 
-      this.props.dispatch(generateLiveShowsForMonth({ month, year, }))
+    if (calendar.length === 0) {
+      const { currentMonth: month, currentYear: year, } = game
+
+      dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
 
@@ -52,9 +55,8 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const { game, } = this.props
-    const animations = game.animations
-    const title = moment(game.date).format(MONTH_YEAR_FORMAT)
+    const { animations, date, canPlan, } = this.props.game
+    const title = moment(date).format(MONTH_YEAR_FORMAT)
 
     return (
       <section className="page page-calendar">
@@ -83,7 +85,7 @@ class CalendarPage extends Component {
                 </HeaderOne>
                 <Accounting />
                 <Choose>
-                  <When condition={game.canPlan}>
+                  <When condition={canPlan}>
                     <Button
                       value="Simulate liveshows"
                       onClick={this.onSimulateMonth}

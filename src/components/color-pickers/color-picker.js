@@ -1,5 +1,5 @@
 import React from "react"
-import { CompactPicker as Picker } from "react-color"
+import { GithubPicker as Picker } from "react-color"
 import PropTypes from "prop-types"
 
 import { colors } from "../../constants/colors"
@@ -37,7 +37,7 @@ class ColorPicker extends React.Component {
         {this.state.displayColorPicker
           ? <div className="popover" onClick={this.handleClose}>
               <div className="cover" />
-              <Picker color={colors} width="220px" onChange={this.onChange} />
+              <Picker colors={colors} width="220px" onChange={this.onChange} />
             </div>
           : null}
       </div>
