@@ -56,6 +56,7 @@ class Container extends Component {
 
     return (
       <div className="calendar">
+        <p>Drag and drop shows onto Calendar dates</p>
         {Object.keys(groupedBoxes).map(size => {
           return (
             <div key={`calendar-show-${size}`} className="row">
