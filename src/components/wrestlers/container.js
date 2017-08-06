@@ -13,71 +13,7 @@ import Wrestler from "./wrestler"
 import "./wrestlers.scss"
 
 class WrestlersContainer extends Component {
-  state = { nameSearch: "", showFemalesOnly: false, sortByPoints: false, }
-
-  onFilterByName = event => {
-    const newState = Object.assign({}, this.state, {
-      nameSearch: event.target.value,
-    })
-
-    this.setState({ ...newState, })
-  }
-
-  onToggleWomenWrestlers = event => {
-    event.preventDefault()
-
-    const newState = Object.assign({}, this.state, {
-      showFemalesOnly: !this.state.showFemalesOnly,
-    })
-
-    this.setState({ ...newState, })
-  }
-
-  onSortByPoints = event => {
-    event.preventDefault()
-
-    const newState = Object.assign({}, this.state, {
-      sortByPoints: !this.state.sortByPoints,
-    })
-
-    this.setState({ ...newState, })
-  }
-
-  componentWillMount() {
-    this.roster = Object.assign([], this.props.roster)
-  }
-
-  getRoster = roster => {
-    let newRoster = Object.assign([], roster)
-
-    if (this.state.nameSearch.length > 1) {
-      newRoster = newRoster.filter(wrestler => {
-        return (
-          wrestler.name
-            .toLowerCase()
-            .indexOf(this.state.nameSearch.toLowerCase()) > -1
-        )
-      })
-    }
-
-    if (this.state.sortByPoints === true) {
-      newRoster = sortBy(newRoster, "points").reverse()
-    } else {
-      newRoster = sortBy(newRoster, "name")
-    }
-
-    if (this.state.showFemalesOnly === true) {
-      newRoster = newRoster.filter(wrestler => !wrestler.male)
-    }
-
-    return newRoster
-  }
-
-  onEscape = () => {
-    this.setState({
-      nameSearch: "",
-    })
-  }
+  state = { nameSearch: "", showFemalesOnly: false, sortByPoints: true, }
 
   render() {
     const { showFemalesOnly, sortByPoints, nameSearch, } = this.state
@@ -143,6 +79,66 @@ class WrestlersContainer extends Component {
         </div>
       </div>
     )
+  }
+
+  onFilterByName = event => {
+    const newState = Object.assign({}, this.state, {
+      nameSearch: event.target.value,
+    })
+
+    this.setState({ ...newState, })
+  }
+
+  onToggleWomenWrestlers = event => {
+    event.preventDefault()
+
+    const newState = Object.assign({}, this.state, {
+      showFemalesOnly: !this.state.showFemalesOnly,
+    })
+
+    this.setState({ ...newState, })
+  }
+
+  onSortByPoints = event => {
+    event.preventDefault()
+
+    const newState = Object.assign({}, this.state, {
+      sortByPoints: !this.state.sortByPoints,
+    })
+
+    this.setState({ ...newState, })
+  }
+
+  getRoster = roster => {
+    let newRoster = Object.assign([], roster)
+
+    if (this.state.nameSearch.length > 1) {
+      newRoster = newRoster.filter(wrestler => {
+        return (
+          wrestler.name
+            .toLowerCase()
+            .indexOf(this.state.nameSearch.toLowerCase()) > -1
+        )
+      })
+    }
+
+    if (this.state.sortByPoints === true) {
+      newRoster = sortBy(newRoster, "points").reverse()
+    } else {
+      newRoster = sortBy(newRoster, "name")
+    }
+
+    if (this.state.showFemalesOnly === true) {
+      newRoster = newRoster.filter(wrestler => !wrestler.male)
+    }
+
+    return newRoster
+  }
+
+  onEscape = () => {
+    this.setState({
+      nameSearch: "",
+    })
   }
 }
 
