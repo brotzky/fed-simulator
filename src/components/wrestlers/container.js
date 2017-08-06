@@ -47,30 +47,30 @@ class WrestlersContainer extends Component {
     this.roster = Object.assign([], this.props.roster)
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    let newRoster = Object.assign([], this.props.roster)
+  getRoster = roster => {
+    let newRoster = Object.assign([], roster)
 
-    if (nextState.nameSearch.length > 1) {
+    if (this.state.nameSearch.length > 1) {
       newRoster = newRoster.filter(wrestler => {
         return (
           wrestler.name
             .toLowerCase()
-            .indexOf(nextState.nameSearch.toLowerCase()) > -1
+            .indexOf(this.state.nameSearch.toLowerCase()) > -1
         )
       })
     }
 
-    if (nextState.sortByPoints === true) {
+    if (this.state.sortByPoints === true) {
       newRoster = sortBy(newRoster, "points").reverse()
     } else {
       newRoster = sortBy(newRoster, "name")
     }
 
-    if (nextState.showFemalesOnly === true) {
+    if (this.state.showFemalesOnly === true) {
       newRoster = newRoster.filter(wrestler => !wrestler.male)
     }
 
-    this.roster = newRoster
+    return newRoster
   }
 
   onEscape = () => {
@@ -124,7 +124,7 @@ class WrestlersContainer extends Component {
           <div className="col-xs-12">
             <div className="box box-container">
               <div className="row">
-                {this.roster.map(wrestler => {
+                {this.getRoster(this.props.roster).map(wrestler => {
                   return (
                     <div
                       key={wrestler.id}
