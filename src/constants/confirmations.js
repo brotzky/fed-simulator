@@ -16,3 +16,6 @@ export const SHOWS_CONFIRM_GENERATE =
 
 export const ROSTER_CONFIRM_RESET =
   "Are you sure you want to reset all wrestlers and generate random replacements?"
+
+export const WRESTLER_CONFIRM_DELETE =
+  "Are you sure you want to delete this wrestler?"

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
+import { WRESTLER_CONFIRM_DELETE } from "../../constants/confirmations"
 import { updateWrestler, removeWrestler } from "../../actions/roster"
 import ManageRoster from "./manage-roster"
 
@@ -27,13 +28,15 @@ class ManageRosterContainer extends Component {
   }
 
   onWrestlerDelete = () => {
-    const { id, } = this.state
-    const { dispatch, } = this.props
+    if (confirm(WRESTLER_CONFIRM_DELETE)) {
+      const { id, } = this.state
+      const { dispatch, } = this.props
 
-    this.setState({
-      id: false,
-    })
-    dispatch(removeWrestler(id))
+      this.setState({
+        id: false,
+      })
+      dispatch(removeWrestler(id))
+    }
   }
 
   onWrestlerClick = id => {

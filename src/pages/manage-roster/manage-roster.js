@@ -58,21 +58,22 @@ const UpdateWrestlersPage = ({
                         value={currentWrestler.points}
                       />
                     </td>
+                    <td>
+                      <Image
+                        name="image"
+                        value={currentWrestler.image}
+                        onChange={onImageUpdated}
+                      />
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div className="box center-xs">
-              <Image
-                name="image"
-                value={currentWrestler.image}
-                onChange={onImageUpdated}
-              />
-            </div>
             <br />
             <div className="box center-xs">
               <button onClick={onWrestlerDelete}>
-                Click here to delete this wrestler
+                <i className="icon fa fa-trash" /> Click here to delete this
+                wrestler
               </button>
             </div>
           </div>
