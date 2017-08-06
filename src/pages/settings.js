@@ -1,5 +1,6 @@
-import { connect } from "react-redux"
 import React, { Component } from "react"
+import { connect } from "react-redux"
+import PropTypes from "prop-types"
 
 import HeaderOne from "../components/h1/h1"
 import links from "./settings.navigation.json"
@@ -22,7 +23,7 @@ class Settings extends Component {
       this.setState({
         stage: "start",
       })
-      location.reload()
+      this.props.router.push("/default")
     }, 3000)
   }
 
@@ -61,6 +62,10 @@ class Settings extends Component {
       </section>
     )
   }
+}
+
+Settings.contextTypes = {
+  router: PropTypes.object.isRequired,
 }
 
 export default connect(state => ({
