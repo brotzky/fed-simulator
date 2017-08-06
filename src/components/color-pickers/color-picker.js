@@ -2,10 +2,9 @@ import React from "react"
 import { CompactPicker as Picker } from "react-color"
 import PropTypes from "prop-types"
 
+import { colors } from "../../constants/colors"
+
 const noop = () => {}
-const colors = [
-  ["#B80000", "#BEDADC", "#C4DEF6", "#BED3F3", "#D4C4FB", "#000000", "#FFFFFF",],
-]
 
 class ColorPicker extends React.Component {
   state = {
