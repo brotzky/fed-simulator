@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
+import { reset } from "../actions/game"
 import HeaderOne from "../components/h1/h1"
 import links from "./settings.navigation.json"
 import Nav from "../components/nav/nav"
@@ -18,6 +19,7 @@ class Settings extends Component {
     })
 
     localStorage.clear()
+    this.props.dispatch(reset())
 
     setTimeout(() => {
       this.setState({

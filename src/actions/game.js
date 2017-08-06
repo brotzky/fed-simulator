@@ -35,6 +35,13 @@ export function addOneMonth() {
     type: types.ADD_ONE_MONTH,
   }
 }
+
+export function reset() {
+  return {
+    type: types.RESET,
+  }
+}
+
 export function resetGame() {
   return {
     type: types.RESET_GAME,
