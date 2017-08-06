@@ -32,10 +32,10 @@ export default class Box extends Component {
   }
 
   render() {
-    const { connectDragSource, } = this.props
+    const { connectDragSource, classes, } = this.props
 
     return connectDragSource(
-      <div className="boxes">
+      <div className={`${classes} boxes`}>
         {this.props.children}
       </div>
     )
