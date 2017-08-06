@@ -15,6 +15,7 @@ export default (state = defaultState, action) => {
       break
     case "GENERATE_FEDERATION":
     case "GENERATE_SHOWS":
+      state = defaultState
       defaults.shows.forEach(item => {
         let newItem = item.list
           .split(",")

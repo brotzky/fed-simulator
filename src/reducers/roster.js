@@ -16,6 +16,7 @@ export default (state = defaultState, action) => {
       break
     case "GENERATE_FEDERATION":
     case "GENERATE_ROSTER":
+      state = defaultState
       defaults.roster.forEach(item => {
         let newItem = item.list
           .split(",")

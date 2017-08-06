@@ -19,6 +19,7 @@ export default (state = defaultState, action) => {
       break
     case "GENERATE_FEDERATION":
     case "GENERATE_CHAMPIONSHIPS":
+      state = defaultState
       defaults.championships.forEach(item => {
         let newItem = item.list
           .split(",")
