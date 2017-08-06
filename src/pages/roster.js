@@ -8,7 +8,6 @@ import pointsToRandomValue from "../helpers/points-to-random-value"
 import Textarea from "../components/form/textarea.js"
 import GenerateRandom from "../components/generate-random"
 import { ROSTER_CONFIRM_RESET } from "../constants/confirmations"
-import constantDefaults from "../constants/defaults.json"
 import HeaderOne from "../components/h1/h1"
 
 import { ANIMATION_SPEED } from "../constants/animation"
@@ -137,28 +136,6 @@ class RosterPage extends Component {
 
     const { dispatch, router, } = this.props
 
-    Object.keys(this.state).forEach(stateKey => {
-      const stateSplit = stateKey.split("-")
-      const male = stateSplit[0] === "male"
-      const rawPoints = stateSplit[1]
-
-      let newWrestlers = this.state[stateKey]
-        .split(",")
-        .filter(name => name.length > 2)
-        .filter(String)
-        .map(name => {
-          const points = pointsToRandomValue(rawPoints)
-          const cost = points * 150
-          return {
-            name,
-            male,
-            points,
-            cost,
-          }
-        })
-
-      wrestlers = wrestlers.concat(newWrestlers)
-    })
     dispatch(updateRoster(wrestlers))
     router.push("/default")
   }
@@ -167,9 +144,6 @@ class RosterPage extends Component {
     event.preventDefault
 
     if (confirm(ROSTER_CONFIRM_RESET)) {
-      this.setState({
-        ...constantDefaults.roster,
-      })
     }
   }
 }

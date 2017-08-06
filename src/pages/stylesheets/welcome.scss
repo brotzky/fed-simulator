@@ -11,8 +11,10 @@ $welcome-bg-color: gold;
     font-weight: $welcome-font-weight;
     padding: 1rem;
 
-    a {
+    .box a,
+    .box {
       color: $welcome-color;
+      cursor: pointer;
       text-decoration: none;
     }
   }

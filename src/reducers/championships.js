@@ -1,7 +1,7 @@
-const defaultState = []
 import Model from "./championship.model"
 import defaults from "../constants/defaults.json"
-import { getRandomArbitrary } from "../helpers/points"
+
+const defaultState = []
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
