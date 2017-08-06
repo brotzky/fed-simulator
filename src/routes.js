@@ -31,7 +31,7 @@ export default () => {
       <Route path="welcome">
         <IndexRoute
           getComponent={(location, cb) => {
-            System.import("./pages/welcome")
+            System.import("./pages/welcome/container")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}
