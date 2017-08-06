@@ -1,4 +1,6 @@
 import Model from "./wrestler.model"
+import defaults from "../constants/defaults.json"
+import { getRandomArbitrary } from "../helpers/points"
 
 const defaultState = []
 
@@ -11,6 +13,28 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case "RESET":
       state = defaultState
+      break
+    case "GENERATE_FEDERATION":
+    case "GENERATE_ROSTER":
+      defaults.roster.forEach(item => {
+        let newItem = item.list
+          .split(",")
+          .filter(name => name.length > 2)
+          .filter(String)
+          .map(name => {
+            const points = getRandomArbitrary(item.min, item.max)
+            const cost = points * 150
+
+            return {
+              name,
+              male: item.male,
+              points,
+              cost,
+            }
+          })
+
+        state = state.concat(newItem)
+      })
       break
     case "UPDATE_ROSTER":
       state = action.payload

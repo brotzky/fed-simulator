@@ -1,5 +1,7 @@
 const defaultState = []
 import Model from "./championship.model"
+import defaults from "../constants/defaults.json"
+import { getRandomArbitrary } from "../helpers/points"
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
@@ -13,6 +15,23 @@ export default (state = defaultState, action) => {
       state.map(item => {
         item.name = item.name.trim()
         return item
+      })
+      break
+    case "GENERATE_FEDERATION":
+    case "GENERATE_CHAMPIONSHIPS":
+      defaults.championships.forEach(item => {
+        let newItem = item.list
+          .split(",")
+          .filter(name => name.length > 2)
+          .filter(String)
+          .map(name => {
+            return {
+              name: name.trim(),
+              male: item.male,
+            }
+          })
+
+        state = state.concat(newItem)
       })
       break
     default:

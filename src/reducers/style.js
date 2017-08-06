@@ -10,13 +10,15 @@ export default (state = defaultState, action) => {
     case "RESET":
       state = defaultState
       break
+    case "GENERATE_FEDERATION":
+      state.unTouched = false
+      break
     case "UPDATE_STYLE":
       state = new Model(action.payload).toJSON()
 
       if (state.color === state.backgroundColor) {
         state.color = chromatism.complementary(state.backgroundColor).hex
       }
-
       state.unTouched = false
       break
     default:

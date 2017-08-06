@@ -1,5 +1,11 @@
 import * as types from "./types"
 
+export function generateFederation() {
+  return {
+    type: types.GENERATE_FEDERATION,
+  }
+}
+
 export function togglePlan() {
   return {
     type: types.TOGGLE_PLAN,
