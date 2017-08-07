@@ -12,7 +12,7 @@ export default class Ranking extends Component {
   }
 
   static defaultProps = {
-    amountToShow: 10,
+    amountToShow: 20,
     rows: [],
     columns: [],
   }
@@ -22,12 +22,18 @@ export default class Ranking extends Component {
   render() {
     return (
       <div className="ranking">
-        <h2>{this.props.title}</h2>
+        <h2>
+          {this.props.title}
+        </h2>
         <table className="ranking__table table table-striped">
           <thead>
             <tr>
               {this.props.columns.map((column, key) => {
-                return <td className={column} key={key}>{column}</td>
+                return (
+                  <td className={column} key={key}>
+                    {column}
+                  </td>
+                )
               })}
             </tr>
           </thead>
