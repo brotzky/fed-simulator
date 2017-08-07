@@ -1,8 +1,7 @@
 import React from "react"
-import { Sticky } from "react-sticky"
 import { connect } from "react-redux"
 
-import { simulateRandomMatch } from "../actions/roster"
+import { simulateRandomMatch } from "../../actions/roster"
 
 const amountOfSims = [1, 10, 100, 1000,]
 
@@ -23,37 +22,28 @@ class PageSecondary extends React.Component {
 
   render() {
     return (
-      <Sticky>
-        <div className="navigation navigation--secondary">
-          <ul className="navigation__list">
-            <li key={key} className="navigation__item">
-              <Icon name={brand.name} /> &nbsp;
-              {amountOfSims.map((amount, key) => {
-                return (
-                  <span key={key}>
-                    <a
-                      onKeyPress={() =>
-                        onSimulateBrandMatches({
-                          amount,
-                        })}
-                      onKeyPress={() =>
-                        onSimulateBrandMatches({
-                          amount,
-                        })}
-                    >
-                      {amount}
-                    </a>, &nbsp;
-                  </span>
-                )
-              })}
-            </li>
-          </ul>
-        </div>
-      </Sticky>
+      <nav className="navigation navigation--secondary">
+        {amountOfSims.map((amount, key) => {
+          return (
+            <span key={key}>
+              <a
+                onKeyPress={() =>
+                  this.onSimulateBrandMatches({
+                    amount,
+                  })}
+                onClick={() =>
+                  this.onSimulateBrandMatches({
+                    amount,
+                  })}
+              >
+                {amount}
+              </a>, &nbsp;
+            </span>
+          )
+        })}
+      </nav>
     )
   }
 }
 
-export default connect(state => ({
-  roster: state.roster,
-}))(PageSecondary)
+export default connect()(PageSecondary)

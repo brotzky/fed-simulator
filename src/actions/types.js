@@ -14,6 +14,8 @@ export const START_CALENDAR_MONTH = "START_CALENDAR_MONTH"
 export const ADD_ONE_MONTH = "ADD_ONE_MONTH"
 export const TOGGLE_PLAN = "TOGGLE_PLAN"
 
+export const SIMULATE_RANDOM_MATCH = "SIMULATE_RANDOM_MATCH"
+
 // game
 export const START_GAME = "START_GAME"
 

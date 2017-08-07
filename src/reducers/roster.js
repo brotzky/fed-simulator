@@ -8,7 +8,7 @@ const POINT_CHANGE_PER_MATCH = 1
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
-  let wrestlerIndex
+  let wrestlerIndex, winnerIndex, loserIndex
 
   switch (action.type) {
     case "RESET":
@@ -66,11 +66,24 @@ export default (state = defaultState, action) => {
         )
       }
       break
+    case "SIMULATE_RANDOM_MATCH":
+      winnerIndex = getRandomArbitrary(1, state.length)
+      loserIndex = getRandomArbitrary(1, state.length)
+
+      if (state[winnerIndex] && state[loserIndex]) {
+        console.log(loserIndex, winnerIndex)
+        state[winnerIndex].points += 1
+        state[loserIndex].points -= 1
+
+        state[winnerIndex].wins += 1
+        state[loserIndex].losses += 1
+      }
+      break
     case "CONFIRM_SIMULATED_MATCH":
       const { winner, loser, } = action.payload
 
-      const winnerIndex = state.findIndex(wrestler => wrestler.id === winner.id)
-      const loserIndex = state.findIndex(wrestler => wrestler.id === loser.id)
+      winnerIndex = state.findIndex(wrestler => wrestler.id === winner.id)
+      loserIndex = state.findIndex(wrestler => wrestler.id === loser.id)
 
       if (winnerIndex) {
         state[winnerIndex].points += POINT_CHANGE_PER_MATCH

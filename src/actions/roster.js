@@ -7,6 +7,12 @@ export function updateWrestler(payload) {
   }
 }
 
+export function simulateRandomMatch() {
+  return {
+    type: types.SIMULATE_RANDOM_MATCH,
+  }
+}
+
 export function generateRoster() {
   return {
     type: types.GENERATE_ROSTER,
