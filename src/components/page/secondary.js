@@ -3,45 +3,44 @@ import { connect } from "react-redux"
 
 import { simulateRandomMatch } from "../../actions/roster"
 
-const amountOfSims = [1, 10, 100, 1000,]
+const TIME_PER_SIMULATED_MATCH = 100
 
 class PageSecondary extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
-    roster: React.PropTypes.array.isRequired,
   }
 
   displayName = "PageSecondary"
 
-  onSimulateBrandMatches = ({ amount, }) => {
-    while (amount > 0) {
+  state = {
+    active: false,
+  }
+
+  onToggleSimulation = () => {
+    this.setState({
+      active: !this.state.active,
+    })
+  }
+
+  onSimulateMatches = () => {
+    this.looper = setInterval(() => {
       this.props.dispatch(simulateRandomMatch())
-      amount--
+    }, TIME_PER_SIMULATED_MATCH)
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.active === false) {
+      clearInterval(this.looper)
+    } else {
+      this.onSimulateMatches()
     }
   }
 
   render() {
     return (
-      <nav className="navigation navigation--secondary">
-        {amountOfSims.map((amount, key) => {
-          return (
-            <span key={key}>
-              <a
-                onKeyPress={() =>
-                  this.onSimulateBrandMatches({
-                    amount,
-                  })}
-                onClick={() =>
-                  this.onSimulateBrandMatches({
-                    amount,
-                  })}
-              >
-                {amount}
-              </a>, &nbsp;
-            </span>
-          )
-        })}
-      </nav>
+      <span className="cursor-pointer" onClick={this.onToggleSimulation}>
+        {this.state.active ? "Stop Simulating" : "Simulate"} Matches
+      </span>
     )
   }
 }
