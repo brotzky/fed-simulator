@@ -45,7 +45,15 @@ class Simulator extends React.Component {
   render() {
     return (
       <span className="cursor-pointer" onClick={this.onToggleSimulation}>
-        {this.state.active ? "Stop Simulating" : "Simulate"} Matches
+        <Choose>
+          <When condition={!this.state.active}>
+            <i className="icon fa fa-play-circle" />
+          </When>
+          <Otherwise>
+            <i className="icon red fa fa-stop-circle" />
+          </Otherwise>
+        </Choose>{" "}
+        Auto Sim Matches
       </span>
     )
   }
