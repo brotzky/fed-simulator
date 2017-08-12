@@ -8,9 +8,17 @@ import Cash from "../cash/container"
 import ColorPickers from "../color-pickers/color-pickers"
 import Burger from "../burger/container"
 
+const NOOP = () => {}
+
 import "./nav.scss"
 
-const Nav = ({ backgroundColor = "black", color = "white", links = [], }) => {
+const Nav = ({
+  backgroundColor = "black",
+  color = "white",
+  links = [],
+  name = "",
+  onClickBurger = NOOP,
+}) => {
   const style = { backgroundColor, color, }
   return (
     <nav style={style} className="nav">
@@ -21,7 +29,12 @@ const Nav = ({ backgroundColor = "black", color = "white", links = [], }) => {
             <li key={key} className={`nav__item nav--${item.url}`}>
               <Choose>
                 <When condition={item.title === "Burger"}>
-                  <Burger />
+                  <i
+                    className="icon fa fa-bars"
+                    aria-hidden="true"
+                    onClick={onClickBurger}
+                  />{" "}
+                  {name}
                 </When>
                 <When condition={item.title === "Branding"}>
                   <ColorPickers />
@@ -54,11 +67,18 @@ const Nav = ({ backgroundColor = "black", color = "white", links = [], }) => {
 Nav.propTypes = {
   backgroundColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  onClickBurger: PropTypes.func,
+  name: PropTypes.string.isRequired,
   links: PropTypes.array,
+}
+
+Nav.defaultProps = {
+  onClickBurger: NOOP,
 }
 
 export default connect(state => ({
   game: state.game,
+  name: state.name,
   color: state.style.color,
   backgroundColor: state.style.backgroundColor,
 }))(Nav)
