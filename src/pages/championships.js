@@ -10,6 +10,7 @@ import { updateChampions, generateChampionships } from "../actions/champions"
 import GenerateRandom from "../components/generate-random"
 import Textarea from "../components/form/textarea.js"
 import HeaderOne from "../components/h1/h1"
+import Button from "../components/button/button"
 
 import "./stylesheets/championships.scss"
 
@@ -81,7 +82,11 @@ class ChampionshipsPage extends Component {
             </div>
           </div>
           <div>
-            <button type="submit">Press that gold and move on!</button>
+            <Button
+              onClick={this.handleSubmit}
+              type="submit"
+              value="Press that gold and move on!"
+            />
           </div>
         </form>
       </section>
