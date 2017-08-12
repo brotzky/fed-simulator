@@ -21,11 +21,11 @@ class BrandingPage extends Component {
   }
 
   render() {
-    const style = this.props.style
+    const { style, name, } = this.props
     return (
       <section className="page branding">
         <h1 className="col-xs-12 skew-forward" style={style}>
-          🏳️ What colours represent you {this.props.name}? 🏳️
+          🏳️ What colours represent you {name}? 🏳️
         </h1>
         <div className="row colours">
           <div className="col-xs-6 col-lg-6 center-xs middle-xs">
