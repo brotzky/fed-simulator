@@ -44,6 +44,7 @@ class ChampionshipsPage extends Component {
           do you have?! &nbsp;
           <GenerateRandom onClick={this._generateDefaultChampions} />
         </HeaderOne>
+        <br />
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12 col-lg-6">
@@ -52,7 +53,6 @@ class ChampionshipsPage extends Component {
                 duration={ANIMATION_SPEED}
               >
                 <div className="box male">
-                  <i className="icon fa fa-mars" />
                   <Textarea
                     value={this.state.male}
                     name="male"
@@ -69,7 +69,6 @@ class ChampionshipsPage extends Component {
                 duration={ANIMATION_SPEED}
               >
                 <div className="box female">
-                  <i className="icon fa fa-venus" />
                   <Textarea
                     value={this.state.female}
                     name="female"
