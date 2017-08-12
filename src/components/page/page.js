@@ -1,4 +1,3 @@
-const page = require("./page")
 import React from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
@@ -13,7 +12,6 @@ import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
 import Nav from "../nav/nav"
 import headerLinks from "./header-links.json"
-import Secondary from "./secondary"
 
 import { ANIMATION_SPEED } from "../../constants/animation"
 
@@ -67,9 +65,6 @@ class Page extends React.Component {
           </SlideDown>
         </If>
         <main className={classnames}>
-          <If condition={pathname.startsWith("/ranking")}>
-            <Secondary />
-          </If>
           <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
             {children}
           </FadeIn>

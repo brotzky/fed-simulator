@@ -12,7 +12,7 @@ export default class Ranking extends Component {
   }
 
   static defaultProps = {
-    amountToShow: 20,
+    amountToShow: 100,
     rows: [],
     columns: [],
   }

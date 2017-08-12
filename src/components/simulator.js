@@ -1,11 +1,11 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { simulateRandomMatch } from "../../actions/roster"
+import { simulateRandomMatch } from "../actions/roster"
 
-const TIME_PER_SIMULATED_MATCH = 100
+const TIME_PER_SIMULATED_MATCH = 50
 
-class PageSecondary extends React.Component {
+class Simulator extends React.Component {
   static propTypes = {
     dispatch: React.PropTypes.func.isRequired,
   }
@@ -15,6 +15,8 @@ class PageSecondary extends React.Component {
   state = {
     active: false,
   }
+
+  looper = () => {}
 
   onToggleSimulation = () => {
     this.setState({
@@ -36,6 +38,10 @@ class PageSecondary extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    clearInterval(this.looper)
+  }
+
   render() {
     return (
       <span className="cursor-pointer" onClick={this.onToggleSimulation}>
@@ -45,4 +51,4 @@ class PageSecondary extends React.Component {
   }
 }
 
-export default connect()(PageSecondary)
+export default connect()(Simulator)

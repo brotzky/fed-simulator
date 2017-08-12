@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import React from "react"
 import { SlideRight, SlideLeft } from "animate-components"
 
+import Simulator from "../components/simulator"
 import HeaderOne from "../components/h1/h1"
 import Ranking from "../components/ranking/ranking"
 
@@ -21,6 +22,15 @@ let RankingPage = ({ animations, femaleWrestlers, maleWrestlers, }) => {
         <span>&nbsp; and &nbsp;</span>
         <span className="gray push"> 🗑 Losers</span>
       </HeaderOne>
+      <div className="row">
+        <div className="col-xs-12">
+          <div className="box">
+            <button>
+              <Simulator />
+            </button>
+          </div>
+        </div>
+      </div>
       <div className="row top-xs">
         <div className="col-xs-12 col-sm-12 col-md 6 col-lg-6">
           <div className="box">
