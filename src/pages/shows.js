@@ -6,7 +6,8 @@ import { SHOWS_CONFIRM_GENERATE } from "../constants/confirmations"
 import { updateShows, generateShows } from "../actions/shows"
 import defaultShows from "../constants/shows.options.json"
 import GenerateRandom from "../components/generate-random"
-import Textarea from "../components/form/textarea.js"
+import Textarea from "../components/form/textarea"
+import Button from "../components/button/button"
 import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/shows.scss"
@@ -87,7 +88,11 @@ class ChampionsPage extends Component {
               </div>
             </div>
             <div />
-            <button type="submit">Save to disk and move on!</button>
+            <Button
+              onClick={this.handleSubmit}
+              type="submit"
+              value="Save to disk and move on!"
+            />
           </div>
         </form>
       </section>
