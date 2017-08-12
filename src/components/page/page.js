@@ -76,14 +76,19 @@ class Page extends React.Component {
               links={headerLinks}
               style={style}
             />
-            <If condition={this.state.openNavBar}>
+          </SlideDown>
+          <If condition={this.state.openNavBar}>
+            <SlideDown
+              iterations={Number(animations)}
+              duration={ANIMATION_SPEED}
+            >
               <Nav
                 onClickBurger={this.onToggle}
                 links={burgerLinks}
                 style={style}
               />
-            </If>
-          </SlideDown>
+            </SlideDown>
+          </If>
         </If>
         <main className={classnames}>
           <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
