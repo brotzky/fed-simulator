@@ -53,12 +53,14 @@ class Container extends Component {
     const { boxes, dustbins, } = this.state
     const { game, style, } = this.props
     const groupedBoxes = groupBy(boxes, "size")
+    const lockClass = !game.canPlan ? "lock" : "unlock"
 
     return (
       <div className="calendar">
-        <If condition={game.canPlan}>
-          <p>Drag and drop shows onto Calendar dates</p>
-        </If>
+        <p>
+          <i className={`icon fa fa-${lockClass}`} /> Drag and drop shows onto
+          Calendar dates
+        </p>
         {Object.keys(groupedBoxes).map(size => {
           return (
             <div key={`calendar-show-${size}`} className="row">
