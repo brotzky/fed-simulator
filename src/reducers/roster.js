@@ -71,7 +71,6 @@ export default (state = defaultState, action) => {
       loserIndex = getRandomArbitrary(1, state.length)
 
       if (state[winnerIndex] && state[loserIndex]) {
-        console.log(loserIndex, winnerIndex)
         state[winnerIndex].points += 1
         state[loserIndex].points -= 1
 
