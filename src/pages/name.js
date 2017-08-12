@@ -11,21 +11,13 @@ import HeaderOne from "../components/h1/h1"
 import "./stylesheets/name.scss"
 
 class NamePage extends Component {
-  state = {
-    game: {
-      name: "",
-    },
-  }
+  constructor(props) {
+    super(props)
 
-  componentDidMount() {
-    const { game: { name, }, } = this.props
+    const { name, } = props
 
-    if (name !== "") {
-      this.setState({
-        game: {
-          name: name,
-        },
-      })
+    this.state = {
+      name,
     }
   }
 
@@ -36,7 +28,7 @@ class NamePage extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <Input
-              value={this.state.game.name}
+              value={this.state.name}
               name="name"
               onChange={this.handleChange}
               label=""
@@ -45,7 +37,7 @@ class NamePage extends Component {
           </div>
           <Button
             value="Print the merch, we got a name"
-            onClick
+            onClick={this.handleSubmit}
             type="submit"
           />
         </form>
@@ -55,17 +47,16 @@ class NamePage extends Component {
 
   handleChange = event => {
     this.setState({
-      game: {
-        name: String(event.target.value),
-      },
+      name: String(event.target.value),
     })
   }
 
   handleSubmit = event => {
     event.preventDefault()
 
-    const game = Object.assign({}, this.props.game, this.state.game)
     const { dispatch, router, } = this.props
+
+    let game = Object.assign({}, this.props.game, { name: this.state.name, })
 
     dispatch(updateGame(game))
     dispatch(startGame())
@@ -82,4 +73,5 @@ NamePage.contextTypes = {
 
 export default connect(state => ({
   game: state.game,
+  name: state.game.name,
 }))(NamePage)
