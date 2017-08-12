@@ -21,13 +21,6 @@ export function simulateMatch(matchId) {
   }
 }
 
-export function confirmSimulatedMatch({ matchId, winner, loser, }) {
-  return {
-    type: types.CONFIRM_SIMULATED_MATCH,
-    payload: { matchId, winner, loser, },
-  }
-}
-
 export function removeWrestlerFromMatch({ matchId, wrestlerId, }) {
   return {
     type: types.REMOVE_WRESTLER_FROM_MATCH,
