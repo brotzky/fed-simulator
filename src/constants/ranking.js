@@ -1,2 +1,12 @@
-export const COLUMNS = ["rank", "name", "points", "wins", "losses",]
-export const COLUMNS_COST = ["rank", "name", "cost", "points",]
+export const COST_COLUMNS = {
+  name: { type: "string", },
+  cost: { type: "currency", },
+  points: { type: "number", },
+}
+export const RANKED_COLUMNS = {
+  rank: { type: "rank", },
+  name: { type: "string", },
+  points: { type: "number", },
+  wins: { type: "number", },
+  losses: { type: "number", },
+}
