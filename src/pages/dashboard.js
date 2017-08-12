@@ -21,32 +21,28 @@ export const DashboardPage = ({
   cheapWrestlers,
   rankedMaleWrestlers,
   rankedFemaleWrestlers,
-  iconColour,
 }) =>
   <section className="page dashboard zoom">
-    <div className="row">
-      <div className="col-xs-12 col-lg-4">
-        <div className="box">
-          <Link to="/create-a-match">
-            <button className="btn">Create a Match</button>
-          </Link>
-        </div>
-      </div>
+    <div className="row center-xs">
       <div className="col-xs-12 col-lg-4">
         <div className="box">
           <Link to="/calendar">
-            <button className="btn">Calendar</button>
+            <i className="icon fa fa-calendar" /> Calendar
           </Link>
         </div>
       </div>
       <div className="col-xs-12 col-lg-4">
         <div className="box">
-          <button>
-            <Simulator />
-          </button>
+          <Simulator />
+        </div>
+      </div>
+      <div className="col-xs-12 col-lg-4">
+        <div className="box">
+          <Link to="/create-a-match">Create a Match</Link>
         </div>
       </div>
     </div>
+    <br />
     <div className="row">
       <div className="col-xs-12 col-sm-6 col-lg-6">
         <SlideLeft iterations={Number(animations)} duration={ANIMATION_SPEED}>
@@ -109,7 +105,6 @@ DashboardPage.propTypes = {
   expensiveWrestlers: PropTypes.array.isRequired,
   rankedMaleWrestlers: PropTypes.array.isRequired,
   rankedFemaleWrestlers: PropTypes.array.isRequired,
-  iconColour: PropTypes.string.isRequired,
 }
 
 export default connect(state => ({
