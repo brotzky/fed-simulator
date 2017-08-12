@@ -22,6 +22,7 @@ export const DashboardPage = ({
   rankedFemaleWrestlers,
 }) =>
   <section className="page dashboard zoom">
+    <br />
     <div className="row center-xs">
       <div className="col-xs-12 col-lg-4">
         <div className="box">
@@ -41,7 +42,7 @@ export const DashboardPage = ({
         </div>
       </div>
     </div>
-    <br />
+
     <hr />
     <div className="row">
       <div className="col-xs-12 col-sm-6 col-lg-6">

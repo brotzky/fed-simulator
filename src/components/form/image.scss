@@ -1,15 +1,9 @@
 .image-dropzone.dropzone {
-  border: .2rem dashed white;
-  display: inherit;
-  height: auto;
-  padding: 1rem;
-  width: auto;
-
   &__label {
     width: 100%;
   }
 
-  &__image {
+  img {
     max-height: 5rem;
     max-width: 5rem;
   }

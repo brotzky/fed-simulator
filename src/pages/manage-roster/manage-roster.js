@@ -7,6 +7,7 @@ import Input from "../../components/form/input"
 import Button from "../../components/button/button"
 import Image from "../../components/form/image"
 import HeaderOne from "../../components/h1/h1"
+
 import { ANIMATION_SPEED } from "../../constants/animation"
 
 import "./manage-roster.scss"
@@ -76,7 +77,7 @@ const UpdateWrestlersPage = ({
                 </table>
               </div>
               <br />
-              <div className="box col-xs-3">
+              <div className="box col-lg-6 col-xs-12">
                 <Button onClick={onWrestlerDelete}>
                   <i className="icon fa fa-trash" /> Click to delete wrestler
                 </Button>
