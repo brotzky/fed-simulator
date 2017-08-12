@@ -50,9 +50,10 @@ class ManageRosterContainer extends Component {
   }
 
   render() {
-    const { roster, } = this.props
+    const { roster, animations, } = this.props
     return (
       <ManageRoster
+        animations={animations}
         currentWrestler={roster.find(wrestler => wrestler.id === this.state.id)}
         onWrestlerPointsUpdated={this.onWrestlerPointsUpdated}
         onWrestlersNameUpdated={this.onWrestlersNameUpdated}
@@ -66,8 +67,10 @@ class ManageRosterContainer extends Component {
 
 ManageRosterContainer.propTypes = {
   roster: PropTypes.array.isRequired,
+  animations: PropTypes.bool.isRequired,
 }
 
 export default connect(state => ({
+  animations: state.game.animations,
   roster: state.roster,
 }))(ManageRosterContainer)
