@@ -77,7 +77,7 @@ Nav.defaultProps = {
 
 export default connect(state => ({
   game: state.game,
-  name: state.name,
+  name: state.game.name,
   color: state.style.color,
   backgroundColor: state.style.backgroundColor,
 }))(Nav)
