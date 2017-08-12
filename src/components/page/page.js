@@ -12,7 +12,7 @@ import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
 import Nav from "../nav/nav"
 import headerLinks from "./header-links.json"
-
+import burgerLinks from "./burger-links.json"
 import { ANIMATION_SPEED } from "../../constants/animation"
 
 import "../../stylesheets/base.scss"
@@ -32,6 +32,16 @@ const HTML5toTouch = {
 }
 
 class Page extends React.Component {
+  state = {
+    openNavBar: false,
+  }
+
+  onToggle = () => {
+    this.setState({
+      openNavBar: !this.state.openNavBar,
+    })
+  }
+
   componentWillMount() {
     this.props.dispatch(versionActions.checkVersion())
   }
@@ -61,7 +71,18 @@ class Page extends React.Component {
         <Notifications />
         <If condition={shows.length > 0}>
           <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>
-            <Nav links={headerLinks} style={style} />
+            <Nav
+              onClickBurger={this.onToggle}
+              links={headerLinks}
+              style={style}
+            />
+            <If condition={this.state.openNavBar}>
+              <Nav
+                onClickBurger={this.onToggle}
+                links={burgerLinks}
+                style={style}
+              />
+            </If>
           </SlideDown>
         </If>
         <main className={classnames}>
