@@ -41,7 +41,7 @@ class WrestlersContainer extends Component {
               </div>
             </div>
             <div className="col-xs-2">
-              <div className="box">
+              <div className="box box-filters">
                 <i
                   className={sortClasses}
                   aria-hidden="true"
