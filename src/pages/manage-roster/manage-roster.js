@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 import Wrestlers from "../../components/wrestlers/container"
 import Input from "../../components/form/input"
+import Button from "../../components/button/button"
 import Image from "../../components/form/image"
 import HeaderOne from "../../components/h1/h1"
 
@@ -33,6 +34,7 @@ const UpdateWrestlersPage = ({
           />
         </div>
       </div>
+      <br />
       <If condition={currentWrestler}>
         <div className="row">
           <div className="col-xs-12">
@@ -71,10 +73,9 @@ const UpdateWrestlersPage = ({
             </div>
             <br />
             <div className="box col-xs-3">
-              <button className="btn btn-danger" onClick={onWrestlerDelete}>
-                <i className="icon fa fa-trash" /> Click here to delete this
-                wrestler
-              </button>
+              <Button onClick={onWrestlerDelete}>
+                <i className="icon fa fa-trash" /> Click to delete wrestler
+              </Button>
             </div>
           </div>
         </div>
