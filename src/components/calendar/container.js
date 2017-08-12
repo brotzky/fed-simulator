@@ -56,7 +56,9 @@ class Container extends Component {
 
     return (
       <div className="calendar">
-        <p>Drag and drop shows onto Calendar dates</p>
+        <If condition={game.canPlan}>
+          <p>Drag and drop shows onto Calendar dates</p>
+        </If>
         {Object.keys(groupedBoxes).map(size => {
           return (
             <div key={`calendar-show-${size}`} className="row">
@@ -64,7 +66,6 @@ class Container extends Component {
                 return (
                   <Box
                     key={`calendar-box-${name}`}
-                    classes="hang"
                     name={name}
                     type={type}
                     canDrag={game.canPlan}
