@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 
 import { simulateRandomMatch } from "../actions/roster"
 
-const TIME_PER_SIMULATED_MATCH = 50
+const TIME_PER_SIMULATED_MATCH = 100
 
 class Simulator extends React.Component {
   static propTypes = {
