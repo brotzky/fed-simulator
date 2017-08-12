@@ -8,7 +8,6 @@ import orderBy from "lodash/orderBy"
 
 import Simulator from "../components/simulator"
 import Ranking from "../components/ranking/ranking"
-import HeaderOne from "../components/h1/h1"
 
 import { ANIMATION_SPEED } from "../constants/animation"
 import { COST_COLUMNS, RANKED_COLUMNS } from "../constants/ranking"
@@ -43,6 +42,7 @@ export const DashboardPage = ({
       </div>
     </div>
     <br />
+    <hr />
     <div className="row">
       <div className="col-xs-12 col-sm-6 col-lg-6">
         <SlideLeft iterations={Number(animations)} duration={ANIMATION_SPEED}>
