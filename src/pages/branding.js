@@ -3,8 +3,10 @@ import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { CirclePicker } from "react-color"
 
-import { updateStyle } from "../actions/style"
+import HeaderOne from "../components/h1/h1"
 import { colors } from "../constants/colors"
+import { updateStyle } from "../actions/style"
+import Button from "../components/button/button"
 
 import "./stylesheets/branding.scss"
 
@@ -24,18 +26,19 @@ class BrandingPage extends Component {
     const { style, name, } = this.props
     return (
       <section className="page branding">
-        <h1 className="col-xs-12 skew-forward" style={style}>
+        <HeaderOne style={style}>
           🏳️ What colours represent you {name}? 🏳️
-        </h1>
-        <div className="row colours">
-          <div className="col-xs-6 col-lg-6 center-xs middle-xs">
-            <div className="box">
+        </HeaderOne>
+        <div className="row">
+          <div className="col-xs-6 col-lg-6 ">
+            <div className="box text-center">
               <h5>BG</h5>
               <CirclePicker
                 width="auto"
                 colors={colors}
                 onChange={this.onChangeBGColor}
               />
+              <br />
             </div>
           </div>
           <div className="col-xs-6 col-lg-6 center-xs middle-xs right">
@@ -50,9 +53,9 @@ class BrandingPage extends Component {
           </div>
         </div>
         <form onSubmit={this.handleSubmit}>
-          <button style={style} type="submit" onClick={this.onHandleSubmit}>
+          <Button style={style} type="submit" onClick={this.onHandleSubmit}>
             Paint Save and build your dream roster
-          </button>
+          </Button>
         </form>
       </section>
     )
