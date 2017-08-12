@@ -18,6 +18,7 @@ import {
 import { Winner, Loser } from "../components/winner/winner"
 import HeaderOne from "../components/h1/h1"
 import Match from "../components/match/container"
+import Button from "../components/button/button"
 import Model from "../reducers/match.model"
 
 import buttonTexts from "../constants/create-a-match-button-texts"
@@ -151,9 +152,11 @@ class CreateAMatch extends Component {
                     !currentMatch.simulated
                   }
                 >
-                  <button type="submit">
-                    {buttonText}
-                  </button>
+                  <Button
+                    value={buttonText}
+                    onClick={this.onSimulateMatch}
+                    type="submit"
+                  />
                 </If>
               </div>
             </div>
@@ -170,12 +173,6 @@ class CreateAMatch extends Component {
                   </If>
                   <If condition={loser}>
                     <Loser name={loser.name} />
-                  </If>
-                  <If condition={winner && loser && !currentMatch.simulated}>
-                    <hr />
-                    <button onClick={this.onConfirmMatchSimulated}>
-                      Save Result
-                    </button>
                   </If>
                 </SlideRight>
               </div>
@@ -208,18 +205,6 @@ class CreateAMatch extends Component {
 
   onConfirmMatchSimulated = event => {
     event.preventDefault
-
-    const { wrestlers, id: matchId, } = this.state.currentMatch
-    const winner = wrestlers.find(wrestler => wrestler.winner)
-    const loser = wrestlers.find(wrestler => wrestler.loser)
-
-    const details = {
-      matchId,
-      winner,
-      loser,
-    }
-
-    this.props.dispatch(confirmSimulatedMatch({ ...details, }))
   }
 
   onResetMatches = () => {

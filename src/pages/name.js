@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 import { updateGame } from "../actions/game"
 import { startGame } from "../actions/game"
 import Input from "../components/form/input"
+import Button from "../components/button/button"
 import HeaderOne from "../components/h1/h1"
 
 import "./stylesheets/name.scss"
@@ -42,7 +43,11 @@ class NamePage extends Component {
               placeholder="WWE, NXT, ROH, GFW, TNA"
             />
           </div>
-          <button type="submit">Print the merch, we got a name</button>
+          <Button
+            value="Print the merch, we got a name"
+            onClick
+            type="submit"
+          />
         </form>
       </section>
     )

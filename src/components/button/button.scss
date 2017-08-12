@@ -1,0 +1,19 @@
+$button-font-size: 2rem;
+$button-color: #fff;
+$button-background-color: #3f3f3f;
+$button-border-radius: 0;
+$button-padding: .5rem !default;
+$button-font-weight: 300;
+
+button {
+  background-color: $button-background-color;
+  border-radius: $button-border-radius;
+  border: 0;
+  color: $button-color;
+  cursor: pointer;
+  font-size: $button-font-size;
+  font-variant: small-caps;
+  font-weight: $button-font-weight;
+  padding: $button-padding;
+  width: 100%;
+}

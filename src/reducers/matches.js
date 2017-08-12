@@ -23,15 +23,9 @@ export default (state = defaultState, action = defaultAction) => {
     case "CREATE_MATCH":
       state.push(new Model(action.payload).toJSON())
       break
-    case "CONFIRM_SIMULATED_MATCH":
-      index = getIndexById(action.payload.matchId)
-
-      if (index > -1) {
-        state[index].simulated = true
-      }
-      break
     case "GENERATE_RANDOM_MATCHES":
-      let amountOfMatches = action.payload.amountOfMatches || RANDOM_MATCH_DEFAULT_AMOUNT
+      let amountOfMatches =
+        action.payload.amountOfMatches || RANDOM_MATCH_DEFAULT_AMOUNT
 
       while (amountOfMatches > 0) {
         const selectedWrestlers = randomiseWrestlers({
