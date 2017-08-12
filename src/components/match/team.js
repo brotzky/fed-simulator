@@ -46,7 +46,8 @@ export default class Team extends Component {
       },
       {
         "has-many-wrestlers": hasManyWrestlers,
-      }
+      },
+      classes
     )
 
     return connectDropTarget(
@@ -92,7 +93,9 @@ export default class Team extends Component {
                 )
               })}
             </When>
-            <Otherwise>Drop Wrestlers Here</Otherwise>
+            <Otherwise>
+              <i className="icon fa fa-info-circle" />&nbsp;Drop wrestlers here
+            </Otherwise>
           </Choose>
         </div>
       </div>

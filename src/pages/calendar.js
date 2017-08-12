@@ -135,24 +135,22 @@ class CalendarPage extends Component {
     const { dispatch, calendar, } = this.props
     const { confirmAction, } = this.state
 
-    if (!confirmAction || confirm(CALENDAR_CONFIRM_START)) {
-      const profit = calendar.reduce((prev, currentDate) => {
-        if (currentDate.showId) {
-          return prev + (currentDate.gross - currentDate.cost)
-        }
-        return prev
-      }, 0)
-
-      dispatch(addProfitToTotal(profit))
-      dispatch(togglePlan())
-      dispatch(addOneMonth())
-      dispatch(resetCalendar())
-
-      if (confirmAction) {
-        this.setState({
-          confirmAction: false,
-        })
+    const profit = calendar.reduce((prev, currentDate) => {
+      if (currentDate.showId) {
+        return prev + (currentDate.gross - currentDate.cost)
       }
+      return prev
+    }, 0)
+
+    dispatch(addProfitToTotal(profit))
+    dispatch(togglePlan())
+    dispatch(addOneMonth())
+    dispatch(resetCalendar())
+
+    if (confirmAction) {
+      this.setState({
+        confirmAction: false,
+      })
     }
   }
 }

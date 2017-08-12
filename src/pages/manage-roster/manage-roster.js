@@ -29,7 +29,10 @@ const UpdateWrestlersPage = ({
       <HeaderOne>Manage your Wrestlers</HeaderOne>
       <div className="row">
         <If condition={!currentWrestler}>
-          <p>Click a wrestler to edit them!</p>
+          <p>
+            <i className="icon fa fa-info-circle" /> Click a wrestler to edit
+            them!
+          </p>
         </If>
         <div className="col-xs-12">
           <Wrestlers
