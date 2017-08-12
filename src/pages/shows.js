@@ -85,14 +85,13 @@ class ChampionsPage extends Component {
                   label="Gym Show, House Show, Back Garden"
                   rows="2"
                 />
+                <Button
+                  onClick={this.handleSubmit}
+                  type="submit"
+                  value="Save to disk and move on!"
+                />
               </div>
             </div>
-            <div />
-            <Button
-              onClick={this.handleSubmit}
-              type="submit"
-              value="Save to disk and move on!"
-            />
           </div>
         </form>
       </section>
