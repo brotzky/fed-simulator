@@ -93,7 +93,7 @@ class CalendarPage extends Component {
                   </When>
                   <Otherwise>
                     <Button
-                      value="Move onto next month"
+                      value="Next month..."
                       onClick={this.onStartNextMonth}
                     />
                   </Otherwise>
