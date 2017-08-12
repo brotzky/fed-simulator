@@ -70,8 +70,8 @@ const UpdateWrestlersPage = ({
               </table>
             </div>
             <br />
-            <div className="box center-xs">
-              <button onClick={onWrestlerDelete}>
+            <div className="box col-xs-3">
+              <button className="btn btn-danger" onClick={onWrestlerDelete}>
                 <i className="icon fa fa-trash" /> Click here to delete this
                 wrestler
               </button>
