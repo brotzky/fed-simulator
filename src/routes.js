@@ -55,15 +55,6 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="banking">
-        <IndexRoute
-          getComponent={(location, cb) => {
-            System.import("./pages/banking")
-              .then(loadRoute(cb))
-              .catch(errorLoading)
-          }}
-        />
-      </Route>
       <Route path="dashboard">
         <IndexRoute
           getComponent={(location, cb) => {
@@ -131,15 +122,6 @@ export default () => {
         <IndexRoute
           getComponent={(location, cb) => {
             System.import("./pages/roster")
-              .then(loadRoute(cb))
-              .catch(errorLoading)
-          }}
-        />
-      </Route>
-      <Route path="ranking">
-        <IndexRoute
-          getComponent={(location, cb) => {
-            System.import("./pages/ranking")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}
