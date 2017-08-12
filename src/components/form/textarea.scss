@@ -1,0 +1,65 @@
+$font-size: 4vh !default;
+$font-weight: auto;
+$font-color: #232828 !default;
+$textarea-border-radius: .1rem !default;
+$border-width: .1rem !default;
+$border-style: solid !default;
+$border-color: #ccc !default;
+$textarea-height: 5rem !default;
+$textarea-width: 100% !default;
+$textarea-max-width: 100% !default;
+$textarea-bg-color: white !default;
+$focus-bg-color: #f9fbfe !default;
+$focus-border-color: $border-color !default;
+$textarea-placeholder: #ccc;
+
+$display: block !default;
+
+textarea {
+  box-sizing: border-box;
+  color: $font-color;
+  display: $display;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  margin: 1rem 0;
+  outline: none;
+  vertical-align: top;
+}
+
+label {
+  display: $display;
+  font-size: 2rem;
+  font-variant: small-caps;
+  font-weight: 100;
+}
+
+textarea {
+  background-color: $textarea-bg-color;
+  border-radius: $textarea-border-radius;
+  border: $border-width $border-style $border-color;
+  max-width: $textarea-max-width;
+  padding: $textarea-height / 5;
+  width: $textarea-width;
+}
+
+textarea {
+  overflow: auto;
+}
+
+legend {
+  font-weight: 700;
+  padding: 0 5px;
+}
+
+textarea[disabled] {
+  cursor: not-allowed;
+}
+
+textarea:focus {
+  background-color: $focus-bg-color;
+  border-color: $focus-border-color;
+}
+
+textarea::placeholder {
+  color: $textarea-placeholder;
+}
