@@ -13,7 +13,10 @@ import * as versionActions from "../../actions/version"
 import Nav from "../nav/nav"
 import headerLinks from "./header-links.json"
 import burgerLinks from "./burger-links.json"
-import { ANIMATION_SPEED } from "../../constants/animation"
+import {
+  ANIMATION_SPEED,
+  SHORT_ANIMATION_SPEED
+} from "../../constants/animation"
 
 import "../../stylesheets/base.scss"
 import "./page.scss"
@@ -70,25 +73,30 @@ class Page extends React.Component {
       <div id="page-container" className="page-container no-select">
         <Notifications />
         <If condition={shows.length > 0}>
-          <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>
+          <SlideDown
+            style={{ zIndex: 10, }}
+            iterations={Number(animations)}
+            duration={ANIMATION_SPEED}
+          >
             <Nav
               onClickBurger={this.onToggle}
               links={headerLinks}
               style={style}
             />
           </SlideDown>
-          <If condition={this.state.openNavBar}>
-            <SlideDown
-              iterations={Number(animations)}
-              duration={ANIMATION_SPEED}
-            >
-              <Nav
-                onClickBurger={this.onToggle}
-                links={burgerLinks}
-                style={style}
-              />
-            </SlideDown>
-          </If>
+        </If>
+        <If condition={this.state.openNavBar}>
+          <SlideDown
+            style={{ zIndex: 5, }}
+            iterations={Number(animations)}
+            duration={SHORT_ANIMATION_SPEED}
+          >
+            <Nav
+              onClickBurger={this.onToggle}
+              links={burgerLinks}
+              style={style}
+            />
+          </SlideDown>
         </If>
         <main className={classnames}>
           <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
