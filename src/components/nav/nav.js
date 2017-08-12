@@ -28,12 +28,9 @@ const Nav = ({
             <li key={key} className={`nav__item nav--${item.url}`}>
               <Choose>
                 <When condition={item.title === "Burger"}>
-                  <i
-                    className="icon fa fa-bars"
-                    aria-hidden="true"
-                    onClick={onClickBurger}
-                  />{" "}
-                  {name}
+                  <span className="cursor-pointer" onClick={onClickBurger}>
+                    <i className="icon fa fa-bars" aria-hidden="true" /> {name}
+                  </span>
                 </When>
                 <When condition={item.title === "Branding"}>
                   <ColorPickers />
