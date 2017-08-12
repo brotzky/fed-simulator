@@ -1,16 +1,18 @@
-// import { getId } from "../helpers/hash"
+import { getId } from "../helpers/hash"
 
 const defaultState = []
+const NOTIFICATION_TYPES = {
+  // SIMULATE_RANDOM_MATCH: "Simulated Match",
+}
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
 
+  if (action.type && NOTIFICATION_TYPES[action.type]) {
+    state.push({ id: getId(), title: NOTIFICATION_TYPES[action.type], })
+  }
+
   switch (action.type) {
-    // case "SIMULATE_MATCH":
-    //   const id = getId()
-    //
-    //   state = state.concat({ action, id, })
-    //   break
     case "RESET_NOTIFICATIONS":
     case "RESET":
       state = defaultState

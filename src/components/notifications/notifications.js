@@ -22,32 +22,36 @@ class Notifications extends Component {
   }
 
   render() {
-    const { notifications, } = this.props
+    const { notifications, style, } = this.props
 
     return (
-      <ul className="notifications">
+      <div className="notifications" style={style}>
         <If condition={notifications.length > 0}>
-          <SlideDown duration={ANIMATION_SPEED}>
+          <p>
             <a onClick={this.resetNotifications}>Clear All</a>
-            {notifications.map(notification => {
-              const { id, title, } = notification
+          </p>
+          <SlideDown duration={ANIMATION_SPEED}>
+            <ul className="notifications__list">
+              {notifications.map(notification => {
+                const { id, title, } = notification
 
-              return (
-                <li className="notification" key={id}>
-                  {title}
-                  <a data-id={id} onClick={this.onRemoveNotification}>
-                    (close)
-                  </a>
-                </li>
-              )
-            })}
+                return (
+                  <li className="notification" key={id}>
+                    <a data-id={id} onClick={this.onRemoveNotification}>
+                      {title} <i className="icon fa fa-trash" />
+                    </a>
+                  </li>
+                )
+              })}
+            </ul>
           </SlideDown>
         </If>
-      </ul>
+      </div>
     )
   }
 }
 
 export default connect(state => ({
   notifications: state.notifications,
+  style: state.style,
 }))(Notifications)
