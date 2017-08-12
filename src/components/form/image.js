@@ -40,7 +40,7 @@ export default class Image extends React.Component {
 
     return (
       <Dropzone
-        className="dropzone"
+        className="image-dropzone dropzone"
         multiple={false}
         accept={"image/*"}
         onDrop={this.onDrop}
