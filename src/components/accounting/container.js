@@ -40,7 +40,7 @@ class AccountingContainer extends Component {
         onClickDelete={this.onClickDelete}
         showDelete={game.canPlan}
         style={style}
-        totalCost={totalCost}
+        totalCost={totalCost + wages}
         totalGross={totalGross}
         wages={wages}
       />
