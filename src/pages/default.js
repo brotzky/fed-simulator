@@ -4,17 +4,26 @@ import PropTypes from "prop-types"
 
 class DefaultPage extends Component {
   componentWillMount() {
-    const { game, router, roster, shows, style, championships, } = this.props
+    const {
+      size,
+      name,
+      router,
+      roster,
+      shows,
+      started,
+      unTouched,
+      championships,
+    } = this.props
 
     let pathName = "dashboard"
 
-    if (game.started === false) {
+    if (started === false) {
       pathName = "/welcome"
-    } else if (game.name === "") {
+    } else if (name === "") {
       pathName = "/name"
-    } else if (game.size === "") {
+    } else if (size === "") {
       pathName = "/size"
-    } else if (style.unTouched === true) {
+    } else if (unTouched === true) {
       pathName = "/branding"
     } else if (roster.length === 0) {
       pathName = "/roster"
@@ -38,10 +47,23 @@ DefaultPage.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
+DefaultPage.propTypes = {
+  started: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired,
+  unTouched: PropTypes.bool.isRequired,
+  roster: PropTypes.array.isRequired,
+  championships: PropTypes.array.isRequired,
+  shows: PropTypes.array.isRequired,
+  router: PropTypes.object.isRequired,
+}
+
 export default connect(state => ({
-  game: state.game,
+  started: state.game.started,
+  name: state.game.name,
+  size: state.game.size,
+  unTouched: state.style.unTouched,
   roster: state.roster,
-  shows: state.shows,
   championships: state.championships,
-  style: state.style,
+  shows: state.shows,
 }))(DefaultPage)
