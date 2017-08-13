@@ -32,7 +32,7 @@ class BrandingPage extends Component {
         <div className="row">
           <div className="col-xs-6 col-lg-6 ">
             <div className="box text-center">
-              <h5>BG</h5>
+              <h4>Background</h4>
               <CirclePicker
                 width="auto"
                 colors={colors}
@@ -43,7 +43,7 @@ class BrandingPage extends Component {
           </div>
           <div className="col-xs-6 col-lg-6 center-xs middle-xs right">
             <div className="box">
-              <h5>Text</h5>
+              <h4>Text</h4>
               <CirclePicker
                 width="auto"
                 colors={colors}
