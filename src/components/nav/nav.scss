@@ -1,8 +1,8 @@
 $nav-font-size: 1.5rem;
 $nav-font-weight: 100;
 $nav-link-color: currentColor;
-$nav-link-text-shadow: .05rem .1rem .3rem $nav-link-color;
-$nav-link-hover-text-shadow: .1rem .2rem .5rem $nav-link-color;
+$nav-link-text-shadow: inherit;
+$nav-link-hover-text-shadow: .01rem .01rem .1rem $nav-link-color;
 $nav-list-padding: 2vh 4vw;
 
 .nav {
@@ -22,7 +22,6 @@ $nav-list-padding: 2vh 4vw;
 
   &__item {
     font-size: $nav-font-size;
-    font-variant: small-caps;
     font-weight: $nav-font-weight;
 
     a {
@@ -41,5 +40,4 @@ $nav-list-padding: 2vh 4vw;
       text-shadow: $nav-link-hover-text-shadow;
     }
   }
-
 }
