@@ -13,7 +13,6 @@ const AccountingCollection = ({
   isComplete,
   showDelete,
   calendarEvents,
-  onClearLiveShows,
   onClickDelete,
   totalCost,
   totalGross,
@@ -23,13 +22,7 @@ const AccountingCollection = ({
   cash = formatCurrency(currency, cash)
   return (
     <div className="accounting">
-      <Heading first="Cash Available" second="" third={cash} />
-      <hr />
-      <If condition={calendarEvents.length > 0}>
-        <button onClick={onClearLiveShows}>Clear shows</button>
-      </If>
-      <br />
-      <br />
+      <Heading first={`Cash Available: ${cash}`} second="" third="" />
       <If condition={calendarEvents.length > 0}>
         <Heading second="Cost" third="Gross" />
       </If>
@@ -83,7 +76,6 @@ AccountingCollection.defaultProps = {
   isComplete: false,
   showDelete: true,
   calendarEvents: [],
-  onClearLiveShows: NOOP,
   onClickDelete: NOOP,
   totalCost: 0,
   totalGross: 0,
@@ -96,7 +88,6 @@ AccountingCollection.propTypes = {
   isComplete: PropTypes.bool,
   showDelete: PropTypes.bool,
   calendarEvents: PropTypes.array,
-  onClearLiveShows: PropTypes.func,
   onClickDelete: PropTypes.func,
   totalCost: PropTypes.number,
   totalGross: PropTypes.number,

@@ -68,7 +68,7 @@ class CalendarPage extends Component {
     return (
       <section className="page page-calendar">
         <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div className="col-xs-12 col-sm-12 col-md-9 col-lg-9">
             <div className="box">
               <HeaderOne>
                 {title}&nbsp;
@@ -84,7 +84,7 @@ class CalendarPage extends Component {
               </SlideLeft>
             </div>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-4 sidebar">
+          <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 sidebar">
             <div className="box">
               <SlideRight
                 iterations={Number(animations)}
@@ -94,7 +94,7 @@ class CalendarPage extends Component {
                 <Choose>
                   <When condition={canPlan}>
                     <Button
-                      value="Simulate liveshows"
+                      value="Simulate shows"
                       onClick={this.onSimulateMonth}
                     />
                   </When>
