@@ -5,9 +5,16 @@ import { formatCurrency } from "../../helpers/currency"
 
 import "./ranking.scss"
 
-const Ranking = ({ currencySymbol, columns, rows, amountToShow, title, }) =>
+const Ranking = ({
+  currencySymbol,
+  style,
+  columns,
+  rows,
+  amountToShow,
+  title,
+}) =>
   <div className="ranking">
-    <h3>
+    <h3 style={style}>
       {title}
     </h3>
     <table className="ranking__table table table-striped">
@@ -54,16 +61,18 @@ const Ranking = ({ currencySymbol, columns, rows, amountToShow, title, }) =>
 Ranking.propTypes = {
   amountToShow: PropTypes.number,
   columns: PropTypes.object.isRequired,
-  rows: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired,
   currencySymbol: PropTypes.string,
+  rows: PropTypes.array.isRequired,
+  style: PropTypes.object,
+  title: PropTypes.string.isRequired,
 }
 
 Ranking.defaultProps = {
-  currencySymbol: "$",
   amountToShow: 100,
-  rows: [],
   columns: {},
+  currencySymbol: "$",
+  rows: [],
+  style: {},
 }
 
 export default Ranking
