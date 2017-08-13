@@ -16,7 +16,7 @@ const NOOP = () => {}
 
 const UpdateWrestlersPage = ({
   animations = true,
-  showWrestlersFilters = true,
+  showWrestlersFilters = false,
   currentWrestler = null,
   onWrestlerPointsUpdated = NOOP,
   onWrestlersNameUpdated = NOOP,
