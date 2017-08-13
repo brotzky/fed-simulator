@@ -81,7 +81,7 @@ const UpdateWrestlersPage = ({
               </div>
               <br />
               <div className="box col-lg-6 col-xs-12">
-                <Button onClick={onWrestlerDelete}>
+                <Button classes="btn-delete" onClick={onWrestlerDelete}>
                   <i className="icon fa fa-trash" /> Click to delete wrestler
                 </Button>
               </div>

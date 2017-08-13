@@ -1,9 +1,10 @@
-$button-font-size: 2rem;
+$button-font-size: 1.5rem;
 $button-color: #fff;
-$button-background-color: #3f3f3f;
+$button-background-color: #333;
 $button-border-radius: 0;
 $button-padding: .5rem !default;
 $button-font-weight: 300;
+$button-font-variant: all-small-caps;
 
 button {
   background-color: $button-background-color;
@@ -12,8 +13,13 @@ button {
   color: $button-color;
   cursor: pointer;
   font-size: $button-font-size;
-  font-variant: small-caps;
+  font-variant: $button-font-variant;
   font-weight: $button-font-weight;
   padding: $button-padding;
   width: 100%;
+}
+
+button.btn-delete {
+  background-color: #a90202;
+  color: white;
 }
