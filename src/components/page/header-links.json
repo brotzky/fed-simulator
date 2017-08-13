@@ -1,11 +1,13 @@
-[{
-		"url": "",
-		"title": "Burger"
-	}, {
-		"url": "branding",
-		"title": "Branding"
-	}, {
-		"url": "settings",
-		"title": "Settings"
-	}
+[
+  {
+    "url": "",
+    "title": "Burger"
+  },
+  {
+    "title": "Branding"
+  },
+  {
+    "url": "settings",
+    "title": "Settings"
+  }
 ]

@@ -31,7 +31,7 @@ const Nav = ({
                     <i className="icon fa fa-bars" aria-hidden="true" /> {name}
                   </span>
                 </When>
-                <When condition={item.title === "Branding"}>
+                <When condition={!item.url && item.title === "Branding"}>
                   <ColorPickers />
                 </When>
                 <When condition={item.title === "Cash"}>
