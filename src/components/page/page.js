@@ -66,13 +66,19 @@ class Page extends React.Component {
   }
 
   render() {
-    const { shows, style, classnames, children, animations, } = this.props
+    const {
+      championships,
+      style,
+      classnames,
+      children,
+      animations,
+    } = this.props
     const { pathname, } = this.context.router.location
 
     return (
       <div id="page-container" className="page-container no-select">
         <Notifications />
-        <If condition={shows.length > 0}>
+        <If condition={championships.length > 0}>
           <SlideDown
             style={{ zIndex: 10, }}
             iterations={Number(animations)}
@@ -108,7 +114,7 @@ class Page extends React.Component {
             <When condition={pathname.startsWith("/create-a-match")}>
               <Wrestlers />
             </When>
-            <When condition={shows.length > 0}>
+            <When condition={championships.length > 0}>
               <footer style={style} className="footer nav">
                 <a
                   target="_blank"
@@ -132,7 +138,7 @@ Page.displayName = "Page"
 
 Page.propTypes = {
   classnames: PropTypes.string,
-  shows: PropTypes.array,
+  championships: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   version: PropTypes.number.isRequired,
   style: PropTypes.object.isRequired,
@@ -152,6 +158,6 @@ Page.contextTypes = {
 export default connect(state => ({
   animations: state.game.animations,
   style: state.style,
-  shows: state.shows,
+  championships: state.championships,
   version: state.version,
 }))(DragDropContext(MultiBackend(HTML5toTouch))(Page))
