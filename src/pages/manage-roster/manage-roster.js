@@ -6,7 +6,6 @@ import Wrestlers from "../../components/wrestlers/container"
 import Input from "../../components/form/input"
 import Button from "../../components/button/button"
 import Image from "../../components/form/image"
-import HeaderOne from "../../components/h1/h1"
 
 import { ANIMATION_SPEED } from "../../constants/animation"
 
@@ -34,10 +33,15 @@ const UpdateWrestlersPage = ({
           </p>
         </If>
         <div className="col-xs-12">
-          <Wrestlers
-            onWrestlerClick={onWrestlerClick}
-            showFilter={showWrestlersFilters}
-          />
+          <SlideRight
+            iterations={Number(animations)}
+            duration={ANIMATION_SPEED}
+          >
+            <Wrestlers
+              onWrestlerClick={onWrestlerClick}
+              showFilter={showWrestlersFilters}
+            />
+          </SlideRight>
         </div>
       </div>
       <br />
