@@ -1,40 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import Heading from "./heading"
 import Liveshow from "../liveshow/liveshow"
 import { formatCurrency } from "../../helpers/currency"
 
 const NOOP = () => {}
-
-export const Heading = ({ first = "", second = "", third = "", }) =>
-  <div className="row Heading text-left">
-    <div className="col-xs-8">
-      <div className="box">
-        {first}
-      </div>
-    </div>
-    <div className="col-xs-2 text-right">
-      <div className="box cost">
-        {second}
-      </div>
-    </div>
-    <div className="col-xs-2 text-right">
-      <div className="box gross">
-        {third}
-      </div>
-    </div>
-  </div>
-
-Heading.defaultProps = {
-  first: "",
-  second: "",
-  third: "",
-}
-Heading.propTypes = {
-  first: PropTypes.string,
-  second: PropTypes.string,
-  third: PropTypes.string,
-}
 
 const AccountingCollection = ({
   cash,

@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 import { deleteLiveShow, clearLiveShows } from "../../actions/calendar"
-import Collection from "./index"
+import Accounting from "./accounting"
 
 import "./accounting.scss"
 
@@ -19,20 +19,20 @@ function sum(current, next) {
   return current + next
 }
 
-class AccountingContainer extends Component {
+class Container extends Component {
   render() {
     const { game, style, roster, } = this.props
     const calendarEvents = this.props.calendar.filter(
       calendarEvent => calendarEvent.cost > 0
     )
     const hasEvents = calendarEvents.length > 0
-
-    const totalCost = hasEvents ? calendarEvents.map(cost).reduce(sum) : ""
-    const totalGross = hasEvents ? calendarEvents.map(gross).reduce(sum) : ""
     const wages = roster.map(cost).reduce(sum)
+    let totalCost = hasEvents ? calendarEvents.map(cost).reduce(sum) : 0
+    const totalGross = hasEvents ? calendarEvents.map(gross).reduce(sum) : 0
+    totalCost += wages
 
     return (
-      <Collection
+      <Accounting
         calendarEvents={calendarEvents}
         cash={game.cash}
         currency={game.currency}
@@ -40,7 +40,7 @@ class AccountingContainer extends Component {
         onClickDelete={this.onClickDelete}
         showDelete={game.canPlan}
         style={style}
-        totalCost={totalCost + wages}
+        totalCost={totalCost}
         totalGross={totalGross}
         wages={wages}
       />
@@ -58,7 +58,7 @@ class AccountingContainer extends Component {
   }
 }
 
-AccountingContainer.propTypes = {
+Container.propTypes = {
   calendar: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
   game: PropTypes.object,
@@ -66,7 +66,7 @@ AccountingContainer.propTypes = {
   style: PropTypes.object.isRequired,
 }
 
-AccountingContainer.defaultProps = {
+Container.defaultProps = {
   calendar: [],
 }
 
@@ -75,4 +75,4 @@ export default connect(state => ({
   game: state.game,
   roster: state.roster,
   style: state.style,
-}))(AccountingContainer)
+}))(Container)

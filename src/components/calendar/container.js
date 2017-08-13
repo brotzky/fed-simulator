@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import groupBy from "lodash.groupby"
 import moment from "moment"
+import PropTypes from "prop-types"
 
 import Liveshow from "../liveshow/liveshow"
 import { deleteLiveShow } from "../../actions/calendar"
@@ -108,7 +109,8 @@ class Container extends Component {
   }
 
   _getOffsetDustbins() {
-    const firstDate = new Date(this.props.calendar[0].date)
+    const { calendar, } = this.props
+    const firstDate = new Date(calendar[0].date)
     const daysOffset = firstDate.getDay()
     const oneDay = 24 * 60 * 60 * 1000
 
@@ -170,6 +172,13 @@ class Container extends Component {
   onClickDelete = date => {
     this.props.dispatch(deleteLiveShow(date))
   }
+}
+
+Container.propTypes = {
+  game: PropTypes.object.isRequired,
+  shows: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  calendar: PropTypes.array.isRequired,
 }
 
 export default connect(state => ({

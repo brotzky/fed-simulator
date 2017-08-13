@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import moment from "moment"
 import { SlideRight, SlideLeft } from "animate-components"
+import PropTypes from "prop-types"
 
 import HeaderOne from "../components/h1/h1"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
@@ -20,8 +21,7 @@ import { ANIMATION_SPEED } from "../constants/animation"
 import { MONTH_YEAR_FORMAT } from "../constants/calendar"
 import {
   CALENDAR_CONFIRM_CLEAR,
-  CALENDAR_CONFIRM_SIMULATE,
-  CALENDAR_CONFIRM_START
+  CALENDAR_CONFIRM_SIMULATE
 } from "../constants/confirmations"
 
 import "./stylesheets/calendar.scss"
@@ -32,20 +32,27 @@ class CalendarPage extends Component {
   }
 
   componentWillMount() {
-    const { calendar, game, dispatch, } = this.props
-    if (calendar.length === 0) {
-      const { currentMonth: month, currentYear: year, } = game
+    const {
+      calendar,
+      dispatch,
+      currentMonth: month,
+      currentYear: year,
+    } = this.props
 
+    if (calendar.length === 0) {
       dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { calendar, game, dispatch, } = nextProps
+    const {
+      calendar,
+      dispatch,
+      currentMonth: month,
+      currentYear: year,
+    } = nextProps
 
     if (calendar.length === 0) {
-      const { currentMonth: month, currentYear: year, } = game
-
       dispatch(generateLiveShowsForMonth({ month, year, }))
     }
   }
@@ -55,7 +62,7 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const { animations, date, canPlan, } = this.props.game
+    const { animations, date, canPlan, } = this.props
     const title = moment(date).format(MONTH_YEAR_FORMAT)
 
     return (
@@ -155,9 +162,19 @@ class CalendarPage extends Component {
   }
 }
 
+CalendarPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  animations: PropTypes.bool.isRequired,
+  date: PropTypes.object.isRequired,
+  canPlan: PropTypes.bool.isRequired,
+  calendar: PropTypes.object.isRequired,
+  currentMonth: PropTypes.number.isRequired,
+  currentYear: PropTypes.number.isRequired,
+}
+
 CalendarPage.displayName = "CalendarPage"
 
 export default connect(state => ({
-  game: state.game,
   calendar: state.calendar,
+  ...state.game,
 }))(CalendarPage)
