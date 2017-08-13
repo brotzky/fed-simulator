@@ -26,14 +26,14 @@ class Settings extends Component {
             </div>
             <br />
             <div className="box" style={style}>
+              <Animations>Toggle animations</Animations>
+            </div>
+            <br />
+            <div className="box" style={style}>
               <a onClick={this.onReset}>
                 <i className="icon fa fa-trash-o" />
                 &nbsp;Reset game
               </a>
-            </div>
-            <br />
-            <div className="box" style={style}>
-              <Animations>Toggle animations</Animations>
             </div>
           </div>
         </div>

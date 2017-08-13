@@ -26,7 +26,6 @@ const UpdateWrestlersPage = ({
 }) => {
   return (
     <div className="page manage-roster">
-      <HeaderOne>Manage your Wrestlers</HeaderOne>
       <div className="row">
         <If condition={!currentWrestler}>
           <p>
