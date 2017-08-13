@@ -3,7 +3,6 @@ import { Link } from "react-router"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import Animations from "../animations"
 import Cash from "../cash/container"
 import ColorPickers from "../color-pickers/color-pickers"
 
@@ -35,9 +34,6 @@ const Nav = ({
                 <When condition={item.title === "Branding"}>
                   <ColorPickers />
                 </When>
-                <When condition={item.title === "Animations"}>
-                  <Animations />
-                </When>
                 <When condition={item.title === "Cash"}>
                   <Cash />
                 </When>
@@ -63,9 +59,9 @@ const Nav = ({
 Nav.propTypes = {
   backgroundColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  onClickBurger: PropTypes.func,
-  name: PropTypes.string.isRequired,
   links: PropTypes.array,
+  name: PropTypes.string.isRequired,
+  onClickBurger: PropTypes.func,
 }
 
 Nav.defaultProps = {
@@ -73,8 +69,8 @@ Nav.defaultProps = {
 }
 
 export default connect(state => ({
+  backgroundColor: state.style.backgroundColor,
+  color: state.style.color,
   game: state.game,
   name: state.game.name,
-  color: state.style.color,
-  backgroundColor: state.style.backgroundColor,
 }))(Nav)

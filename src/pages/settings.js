@@ -1,68 +1,51 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import { browserHistory } from "react-router"
 
+import Animations from "../components/animations"
 import { reset } from "../actions/game"
 import HeaderOne from "../components/h1/h1"
-import links from "./settings.navigation.json"
-import Nav from "../components/nav/nav"
 
 import "./stylesheets/settings.scss"
 
 class Settings extends Component {
-  state = {
-    stage: "start",
-  }
-  _onClearStorage = () => {
-    this.setState({
-      stage: "isComplete",
-    })
-
-    localStorage.clear()
-    this.props.dispatch(reset())
-
-    setTimeout(() => {
-      this.setState({
-        stage: "start",
-      })
-      this.props.router.push("/default")
-    }, 3000)
-  }
-
   render() {
-    const { stage, } = this.state
-    const { style, shows, roster, game, calendar, championships, } = this.props
+    const { style, } = this.props
 
     return (
       <section className="page settings">
         <HeaderOne>Settings</HeaderOne>
-        <Nav style={style} links={links} />
-        <br />
-        <div className={stage}>
-          <p>
-            <a onClick={this._onClearStorage}>Clear game data</a>
-          </p>
-        </div>
-        <br />
-        <div className={stage}>
-          <p>
-            Shows: {shows.length}
-          </p>
-          <p>
-            Roster: {roster.length}
-          </p>
-          <p>
-            Championships: {championships.length}
-          </p>
-          <p>
-            Live Shows: {calendar.length}
-          </p>
-          <p>
-            Game: <code>{JSON.stringify(game)}</code>
-          </p>
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="box" style={style}>
+              <a onClick={browserHistory.goBack}>
+                <i className="icon fa fa-arrow-left" />
+                &nbsp; Go back
+              </a>
+            </div>
+            <br />
+            <div className="box" style={style}>
+              <a onClick={this.onReset}>
+                <i className="icon fa fa-trash-o" />
+                &nbsp;Reset game
+              </a>
+            </div>
+            <br />
+            <div className="box" style={style}>
+              <Animations>Toggle animations</Animations>
+            </div>
+          </div>
         </div>
       </section>
     )
+  }
+
+  onReset = () => {
+    const { router, dispatch, } = this.props
+
+    dispatch(reset())
+    router.push("/default")
   }
 }
 
@@ -71,12 +54,5 @@ Settings.contextTypes = {
 }
 
 export default connect(state => ({
-  calendar: state.calendar,
-  championships: state.championships,
-  game: state.game,
   style: state.style,
-  roster: state.roster,
-  settings: state.settings,
-  shows: state.shows,
-  version: state.version,
 }))(Settings)

@@ -9,10 +9,10 @@ class Animation extends Component {
   render() {
     const animationsActive = this.props.animations ? "fa-pulse active" : ""
     return (
-      <i
-        onClick={this.handleClick}
-        className={`icon fa fa-spinner ${animationsActive}`}
-      />
+      <span className="cursor-pointer" onClick={this.handleClick}>
+        <i className={`icon fa fa-spinner ${animationsActive}`} />{" "}
+        {this.props.children}
+      </span>
     )
   }
 }

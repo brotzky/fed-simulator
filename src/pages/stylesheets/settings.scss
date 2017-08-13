@@ -1,22 +1,13 @@
 .page.settings {
-  font-size: 1.5rem;
+  font-size: 1rem;
 
-  .fa, a {
+  .icon,
+  a {
     color: white;
-    margin: 0 1rem;
     text-decoration: none;
   }
 
-  .start,
-  .isComplete {
-    padding: 3rem;
-  }
-
-  .start {
-    background-color: #333;
-  }
-
-  .isComplete {
-    background-color: green;
+  .box {
+    padding: 1rem;
   }
 }
