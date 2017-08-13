@@ -5,9 +5,9 @@ import { SHORT_ANIMATION_SPEED } from "../../constants/animation"
 
 import "./h1.scss"
 
-const HeaderOne = ({ className = "", children = undefined, }) =>
+const HeaderOne = ({ style = {}, className = "", children = undefined, }) =>
   <SlideUp duration={SHORT_ANIMATION_SPEED}>
-    <h1 className={className}>
+    <h1 style={style} className={className}>
       {children}
     </h1>
   </SlideUp>
