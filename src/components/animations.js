@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
+import PropTypes from "prop-types"
 
 import { toggleAnimations } from "../actions/game"
 
@@ -15,6 +16,12 @@ class Animation extends Component {
       </span>
     )
   }
+}
+
+Animation.propTypes = {
+  animations: PropTypes.bool.isrequired,
+  children: PropTypes.object,
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(state => ({
