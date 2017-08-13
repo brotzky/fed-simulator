@@ -1,11 +1,12 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import Liveshow from "../liveshow/liveshow"
 import { formatCurrency } from "../../helpers/currency"
 
-const noop = () => {}
+const NOOP = () => {}
 
-const Heading = ({ first = "", second = "", third = "", }) => (
+export const Heading = ({ first = "", second = "", third = "", }) =>
   <div className="row Heading text-left">
     <div className="col-xs-8">
       <div className="box">
@@ -23,19 +24,29 @@ const Heading = ({ first = "", second = "", third = "", }) => (
       </div>
     </div>
   </div>
-)
+
+Heading.defaultProps = {
+  first: "",
+  second: "",
+  third: "",
+}
+Heading.propTypes = {
+  first: PropTypes.string,
+  second: PropTypes.string,
+  third: PropTypes.string,
+}
 
 const AccountingCollection = ({
   cash,
-  currency = "$",
-  isComplete = false,
-  showDelete = true,
-  calendarEvents = [],
-  onClearLiveShows = noop,
-  onClickDelete = noop,
-  totalCost = 0,
-  totalGross = 0,
-  wages = 0,
+  currency,
+  isComplete,
+  showDelete,
+  calendarEvents,
+  onClearLiveShows,
+  onClickDelete,
+  totalCost,
+  totalGross,
+  wages,
   style,
 }) => {
   cash = formatCurrency(currency, cash)
@@ -44,11 +55,10 @@ const AccountingCollection = ({
       <Heading first="Cash Available" second="" third={cash} />
       <hr />
       <If condition={calendarEvents.length > 0}>
-        <button onClick={onClearLiveShows}>
-          Clear shows
-        </button>
+        <button onClick={onClearLiveShows}>Clear shows</button>
       </If>
-      <br /><br />
+      <br />
+      <br />
       <If condition={calendarEvents.length > 0}>
         <Heading second="Cost" third="Gross" />
       </If>
@@ -94,6 +104,33 @@ const AccountingCollection = ({
       </If>
     </div>
   )
+}
+
+AccountingCollection.defaultProps = {
+  cash: 0,
+  currency: "$",
+  isComplete: false,
+  showDelete: true,
+  calendarEvents: [],
+  onClearLiveShows: NOOP,
+  onClickDelete: NOOP,
+  totalCost: 0,
+  totalGross: 0,
+  wages: 0,
+}
+
+AccountingCollection.propTypes = {
+  cash: PropTypes.number,
+  currency: PropTypes.string,
+  isComplete: PropTypes.bool,
+  showDelete: PropTypes.bool,
+  calendarEvents: PropTypes.array,
+  onClearLiveShows: PropTypes.func,
+  onClickDelete: PropTypes.func,
+  totalCost: PropTypes.number,
+  totalGross: PropTypes.number,
+  wages: PropTypes.number,
+  style: PropTypes.object.isRequired,
 }
 
 export default AccountingCollection
