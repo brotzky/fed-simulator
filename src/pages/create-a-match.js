@@ -8,12 +8,7 @@ import { connect } from "react-redux"
 import { SlideRight, FadeIn } from "animate-components"
 
 import { getId } from "../helpers/hash"
-import {
-  confirmSimulatedMatch,
-  createMatch,
-  resetMatches,
-  simulateMatch
-} from "../actions/matches"
+import { createMatch, resetMatches, simulateMatch } from "../actions/matches"
 
 import { Winner, Loser } from "../components/winner/winner"
 import HeaderOne from "../components/h1/h1"
@@ -128,16 +123,6 @@ class CreateAMatch extends Component {
                     className="icon fa fa-trash"
                     onClick={this.onResetMatches}
                   />
-                  &nbsp;
-                  <If condition={currentMatch.id}>
-                    <Link to={`/create-a-match?id=${currentMatch.id}`}>
-                      <i
-                        className="icon fa fa-refresh"
-                        aria-hidden="true"
-                        title="Refresh Match Link"
-                      />
-                    </Link>
-                  </If>
                 </HeaderOne>
                 <FadeIn
                   iterations={Number(animations)}
