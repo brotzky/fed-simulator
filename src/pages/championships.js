@@ -45,7 +45,6 @@ class ChampionshipsPage extends Component {
           do you have?! &nbsp;
           <GenerateRandom onClick={this._generateDefaultChampions} />
         </HeaderOne>
-        <br />
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12 col-lg-6">

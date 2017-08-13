@@ -47,7 +47,6 @@ class ChampionsPage extends Component {
           <span className="hot-pink"> produce</span>
           ? <GenerateRandom onClick={this._generateDefaultShows} />
         </HeaderOne>
-        <br />
         <form onSubmit={this.handleSubmit}>
           <div className="row top-xs">
             <div className="col-xs-12">

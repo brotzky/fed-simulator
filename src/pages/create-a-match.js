@@ -160,7 +160,6 @@ class CreateAMatch extends Component {
                 </If>
               </div>
             </div>
-            <br />
             <div className={storySideclasses}>
               <div className="box center-xs">
                 <SlideRight

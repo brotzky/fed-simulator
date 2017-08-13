@@ -42,7 +42,6 @@ export const DashboardPage = ({
         </div>
       </div>
     </div>
-
     <hr />
     <div className="row">
       <div className="col-xs-12 col-sm-6 col-lg-6">
