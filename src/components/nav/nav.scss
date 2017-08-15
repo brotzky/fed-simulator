@@ -1,5 +1,5 @@
-$nav-font-size: 1.5rem;
-$nav-font-weight: 100;
+$nav-font-size: 1.3rem;
+$nav-font-weight: 500;
 $nav-link-color: currentColor;
 $nav-link-text-shadow: inherit;
 $nav-link-hover-text-shadow: .01rem .01rem .1rem $nav-link-color;
@@ -10,8 +10,9 @@ $nav-list-padding: 2vh 4vw;
   padding: 0;
 
   &__list {
-    align-items: top;
+    align-items: center;
     display: flex;
+    font-variant: small-caps;
     justify-content: space-between;
     list-style: none;
     margin: 0;
