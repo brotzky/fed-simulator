@@ -76,10 +76,8 @@ class Page extends React.Component {
       darkMode,
     } = this.props
     const { pathname, } = this.context.router.location
-    const topClasses = classNames({ "dark-mode": darkMode, }, [
-      "page-container",
-      "no-select",
-    ])
+    const isDarkMode = { "dark-mode": darkMode, }
+    const topClasses = classNames(isDarkMode, ["page-container", "no-select",])
 
     return (
       <div id="page-container" className={topClasses}>
@@ -110,7 +108,7 @@ class Page extends React.Component {
             />
           </SlideDown>
         </If>
-        <main className={classnames}>
+        <main className={classNames(isDarkMode)}>
           <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
             {children}
           </FadeIn>

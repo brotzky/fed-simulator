@@ -2,7 +2,6 @@ $basepage-font-size: 2rem;
 $basepage-gutter: 2vh 4vw;
 
 .page-container {
-  height: 100%;
   background-color: #fff;
   color: #000;
 
@@ -10,6 +9,20 @@ $basepage-gutter: 2vh 4vw;
     background-color: #000;
     color: #fff;
   }
+
+  main {
+    background-color: #fff;
+    color: #000;
+
+    &.dark-mode {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}
+
+.page-container {
+  height: 100%;
 
   main {
     padding: $basepage-gutter;
