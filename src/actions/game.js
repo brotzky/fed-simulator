@@ -6,6 +6,12 @@ export function generateFederation() {
   }
 }
 
+export function toggleDarkMode() {
+  return {
+    type: types.TOGGLE_DARKMODE,
+  }
+}
+
 export function togglePlan() {
   return {
     type: types.TOGGLE_PLAN,

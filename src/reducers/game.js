@@ -24,6 +24,9 @@ export default (state = defaultState, action) => {
     case "TOGGLE_ANIMATIONS":
       state = Object.assign({}, state, { animations: !state.animations, })
       break
+    case "TOGGLE_DARKMODE":
+      state = Object.assign({}, state, { darkMode: !state.darkMode, })
+      break
     case "UPDATE_GAME":
       state = Object.assign({}, state, action.payload)
       break
