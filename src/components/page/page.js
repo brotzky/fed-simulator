@@ -1,4 +1,5 @@
 import React from "react"
+import classNames from "classnames"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { FadeIn, SlideDown } from "animate-components"
@@ -72,11 +73,16 @@ class Page extends React.Component {
       classnames,
       children,
       animations,
+      darkMode,
     } = this.props
     const { pathname, } = this.context.router.location
+    const topClasses = classNames({ "dark-mode": darkMode, }, [
+      "page-container",
+      "no-select",
+    ])
 
     return (
-      <div id="page-container" className="page-container no-select">
+      <div id="page-container" className={topClasses}>
         <Notifications />
         <If condition={championships.length > 0}>
           <SlideDown
@@ -139,6 +145,7 @@ Page.displayName = "Page"
 Page.propTypes = {
   classnames: PropTypes.string,
   championships: PropTypes.array,
+  darkMode: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
   version: PropTypes.number.isRequired,
   style: PropTypes.object.isRequired,
@@ -157,6 +164,7 @@ Page.contextTypes = {
 
 export default connect(state => ({
   animations: state.game.animations,
+  darkMode: state.game.darkMode,
   style: state.style,
   championships: state.championships,
   version: state.version,

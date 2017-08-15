@@ -1,10 +1,21 @@
 $basepage-font-size: 2rem;
 $basepage-gutter: 4vh 4vw;
 
-.page-container main {
-  padding: $basepage-gutter;
-  font-size: $basepage-font-size;
-  flex: 1 0 auto;
+.page-container {
+  height: 100%;
+  background-color: #fff;
+  color: #000;
+
+  &.dark-mode {
+    background-color: #000;
+    color: #fff;
+  }
+
+  main {
+    padding: $basepage-gutter;
+    font-size: $basepage-font-size;
+    flex: 1 0 auto;
+  }
 }
 
 .footer,
