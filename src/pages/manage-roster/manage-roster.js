@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { SlideRight } from "animate-components"
+import { FadeIn } from "animate-components"
 
 import Wrestlers from "../../components/wrestlers/container"
 import Input from "../../components/form/input"
@@ -33,20 +33,17 @@ const UpdateWrestlersPage = ({
           </p>
         </If>
         <div className="col-xs-12">
-          <SlideRight
-            iterations={Number(animations)}
-            duration={ANIMATION_SPEED}
-          >
+          <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
             <Wrestlers
               onWrestlerClick={onWrestlerClick}
               showFilter={showWrestlersFilters}
             />
-          </SlideRight>
+          </FadeIn>
         </div>
       </div>
       <br />
       <If condition={currentWrestler}>
-        <SlideRight iterations={Number(animations)} duration={ANIMATION_SPEED}>
+        <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
           <div className="row">
             <div className="col-xs-12">
               <div className="box">
@@ -90,7 +87,7 @@ const UpdateWrestlersPage = ({
               </div>
             </div>
           </div>
-        </SlideRight>
+        </FadeIn>
       </If>
     </div>
   )
