@@ -2,7 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import { FadeIn, SlideDown } from "animate-components"
+import { FadeIn, SlideDown, SlideUp } from "animate-components"
 import { DragDropContext } from "react-dnd"
 import HTML5Backend from "react-dnd-html5-backend"
 import TouchBackend from "react-dnd-touch-backend"
@@ -77,48 +77,59 @@ class Page extends React.Component {
     } = this.props
     const { pathname, } = this.context.router.location
     const isDarkMode = { "dark-mode": darkMode, }
-    const topClasses = classNames(isDarkMode, ["page-container", "no-select",])
+    const topClasses = classNames(this.props.classnames, isDarkMode, [
+      "page-container",
+      "no-select",
+    ])
 
     return (
       <div id="page-container" className={topClasses}>
         <Notifications />
-        <If condition={championships.length > 0}>
-          <SlideDown
-            style={{ zIndex: 10, }}
-            iterations={Number(animations)}
-            duration={ANIMATION_SPEED}
-          >
-            <Nav
-              onClickBurger={this.onToggle}
-              links={headerLinks}
-              style={style}
-            />
-          </SlideDown>
-        </If>
-        <If condition={this.state.openNavBar}>
-          <SlideDown
-            style={{ zIndex: 5, }}
-            iterations={Number(animations)}
-            duration={SHORT_ANIMATION_SPEED}
-          >
-            <Nav
-              onClickBurger={this.onToggle}
-              links={burgerLinks}
-              style={style}
-            />
-          </SlideDown>
-        </If>
+        <Choose>
+          <When condition={championships.length > 0}>
+            <SlideDown
+              style={{ zIndex: 10, }}
+              iterations={Number(animations)}
+              duration={ANIMATION_SPEED}
+            >
+              <Nav
+                onClickBurger={this.onToggle}
+                links={headerLinks}
+                style={style}
+              />
+            </SlideDown>
+            <If condition={this.state.openNavBar}>
+              <SlideDown
+                style={{ zIndex: 5, }}
+                iterations={Number(animations)}
+                duration={SHORT_ANIMATION_SPEED}
+              >
+                <Nav
+                  onClickBurger={this.onToggle}
+                  links={burgerLinks}
+                  style={style}
+                />
+              </SlideDown>
+            </If>
+          </When>
+          <Otherwise>
+            <hr className="big-seperator" />
+          </Otherwise>
+        </Choose>
         <main className={classNames(isDarkMode)}>
           <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
             {children}
           </FadeIn>
         </main>
-        <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
-          <Choose>
-            <When condition={pathname.startsWith("/create-a-match")}>
+
+        <Choose>
+          <When condition={pathname.startsWith("/create-a-match")}>
+            <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
               <Wrestlers />
-            </When>
-            <When condition={championships.length > 0}>
+            </SlideUp>
+          </When>
+          <When condition={championships.length > 0}>
+            <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
               <footer style={style} className="footer nav">
                 <a
                   target="_blank"
@@ -130,9 +141,12 @@ class Page extends React.Component {
                   <i className="icon fa fa-twitter" /> Twitter
                 </a>
               </footer>
-            </When>
-          </Choose>
-        </FadeIn>
+            </SlideUp>
+          </When>
+          <Otherwise>
+            <hr className="big-seperator bottom" />
+          </Otherwise>
+        </Choose>
       </div>
     )
   }

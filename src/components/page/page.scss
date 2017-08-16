@@ -21,6 +21,18 @@ $basepage-gutter: 2vh 4vw;
   }
 }
 
+hr.big-seperator {
+  height: .3rem;
+  background-color: white;
+  border: .1rem solid white;
+  width: 95%;
+  margin: 5rem auto 0;
+
+  &.bottom {
+    margin: 0 auto 5rem;
+  }
+}
+
 .page-container {
   height: 100%;
 
