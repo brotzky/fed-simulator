@@ -7,8 +7,6 @@
 @import 'colours';
 @import 'table';
 @import 'animation';
-@import 'overrides';
-@import 'mobile';
 @import 'highlight';
 @import 'dropzone';
 
@@ -96,3 +94,6 @@ a:hover,
 .text-right {
   text-align: right;
 }
+
+@import 'overrides';
+@import 'mobile';

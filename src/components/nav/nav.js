@@ -13,6 +13,7 @@ import "./nav.scss"
 const Nav = ({
   backgroundColor = "black",
   color = "white",
+  modifier = "",
   links = [],
   name = "",
   onClickBurger = NOOP,
@@ -20,7 +21,7 @@ const Nav = ({
   const style = { backgroundColor, color, }
   return (
     <nav style={style} className="nav">
-      <ul className="nav__list">
+      <ul className={`nav__list ${modifier}`}>
         {links.map((item, key) => {
           const title = { __html: item.title, }
           return (
@@ -60,6 +61,7 @@ Nav.propTypes = {
   backgroundColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   links: PropTypes.array,
+  modifier: PropTypes.string,
   name: PropTypes.string.isRequired,
   onClickBurger: PropTypes.func,
 }

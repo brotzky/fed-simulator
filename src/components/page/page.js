@@ -77,7 +77,7 @@ class Page extends React.Component {
     } = this.props
     const { pathname, } = this.context.router.location
     const isDarkMode = { "dark-mode": darkMode, }
-    const topClasses = classNames(this.props.classnames, isDarkMode, [
+    const topClasses = classNames(classnames, isDarkMode, [
       "page-container",
       "no-select",
     ])
@@ -108,6 +108,7 @@ class Page extends React.Component {
                   onClickBurger={this.onToggle}
                   links={burgerLinks}
                   style={style}
+                  modifier="main"
                 />
               </SlideDown>
             </If>

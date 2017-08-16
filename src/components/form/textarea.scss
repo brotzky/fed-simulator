@@ -1,4 +1,4 @@
-$font-size: 4vh !default;
+$font-size: 1.5rem !default;
 $font-weight: lighter;
 $font-color: #232828 !default;
 $textarea-border-radius: .1rem !default;
@@ -20,6 +20,7 @@ textarea {
   color: $font-color;
   display: $display;
   font-size: $font-size;
+  line-height: $font-size;
   font-weight: $font-weight;
   margin: 1rem 0;
   outline: none;

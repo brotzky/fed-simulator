@@ -8,11 +8,16 @@
   h5 {
     &,
     & .icon {
-      font-size: 2rem !important;
-      line-height: 2rem !important;
+      font-size: 1.7rem !important;
+      line-height: 1.7rem !important;
     }
   }
   .page-container main {
-    padding: .5rem !important;
+    padding: 1.5rem !important;
+  }
+  input,
+  textarea {
+    font-size: 1rem;
+    line-height: 1rem;
   }
 }

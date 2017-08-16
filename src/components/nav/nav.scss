@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 $nav-font-size: 1.3rem;
 $nav-font-weight: 500;
 $nav-link-color: currentColor;
@@ -40,5 +42,12 @@ $nav-list-padding: 2vh 4vw;
       text-decoration: none;
       text-shadow: $nav-link-hover-text-shadow;
     }
+  }
+}
+
+@include breakpoint(xs) {
+  .nav__list.main {
+    display: block;
+    padding: .5rem 1rem;
   }
 }
