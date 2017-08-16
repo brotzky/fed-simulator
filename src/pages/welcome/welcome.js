@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 
 import HeaderOne from "../../components/h1/h1"
 
-import "../stylesheets/welcome.scss"
+import "./welcome.scss"
 
 const noop = () => {}
 
