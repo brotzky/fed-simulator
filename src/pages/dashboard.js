@@ -24,19 +24,19 @@ export const DashboardPage = ({
 }) =>
   <section className="page dashboard zoom">
     <div className="row center-xs">
-      <div className="col-xs-12 col-lg-4">
+      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <div className="box">
           <Link to="/calendar">
             <i className="icon fa fa-calendar" /> Calendar
           </Link>
         </div>
       </div>
-      <div className="col-xs-12 col-lg-4">
+      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <div className="box">
           <Simulator />
         </div>
       </div>
-      <div className="col-xs-12 col-lg-4">
+      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
         <div className="box">
           <Link to="/create-a-match">Create a Match</Link>
         </div>
