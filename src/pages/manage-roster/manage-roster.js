@@ -47,13 +47,13 @@ const UpdateWrestlersPage = ({
           <div className="row">
             <div className="col-xs-12">
               <div className="box">
-                <label forHtml="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <Input
                   id="name"
                   onChange={onWrestlersNameUpdated}
                   value={currentWrestler.name}
                 />
-                <label forHtml="points">Points</label>
+                <label htmlFor="points">Points</label>
               </div>
               <div className="box">
                 <Input
@@ -61,7 +61,7 @@ const UpdateWrestlersPage = ({
                   onChange={onWrestlerPointsUpdated}
                   value={currentWrestler.points}
                 />
-                <label forHtml="image">Profile Picture</label>
+                <label htmlFor="image">Profile Picture</label>
               </div>
               <div className="box">
                 <Image

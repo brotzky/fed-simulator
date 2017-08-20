@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 $calendar-show-width: 10%;
 $calendar-font-size: 1rem;
 $calendar-font-weight: 300;
@@ -63,6 +65,32 @@ $calendar-date-hover-previous-color: darken($calendar-base-color, 55%);
     width: 12.627%;
   }
 
+  .weekdate {
+    display: none;
+  }
+
+  @include breakpoint(xs) {
+    .boxes {
+      margin-bottom: .2rem;
+    }
+    .dustbin,
+    .header,
+    .liveshow__date,
+    .icon {
+      font-size: .7rem;
+    }
+    .previous,
+    .header {
+      display: none;
+    }
+    .weekdate {
+      display: inline;
+    }
+    .dustbin {
+      width: 18.34%;
+    }
+  }
+
   .dustbin {
     background-color: $calendar-date-bg-color;
     color: $calendar-date-color;
@@ -105,15 +133,21 @@ $calendar-date-hover-previous-color: darken($calendar-base-color, 55%);
 
     &__details {
       align-items: center;
-      height: 2.5rem;
+      height: 2rem;
       justify-content: center;
-      padding: .5rem;
+      padding: .2rem;
     }
   }
 
   .boxes {
     margin-bottom: .8rem;
     margin-right: 0;
+  }
+
+  @include breakpoint(xs) {
+    .boxes {
+      margin-bottom: .2rem;
+    }
   }
 
   .active {
