@@ -61,9 +61,9 @@ const UpdateWrestlersPage = ({
                   onChange={onWrestlerPointsUpdated}
                   value={currentWrestler.points}
                 />
-                <label htmlFor="image">Profile Picture</label>
               </div>
               <div className="box">
+                <label htmlFor="image">Profile Picture</label>
                 <Image
                   id="image"
                   name="image"
