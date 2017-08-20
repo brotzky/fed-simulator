@@ -26,6 +26,14 @@ import {
 
 import "./stylesheets/calendar.scss"
 
+function cost(item) {
+  return item.cost
+}
+
+function sum(current, next) {
+  return current + next
+}
+
 class CalendarPage extends Component {
   state = {
     confirmAction: true,
@@ -80,6 +88,19 @@ class CalendarPage extends Component {
                 iterations={Number(animations)}
                 duration={ANIMATION_SPEED}
               >
+                <div>
+                  <Choose>
+                    <When condition={canPlan}>
+                      <i className="icon fa fa-unlock" /> Drag and drop shows
+                      onto Calendar dates
+                    </When>
+                    <Otherwise>
+                      <i className="icon fa fa-lock" /> Locked, move onto the
+                      next month
+                    </Otherwise>
+                  </Choose>
+                </div>
+                <br />
                 <Calendar />
               </SlideLeft>
             </div>
@@ -90,7 +111,6 @@ class CalendarPage extends Component {
                 iterations={Number(animations)}
                 duration={ANIMATION_SPEED}
               >
-                <Accounting />
                 <Choose>
                   <When condition={canPlan}>
                     <Button
@@ -105,6 +125,8 @@ class CalendarPage extends Component {
                     />
                   </Otherwise>
                 </Choose>
+                <br />
+                <Accounting />
               </SlideRight>
             </div>
           </div>
@@ -139,15 +161,16 @@ class CalendarPage extends Component {
   }
 
   onStartNextMonth = () => {
-    const { dispatch, calendar, } = this.props
+    const { dispatch, calendar, roster, } = this.props
     const { confirmAction, } = this.state
 
-    const profit = calendar.reduce((prev, currentDate) => {
+    let profit = calendar.reduce((prev, currentDate) => {
       if (currentDate.showId) {
         return prev + (currentDate.gross - currentDate.cost)
       }
       return prev
     }, 0)
+    profit -= roster.map(cost).reduce(sum)
 
     dispatch(addProfitToTotal(profit))
     dispatch(togglePlan())
@@ -166,8 +189,9 @@ CalendarPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   animations: PropTypes.bool.isRequired,
   date: PropTypes.object.isRequired,
+  roster: PropTypes.array.isRequired,
   canPlan: PropTypes.bool.isRequired,
-  calendar: PropTypes.object.isRequired,
+  calendar: PropTypes.array.isRequired,
   currentMonth: PropTypes.number.isRequired,
   currentYear: PropTypes.number.isRequired,
 }
@@ -176,5 +200,6 @@ CalendarPage.displayName = "CalendarPage"
 
 export default connect(state => ({
   calendar: state.calendar,
+  roster: state.roster,
   ...state.game,
 }))(CalendarPage)

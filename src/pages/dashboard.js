@@ -21,84 +21,97 @@ export const DashboardPage = ({
   cheapWrestlers,
   rankedMaleWrestlers,
   rankedFemaleWrestlers,
-}) =>
-  <section className="page dashboard zoom">
-    <div className="row center-xs">
-      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <div className="box">
-          <Link to="/calendar">
-            <i className="icon fa fa-calendar" /> Calendar
-          </Link>
+}) => {
+  const color = { color: style.color, }
+  return (
+    <section className="page dashboard zoom">
+      <div className="row center-xs">
+        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <div className="box">
+            <Link style={color} to="/calendar">
+              <i className="icon fa fa-calendar" />
+              <span> Calendar</span>
+            </Link>
+          </div>
+        </div>
+        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <div className="box">
+            <Simulator />
+          </div>
+        </div>
+        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+          <div className="box">
+            <Link style={color} to="/create-a-match">
+              Create a Match
+            </Link>
+          </div>
         </div>
       </div>
-      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <div className="box">
-          <Simulator />
+      <div className="row">
+        <div className="col-xs-12 col-sm-6 col-lg-6">
+          <SlideLeft iterations={Number(animations)} duration={ANIMATION_SPEED}>
+            <div className="box">
+              <Ranking
+                style={style}
+                amountToShow={10}
+                rows={rankedMaleWrestlers}
+                columns={RANKED_COLUMNS}
+                title="Ranked Male Wrestlers"
+              />
+            </div>
+          </SlideLeft>
+        </div>
+        <div className="col-xs-12 col-sm-6 col-lg-6">
+          <SlideRight
+            iterations={Number(animations)}
+            duration={ANIMATION_SPEED}
+          >
+            <div className="box">
+              <Ranking
+                style={style}
+                amountToShow={10}
+                rows={rankedFemaleWrestlers}
+                columns={RANKED_COLUMNS}
+                title="Ranked Female Wrestlers"
+              />
+            </div>
+          </SlideRight>
         </div>
       </div>
-      <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <div className="box">
-          <Link to="/create-a-match">Create a Match</Link>
+      <div className="row">
+        <div className="col-xs-12 col-sm-6 col-lg-6">
+          <SlideLeft iterations={Number(animations)} duration={ANIMATION_SPEED}>
+            <div className="box">
+              <Ranking
+                style={style}
+                amountToShow={5}
+                rows={expensiveWrestlers}
+                columns={COST_COLUMNS}
+                title="Expensive Wrestlers"
+              />
+            </div>
+          </SlideLeft>
+        </div>
+        <div className="col-xs-12 col-sm-6 col-lg-6">
+          <SlideRight
+            iterations={Number(animations)}
+            duration={ANIMATION_SPEED}
+          >
+            <div className="box">
+              <Ranking
+                style={style}
+                amountToShow={5}
+                rows={cheapWrestlers}
+                columns={COST_COLUMNS}
+                title="Cheaper Wrestlers"
+              />
+            </div>
+          </SlideRight>
         </div>
       </div>
-    </div>
-    <div className="row">
-      <div className="col-xs-12 col-sm-6 col-lg-6">
-        <SlideLeft iterations={Number(animations)} duration={ANIMATION_SPEED}>
-          <div className="box">
-            <Ranking
-              style={style}
-              amountToShow={10}
-              rows={rankedMaleWrestlers}
-              columns={RANKED_COLUMNS}
-              title="Ranked Male Wrestlers"
-            />
-          </div>
-        </SlideLeft>
-      </div>
-      <div className="col-xs-12 col-sm-6 col-lg-6">
-        <SlideRight iterations={Number(animations)} duration={ANIMATION_SPEED}>
-          <div className="box">
-            <Ranking
-              style={style}
-              amountToShow={10}
-              rows={rankedFemaleWrestlers}
-              columns={RANKED_COLUMNS}
-              title="Ranked Female Wrestlers"
-            />
-          </div>
-        </SlideRight>
-      </div>
-    </div>
-    <div className="row">
-      <div className="col-xs-12 col-sm-6 col-lg-6">
-        <SlideLeft iterations={Number(animations)} duration={ANIMATION_SPEED}>
-          <div className="box">
-            <Ranking
-              style={style}
-              amountToShow={5}
-              rows={expensiveWrestlers}
-              columns={COST_COLUMNS}
-              title="Expensive Wrestlers"
-            />
-          </div>
-        </SlideLeft>
-      </div>
-      <div className="col-xs-12 col-sm-6 col-lg-6">
-        <SlideRight iterations={Number(animations)} duration={ANIMATION_SPEED}>
-          <div className="box">
-            <Ranking
-              style={style}
-              amountToShow={5}
-              rows={cheapWrestlers}
-              columns={COST_COLUMNS}
-              title="Cheaper Wrestlers"
-            />
-          </div>
-        </SlideRight>
-      </div>
-    </div>
-  </section>
+    </section>
+  )
+}
 
 DashboardPage.displayName = "DashboardPage"
 

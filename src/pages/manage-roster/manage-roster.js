@@ -47,37 +47,30 @@ const UpdateWrestlersPage = ({
           <div className="row">
             <div className="col-xs-12">
               <div className="box">
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <td>Name</td>
-                      <td>Points</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <Input
-                          onChange={onWrestlersNameUpdated}
-                          value={currentWrestler.name}
-                        />
-                      </td>
-                      <td>
-                        <Input
-                          onChange={onWrestlerPointsUpdated}
-                          value={currentWrestler.points}
-                        />
-                      </td>
-                      <td>
-                        <Image
-                          name="image"
-                          value={currentWrestler.image}
-                          onChange={onImageUpdated}
-                        />
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <label forHtml="name">Name</label>
+                <Input
+                  id="name"
+                  onChange={onWrestlersNameUpdated}
+                  value={currentWrestler.name}
+                />
+                <label forHtml="points">Points</label>
+              </div>
+              <div className="box">
+                <Input
+                  id="points"
+                  onChange={onWrestlerPointsUpdated}
+                  value={currentWrestler.points}
+                />
+                <label forHtml="image">Profile Picture</label>
+              </div>
+              <div className="box">
+                <Image
+                  id="image"
+                  name="image"
+                  label="Drop here"
+                  value={currentWrestler.image}
+                  onChange={onImageUpdated}
+                />
               </div>
               <br />
               <div className="box col-lg-6 col-xs-12">

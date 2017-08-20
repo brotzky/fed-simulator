@@ -1,5 +1,6 @@
 import Model from "./style.model"
 import chromatism from "chromatism"
+import { shade } from "../helpers/colours"
 
 const defaultState = new Model().toJSON()
 
@@ -19,6 +20,12 @@ export default (state = defaultState, action) => {
       if (state.color === state.backgroundColor) {
         state.color = chromatism.complementary(state.backgroundColor).hex
       }
+
+      state.darkBackgroundColor = shade(
+        action.payload.backgroundColor,
+        defaultState.shade
+      )
+
       state.unTouched = false
       break
     default:

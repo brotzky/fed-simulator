@@ -11,7 +11,6 @@ export default class extends BaseModel {
       cash: 0,
       currency: "$",
       animations: true,
-      darkMode: true,
       currentDate: new Date().getDate(),
       currentMonth: new Date().getMonth(),
       currentYear: new Date().getFullYear(),

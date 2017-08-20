@@ -12,13 +12,18 @@
 }
 
 .colorPickers {
-  height: 2rem;
-  width: 4rem;
+  border: .3rem solid currentColor;
+  height: 1.5rem;
+  width: 3rem;
+  padding: 0;
+  margin: 0;
 
   .colorPicker {
     display: flex;
     height: 100%;
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   .col {

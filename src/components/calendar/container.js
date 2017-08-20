@@ -4,6 +4,7 @@ import groupBy from "lodash.groupby"
 import moment from "moment"
 import PropTypes from "prop-types"
 
+import EmptyDate from "./empty-date"
 import Liveshow from "../liveshow/liveshow"
 import { deleteLiveShow } from "../../actions/calendar"
 import { DAY_FORMAT } from "../../constants/calendar"
@@ -34,8 +35,8 @@ class Container extends Component {
   }
 
   onHandleDrop(date, item) {
-    const { game, shows, dispatch, } = this.props
-    if (!game.canPlan) return
+    if (!this.props.canPlan) return
+    const { shows, dispatch, } = this.props
 
     const { name, size, } = item
     const show = shows.find(show => show.name === name)
@@ -52,16 +53,11 @@ class Container extends Component {
 
   render() {
     const { boxes, dustbins, } = this.state
-    const { game, style, } = this.props
+    const { canPlan, style, } = this.props
     const groupedBoxes = groupBy(boxes, "size")
-    const lockClass = !game.canPlan ? "lock" : "unlock"
 
     return (
       <div className="calendar">
-        <p>
-          <i className={`icon fa fa-${lockClass}`} /> Drag and drop shows onto
-          Calendar dates
-        </p>
         {Object.keys(groupedBoxes).map(size => {
           return (
             <div key={`calendar-show-${size}`} className="row">
@@ -71,7 +67,7 @@ class Container extends Component {
                     key={`calendar-box-${name}`}
                     name={name}
                     type={type}
-                    canDrag={game.canPlan}
+                    canDrag={canPlan}
                   >
                     <Liveshow
                       shortenName={true}
@@ -88,6 +84,10 @@ class Container extends Component {
         })}
         <WeekDays />
         <div className="row">
+          {this._getOffsetDustbins().map((dustbin, key) => {
+            const date = new Date(dustbin.date).getDate()
+            return <EmptyDate date={date} key={key} />
+          })}
           {dustbins.map(dustbin => {
             return (
               <Dustbin
@@ -97,7 +97,7 @@ class Container extends Component {
                 style={style}
                 accepts={dustbin.accepts}
                 droppedItem={dustbin.droppedItem}
-                canDelete={game.canPlan}
+                canDelete={canPlan}
                 onClickDelete={item => this.onClickDelete(dustbin.date, item)}
                 onDrop={item => this.onHandleDrop(dustbin.date, item)}
               />
@@ -159,10 +159,6 @@ class Container extends Component {
       }
     })
 
-    const previousMonthDustbins = this._getOffsetDustbins()
-
-    dustbins = previousMonthDustbins.concat(dustbins)
-
     this.setState({
       boxes,
       dustbins,
@@ -175,7 +171,8 @@ class Container extends Component {
 }
 
 Container.propTypes = {
-  game: PropTypes.object.isRequired,
+  canPlan: PropTypes.bool.isRequired,
+  style: PropTypes.object.isRequired,
   shows: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired,
   calendar: PropTypes.array.isRequired,
@@ -184,6 +181,6 @@ Container.propTypes = {
 export default connect(state => ({
   shows: state.shows,
   style: state.style,
-  game: state.game,
+  canPlan: state.game.canPlan,
   calendar: state.calendar,
 }))(Container)

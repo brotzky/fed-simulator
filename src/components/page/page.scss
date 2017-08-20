@@ -1,26 +1,6 @@
 $basepage-font-size: 2rem;
 $basepage-gutter: 2vh 4vw;
 
-.page-container {
-  background-color: #fff;
-  color: #000;
-
-  &.dark-mode {
-    background-color: #000;
-    color: #fff;
-  }
-
-  main {
-    background-color: #fff;
-    color: #000;
-
-    &.dark-mode {
-      background-color: #000;
-      color: #fff;
-    }
-  }
-}
-
 hr.big-seperator {
   height: .3rem;
   background-color: white;
@@ -37,9 +17,9 @@ hr.big-seperator {
   height: 100%;
 
   main {
-    padding: $basepage-gutter;
-    font-size: $basepage-font-size;
     flex: 1 0 auto;
+    font-size: $basepage-font-size;
+    padding: $basepage-gutter;
   }
 }
 
@@ -52,7 +32,7 @@ footer {
     margin-right: 1rem;
     text-decoration: none;
     text-shadow: currentColor;
-    transition: text-shadow 0.2s linear;
+    transition: text-shadow .2s linear;
   }
 
   a,

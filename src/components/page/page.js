@@ -68,22 +68,17 @@ class Page extends React.Component {
 
   render() {
     const {
-      championships,
-      style,
-      classnames,
-      children,
       animations,
-      darkMode,
+      championships,
+      children,
+      classnames,
+      style,
     } = this.props
     const { pathname, } = this.context.router.location
-    const isDarkMode = { "dark-mode": darkMode, }
-    const topClasses = classNames(classnames, isDarkMode, [
-      "page-container",
-      "no-select",
-    ])
+    const topClasses = classNames(classnames, ["page-container", "no-select",])
 
     return (
-      <div id="page-container" className={topClasses}>
+      <div id="page-container" style={style} className={topClasses}>
         <Notifications />
         <Choose>
           <When condition={championships.length > 0}>
@@ -117,12 +112,15 @@ class Page extends React.Component {
             <hr className="big-seperator" />
           </Otherwise>
         </Choose>
-        <main className={classNames(isDarkMode)}>
+        <main
+          style={{
+            backgroundColor: style.darkBackgroundColor,
+          }}
+        >
           <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
             {children}
           </FadeIn>
         </main>
-
         <Choose>
           <When condition={pathname.startsWith("/create-a-match")}>
             <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
@@ -158,7 +156,6 @@ Page.displayName = "Page"
 Page.propTypes = {
   classnames: PropTypes.string,
   championships: PropTypes.array,
-  darkMode: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
   version: PropTypes.number.isRequired,
   style: PropTypes.object.isRequired,
@@ -177,7 +174,6 @@ Page.contextTypes = {
 
 export default connect(state => ({
   animations: state.game.animations,
-  darkMode: state.game.darkMode,
   style: state.style,
   championships: state.championships,
   version: state.version,

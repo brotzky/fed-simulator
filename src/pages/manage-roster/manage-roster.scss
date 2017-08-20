@@ -13,10 +13,13 @@ $manage-roster-font-size: 1.2rem;
   }
 
   .dropzone {
-    margin: 0.1rem 0;
-    border: 0px;
-    width: auto;
     padding: 0;
+    color: #666;
+    border: .2rem dashed currentColor;
+
+    label {
+      content: "";
+    }
 
     .avatar {
       height: 3rem;

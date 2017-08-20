@@ -3,7 +3,6 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { browserHistory } from "react-router"
 
-import DarkMode from "../components/dark-mode"
 import Animations from "../components/animations"
 import { reset } from "../actions/game"
 import HeaderOne from "../components/h1/h1"
@@ -28,10 +27,6 @@ class Settings extends Component {
             <br />
             <div className="box" style={style}>
               <Animations>Toggle animations</Animations>
-            </div>
-            <br />
-            <div className="box" style={style}>
-              <DarkMode>Toggle Dark Mode</DarkMode>
             </div>
             <br />
             <div className="box" style={style}>
