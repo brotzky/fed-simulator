@@ -8,7 +8,7 @@ $nav-link-hover-text-shadow: .01rem .01rem .1rem $nav-link-color;
 $nav-list-padding: 1vh 2vw;
 
 .nav {
-  align-content: space-between;
+  align-items: space-between;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;

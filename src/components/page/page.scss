@@ -19,22 +19,14 @@ hr.big-seperator {
 
 .footer,
 footer {
-  padding: 1rem;
+  padding: 0.2rem 4vw;
 
   a {
     margin-right: 1rem;
-    text-decoration: none;
-    text-shadow: currentColor;
-    transition: text-shadow .2s linear;
   }
 
   a,
   a:hover {
     color: currentColor;
-  }
-
-  a:hover {
-    text-decoration: none;
-    text-shadow: .1rem .1rem 1rem currentColor;
   }
 }

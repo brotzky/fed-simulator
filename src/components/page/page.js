@@ -129,16 +129,18 @@ class Page extends React.Component {
           </When>
           <When condition={championships.length > 0}>
             <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
-              <footer style={style} className="footer nav">
-                <a
-                  target="_blank"
-                  href="https://github.com/azz0r/fed-simulator"
-                >
-                  <i className="icon fa fa-github" /> Github
-                </a>
-                <a target="_blank" href="https://twitter.com/universesimman">
-                  <i className="icon fa fa-twitter" /> Twitter
-                </a>
+              <footer style={style} className="footer">
+                <h4>
+                  <a
+                    target="_blank"
+                    href="https://github.com/azz0r/fed-simulator"
+                  >
+                    <i className="icon fa fa-github" /> Github
+                  </a>
+                  <a target="_blank" href="https://twitter.com/universesimman">
+                    <i className="icon fa fa-twitter" /> Twitter
+                  </a>
+                </h4>
               </footer>
             </SlideUp>
           </When>
