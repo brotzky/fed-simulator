@@ -75,8 +75,8 @@ class CalendarPage extends Component {
 
     return (
       <section className="page page-calendar">
-        <div className="row middle-xs">
-          <div className="col-xs-4">
+        <div className="row middle-xs start-xs">
+          <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
             <div className="box">
               <HeaderOne>
                 {title}&nbsp;
@@ -86,7 +86,7 @@ class CalendarPage extends Component {
               </HeaderOne>
             </div>
           </div>
-          <div className="col-xs-6">
+          <div className="col-xs-6 col-sm-6 col-md-9 col-lg-9">
             <div className="box">
               <Choose>
                 <When condition={canPlan}>
