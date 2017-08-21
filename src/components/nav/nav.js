@@ -20,12 +20,12 @@ const Nav = ({
 }) => {
   const style = { backgroundColor, color, }
   return (
-    <nav style={style} className="nav">
-      <ul className={`nav__list ${modifier}`}>
+    <nav style={style}>
+      <ul className={`nav ${modifier}`}>
         {links.map((item, key) => {
           const title = { __html: item.title, }
           return (
-            <li key={key} className={`nav__item nav--${item.url}`}>
+            <li key={key}>
               <Choose>
                 <When condition={item.title === "Burger"}>
                   <span className="cursor-pointer" onClick={onClickBurger}>
