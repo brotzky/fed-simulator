@@ -28,7 +28,6 @@ $wrestler-height: 3rem;
     border-right: 0;
     border-top: 0;
     color: $wrestler-choice-color;
-    font-size: 1.5rem;
     height: 1.3rem;
     line-height: 1.2rem;
 
@@ -44,12 +43,12 @@ $wrestler-height: 3rem;
     display: flex;
     font-size: small;
     height: $wrestler-height;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: .5rem 0;
     overflow: hidden;
+    padding: 0 .2rem;
     transition: text-shadow .3s linear;
     word-wrap: break-word;
-    padding: 0 .2rem;
 
     .image img {
       max-height: 2.5rem;
@@ -57,8 +56,8 @@ $wrestler-height: 3rem;
     }
 
     sup {
-      font-size: .8rem;
       font-weight: 500;
+      font-size: small;
     }
 
     &:hover {
@@ -67,15 +66,9 @@ $wrestler-height: 3rem;
     }
 
     @include breakpoint(xs) {
-      .name {
-        font-size: xx-small;
-      }
       &.has-image {
         .name {
           display: none;
-        }
-        sup {
-          font-size: xx-small;
         }
       }
     }

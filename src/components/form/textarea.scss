@@ -1,8 +1,8 @@
-$font-size: 1.5rem !default;
-$font-weight: lighter;
+$font-weight: normal;
+$font-size: x-large;
 $font-color: #232828 !default;
-$textarea-border-radius: .1rem !default;
-$border-width: .1rem !default;
+$textarea-border-radius: 0 !default;
+$border-width: 0 !default;
 $border-style: solid !default;
 $border-color: #ccc !default;
 $textarea-height: 5rem !default;
@@ -16,35 +16,28 @@ $textarea-placeholder: #ccc;
 $display: block !default;
 
 textarea {
+  background-color: $textarea-bg-color;
+  border-radius: $textarea-border-radius;
+  border: $border-width $border-style $border-color;
   box-sizing: border-box;
   color: $font-color;
   display: $display;
   font-size: $font-size;
-  line-height: $font-size;
   font-weight: $font-weight;
   margin: 1rem 0;
+  max-width: $textarea-max-width;
   outline: none;
+  overflow: auto;
+  line-height: inherit;
+  padding: $textarea-height / 5;
   vertical-align: top;
+  width: $textarea-width;
 }
 
 label {
   display: $display;
-  font-size: 2rem;
   font-variant: small-caps;
   font-weight: 100;
-}
-
-textarea {
-  background-color: $textarea-bg-color;
-  border-radius: $textarea-border-radius;
-  border: $border-width $border-style $border-color;
-  max-width: $textarea-max-width;
-  padding: $textarea-height / 5;
-  width: $textarea-width;
-}
-
-textarea {
-  overflow: auto;
 }
 
 legend {

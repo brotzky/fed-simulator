@@ -1,4 +1,4 @@
-$welcome-font-size: 2rem;
+$welcome-font-size: xx-large;
 $welcome-font-weight: 100;
 $welcome-color: black;
 $welcome-bg-color: gold;
@@ -9,7 +9,11 @@ $welcome-bg-color: gold;
     display: flex;
     font-size: $welcome-font-size;
     font-weight: $welcome-font-weight;
-    padding: 1rem;
+    padding: .5rem 2rem;
+
+    li {
+      list-style: none;
+    }
 
     .box a,
     .box {

@@ -1,5 +1,35 @@
 body {
   font-family: 'Rubik', sans-serif;
-  font-size: 1.6rem;
   font-weight: 100;
+}
+
+/* Document level adjustments */
+@media (min-width: 721px) {
+  html {
+    font-size: 125%;
+  }
+}
+@media (max-width: 720px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+h2 {
+  font-size: large;
+}
+
+h3,
+label,
+thead {
+  font-size: larger;
+}
+
+h4 {
+  font-size: large;
+}
+
+h5 {
+  font-size: medium;
+  font-size: 700;
 }

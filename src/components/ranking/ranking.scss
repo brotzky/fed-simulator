@@ -1,16 +1,10 @@
-$ranking-table-header-font-size: 1.5rem;
-$ranking-font-size: 1rem;
-$ranking-tbody-font-size: 1rem;
-
 div.ranking {
   margin: 1rem 0;
-  font-size: $ranking-font-size;
 
   .table,
   h3 {
     width: 95%;
     margin: 0;
-    font-size: $ranking-table-header-font-size;
     font-weight: 100;
     padding: .3rem;
   }
@@ -30,9 +24,7 @@ div.ranking {
 
   tbody {
     .name {
-      font-size: $ranking-tbody-font-size;
       font-weight: 100;
-      line-height: $ranking-tbody-font-size * 2;
     }
   }
 }

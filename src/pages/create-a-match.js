@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import groupBy from "lodash.groupby"
 import classnames from "classnames"
 
-import { Link } from "react-router"
 import { connect } from "react-redux"
 import { SlideRight, FadeIn } from "animate-components"
 

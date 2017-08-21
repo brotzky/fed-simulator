@@ -29,20 +29,23 @@ export const DashboardPage = ({
         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div className="box">
             <Link style={color} to="/calendar">
-              <i className="icon fa fa-calendar" />
-              <span> Calendar</span>
+              <h3>
+                <i className="icon fa fa-calendar" /> Calendar
+              </h3>
             </Link>
           </div>
         </div>
         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div className="box">
-            <Simulator />
+            <h3>
+              <Simulator />
+            </h3>
           </div>
         </div>
         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-4">
           <div className="box">
             <Link style={color} to="/create-a-match">
-              Create a Match
+              <h3>Create a Match</h3>
             </Link>
           </div>
         </div>

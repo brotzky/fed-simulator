@@ -3,10 +3,9 @@ $inactive-color: red;
 $main-color: #fff;
 $inner-color: #3d3c3c;
 $match-border-color: #929292;
-$match-font-size: 1.3rem;
 
 .match .team {
-  font-size: $match-font-size;
+  font-size: x-large;
   margin-bottom: 1rem;
 
   &.has-winner .box {
@@ -36,6 +35,7 @@ $match-font-size: 1.3rem;
   .wrestler {
     border: .2rem dashed transparent;
     flex-grow: 1;
+    font-size: x-large;
     margin: .1rem;
     text-align: center;
     transition: border .5s linear;

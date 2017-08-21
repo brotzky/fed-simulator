@@ -1,5 +1,5 @@
-$button-font-size: 1.5rem;
 $button-color: #fff;
+$button-font-size: x-large;
 $button-background-color: #333;
 $button-border-radius: 0;
 $button-padding: .5rem !default;
@@ -12,9 +12,9 @@ button {
   border: 0;
   color: $button-color;
   cursor: pointer;
-  font-size: $button-font-size;
   font-variant: $button-font-variant;
   font-weight: $button-font-weight;
+  font-size: $button-font-size;
   padding: $button-padding;
   width: 100%;
 }
