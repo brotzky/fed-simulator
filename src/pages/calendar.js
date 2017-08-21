@@ -75,8 +75,8 @@ class CalendarPage extends Component {
 
     return (
       <section className="page page-calendar">
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <div className="row middle-xs">
+          <div className="col-xs-4">
             <div className="box">
               <HeaderOne>
                 {title}&nbsp;
@@ -84,28 +84,30 @@ class CalendarPage extends Component {
                   <div className="icon fa fa-trash-o fa-md" />
                 </a>
               </HeaderOne>
-              <SlideLeft
-                iterations={Number(animations)}
-                duration={ANIMATION_SPEED}
-              >
-                <div>
-                  <Choose>
-                    <When condition={canPlan}>
-                      <i className="icon fa fa-unlock" /> Drag and drop shows
-                      onto Calendar dates
-                    </When>
-                    <Otherwise>
-                      <i className="icon fa fa-lock" /> Locked, move onto the
-                      next month
-                    </Otherwise>
-                  </Choose>
-                </div>
-                <br />
-                <Calendar />
-              </SlideLeft>
             </div>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 sidebar">
+          <div className="col-xs-6">
+            <div className="box">
+              <Choose>
+                <When condition={canPlan}>
+                  <i className="icon fa fa-unlock" /> Drag and drop shows onto
+                  Calendar dates
+                </When>
+                <Otherwise>
+                  <i className="icon fa fa-lock" /> Locked, move onto the next
+                  month
+                </Otherwise>
+              </Choose>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+            <div className="box">
+              <Calendar />
+            </div>
+          </div>
+          <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 sidebar">
             <div className="box">
               <SlideRight
                 iterations={Number(animations)}
