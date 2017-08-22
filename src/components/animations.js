@@ -19,11 +19,14 @@ class Animation extends Component {
 }
 
 Animation.propTypes = {
-  animations: PropTypes.bool.isrequired,
+  animations: PropTypes.bool,
   children: PropTypes.object,
   dispatch: PropTypes.func.isRequired,
 }
 
+Animation.defaultProps = {
+  animations: true,
+}
 export default connect(state => ({
   animations: state.game.animations,
 }))(Animation)

@@ -4,7 +4,7 @@ export default class extends BaseModel {
   defaults() {
     return {
       unTouched: true,
-      backgroundColor: "#ddbd16",
+      backgroundColor: "#3e029f",
       darkBackgroundColor: "#000",
       color: "#fff",
       shade: -60,
