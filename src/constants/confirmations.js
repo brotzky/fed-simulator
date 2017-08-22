@@ -19,3 +19,6 @@ export const ROSTER_CONFIRM_RESET =
 
 export const WRESTLER_CONFIRM_DELETE =
   "Are you sure you want to delete this wrestler?"
+
+export const BRAND_CONFIRM_DELETE =
+  "Are you sure you want to delete this brand?"

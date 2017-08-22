@@ -1,6 +1,23 @@
 import Model from "./brand.model"
 
-const defaultState = []
+const defaultState = [
+  {
+    id: 1,
+    name: "Raw",
+    style: {
+      color: "white",
+      backgroundColor: "red",
+    },
+  },
+  {
+    id: 2,
+    name: "Smackdown",
+    style: {
+      color: "white",
+      backgroundColor: "blue",
+    },
+  },
+]
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))

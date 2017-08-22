@@ -2,47 +2,24 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
-import { WRESTLER_CONFIRM_DELETE } from "../../constants/confirmations"
-import { updateWrestler, removeWrestler } from "../../actions/roster"
-import ManageRoster from "./manage-brands"
+import { BRAND_CONFIRM_DELETE } from "../../constants/confirmations"
+import { removeBrand } from "../../actions/brands"
+import ManageBrands from "./manage-brands"
 
 class ManageRosterContainer extends Component {
   state = {
     id: false,
   }
 
-  onWrestlerPointsUpdated = e =>
-    this.props.dispatch(
-      updateWrestler({ points: Number(e.target.value), id: this.state.id, })
-    )
-
-  onWrestlersNameUpdated = e =>
-    this.props.dispatch(
-      updateWrestler({ name: String(e.target.value), id: this.state.id, })
-    )
-
-  onImageUpdated = (name, value) => {
-    this.props.dispatch(
-      updateWrestler({ image: String(value), id: this.state.id, })
-    )
-  }
-
-  onWrestlerDelete = () => {
-    if (confirm(WRESTLER_CONFIRM_DELETE)) {
-      const { id, } = this.state
+  onDelete = id => {
+    if (confirm(BRAND_CONFIRM_DELETE)) {
       const { dispatch, } = this.props
 
       this.setState({
         id: false,
       })
-      dispatch(removeWrestler(id))
+      dispatch(removeBrand(id))
     }
-  }
-
-  onWrestlerClick = id => {
-    this.setState({
-      id,
-    })
   }
 
   shouldComponentUpdate() {
@@ -50,27 +27,24 @@ class ManageRosterContainer extends Component {
   }
 
   render() {
-    const { roster, animations, } = this.props
+    const { brands, animations, } = this.props
     return (
-      <ManageRoster
+      <ManageBrands
         animations={animations}
-        currentWrestler={roster.find(wrestler => wrestler.id === this.state.id)}
-        onWrestlerPointsUpdated={this.onWrestlerPointsUpdated}
-        onWrestlersNameUpdated={this.onWrestlersNameUpdated}
-        onImageUpdated={this.onImageUpdated}
-        onWrestlerClick={this.onWrestlerClick}
-        onWrestlerDelete={this.onWrestlerDelete}
+        brands={brands}
+        onDelete={this.onDelete}
       />
     )
   }
 }
 
 ManageRosterContainer.propTypes = {
-  roster: PropTypes.array.isRequired,
   animations: PropTypes.bool.isRequired,
+  brands: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(state => ({
   animations: state.game.animations,
-  roster: state.roster,
+  brands: state.brands,
 }))(ManageRosterContainer)

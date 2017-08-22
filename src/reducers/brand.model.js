@@ -5,8 +5,10 @@ export default class extends BaseModel {
     return {
       id: false,
       name: false,
-      backgroundColor: true,
-      color: "",
+      style: {
+        backgroundColor: "black",
+        color: "white",
+      },
     }
   }
 }

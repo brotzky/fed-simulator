@@ -23,12 +23,13 @@ class ChampionshipsPage extends Component {
   }
 
   componentWillMount() {
+    const { championships, } = this.props
     this.setState({
-      male: this.props.championships
+      male: championships
         .filter(champion => champion.male)
         .map(champion => champion.name)
         .join(", "),
-      female: this.props.championships
+      female: championships
         .filter(champion => !champion.male)
         .map(champion => champion.name)
         .join(", "),
