@@ -12,16 +12,16 @@
     "title": "Create a match"
   },
   {
-    "url": "branding",
-    "title": "Branding"
+    "url": "championships",
+    "title": "Championships"
   },
   {
     "url": "championships",
     "title": "Championships"
   },
   {
-    "url": "manage-roster",
-    "title": "Manage roster"
+    "url": "manage-brands",
+    "title": "Manage brands"
   },
   {
     "url": "shows",
@@ -29,6 +29,10 @@
   },
   {
     "url": "name",
-    "title": "Federation name"
+    "title": "Name"
+  },
+  {
+    "url": "branding",
+    "title": "Branding"
   }
 ]

@@ -55,6 +55,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="manage-brands">
+        <IndexRoute
+          getComponent={(location, cb) => {
+            System.import("./pages/manage-brands/container")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
+          }}
+        />
+      </Route>
       <Route path="dashboard">
         <IndexRoute
           getComponent={(location, cb) => {
