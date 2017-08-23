@@ -1,27 +1,34 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import ColorPickers from "../../components/color-pickers/color-pickers"
 import HeaderOne from "../../components/h1/h1"
-import Brand from "../../components/brand/brand"
 import Input from "../../components/form/input"
 
 import "./manage-brands.scss"
 
-const ManageBrandsPage = ({ brands = [], }) => {
+const NOOP = () => {}
+
+const ManageBrandsPage = ({ onChangeName = NOOP, brands = [], }) => {
   return (
     <section className="page manage-brands">
       <HeaderOne>Manage Brands</HeaderOne>
-      <div className="row">
-        <div className="col-xs-12">
-          {brands.map(brand => {
-            return (
-              <div key={brand.id} style={brand.style}>
-                <Input style={brand.style} value={brand.name} />
-              </div>
-            )
-          })}
-        </div>
-      </div>
+      {brands.map(brand => {
+        return (
+          <div className="row middle-xs" key={brand.id} style={brand.style}>
+            <div className="col-xs-10">
+              <Input
+                style={brand.style}
+                value={brand.name}
+                onChange={event => onChangeName(brand, event)}
+              />
+            </div>
+            <div className="col-xs-2">
+              <ColorPickers />
+            </div>
+          </div>
+        )
+      })}
     </section>
   )
 }
