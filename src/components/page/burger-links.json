@@ -20,8 +20,12 @@
     "title": "Championships"
   },
   {
+    "url": "manage-roster",
+    "title": "Roster"
+  },
+  {
     "url": "manage-brands",
-    "title": "Manage brands"
+    "title": "Brands"
   },
   {
     "url": "shows",
