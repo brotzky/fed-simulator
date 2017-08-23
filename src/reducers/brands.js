@@ -1,23 +1,23 @@
 import Model from "./brand.model"
 
-const defaultState = [
-  {
-    id: 1,
-    name: "Raw",
-    style: {
-      color: "white",
-      backgroundColor: "red",
-    },
-  },
-  {
-    id: 2,
-    name: "Smackdown",
-    style: {
-      color: "white",
-      backgroundColor: "blue",
-    },
-  },
-]
+const defaultState = []
+//   {
+//     id: 1,
+//     name: "Raw",
+//     style: {
+//       color: "white",
+//       backgroundColor: "red",
+//     },
+//   },
+//   {
+//     id: 2,
+//     name: "Smackdown",
+//     style: {
+//       color: "white",
+//       backgroundColor: "blue",
+//     },
+//   },
+// ]
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
@@ -26,6 +26,7 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case "RESET":
+    case "RESET_BRANDS":
       state = defaultState
       break
     case "CREATE_BRAND":

@@ -2,8 +2,11 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
-import { BRAND_CONFIRM_DELETE } from "../../constants/confirmations"
-import { updateBrand, removeBrand } from "../../actions/brands"
+import {
+  BRAND_CONFIRM_DELETE,
+  BRANDS_CONFIRM_CLEAR
+} from "../../constants/confirmations"
+import { updateBrand, removeBrand, resetBrands } from "../../actions/brands"
 import ManageBrands from "./manage-brands"
 
 class ManageRosterContainer extends Component {
@@ -47,6 +50,14 @@ class ManageRosterContainer extends Component {
     }
   }
 
+  onClear = () => {
+    const { dispatch, } = this.props
+
+    if (confirm(BRANDS_CONFIRM_CLEAR)) {
+      dispatch(resetBrands())
+    }
+  }
+
   shouldComponentUpdate() {
     return true
   }
@@ -58,6 +69,7 @@ class ManageRosterContainer extends Component {
         animations={animations}
         brands={brands}
         onDelete={this.onDelete}
+        onClear={this.onClear}
         onChangeName={this.onChangeName}
         onChangeColor={this.onChangeColor}
         onChangeBackgroundColor={this.onChangeBackgroundColor}

@@ -142,7 +142,6 @@ class CalendarPage extends Component {
 
     if (confirm(CALENDAR_CONFIRM_CLEAR)) {
       dispatch(resetCalendar())
-      dispatch(resetGame())
     }
   }
 

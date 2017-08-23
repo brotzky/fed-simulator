@@ -22,3 +22,6 @@ export const WRESTLER_CONFIRM_DELETE =
 
 export const BRAND_CONFIRM_DELETE =
   "Are you sure you want to delete this brand?"
+
+export const BRANDS_CONFIRM_CLEAR =
+  "Are you sure you want to clear your brands?"

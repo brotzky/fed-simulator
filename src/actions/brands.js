@@ -8,7 +8,7 @@ export function reset() {
 
 export function createBrand(brand) {
   return {
-    type: types.RESET,
+    type: types.CREATE_BRAND,
     payload: brand,
   }
 }
@@ -24,5 +24,11 @@ export function deleteBrand(id) {
   return {
     type: types.UPDATE_BRAND,
     payload: id,
+  }
+}
+
+export function resetBrands() {
+  return {
+    type: types.RESET_BRANDS,
   }
 }

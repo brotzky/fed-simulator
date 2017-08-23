@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import ColorPickers from "../../components/color-pickers/color-pickers"
 import HeaderOne from "../../components/h1/h1"
 import Input from "../../components/form/input"
+import AddBrand from "../../components/add-brand/container.js"
 
 import "./manage-brands.scss"
 
@@ -13,11 +14,17 @@ const ManageBrandsPage = ({
   onChangeBackgroundColor = NOOP,
   onChangeColor = NOOP,
   onChangeName = NOOP,
+  onClear = NOOP,
   brands = [],
 }) => {
   return (
     <section className="page manage-brands">
-      <HeaderOne>Manage Brands</HeaderOne>
+      <HeaderOne>
+        Manage Brands{" "}
+        <a onClick={onClear}>
+          <div className="icon fa fa-trash-o fa-md" />
+        </a>
+      </HeaderOne>
       {brands.map(brand => {
         const style = brand.style
         return (
@@ -40,6 +47,7 @@ const ManageBrandsPage = ({
           </div>
         )
       })}
+      <AddBrand />
     </section>
   )
 }
@@ -49,6 +57,7 @@ ManageBrandsPage.propTypes = {
   onChangeName: PropTypes.func,
   onChangeBackgroundColor: PropTypes.func,
   onChangeColor: PropTypes.func,
+  onClear: PropTypes.func,
 }
 
 export default ManageBrandsPage
