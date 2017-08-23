@@ -19,19 +19,21 @@ const ManageBrandsPage = ({
     <section className="page manage-brands">
       <HeaderOne>Manage Brands</HeaderOne>
       {brands.map(brand => {
+        const style = brand.style
         return (
-          <div className="row middle-xs" key={brand.id} style={brand.style}>
+          <div className="row middle-xs" key={brand.id} style={style}>
             <div className="col-xs-10">
               <Input
-                style={brand.style}
+                style={style}
                 value={brand.name}
                 onChange={event => onChangeName(brand, event)}
               />
             </div>
             <div className="col-xs-2">
               <ColorPickers
-                onChangeColor={onChangeColor}
-                onChangeBackgroundColor={onChangeBackgroundColor}
+                onChangeColor={event => onChangeColor(brand, event)}
+                onChangeBackgroundColor={event =>
+                  onChangeBackgroundColor(brand, event)}
                 {...brand.style}
               />
             </div>

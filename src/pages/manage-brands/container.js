@@ -20,6 +20,22 @@ class ManageRosterContainer extends Component {
     dispatch(updateBrand(brand))
   }
 
+  onChangeColor = (brand, color) => {
+    const { dispatch, } = this.props
+
+    brand.style.color = color
+
+    dispatch(updateBrand(brand))
+  }
+
+  onChangeBackgroundColor = (brand, color) => {
+    const { dispatch, } = this.props
+
+    brand.style.backgroundColor = color
+
+    dispatch(updateBrand(brand))
+  }
+
   onDelete = id => {
     if (confirm(BRAND_CONFIRM_DELETE)) {
       const { dispatch, } = this.props
@@ -43,6 +59,8 @@ class ManageRosterContainer extends Component {
         brands={brands}
         onDelete={this.onDelete}
         onChangeName={this.onChangeName}
+        onChangeColor={this.onChangeColor}
+        onChangeBackgroundColor={this.onChangeBackgroundColor}
       />
     )
   }
