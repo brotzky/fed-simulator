@@ -6,7 +6,7 @@ import {
   BRAND_CONFIRM_DELETE,
   BRANDS_CONFIRM_CLEAR
 } from "../../constants/confirmations"
-import { updateBrand, removeBrand, resetBrands } from "../../actions/brands"
+import { updateBrand, deleteBrand, resetBrands } from "../../actions/brands"
 import ManageBrands from "./manage-brands"
 
 class ManageRosterContainer extends Component {
@@ -40,14 +40,14 @@ class ManageRosterContainer extends Component {
   }
 
   onDelete = id => {
-    if (confirm(BRAND_CONFIRM_DELETE)) {
-      const { dispatch, } = this.props
+    // if (confirm(BRAND_CONFIRM_DELETE)) {
+    const { dispatch, } = this.props
 
-      this.setState({
-        id: false,
-      })
-      dispatch(removeBrand(id))
-    }
+    this.setState({
+      id: false,
+    })
+    dispatch(deleteBrand(id))
+    // }
   }
 
   onClear = () => {
