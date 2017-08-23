@@ -32,7 +32,7 @@ class ColorPicker extends React.Component {
       <div
         style={this.props.style}
         onClick={this.handleClick}
-        className="colorPicker"
+        className="color-picker"
       >
         {this.state.displayColorPicker
           ? <div className="popover" onClick={this.handleClose}>

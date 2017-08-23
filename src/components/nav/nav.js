@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 import Cash from "../cash/container"
-import ColorPickers from "../color-pickers/color-pickers"
+import ColorPickers from "../color-pickers/container"
 
 const NOOP = () => {}
 
