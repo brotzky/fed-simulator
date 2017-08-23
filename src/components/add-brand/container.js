@@ -1,5 +1,6 @@
 import { compose, withHandlers, withState } from "recompose"
 import { connect } from "react-redux"
+import chromatism from "chromatism"
 
 import AddBrand from "./add-brand"
 import { createBrand } from "../../actions/brands"
@@ -21,9 +22,11 @@ export default compose(
         props.name &&
         props.name.length > minLengthForCreate
       ) {
+        const hex = randomHex()
+        const color = chromatism.contrastRatio(hex).hex
         props.createBrand({
           name: props.name,
-          style: { backgroundColor: randomHex(), },
+          style: { backgroundColor: hex, color, },
         })
         props.updateName("")
       }
