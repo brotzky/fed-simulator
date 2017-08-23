@@ -72,9 +72,10 @@ const UpdateWrestlersPage = ({
                   onChange={onImageUpdated}
                 />
               </div>
+              <hr />
               <div className="box">
                 <Button classes="btn-delete" onClick={onWrestlerDelete}>
-                  <i className="icon fa fa-trash" /> Click to delete wrestler
+                  <i className="icon fa fa-trash" /> Delete wrestler
                 </Button>
               </div>
             </div>
