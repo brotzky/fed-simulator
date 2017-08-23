@@ -13,7 +13,7 @@ export default (state = defaultState, action) => {
       state = defaultState
       break
     case "GENERATE_FEDERATION":
-    case "GENERATE_CHAMPIONSHIPS":
+    case "GENERATE_BRANDS":
       state = [
         {
           id: 1,
