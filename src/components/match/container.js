@@ -30,7 +30,7 @@ class MatchContainer extends Component {
 
   onAddWrestler = (teamId, wrestler) => {
     const wrestlerId = wrestler.id
-    const { roster, } = this.props
+    const { roster, dispatch, currentMatch, } = this.props
 
     wrestler = Object.assign(
       {},
@@ -38,9 +38,9 @@ class MatchContainer extends Component {
       { teamId, }
     )
 
-    this.props.dispatch(
+    dispatch(
       matchesAction.addWrestlerToMatch({
-        matchId: this.props.currentMatch.id,
+        matchId: currentMatch.id,
         wrestler,
       })
     )
