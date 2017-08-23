@@ -1,23 +1,6 @@
 import Model from "./brand.model"
 
 const defaultState = []
-//   {
-//     id: 1,
-//     name: "Raw",
-//     style: {
-//       color: "white",
-//       backgroundColor: "red",
-//     },
-//   },
-//   {
-//     id: 2,
-//     name: "Smackdown",
-//     style: {
-//       color: "white",
-//       backgroundColor: "blue",
-//     },
-//   },
-// ]
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
@@ -28,6 +11,27 @@ export default (state = defaultState, action) => {
     case "RESET":
     case "RESET_BRANDS":
       state = defaultState
+      break
+    case "GENERATE_FEDERATION":
+    case "GENERATE_CHAMPIONSHIPS":
+      state = [
+        {
+          id: 1,
+          name: "Raw",
+          style: {
+            color: "white",
+            backgroundColor: "red",
+          },
+        },
+        {
+          id: 2,
+          name: "Smackdown",
+          style: {
+            color: "white",
+            backgroundColor: "blue",
+          },
+        },
+      ]
       break
     case "CREATE_BRAND":
       state.push(action.payload)
