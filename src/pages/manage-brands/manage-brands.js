@@ -29,26 +29,26 @@ const ManageBrandsPage = ({
       {brands.map(brand => {
         const style = brand.style
         return (
-          <div className="row middle-xs" key={brand.id} style={style}>
-            <div className="col-xs-1 center-xs">
-              <a onClick={() => onDelete(brand.id)}>
-                <div className="icon fa fa-trash-o fa-md" />
-              </a>{" "}
-            </div>
-            <div className="col-xs-10 text-left">
+          <div className="brand row middle-xs" key={brand.id} style={style}>
+            <div className="col-xs-9">
               <Input
                 style={style}
                 value={brand.name}
                 onChange={event => onChangeName(brand, event)}
               />
             </div>
-            <div className="col-xs-1">
+            <div className="col-xs-2">
               <ColorPickers
                 onChangeColor={event => onChangeColor(brand, event)}
                 onChangeBackgroundColor={event =>
                   onChangeBackgroundColor(brand, event)}
                 {...brand.style}
               />
+            </div>
+            <div className="col-xs-1">
+              <a onClick={() => onDelete(brand.id)}>
+                <div className="icon fa fa-trash-o fa-md" />
+              </a>{" "}
             </div>
           </div>
         )
