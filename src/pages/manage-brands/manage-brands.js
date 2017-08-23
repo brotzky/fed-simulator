@@ -34,7 +34,8 @@ const ManageBrandsPage = ({ onChangeName = NOOP, brands = [], }) => {
 }
 
 ManageBrandsPage.propTypes = {
-  brands: PropTypes.array.isRequired,
+  brands: PropTypes.array,
+  onChangeName: PropTypes.func,
 }
 
 export default ManageBrandsPage
