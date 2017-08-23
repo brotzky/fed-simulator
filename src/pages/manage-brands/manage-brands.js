@@ -9,7 +9,12 @@ import "./manage-brands.scss"
 
 const NOOP = () => {}
 
-const ManageBrandsPage = ({ onChangeName = NOOP, brands = [], }) => {
+const ManageBrandsPage = ({
+  onChangeBackgroundColor = NOOP,
+  onChangeColor = NOOP,
+  onChangeName = NOOP,
+  brands = [],
+}) => {
   return (
     <section className="page manage-brands">
       <HeaderOne>Manage Brands</HeaderOne>
@@ -24,7 +29,11 @@ const ManageBrandsPage = ({ onChangeName = NOOP, brands = [], }) => {
               />
             </div>
             <div className="col-xs-2">
-              <ColorPickers />
+              <ColorPickers
+                onChangeColor={onChangeColor}
+                onChangeBackgroundColor={onChangeBackgroundColor}
+                {...brand.style}
+              />
             </div>
           </div>
         )
@@ -36,6 +45,8 @@ const ManageBrandsPage = ({ onChangeName = NOOP, brands = [], }) => {
 ManageBrandsPage.propTypes = {
   brands: PropTypes.array,
   onChangeName: PropTypes.func,
+  onChangeBackgroundColor: PropTypes.func,
+  onChangeColor: PropTypes.func,
 }
 
 export default ManageBrandsPage
