@@ -22,7 +22,7 @@ export function updateBrand(brand) {
 
 export function deleteBrand(id) {
   return {
-    type: types.UPDATE_BRAND,
+    type: types.DELETE_BRAND,
     payload: id,
   }
 }
