@@ -24,6 +24,7 @@ class ChampionshipsPage extends Component {
 
   componentWillMount() {
     const { championships, } = this.props
+
     this.setState({
       male: championships
         .filter(champion => champion.male)
