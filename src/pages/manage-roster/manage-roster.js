@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { FadeIn } from "animate-components"
 
+import HeaderOne from "../../components/h1/h1"
 import Wrestlers from "../../components/wrestlers/container"
 import Input from "../../components/form/input"
 import Button from "../../components/button/button"
@@ -25,6 +26,7 @@ const UpdateWrestlersPage = ({
 }) => {
   return (
     <div className="page manage-roster">
+      <HeaderOne>Manage Roster</HeaderOne>
       <div className="row">
         <If condition={!currentWrestler}>
           <p>
