@@ -1,0 +1,43 @@
+$wrestlers-points-dimensions: 1rem;
+$wrestler-background: #fff;
+$wrestler-color: #000;
+$points-transition-length: 500ms;
+
+.wrestlers [type="wrestler"] {
+  margin: .2rem;
+}
+
+.wrestlers .wrestler {
+  background-color: $wrestler-background;
+  color: $wrestler-color;
+  padding: .4rem;
+  width: 4.5rem;
+
+  .name {
+    font-size: x-small;
+    text-align: left;
+  }
+
+  .points {
+    background-color: $wrestler-background;
+    border-radius: 50%;
+    border: .01rem solid $wrestler-color;
+    font-size: small;
+    font-weight: 500;
+    height: $wrestlers-points-dimensions;
+    margin-right: .3rem;
+    transition: background-color $points-transition-length linear;
+    width: $wrestlers-points-dimensions;
+    opacity: 0.7;
+  }
+
+  &:hover .points {
+    background-color: $wrestler-color;
+    opacity: 1;
+    color: $wrestler-background;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}

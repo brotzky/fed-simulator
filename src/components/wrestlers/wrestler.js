@@ -10,19 +10,17 @@ const Wrestler = ({ id, onClick, name, image, points, canDrag, }) => {
   return (
     <Draggable type="wrestler" enabled={canDrag} data={id}>
       <div className={classes} data-id={id} onClick={() => onClick(id)}>
-        <div className="inner">
-          <If condition={image}>
-            <span className="image">
-              <img src={image} />
-            </span>
-          </If>
-          <span className="name">
-            {name}
-          </span>
-          <sup>
-            {points}
-          </sup>
-        </div>
+        <span className="points">
+          {points}
+        </span>
+
+        <span className="name">
+          {name.trim().split(" ").map(newName =>
+            <div>
+              {newName}
+            </div>
+          )}
+        </span>
       </div>
     </Draggable>
   )

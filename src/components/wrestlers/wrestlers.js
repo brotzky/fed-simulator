@@ -5,6 +5,8 @@ import { Droppable } from "react-drag-and-drop"
 import Wrestler from "./wrestler"
 
 import "./wrestlers.scss"
+import "./wrestlers.skin.scss"
+import "./wrestlers.structure.scss"
 
 const NOOP = () => {}
 

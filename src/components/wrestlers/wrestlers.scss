@@ -1,11 +1,3 @@
-@import "src/stylesheets/breakpoints";
-
-$wrestler-choice-color: #fff;
-$wrestler-text-shadow: #ddd;
-$wrestler-background-color: #fff;
-$wrestler-color: #000;
-$wrestler-height: 3rem;
-
 .wrestlers-wrapper {
   min-height: 10rem;
 
@@ -13,64 +5,6 @@ $wrestler-height: 3rem;
     display: flex;
     font-variant: small-caps;
     justify-content: space-around;
-    margin: .2rem 0;
-    padding: .3rem;
-  }
-
-  .wrestlers {
-    display: flex;
-    flex-wrap: wrap;
-    z-index: 100;
-
-    .icon.active {
-      text-shadow: .5rem .5rem .5rem currentColor;
-    }
-
-    div[type="wrestler"] {
-      margin: .5%;
-      width: 24%;
-
-      @include breakpoint(xs) {
-        &.has-image .name {
-          display: none;
-        }
-      }
-
-      .inner {
-        align-items: center;
-        background-color: $wrestler-background-color;
-        color: $wrestler-color;
-        display: flex;
-        font-size: small;
-        height: $wrestler-height - 1;
-        justify-content: space-between;
-        overflow: hidden;
-        padding: .2rem;
-        position: relative;
-        text-align: center;
-        transition: text-shadow .3s linear;
-        word-wrap: break-word;
-
-        .image img {
-          max-height: 2.5rem;
-          max-width: 2.5rem;
-        }
-
-        sup {
-          color: black;
-          font-size: small;
-          padding: .5rem;
-          position: absolute;
-          right: 0;
-          text-shadow: .05rem 0rem .1rem currentColor;
-          top: 0;
-        }
-
-        &:hover {
-          cursor: pointer;
-          text-shadow: .1rem .1rem .4rem darken($wrestler-text-shadow, 70%);
-        }
-      }
-    }
+    padding: .5rem;
   }
 }

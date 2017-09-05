@@ -1,0 +1,20 @@
+.wrestlers {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 100;
+
+  .wrestler {
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    word-wrap: break-word;
+
+    .points {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
