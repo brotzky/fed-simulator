@@ -4,7 +4,7 @@ import { SlideRight, SlideLeft } from "animate-components"
 import sortBy from "lodash.sortby"
 import PropTypes from "prop-types"
 import { Link } from "react-router"
-import orderBy from "lodash/orderBy"
+import orderBy from "lodash.orderby"
 
 import Simulator from "../components/simulator"
 import Ranking from "../components/ranking/ranking"

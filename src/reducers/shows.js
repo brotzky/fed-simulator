@@ -1,5 +1,5 @@
 import defaults from "../constants/defaults.json"
-import Model from "./show.model"
+import Model from "../models/show.model"
 
 const defaultState = []
 

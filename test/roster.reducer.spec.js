@@ -1,6 +1,6 @@
 import reducer from "../src/reducers/roster"
 import * as types from "../src/actions/types"
-import Model from "../src/reducers/wrestler.model"
+import Model from "../src/models/wrestler.model"
 
 const defaultModel = new Model()
 const defaultMale = {

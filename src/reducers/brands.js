@@ -1,4 +1,5 @@
-import Model from "./brand.model"
+import Model from "../models/brand.model"
+import defaults from "../constants/defaults.json"
 
 const defaultState = []
 
@@ -14,24 +15,7 @@ export default (state = defaultState, action) => {
       break
     case "GENERATE_FEDERATION":
     case "GENERATE_BRANDS":
-      state = [
-        {
-          id: "1",
-          name: "Raw",
-          style: {
-            color: "white",
-            backgroundColor: "red",
-          },
-        },
-        {
-          id: "2",
-          name: "Smackdown",
-          style: {
-            color: "white",
-            backgroundColor: "blue",
-          },
-        },
-      ]
+			state = defaults.brands
       break
     case "CREATE_BRAND":
       state.push(action.payload)

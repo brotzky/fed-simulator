@@ -1,8 +1,8 @@
 import weighted from "weighted"
 import groupBy from "lodash.groupby"
 
-import WrestlerModel from "./wrestler.model"
-import Model from "./match.model"
+import WrestlerModel from "../models/wrestler.model"
+import Model from "../models/match.model"
 import { getId } from "../helpers/hash"
 import { getPercentageAmount } from "../helpers/math"
 import { randomiseWrestlers } from "../helpers/randomise-wrestlers.js"

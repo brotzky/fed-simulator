@@ -1,6 +1,6 @@
 import moment from "moment"
 
-import Model from "./game.model"
+import Model from "../models/game.model"
 
 const defaultState = new Model().toJSON()
 

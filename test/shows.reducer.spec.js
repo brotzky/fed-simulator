@@ -1,6 +1,6 @@
 import reducer from "../src/reducers/shows"
 import * as types from "../src/actions/types"
-import Model from "../src/reducers/show.model"
+import Model from "../src/models/show.model"
 
 const defaultModel = new Model()
 const defaultCollection = [

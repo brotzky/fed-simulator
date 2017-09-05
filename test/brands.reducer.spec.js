@@ -14,7 +14,7 @@ const action = {
   payload: [],
 }
 
-describe.only("given a brands reducer", () => {
+describe("given a brands reducer", () => {
   let activeReducer
 
   before(() => (activeReducer = reducer(undefined, action)))

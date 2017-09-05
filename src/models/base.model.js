@@ -1,13 +1,13 @@
 import { Model } from "backbone"
-import each from "lodash/each"
+import forEach from "lodash.foreach"
 import sanitizer from "sanitizer"
-import clone from "lodash/clone"
+import clone from "lodash.clone"
 
 import { getId } from "../helpers/hash"
 
 export default class extends Model {
   initialize() {
-    each(this.attributes, (val, key) => this.set(key, this.sanitize(val)))
+    forEach(this.attributes, (val, key) => this.set(key, this.sanitize(val)))
   }
 
   sanitize(str) {

@@ -1,4 +1,4 @@
-import Model from "./wrestler.model"
+import Model from "../models/wrestler.model"
 import defaults from "../constants/defaults.json"
 import { getRandomArbitrary } from "../helpers/points"
 

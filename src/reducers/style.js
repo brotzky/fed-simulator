@@ -1,4 +1,4 @@
-import Model from "./style.model"
+import Model from "../models/style.model"
 import chromatism from "chromatism"
 import { shade } from "../helpers/colours"
 

@@ -1,4 +1,4 @@
-import Model from "./championship.model"
+import Model from "../models/championship.model"
 import defaults from "../constants/defaults.json"
 
 const defaultState = []

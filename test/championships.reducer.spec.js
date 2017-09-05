@@ -1,6 +1,6 @@
 import reducer from "../src/reducers/championships"
 import * as types from "../src/actions/types"
-import Model from "../src/reducers/championship.model"
+import Model from "../src/models/championship.model"
 
 const defaultModel = new Model()
 const defaultMale = {

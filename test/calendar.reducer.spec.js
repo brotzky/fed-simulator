@@ -1,6 +1,6 @@
 import reducer from "../src/reducers/calendar"
 import * as types from "../src/actions/types"
-import Model from "../src/reducers/liveShow.model"
+import Model from "../src/models/liveShow.model"
 
 const defaultModel = new Model()
 const defaultMonth = 7

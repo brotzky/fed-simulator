@@ -13,7 +13,7 @@ import { Winner, Loser } from "../components/winner/winner"
 import HeaderOne from "../components/h1/h1"
 import Match from "../components/match/container"
 import Button from "../components/button/button"
-import Model from "../reducers/match.model"
+import Model from "../models/match.model"
 
 import buttonTexts from "../constants/create-a-match-button-texts"
 import { MATCH_CONFIRM_RESET } from "../constants/confirmations"

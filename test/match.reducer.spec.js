@@ -1,8 +1,8 @@
 /* eslint-disable */
 import reducer from "../src/reducers/matches"
 import * as types from "../src/actions/types"
-import Model from "../src/reducers/match.model"
-import WrestlerModel from "../src/reducers/wrestler.model"
+import Model from "../src/models/match.model"
+import WrestlerModel from "../src/models/wrestler.model"
 import Wrestlers from "./wrestlers.json"
 
 const defaultWrestlerId = 100
