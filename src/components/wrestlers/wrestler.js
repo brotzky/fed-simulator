@@ -13,10 +13,9 @@ const Wrestler = ({ id, onClick, name, image, points, canDrag, }) => {
         <span className="points">
           {points}
         </span>
-
         <span className="name">
-          {name.trim().split(" ").map(newName =>
-            <div>
+          {name.trim().split(" ").map((newName, key) =>
+            <div key={key}>
               {newName}
             </div>
           )}
