@@ -1,114 +1,118 @@
 {
-	"brands": [{
-			"id": "1",
-			"name": "Raw",
-			"style": {
-				"color": "white",
-				"backgroundColor": "red"
-			}
-		},
-		{
-			"id": "2",
-			"name": "Smackdown",
-			"style": {
-				"color": "white",
-				"backgroundColor": "blue"
-			}
-		}
-	],
-	"roster": [{
-			"min": 0,
-			"max": 40,
-			"male": true,
-			"list": "Viktor, Konnor, Tyler Breeze, Sunil Singh, Sin Cara, Samir Singh, Primo Colon, Aiden English, Zack Ryder, Fandango, James Ellsworth"
-		},
-		{
-			"min": 40,
-			"max": 75,
-			"male": true,
-			"list": "Rusev, Chad Gable, Baron Corbin, Curt Hawkins, Daniel Bryan, Dolph Ziggler, Erick Rowan, Jason Jordan, JBL, Jey Uso, Jimmy Uso, Luke Harper, Mojo Rawley"
-		},
-		{
-			"min": 75,
-			"max": 100,
-			"male": true,
-			"list": "Chris Jericho, Aj Styles, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena"
-		},
-		{
-			"min": 0,
-			"max": 40,
-			"male": false,
-			"list": "Lana, Carmella"
-		},
-		{
-			"min": 40,
-			"max": 75,
-			"male": false,
-			"list": "Nia Jax, Becky Lynch, Tamina"
-		},
-		{
-			"min": 75,
-			"max": 100,
-			"male": false,
-			"list": "Charlotte, Naomi, Natalya, Nikki Bella"
-		}
-	],
-	"championships": [{
-			"male": true,
-			"list": "United States Championship, Tag Team Championship, World Heavyweight Championship"
-		},
-		{
-			"male": false,
-			"list": "Womens Championship"
-		}
-	],
-	"shows": [{
-			"size": "xs",
-			"list": "House Show",
-			"name": "House Show",
-			"frequency": "daily",
-			"max_cost": 4000,
-			"min_cost": 2000,
-			"min_attendance": 100,
-			"max_attendance": 450,
-			"max_gross": 10000,
-			"min_gross": 3500
-		},
-		{
-			"size": "sm",
-			"list": "Live TV",
-			"name": "TV Show",
-			"frequency": "weekly",
-			"max_cost": 200000,
-			"max_gross": 600000,
-			"min_attendance": 5000,
-			"max_attendance": 15000,
-			"min_cost": 100000,
-			"min_gross": 30000
-		},
-		{
-			"size": "md",
-			"list": "No Mercy, Clash of Champions, Fastlane, Extreme Rules, Money In The Bank",
-			"name": "PPV",
-			"frequency": "monthly",
-			"max_attendance": 15000,
-			"max_cost": 200000,
-			"max_gross": 600000,
-			"min_attendance": 5000,
-			"min_cost": 100000,
-			"min_gross": 30000
-		},
-		{
-			"size": "lg",
-			"list": "Wrestlemania, Summerslam, Survivor Series, Royal Rumble",
-			"placeholder": "Big Four",
-			"frequency": "monthly",
-			"max_attendance": 10000000,
-			"min_attendance": 10000,
-			"max_cost": 6000000,
-			"max_gross": 12000000,
-			"min_cost": 300000,
-			"min_gross": 3000000
-		}
-	]
+  "brands": [
+    {
+      "id": "1",
+      "name": "Raw",
+      "style": {
+        "color": "white",
+        "backgroundColor": "red"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Smackdown",
+      "style": {
+        "color": "white",
+        "backgroundColor": "blue"
+      }
+    }
+  ],
+  "roster": [
+    {
+      "min": 0,
+      "max": 40,
+      "male": true,
+      "list": "James Ellsworth, Chad Gable, Curt Hawkins, Erick Rowan, Akira Tozawa, Bo Dallas, Cedric Alexander, Curt Hawkins, Curtis Axel, Darren Young, Dash Wilder, Drew Gulak, Heath Slater, Luke Gallows, R-Truth, Rhyno, Titus O Neil"
+    },
+    {
+      "min": 40,
+      "max": 75,
+      "male": true,
+      "list": " Jey Uso, Jimmy Uso, Luke Harper, Mojo Rawley, Apollo Crews, Big Cass, Big Show, Bray Wyatt, Cesaro, Elias, Enzo Amore, Finn Balor, Jack Gallagher, Jason Jordan, Gran Metalik, Jeff Hardy, Kalisto, Ariya Daivari, Karl Anderson, Noam Dar, Rich Swann, Scott Dawson,Brian Kendrick, Tony Nese, TJP, Daniel Bryan, Dolph Ziggler, Baron Corbin"
+    },
+    {
+      "min": 75,
+      "max": 100,
+      "male": true,
+      "list": "Chris Jericho, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena, Brock Lesnar, Roman Reigns, Dean Ambrose, Aj Styles, Jinder Mahal, Braun Strowman, Matt Hardy, Neville, Samoa Joe, Sheamus, The Miz, Rusev"
+    },
+    {
+      "min": 0,
+      "max": 40,
+      "male": false,
+      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+    },
+    {
+      "min": 40,
+      "max": 75,
+      "male": false,
+      "list": "Tamina, Nikki Bella, Alicia Fox, Emma, Mickie James, Paige, Summer Rae"
+    },
+    {
+      "min": 75,
+      "max": 100,
+      "male": false,
+      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+    }
+  ],
+  "championships": [
+    {
+      "male": true,
+      "list": "United States Championship, Tag Team Championship, World Heavyweight Championship"
+    },
+    {
+      "male": false,
+      "list": "Womens Championship"
+    }
+  ],
+  "shows": [
+    {
+      "size": "xs",
+      "list": "House Show",
+      "name": "House Show",
+      "frequency": "daily",
+      "max_cost": 4000,
+      "min_cost": 2000,
+      "min_attendance": 100,
+      "max_attendance": 450,
+      "max_gross": 10000,
+      "min_gross": 3500
+    },
+    {
+      "size": "sm",
+      "list": "Live TV",
+      "name": "TV Show",
+      "frequency": "weekly",
+      "max_cost": 200000,
+      "max_gross": 600000,
+      "min_attendance": 5000,
+      "max_attendance": 15000,
+      "min_cost": 100000,
+      "min_gross": 30000
+    },
+    {
+      "size": "md",
+      "list": "No Mercy, Clash of Champions, Fastlane, Extreme Rules, Money In The Bank",
+      "name": "PPV",
+      "frequency": "monthly",
+      "max_attendance": 15000,
+      "max_cost": 200000,
+      "max_gross": 600000,
+      "min_attendance": 5000,
+      "min_cost": 100000,
+      "min_gross": 30000
+    },
+    {
+      "size": "lg",
+      "list": "Wrestlemania, Summerslam, Survivor Series, Royal Rumble",
+      "placeholder": "Big Four",
+      "frequency": "monthly",
+      "max_attendance": 10000000,
+      "min_attendance": 10000,
+      "max_cost": 6000000,
+      "max_gross": 12000000,
+      "min_cost": 300000,
+      "min_gross": 3000000
+    }
+  ]
 }
