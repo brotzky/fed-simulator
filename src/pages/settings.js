@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { browserHistory } from "react-router"
+import { Link } from "react-router"
 
 import Animations from "../components/animations"
 import { reset } from "../actions/game"
@@ -34,6 +35,14 @@ class Settings extends Component {
                 <i className="icon fa fa-trash-o" />
                 &nbsp;Reset game
               </a>
+            </div>
+            <br />
+            <div className="box" style={style}>
+              <Link to="name">Name your federation</Link>
+            </div>
+            <br />
+            <div className="box" style={style}>
+              <Link to="branding">Branding</Link>
             </div>
           </div>
         </div>
