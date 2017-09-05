@@ -64,6 +64,15 @@ export default () => {
           }}
         />
       </Route>
+      <Route path="draft">
+        <IndexRoute
+          getComponent={(location, cb) => {
+            System.import("./pages/draft/container")
+              .then(loadRoute(cb))
+              .catch(errorLoading)
+          }}
+        />
+      </Route>
       <Route path="dashboard">
         <IndexRoute
           getComponent={(location, cb) => {

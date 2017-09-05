@@ -21,8 +21,7 @@ import { ANIMATION_SPEED } from "../constants/animation"
 
 import "./stylesheets/create-a-match.scss"
 
-const pickRandom = items =>
-  items[Math.floor(Math.random() * (items.length - 1))]
+const pickRandom = items => items[Math.floor(Math.random() * (items.length - 1))]
 
 class CreateAMatch extends Component {
   state = {
@@ -61,9 +60,7 @@ class CreateAMatch extends Component {
   componentWillReceiveProps(nextProps) {
     let currentMatch
 
-    currentMatch = nextProps.matches.find(
-      currentMatch => currentMatch.id === this.state.currentMatch.id
-    )
+    currentMatch = nextProps.matches.find(currentMatch => currentMatch.id === this.state.currentMatch.id)
 
     if (!currentMatch) {
       const currentMatchId = getId()
@@ -101,14 +98,8 @@ class CreateAMatch extends Component {
     const numberOfWrestlers = wrestlers.length
 
     const hasSidebar = wrestlers.findIndex(wrestler => wrestler.winner) > -1
-    const mainClasses = classnames(
-      { "col-xs": !hasSidebar, },
-      { "col-lg-9 col-md-8 col-sm-8 col-xs-12": hasSidebar, }
-    )
-    const storySideclasses = classnames(
-      { hide: !hasSidebar, },
-      { "col-lg-3 col-md-4 col-sm-4 col-xs-12": hasSidebar, }
-    )
+    const mainClasses = classnames({ "col-xs": !hasSidebar, }, { "col-lg-9 col-md-8 col-sm-8 col-xs-12": hasSidebar, })
+    const storySideclasses = classnames({ hide: !hasSidebar, }, { "col-lg-3 col-md-4 col-sm-4 col-xs-12": hasSidebar, })
 
     return (
       <section className="page create-a-match">
@@ -118,40 +109,20 @@ class CreateAMatch extends Component {
               <div className="box">
                 <HeaderOne>
                   Create a match &nbsp;
-                  <i
-                    className="icon fa fa-trash"
-                    onClick={this.onResetMatches}
-                  />
+                  <i className="icon fa fa-trash" onClick={this.onResetMatches} />
                 </HeaderOne>
-                <FadeIn
-                  iterations={Number(animations)}
-                  duration={ANIMATION_SPEED}
-                >
+                <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
                   <Match {...this.state} />
                 </FadeIn>
-                <If
-                  condition={
-                    numberOfWrestlers > 1 &&
-                    numberOfTeams > 2 &&
-                    !currentMatch.simulated
-                  }
-                >
-                  <Button
-                    value={buttonText}
-                    onClick={this.onSimulateMatch}
-                    type="submit"
-                  />
+                <If condition={numberOfWrestlers > 1 && numberOfTeams > 2 && !currentMatch.simulated}>
+                  <Button value={buttonText} onClick={this.onSimulateMatch} type="submit" />
                 </If>
               </div>
             </div>
             <div className={storySideclasses}>
               <div className="box center-xs">
-                <SlideRight
-                  iterations={Number(animations)}
-                  duration={ANIMATION_SPEED}
-                >
+                <SlideRight iterations={Number(animations)} duration={ANIMATION_SPEED}>
                   <If condition={winner}>
-                    <br />
                     <Winner name={winner.name} />
                   </If>
                   <If condition={loser}>
@@ -168,9 +139,7 @@ class CreateAMatch extends Component {
 
   getTeams(currentMatch) {
     let teams =
-      currentMatch &&
-      currentMatch.wrestlers &&
-      currentMatch.wrestlers.length > 0
+      currentMatch && currentMatch.wrestlers && currentMatch.wrestlers.length > 0
         ? groupBy(currentMatch.wrestlers, "teamId")
         : {
             [getId()]: [],

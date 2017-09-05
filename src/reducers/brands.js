@@ -16,7 +16,7 @@ export default (state = defaultState, action) => {
     case "GENERATE_BRANDS":
       state = [
         {
-          id: 1,
+          id: "1",
           name: "Raw",
           style: {
             color: "white",
@@ -24,7 +24,7 @@ export default (state = defaultState, action) => {
           },
         },
         {
-          id: 2,
+          id: "2",
           name: "Smackdown",
           style: {
             color: "white",
@@ -51,7 +51,5 @@ export default (state = defaultState, action) => {
       }
       break
   }
-  return state.length === 0
-    ? defaultState
-    : state.map(newModel => new Model(newModel).toJSON())
+  return state.length === 0 ? defaultState : state.map(newModel => new Model(newModel).toJSON())
 }

@@ -1,3 +1,5 @@
+@import "src/stylesheets/breakpoints";
+
 $basepage-gutter: 2vh 3vw;
 
 hr.big-seperator {
@@ -17,16 +19,24 @@ hr.big-seperator {
   }
 }
 
+@include breakpoint(xs) {
+  footer.footer {
+    display: none;
+  }
+}
+
 .footer,
 footer {
-  padding: 0.2rem 4vw;
+  padding: 2vh 3vw;
 
-  a {
-    margin-right: 1rem;
+  h4 {
+    margin: .2rem;
   }
 
   a,
   a:hover {
     color: currentColor;
+    font-size: medium;
+    margin-right: 1rem;
   }
 }

@@ -1,6 +1,6 @@
 @import "src/stylesheets/breakpoints";
 
-$nav-font-weight: 300;
+$nav-font-weight: 100;
 $nav-font-size: large;
 $nav-link-color: currentColor;
 $nav-link-text-shadow: inherit;
@@ -16,10 +16,11 @@ $nav-list-padding: 1vh 1.5vw;
   padding: $nav-list-padding;
 
   li {
-    display: contents;
+    align-items: center;
     font-size: $nav-font-size;
     font-variant: small-caps;
     font-weight: $nav-font-weight;
+    justify-content: center;
     list-style: none;
     overflow: auto;
     padding: $nav-list-padding;

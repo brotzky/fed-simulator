@@ -18,25 +18,16 @@ class MatchContainer extends Component {
 
     return (
       <div className="match" data-matchId={currentMatch.id}>
-        <Teams
-          onAddWrestler={onAddWrestler}
-          onSelectWinner={onSelectWinner}
-          onRemoveWrestler={onRemoveWrestler}
-          teams={teams}
-        />
+        <Teams onDrop={onAddWrestler} onAddWrestler={onAddWrestler} onSelectWinner={onSelectWinner} onRemoveWrestler={onRemoveWrestler} teams={teams} />
       </div>
     )
   }
 
   onAddWrestler = (teamId, wrestler) => {
-    const wrestlerId = wrestler.id
+    const wrestlerId = wrestler.wrestler
     const { roster, dispatch, currentMatch, } = this.props
 
-    wrestler = Object.assign(
-      {},
-      roster.find(wrestler => wrestler.id === wrestlerId),
-      { teamId, }
-    )
+    wrestler = Object.assign({}, roster.find(wrestler => wrestler.id === wrestlerId), { teamId, })
 
     dispatch(
       matchesAction.addWrestlerToMatch({
@@ -77,6 +68,9 @@ MatchContainer.propTypes = {
   matches: PropTypes.array.isRequired,
   roster: PropTypes.array.isRequired,
   simulateMatch: PropTypes.func,
+  teams: PropTypes.object,
+  currentMatch: PropTypes.object,
+  dispatch: PropTypes.func,
 }
 
 MatchContainer.displayName = "MatchContainer"

@@ -3,4 +3,19 @@
     margin: 0;
     padding: 0;
   }
+  .wrapper {
+    .icon {
+      left: 0;
+      top: 2rem;
+      border: none;
+      position: relative;
+      padding: 0 1rem;
+      margin: 0;
+      float: left;
+      color: #29a038;
+    }
+    input {
+      padding-left: 3rem;
+    }
+  }
 }

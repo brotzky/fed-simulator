@@ -1,0 +1,20 @@
+@import "src/stylesheets/breakpoints";
+
+.page.draft {
+  display: flex;
+
+  div.brand {
+    flex: auto;
+    margin: .5rem;
+    overflow: hidden;
+    padding: .5rem;
+    text-align: center;
+    min-width: 25%;
+  }
+
+  @include breakpoint(xs) {
+    display: inline-block;
+    height: 30vh;
+    width: 100%;
+  }
+}

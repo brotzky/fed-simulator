@@ -1,17 +1,10 @@
 import React from "react"
 
 import Team from "./team"
-import * as itemType from "../../actions/types"
 
 const noop = () => {}
 
-const Teams = ({
-  accepts = [itemType.WRESTLER,],
-  onAddWrestler = noop,
-  onRemoveWrestler = noop,
-  onSelectWinner = noop,
-  teams = [],
-}) => {
+const Teams = ({ onAddWrestler = noop, onRemoveWrestler = noop, onSelectWinner = noop, teams = [], }) => {
   const amountOfTeams = Object.keys(teams).length - 1
   return (
     <div className="teams row">
@@ -22,7 +15,6 @@ const Teams = ({
           <Team
             classes={classes}
             onDrop={item => onAddWrestler(teamId, item)}
-            accepts={accepts}
             key={`t-${teamId}-${key}`}
             teamId={teamId}
             onRemoveWrestler={onRemoveWrestler}

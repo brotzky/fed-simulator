@@ -12,6 +12,10 @@
     "title": "Create a match"
   },
   {
+    "url": "draft",
+    "title": "Draft"
+  },
+  {
     "url": "championships",
     "title": "Championships"
   },

@@ -8,13 +8,16 @@ const PLACEHOLDER = "Type a brand name and hit enter"
 
 const AddBrand = ({ name = "", style = {}, updateName = NOOP, }) => {
   return (
-    <Input
-      placeholder={PLACEHOLDER}
-      style={style}
-      type="text"
-      value={name}
-      onChange={updateName}
-    />
+    <div className="wrapper">
+      <span className="icon fa fa-plus-circle" />
+      <Input
+        placeholder={PLACEHOLDER}
+        style={style}
+        type="text"
+        value={name}
+        onChange={updateName}
+      />
+    </div>
   )
 }
 

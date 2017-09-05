@@ -23,7 +23,7 @@ const ManageBrandsPage = ({
       <HeaderOne>
         Manage Brands{" "}
         <a onClick={onClear}>
-          <i className="icon fa fa-trash fa-lg" />
+          <i className="icon fa fa-trash fa-sm" />
         </a>
       </HeaderOne>
       {brands.map(brand => {

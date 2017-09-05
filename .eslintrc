@@ -52,6 +52,7 @@
       "exports": "never",
       "functions": "ignore",
     }],
+    "max-len": ["error", 160],
     "no-unused-vars": "error",
     "array-callback-return": "warn",
     "dot-location": ["warn", "property"],

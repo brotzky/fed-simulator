@@ -6,69 +6,69 @@ $wrestler-background-color: #fff;
 $wrestler-color: #000;
 $wrestler-height: 3rem;
 
-.wrestlers {
-  height: 30vh;
-  overflow: scroll;
-  padding: 1%;
-  z-index: 100;
+.wrestlers-wrapper {
+  min-height: 10rem;
 
-  .box-filters {
+  .filters {
     display: flex;
+    font-variant: small-caps;
     justify-content: space-around;
+    margin: .2rem 0;
+    padding: .3rem;
   }
 
-  .icon.active {
-    text-shadow: .5rem .5rem .5rem currentColor;
-  }
-
-  input[type=text] {
-    background-color: transparent;
-    border-bottom: .01rem solid $wrestler-choice-color;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    color: $wrestler-choice-color;
-    height: 1.3rem;
-    line-height: 1.2rem;
-
-    &::placeholder {
-      color: $wrestler-choice-color;
-    }
-  }
-
-  .wrestler {
-    align-items: center;
-    background-color: $wrestler-background-color;
-    color: $wrestler-color;
+  .wrestlers {
     display: flex;
-    font-size: small;
-    height: $wrestler-height;
-    justify-content: space-between;
-    margin: .5rem 0;
-    overflow: hidden;
-    padding: 0 .2rem;
-    transition: text-shadow .3s linear;
-    word-wrap: break-word;
+    flex-wrap: wrap;
+    z-index: 100;
 
-    .image img {
-      max-height: 2.5rem;
-      max-width: 2.5rem;
+    .icon.active {
+      text-shadow: .5rem .5rem .5rem currentColor;
     }
 
-    sup {
-      font-weight: 500;
-      font-size: small;
-    }
+    div[type="wrestler"] {
+      margin: .5%;
+      width: 24%;
 
-    &:hover {
-      cursor: pointer;
-      text-shadow: .1rem .1rem .4rem darken($wrestler-text-shadow, 70%);
-    }
-
-    @include breakpoint(xs) {
-      &.has-image {
-        .name {
+      @include breakpoint(xs) {
+        &.has-image .name {
           display: none;
+        }
+      }
+
+      .inner {
+        align-items: center;
+        background-color: $wrestler-background-color;
+        color: $wrestler-color;
+        display: flex;
+        font-size: small;
+        height: $wrestler-height - 1;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: .2rem;
+        position: relative;
+        text-align: center;
+        transition: text-shadow .3s linear;
+        word-wrap: break-word;
+
+        .image img {
+          max-height: 2.5rem;
+          max-width: 2.5rem;
+        }
+
+        sup {
+          color: black;
+          font-size: small;
+          padding: .5rem;
+          position: absolute;
+          right: 0;
+          text-shadow: .05rem 0rem .1rem currentColor;
+          top: 0;
+        }
+
+        &:hover {
+          cursor: pointer;
+          text-shadow: .1rem .1rem .4rem darken($wrestler-text-shadow, 70%);
         }
       }
     }
