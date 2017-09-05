@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { FadeIn } from "animate-components"
+import { SlideUp, SlideDown } from "animate-components"
 
 import Brands from "../../components/brands/brands"
 import Wrestlers from "../../components/wrestlers/container"
@@ -30,7 +30,7 @@ const UpdateWrestlersPage = ({
   return (
     <div className="page manage-roster">
       <If condition={currentWrestler}>
-        <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
+        <SlideDown iterations={Number(animations)} duration={ANIMATION_SPEED}>
           <div className="row bottom-xs">
             <Brands onBrandClick={onBrandClick} highlighted={currentWrestler.brandId} brands={brands} />
           </div>
@@ -64,16 +64,16 @@ const UpdateWrestlersPage = ({
             </div>
           </div>
           <br />
-        </FadeIn>
+        </SlideDown>
       </If>
-      <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
+      <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
         <If condition={!currentWrestler}>
           <p className="text-center">
             <i className="icon fa fa-info-circle" /> Click a wrestler to edit them!
           </p>
         </If>
         <Wrestlers style={style} onWrestlerClick={onWrestlerClick} showFilter={showWrestlersFilters} />
-      </FadeIn>
+      </SlideUp>
     </div>
   )
 }
