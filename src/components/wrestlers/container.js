@@ -10,7 +10,7 @@ export default compose(
     roster: state.roster,
   })),
   withState("male", "toggleGender", true),
-  withState("orderBy", "toggleOrderBy", false),
+  withState("orderBy", "toggleOrderBy", true),
   withState("order", "toggleOrder", true),
   withHandlers({
     onDrop: props => drop => {
@@ -22,7 +22,7 @@ export default compose(
   }),
   withProps(props => {
     const { roster, order, male, orderBy, brandId, } = props
-    const orderByField = orderBy ? "name" : "points"
+    const orderByField = orderBy ? "points": "name"
 
     let newRoster = Object.assign([], roster)
 
