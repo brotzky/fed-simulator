@@ -5,12 +5,7 @@ import PropTypes from "prop-types"
 import * as matchesAction from "../../actions/matches"
 import Teams from "./teams"
 
-import "./match.scss"
-
 class MatchContainer extends Component {
-  shouldComponentUpdate() {
-    return true
-  }
 
   render() {
     const { onAddWrestler, onSelectWinner, onRemoveWrestler, } = this
@@ -38,28 +33,34 @@ class MatchContainer extends Component {
   }
 
   onSelectWinner = wrestlerId => {
-    this.props.dispatch(
+		const { dispatch, currentMatch, } = this.props
+
+    dispatch(
       matchesAction.selectWinnerOfMatch({
-        matchId: this.props.currentMatch.id,
+        matchId: currentMatch.id,
         wrestlerId,
       })
     )
   }
 
   onRemoveWrestler = wrestlerId => {
-    this.props.dispatch(
+		const { dispatch, currentMatch, } = this.props
+
+    dispatch(
       matchesAction.removeWrestlerFromMatch({
-        matchId: this.props.currentMatch.id,
+        matchId: currentMatch.id,
         wrestlerId: wrestlerId,
       })
     )
   }
 
   onSimulateMatch = matchId => {
-    if (this.props.simulateMatch) {
-      this.props.simulateMatch({ matchId, })
+		const { simulateMatch, dispatch, } = this.props
+
+    if (simulateMatch) {
+      simulateMatch({ matchId, })
     } else {
-      this.props.dispatch(matchesAction.simulateMatch({ matchId, }))
+      dispatch(matchesAction.simulateMatch({ matchId, }))
     }
   }
 }

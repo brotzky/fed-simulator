@@ -2,6 +2,8 @@ import React from "react"
 
 import Team from "./team"
 
+import "./match.scss"
+
 const noop = () => {}
 
 const Teams = ({ onAddWrestler = noop, onRemoveWrestler = noop, onSelectWinner = noop, teams = [], }) => {
