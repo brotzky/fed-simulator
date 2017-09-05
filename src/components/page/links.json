@@ -16,8 +16,7 @@
     "title": "Draft"
   },
   {
-    "url": "championships",
-    "title": "Championships"
+    "seperator": true
   },
   {
     "url": "manage-roster",
@@ -32,11 +31,14 @@
     "title": "Shows"
   },
   {
-    "url": "name",
-    "title": "Name"
+    "url": "championships",
+    "title": "Championships"
   },
   {
-    "url": "branding",
-    "title": "Branding"
+    "seperator": true
+  },
+  {
+    "url": "settings",
+    "title": "Settings"
   }
 ]

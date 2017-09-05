@@ -12,12 +12,8 @@ import Wrestlers from "../wrestlers/container"
 import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
 import Nav from "../nav/nav"
-import headerLinks from "./header-links.json"
-import burgerLinks from "./burger-links.json"
-import {
-  ANIMATION_SPEED,
-  SHORT_ANIMATION_SPEED
-} from "../../constants/animation"
+import burgerLinks from "./links.json"
+import { ANIMATION_SPEED, SHORT_ANIMATION_SPEED } from "../../constants/animation"
 
 import "../../stylesheets/base.scss"
 import "./page.scss"
@@ -37,7 +33,7 @@ const HTML5toTouch = {
 
 class Page extends React.Component {
   state = {
-    openNavBar: false,
+    openNavBar: true,
   }
 
   onToggle = () => {
@@ -67,13 +63,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const {
-      animations,
-      championships,
-      children,
-      classnames,
-      style,
-    } = this.props
+    const { animations, championships, children, classnames, style, } = this.props
     const { pathname, } = this.context.router.location
     const topClasses = classNames(classnames, ["page-container", "no-select",])
 
@@ -82,29 +72,9 @@ class Page extends React.Component {
         <Notifications />
         <Choose>
           <When condition={championships.length > 0}>
-            <SlideDown
-              style={{ zIndex: 10, }}
-              iterations={Number(animations)}
-              duration={ANIMATION_SPEED}
-            >
-              <Nav
-                onClickBurger={this.onToggle}
-                links={headerLinks}
-                style={style}
-              />
-            </SlideDown>
             <If condition={this.state.openNavBar}>
-              <SlideDown
-                style={{ zIndex: 5, }}
-                iterations={Number(animations)}
-                duration={SHORT_ANIMATION_SPEED}
-              >
-                <Nav
-                  onClickBurger={this.onToggle}
-                  links={burgerLinks}
-                  style={style}
-                  modifier="main"
-                />
+              <SlideDown style={{ zIndex: 5, }} iterations={Number(animations)} duration={SHORT_ANIMATION_SPEED}>
+                <Nav onClickBurger={this.onToggle} links={burgerLinks} style={style} modifier="main" />
               </SlideDown>
             </If>
           </When>
@@ -131,10 +101,7 @@ class Page extends React.Component {
             <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
               <footer style={style} className="footer">
                 <h4>
-                  <a
-                    target="_blank"
-                    href="https://github.com/azz0r/fed-simulator"
-                  >
+                  <a target="_blank" href="https://github.com/azz0r/fed-simulator">
                     <i className="icon fa fa-github" /> Github
                   </a>
                   <a target="_blank" href="https://twitter.com/universesimman">
