@@ -1,9 +1,11 @@
 import React from "react"
 import { connect } from "react-redux"
+const Idle = require("react-idle").default
 
 import { simulateRandomMatch } from "../actions/roster"
 
 const TIME_PER_SIMULATED_MATCH = 100
+const NOOP = () => {}
 
 class Simulator extends React.Component {
   static propTypes = {
@@ -14,6 +16,7 @@ class Simulator extends React.Component {
 
   state = {
     active: false,
+    idle: false,
   }
 
   looper = () => {}
@@ -31,7 +34,9 @@ class Simulator extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    if (nextState.active === false) {
+    const { active, } = nextState
+
+    if (!active) {
       clearInterval(this.looper)
     } else {
       this.onSimulateMatches()
@@ -44,16 +49,18 @@ class Simulator extends React.Component {
 
   render() {
     return (
-      <span className="cursor-pointer" onClick={this.onToggleSimulation}>
-        <Choose>
-          <When condition={!this.state.active}>
-            <i className="icon fa fa-play-circle" />
-          </When>
-          <Otherwise>
-            <i className="icon red fa fa-stop-circle" />
-          </Otherwise>
-        </Choose>{" "}
-        Auto Sim Matches
+      <span className="cursor-pointer">
+        <Idle
+          onChange={({ idle, }) =>
+            this.setState({
+              active: idle,
+            })}
+        />
+        <If condition={!this.state.active}>
+          <i className="icon red fa fa-stop-circle" />
+          {"  "}
+          Simulating...
+        </If>
       </span>
     )
   }

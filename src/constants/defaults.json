@@ -22,7 +22,7 @@
       "min": 0,
       "max": 40,
       "male": true,
-      "list": "James Ellsworth, Chad Gable, Curt Hawkins, Erick Rowan, Akira Tozawa, Bo Dallas, Cedric Alexander, Curt Hawkins, Curtis Axel, Darren Young, Dash Wilder, Drew Gulak, Heath Slater, Luke Gallows, R-Truth, Rhyno, Titus O Neil"
+      "list": " James Ellsworth, Chad Gable, Erick Rowan, Akira Tozawa, Bo Dallas, Cedric Alexander, Curt Hawkins, Curtis Axel, Darren Young, Dash Wilder, Drew Gulak, Heath Slater, Luke Gallows, R-Truth, Rhyno, Titus O'Neil"
     },
     {
       "min": 40,
@@ -34,25 +34,25 @@
       "min": 75,
       "max": 100,
       "male": true,
-      "list": "Chris Jericho, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena, Brock Lesnar, Roman Reigns, Dean Ambrose, Aj Styles, Jinder Mahal, Braun Strowman, Matt Hardy, Neville, Samoa Joe, Sheamus, The Miz, Rusev"
+      "list": " Chris Jericho, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena, Brock Lesnar, Roman Reigns, Dean Ambrose, Aj Styles, Jinder Mahal, Braun Strowman, Matt Hardy, Neville, Samoa Joe, Sheamus, The Miz, Rusev"
     },
     {
       "min": 0,
       "max": 40,
       "male": false,
-      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+      "list": " Maria Kanellis, Dasha Fuentes, Stephanie McMahon, Renee Young"
     },
     {
       "min": 40,
       "max": 75,
       "male": false,
-      "list": "Tamina, Nikki Bella, Alicia Fox, Emma, Mickie James, Paige, Summer Rae"
+      "list": "  Emma, Carmella, Maryse, Tamina, Mickie James, Summer Rae, Alicia Fox"
     },
     {
       "min": 75,
       "max": 100,
       "male": false,
-      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+      "list": " Naomi, Natalya, Alexa Bliss, Bayley, Becky Lynch, Charlotte Flair, Nikki Bella, Sasha Banks, Nia Jax, Paige "
     }
   ],
   "championships": [
