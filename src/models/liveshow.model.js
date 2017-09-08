@@ -3,6 +3,7 @@ import BaseModel from "./base.model"
 export default class extends BaseModel {
   defaults() {
     return {
+      id: false,
       canPlan: false,
       cost: 0,
       date: Date(),

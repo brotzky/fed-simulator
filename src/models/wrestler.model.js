@@ -4,13 +4,13 @@ export default class extends BaseModel {
   defaults() {
     return {
       id: false,
-      name: "Default",
-      image: "",
       brandId: null,
-      damage: 100,
-      losses: 0,
       cost: 500,
+      damage: 100,
+      image: "",
+      losses: 0,
       male: true,
+      name: "Default",
       points: 50,
       wins: 0,
     }

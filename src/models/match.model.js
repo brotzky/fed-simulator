@@ -5,10 +5,10 @@ export default class extends BaseModel {
   defaults() {
     return {
       id: false,
-      rating: 0,
       cost: 0,
-      simulated: false,
       generated: true,
+      rating: 0,
+      simulated: false,
       wrestlers: [],
     }
   }

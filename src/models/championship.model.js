@@ -4,10 +4,9 @@ export default class extends BaseModel {
   defaults() {
     return {
       id: false,
+			losses: 0,
       current_champion: "",
       name: "",
-			losses: 0,
-      createdOn: new Date().getDate()
     }
   }
 }

@@ -4,16 +4,16 @@ export default class extends BaseModel {
   defaults() {
     return {
       id: false,
-      started: false,
+      animations: true,
       canPlan: true,
-      name: "",
-      size: "",
       cash: 0,
       currency: "$",
-      animations: true,
       currentDate: new Date().getDate(),
       currentMonth: new Date().getMonth(),
       currentYear: new Date().getFullYear(),
+      name: "",
+      size: "",
+      started: false,
     }
   }
 }

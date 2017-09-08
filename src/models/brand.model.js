@@ -4,7 +4,7 @@ export default class extends BaseModel {
   defaults() {
     return {
       id: false,
-      name: false,
+      name: "",
       style: {
         backgroundColor: "black",
         color: "white",
