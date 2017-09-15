@@ -1,7 +1,7 @@
 export default {
   props: {
 		backgroundColor: "red",
-		color: "white",
+		color: "blue",
 		onChangeBackgroundColor: (data) => console.log("onChangeBackgroundColor", data),
 		onChangeColor: (data) => console.log("onChangeColor", data),
 	}

@@ -5,6 +5,6 @@ export default {
 			backgroundColor: "red"
 		},
 		className: "btn btn-red",
-		children: "Header One"
+		value: "Header One"
   }
 }
