@@ -1,6 +1,6 @@
 export default {
   props: {
-    highlighted: 1,
+    highlighted: "1",
     style: {
       backgroundColor: "orange",
       color: "white"
