@@ -8,7 +8,8 @@ import Input from "../../components/form/input"
 import Button from "../../components/button/button"
 import Image from "../../components/form/image"
 
-import "./manage-roster.scss"
+import "./manage-roster.structure.scss"
+import "./manage-roster.skin.scss"
 
 const NOOP = () => {}
 
