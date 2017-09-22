@@ -1,8 +1,8 @@
-$dropzone-border-color: #929292;
+$dropzone-border: .08rem dashed rgba(255, 255, 255, 0.23);
 
 .dropzone {
   align-items: center;
-  border: .08rem dashed $dropzone-border-color;
+  border: $dropzone-border;
   display: flex;
   justify-content: center;
   min-height: 3.5rem;
