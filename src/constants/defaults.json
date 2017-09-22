@@ -37,22 +37,22 @@
       "list": "Chris Jericho, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena, Brock Lesnar, Roman Reigns, Dean Ambrose, Aj Styles, Jinder Mahal, Braun Strowman, Matt Hardy, Neville, Samoa Joe, Sheamus, The Miz, Rusev"
     },
     {
-      "min": 0,
-      "max": 40,
+      "min": 30,
+      "max": 70,
       "male": false,
-      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+      "list": "Lana, Carmella, Tamina, Summer Rae, Alicia Fox, Dana Brooke"
     },
     {
-      "min": 40,
-      "max": 75,
+      "min": 70,
+      "max": 85,
       "male": false,
-      "list": "Tamina, Nikki Bella, Alicia Fox, Emma, Mickie James, Paige, Summer Rae"
+      "list": "Emma, Mickie James, Paige, Becky Lynch, Bayley, Nia Jax"
     },
     {
-      "min": 75,
+      "min": 85,
       "max": 100,
       "male": false,
-      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+      "list": "Asuka, Nikki Bella, Charlotte, Flair, Naomi, Natalya, Alexa Bliss, Sasha Banks"
     }
   ],
   "championships": [
