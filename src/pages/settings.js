@@ -32,6 +32,7 @@ class Settings extends Component {
             </div>
             <br />
             <div className="box" style={style}>
+              <i className="icon fa fa-paint-brush" />
               <ColorPickers />
             </div>
             <br />
@@ -43,7 +44,8 @@ class Settings extends Component {
             </div>
             <br />
             <div className="box" style={style}>
-              <Link to="name">Name your federation</Link>
+              <Link to="name">Name your federation</Link> | &nbsp;
+              <Link to="roster">Input your roster</Link>
             </div>
           </div>
         </div>
