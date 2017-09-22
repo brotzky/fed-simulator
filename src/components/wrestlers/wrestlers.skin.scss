@@ -1,3 +1,4 @@
+@import 'src/stylesheets/z-index';
 @import 'src/stylesheets/breakpoints';
 
 $wrestlers-points-dimensions: 1rem;
@@ -9,7 +10,7 @@ $wrestler-width: 3rem;
 .wrestlers {
   max-height: 90vh;
   padding: .2rem;
-  z-index: 100;
+  z-index: $z-index-wrestlers;
 }
 
 .wrestlers .wrestler {
@@ -50,11 +51,11 @@ $wrestler-width: 3rem;
 }
 
 @include breakpoint(lg) {
-	.wrestlers .wrestler {
+  .wrestlers .wrestler {
     width: 5rem;
 
     .name {
-  		font-size: small;
-  	}
+      font-size: small;
+    }
   }
 }
