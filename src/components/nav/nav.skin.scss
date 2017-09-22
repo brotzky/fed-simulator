@@ -5,7 +5,7 @@ $nav-font-size: small;
 $nav-link-color: currentColor;
 $nav-list-padding: 0;
 $nav-item-padding: .1rem;
-$nav-active-text-shadow: .3rem .3rem .1rem black;
+$nav-active-text-shadow: .15rem .15rem .15rem black;
 
 .nav {
   margin: 0;
@@ -18,7 +18,7 @@ $nav-active-text-shadow: .3rem .3rem .1rem black;
     font-weight: $nav-font-weight;
     padding: 1rem 0;
     text-shadow: inherit;
-    transition: text-shadow 1s ease;
+    transition: text-shadow 500ms ease;
 
     @include breakpoint(xs) {
       width: 5rem;
