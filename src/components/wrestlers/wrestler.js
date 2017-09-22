@@ -7,12 +7,12 @@ const Wrestler = ({ id, onClick, name, image, points, canDrag, }) => {
   const classes = classnames("wrestler", {
     "has-image": image,
   })
-	let names = name.trim().split(" ")
+  let names = name.trim().split(" ")
 
-	if (names.length === 1) {
-		names.push("")
-	} else if (names.length > 2) {
-    names = [ names[0], `${names[1]} ${names[2]}` ]
+  const hasOneName = names.length === 1
+
+  if (names.length > 2) {
+    names = [names[0], `${names[1]} ${names[2]}`,]
   }
 
   return (
@@ -27,6 +27,9 @@ const Wrestler = ({ id, onClick, name, image, points, canDrag, }) => {
               {newName}
             </div>
           )}
+          <If condition={hasOneName}>
+            <div>&nbsp;</div>
+          </If>
         </span>
       </div>
     </Draggable>
