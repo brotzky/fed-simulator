@@ -1,0 +1,26 @@
+$pop-color: white;
+
+#root,
+#page-container {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  article {
+    padding: 0;
+  }
+
+  aside {
+  }
+
+  nav {
+    left: 0;
+    top: 0;
+    width: 5rem;
+
+    .nav__item {
+      width: 5rem;
+    }
+  }
+}

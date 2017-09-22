@@ -9,6 +9,7 @@ export default compose(
   connect(state => ({
     roster: state.roster,
   })),
+  withState("noBrand", "toggleBrandless", false),
   withState("male", "toggleGender", true),
   withState("orderBy", "toggleOrderBy", true),
   withState("order", "toggleOrder", true),
@@ -16,13 +17,14 @@ export default compose(
     onDrop: props => drop => {
       props.dispatch(updateWrestler({ brandId: props.brandId, id: drop.wrestler, }))
     },
+    toggleBrandless: ({ toggleBrandless, noBrand, }) => () => toggleBrandless(!noBrand),
     toggleGender: ({ toggleGender, male, }) => () => toggleGender(!male),
     toggleOrderBy: ({ toggleOrderBy, orderBy, }) => () => toggleOrderBy(!orderBy),
     toggleOrder: ({ toggleOrder, order, }) => () => toggleOrder(!order),
   }),
   withProps(props => {
-    const { roster, order, male, orderBy, brandId, } = props
-    const orderByField = orderBy ? "points": "name"
+    const { roster, order, male, orderBy, brandId, noBrand, } = props
+    const orderByField = orderBy ? "points" : "name"
 
     let newRoster = Object.assign([], roster)
 
@@ -31,6 +33,10 @@ export default compose(
 
     if (order) {
       newRoster = newRoster.reverse()
+    }
+
+    if (noBrand) {
+      newRoster = newRoster.filter(wrestler => wrestler.brandId === null)
     }
 
     if (brandId) {

@@ -2,10 +2,7 @@ import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
 
-import {
-  BRAND_CONFIRM_DELETE,
-  BRANDS_CONFIRM_CLEAR
-} from "../../constants/confirmations"
+import { BRANDS_CONFIRM_CLEAR } from "../../constants/confirmations"
 import { updateBrand, deleteBrand, resetBrands } from "../../actions/brands"
 import ManageBrands from "./manage-brands"
 
@@ -63,10 +60,9 @@ class ManageRosterContainer extends Component {
   }
 
   render() {
-    const { brands, animations, } = this.props
+    const { brands, } = this.props
     return (
       <ManageBrands
-        animations={animations}
         brands={brands}
         onDelete={this.onDelete}
         onClear={this.onClear}
@@ -79,12 +75,10 @@ class ManageRosterContainer extends Component {
 }
 
 ManageRosterContainer.propTypes = {
-  animations: PropTypes.bool.isRequired,
   brands: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired,
 }
 
 export default connect(state => ({
-  animations: state.game.animations,
   brands: state.brands,
 }))(ManageRosterContainer)

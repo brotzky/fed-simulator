@@ -1,13 +1,13 @@
 div.ranking {
+  font-size: medium;
   margin: 1rem 0;
-  font-size: initial;
 
   .table,
   h3 {
-    width: 95%;
-    margin: 0;
     font-weight: 100;
+    margin: 0;
     padding: .3rem;
+    width: 95%;
   }
 
   .cost,
@@ -15,15 +15,23 @@ div.ranking {
   .points,
   .rank,
   .wins {
+    font-size: small;
     text-align: center;
   }
 
   thead {
-    font-weight: 500;
     font-variant: small-caps;
+    font-weight: 500;
+
+    td {
+      vertical-align: middle;
+    }
   }
 
   tbody {
+    td {
+      vertical-align: text-bottom;
+    }
     .name {
       font-weight: 100;
     }

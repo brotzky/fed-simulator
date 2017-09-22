@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import HeaderOne from "../../components/h1/h1"
 import Wrestlers from "../../components/wrestlers/container"
 import Brand from "../../components/brand/brand"
 
@@ -12,28 +13,42 @@ const defaultBrand = {
   style: { color: "white", backgroundColor: "gray", },
 }
 
-const DraftPage = ({ brands = [], }) => {
+const DraftPage = ({ brands = [], style = {}, }) => {
   return (
     <section className="page draft">
-      <div style={defaultBrand.style} className="brand">
-        <Brand {...defaultBrand} />
-        <Wrestlers style={defaultBrand.style} />
-      </div>
-      {brands.map(brand => {
-        const { style, id: brandId, } = brand
-        return (
-          <div style={style} key={brandId} className="brand">
-            <Brand {...brand} />
-            <Wrestlers brandId={brandId} style={style} />
+      <HeaderOne>
+        Draft{" "}
+        <span className="medium-title">
+          <i className="icon fa fa-info-circle" /> Drag and drop wrestlers into other brands
+        </span>
+      </HeaderOne>
+      <If condition={brands.length === 0}>
+        <p>Add brands to create a draft</p>
+      </If>
+      <If condition={brands.length > 0}>
+        <div className="brands">
+          <div style={defaultBrand.style} className="brand">
+            <Brand {...defaultBrand} />
+            <Wrestlers showToggleBrand={true} style={defaultBrand.style} />
           </div>
-        )
-      })}
+          {brands.map(brand => {
+            const { style, id: brandId, } = brand
+            return (
+              <div style={style} key={brandId} className="brand">
+                <Brand {...brand} />
+                <Wrestlers brandId={brandId} style={style} />
+              </div>
+            )
+          })}
+        </div>
+      </If>
     </section>
   )
 }
 
 DraftPage.propTypes = {
   brands: PropTypes.array,
+  style: PropTypes.object,
 }
 
 export default DraftPage

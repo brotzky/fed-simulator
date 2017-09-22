@@ -1,0 +1,44 @@
+@import 'breakpoints';
+
+#root,
+#page-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex: 1;
+
+  article {
+    flex: 1;
+  }
+
+  aside {
+    order: -1;
+    flex: 0 0 5em;
+  }
+
+  nav {
+    position: fixed;
+  }
+}
+
+@include breakpoint(xs) {
+  main {
+    aside {
+      flex: 0;
+
+      nav {
+        flex-flow: initial;
+        height: 5rem;
+        width: 100%;
+        overflow: scroll;
+      }
+    }
+    article {
+      margin-top: 5rem;
+    }
+  }
+}

@@ -2,18 +2,16 @@ import React from "react"
 import classNames from "classnames"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
-import { FadeIn, SlideDown, SlideUp } from "animate-components"
+import { FadeIn } from "animate-components"
 import { DragDropContext } from "react-dnd"
 import HTML5Backend from "react-dnd-html5-backend"
 import TouchBackend from "react-dnd-touch-backend"
 import MultiBackend, { TouchTransition } from "react-dnd-multi-backend"
 
-import Wrestlers from "../wrestlers/container"
-import Notifications from "../notifications/notifications"
 import * as versionActions from "../../actions/version"
 import Nav from "../nav/nav"
 import burgerLinks from "./links.json"
-import { ANIMATION_SPEED, SHORT_ANIMATION_SPEED } from "../../constants/animation"
+import { ANIMATION_SPEED } from "../../constants/animation"
 
 import "../../stylesheets/base.scss"
 import "./page.scss"
@@ -36,12 +34,6 @@ class Page extends React.Component {
     openNavBar: true,
   }
 
-  onToggle = () => {
-    this.setState({
-      openNavBar: !this.state.openNavBar,
-    })
-  }
-
   componentWillMount() {
     this.props.dispatch(versionActions.checkVersion())
   }
@@ -52,69 +44,37 @@ class Page extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.version !== this.props.version) {
-      this.props.dispatch({
+      nextProps.dispatch({
         type: "RESET",
       })
     }
   }
 
-  shouldComponentUpdate() {
-    return true
-  }
-
   render() {
-    const { animations, championships, children, classnames, style, } = this.props
-    const { pathname, } = this.context.router.location
+    const { openNavBar, } = this.state
+    const { children, classnames, style, championships, } = this.props
+    const { location: { pathname, }, } = this.props
     const topClasses = classNames(classnames, ["page-container", "no-select",])
+    const mainClasses = {
+      backgroundColor: style.darkBackgroundColor,
+    }
+    const activeUrl = pathname.replace(/^\//, "")
+    const isNavVisible = championships.length > 0 && openNavBar
 
     return (
       <div id="page-container" style={style} className={topClasses}>
-        <Notifications />
-        <Choose>
-          <When condition={championships.length > 0}>
-            <If condition={this.state.openNavBar}>
-              <SlideDown style={{ zIndex: 5, }} iterations={Number(animations)} duration={SHORT_ANIMATION_SPEED}>
-                <Nav onClickBurger={this.onToggle} links={burgerLinks} style={style} modifier="main" />
-              </SlideDown>
-            </If>
-          </When>
-          <Otherwise>
-            <hr className="big-seperator" />
-          </Otherwise>
-        </Choose>
-        <main
-          style={{
-            backgroundColor: style.darkBackgroundColor,
-          }}
-        >
-          <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
-            {children}
-          </FadeIn>
+        <main style={mainClasses}>
+					<If condition={isNavVisible}>
+						<aside>
+              <Nav activeUrl={activeUrl} links={burgerLinks} {...style} modifier="main" />
+            </aside>
+					</If>
+          <article>
+            <FadeIn duration={ANIMATION_SPEED}>
+              {children}
+            </FadeIn>
+          </article>
         </main>
-        <Choose>
-          <When condition={pathname.startsWith("/create-a-match")}>
-            <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
-              <Wrestlers />
-            </SlideUp>
-          </When>
-          <When condition={championships.length > 0}>
-            <SlideUp iterations={Number(animations)} duration={ANIMATION_SPEED}>
-              <footer style={style} className="footer">
-                <h4>
-                  <a target="_blank" href="https://github.com/azz0r/fed-simulator">
-                    <i className="icon fa fa-github" /> Github
-                  </a>
-                  <a target="_blank" href="https://twitter.com/universesimman">
-                    <i className="icon fa fa-twitter" /> Twitter
-                  </a>
-                </h4>
-              </footer>
-            </SlideUp>
-          </When>
-          <Otherwise>
-            <hr className="big-seperator bottom" />
-          </Otherwise>
-        </Choose>
       </div>
     )
   }
@@ -123,13 +83,13 @@ class Page extends React.Component {
 Page.displayName = "Page"
 
 Page.propTypes = {
-  classnames: PropTypes.string,
   championships: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
-  version: PropTypes.number.isRequired,
-  style: PropTypes.object.isRequired,
   children: PropTypes.object.isRequired,
-  animations: PropTypes.bool.isRequired,
+  classnames: PropTypes.string,
+  dispatch: PropTypes.func.isRequired,
+  location: PropTypes.object,
+  style: PropTypes.object.isRequired,
+  version: PropTypes.number.isRequired,
 }
 
 Page.defaultProps = {
@@ -138,11 +98,10 @@ Page.defaultProps = {
 }
 
 Page.contextTypes = {
-  router: PropTypes.object.isRequired,
+  location: PropTypes.object,
 }
 
 export default connect(state => ({
-  animations: state.game.animations,
   style: state.style,
   championships: state.championships,
   version: state.version,

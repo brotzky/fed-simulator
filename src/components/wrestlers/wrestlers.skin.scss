@@ -1,17 +1,24 @@
+@import 'src/stylesheets/breakpoints';
+
 $wrestlers-points-dimensions: 1rem;
 $wrestler-background: #fff;
 $wrestler-color: #000;
 $points-transition-length: 500ms;
+$wrestler-width: 3rem;
 
-.wrestlers [type="wrestler"] {
-  margin: .2rem;
+.wrestlers {
+  max-height: 90vh;
+  padding: .2rem;
+  z-index: 100;
 }
 
 .wrestlers .wrestler {
   background-color: $wrestler-background;
+  box-shadow: 0 .1rem .2rem 0 currentColor;
   color: $wrestler-color;
-  padding: .4rem;
-  width: 4.5rem;
+  margin: .3rem;
+  padding: .2rem;
+  width: $wrestler-width;
 
   .name {
     font-size: x-small;
@@ -21,23 +28,33 @@ $points-transition-length: 500ms;
   .points {
     background-color: $wrestler-background;
     border-radius: 50%;
-    border: .01rem solid $wrestler-color;
-    font-size: small;
+    border: .01rem solid #999;
+    font-size: x-small;
     font-weight: 500;
     height: $wrestlers-points-dimensions;
     margin-right: .3rem;
+    opacity: .8;
     transition: background-color $points-transition-length linear;
     width: $wrestlers-points-dimensions;
-    opacity: 0.7;
   }
 
   &:hover .points {
     background-color: $wrestler-color;
-    opacity: 1;
     color: $wrestler-background;
+    opacity: 1;
   }
 
   &:hover {
     cursor: pointer;
+  }
+}
+
+@include breakpoint(lg) {
+	.wrestlers .wrestler {
+    width: 5rem;
+
+    .name {
+  		font-size: small;
+  	}
   }
 }

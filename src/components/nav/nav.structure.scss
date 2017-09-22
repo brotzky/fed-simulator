@@ -1,0 +1,10 @@
+.main.nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  .nav__item > div {
+    display: block;
+    text-align: center;
+  }
+}

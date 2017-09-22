@@ -24,8 +24,7 @@ $table-border-style: solid;
 $table-margin-bottom: .5em;
 $table-cell-padding: .4em;
 $table-cell-text-align: left;
-$table-cell-border-top: $table-border-width $table-border-style
-  $table-border-color;
+$table-cell-border-top: $table-border-width $table-border-style $table-border-color;
 $table-header-font-weight: bold;
 $table-body-border-top: .142857143em $table-border-style $table-border-color;
 $table-border-left: $table-border-width $table-border-style $table-border-color;
@@ -117,9 +116,9 @@ table {
 %table th,
 .table td,
 %table td {
+  border-top: $table-cell-border-top;
   padding: $table-cell-padding;
   text-align: $table-cell-text-align;
-  border-top: $table-cell-border-top;
 }
 
 /*  Sets table header font-weight to bold.

@@ -1,15 +1,15 @@
-@import "src/stylesheets/breakpoints";
+@import 'src/stylesheets/breakpoints';
 
-.page.draft {
+.page.draft .brands {
   display: flex;
 
-  div.brand {
+  .brand {
+    height: 100vh;
     flex: auto;
-    margin: .5rem;
-    overflow: hidden;
-    padding: .5rem;
-    text-align: center;
     min-width: 25%;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
   }
 
   @include breakpoint(xs) {

@@ -9,31 +9,8 @@
 @import 'animation';
 @import 'highlight';
 @import 'dropzone';
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#root,
-#root > div {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.page-section {
-  flex: 1 0 auto;
-  height: 100%;
-}
+@import 'structure.skeleton';
+@import 'structure.skin';
 
 ul {
   padding: 0;
@@ -88,6 +65,11 @@ a:hover,
 
 .text-right {
   text-align: right;
+}
+
+.medium-title {
+  font-size: medium;
+  font-variant: normal;
 }
 
 @import 'overrides';

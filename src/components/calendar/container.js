@@ -57,25 +57,14 @@ class Container extends Component {
     const groupedBoxes = groupBy(boxes, "size")
 
     return (
-      <div className="calendar">
+      <div className="calendar box">
         {Object.keys(groupedBoxes).map(size => {
           return (
             <div key={`calendar-show-${size}`} className="row">
               {groupedBoxes[size].map(({ name, size, type, }) => {
                 return (
-                  <Box
-                    key={`calendar-box-${name}`}
-                    name={name}
-                    type={type}
-                    canDrag={canPlan}
-                  >
-                    <Liveshow
-                      shortenName={true}
-                      shortenNameLength={18}
-                      name={name}
-                      size={size}
-                      style={style}
-                    />
+                  <Box key={`calendar-box-${name}`} name={name} type={type} canDrag={canPlan}>
+                    <Liveshow shortenName={true} shortenNameLength={18} name={name} size={size} style={style} />
                   </Box>
                 )
               })}
@@ -138,9 +127,7 @@ class Container extends Component {
       const name = moment(liveShow.date).format(DAY_FORMAT)
       const date = liveShow.date
       const accepts = getAcceptedSizes(liveShow.date)
-      const droppedItem = liveShow.showId
-        ? { name: liveShow.name, size: liveShow.size, }
-        : {}
+      const droppedItem = liveShow.showId ? { name: liveShow.name, size: liveShow.size, } : {}
 
       return {
         accepts,

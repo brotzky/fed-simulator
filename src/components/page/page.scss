@@ -1,42 +1,5 @@
-@import "src/stylesheets/breakpoints";
+$basepage-gutter: 1rem;
 
-$basepage-gutter: 2vh 3vw;
-
-hr.big-seperator {
-  margin: 5rem auto 0;
-
-  &.bottom {
-    margin: 0 auto 5rem;
-  }
-}
-
-.page-container {
-  height: 100%;
-
-  main {
-    flex: 1 0 auto;
-    padding: $basepage-gutter;
-  }
-}
-
-@include breakpoint(xs) {
-  footer.footer {
-    display: none;
-  }
-}
-
-.footer,
-footer {
-  padding: 2vh 3vw;
-
-  h4 {
-    margin: .2rem;
-  }
-
-  a,
-  a:hover {
-    color: currentColor;
-    font-size: medium;
-    margin-right: 1rem;
-  }
+.page-container main {
+  padding: $basepage-gutter;
 }

@@ -1,44 +1,47 @@
 [
   {
     "url": "dashboard",
-    "title": "Dashboard"
+    "title": "Dashboard",
+    "icon": "tachometer"
   },
   {
     "url": "calendar",
-    "title": "Calendar"
+    "title": "Calendar",
+    "icon": "calendar"
   },
   {
     "url": "create-a-match",
-    "title": "Create a match"
+    "title": "Create a match",
+    "icon": "ambulance"
   },
   {
     "url": "draft",
-    "title": "Draft"
-  },
-  {
-    "seperator": true
+    "title": "Draft",
+    "icon": "columns"
   },
   {
     "url": "manage-roster",
-    "title": "Roster"
+    "title": "Roster",
+    "icon": "users"
   },
   {
     "url": "manage-brands",
-    "title": "Brands"
+    "title": "Brands",
+    "icon": "tv"
   },
   {
     "url": "shows",
-    "title": "Shows"
+    "title": "Shows",
+    "icon": "camera"
   },
   {
     "url": "championships",
-    "title": "Championships"
-  },
-  {
-    "seperator": true
+    "title": "Championships",
+    "icon": "trophy"
   },
   {
     "url": "settings",
-    "title": "Settings"
+    "title": "Settings",
+    "icon": "cog"
   }
 ]

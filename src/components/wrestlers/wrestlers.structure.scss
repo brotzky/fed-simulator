@@ -1,12 +1,11 @@
 .wrestlers {
-  align-items: center;
+  align-items: end;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  z-index: 100;
+  flex-flow: row wrap;
+  justify-content: space-around;
 
   .wrestler {
-    align-items: center;
+    align-items: end;
     display: flex;
     overflow: hidden;
     word-wrap: break-word;

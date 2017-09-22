@@ -5,6 +5,7 @@ import { browserHistory } from "react-router"
 import { Link } from "react-router"
 
 import Animations from "../components/animations"
+import ColorPickers from "../components/color-pickers/container"
 import { reset } from "../actions/game"
 import HeaderOne from "../components/h1/h1"
 
@@ -31,6 +32,10 @@ class Settings extends Component {
             </div>
             <br />
             <div className="box" style={style}>
+              <ColorPickers />
+            </div>
+            <br />
+            <div className="box" style={style}>
               <a onClick={this.onReset}>
                 <i className="icon fa fa-trash-o" />
                 &nbsp;Reset game
@@ -39,10 +44,6 @@ class Settings extends Component {
             <br />
             <div className="box" style={style}>
               <Link to="name">Name your federation</Link>
-            </div>
-            <br />
-            <div className="box" style={style}>
-              <Link to="branding">Branding</Link>
             </div>
           </div>
         </div>

@@ -6,5 +6,6 @@ import Draft from "./draft"
 export default compose(
   connect(state => ({
     brands: state.brands,
+    style: state.style,
   }))
 )(Draft)

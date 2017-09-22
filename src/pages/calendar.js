@@ -1,28 +1,18 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import moment from "moment"
-import { SlideRight, SlideLeft } from "animate-components"
 import PropTypes from "prop-types"
 
 import HeaderOne from "../components/h1/h1"
 import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
-import {
-  togglePlan,
-  addOneMonth,
-  resetGame,
-  addProfitToTotal
-} from "../actions/game"
+import { togglePlan, addOneMonth, addProfitToTotal } from "../actions/game"
 import Calendar from "../components/calendar/container"
 import Accounting from "../components/accounting/container"
 import { simulateLiveShows } from "../actions/calendar"
 import Button from "../components/button/button"
 
-import { ANIMATION_SPEED } from "../constants/animation"
 import { MONTH_YEAR_FORMAT } from "../constants/calendar"
-import {
-  CALENDAR_CONFIRM_CLEAR,
-  CALENDAR_CONFIRM_SIMULATE
-} from "../constants/confirmations"
+import { CALENDAR_CONFIRM_CLEAR, CALENDAR_CONFIRM_SIMULATE } from "../constants/confirmations"
 
 import "./stylesheets/calendar.scss"
 
@@ -40,12 +30,7 @@ class CalendarPage extends Component {
   }
 
   componentWillMount() {
-    const {
-      calendar,
-      dispatch,
-      currentMonth: month,
-      currentYear: year,
-    } = this.props
+    const { calendar, dispatch, currentMonth: month, currentYear: year, } = this.props
 
     if (calendar.length === 0) {
       dispatch(generateLiveShowsForMonth({ month, year, }))
@@ -53,12 +38,7 @@ class CalendarPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      calendar,
-      dispatch,
-      currentMonth: month,
-      currentYear: year,
-    } = nextProps
+    const { calendar, dispatch, currentMonth: month, currentYear: year, } = nextProps
 
     if (calendar.length === 0) {
       dispatch(generateLiveShowsForMonth({ month, year, }))
@@ -70,66 +50,43 @@ class CalendarPage extends Component {
   }
 
   render() {
-    const { animations, date, canPlan, } = this.props
+    const { date, canPlan, } = this.props
     const title = moment(date).format(MONTH_YEAR_FORMAT)
 
     return (
       <section className="page page-calendar">
-        <div className="row middle-xs start-xs">
-          <div className="col-xs-6 col-sm-6 col-md-3 col-lg-3">
-            <div className="box">
-              <HeaderOne>
-                {title}&nbsp;
-                <a onClick={this.onClear}>
-                  <div className="icon fa fa-trash-o fa-md" />
-                </a>
-              </HeaderOne>
-            </div>
-          </div>
-          <div className="col-xs-6 col-sm-6 col-md-9 col-lg-9">
-            <div className="box">
-              <Choose>
-                <When condition={canPlan}>
-                  <i className="icon fa fa-unlock" /> Drag and drop shows onto
-                  Calendar dates
-                </When>
-                <Otherwise>
-                  <i className="icon fa fa-lock" /> Locked, move onto the next
-                  month
-                </Otherwise>
-              </Choose>
-            </div>
-          </div>
-        </div>
+        <HeaderOne>
+          {title}&nbsp;
+          <i onClick={this.onClear} className="icon fa fa-trash-o fa-md" />&nbsp;
+          <span className="medium-title">
+            <Choose>
+              <When condition={canPlan}>
+                <i className="icon fa fa-unlock" /> Drag & drop shows onto dates, then simulate
+              </When>
+              <Otherwise>
+                <i className="icon fa fa-lock" /> Month complete, bank & move onto the next month
+              </Otherwise>
+            </Choose>
+          </span>
+        </HeaderOne>
         <div className="row">
-          <div className="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+          <div className="col-xs-12 col-sm-12 col-md-8 col-lg-9">
             <div className="box">
               <Calendar />
             </div>
           </div>
-          <div className="col-xs-12 col-sm-4 col-md-3 col-lg-3 sidebar">
+          <div className="col-xs-12 col-sm-12 col-md-4 col-lg-3 sidebar">
             <div className="box">
-              <SlideRight
-                iterations={Number(animations)}
-                duration={ANIMATION_SPEED}
-              >
-                <Choose>
-                  <When condition={canPlan}>
-                    <Button
-                      value="Simulate shows"
-                      onClick={this.onSimulateMonth}
-                    />
-                  </When>
-                  <Otherwise>
-                    <Button
-                      value="Next month..."
-                      onClick={this.onStartNextMonth}
-                    />
-                  </Otherwise>
-                </Choose>
-                <br />
-                <Accounting />
-              </SlideRight>
+              <Choose>
+                <When condition={canPlan}>
+                  <Button value="Simulate shows" onClick={this.onSimulateMonth} />
+                </When>
+                <Otherwise>
+                  <Button value="Next month..." onClick={this.onStartNextMonth} />
+                </Otherwise>
+              </Choose>
+              <br />
+              <Accounting />
             </div>
           </div>
         </div>

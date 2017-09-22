@@ -6,7 +6,6 @@ import * as matchesAction from "../../actions/matches"
 import Teams from "./teams"
 
 class MatchContainer extends Component {
-
   render() {
     const { onAddWrestler, onSelectWinner, onRemoveWrestler, } = this
     const { teams, currentMatch, } = this.props
@@ -33,7 +32,7 @@ class MatchContainer extends Component {
   }
 
   onSelectWinner = wrestlerId => {
-		const { dispatch, currentMatch, } = this.props
+    const { dispatch, currentMatch, } = this.props
 
     dispatch(
       matchesAction.selectWinnerOfMatch({
@@ -44,7 +43,7 @@ class MatchContainer extends Component {
   }
 
   onRemoveWrestler = wrestlerId => {
-		const { dispatch, currentMatch, } = this.props
+    const { dispatch, currentMatch, } = this.props
 
     dispatch(
       matchesAction.removeWrestlerFromMatch({
@@ -52,16 +51,6 @@ class MatchContainer extends Component {
         wrestlerId: wrestlerId,
       })
     )
-  }
-
-  onSimulateMatch = matchId => {
-		const { simulateMatch, dispatch, } = this.props
-
-    if (simulateMatch) {
-      simulateMatch({ matchId, })
-    } else {
-      dispatch(matchesAction.simulateMatch({ matchId, }))
-    }
   }
 }
 

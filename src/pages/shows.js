@@ -24,11 +24,7 @@ class ChampionsPage extends Component {
 
   componentWillMount() {
     const { shows, } = this.props
-    const filterBySize = size =>
-      shows
-        .filter(show => show.size === size)
-        .map(champion => champion.name)
-        .join(", ")
+    const filterBySize = size => shows.filter(show => show.size === size).map(champion => champion.name).join(", ")
     this.setState({
       xs: filterBySize("xs"),
       sm: filterBySize("sm"),
@@ -44,7 +40,7 @@ class ChampionsPage extends Component {
           What
           <span className="cyan"> shows</span>
           &nbsp;do we&nbsp;
-          <span className="hot-pink"> produce</span>
+          <span className="hot-pink">produce</span>
           ? <GenerateRandom onClick={this._generateDefaultShows} />
         </HeaderOne>
         <form onSubmit={this.handleSubmit}>
@@ -60,22 +56,8 @@ class ChampionsPage extends Component {
                   label="Big Four"
                   rows="2"
                 />
-                <Textarea
-                  value={this.state.md}
-                  name="md"
-                  onChange={this.handleChange}
-                  placeholder="Backlash, Payback"
-                  label="Monthy PPV"
-                  rows="2"
-                />
-                <Textarea
-                  value={this.state.sm}
-                  name="sm"
-                  onChange={this.handleChange}
-                  placeholder={"Raw, Smackdown"}
-                  label="Weekly TV"
-                  rows="2"
-                />
+                <Textarea value={this.state.md} name="md" onChange={this.handleChange} placeholder="Backlash, Payback" label="Monthy PPV" rows="2" />
+                <Textarea value={this.state.sm} name="sm" onChange={this.handleChange} placeholder={"Raw, Smackdown"} label="Weekly TV" rows="2" />
                 <Textarea
                   value={this.state.xs}
                   name="xs"
@@ -84,11 +66,7 @@ class ChampionsPage extends Component {
                   label="Gym Show, House Show, Back Garden"
                   rows="2"
                 />
-                <Button
-                  onClick={this.handleSubmit}
-                  type="submit"
-                  value="Save to disk and move on!"
-                />
+                <Button onClick={this.handleSubmit} type="submit" value="Save to disk and move on!" />
               </div>
             </div>
           </div>
@@ -112,17 +90,13 @@ class ChampionsPage extends Component {
     Object.keys(this.state).forEach(size => {
       let defaultShow = defaultShows.find(show => show.size === size)
       if (defaultShow) {
-        let newShow = this.state[size]
-          .split(",")
-          .filter(name => name.length > 2)
-          .filter(String)
-          .map(name => {
-            return {
-              name: name.trim(),
-              size: defaultShow.size,
-              frequency: defaultShow.frequency,
-            }
-          })
+        let newShow = this.state[size].split(",").filter(name => name.length > 2).filter(String).map(name => {
+          return {
+            name: name.trim(),
+            size: defaultShow.size,
+            frequency: defaultShow.frequency,
+          }
+        })
 
         shows = shows.concat(newShow)
       }

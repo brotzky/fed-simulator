@@ -2,12 +2,12 @@ $dropzone-border-color: #929292;
 
 .dropzone {
   align-items: center;
-  border: .2rem dashed $dropzone-border-color;
+  border: .08rem dashed $dropzone-border-color;
   display: flex;
   justify-content: center;
-  min-height: 4rem;
+  min-height: 3.5rem;
 
   h3 {
-    margin: 1rem;
+    margin: .5rem;
   }
 }

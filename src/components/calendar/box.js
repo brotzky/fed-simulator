@@ -21,7 +21,6 @@ export default class Box extends Component {
   static propTypes = {
     canDrag: PropTypes.bool.isRequired,
     children: PropTypes.object.isRequired,
-    classes: PropTypes.string,
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
@@ -34,10 +33,10 @@ export default class Box extends Component {
   }
 
   render() {
-    const { connectDragSource, classes, children, } = this.props
+    const { connectDragSource, children, } = this.props
 
     return connectDragSource(
-      <div className={`${classes} boxes`}>
+      <div className="boxes">
         {children}
       </div>
     )

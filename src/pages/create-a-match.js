@@ -4,11 +4,13 @@ import groupBy from "lodash.groupby"
 import classnames from "classnames"
 
 import { connect } from "react-redux"
-import { SlideRight, FadeIn } from "animate-components"
+import { FadeIn } from "animate-components"
 
 import { getId } from "../helpers/hash"
 import { createMatch, resetMatches, simulateMatch } from "../actions/matches"
+import { addWrestlerToMatch } from "../actions/matches"
 
+import Wrestlers from "../components/wrestlers/container"
 import { Winner, Loser } from "../components/winner/winner"
 import HeaderOne from "../components/h1/h1"
 import Match from "../components/match/container"
@@ -84,8 +86,23 @@ class CreateAMatch extends Component {
     return true
   }
 
+  onWrestlerClick = wrestlerId => {
+    console.log(wrestlerId)
+    const { roster, dispatch, } = this.props
+    const { currentMatch, } = this.state
+    const teamId = getId()
+    const wrestler = Object.assign({}, roster.find(wrestler => wrestler.id === wrestlerId), { teamId, })
+
+    dispatch(
+      addWrestlerToMatch({
+        matchId: currentMatch.id,
+        wrestler,
+      })
+    )
+  }
+
   render() {
-    const { animations, } = this.props
+    const { animations, style, } = this.props
     const buttonText = pickRandom(buttonTexts)
 
     const { currentMatch, } = this.state
@@ -109,7 +126,10 @@ class CreateAMatch extends Component {
               <div className="box">
                 <HeaderOne>
                   Create a match &nbsp;
-                  <i className="icon fa fa-trash" onClick={this.onResetMatches} />
+                  <i className="icon fa fa-trash" onClick={this.onResetMatches} />&nbsp;
+                  <span className="medium-title">
+                    <i className="icon fa fa-info-circle" /> Drag & drop wrestlers on teams
+                  </span>
                 </HeaderOne>
                 <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
                   <Match {...this.state} />
@@ -121,17 +141,17 @@ class CreateAMatch extends Component {
             </div>
             <div className={storySideclasses}>
               <div className="box center-xs">
-                <SlideRight iterations={Number(animations)} duration={ANIMATION_SPEED}>
-                  <If condition={winner}>
-                    <Winner name={winner.name} />
-                  </If>
-                  <If condition={loser}>
-                    <Loser name={loser.name} />
-                  </If>
-                </SlideRight>
+                <If condition={winner}>
+                  <Winner name={winner.name} />
+                </If>
+                <If condition={loser}>
+                  <Loser name={loser.name} />
+                </If>
               </div>
             </div>
           </div>
+          <br />
+          <Wrestlers onWrestlerClick={this.onWrestlerClick} style={style} />
         </form>
       </section>
     )
@@ -173,6 +193,8 @@ CreateAMatch.contextTypes = {
 CreateAMatch.propTypes = {
   dispatch: PropTypes.func.isRequired,
   animations: PropTypes.bool.isRequired,
+  style: PropTypes.object,
+  roster: PropTypes.array,
   location: PropTypes.object.isRequired,
   router: PropTypes.object.isRequired,
   matches: PropTypes.array.isRequired,
@@ -180,5 +202,7 @@ CreateAMatch.propTypes = {
 
 export default connect(state => ({
   matches: state.matches,
+  style: state.style,
+  roster: state.roster,
   animations: state.game.animations,
 }))(CreateAMatch)
