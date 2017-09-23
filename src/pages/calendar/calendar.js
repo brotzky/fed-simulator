@@ -3,18 +3,16 @@ import { connect } from "react-redux"
 import moment from "moment"
 import PropTypes from "prop-types"
 
-import HeaderOne from "../components/h1/h1"
-import { generateLiveShowsForMonth, resetCalendar } from "../actions/calendar"
-import { togglePlan, addOneMonth, addProfitToTotal } from "../actions/game"
-import Calendar from "../components/calendar/container"
-import Accounting from "../components/accounting/container"
-import { simulateLiveShows } from "../actions/calendar"
-import Button from "../components/button/button"
+import HeaderOne from "../../components/h1/h1"
+import { generateLiveShowsForMonth, resetCalendar } from "../../actions/calendar"
+import { togglePlan, addOneMonth, addProfitToTotal } from "../../actions/game"
+import Calendar from "../../components/calendar/container"
+import Accounting from "../../components/accounting/container"
+import { simulateLiveShows } from "../../actions/calendar"
+import Button from "../../components/button/button"
 
-import { MONTH_YEAR_FORMAT } from "../constants/calendar"
-import { CALENDAR_CONFIRM_CLEAR, CALENDAR_CONFIRM_SIMULATE } from "../constants/confirmations"
-
-import "./stylesheets/calendar.scss"
+import { MONTH_YEAR_FORMAT } from "../../constants/calendar"
+import { CALENDAR_CONFIRM_CLEAR, CALENDAR_CONFIRM_SIMULATE } from "../../constants/confirmations"
 
 function cost(item) {
   return item.cost
@@ -144,20 +142,20 @@ class CalendarPage extends Component {
 }
 
 CalendarPage.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   animations: PropTypes.bool.isRequired,
-  date: PropTypes.object.isRequired,
-  roster: PropTypes.array.isRequired,
-  canPlan: PropTypes.bool.isRequired,
   calendar: PropTypes.array.isRequired,
+  canPlan: PropTypes.bool.isRequired,
   currentMonth: PropTypes.number.isRequired,
   currentYear: PropTypes.number.isRequired,
+  date: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  roster: PropTypes.array.isRequired,
 }
 
 CalendarPage.displayName = "CalendarPage"
 
 export default connect(state => ({
+  ...state.game,
   calendar: state.calendar,
   roster: state.roster,
-  ...state.game,
 }))(CalendarPage)

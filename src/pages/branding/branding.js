@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { CirclePicker } from "react-color"
 
-import HeaderOne from "../components/h1/h1"
-import { colors } from "../constants/colors"
-import { updateStyle } from "../actions/style"
-import Button from "../components/button/button"
+import HeaderOne from "../../components/h1/h1"
+import { colors } from "../../constants/colors"
+import { updateStyle } from "../../actions/style"
+import Button from "../../components/button/button"
 
-import "./stylesheets/branding.scss"
+import "./branding.scss"
 
 const noop = () => {}
 const EVENT_STUB = { preventDefault: noop, }
@@ -33,22 +33,14 @@ class BrandingPage extends Component {
           <div className="col-xs-6 col-lg-6 ">
             <div className="box text-center">
               <h4>Background</h4>
-              <CirclePicker
-                width="auto"
-                colors={colors}
-                onChange={this.onChangeBGColor}
-              />
+              <CirclePicker width="auto" colors={colors} onChange={this.onChangeBGColor} />
               <br />
             </div>
           </div>
           <div className="col-xs-6 col-lg-6 center-xs middle-xs right">
             <div className="box">
               <h4>Text</h4>
-              <CirclePicker
-                width="auto"
-                colors={colors}
-                onChange={this.onChangeColor}
-              />
+              <CirclePicker width="auto" colors={colors} onChange={this.onChangeColor} />
             </div>
           </div>
         </div>

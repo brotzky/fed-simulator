@@ -3,12 +3,13 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import classnames from "classnames"
 
-import { updateGame } from "../actions/game"
-import defaultOptions from "../constants/size.options.json"
-import HeaderOne from "../components/h1/h1"
-import acronymLongName from "../helpers/acronym-long-name"
+import Button from "../../components/button/button"
+import { updateGame } from "../../actions/game"
+import defaultOptions from "../../constants/size.options.json"
+import HeaderOne from "../../components/h1/h1"
+import acronymLongName from "../../helpers/acronym-long-name"
 
-import "./stylesheets/size.scss"
+import "./size.scss"
 
 class SizePage extends Component {
   state = {
@@ -26,26 +27,16 @@ class SizePage extends Component {
     return (
       <section className="page size">
         <HeaderOne>
-          How big are you `<span className="uppercase orange">
-            {acronymLongName(this.props.game.name)}`
-          </span>
+          How big are you `<span className="uppercase orange">{acronymLongName(this.props.game.name)}`</span>
           ?!
         </HeaderOne>
         <div className="row sizes">
           {defaultOptions.map(option => {
-            const classes = classnames(
-              "col-xs-12 col-sm-6 col-md-3 col-lg-3",
-              "highlight",
-              "pulse",
-              "cursor-pointer",
-              { active: option.size === this.state.size, }
-            )
+            const classes = classnames("col-xs-12 col-sm-6 col-md-3 col-lg-3", "highlight", "pulse", "cursor-pointer", {
+              active: option.size === this.state.size,
+            })
             return (
-              <div
-                className={classes}
-                key={option.id}
-                onClick={() => this.handleChange(option.size, option.cash)}
-              >
+              <div className={classes} key={option.id} onClick={() => this.handleChange(option.size, option.cash)}>
                 <h3>
                   {option.name}
                 </h3>
@@ -58,7 +49,7 @@ class SizePage extends Component {
         </div>
         <br />
         <form onSubmit={this.handleSubmit}>
-          <button type="submit">Save and brand your federation!</button>
+          <Button type="submit">Save and brand your federation!</Button>
         </form>
       </section>
     )

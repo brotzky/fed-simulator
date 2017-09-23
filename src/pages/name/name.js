@@ -2,13 +2,13 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import { updateGame } from "../actions/game"
-import { startGame } from "../actions/game"
-import Input from "../components/form/input"
-import Button from "../components/button/button"
-import HeaderOne from "../components/h1/h1"
+import { updateGame } from "../../actions/game"
+import { startGame } from "../../actions/game"
+import Input from "../../components/form/input"
+import Button from "../../components/button/button"
+import HeaderOne from "../../components/h1/h1"
 
-import "./stylesheets/name.scss"
+import "./name.scss"
 
 class NamePage extends Component {
   constructor(props) {
@@ -27,19 +27,9 @@ class NamePage extends Component {
         <HeaderOne>Name your Federation 🎈</HeaderOne>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <Input
-              value={this.state.name}
-              name="name"
-              onChange={this.handleChange}
-              label=""
-              placeholder="WWE, NXT, ROH, GFW, TNA"
-            />
+            <Input value={this.state.name} name="name" onChange={this.handleChange} label="" placeholder="WWE, NXT, ROH, GFW, TNA" />
           </div>
-          <Button
-            value="Print the merch, we got a name"
-            onClick={this.handleSubmit}
-            type="submit"
-          />
+          <Button value="Print the merch, we got a name" onClick={this.handleSubmit} type="submit" />
         </form>
       </section>
     )

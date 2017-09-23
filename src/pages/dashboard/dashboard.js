@@ -4,13 +4,13 @@ import sortBy from "lodash.sortby"
 import PropTypes from "prop-types"
 import orderBy from "lodash.orderby"
 
-import HeaderOne from "../components/h1/h1"
-import Simulator from "../components/simulator"
-import Ranking from "../components/ranking/ranking"
+import HeaderOne from "../../components/h1/h1"
+import Simulator from "../../components/simulator"
+import Ranking from "../../components/ranking/ranking"
 
-import { COST_COLUMNS, RANKED_COLUMNS } from "../constants/ranking"
+import { COST_COLUMNS, RANKED_COLUMNS } from "../../constants/ranking"
 
-import "./stylesheets/dashboard.scss"
+import "./dashboard.scss"
 
 export const DashboardPage = ({ style, expensiveWrestlers, cheapWrestlers, rankedMaleWrestlers, rankedFemaleWrestlers, }) => {
   return (

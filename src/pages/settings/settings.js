@@ -4,12 +4,12 @@ import PropTypes from "prop-types"
 import { browserHistory } from "react-router"
 import { Link } from "react-router"
 
-import Animations from "../components/animations"
-import ColorPickers from "../components/color-pickers/container"
-import { reset } from "../actions/game"
-import HeaderOne from "../components/h1/h1"
+import Animations from "../../components/animations"
+import ColorPickers from "../../components/color-pickers/container"
+import { reset } from "../../actions/game"
+import HeaderOne from "../../components/h1/h1"
 
-import "./stylesheets/settings.scss"
+import "./settings.scss"
 
 class Settings extends Component {
   render() {

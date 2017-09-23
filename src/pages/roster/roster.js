@@ -2,14 +2,12 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import { updateRoster, generateRoster } from "../actions/roster"
-import Textarea from "../components/form/textarea.js"
-import GenerateRandom from "../components/generate-random"
-import { ROSTER_CONFIRM_RESET } from "../constants/confirmations"
-import HeaderOne from "../components/h1/h1"
-import Button from "../components/button/button"
-
-import "./stylesheets/roster.scss"
+import { updateRoster, generateRoster } from "../../actions/roster"
+import Textarea from "../../components/form/textarea.js"
+import GenerateRandom from "../../components/generate-random"
+import { ROSTER_CONFIRM_RESET } from "../../constants/confirmations"
+import HeaderOne from "../../components/h1/h1"
+import Button from "../../components/button/button"
 
 class RosterPage extends Component {
   displayName = "RosterPage"

@@ -2,15 +2,13 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
 
-import { CHAMPIONSHIP_RESET_CONFIRM } from "../constants/confirmations"
+import { CHAMPIONSHIP_RESET_CONFIRM } from "../../constants/confirmations"
 
-import { updateChampions, generateChampionships } from "../actions/champions"
-import GenerateRandom from "../components/generate-random"
-import Textarea from "../components/form/textarea.js"
-import HeaderOne from "../components/h1/h1"
-import Button from "../components/button/button"
-
-import "./stylesheets/championships.scss"
+import { updateChampions, generateChampionships } from "../../actions/champions"
+import GenerateRandom from "../../components/generate-random"
+import Textarea from "../../components/form/textarea.js"
+import HeaderOne from "../../components/h1/h1"
+import Button from "../../components/button/button"
 
 class ChampionshipsPage extends Component {
   displayName = "ChampionshipsPage"
@@ -85,7 +83,7 @@ class ChampionshipsPage extends Component {
 
     let championships = []
 
-    const { dispatch, router, } = this.props
+    const { dispatch, } = this.props
 
     Object.keys(this.state).forEach(stateKey => {
       let male = stateKey === "male"
@@ -106,6 +104,12 @@ class ChampionshipsPage extends Component {
   redirect = () => {
     this.props.router.push("/default")
   }
+}
+
+ChampionshipsPage.propTypes = {
+  championships: PropTypes.array,
+  router: PropTypes.object,
+  dispatch: PropTypes.func,
 }
 
 ChampionshipsPage.contextTypes = {

@@ -6,22 +6,22 @@ import classnames from "classnames"
 import { connect } from "react-redux"
 import { FadeIn } from "animate-components"
 
-import { getId } from "../helpers/hash"
-import { createMatch, resetMatches, simulateMatch } from "../actions/matches"
-import { addWrestlerToMatch } from "../actions/matches"
+import { getId } from "../../helpers/hash"
+import { createMatch, resetMatches, simulateMatch } from "../../actions/matches"
+import { addWrestlerToMatch } from "../../actions/matches"
 
-import Wrestlers from "../components/wrestlers/container"
-import { Winner, Loser } from "../components/winner/winner"
-import HeaderOne from "../components/h1/h1"
-import Match from "../components/match/container"
-import Button from "../components/button/button"
-import Model from "../models/match.model"
+import Wrestlers from "../../components/wrestlers/container"
+import { Winner, Loser } from "../../components/winner/winner"
+import HeaderOne from "../../components/h1/h1"
+import Match from "../../components/match/container"
+import Button from "../../components/button/button"
+import Model from "../../models/match.model"
 
-import buttonTexts from "../constants/create-a-match-button-texts"
-import { MATCH_CONFIRM_RESET } from "../constants/confirmations"
-import { ANIMATION_SPEED } from "../constants/animation"
+import buttonTexts from "../../constants/create-a-match-button-texts"
+import { MATCH_CONFIRM_RESET } from "../../constants/confirmations"
+import { ANIMATION_SPEED } from "../../constants/animation"
 
-import "./stylesheets/create-a-match.scss"
+import "./create-a-match.scss"
 
 const pickRandom = items => items[Math.floor(Math.random() * (items.length - 1))]
 
@@ -87,7 +87,6 @@ class CreateAMatch extends Component {
   }
 
   onWrestlerClick = wrestlerId => {
-    console.log(wrestlerId)
     const { roster, dispatch, } = this.props
     const { currentMatch, } = this.state
     const teamId = getId()
@@ -191,18 +190,18 @@ CreateAMatch.contextTypes = {
 }
 
 CreateAMatch.propTypes = {
-  dispatch: PropTypes.func.isRequired,
   animations: PropTypes.bool.isRequired,
-  style: PropTypes.object,
-  roster: PropTypes.array,
+  dispatch: PropTypes.func.isRequired,
   location: PropTypes.object.isRequired,
-  router: PropTypes.object.isRequired,
   matches: PropTypes.array.isRequired,
+  roster: PropTypes.array,
+  router: PropTypes.object.isRequired,
+  style: PropTypes.object,
 }
 
 export default connect(state => ({
-  matches: state.matches,
-  style: state.style,
-  roster: state.roster,
   animations: state.game.animations,
+  matches: state.matches,
+  roster: state.roster,
+  style: state.style,
 }))(CreateAMatch)

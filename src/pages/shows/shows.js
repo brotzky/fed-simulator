@@ -2,15 +2,14 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import React, { Component } from "react"
 
-import { SHOWS_CONFIRM_GENERATE } from "../constants/confirmations"
-import { updateShows, generateShows } from "../actions/shows"
-import defaultShows from "../constants/shows.options.json"
-import GenerateRandom from "../components/generate-random"
-import Textarea from "../components/form/textarea"
-import Button from "../components/button/button"
-import HeaderOne from "../components/h1/h1"
+import { SHOWS_CONFIRM_GENERATE } from "../../constants/confirmations"
 
-import "./stylesheets/shows.scss"
+import { updateShows, generateShows } from "../../actions/shows"
+import defaultShows from "../../constants/shows.options.json"
+import GenerateRandom from "../../components/generate-random"
+import Textarea from "../../components/form/textarea"
+import Button from "../../components/button/button"
+import HeaderOne from "../../components/h1/h1"
 
 class ChampionsPage extends Component {
   displayName = "ChampionsPage"
