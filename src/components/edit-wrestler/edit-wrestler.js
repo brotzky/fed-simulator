@@ -8,7 +8,21 @@ import Input from "../form/input"
 
 const NOOP = () => {}
 
-const EditWrestler = ({ brandId, brands, image, name, onBrandSelected, onImageUpdate, onDelete, onPointsUpdate, onNameUpdate, points, }) =>
+const EditWrestler = ({
+  brandId,
+  brands,
+  image,
+  name,
+  id,
+  onBrandSelected,
+  onImageUpdate,
+  onDelete,
+  onCreate,
+  showDelete,
+  onPointsUpdate,
+  onNameUpdate,
+  points,
+}) =>
   <div>
     <h3>
       {name}
@@ -36,14 +50,26 @@ const EditWrestler = ({ brandId, brands, image, name, onBrandSelected, onImageUp
           <Input id="points" onChange={onPointsUpdate} value={points} />
         </div>
       </div>
-      <div className="col-xs-6 col-lg-4">
-        <div className="box">
-          <br />
-          <Button classes="btn-delete" onClick={onDelete}>
-            <i className="icon fa fa-trash" /> Delete wrestler
-          </Button>
+      <If condition={showDelete}>
+        <div className="col-xs-6 col-lg-4">
+          <div className="box">
+            <br />
+            <Button classes="btn-delete" onClick={onDelete}>
+              <i className="icon fa fa-trash" /> Delete wrestler
+            </Button>
+          </div>
         </div>
-      </div>
+      </If>
+      <If condition={!id}>
+        <div className="col-xs-6 col-lg-4">
+          <div className="box">
+            <br />
+            <Button classes="btn-create" onClick={onCreate}>
+              Create wrestler
+            </Button>
+          </div>
+        </div>
+      </If>
     </div>
   </div>
 
@@ -54,10 +80,12 @@ EditWrestler.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string,
   onBrandSelected: PropTypes.func,
+  onCreate: PropTypes.func,
   onDelete: PropTypes.func,
   onImageUpdate: PropTypes.func,
   onNameUpdate: PropTypes.func,
   onPointsUpdate: PropTypes.func,
+  showDelete: PropTypes.bool,
   points: PropTypes.number,
 }
 
@@ -68,10 +96,12 @@ EditWrestler.defaultProps = {
   image: "",
   name: "",
   onBrandSelected: NOOP,
+  onCreate: NOOP,
   onDelete: NOOP,
   onImageUpdate: NOOP,
   onNameUpdate: NOOP,
   onPointsUpdate: NOOP,
-  points: NOOP,
+  showDelete: true,
+  points: 0,
 }
 export default EditWrestler

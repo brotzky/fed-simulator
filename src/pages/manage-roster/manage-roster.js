@@ -3,22 +3,26 @@ import PropTypes from "prop-types"
 
 import HeaderOne from "../../components/h1/h1"
 import Wrestlers from "../../components/wrestlers/container"
+import AddWrestler from "../../components/edit-wrestler/create.container"
 import EditWrestler from "../../components/edit-wrestler/container"
 import "./manage-roster.structure.scss"
 import "./manage-roster.skin.scss"
 
 const NOOP = () => {}
 
-const UpdateWrestlersPage = ({ showWrestlersFilters, currentWrestler, onClick, style, }) => {
+const UpdateWrestlersPage = ({ showWrestlersFilters, openAddWrestler, addingWrestler, currentWrestler, onClick, style, }) => {
   return (
     <div className="page manage-roster">
       <HeaderOne>
-        Manage Roster{" "}
+        Manage Roster <i className="icon fa fa-plus-circle green" onClick={openAddWrestler} />{" "}
         <span className="medium-title">
           <i className="icon fa fa-info-circle" /> Click a wrestler to edit them
         </span>
       </HeaderOne>
       <Wrestlers style={style} onClick={onClick} showFilter={showWrestlersFilters} />
+      <If condition={addingWrestler}>
+        <AddWrestler />
+      </If>
       <If condition={currentWrestler}>
         <EditWrestler {...currentWrestler} />
       </If>
@@ -27,15 +31,19 @@ const UpdateWrestlersPage = ({ showWrestlersFilters, currentWrestler, onClick, s
 }
 
 UpdateWrestlersPage.propTypes = {
+  addingWrestler: PropTypes.bool,
   currentWrestler: PropTypes.object,
-  onClickWrestler: PropTypes.func,
+  onClick: PropTypes.func,
+  openAddWrestler: PropTypes.func,
   showWrestlersFilters: PropTypes.bool,
   style: PropTypes.object,
 }
 
 UpdateWrestlersPage.defaultProps = {
+  addingWrestler: false,
   currentWrestler: null,
-  onClickWrestler: NOOP,
+  onClick: NOOP,
+  openAddWrestler: NOOP,
   showWrestlersFilters: true,
   style: {},
 }
