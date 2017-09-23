@@ -6,6 +6,7 @@ import { updateWrestler, removeWrestler } from "../../actions/roster"
 import EditWrestler from "./wrestler"
 
 const propsMapper = ({ dispatch, id, }) => ({
+  onGenderUpdate: male => dispatch(updateWrestler({ male: Boolean(male), id: id, })),
   onBrandSelected: brandId => dispatch(updateWrestler({ brandId: String(brandId), id: id, })),
   onPointsUpdate: e => dispatch(updateWrestler({ points: Number(e.target.value), id: id, })),
   onNameUpdate: e => dispatch(updateWrestler({ name: String(e.target.value), id: id, })),

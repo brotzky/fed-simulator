@@ -6,13 +6,17 @@ import Button from "../button/button"
 import Image from "../form/image"
 import Input from "../form/input"
 
+import "./manage-wrestler.scss"
+
 const NOOP = () => {}
+const genderBrands = [{ id: true, name: "male", style: { backgroundColor: "blue", }, }, { id: false, name: "female", style: { backgroundColor: "red", }, },]
 
 const EditWrestler = ({
   brandId,
   brands,
   image,
   name,
+  male,
   id,
   onBrandSelected,
   onImageUpdate,
@@ -20,6 +24,7 @@ const EditWrestler = ({
   onCreate,
   showDelete,
   onPointsUpdate,
+  onGenderUpdate,
   onNameUpdate,
   points,
 }) =>
@@ -44,10 +49,16 @@ const EditWrestler = ({
       </div>
     </div>
     <div className="row bottom-xs">
-      <div className="col-xs-6 col-lg-8">
+      <div className="col-xs-3 col-lg-4">
         <div className="box">
           <label htmlFor="points">Points</label>
           <Input id="points" onChange={onPointsUpdate} value={points} />
+        </div>
+      </div>
+      <div className="col-xs-3 col-lg-4">
+        <div className="box gender">
+          <label htmlFor="gender">Gender</label>
+          <Brands onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
         </div>
       </div>
       <If condition={showDelete}>
@@ -63,10 +74,7 @@ const EditWrestler = ({
       <If condition={!id}>
         <div className="col-xs-6 col-lg-4">
           <div className="box">
-            <br />
-            <Button classes="btn-create" onClick={onCreate}>
-              Create wrestler
-            </Button>
+            <Button classes="btn-create" onClick={onCreate} value="Create wrestler" />
           </div>
         </div>
       </If>
@@ -78,15 +86,17 @@ EditWrestler.propTypes = {
   brands: PropTypes.array,
   id: PropTypes.any,
   image: PropTypes.string,
+  male: PropTypes.bool,
   name: PropTypes.string,
   onBrandSelected: PropTypes.func,
   onCreate: PropTypes.func,
   onDelete: PropTypes.func,
+  onGenderUpdate: PropTypes.func,
   onImageUpdate: PropTypes.func,
   onNameUpdate: PropTypes.func,
   onPointsUpdate: PropTypes.func,
-  showDelete: PropTypes.bool,
   points: PropTypes.number,
+  showDelete: PropTypes.bool,
 }
 
 EditWrestler.defaultProps = {
@@ -94,14 +104,16 @@ EditWrestler.defaultProps = {
   brands: [],
   id: false,
   image: "",
+  male: true,
   name: "",
   onBrandSelected: NOOP,
   onCreate: NOOP,
   onDelete: NOOP,
+  onGenderUpdate: NOOP,
   onImageUpdate: NOOP,
   onNameUpdate: NOOP,
   onPointsUpdate: NOOP,
-  showDelete: true,
   points: 0,
+  showDelete: true,
 }
 export default EditWrestler

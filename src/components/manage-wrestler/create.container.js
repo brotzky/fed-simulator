@@ -7,6 +7,7 @@ import EditWrestler from "./wrestler"
 const defaultWrestler = {
   brandId: null,
   id: false,
+  male: true,
   image: "",
   name: "Vacant",
   points: 40,
@@ -18,12 +19,14 @@ export default compose(
   withState("id", "createWrestler", defaultWrestler.id),
   withState("brandId", "onBrandSelected", defaultWrestler.brandId),
   withState("points", "onPointsUpdate", defaultWrestler.points),
+  withState("male", "onGenderUpdate", defaultWrestler.male),
   withState("name", "onNameUpdate", defaultWrestler.name),
   withState("image", "onImageUpdate", defaultWrestler.image),
   withHandlers({
     onBrandSelected: ({ onBrandSelected, }) => brandId => onBrandSelected(String(brandId)),
     onPointsUpdate: ({ onPointsUpdate, }) => e => onPointsUpdate(Number(e.target.value)),
     onNameUpdate: ({ onNameUpdate, }) => e => onNameUpdate(String(e.target.value)),
+    onGenderUpdate: ({ onGenderUpdate, }) => male => onGenderUpdate(Boolean(male)),
     onImageUpdate: ({ onImageUpdate, }) => (name, value) => onImageUpdate(String(value)),
     onCreate: props => () => {
       const wrestler = {
@@ -31,12 +34,14 @@ export default compose(
         id: defaultWrestler.id,
         image: props.image,
         name: props.name,
+        male: props.male,
         points: props.points,
       }
       props.dispatch(createWrestler(wrestler))
 
       props.onBrandSelected(defaultWrestler.brandId)
       props.onImageUpdate(defaultWrestler.image)
+      props.onGenderUpdate(defaultWrestler.male)
       props.onNameUpdate(defaultWrestler.name)
       props.onPointsUpdate(defaultWrestler.points)
     },
