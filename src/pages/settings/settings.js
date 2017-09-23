@@ -44,8 +44,7 @@ class Settings extends Component {
             </div>
             <br />
             <div className="box" style={style}>
-              <Link to="name">Name your federation</Link> | &nbsp;
-              <Link to="roster">Input your roster</Link>
+              <Link to="name">Name your federation</Link>
             </div>
           </div>
         </div>
