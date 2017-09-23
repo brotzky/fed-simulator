@@ -13,6 +13,13 @@ export function simulateRandomMatch() {
   }
 }
 
+export function createWrestler(wrestler) {
+  return {
+    type: types.CREATE_WRESTLER,
+    payload: wrestler,
+  }
+}
+
 export function generateRoster() {
   return {
     type: types.GENERATE_ROSTER,

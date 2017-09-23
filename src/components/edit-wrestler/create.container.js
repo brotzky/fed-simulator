@@ -5,15 +5,10 @@ import { createWrestler } from "../../actions/roster"
 import EditWrestler from "./edit-wrestler"
 
 export default compose(
-  connect(
-    state => ({
-      brands: state.brands,
-    }),
-    dispatch => ({
-      createWrestler: wrestler => dispatch(createWrestler(wrestler)),
-    })
-  ),
-  withState("id", "onCreate", false),
+  connect(state => ({
+    brands: state.brands,
+  })),
+  withState("id", "createWrestler", false),
   withState("brandId", "onBrandSelected", null),
   withState("points", "onPointsUpdate", 0),
   withState("name", "onNameUpdate", "Vacant"),
@@ -23,15 +18,19 @@ export default compose(
     onPointsUpdate: ({ onPointsUpdate, }) => e => onPointsUpdate(Number(e.target.value)),
     onNameUpdate: ({ onNameUpdate, }) => e => onNameUpdate(String(e.target.value)),
     onImageUpdate: ({ onImageUpdate, }) => (name, value) => onImageUpdate(String(value)),
-    onCreate: props => e => {
+    onCreate: props => () => {
       const wrestler = {
         id: false,
         name: props.name,
         image: props.image,
+        points: props.points,
         brandId: props.brandId,
       }
-      props.createWrestler(wrestler)
-      props.added && props.added()
+      props.dispatch(createWrestler(wrestler))
+      props.onNameUpdate("")
+      props.onPointsUpdate(0)
+      props.onBrandSelected(null)
+      props.onImageUpdate("")
     },
   }),
   withProps({

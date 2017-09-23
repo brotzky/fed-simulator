@@ -47,6 +47,11 @@ export default (state = defaultState, action) => {
         state.splice(wrestlerIndex, 1)
       }
       break
+    case "CREATE_WRESTLER":
+      const newWrestler = new Model(action.payload).toJSON()
+
+      state.push(newWrestler)
+      break
     case "UPDATE_WRESTLER":
       wrestlerIndex = state.findIndex(wrestler => wrestler.id === action.payload.id)
 
