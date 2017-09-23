@@ -11,13 +11,11 @@ const noop = () => {}
 const WelcomePage = ({ generateFederation = noop, }) => {
   return (
     <section className="page welcome">
-      <HeaderOne>Welcome to Fed Simulator</HeaderOne>
+      <HeaderOne>Welcome to Federation Simulator</HeaderOne>
       <div className="row">
         <div className="col-xs-12 highlight grow">
           <div className="box">
-            <Link to="/name">
-              I'll build this company from the ground up, dammit
-            </Link>
+            <i className="icon fa fa-plus" /> <Link to="/name">I'll build this company from the ground up, dammit</Link>
           </div>
         </div>
       </div>
@@ -25,7 +23,7 @@ const WelcomePage = ({ generateFederation = noop, }) => {
       <div className="row">
         <div className="col-xs-12 highlight grow">
           <div className="box" onClick={generateFederation}>
-            This is an invasion, create everything for me
+            <i className="icon fa fa-play" /> This is an invasion, create everything for me
           </div>
         </div>
       </div>
