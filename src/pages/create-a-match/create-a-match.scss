@@ -1,18 +1,5 @@
-@import "src/stylesheets/breakpoints";
-
 .page.create-a-match {
-  .wrestlers-wrapper {
-    bottom: 0;
-    height: 40vh;
-    left: 6rem;
-    overflow: scroll;
-    position: absolute;
-    border-radius: .5rem .0 0 0;
-
-    @include breakpoint(xs) {
-      left: 0;
-      height: 20vh;
-      border-radius: 0;
-    }
+  .teams {
+    min-height: 10rem;
   }
 }

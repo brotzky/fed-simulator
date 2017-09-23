@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
 import groupBy from "lodash.groupby"
-import classnames from "classnames"
 
 import { connect } from "react-redux"
 import { FadeIn } from "animate-components"
@@ -113,41 +112,37 @@ class CreateAMatch extends Component {
     const numberOfTeams = Object.keys(this.state.teams).length
     const numberOfWrestlers = wrestlers.length
 
-    const hasSidebar = wrestlers.findIndex(wrestler => wrestler.winner) > -1
-    const mainClasses = classnames({ "col-xs": !hasSidebar, }, { "col-lg-9 col-md-8 col-sm-8 col-xs-12": hasSidebar, })
-    const storySideclasses = classnames({ hide: !hasSidebar, }, { "col-lg-3 col-md-4 col-sm-4 col-xs-12": hasSidebar, })
-
     return (
       <section className="page create-a-match">
         <form onSubmit={this.onSimulateMatch}>
           <div className="row">
-            <div className={mainClasses}>
+            <div className="col-xs-12">
               <div className="box">
                 <HeaderOne>
                   Create a match &nbsp;
                   <i className="icon fa fa-trash" onClick={this.onResetMatches} />&nbsp;
                   <span className="medium-title">
-                    <i className="icon fa fa-info-circle" /> Drag & drop wrestlers on teams
+                    <i className="icon fa fa-info-circle" /> Click or Drag wrestlers on teams
                   </span>
                 </HeaderOne>
-                <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
-                  <Match {...this.state} />
-                </FadeIn>
+                <Match {...this.state} />
                 <If condition={numberOfWrestlers > 1 && numberOfTeams > 2 && !currentMatch.simulated}>
                   <Button value={buttonText} onClick={this.onSimulateMatch} type="submit" />
                 </If>
               </div>
             </div>
-            <div className={storySideclasses}>
-              <div className="box center-xs">
-                <If condition={winner}>
-                  <Winner name={winner.name} />
-                </If>
-                <If condition={loser}>
-                  <Loser name={loser.name} />
-                </If>
+            <If condition={winner && loser}>
+              <div className="col-xs-12">
+                <FadeIn iterations={Number(animations)} duration={ANIMATION_SPEED}>
+                  <div className="box middle-xs center-xs">
+                    <br />
+                    <Winner name={winner.name} />
+                    <br />
+                    <Loser name={loser.name} />
+                  </div>
+                </FadeIn>
               </div>
-            </div>
+            </If>
           </div>
           <br />
           <Wrestlers onClick={this.onWrestlerClick} style={style} />
