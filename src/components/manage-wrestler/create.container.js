@@ -4,15 +4,22 @@ import { connect } from "react-redux"
 import { createWrestler } from "../../actions/roster"
 import EditWrestler from "./wrestler"
 
+const defaultWrestler = {
+  id: false,
+  brandId: null,
+  points: 40,
+  name: "Vacant",
+  image: "",
+}
 export default compose(
   connect(state => ({
     brands: state.brands,
   })),
-  withState("id", "createWrestler", false),
-  withState("brandId", "onBrandSelected", null),
-  withState("points", "onPointsUpdate", 0),
-  withState("name", "onNameUpdate", "Vacant"),
-  withState("image", "onImageUpdate", ""),
+  withState("id", "createWrestler", defaultWrestler.id),
+  withState("brandId", "onBrandSelected", defaultWrestler.brandId),
+  withState("points", "onPointsUpdate", defaultWrestler.points),
+  withState("name", "onNameUpdate", defaultWrestler.name),
+  withState("image", "onImageUpdate", defaultWrestler.image),
   withHandlers({
     onBrandSelected: ({ onBrandSelected, }) => brandId => onBrandSelected(String(brandId)),
     onPointsUpdate: ({ onPointsUpdate, }) => e => onPointsUpdate(Number(e.target.value)),
@@ -20,17 +27,18 @@ export default compose(
     onImageUpdate: ({ onImageUpdate, }) => (name, value) => onImageUpdate(String(value)),
     onCreate: props => () => {
       const wrestler = {
-        id: false,
+        id: defaultWrestler.id,
         name: props.name,
         image: props.image,
         points: props.points,
         brandId: props.brandId,
       }
       props.dispatch(createWrestler(wrestler))
-      props.onNameUpdate("")
-      props.onPointsUpdate(0)
-      props.onBrandSelected(null)
-      props.onImageUpdate("")
+
+      props.onNameUpdate(defaultWrestler.name)
+      props.onPointsUpdate(defaultWrestler.points)
+      props.onBrandSelected(defaultWrestler.brandId)
+      props.onImageUpdate(defaultWrestler.image)
     },
   }),
   withProps({
