@@ -11,7 +11,7 @@ $nav-active-text-shadow: .15rem .15rem .15rem black;
 .nav {
   margin: 0;
   padding: $nav-list-padding;
-  z-index: 100;
+  z-index: $z-index-nav;
 
   &__item {
     font-size: $nav-font-size;
