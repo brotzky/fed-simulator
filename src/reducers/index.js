@@ -1,6 +1,5 @@
 import { combineReducers } from "redux"
 import brands from "./brands"
-import calendar from "./calendar"
 import championships from "./championships"
 import game from "./game"
 import matches from "./matches"
@@ -13,7 +12,6 @@ import version from "./version"
 
 const rootReducer = combineReducers({
   brands,
-  calendar,
   championships,
   game,
   matches,

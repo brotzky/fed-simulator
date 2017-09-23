@@ -82,13 +82,6 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="calendar">
-        <IndexRoute
-          getComponent={(location, cb) => {
-            System.import("./pages/calendar/calendar").then(loadRoute(cb)).catch(errorLoading)
-          }}
-        />
-      </Route>
       <Route path="name">
         <IndexRoute
           getComponent={(location, cb) => {
