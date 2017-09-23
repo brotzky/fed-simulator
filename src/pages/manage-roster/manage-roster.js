@@ -9,7 +9,7 @@ import "./manage-roster.skin.scss"
 
 const NOOP = () => {}
 
-const UpdateWrestlersPage = ({ showWrestlersFilters = true, currentWrestler = null, onWrestlerClick = NOOP, style = {}, }) => {
+const UpdateWrestlersPage = ({ showWrestlersFilters, currentWrestler, onClick, style, }) => {
   return (
     <div className="page manage-roster">
       <HeaderOne>
@@ -18,7 +18,7 @@ const UpdateWrestlersPage = ({ showWrestlersFilters = true, currentWrestler = nu
           <i className="icon fa fa-info-circle" /> Click a wrestler to edit them
         </span>
       </HeaderOne>
-      <Wrestlers style={style} onWrestlerClick={onWrestlerClick} showFilter={showWrestlersFilters} />
+      <Wrestlers style={style} onClick={onClick} showFilter={showWrestlersFilters} />
       <If condition={currentWrestler}>
         <EditWrestler {...currentWrestler} />
       </If>
@@ -28,9 +28,16 @@ const UpdateWrestlersPage = ({ showWrestlersFilters = true, currentWrestler = nu
 
 UpdateWrestlersPage.propTypes = {
   currentWrestler: PropTypes.object,
-  onWrestlerClick: PropTypes.func.isRequired,
+  onClickWrestler: PropTypes.func,
   showWrestlersFilters: PropTypes.bool,
   style: PropTypes.object,
+}
+
+UpdateWrestlersPage.defaultProps = {
+  currentWrestler: null,
+  onClickWrestler: NOOP,
+  showWrestlersFilters: true,
+  style: {},
 }
 
 export default UpdateWrestlersPage

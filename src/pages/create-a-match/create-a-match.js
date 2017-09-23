@@ -150,7 +150,7 @@ class CreateAMatch extends Component {
             </div>
           </div>
           <br />
-          <Wrestlers onWrestlerClick={this.onWrestlerClick} style={style} />
+          <Wrestlers onClick={this.onWrestlerClick} style={style} />
         </form>
       </section>
     )
