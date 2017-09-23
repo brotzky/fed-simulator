@@ -31,7 +31,7 @@ Input.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   style: PropTypes.object,
-  value: PropTypes.string,
+  value: PropTypes.any,
 }
 
 Input.defaultProps = {
