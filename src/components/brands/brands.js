@@ -7,16 +7,16 @@ import "./brands.scss"
 
 const noop = () => {}
 
-const Brands = ({ style = {}, highlighted, onBrandClick = noop, brands = [], }) =>
+const Brands = ({ style = {}, highlighted, onClick = noop, brands = [], }) =>
   <div className="brands" style={style}>
-    {brands.map(brand => <Brand onClick={onBrandClick} active={brand.id === highlighted} key={brand.id} {...brand} />)}
+    {brands.map(brand => <Brand onClick={onClick} active={brand.id === highlighted} key={brand.id} {...brand} />)}
   </div>
 
 Brands.propTypes = {
-  style: PropTypes.object,
-  highlighted: PropTypes.string,
-  onBrandClick: PropTypes.func,
   brands: PropTypes.array,
+  highlighted: PropTypes.string,
+  onClick: PropTypes.func,
+  style: PropTypes.object,
 }
 
 export default Brands
