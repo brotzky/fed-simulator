@@ -14,9 +14,15 @@ const propsMapper = props => {
 
 export default compose(
   withState("id", "setId", false),
+  withState("addingWrestler", "setAdd", false),
   withHandlers({
-    onClick: ({ setId, }) => wrestlerId => {
-      return setId(wrestlerId)
+    onClick: ({ setId, setAdd, }) => wrestlerId => {
+      setAdd(false)
+      setId(wrestlerId)
+    },
+    openAddWrestler: ({ setAdd, addingWrestler, setId, }) => () => {
+      setAdd(!addingWrestler)
+      setId(null)
     },
   }),
   connect(state => ({
