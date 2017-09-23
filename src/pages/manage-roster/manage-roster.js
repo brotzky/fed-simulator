@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import HeaderOne from "../../components/h1/h1"
 import Wrestlers from "../../components/wrestlers/container"
 import AddWrestler from "../../components/manage-wrestler/create.container"
-import EditWrestler from "../../components/manage-wrestler/container"
+import EditWrestler from "../../components/manage-wrestler/update.container"
 import "./manage-roster.structure.scss"
 import "./manage-roster.skin.scss"
 

@@ -5,11 +5,11 @@ import { createWrestler } from "../../actions/roster"
 import EditWrestler from "./wrestler"
 
 const defaultWrestler = {
-  id: false,
   brandId: null,
-  points: 40,
-  name: "Vacant",
+  id: false,
   image: "",
+  name: "Vacant",
+  points: 40,
 }
 export default compose(
   connect(state => ({
@@ -27,18 +27,18 @@ export default compose(
     onImageUpdate: ({ onImageUpdate, }) => (name, value) => onImageUpdate(String(value)),
     onCreate: props => () => {
       const wrestler = {
-        id: defaultWrestler.id,
-        name: props.name,
-        image: props.image,
-        points: props.points,
         brandId: props.brandId,
+        id: defaultWrestler.id,
+        image: props.image,
+        name: props.name,
+        points: props.points,
       }
       props.dispatch(createWrestler(wrestler))
 
-      props.onNameUpdate(defaultWrestler.name)
-      props.onPointsUpdate(defaultWrestler.points)
       props.onBrandSelected(defaultWrestler.brandId)
       props.onImageUpdate(defaultWrestler.image)
+      props.onNameUpdate(defaultWrestler.name)
+      props.onPointsUpdate(defaultWrestler.points)
     },
   }),
   withProps({
