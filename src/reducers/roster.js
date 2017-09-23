@@ -18,21 +18,17 @@ export default (state = defaultState, action) => {
     case "GENERATE_ROSTER":
       state = defaultState
       defaults.roster.forEach(item => {
-        let newItem = item.list
-          .split(",")
-          .filter(name => name.length > 2)
-          .filter(String)
-          .map(name => {
-            const points = getRandomArbitrary(item.min, item.max)
-            const cost = points * 150
+        let newItem = item.list.split(",").filter(name => name.length > 2).filter(String).map(name => {
+          const points = getRandomArbitrary(item.min, item.max)
+          const cost = points * 150
 
-            return {
-              name,
-              male: item.male,
-              points,
-              cost,
-            }
-          })
+          return {
+            name,
+            male: item.male,
+            points,
+            cost,
+          }
+        })
 
         state = state.concat(newItem)
       })
@@ -45,25 +41,17 @@ export default (state = defaultState, action) => {
       })
       break
     case "REMOVE_WRESTLER":
-      wrestlerIndex = state.findIndex(
-        wrestler => wrestler.id === action.payload.id
-      )
+      wrestlerIndex = state.findIndex(wrestler => wrestler.id === action.payload.id)
 
       if (wrestlerIndex > -1) {
         state.splice(wrestlerIndex, 1)
       }
       break
     case "UPDATE_WRESTLER":
-      wrestlerIndex = state.findIndex(
-        wrestler => wrestler.id === action.payload.id
-      )
+      wrestlerIndex = state.findIndex(wrestler => wrestler.id === action.payload.id)
 
       if (wrestlerIndex > -1) {
-        state[wrestlerIndex] = Object.assign(
-          {},
-          state[wrestlerIndex],
-          action.payload
-        )
+        state[wrestlerIndex] = Object.assign({}, state[wrestlerIndex], action.payload)
       }
       break
     case "SIMULATE_RANDOM_MATCH":
