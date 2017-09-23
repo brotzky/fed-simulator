@@ -2,7 +2,7 @@ import { compose, withState, withHandlers, withProps } from "recompose"
 import { connect } from "react-redux"
 
 import { createWrestler } from "../../actions/roster"
-import EditWrestler from "./edit-wrestler"
+import EditWrestler from "./wrestler"
 
 export default compose(
   connect(state => ({

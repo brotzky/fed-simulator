@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 
 import { WRESTLER_CONFIRM_DELETE } from "../../constants/confirmations"
 import { updateWrestler, removeWrestler } from "../../actions/roster"
-import EditWrestler from "./edit-wrestler"
+import EditWrestler from "./wrestler"
 
 const propsMapper = ({ dispatch, id, }) => ({
   onBrandSelected: brandId => dispatch(updateWrestler({ brandId: String(brandId), id: id, })),
