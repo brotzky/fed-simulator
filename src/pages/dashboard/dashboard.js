@@ -6,6 +6,7 @@ import orderBy from "lodash.orderby"
 
 import HeaderOne from "../../components/h1/h1"
 import Simulator from "../../components/simulator"
+import Wrestlers from "../../components/wrestlers/container"
 import Ranking from "../../components/ranking/ranking"
 
 import { COST_COLUMNS, RANKED_COLUMNS } from "../../constants/ranking"
@@ -45,6 +46,7 @@ export const DashboardPage = ({ style, expensiveWrestlers, cheapWrestlers, ranke
           </div>
         </div>
       </div>
+      <Wrestlers style={style} />
     </section>
   )
 }
