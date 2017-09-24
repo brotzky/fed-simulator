@@ -5,11 +5,6 @@
     "icon": "tachometer"
   },
   {
-    "url": "calendar",
-    "title": "Calendar",
-    "icon": "calendar"
-  },
-  {
     "url": "create-a-match",
     "title": "Create a match",
     "icon": "ambulance"

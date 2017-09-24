@@ -1,17 +1,11 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import "./input.scss"
 
-const noop = () => {}
+const NOOP = () => {}
 
-const Input = ({
-  value = "",
-  label = "",
-  name = "",
-  style = {},
-  onChange = noop,
-  placeholder = "",
-}) =>
+const Input = ({ label, name, onChange, placeholder, style, value, }) =>
   <div>
     <If condition={label.length > 0}>
       <label htmlFor={name}>
@@ -30,5 +24,23 @@ const Input = ({
       type="text"
     />
   </div>
+
+Input.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  style: PropTypes.object,
+  value: PropTypes.any,
+}
+
+Input.defaultProps = {
+  label: "",
+  name: "",
+  onChange: NOOP,
+  placeholder: "",
+  style: {},
+  value: "",
+}
 
 export default Input

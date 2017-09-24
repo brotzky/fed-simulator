@@ -1,3 +1,4 @@
+@import 'src/stylesheets/z-index';
 @import 'src/stylesheets/breakpoints';
 
 $nav-font-weight: 100;
@@ -5,20 +6,19 @@ $nav-font-size: small;
 $nav-link-color: currentColor;
 $nav-list-padding: 0;
 $nav-item-padding: .1rem;
-$nav-active-text-shadow: .3rem .3rem .1rem black;
+$nav-active-text-shadow: .15rem .15rem .15rem black;
 
 .nav {
   margin: 0;
   padding: $nav-list-padding;
-  z-index: 100;
+  z-index: $z-index-nav;
 
   &__item {
     font-size: $nav-font-size;
-    font-variant: small-caps;
     font-weight: $nav-font-weight;
     padding: 1rem 0;
     text-shadow: inherit;
-    transition: text-shadow 1s ease;
+    transition: text-shadow 500ms ease;
 
     @include breakpoint(xs) {
       width: 5rem;

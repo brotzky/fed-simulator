@@ -4,12 +4,16 @@
   display: flex;
 
   .brand {
-    height: 100vh;
     flex: auto;
+    height: 100vh;
     min-width: 25%;
     overflow: hidden;
     padding: 0;
     text-align: center;
+
+    &:first-of-type {
+      border-radius: .5rem 0 0;
+    }
   }
 
   @include breakpoint(xs) {

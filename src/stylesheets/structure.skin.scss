@@ -1,3 +1,5 @@
+@import 'breakpoints';
+
 $pop-color: white;
 
 #root,
@@ -11,13 +13,15 @@ main {
     padding: 0;
   }
 
-  aside {
-  }
-
   nav {
+    border-radius: 0 0 .4rem;
     left: 0;
     top: 0;
     width: 5rem;
+
+    @include breakpoint(xs) {
+      border-radius: 0;
+    }
 
     .nav__item {
       width: 5rem;

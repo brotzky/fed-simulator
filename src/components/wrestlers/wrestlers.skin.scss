@@ -1,15 +1,17 @@
+@import 'src/stylesheets/z-index';
 @import 'src/stylesheets/breakpoints';
 
 $wrestlers-points-dimensions: 1rem;
 $wrestler-background: #fff;
 $wrestler-color: #000;
 $points-transition-length: 500ms;
-$wrestler-width: 3rem;
+$wrestler-width: 4rem;
 
 .wrestlers {
   max-height: 90vh;
   padding: .2rem;
-  z-index: 100;
+  z-index: $z-index-wrestlers;
+  overflow: scroll;
 }
 
 .wrestlers .wrestler {
@@ -38,6 +40,10 @@ $wrestler-width: 3rem;
     width: $wrestlers-points-dimensions;
   }
 
+  &.has-championship .points {
+    background-color: gold;
+  }
+
   &:hover .points {
     background-color: $wrestler-color;
     color: $wrestler-background;
@@ -50,11 +56,11 @@ $wrestler-width: 3rem;
 }
 
 @include breakpoint(lg) {
-	.wrestlers .wrestler {
+  .wrestlers .wrestler {
     width: 5rem;
 
     .name {
-  		font-size: small;
-  	}
+      font-size: small;
+    }
   }
 }

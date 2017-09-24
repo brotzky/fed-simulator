@@ -1,75 +1,33 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
+import { compose, withState, withProps, withHandlers } from "recompose"
 import { connect } from "react-redux"
 
-import { WRESTLER_CONFIRM_DELETE } from "../../constants/confirmations"
-import { updateWrestler, removeWrestler } from "../../actions/roster"
 import ManageRoster from "./manage-roster"
 
-class ManageRosterContainer extends Component {
-  state = {
-    id: false,
-  }
+const propsMapper = props => {
+  const currentWrestler = props.id ? props.roster.find(wrestler => wrestler.id === props.id) : null
 
-  onBrandClick = id => this.props.dispatch(updateWrestler({ brandId: String(id), id: this.state.id, }))
-
-  onWrestlerPointsUpdated = e => this.props.dispatch(updateWrestler({ points: Number(e.target.value), id: this.state.id, }))
-
-  onWrestlersNameUpdated = e => this.props.dispatch(updateWrestler({ name: String(e.target.value), id: this.state.id, }))
-
-  onImageUpdated = (name, value) => {
-    this.props.dispatch(updateWrestler({ image: String(value), id: this.state.id, }))
-  }
-
-  onWrestlerDelete = () => {
-    if (confirm(WRESTLER_CONFIRM_DELETE)) {
-      const { id, } = this.state
-      const { dispatch, } = this.props
-
-      this.setState({
-        id: false,
-      })
-      dispatch(removeWrestler(id))
-    }
-  }
-
-  onWrestlerClick = id => {
-    this.setState({
-      id,
-    })
-  }
-
-  shouldComponentUpdate() {
-    return true
-  }
-
-  render() {
-    const { roster, brands, style, } = this.props
-    return (
-      <ManageRoster
-        brands={brands}
-        currentWrestler={roster.find(wrestler => wrestler.id === this.state.id)}
-        onBrandClick={this.onBrandClick}
-        onImageUpdated={this.onImageUpdated}
-        onWrestlerClick={this.onWrestlerClick}
-        onWrestlerDelete={this.onWrestlerDelete}
-        onWrestlerPointsUpdated={this.onWrestlerPointsUpdated}
-        onWrestlersNameUpdated={this.onWrestlersNameUpdated}
-        style={style}
-      />
-    )
+  return {
+    currentWrestler,
+    ...props,
   }
 }
 
-ManageRosterContainer.propTypes = {
-  brands: PropTypes.array.isRequired,
-  roster: PropTypes.array.isRequired,
-  style: PropTypes.object,
-  dispatch: PropTypes.func,
-}
-
-export default connect(state => ({
-  brands: state.brands,
-  roster: state.roster,
-  style: state.style,
-}))(ManageRosterContainer)
+export default compose(
+  withState("id", "setId", false),
+  withState("addingWrestler", "setAdd", false),
+  withHandlers({
+    onClick: ({ setId, setAdd, }) => wrestlerId => {
+      setAdd(false)
+      setId(wrestlerId)
+    },
+    openAddWrestler: ({ setAdd, addingWrestler, setId, }) => () => {
+      setAdd(!addingWrestler)
+      setId(null)
+    },
+  }),
+  connect(state => ({
+    roster: state.roster,
+    style: state.style,
+  })),
+  withProps(propsMapper)
+)(ManageRoster)

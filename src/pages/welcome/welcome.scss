@@ -4,6 +4,7 @@ $welcome-color: black;
 $welcome-bg-color: gold;
 
 .page.welcome {
+  padding: 0 2rem;
   .highlight {
     background-color: $welcome-bg-color;
     display: flex;

@@ -12,7 +12,7 @@ const NOOP = () => {}
 
 const Wrestlers = ({
   male = true,
-  onWrestlerClick = NOOP,
+  onClick = NOOP,
   onDrop = NOOP,
   order = true,
   roster = [],
@@ -53,7 +53,7 @@ const Wrestlers = ({
         </If>
         <div className="wrestlers">
           {roster.map(wrestler => {
-            return <Wrestler key={wrestler.id} onClick={onWrestlerClick} className="wrestler" {...wrestler} />
+            return <Wrestler key={wrestler.id} onClick={onClick} className="wrestler" {...wrestler} />
           })}
         </div>
       </div>
@@ -64,7 +64,7 @@ const Wrestlers = ({
 Wrestlers.propTypes = {
   gender: PropTypes.string,
   male: PropTypes.bool,
-  onWrestlerClick: PropTypes.func,
+  onClick: PropTypes.func,
   onDrop: PropTypes.func,
   order: PropTypes.bool,
   orderBy: PropTypes.bool,

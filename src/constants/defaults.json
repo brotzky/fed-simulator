@@ -5,15 +5,23 @@
       "name": "Raw",
       "style": {
         "color": "white",
-        "backgroundColor": "red"
+        "backgroundColor": "#eb1826"
       }
     },
     {
       "id": "2",
-      "name": "Smackdown",
+      "name": "Smackdown Live",
       "style": {
         "color": "white",
-        "backgroundColor": "blue"
+        "backgroundColor": "#3b30fe"
+      }
+    },
+    {
+      "id": "3",
+      "name": "NXT",
+      "style": {
+        "color": "#333",
+        "backgroundColor": "#ffc71c"
       }
     }
   ],
@@ -22,7 +30,7 @@
       "min": 0,
       "max": 40,
       "male": true,
-      "list": "James Ellsworth, Chad Gable, Curt Hawkins, Erick Rowan, Akira Tozawa, Bo Dallas, Cedric Alexander, Curt Hawkins, Curtis Axel, Darren Young, Dash Wilder, Drew Gulak, Heath Slater, Luke Gallows, R-Truth, Rhyno, Titus O Neil"
+      "list": "James Ellsworth, Chad Gable, Curt Hawkins, Erick Rowan, Akira Tozawa, Bo Dallas, Cedric Alexander, Curt Hawkins, Curtis Axel, Darren Young, Dash Wilder, Drew Gulak, Heath Slater, Luke Gallows, R Truth, Rhyno, Titus O Neil"
     },
     {
       "min": 40,
@@ -37,28 +45,28 @@
       "list": "Chris Jericho, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena, Brock Lesnar, Roman Reigns, Dean Ambrose, Aj Styles, Jinder Mahal, Braun Strowman, Matt Hardy, Neville, Samoa Joe, Sheamus, The Miz, Rusev"
     },
     {
-      "min": 0,
-      "max": 40,
+      "min": 30,
+      "max": 70,
       "male": false,
-      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+      "list": "Lana, Carmella, Tamina, Summer Rae, Alicia Fox, Dana Brooke"
     },
     {
-      "min": 40,
-      "max": 75,
+      "min": 70,
+      "max": 85,
       "male": false,
-      "list": "Tamina, Nikki Bella, Alicia Fox, Emma, Mickie James, Paige, Summer Rae"
+      "list": "Emma, Mickie James, Paige, Becky Lynch, Bayley, Nia Jax"
     },
     {
-      "min": 75,
+      "min": 85,
       "max": 100,
       "male": false,
-      "list": "Charlotte, Naomi, Natalya, Alexa Bliss, Bayley, Nia Jax, Sasha Banks"
+      "list": "Asuka, Nikki Bella, Charlotte Flair, Naomi, Natalya, Alexa Bliss, Sasha Banks"
     }
   ],
   "championships": [
     {
       "male": true,
-      "list": "United States Championship, Tag Team Championship, World Heavyweight Championship"
+      "list": "United States Championship, Intercontinental Championship, Tag Team Championship, Cruiserweight Championship, Universal Championship, Heavyweight Championship"
     },
     {
       "male": false,

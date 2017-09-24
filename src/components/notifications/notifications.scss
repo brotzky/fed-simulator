@@ -1,9 +1,11 @@
+@import 'src/stylesheets/z-index';
+
 .notifications {
   position: fixed;
   right: 0;
   text-align: center;
   top: 2.7rem;
-  z-index: 100;
+  z-index: $z-index-notifications;
 
   .notification {
     list-style: none;
