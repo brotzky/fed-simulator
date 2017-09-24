@@ -5,11 +5,13 @@ import Input from "../form/input"
 
 import { ADD_BRAND_ENTRY } from "../../constants/confirmations"
 
+import "./add-brand.scss"
+
 const NOOP = () => {}
 
 const AddBrand = ({ name, style, updateName, }) => {
   return (
-    <div className="wrapper">
+    <div className="add-brand wrapper">
       <span className="icon fa fa-plus-circle" />
       <Input placeholder={ADD_BRAND_ENTRY} style={style} type="text" value={name} onChange={updateName} />
     </div>
