@@ -5,15 +5,23 @@
       "name": "Raw",
       "style": {
         "color": "white",
-        "backgroundColor": "red"
+        "backgroundColor": "#eb1826"
       }
     },
     {
       "id": "2",
-      "name": "Smackdown",
+      "name": "Smackdown Live",
       "style": {
         "color": "white",
-        "backgroundColor": "blue"
+        "backgroundColor": "#3b30fe"
+      }
+    },
+    {
+      "id": "3",
+      "name": "NXT",
+      "style": {
+        "color": "#333",
+        "backgroundColor": "#ffc71c"
       }
     }
   ],
@@ -58,7 +66,7 @@
   "championships": [
     {
       "male": true,
-      "list": "United States Championship, Tag Team Championship, World Heavyweight Championship"
+      "list": "United States Championship, Intercontinental Championship, Tag Team Championship, Cruiserweight Championship, Universal Championship, Heavyweight Championship"
     },
     {
       "male": false,
