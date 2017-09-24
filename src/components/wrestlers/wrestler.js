@@ -43,12 +43,12 @@ const Wrestler = ({ id, onClick, name, image, points, championshipId, canDrag, }
 }
 
 Wrestler.propTypes = {
+  canDrag: PropTypes.bool,
+  championshipId: PropTypes.any,
   id: PropTypes.string.isRequired,
-  championshipId: PropTypes.string.isRequired,
   image: PropTypes.string,
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func,
-  canDrag: PropTypes.bool,
   points: PropTypes.number.isRequired,
 }
 
