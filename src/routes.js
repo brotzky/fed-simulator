@@ -89,20 +89,6 @@ export default () => {
           }}
         />
       </Route>
-      <Route path="size">
-        <IndexRoute
-          getComponent={(location, cb) => {
-            System.import("./pages/size/size").then(loadRoute(cb)).catch(errorLoading)
-          }}
-        />
-      </Route>
-      <Route path="shows">
-        <IndexRoute
-          getComponent={(location, cb) => {
-            System.import("./pages/shows/shows").then(loadRoute(cb)).catch(errorLoading)
-          }}
-        />
-      </Route>
       <Route path="roster">
         <IndexRoute
           getComponent={(location, cb) => {

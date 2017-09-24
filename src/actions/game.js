@@ -30,11 +30,6 @@ export function updateGame(payload) {
     payload,
   }
 }
-export function addOneMonth() {
-  return {
-    type: types.ADD_ONE_MONTH,
-  }
-}
 
 export function reset() {
   return {
@@ -45,12 +40,5 @@ export function reset() {
 export function resetGame() {
   return {
     type: types.RESET_GAME,
-  }
-}
-
-export function addProfitToTotal(profit) {
-  return {
-    type: types.ADD_PROFIT,
-    payload: profit,
   }
 }
