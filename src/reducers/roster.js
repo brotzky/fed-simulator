@@ -5,6 +5,8 @@ import { getRandomArbitrary } from "../helpers/points"
 const defaultState = []
 
 const POINT_CHANGE_PER_MATCH = 1
+const MAX_POINTS = 100
+const MIN_POINTS = 1
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))
@@ -58,17 +60,35 @@ export default (state = defaultState, action) => {
       if (wrestlerIndex > -1) {
         state[wrestlerIndex] = Object.assign({}, state[wrestlerIndex], action.payload)
       }
+
+      if (state[wrestlerIndex].championshipId) {
+        state.map(wrestler => {
+          if (wrestler.championshipId === state[wrestlerIndex].championshipId && action.payload.id !== wrestler.id) {
+            wrestler.championshipId = null
+          }
+          return wrestler
+        })
+      }
       break
     case "SIMULATE_RANDOM_MATCH":
       winnerIndex = getRandomArbitrary(1, state.length)
       loserIndex = getRandomArbitrary(1, state.length)
 
       if (state[winnerIndex] && state[loserIndex]) {
-        state[winnerIndex].points += 1
-        state[loserIndex].points -= 1
+        if (state[winnerIndex].points <= MAX_POINTS) {
+          state[winnerIndex].points += 1
+        }
 
-        state[winnerIndex].wins += 1
+        if (state[winnerIndex].points >= MIN_POINTS) {
+          state[loserIndex].points -= 1
+        }
+
+        if (!state[winnerIndex].championshipId && state[loserIndex].championshipId) {
+          state[winnerIndex].championshipId = state[loserIndex].championshipId
+          state[loserIndex].championshipId = null
+        }
         state[loserIndex].losses += 1
+        state[winnerIndex].wins += 1
       }
       break
     case "CONFIRM_SIMULATED_MATCH":

@@ -14,7 +14,7 @@ const Brands = ({ style = {}, highlighted, onClick = noop, brands = [], }) =>
 
 Brands.propTypes = {
   brands: PropTypes.array,
-  highlighted: PropTypes.string,
+  highlighted: PropTypes.any,
   onClick: PropTypes.func,
   style: PropTypes.object,
 }

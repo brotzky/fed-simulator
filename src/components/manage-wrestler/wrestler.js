@@ -13,12 +13,15 @@ const genderBrands = [{ id: true, name: "male", style: { backgroundColor: "blue"
 
 const EditWrestler = ({
   brandId,
+  championshipId,
   brands,
+  championships,
   image,
   name,
   male,
   id,
   onBrandSelected,
+  onChampionshipSelected,
   onImageUpdate,
   onDelete,
   onCreate,
@@ -28,12 +31,15 @@ const EditWrestler = ({
   onNameUpdate,
   points,
 }) =>
-  <div>
+  <div className="manage-wrestler">
     <h3>
       {name}
     </h3>
-    <div className="row bottom-xs">
+    <div className="row bottom-xs brands">
       <Brands onClick={onBrandSelected} highlighted={brandId} brands={brands} />
+    </div>
+    <div className="row bottom-xs championships">
+      <Brands onClick={onChampionshipSelected} highlighted={championshipId} brands={championships} />
     </div>
     <div className="row bottom-xs">
       <div className="col-xs-6 col-lg-8">
@@ -82,13 +88,16 @@ const EditWrestler = ({
   </div>
 
 EditWrestler.propTypes = {
-  brandId: PropTypes.string,
+  brandId: PropTypes.any,
   brands: PropTypes.array,
+  championships: PropTypes.array,
+  championshipId: PropTypes.any,
   id: PropTypes.any,
   image: PropTypes.string,
   male: PropTypes.bool,
   name: PropTypes.string,
   onBrandSelected: PropTypes.func,
+  onChampionshipSelected: PropTypes.func,
   onCreate: PropTypes.func,
   onDelete: PropTypes.func,
   onGenderUpdate: PropTypes.func,
@@ -102,11 +111,14 @@ EditWrestler.propTypes = {
 EditWrestler.defaultProps = {
   brandId: "",
   brands: [],
+  championshipId: "",
+  championships: [],
   id: false,
   image: "",
   male: true,
   name: "",
   onBrandSelected: NOOP,
+  onChampionshipSelected: NOOP,
   onCreate: NOOP,
   onDelete: NOOP,
   onGenderUpdate: NOOP,

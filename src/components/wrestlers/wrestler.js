@@ -3,10 +3,16 @@ import PropTypes from "prop-types"
 import classnames from "classnames"
 import { Draggable } from "react-drag-and-drop"
 
-const Wrestler = ({ id, onClick, name, image, points, canDrag, }) => {
-  const classes = classnames("wrestler", {
-    "has-image": image,
-  })
+const Wrestler = ({ id, onClick, name, image, points, championshipId, canDrag, }) => {
+  const classes = classnames(
+    "wrestler",
+    {
+      "has-image": image,
+    },
+    {
+      "has-championship": championshipId,
+    }
+  )
   let names = name.trim().split(" ")
 
   const hasOneName = names.length === 1
@@ -38,6 +44,7 @@ const Wrestler = ({ id, onClick, name, image, points, canDrag, }) => {
 
 Wrestler.propTypes = {
   id: PropTypes.string.isRequired,
+  championshipId: PropTypes.string.isRequired,
   image: PropTypes.string,
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func,

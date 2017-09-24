@@ -1,6 +1,20 @@
-.gender .brands .brand {
-  align-items: center;
-  display: flex;
-  height: 1.3rem;
-  margin: initial;
+.manage-wrestler {
+  h3 {
+    border-bottom: .1rem solid #ccc;
+    line-height: 2rem;
+    margin: .5rem 0;
+    width: 100%;
+  }
+
+  .gender .brand {
+    align-items: center;
+    display: flex;
+    height: 1.3rem;
+    margin: initial;
+  }
+
+  .championships .brand {
+    background-color: #a17f1a;
+    color: white;
+  }
 }

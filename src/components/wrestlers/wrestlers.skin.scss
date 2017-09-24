@@ -39,6 +39,10 @@ $wrestler-width: 4rem;
     width: $wrestlers-points-dimensions;
   }
 
+  &.has-championship .points {
+    background-color: gold;
+  }
+
   &:hover .points {
     background-color: $wrestler-color;
     color: $wrestler-background;
