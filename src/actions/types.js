@@ -9,15 +9,18 @@ export const CREATE_BRAND = "CREATE_BRAND"
 export const UPDATE_BRAND = "UPDATE_BRAND"
 export const DELETE_BRAND = "DELETE_BRAND"
 
-// game
-export const START_GAME = "START_GAME"
 export const GENERATE_FEDERATION = "GENERATE_FEDERATION"
 export const GENERATE_CHAMPIONSHIPS = "GENERATE_CHAMPIONSHIPS"
+export const GENERATE_ROSTER = "GENERATE_ROSTER"
+export const GENERATE_RANDOM_MATCHES = "GENERATE_RANDOM_MATCHES"
+
+// game
+export const START_GAME = "START_GAME"
 export const TOGGLE_ANIMATIONS = "TOGGLE_ANIMATIONS"
 export const CHECK_VERSION = "CHECK_VERSION"
+export const UPDATE_GAME = "UPDATE_GAME"
 
 // roster
-export const GENERATE_ROSTER = "GENERATE_ROSTER"
 export const CREATE_WRESTLER = "CREATE_WRESTLER"
 
 // matches
@@ -28,11 +31,7 @@ export const REMOVE_WRESTLER_FROM_MATCH = "REMOVE_WRESTLER_FROM_MATCH"
 export const REMOVE_WRESTLER = "REMOVE_WRESTLER"
 export const ADD_WRESTLER_TO_MATCH = "ADD_WRESTLER_TO_MATCH"
 export const SIMULATE_MATCH = "SIMULATE_MATCH"
-export const GENERATE_RANDOM_MATCHES = "GENERATE_RANDOM_MATCHES"
 export const SIMULATE_GENERATED_RANDOM_MATCHES = "SIMULATE_GENERATED_RANDOM_MATCHES"
-
-// accounting
-export const UPDATE_GAME = "UPDATE_GAME"
 
 // resets
 export const RESET = "RESET"
@@ -44,12 +43,6 @@ export const RESET_BRANDS = "RESET_BRANDS"
 
 // removals
 export const REMOVE_NOTIFICATION = "REMOVE_NOTIFICATION"
-
-// sizes
-export const lg = "lg"
-export const md = "md"
-export const sm = "sm"
-export const xs = "xs"
 
 // droppables
 export const WRESTLER = "WRESTLER"

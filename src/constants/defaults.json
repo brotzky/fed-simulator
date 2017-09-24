@@ -72,55 +72,5 @@
       "male": false,
       "list": "Womens Championship"
     }
-  ],
-  "shows": [
-    {
-      "size": "xs",
-      "list": "House Show",
-      "name": "House Show",
-      "frequency": "daily",
-      "max_cost": 4000,
-      "min_cost": 2000,
-      "min_attendance": 100,
-      "max_attendance": 450,
-      "max_gross": 10000,
-      "min_gross": 3500
-    },
-    {
-      "size": "sm",
-      "list": "Live TV",
-      "name": "TV Show",
-      "frequency": "weekly",
-      "max_cost": 200000,
-      "max_gross": 600000,
-      "min_attendance": 5000,
-      "max_attendance": 15000,
-      "min_cost": 100000,
-      "min_gross": 30000
-    },
-    {
-      "size": "md",
-      "list": "No Mercy, Clash of Champions, Fastlane, Extreme Rules, Money In The Bank",
-      "name": "PPV",
-      "frequency": "monthly",
-      "max_attendance": 15000,
-      "max_cost": 200000,
-      "max_gross": 600000,
-      "min_attendance": 5000,
-      "min_cost": 100000,
-      "min_gross": 30000
-    },
-    {
-      "size": "lg",
-      "list": "Wrestlemania, Summerslam, Survivor Series, Royal Rumble",
-      "placeholder": "Big Four",
-      "frequency": "monthly",
-      "max_attendance": 10000000,
-      "min_attendance": 10000,
-      "max_cost": 6000000,
-      "max_gross": 12000000,
-      "min_cost": 300000,
-      "min_gross": 3000000
-    }
   ]
 }

@@ -1,6 +1,5 @@
 export const CHAMPIONSHIP_RESET_CONFIRM = "Are you sure you want to reset all champions and generate random replacements?"
 export const MATCH_CONFIRM_RESET = "Are you sure you want to clear your match history?"
-export const SHOWS_CONFIRM_GENERATE = "Are you sure you want to reset all shows and generate random replacements?"
 export const ROSTER_CONFIRM_RESET = "Are you sure you want to reset all wrestlers and generate random replacements?"
 export const WRESTLER_CONFIRM_DELETE = "Are you sure you want to delete this wrestler?"
 export const BRAND_CONFIRM_DELETE = "Are you sure you want to delete this brand?"

@@ -15,8 +15,6 @@ export default (state = defaultState, action) => {
     case "GENERATE_FEDERATION":
       state.name = "WWE"
       state.started = true
-      state.cash = 400000000
-      state.size = "lg"
       break
     case "START_GAME":
       state.started = true
@@ -26,24 +24,6 @@ export default (state = defaultState, action) => {
       break
     case "UPDATE_GAME":
       state = Object.assign({}, state, action.payload)
-      break
-    case "ADD_ONE_MONTH":
-      let currentDate = moment().set({
-        year: state.currentYear,
-        month: state.currentMonth,
-        date: state.currentDate,
-      })
-      const nextMonth = moment(currentDate).add(1, "month").toDate()
-
-      state.currentDate = nextMonth.getDate()
-      state.currentMonth = nextMonth.getMonth()
-      state.currentYear = nextMonth.getFullYear()
-      break
-    case "TOGGLE_PLAN":
-      state.canPlan = !state.canPlan
-      break
-    case "ADD_PROFIT":
-      state.cash = state.cash + Number(action.payload)
       break
     default:
       break
