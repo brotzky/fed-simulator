@@ -35,42 +35,57 @@ const EditWrestler = ({
     <h3>
       {name}
     </h3>
-    <div className="row bottom-xs brands">
-      <Brands onClick={onBrandSelected} highlighted={brandId} brands={brands} />
-    </div>
-    <div className="row bottom-xs championships">
-      <Brands onClick={onChampionshipSelected} highlighted={championshipId} brands={championships} />
+    <div className="row bottom-xs">
+      <div className="col-xs">
+        <div className="box">
+          <label htmlFor="name">Brand</label>
+          <div className="brands">
+            <Brands onClick={onBrandSelected} highlighted={brandId} brands={brands} />
+          </div>
+        </div>
+      </div>
     </div>
     <div className="row bottom-xs">
-      <div className="col-xs-6 col-lg-8">
+      <div className="col-xs">
+        <div className="box">
+          <label htmlFor="name">Championship</label>
+          <div className="championships">
+            <Brands onClick={onChampionshipSelected} highlighted={championshipId} brands={championships} />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="row bottom-xs">
+      <div className="col-xs">
+        <div className="box gender">
+          <label htmlFor="gender">Gender</label>
+          <Brands onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
+        </div>
+      </div>
+    </div>
+    <div className="row bottom-xs">
+      <div className="col-xs-12 col-lg-8">
         <div className="box">
           <label htmlFor="name">Name</label>
           <Input id="name" onChange={onNameUpdate} value={name} />
         </div>
       </div>
-      <div className="col-xs-6 col-lg-4">
+      <div className="col-lg-4 col-xs-12">
         <div className="box">
           <Image id="image" name="image" label={image ? "" : "Drop image here"} value={image} onChange={onImageUpdate} />
         </div>
       </div>
     </div>
     <div className="row bottom-xs">
-      <div className="col-xs-3 col-lg-4">
+      <div className="col-xs">
         <div className="box">
           <label htmlFor="points">Points</label>
           <Input id="points" onChange={onPointsUpdate} value={points} />
         </div>
       </div>
-      <div className="col-xs-3 col-lg-4">
-        <div className="box gender">
-          <label htmlFor="gender">Gender</label>
-          <Brands onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
-        </div>
-      </div>
       <If condition={showDelete}>
-        <div className="col-xs-6 col-lg-4">
+        <div className="col-lg-4 col-xs-12">
           <div className="box">
-            <br />
             <Button classes="btn-delete" onClick={onDelete}>
               <i className="icon fa fa-trash" /> Delete wrestler
             </Button>
@@ -78,7 +93,7 @@ const EditWrestler = ({
         </div>
       </If>
       <If condition={!id}>
-        <div className="col-xs-6 col-lg-4">
+        <div className="col-lg-4 col-xs-12">
           <div className="box">
             <Button classes="btn-create" onClick={onCreate} value="Create wrestler" />
           </div>

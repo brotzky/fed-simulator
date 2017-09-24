@@ -6,15 +6,15 @@
     width: 100%;
   }
 
-  .gender .brand {
-    align-items: center;
-    display: flex;
-    height: 1.3rem;
-    margin: initial;
-  }
-
   .championships .brand {
     background-color: #a17f1a;
-    color: white;
+    color: currentColor;
+    padding: .5rem;
+  }
+
+  .brand {
+    font-size: small;
+    font-variant: normal;
+    text-transform: capitalize;
   }
 }
