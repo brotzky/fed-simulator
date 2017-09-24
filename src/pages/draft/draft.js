@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import HeaderOne from "../../components/h1/h1"
 import Wrestlers from "../../components/wrestlers/container"
 import Brand from "../../components/brand/brand"
+import AddBrand from "../../components/add-brand/container"
 
 import "./draft.scss"
 
@@ -23,7 +24,7 @@ const DraftPage = ({ brands = [], style = {}, }) => {
         </span>
       </HeaderOne>
       <If condition={brands.length === 0}>
-        <p>Add brands to create a draft</p>
+        <AddBrand />
       </If>
       <If condition={brands.length > 0}>
         <div className="brands">
