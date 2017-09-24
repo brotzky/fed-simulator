@@ -64,6 +64,12 @@ Settings.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
+Settings.propTypes = {
+  style: PropTypes.object.isRequired,
+  router: PropTypes.object.isRequired,
+  dispatch: PropTypes.func.isRequired,
+}
+
 export default connect(state => ({
   style: state.style,
 }))(Settings)

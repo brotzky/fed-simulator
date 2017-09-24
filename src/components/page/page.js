@@ -3,10 +3,6 @@ import classNames from "classnames"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { FadeIn } from "animate-components"
-import { DragDropContext } from "react-dnd"
-import HTML5Backend from "react-dnd-html5-backend"
-import TouchBackend from "react-dnd-touch-backend"
-import MultiBackend, { TouchTransition } from "react-dnd-multi-backend"
 
 import * as versionActions from "../../actions/version"
 import Nav from "../nav/nav"
@@ -15,19 +11,6 @@ import { ANIMATION_SPEED } from "../../constants/animation"
 
 import "../../stylesheets/base.scss"
 import "./page.scss"
-
-const HTML5toTouch = {
-  backends: [
-    {
-      backend: HTML5Backend,
-    },
-    {
-      backend: TouchBackend({ enableMouseEvents: true, }),
-      preview: true,
-      transition: TouchTransition,
-    },
-  ],
-}
 
 class Page extends React.Component {
   state = {
@@ -64,11 +47,11 @@ class Page extends React.Component {
     return (
       <div id="page-container" style={style} className={topClasses}>
         <main style={mainClasses}>
-					<If condition={isNavVisible}>
-						<aside>
+          <If condition={isNavVisible}>
+            <aside>
               <Nav activeUrl={activeUrl} links={burgerLinks} {...style} modifier="main" />
             </aside>
-					</If>
+          </If>
           <article>
             <FadeIn duration={ANIMATION_SPEED}>
               {children}
@@ -93,8 +76,8 @@ Page.propTypes = {
 }
 
 Page.defaultProps = {
-  version: 1,
   classnames: "",
+  version: 1,
 }
 
 Page.contextTypes = {
@@ -102,7 +85,7 @@ Page.contextTypes = {
 }
 
 export default connect(state => ({
-  style: state.style,
   championships: state.championships,
+  style: state.style,
   version: state.version,
-}))(DragDropContext(MultiBackend(HTML5toTouch))(Page))
+}))(Page)

@@ -13,13 +13,14 @@ const Nav = ({ backgroundColor = "black", activeUrl = "", color = "white", modif
   return (
     <nav style={style} className={`nav ${modifier}`}>
       {links.map((item, key) => {
-        const title = { __html: item.title, }
-        const { url, icon, } = item
+        const { url, icon, title, } = item
         const isActive = activeUrl === url
         return (
           <Link className={classNames("nav__item", { active: isActive, })} key={key} style={{ color, }} to={url}>
             <div className={classNames("icon", "fa", `fa-${icon}`, "fa-1x")} style={style} />
-            <div dangerouslySetInnerHTML={title} />
+            <div>
+              {title}
+            </div>
           </Link>
         )
       })}
@@ -28,6 +29,7 @@ const Nav = ({ backgroundColor = "black", activeUrl = "", color = "white", modif
 }
 
 Nav.propTypes = {
+  activeUrl: PropTypes.any.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
   links: PropTypes.array,

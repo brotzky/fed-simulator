@@ -16,6 +16,7 @@
     "Choose": true,
     "describe": true,
     "it": true,
+    "React": true,
     "expect": true
   },
   "extends": [

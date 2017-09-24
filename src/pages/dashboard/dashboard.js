@@ -34,6 +34,7 @@ export const DashboardPage = ({ style, expensiveWrestlers, cheapWrestlers, ranke
           </div>
         </div>
       </div>
+      <Wrestlers style={style} />
       <div className="row">
         <div className="col-xs-12 col-sm-6 col-lg-6">
           <div className="box">
@@ -46,7 +47,6 @@ export const DashboardPage = ({ style, expensiveWrestlers, cheapWrestlers, ranke
           </div>
         </div>
       </div>
-      <Wrestlers style={style} />
     </section>
   )
 }

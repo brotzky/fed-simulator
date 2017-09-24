@@ -122,6 +122,12 @@ RosterPage.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
+RosterPage.propTypes = {
+  router: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  roster: PropTypes.array.isRequired,
+}
+
 export default connect(state => ({
   roster: state.roster,
 }))(RosterPage)

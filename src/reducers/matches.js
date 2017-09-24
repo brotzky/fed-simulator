@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import weighted from "weighted"
 import groupBy from "lodash.groupby"
 
@@ -24,20 +25,16 @@ export default (state = defaultState, action = defaultAction) => {
       state.push(new Model(action.payload).toJSON())
       break
     case "GENERATE_RANDOM_MATCHES":
-      let amountOfMatches =
-        action.payload.amountOfMatches || RANDOM_MATCH_DEFAULT_AMOUNT
+      let amountOfMatches = action.payload.amountOfMatches || RANDOM_MATCH_DEFAULT_AMOUNT
 
       while (amountOfMatches > 0) {
         const selectedWrestlers = randomiseWrestlers({
           wrestlers: action.payload.roster,
         })
 
-        state.push(
-          new Model({ generated: true, wrestlers: selectedWrestlers, }).toJSON()
-        )
+        state.push(new Model({ generated: true, wrestlers: selectedWrestlers, }).toJSON())
         amountOfMatches--
       }
-      break
     case "SIMULATE_GENERATED_RANDOM_MATCHES":
       state.map(currentMatch => {
         if (!currentMatch.simulate) {
@@ -46,23 +43,17 @@ export default (state = defaultState, action = defaultAction) => {
 
           const winnerTeamId = winner.teamId
 
-          const losers = wrestlers.filter(
-            wrestler => wrestler.teamId !== winnerTeamId
-          )
+          const losers = wrestlers.filter(wrestler => wrestler.teamId !== winnerTeamId)
 
           const loser = losers[Math.floor(Math.random() * losers.length)]
 
           if (!loser) {
-            return
+            return false
           }
 
-          const loserIndex = wrestlers.findIndex(
-            wrestler => wrestler.id === loser.id
-          )
+          const loserIndex = wrestlers.findIndex(wrestler => wrestler.id === loser.id)
 
-          const winnerIndex = wrestlers.findIndex(
-            wrestler => wrestler.id === winner.id
-          )
+          const winnerIndex = wrestlers.findIndex(wrestler => wrestler.id === winner.id)
 
           currentMatch.wrestlers[winnerIndex].winner = true
           currentMatch.wrestlers[loserIndex].loser = true
@@ -85,37 +76,22 @@ export default (state = defaultState, action = defaultAction) => {
         let weightedWrestlers = arrayOfLength(wrestlers.length)
 
         let lowest = wrestlers.sort((a, b) => a.points > b.points)[0],
-          highest = wrestlers
-            .filter(wrestler => wrestler.id !== lowest.id)
-            .sort((a, b) => a.points < b.points)[0],
+          highest = wrestlers.filter(wrestler => wrestler.id !== lowest.id).sort((a, b) => a.points < b.points)[0],
           lowestId = lowest.id,
           highestId = highest.id,
-          lowestIndex = wrestlers.findIndex(
-            wrestler => wrestler.id === lowestId
-          ),
-          highestIndex = wrestlers.findIndex(
-            wrestler => wrestler.id === highestId
-          ),
-          highestAttackersPercentageGain = getPercentageAmount(
-            weightedWrestlers[lowestIndex],
-            20
-          )
+          lowestIndex = wrestlers.findIndex(wrestler => wrestler.id === lowestId),
+          highestIndex = wrestlers.findIndex(wrestler => wrestler.id === highestId),
+          highestAttackersPercentageGain = getPercentageAmount(weightedWrestlers[lowestIndex], 20)
 
         if (lowest.points !== highest.points) {
-          weightedWrestlers[lowestIndex] =
-            weightedWrestlers[lowestIndex] - highestAttackersPercentageGain
-          weightedWrestlers[highestIndex] =
-            weightedWrestlers[highestIndex] + highestAttackersPercentageGain
+          weightedWrestlers[lowestIndex] = weightedWrestlers[lowestIndex] - highestAttackersPercentageGain
+          weightedWrestlers[highestIndex] = weightedWrestlers[highestIndex] + highestAttackersPercentageGain
         }
 
         if (numberOfWrestlers > 1 && numberOfTeams > 1) {
-          const winner = hasWinner
-            ? wrestlers.find(wrestler => wrestler.winner)
-            : weighted.select(wrestlers, weightedWrestlers)
+          const winner = hasWinner ? wrestlers.find(wrestler => wrestler.winner) : weighted.select(wrestlers, weightedWrestlers)
 
-          const losers = wrestlers.filter(
-            loser => loser.teamId !== winner.teamId
-          )
+          const losers = wrestlers.filter(loser => loser.teamId !== winner.teamId)
           const losersRandomWeighting = arrayOfLength(losers.length)
           const loser = weighted.select(losers, losersRandomWeighting)
 
@@ -156,32 +132,23 @@ export default (state = defaultState, action = defaultAction) => {
     case "REMOVE_WRESTLER_FROM_MATCH":
       index = getIndexById(action.payload.matchId)
 
-      state[index].wrestlers = state[index].wrestlers.filter(
-        newWrestler => newWrestler.id !== action.payload.wrestlerId
-      )
+      state[index].wrestlers = state[index].wrestlers.filter(newWrestler => newWrestler.id !== action.payload.wrestlerId)
       state[index].simulated = false
       break
 
     case "ADD_WRESTLER_TO_MATCH":
       state.map(currentMatch => {
         if (currentMatch.id === action.payload.matchId) {
-          const wrestlerExists = currentMatch.wrestlers.findIndex(
-            wrestler => wrestler.id === action.payload.wrestler.id
-          )
+          const wrestlerExists = currentMatch.wrestlers.findIndex(wrestler => wrestler.id === action.payload.wrestler.id)
 
           if (wrestlerExists === -1) {
-            const teamId = action.payload.wrestler.teamId
-              ? action.payload.wrestler.teamId
-              : getId()
+            const teamId = action.payload.wrestler.teamId ? action.payload.wrestler.teamId : getId()
 
             action.payload.wrestler.teamId = teamId
 
-            currentMatch.wrestlers.push(
-              new WrestlerModel(action.payload.wrestler).toJSON()
-            )
+            currentMatch.wrestlers.push(new WrestlerModel(action.payload.wrestler).toJSON())
           } else {
-            currentMatch.wrestlers[wrestlerExists].teamId =
-              action.payload.wrestler.teamId
+            currentMatch.wrestlers[wrestlerExists].teamId = action.payload.wrestler.teamId
           }
           currentMatch.simulated = false
         }

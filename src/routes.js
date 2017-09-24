@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from "react"
 import Page from "./components/page/page"
 import { IndexRoute, Route } from "react-router"
@@ -18,7 +19,7 @@ function loadRoute(cb) {
   return module => cb(null, module.default)
 }
 
-export default () => {
+const Router = () => {
   return (
     <Route path="/" onChange={onChange} component={Page}>
       <IndexRoute
@@ -112,3 +113,5 @@ export default () => {
     </Route>
   )
 }
+
+export default Router
