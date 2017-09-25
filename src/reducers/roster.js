@@ -1,6 +1,9 @@
 import Model from "../models/wrestler.model"
 import defaults from "../constants/defaults.json"
 import { getRandomArbitrary } from "../helpers/points"
+import { orm } from './orm';
+
+console.log(orm);
 
 const defaultState = []
 
@@ -9,6 +12,10 @@ const MAX_POINTS = 100
 const MIN_POINTS = 1
 
 export default (state = defaultState, action) => {
+
+	const sess = orm.session(state);
+	const { Wrestler } = sess;
+
   state = JSON.parse(JSON.stringify(state))
   let wrestlerIndex, winnerIndex, loserIndex
 
@@ -43,12 +50,8 @@ export default (state = defaultState, action) => {
       })
       break
     case "REMOVE_WRESTLER":
-      wrestlerIndex = state.findIndex(wrestler => wrestler.id === action.payload.id)
-
-      if (wrestlerIndex > -1) {
-        state.splice(wrestlerIndex, 1)
-      }
-      break
+      Wrestler.withId(action.payload.id).delete();
+      break;
     case "CREATE_WRESTLER":
       const newWrestler = new Model(action.payload).toJSON()
 
