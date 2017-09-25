@@ -11,7 +11,7 @@ $wrestler-width: 4rem;
   max-height: 90vh;
   padding: .2rem;
   z-index: $z-index-wrestlers;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .wrestlers .wrestler {
