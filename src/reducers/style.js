@@ -1,35 +1,37 @@
-import Model from "../models/style.model"
+import { Map, fromJS } from "immutable"
 import chromatism from "chromatism"
+
+import { schema } from "../models/style.model"
 import { shade } from "../helpers/colours"
 
-const defaultState = new Model().toJSON()
-
-export default (state = defaultState, action) => {
-  state = JSON.parse(JSON.stringify(state))
+export default (state = schema, action) => {
+  state = Map(fromJS(state))
 
   switch (action.type) {
     case "RESET":
-      state = defaultState
+      state = Map(fromJS(schema))
       break
     case "GENERATE_FEDERATION":
-      state.unTouched = false
+      state.set("unTouched", false)
       break
     case "UPDATE_STYLE":
-      state = new Model(action.payload).toJSON()
+      const mergedState = Object.assign({}, schema, action.payload)
 
-      if (state.color === state.backgroundColor) {
-        state.color = chromatism.complementary(state.backgroundColor).hex
+      state = Map(fromJS(mergedState))
+
+      if (state.get("color") === state.get("backgroundColor")) {
+        const color = chromatism.complementary(state.get("backgroundColor")).hex
+
+        state.set("color", color)
       }
 
-      state.darkBackgroundColor = shade(
-        action.payload.backgroundColor,
-        defaultState.shade
-      )
+      const darkBgColor = shade(state.get("backgroundColor"), state.get("shade"))
 
-      state.unTouched = false
+      state.get("darkBgColor", darkBgColor)
+      state.set("unTouched", false)
       break
     default:
       break
   }
-  return new Model(state).toJSON()
+  return state.toJS()
 }
