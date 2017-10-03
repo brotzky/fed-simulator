@@ -3,5 +3,5 @@ export const schema = {
   color: "#fff",
   darkBgColor: "#000",
   shade: -60,
-  unTouched: true,
+  untouched: true,
 }

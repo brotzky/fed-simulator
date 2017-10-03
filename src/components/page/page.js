@@ -38,9 +38,7 @@ class Page extends React.Component {
     const { children, classnames, style, championships, } = this.props
     const { location: { pathname, }, } = this.props
     const topClasses = classNames(classnames, ["page-container", "no-select",])
-    const mainClasses = {
-      backgroundColor: style.darkBackgroundColor,
-    }
+    const mainClasses = { backgroundColor: style.darkBgColor, }
     const activeUrl = pathname.replace(/^\//, "")
     const isNavVisible = championships.length > 0 && openNavBar
 
