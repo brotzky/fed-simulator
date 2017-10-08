@@ -35,16 +35,14 @@ class Page extends React.Component {
 
   render() {
     const { openNavBar, } = this.state
-    const { children, classnames, style, championships, } = this.props
-    const { location: { pathname, }, } = this.props
+    const { children, classnames, style, championships, location: { pathname, }, } = this.props
     const topClasses = classNames(classnames, ["page-container", "no-select",])
-    const mainClasses = { backgroundColor: style.darkBgColor, }
+    const darkStyle = Object.assign({}, style, { backgroundColor: style.darkBgColor, })
     const activeUrl = pathname.replace(/^\//, "")
     const isNavVisible = championships.length > 0 && openNavBar
-
     return (
-      <div id="page-container" style={style} className={topClasses}>
-        <main style={mainClasses}>
+      <div id="page-container" style={darkStyle} className={topClasses}>
+        <main style={darkStyle}>
           <If condition={isNavVisible}>
             <aside>
               <Nav activeUrl={activeUrl} links={burgerLinks} {...style} modifier="main" />
