@@ -15,11 +15,8 @@ export default (state = schema, action) => {
       state.set("untouched", false)
       break
     case "UPDATE_STYLE":
-      state = state.merge(action.payload, { untouched: false })
-      state.get("darkBgColor", shade(
-        state.get("backgroundColor"),
-        state.get("shade")
-      ))
+      state = state.merge(action.payload, { untouched: false, })
+      state.get("darkBgColor", shade(state.get("backgroundColor"), state.get("shade")))
 
       if (state.get("color") === state.get("backgroundColor")) {
         const color = chromatism.complementary(state.get("backgroundColor")).hex

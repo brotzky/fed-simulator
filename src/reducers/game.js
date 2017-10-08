@@ -1,44 +1,31 @@
-import moment from "moment"
+import { Map, fromJS } from "immutable"
 
-import Model from "../models/game.model"
+import { schema } from "../models/game.model"
 
-const defaultState = new Model().toJSON()
-
-export default (state = defaultState, action) => {
-  state = JSON.parse(JSON.stringify(state))
+export default (state = schema, action) => {
+  state = Map(fromJS(state))
 
   switch (action.type) {
     case "RESET":
     case "RESET_GAME":
-      state = defaultState
+      state = Map(fromJS(schema))
       break
     case "GENERATE_FEDERATION":
-      state.name = "WWE"
-      state.started = true
+      state = state.set("name", "WWE")
+      state = state.set("started", true)
       break
     case "START_GAME":
-      state.started = true
+      state = state.set("started", true)
       break
     case "TOGGLE_ANIMATIONS":
-      state = Object.assign({}, state, { animations: !state.animations, })
+      state = state.set("animations", !state.get("animations"))
       break
     case "UPDATE_GAME":
-      state = Object.assign({}, state, action.payload)
+      state = state.merge(action.payload, schema)
       break
     default:
       break
   }
 
-  let currentDate = moment().set({
-    year: state.currentYear,
-    month: state.currentMonth,
-    date: state.currentDate,
-    hour: 0,
-    minute: 0,
-    second: 1,
-    millisecond: 0,
-  })
-
-  state.date = currentDate.toDate()
-  return new Model(state).toJSON()
+  return state.toJS()
 }
