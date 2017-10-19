@@ -4,7 +4,7 @@ import React, { Component } from "react"
 
 import { CHAMPIONSHIP_RESET_CONFIRM } from "../../constants/confirmations"
 
-import { updateChampions, generateChampionships } from "../../actions/champions"
+import { createChampionship, resetChampionships, generateChampionships } from "../../actions/champions"
 import GenerateRandom from "../../components/generate-random"
 import Textarea from "../../components/form/textarea.js"
 import HeaderOne from "../../components/h1/h1"
@@ -22,8 +22,14 @@ class ChampionshipsPage extends Component {
     const { championships, } = this.props
 
     this.setState({
-      male: championships.filter(champion => champion.male).map(champion => champion.name).join(", "),
-      female: championships.filter(champion => !champion.male).map(champion => champion.name).join(", "),
+      male: championships
+        .filter(champion => champion.male)
+        .map(champion => champion.name)
+        .join(", "),
+      female: championships
+        .filter(champion => !champion.male)
+        .map(champion => champion.name)
+        .join(", "),
     })
   }
 
@@ -88,16 +94,22 @@ class ChampionshipsPage extends Component {
     Object.keys(this.state).forEach(stateKey => {
       let male = stateKey === "male"
 
-      let newChampionship = this.state[stateKey].split(",").filter(name => name.length > 2).filter(String).map(name => {
-        return {
-          name: name.trim(),
-          male,
-        }
-      })
+      let newChampionship = this.state[stateKey]
+        .split(",")
+        .filter(name => name.length > 2)
+        .filter(String)
+        .map(name => {
+          return {
+            name: name.trim(),
+            male,
+          }
+        })
 
       championships = championships.concat(newChampionship)
     })
-    dispatch(updateChampions(championships))
+
+    dispatch(resetChampionships())
+    championships.forEach(championship => dispatch(createChampionship(championship)))
     this.redirect()
   }
 

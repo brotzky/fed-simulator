@@ -2,19 +2,19 @@ import * as types from "./types"
 
 export function generateFederation() {
   return {
-    type: types.GENERATE_FEDERATION,
+    type: types.GENERATE,
   }
 }
 
-export function togglePlan() {
+export function toggleSimulation() {
   return {
-    type: types.TOGGLE_PLAN,
+    type: types.TOGGLE_SIMULATION,
   }
 }
 
-export function startGame() {
+export function toggleStarted() {
   return {
-    type: types.START_GAME,
+    type: types.TOGGLE_STARTED,
   }
 }
 
@@ -24,10 +24,10 @@ export function toggleAnimations() {
   }
 }
 
-export function updateGame(payload) {
+export function updateName(name) {
   return {
-    type: types.UPDATE_GAME,
-    payload,
+    type: types.UPDATE_NAME,
+    payload: { name, },
   }
 }
 

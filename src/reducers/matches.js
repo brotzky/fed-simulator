@@ -1,169 +1,118 @@
-/* eslint-disable no-case-declarations */
-import weighted from "weighted"
-import groupBy from "lodash.groupby"
+import { List } from "immutable"
 
-import WrestlerModel from "../models/wrestler.model"
 import Model from "../models/match.model"
-import { getId } from "../helpers/hash"
-import { getPercentageAmount } from "../helpers/math"
-import { randomiseWrestlers } from "../helpers/randomise-wrestlers.js"
+import WrestlersReducer from "./match.wrestlers"
 
-const defaultState = []
-const defaultAction = {}
-const arrayOfLength = length => new Array(length).fill(1 / length)
+import { getId } from "../models/model.helper"
 
-const RANDOM_MATCH_DEFAULT_AMOUNT = 200
-
-export default (state = defaultState, action = defaultAction) => {
-  state = JSON.parse(JSON.stringify(state))
-  let index = false
-
-  const getIndexById = id => state.findIndex(match => match.id === id)
+export default (state, action) => {
+  state = List(state)
+  let index
 
   switch (action.type) {
     case "CREATE_MATCH":
-      state.push(new Model(action.payload).toJSON())
+      {
+        const payload = action.payload || {}
+        const id = action.payload.id ? action.payload.id : getId()
+
+        state = state.push(new Model(payload).merge({ id, }))
+      }
       break
     case "GENERATE_RANDOM_MATCHES":
-      let amountOfMatches = action.payload.amountOfMatches || RANDOM_MATCH_DEFAULT_AMOUNT
+      {
+        let { amountOfMatches, } = action.payload
 
-      while (amountOfMatches > 0) {
-        const selectedWrestlers = randomiseWrestlers({
-          wrestlers: action.payload.roster,
-        })
+        while (amountOfMatches > 0) {
+          const newModel = { generated: true, wrestlers: WrestlersReducer([], action), id: getId(), }
 
-        state.push(new Model({ generated: true, wrestlers: selectedWrestlers, }).toJSON())
-        amountOfMatches--
-      }
-    case "SIMULATE_GENERATED_RANDOM_MATCHES":
-      state.map(currentMatch => {
-        if (!currentMatch.simulate) {
-          const { wrestlers, } = currentMatch
-          const winner = wrestlers[Math.floor(Math.random() * wrestlers.length)]
+          state = state.push(new Model(newModel))
 
-          const winnerTeamId = winner.teamId
-
-          const losers = wrestlers.filter(wrestler => wrestler.teamId !== winnerTeamId)
-
-          const loser = losers[Math.floor(Math.random() * losers.length)]
-
-          if (!loser) {
-            return false
-          }
-
-          const loserIndex = wrestlers.findIndex(wrestler => wrestler.id === loser.id)
-
-          const winnerIndex = wrestlers.findIndex(wrestler => wrestler.id === winner.id)
-
-          currentMatch.wrestlers[winnerIndex].winner = true
-          currentMatch.wrestlers[loserIndex].loser = true
+          amountOfMatches--
         }
-        currentMatch.simulated = true
-        return currentMatch
-      })
+      }
       break
     case "SIMULATE_MATCH":
-      index = getIndexById(action.payload.matchId)
+      index = state.findIndex(item => item.id === action.payload)
 
-      if (index > -1) {
-        const { wrestlers, } = state[index]
-        const teams = groupBy(wrestlers, "teamId")
+      state = state.updateIn([index,], item => {
+        item.simulated = true
+        item.wrestlers = new WrestlersReducer(item.wrestlers, action)
+        return item
+      })
+      break
+    case "SIMULATE_RANDOM_MATCH":
+      index = Math.floor(Math.random() * (state.size - 1))
 
-        const numberOfTeams = Object.keys(teams).length
-        const numberOfWrestlers = wrestlers.length
-
-        const hasWinner = wrestlers.findIndex(wrestler => wrestler.winner) > -1
-        let weightedWrestlers = arrayOfLength(wrestlers.length)
-
-        let lowest = wrestlers.sort((a, b) => a.points > b.points)[0],
-          highest = wrestlers.filter(wrestler => wrestler.id !== lowest.id).sort((a, b) => a.points < b.points)[0],
-          lowestId = lowest.id,
-          highestId = highest.id,
-          lowestIndex = wrestlers.findIndex(wrestler => wrestler.id === lowestId),
-          highestIndex = wrestlers.findIndex(wrestler => wrestler.id === highestId),
-          highestAttackersPercentageGain = getPercentageAmount(weightedWrestlers[lowestIndex], 20)
-
-        if (lowest.points !== highest.points) {
-          weightedWrestlers[lowestIndex] = weightedWrestlers[lowestIndex] - highestAttackersPercentageGain
-          weightedWrestlers[highestIndex] = weightedWrestlers[highestIndex] + highestAttackersPercentageGain
+      state = state.updateIn([index,], item => {
+        item.simulated = true
+        item.wrestlers = new List(item.wrestlers).toJS()
+        item.wrestlers = new WrestlersReducer(item.wrestlers, action)
+        return item
+      })
+      break
+    case "SIMULATE_GENERATED_RANDOM_MATCHES":
+      state.map(item => {
+        if (item.simulated === false) {
+          item.simulated = true
+          item.wrestlers = new WrestlersReducer(item.wrestlers, action)
         }
+        return item
+      })
+      break
+    case "SELECT_WINNER_IN_MATCH":
+      {
+        const { matchId, } = action.payload
 
-        if (numberOfWrestlers > 1 && numberOfTeams > 1) {
-          const winner = hasWinner ? wrestlers.find(wrestler => wrestler.winner) : weighted.select(wrestlers, weightedWrestlers)
+        index = state.findIndex(item => item.id === matchId)
 
-          const losers = wrestlers.filter(loser => loser.teamId !== winner.teamId)
-          const losersRandomWeighting = arrayOfLength(losers.length)
-          const loser = weighted.select(losers, losersRandomWeighting)
-
-          const newWrestlers = wrestlers.map(wrestler => {
-            wrestler.loser = false
-            wrestler.winner = false
-
-            if (wrestler.id === winner.id) {
-              wrestler.winner = true
-            } else if (wrestler.id === loser.id) {
-              wrestler.loser = true
-            }
-
-            return wrestler
+        if (index > -1) {
+          state = state.update(index, item => {
+            item.wrestlers = new WrestlersReducer(item.wrestlers, action)
+            return new Model(item).merge({ simulated: false, })
           })
-
-          state[index].wrestlers = newWrestlers
         }
       }
       break
-
-    case "SELECT_WINNER_IN_MATCH":
-      index = getIndexById(action.payload.matchId)
-
-      state[index].wrestlers = state[index].wrestlers.map(newWrestler => {
-        const isAlreadyWinner = newWrestler.winner
-        const isWinningWrestler = newWrestler.id === action.payload.wrestlerId
-
-        newWrestler.winner = isWinningWrestler && !isAlreadyWinner
-        newWrestler.loser = false
-
-        return newWrestler
-      })
-
-      state[index].simulated = false
-      break
-
     case "REMOVE_WRESTLER_FROM_MATCH":
-      index = getIndexById(action.payload.matchId)
+      {
+        const { matchId, } = action.payload
 
-      state[index].wrestlers = state[index].wrestlers.filter(newWrestler => newWrestler.id !== action.payload.wrestlerId)
-      state[index].simulated = false
-      break
+        index = state.findIndex(item => item.id === matchId)
 
-    case "ADD_WRESTLER_TO_MATCH":
-      state.map(currentMatch => {
-        if (currentMatch.id === action.payload.matchId) {
-          const wrestlerExists = currentMatch.wrestlers.findIndex(wrestler => wrestler.id === action.payload.wrestler.id)
-
-          if (wrestlerExists === -1) {
-            const teamId = action.payload.wrestler.teamId ? action.payload.wrestler.teamId : getId()
-
-            action.payload.wrestler.teamId = teamId
-
-            currentMatch.wrestlers.push(new WrestlerModel(action.payload.wrestler).toJSON())
-          } else {
-            currentMatch.wrestlers[wrestlerExists].teamId = action.payload.wrestler.teamId
-          }
-          currentMatch.simulated = false
+        if (index > -1) {
+          state = state.update(index, item => {
+            item.wrestlers = new WrestlersReducer(item.wrestlers, action)
+            return new Model(item).merge({ simulated: false, })
+          })
         }
-        return currentMatch
+      }
+      break
+    case "ADD_WRESTLER_TO_MATCH":
+      {
+        index = state.findIndex(item => item.id === action.payload.matchId)
+
+        if (index > -1) {
+          state = state.update(index, item => {
+            return new Model(item).merge({
+              simulated: false,
+              wrestlers: new WrestlersReducer(item.wrestlers, action),
+            })
+          })
+        }
+      }
+      break
+    case "CLEAR_WRESTLERS_FROM_MATCH":
+      index = state.findIndex(item => item.id === action.payload)
+
+      state = state.updateIn([index,], item => {
+        item.wrestlers = []
+        return item
       })
       break
-
     case "RESET_MATCHES":
     case "RESET":
-      state = defaultState
-      break
-
-    default:
+      state = List()
       break
   }
-
-  return state
+  return state.toJS()
 }

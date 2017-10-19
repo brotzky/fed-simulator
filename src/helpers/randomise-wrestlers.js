@@ -1,8 +1,7 @@
 import weighted from "weighted"
 
 const getWrestlerWeights = length => new Array(length).fill(1 / length)
-const chooseRandomWrestler = wrestlers =>
-  weighted.select(wrestlers, getWrestlerWeights(wrestlers.length))
+const chooseRandomWrestler = wrestlers => weighted.select(wrestlers, getWrestlerWeights(wrestlers.length))
 
 const defaultSettings = {
   male: {
@@ -20,12 +19,7 @@ const defaultSettings = {
   },
 }
 
-export function randomiseWrestlers({
-  wrestlers,
-  settings = defaultSettings,
-  randomisedWrestlers = [],
-  ids = [],
-}) {
+export default function randomiseWrestlers({ wrestlers, settings = defaultSettings, randomisedWrestlers = [], ids = [], }) {
   const { tag, amount, male, } = settings
 
   let noWrestlers = weighted.select(amount.options, amount.weights)
@@ -35,10 +29,13 @@ export function randomiseWrestlers({
 
   wrestlers = wrestlers.filter(wrestler => wrestler.male === isMaleOnly)
 
-  noWrestlers = isTagMatch ? noWrestlers * noWrestlers : noWrestlers
+  if (isTagMatch) {
+    noWrestlers = noWrestlers * noWrestlers
+  }
 
   // while amount to create is above one
-  let teamId = 0, perTeam = 0
+  let teamId = 0,
+    perTeam = 0
   while (noWrestlers > 0 && wrestlers.length > 0) {
     wrestlers = wrestlers.filter(wrestler => !ids.includes(wrestler.id))
     let chosenWrestler = chooseRandomWrestler(wrestlers)

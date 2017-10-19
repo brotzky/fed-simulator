@@ -8,6 +8,10 @@
 * [Launching](#launching)
 * [Testing](#testing)
 
+
+[![CircleCI](https://circleci.com/gh/azz0r/fed-simulator/tree/feature%2Fmatch.svg?style=svg)](https://circleci.com/gh/azz0r/fed-simulator/tree/feature%2Fmatch)
+
+
 ### 💪 <a name="installing"> Installing</a>
 ```
 npm cache clean;

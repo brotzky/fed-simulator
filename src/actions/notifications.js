@@ -6,9 +6,9 @@ export function resetNotifications() {
   }
 }
 
-export function removeNotification(notificationId) {
+export function deleteNotification(id) {
   return {
-    type: types.REMOVE_NOTIFICATION,
-    payload: { notificationId, },
+    type: types.DELETE_NOTIFICATION,
+    payload: { id, },
   }
 }

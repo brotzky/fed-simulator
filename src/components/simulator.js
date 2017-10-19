@@ -2,8 +2,9 @@ import React from "react"
 import { connect } from "react-redux"
 
 import { simulateRandomMatch } from "../actions/roster"
+import { toggleSimulation } from "../actions/game"
 
-const TIME_PER_SIMULATED_MATCH = 100
+const TIME_PER_SIMULATED_MATCH = 200
 
 class Simulator extends React.Component {
   static propTypes = {
@@ -19,6 +20,7 @@ class Simulator extends React.Component {
   looper = () => {}
 
   onToggleSimulation = () => {
+    this.props.dispatch(toggleSimulation())
     this.setState({
       active: !this.state.active,
     })
@@ -43,6 +45,7 @@ class Simulator extends React.Component {
   }
 
   render() {
+    return null
     return (
       <span className="cursor-pointer" onClick={this.onToggleSimulation}>
         <Choose>

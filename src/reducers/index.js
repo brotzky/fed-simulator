@@ -5,7 +5,6 @@ import game from "./game"
 import matches from "./matches"
 import notifications from "./notifications"
 import roster from "./roster"
-import settings from "./settings"
 import style from "./style"
 import version from "./version"
 
@@ -16,7 +15,6 @@ const rootReducer = combineReducers({
   matches,
   notifications,
   roster,
-  settings,
   style,
   version,
 })

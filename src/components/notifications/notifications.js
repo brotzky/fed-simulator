@@ -1,57 +1,45 @@
-import { connect } from "react-redux"
-import React, { Component } from "react"
-import { SlideDown } from "animate-components"
-
-import * as notificationsActions from "../../actions/notifications"
-
-import { ANIMATION_SPEED } from "../../constants/animation"
+import React from "react"
+import PropTypes from "prop-types"
 
 import "./notifications.scss"
 
-class Notifications extends Component {
-  resetNotifications = event => {
-    event.preventDefault()
+const NOOP = () => {}
 
-    this.props.dispatch(notificationsActions.resetNotifications())
-  }
-
-  onRemoveNotification = event => {
-    const notificationId = event.currentTarget.dataset.id
-
-    this.props.dispatch(notificationsActions.removeNotification(notificationId))
-  }
-
-  render() {
-    const { notifications, style, } = this.props
-
-    return (
-      <div className="notifications" style={style}>
-        <If condition={notifications.length > 0}>
-          <p>
-            <a onClick={this.resetNotifications}>Clear All</a>
-          </p>
-          <SlideDown duration={ANIMATION_SPEED}>
-            <ul className="notifications__list">
-              {notifications.map(notification => {
-                const { id, title, } = notification
-
-                return (
-                  <li className="notification" key={id}>
-                    <a data-id={id} onClick={this.onRemoveNotification}>
-                      {title} <i className="icon fa fa-trash" />
-                    </a>
-                  </li>
-                )
-              })}
-            </ul>
-          </SlideDown>
-        </If>
+const Notifications = ({ notifications, onDelete, onReset, style, limit, }) =>
+  <div className="notifications">
+    <If condition={notifications.length > 0}>
+      <h3>
+        <a onClick={onReset}>Clear All</a>
+      </h3>
+      <div className="notifications__list">
+        {notifications.slice(0, limit).map(notification => {
+          const { id, title, } = notification
+          return (
+            <div className="notification" style={style} key={id}>
+              <a data-id={id} onClick={() => onDelete(id)}>
+                {title} <i className="icon fa fa-trash" />
+              </a>
+            </div>
+          )
+        })}
       </div>
-    )
-  }
+    </If>
+  </div>
+
+Notifications.propTypes = {
+  limit: PropTypes.number,
+  notifications: PropTypes.array,
+  onDelete: PropTypes.func,
+  onReset: PropTypes.func,
+  style: PropTypes.object,
 }
 
-export default connect(state => ({
-  notifications: state.notifications,
-  style: state.style,
-}))(Notifications)
+Notifications.defaultProps = {
+  limit: 3,
+  notifications: [],
+  onDelete: NOOP,
+  onReset: NOOP,
+  style: {},
+}
+
+export default Notifications

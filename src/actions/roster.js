@@ -7,12 +7,6 @@ export function updateWrestler(payload) {
   }
 }
 
-export function simulateRandomMatch() {
-  return {
-    type: types.SIMULATE_RANDOM_MATCH,
-  }
-}
-
 export function createWrestler(wrestler) {
   return {
     type: types.CREATE_WRESTLER,
@@ -26,17 +20,10 @@ export function generateRoster() {
   }
 }
 
-export function removeWrestler(id) {
+export function deleteWrestler(id) {
   return {
-    type: types.REMOVE_WRESTLER,
-    payload: { id, },
-  }
-}
-
-export function updateRoster(payload) {
-  return {
-    type: types.UPDATE_ROSTER,
-    payload,
+    type: types.DELETE_WRESTLER,
+    payload: id,
   }
 }
 

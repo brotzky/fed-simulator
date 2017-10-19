@@ -7,10 +7,42 @@ const action = {
 }
 
 describe("given a game reducer", () => {
-  let gameReducer
-  before(() => (gameReducer = reducer(undefined, action)))
+  let activeReducer
+
+  before(() => (activeReducer = reducer(undefined, action)))
 
   it("and the started is defaulted to false", () => {
-    expect(gameReducer.started).to.equal(false)
+    expect(activeReducer.started).to.equal(false)
+  })
+
+  describe("and a toggleStarted request is sent", () => {
+    before(() => {
+      action.type = types.TOGGLE_STARTED
+      activeReducer = reducer(activeReducer, action)
+    })
+
+    it("and the started is defaulted to true", () => {
+      expect(activeReducer.started).to.equal(true)
+    })
+
+    describe("and a toggleStarted request is sent", () => {
+      before(() => (activeReducer = reducer(activeReducer, action)))
+
+      it("and the started is defaulted to true", () => {
+        expect(activeReducer.started).to.equal(true)
+      })
+    })
+  })
+
+  describe("and a updateName request is sent", () => {
+    before(() => {
+      action.type = types.UPDATE_NAME
+      action.payload = { name: "Aaron", }
+      activeReducer = reducer(activeReducer, action)
+    })
+
+    it("and the started is defaulted to true", () => {
+      expect(activeReducer.name).to.equal(action.payload.name)
+    })
   })
 })

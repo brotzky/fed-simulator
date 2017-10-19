@@ -1,14 +1,14 @@
-import BaseModel from "./base.model"
+import { Record } from "immutable"
 
-export default class extends BaseModel {
-  defaults() {
-    return {
-      id: false,
-      name: "",
-      style: {
-        backgroundColor: "black",
-        color: "white",
-      },
-    }
-  }
+export const schema = {
+  id: undefined,
+  name: "",
+  style: {
+    backgroundColor: "purple",
+    color: "white",
+  },
 }
+
+export const Brand = new Record(schema)
+
+export default Brand

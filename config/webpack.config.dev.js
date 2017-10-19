@@ -114,7 +114,7 @@ module.exports = {
 
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
 
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.IgnorePlugin(/^\.\/locale$/),
   ],
 
   node: {

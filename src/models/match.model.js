@@ -1,22 +1,12 @@
-import BaseModel from "./base.model"
-import groupBy from "lodash.groupby"
+import { Record, List } from "immutable"
 
-export default class extends BaseModel {
-  defaults() {
-    return {
-      id: false,
-      cost: 0,
-      generated: true,
-      rating: 0,
-      simulated: false,
-      wrestlers: [],
-    }
-  }
-  groupWrestlersByTeams() {
-    if (this.attributes.wrestlers.length > 0) {
-      return groupBy(this.attributes.wrestlers, "teamId")
-    } else {
-      return []
-    }
-  }
+export const schema = {
+  id: undefined,
+  generated: false,
+  simulated: false,
+  wrestlers: List(),
 }
+
+export const Model = new Record(schema)
+
+export default Model

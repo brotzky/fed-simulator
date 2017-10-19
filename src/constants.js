@@ -1,9 +1,9 @@
 const constants = {
   development: {
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: "http://localhost:3000/",
   },
   production: {
-    baseUrl: '/',
+    baseUrl: "/",
   },
 }
 

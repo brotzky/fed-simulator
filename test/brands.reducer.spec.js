@@ -2,12 +2,18 @@ import reducer from "../src/reducers/brands"
 import * as types from "../src/actions/types"
 
 const defaultModel1 = {
-  name: "First",
-  color: "blue",
+  name: "Smackdown Live",
+  style: {
+    color: "blue",
+    backgroundColor: "white",
+  },
 }
 const defaultModel2 = {
-  name: "Second",
-  color: "red",
+  name: "Raw",
+  style: {
+    color: "red",
+    backgroundColor: "white",
+  },
 }
 const action = {
   type: types.RESET,
@@ -40,11 +46,11 @@ describe("given a brands reducer", () => {
 
     it("should have a red brand", () => {
       expect(activeReducer[0].id).to.not.be.null
-      expect(activeReducer[0].color).to.equal(defaultModel1.color)
+      expect(activeReducer[0].style.color).to.equal(defaultModel1.style.color)
     })
 
     it("should have a blue brand", () => {
-      expect(activeReducer[1].color).to.equal(defaultModel2.color)
+      expect(activeReducer[1].style.color).to.equal(defaultModel2.style.color)
     })
 
     describe("and DELETE_BRAND is called", () => {
@@ -60,6 +66,26 @@ describe("given a brands reducer", () => {
       })
     })
 
+    describe("and UPDATE_BRAND is called", () => {
+      let newName = "Jarrod"
+
+      before(() => {
+        action.payload = activeReducer[0]
+        action.type = types.UPDATE_BRAND
+        action.payload.name = newName
+
+        activeReducer = reducer(activeReducer, action)
+      })
+
+      it("should still only have one brand", () => {
+        expect(activeReducer.length).to.equal(1)
+      })
+
+      it("should update the name on that one item", () => {
+        expect(activeReducer[0].name).to.equal(newName)
+      })
+    })
+
     describe("and reset is called", () => {
       before(() => {
         action.type = types.RESET
@@ -67,7 +93,7 @@ describe("given a brands reducer", () => {
       })
 
       it("should have NO items in the collection", () => {
-        expect(activeReducer.length).to.equal(0)
+        expect(activeReducer).to.have.length(0)
       })
     })
   })

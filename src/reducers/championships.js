@@ -1,42 +1,42 @@
-import Model from "../models/championship.model"
-import defaults from "../constants/defaults.json"
+import { List } from "immutable"
 
-const defaultState = []
+import { Championship as Model } from "../models/championship.model"
+import { getId } from "../models/model.helper"
+import { championships } from "../constants/defaults.json"
 
-export default (state = defaultState, action) => {
-  state = JSON.parse(JSON.stringify(state))
+export default (state, action) => {
+  state = List(state).map(item => new Model(item))
+  let index
 
   switch (action.type) {
     case "RESET":
-      state = defaultState
+    case "RESET_CHAMPIONSHIPS":
+      state = List()
       break
-    case "UPDATE_CHAMPIONS":
-      state = action.payload
-      state.map(item => {
-        item.name = item.name.trim()
-        return item
-      })
-      break
-    case "GENERATE_FEDERATION":
+    case "GENERATE":
     case "GENERATE_CHAMPIONSHIPS":
-      state = defaultState
-      defaults.championships.forEach(item => {
-        let newItem = item.list
-          .split(",")
-          .filter(name => name.length > 2)
-          .filter(String)
-          .map(name => {
-            return {
-              name: name.trim(),
-              male: item.male,
-            }
-          })
-
-        state = state.concat(newItem)
-      })
+      state = List(championships.map(item => new Model(item).merge({ id: getId(), })))
       break
-    default:
+    case "CREATE_CHAMPIONSHIP":
+      state = state.push(new Model(action.payload).merge({ id: getId(), }))
+      break
+    case "UPDATE_CHAMPIONSHIP":
+      index = state.findIndex(item => item.id === action.payload.id)
+
+      if (index > -1) {
+        state = state.updateIn([index,], item => new Model(item).merge(action.payload))
+      }
+      break
+    case "DELETE_CHAMPIONSHIP":
+      index = state.findIndex(item => item.id === action.payload)
+
+      if (index > -1) {
+        state = state.delete(index)
+      }
       break
   }
-  return state.map(championship => new Model(championship).toJSON())
+
+  return List(state)
+    .map(item => new Model(item))
+    .toJS()
 }

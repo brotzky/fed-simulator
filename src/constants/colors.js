@@ -7,6 +7,4 @@ const degrees = 10
 const sections = 90
 const list = chromatism.adjacent(degrees, sections, color).hex
 
-export const colors = Array.from(
-  new Set(Object.assign([], list, defaultColors))
-)
+export const colors = Array.from(new Set(Object.assign([], list, defaultColors)))

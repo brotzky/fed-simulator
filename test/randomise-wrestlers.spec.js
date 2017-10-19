@@ -1,4 +1,4 @@
-import { randomiseWrestlers } from "../src/helpers/randomise-wrestlers"
+import randomiseWrestlers from "../src/helpers/randomise-wrestlers"
 import wrestlers from "./wrestlers.json"
 
 let defaultSettings = {
@@ -17,9 +17,11 @@ let defaultSettings = {
   },
 }
 
-let isTagMatch = true
+describe("Given a randomiseWrestlers function", () => {
+  it("should be a function", () => {
+    expect(randomiseWrestlers).to.be.a("function")
+  })
 
-describe.skip("Given a randomiseWrestlers function", () => {
   it("should choose female wrestlers only", () => {
     const result = randomiseWrestlers({
       wrestlers,
@@ -49,9 +51,7 @@ describe.skip("Given a randomiseWrestlers function", () => {
 
   it("should choose a fatal fourway", () => {
     defaultSettings.amount.weights = [0, 0, 1,]
-    const total = defaultSettings.amount.weights.reduce(
-      (sum, weight) => sum + weight
-    )
+    const total = defaultSettings.amount.weights.reduce((sum, weight) => sum + weight)
     expect(total).to.equal(1)
 
     const result = randomiseWrestlers({
@@ -63,9 +63,7 @@ describe.skip("Given a randomiseWrestlers function", () => {
 
   it("should choose a fatal fourway", () => {
     defaultSettings.amount.weights = [0, 1, 0,]
-    const total = defaultSettings.amount.weights.reduce(
-      (sum, weight) => sum + weight
-    )
+    const total = defaultSettings.amount.weights.reduce((sum, weight) => sum + weight)
     expect(total).to.equal(1)
 
     const result = randomiseWrestlers({
@@ -76,21 +74,22 @@ describe.skip("Given a randomiseWrestlers function", () => {
   })
 
   it("should create a 2 vs 2 tag match with 4 wrestlers", () => {
-    defaultSettings.amount.weights = [1, 0, 0,]
+    defaultSettings.amount.weights = [0, 0, 1,]
+
     const result = randomiseWrestlers({
       wrestlers,
       settings: defaultSettings,
-      isTagMatch,
     })
+
     expect(result.length).to.equal(4)
   })
 
   it("should create a 2 vs 2 tag match with team 0 with 2 wrestlers", () => {
-    defaultSettings.amount.weights = [1, 0, 0,]
+    defaultSettings.amount.weights = [0, 0, 1,]
+    defaultSettings.tag.weights = [1, 0,]
     const result = randomiseWrestlers({
       wrestlers,
       settings: defaultSettings,
-      isTagMatch,
     })
     expect(result.filter(wrestler => wrestler.teamId === 0).length).to.equal(2)
   })
@@ -100,7 +99,6 @@ describe.skip("Given a randomiseWrestlers function", () => {
     const result = randomiseWrestlers({
       wrestlers,
       settings: defaultSettings,
-      isTagMatch,
     })
     expect(result.filter(wrestler => wrestler.teamId === 1).length).to.equal(2)
   })
@@ -112,7 +110,6 @@ describe.skip("Given a randomiseWrestlers function", () => {
     const result = randomiseWrestlers({
       wrestlers,
       settings: defaultSettings,
-      isTagMatch,
     })
     expect(result.filter(wrestler => wrestler.teamId === 0).length).to.equal(3)
     expect(result.filter(wrestler => wrestler.teamId === 1).length).to.equal(3)

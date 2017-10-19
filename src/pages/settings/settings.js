@@ -4,7 +4,6 @@ import PropTypes from "prop-types"
 import { browserHistory } from "react-router"
 import { Link } from "react-router"
 
-import Animations from "../../components/animations"
 import ColorPickers from "../../components/color-pickers/container"
 import { reset } from "../../actions/game"
 import HeaderOne from "../../components/h1/h1"
@@ -25,10 +24,6 @@ class Settings extends Component {
                 <i className="icon fa fa-arrow-left" />
                 &nbsp; Go back
               </a>
-            </div>
-            <br />
-            <div className="box" style={style}>
-              <Animations>Toggle animations</Animations>
             </div>
             <br />
             <div className="box" style={style}>

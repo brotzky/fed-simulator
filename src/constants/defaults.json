@@ -1,7 +1,6 @@
 {
   "brands": [
     {
-      "id": "1",
       "name": "Raw",
       "style": {
         "color": "white",
@@ -9,7 +8,6 @@
       }
     },
     {
-      "id": "2",
       "name": "Smackdown Live",
       "style": {
         "color": "white",
@@ -17,7 +15,6 @@
       }
     },
     {
-      "id": "3",
       "name": "NXT",
       "style": {
         "color": "#333",
@@ -27,50 +24,526 @@
   ],
   "roster": [
     {
-      "min": 0,
-      "max": 40,
+      "cost": 3600,
       "male": true,
-      "list": "James Ellsworth, Chad Gable, Curt Hawkins, Erick Rowan, Akira Tozawa, Bo Dallas, Cedric Alexander, Curt Hawkins, Curtis Axel, Darren Young, Dash Wilder, Drew Gulak, Heath Slater, Luke Gallows, R Truth, Rhyno, Titus O Neil"
+      "name": "James Ellsworth",
+      "points": 24
     },
     {
-      "min": 40,
-      "max": 75,
+      "cost": 3450,
       "male": true,
-      "list": " Jey Uso, Jimmy Uso, Luke Harper, Mojo Rawley, Apollo Crews, Big Cass, Big Show, Bray Wyatt, Cesaro, Elias, Enzo Amore, Finn Balor, Jack Gallagher, Jason Jordan, Gran Metalik, Jeff Hardy, Kalisto, Ariya Daivari, Karl Anderson, Noam Dar, Rich Swann, Scott Dawson,Brian Kendrick, Tony Nese, TJP, Daniel Bryan, Dolph Ziggler, Baron Corbin"
+      "name": "Chad Gable",
+      "points": 23
     },
     {
-      "min": 75,
-      "max": 100,
+      "cost": 5550,
       "male": true,
-      "list": "Chris Jericho, Randy Orton, Jinder Mahal, Shinsuke Nakamura, Kevin Owens, John Cena, Brock Lesnar, Roman Reigns, Dean Ambrose, Aj Styles, Jinder Mahal, Braun Strowman, Matt Hardy, Neville, Samoa Joe, Sheamus, The Miz, Rusev"
+      "name": "Curt Hawkins",
+      "points": 39
     },
     {
-      "min": 30,
-      "max": 70,
-      "male": false,
-      "list": "Lana, Carmella, Tamina, Summer Rae, Alicia Fox, Dana Brooke"
+      "cost": 4650,
+      "male": true,
+      "name": "Erick Rowan",
+      "points": 34
     },
     {
-      "min": 70,
-      "max": 85,
-      "male": false,
-      "list": "Emma, Mickie James, Paige, Becky Lynch, Bayley, Nia Jax"
+      "cost": 1650,
+      "male": true,
+      "name": "Akira Tozawa",
+      "points": 11
     },
     {
-      "min": 85,
-      "max": 100,
+      "cost": 4350,
+      "male": true,
+      "name": "Bo Dallas",
+      "points": 33
+    },
+    {
+      "cost": 3150,
+      "male": true,
+      "name": "Cedric Alexander",
+      "points": 22
+    },
+    {
+      "cost": 150,
+      "male": true,
+      "name": "Curt Hawkins",
+      "points": 3
+    },
+    {
+      "cost": 3000,
+      "male": true,
+      "name": "Curtis Axel",
+      "points": 23
+    },
+    {
+      "cost": 5100,
+      "male": true,
+      "name": "Darren Young",
+      "points": 36
+    },
+    {
+      "cost": 5250,
+      "male": true,
+      "name": "Dash Wilder",
+      "points": 36
+    },
+    {
+      "cost": 3450,
+      "male": true,
+      "name": "Drew Gulak",
+      "points": 20
+    },
+    {
+      "cost": 2550,
+      "male": true,
+      "name": "Heath Slater",
+      "points": 14
+    },
+    {
+      "cost": 1800,
+      "male": true,
+      "name": "Luke Gallows",
+      "points": 11
+    },
+    {
+      "cost": 3000,
+      "male": true,
+      "name": "R Truth",
+      "points": 23
+    },
+    {
+      "cost": 3900,
+      "male": true,
+      "name": "Rhyno",
+      "points": 21
+    },
+    {
+      "cost": 5850,
+      "male": true,
+      "name": "Titus O Neil",
+      "points": 38
+    },
+    {
+      "cost": 10650,
+      "male": true,
+      "name": "Jey Uso",
+      "points": 73
+    },
+    {
+      "cost": 8700,
+      "male": true,
+      "name": "Jimmy Uso",
+      "points": 59
+    },
+    {
+      "cost": 7950,
+      "male": true,
+      "name": "Luke Harper",
+      "points": 58
+    },
+    {
+      "cost": 6750,
+      "male": true,
+      "name": "Mojo Rawley",
+      "points": 44
+    },
+    {
+      "cost": 10200,
+      "male": true,
+      "name": "Apollo Crews",
+      "points": 66
+    },
+    {
+      "cost": 9300,
+      "male": true,
+      "name": "Big Cass",
+      "points": 62
+    },
+    {
+      "cost": 11250,
+      "male": true,
+      "name": "Big Show",
+      "points": 78
+    },
+    {
+      "cost": 9150,
+      "male": true,
+      "name": "Bray Wyatt",
+      "points": 59
+    },
+    {
+      "cost": 9000,
+      "male": true,
+      "name": "Cesaro",
+      "points": 58
+    },
+    {
+      "cost": 8400,
+      "male": true,
+      "name": "Elias",
+      "points": 57
+    },
+    {
+      "cost": 7050,
+      "male": true,
+      "name": "Enzo Amore",
+      "points": 48
+    },
+    {
+      "cost": 8250,
+      "male": true,
+      "name": "Finn Balor",
+      "points": 53
+    },
+    {
+      "cost": 9150,
+      "male": true,
+      "name": "Jack Gallagher",
+      "points": 61
+    },
+    {
+      "cost": 10050,
+      "male": true,
+      "name": "Jason Jordan",
+      "points": 68
+    },
+    {
+      "cost": 10050,
+      "male": true,
+      "name": "Gran Metalik",
+      "points": 67
+    },
+    {
+      "cost": 9150,
+      "male": true,
+      "name": "Jeff Hardy",
+      "points": 60
+    },
+    {
+      "cost": 6750,
+      "male": true,
+      "name": "Kalisto",
+      "points": 51
+    },
+    {
+      "cost": 7350,
+      "male": true,
+      "name": "Ariya Daivari",
+      "points": 49
+    },
+    {
+      "cost": 10050,
+      "male": true,
+      "name": "Karl Anderson",
+      "points": 64
+    },
+    {
+      "cost": 6600,
+      "male": true,
+      "name": "Noam Dar",
+      "points": 45
+    },
+    {
+      "cost": 10350,
+      "male": true,
+      "name": "Rich Swann",
+      "points": 70
+    },
+    {
+      "cost": 8250,
+      "male": true,
+      "name": "Scott Dawson",
+      "points": 54
+    },
+    {
+      "cost": 6450,
+      "male": true,
+      "name": "Brian Kendrick",
+      "points": 42
+    },
+    {
+      "cost": 10200,
+      "male": true,
+      "name": "Tony Nese",
+      "points": 66
+    },
+    {
+      "cost": 7950,
+      "male": true,
+      "name": "TJP",
+      "points": 50
+    },
+    {
+      "cost": 9150,
+      "male": true,
+      "name": "Daniel Bryan",
+      "points": 56
+    },
+    {
+      "cost": 7350,
+      "male": true,
+      "name": "Dolph Ziggler",
+      "points": 54
+    },
+    {
+      "cost": 10800,
+      "male": true,
+      "name": "Baron Corbin",
+      "points": 75
+    },
+    {
+      "cost": 12600,
+      "male": true,
+      "name": "Chris Jericho",
+      "points": 84
+    },
+    {
+      "cost": 13800,
+      "male": true,
+      "name": "Randy Orton",
+      "points": 90
+    },
+    {
+      "cost": 12300,
+      "male": true,
+      "name": "Jinder Mahal",
+      "points": 85
+    },
+    {
+      "cost": 11550,
+      "male": true,
+      "name": "Shinsuke Nakamura",
+      "points": 78
+    },
+    {
+      "cost": 11700,
+      "male": true,
+      "name": "Kevin Owens",
+      "points": 78
+    },
+    {
+      "cost": 14400,
+      "male": true,
+      "name": "John Cena",
+      "points": 97
+    },
+    {
+      "cost": 14550,
+      "male": true,
+      "name": "Brock Lesnar",
+      "points": 93
+    },
+    {
+      "cost": 12900,
+      "male": true,
+      "name": "Roman Reigns",
+      "points": 88
+    },
+    {
+      "cost": 13800,
+      "male": true,
+      "name": "Dean Ambrose",
+      "points": 90
+    },
+    {
+      "cost": 13500,
+      "male": true,
+      "name": "Aj Styles",
+      "points": 94
+    },
+    {
+      "cost": 11250,
+      "male": true,
+      "name": "Jinder Mahal",
+      "points": 75
+    },
+    {
+      "cost": 13650,
+      "male": true,
+      "name": "Braun Strowman",
+      "points": 93
+    },
+    {
+      "cost": 14700,
+      "male": true,
+      "name": "Matt Hardy",
+      "points": 97
+    },
+    {
+      "cost": 15000,
+      "male": true,
+      "name": "Neville",
+      "points": 101
+    },
+    {
+      "cost": 14550,
+      "male": true,
+      "name": "Samoa Joe",
+      "points": 97
+    },
+    {
+      "cost": 13950,
+      "male": true,
+      "name": "Sheamus",
+      "points": 94
+    },
+    {
+      "cost": 13050,
+      "male": true,
+      "name": "The Miz",
+      "points": 87
+    },
+    {
+      "cost": 12450,
+      "male": true,
+      "name": "Rusev",
+      "points": 82
+    },
+    {
+      "cost": 9000,
       "male": false,
-      "list": "Asuka, Nikki Bella, Charlotte Flair, Naomi, Natalya, Alexa Bliss, Sasha Banks"
+      "name": "Lana",
+      "points": 61
+    },
+    {
+      "cost": 9450,
+      "male": false,
+      "name": "Carmella",
+      "points": 69
+    },
+    {
+      "cost": 7650,
+      "male": false,
+      "name": "Tamina",
+      "points": 51
+    },
+    {
+      "cost": 10050,
+      "male": false,
+      "name": "Summer Rae",
+      "points": 67
+    },
+    {
+      "cost": 4950,
+      "male": false,
+      "name": "Alicia Fox",
+      "points": 31
+    },
+    {
+      "cost": 6750,
+      "male": false,
+      "name": "Dana Brooke",
+      "points": 43
+    },
+    {
+      "cost": 10650,
+      "male": false,
+      "name": "Emma",
+      "points": 77
+    },
+    {
+      "cost": 10950,
+      "male": false,
+      "name": "Mickie James",
+      "points": 66
+    },
+    {
+      "cost": 11550,
+      "male": false,
+      "name": "Paige",
+      "points": 72
+    },
+    {
+      "cost": 12150,
+      "male": false,
+      "name": "Becky Lynch",
+      "points": 79
+    },
+    {
+      "cost": 12300,
+      "male": false,
+      "name": "Bayley",
+      "points": 80
+    },
+    {
+      "cost": 12300,
+      "male": false,
+      "name": "Nia Jax",
+      "points": 77
+    },
+    {
+      "cost": 15000,
+      "male": false,
+      "name": "Asuka",
+      "points": 98
+    },
+    {
+      "cost": 14100,
+      "male": false,
+      "name": "Nikki Bella",
+      "points": 94
+    },
+    {
+      "cost": 13800,
+      "male": false,
+      "name": "Charlotte Flair",
+      "points": 92
+    },
+    {
+      "cost": 13650,
+      "male": false,
+      "name": "Naomi",
+      "points": 86
+    },
+    {
+      "cost": 14100,
+      "male": false,
+      "name": "Natalya",
+      "points": 91
+    },
+    {
+      "cost": 12750,
+      "male": false,
+      "name": "Alexa Bliss",
+      "points": 85
+    },
+    {
+      "cost": 13050,
+      "male": false,
+      "name": "Sasha Banks",
+      "points": 88
     }
   ],
   "championships": [
     {
-      "male": true,
-      "list": "United States Championship, Intercontinental Championship, Tag Team Championship, Cruiserweight Championship, Universal Championship, Heavyweight Championship"
+      "name": "United States Championship",
+      "male": true
     },
     {
-      "male": false,
-      "list": "Womens Championship"
+      "name": "Intercontinental Championship",
+      "male": true
+    },
+    {
+      "name": "Tag Team Championship",
+      "male": true
+    },
+    {
+      "name": "Cruiserweight Championship",
+      "male": true
+    },
+    {
+      "name": "Universal Championship",
+      "male": true
+    },
+    {
+      "name": "Heavyweight Championship",
+      "male": true
+    },
+    {
+      "name": "Womens Championship",
+      "male": false
     }
   ]
 }

@@ -1,12 +1,13 @@
-import BaseModel from "./base.model"
+import { Record } from "immutable"
 
-export default class extends BaseModel {
-  defaults() {
-    return {
-      id: false,
-			losses: 0,
-      current_champion: "",
-      name: "",
-    }
-  }
+export const schema = {
+  id: undefined,
+  losses: 0,
+  current_champion: "",
+  name: "",
+  male: true,
 }
+
+export const Championship = new Record(schema)
+
+export default Championship

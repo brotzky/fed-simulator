@@ -1,10 +1,10 @@
 import { connect } from "react-redux"
-import React, { Component } from "react"
+import { Component } from "react"
 import PropTypes from "prop-types"
 
 class DefaultPage extends Component {
   componentWillMount() {
-    const { championships, name, roster, router, started, unTouched, } = this.props
+    const { championships, name, router, started, untouched, } = this.props
 
     let pathName = "dashboard"
 
@@ -12,10 +12,8 @@ class DefaultPage extends Component {
       pathName = "/welcome"
     } else if (name === "") {
       pathName = "/name"
-    } else if (unTouched === true) {
+    } else if (untouched === true) {
       pathName = "/branding"
-    } else if (roster.length === 0) {
-      pathName = "/roster"
     } else if (championships.length === 0) {
       pathName = "/championships"
     }
@@ -37,8 +35,7 @@ DefaultPage.contextTypes = {
 DefaultPage.propTypes = {
   started: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
-  unTouched: PropTypes.bool.isRequired,
-  roster: PropTypes.array.isRequired,
+  untouched: PropTypes.bool.isRequired,
   championships: PropTypes.array.isRequired,
   router: PropTypes.object.isRequired,
 }
@@ -46,7 +43,6 @@ DefaultPage.propTypes = {
 export default connect(state => ({
   started: state.game.started,
   name: state.game.name,
-  unTouched: state.style.unTouched,
-  roster: state.roster,
+  untouched: state.style.untouched,
   championships: state.championships,
 }))(DefaultPage)

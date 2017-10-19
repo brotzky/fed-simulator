@@ -1,22 +1,14 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import "./textarea.scss"
 
-const noop = () => {}
+const NOOP = () => {}
 
-const Textarea = ({
-  value = "",
-  label = "",
-  name = "",
-  onChange = noop,
-  placeholder = "",
-  rows = 3,
-}) => {
+const Textarea = ({ value = "", label = "", name = "", onChange = NOOP, placeholder = "", rows = 3, }) => {
   return (
     <div className="box">
-      <label htmlFor={name}>
-        {label}
-      </label>
+      <label htmlFor={name}>{label}</label>
       <textarea
         value={value}
         id={name}
@@ -39,6 +31,15 @@ const Textarea = ({
       />
     </div>
   )
+}
+
+Textarea.propTypes = {
+  value: PropTypes.string,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  placeholder: PropTypes.string,
+  rows: PropTypes.number,
 }
 
 export default Textarea

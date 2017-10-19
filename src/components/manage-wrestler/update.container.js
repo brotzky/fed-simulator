@@ -2,7 +2,7 @@ import { compose, withProps } from "recompose"
 import { connect } from "react-redux"
 
 import { WRESTLER_CONFIRM_DELETE } from "../../constants/confirmations"
-import { updateWrestler, removeWrestler } from "../../actions/roster"
+import { updateWrestler, deleteWrestler } from "../../actions/roster"
 import EditWrestler from "./wrestler"
 
 const propsMapper = ({ dispatch, id, }) => ({
@@ -14,7 +14,7 @@ const propsMapper = ({ dispatch, id, }) => ({
   onImageUpdate: (name, value) => dispatch(updateWrestler({ image: String(value), id: id, })),
   onDelete: () => {
     if (confirm(WRESTLER_CONFIRM_DELETE)) {
-      dispatch(removeWrestler(id))
+      dispatch(deleteWrestler(id))
     }
   },
 })

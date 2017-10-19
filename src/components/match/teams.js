@@ -1,4 +1,5 @@
 import React from "react"
+import PropTypes from "prop-types"
 
 import Team from "./team"
 
@@ -29,4 +30,10 @@ const Teams = ({ onAddWrestler = noop, onRemoveWrestler = noop, onSelectWinner =
   )
 }
 
+Teams.propTypes = {
+  onAddWrestler: PropTypes.func,
+  onRemoveWrestler: PropTypes.func,
+  onSelectWinner: PropTypes.func,
+  teams: PropTypes.object,
+}
 export default Teams

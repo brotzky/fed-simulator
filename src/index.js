@@ -4,6 +4,8 @@ import Root from "./root"
 import FastClick from "fastclick"
 import ReactDOM from "react-dom"
 
+import Error from "./components/error"
+
 const rootEl = document.getElementById("root")
 
 export const App = (
@@ -27,5 +29,10 @@ try {
     })
   }
 } catch (err) {
-  console.log("Render error", err)
+  ReactDOM.render(
+    <AppContainer>
+      <Error {...err} />
+    </AppContainer>,
+    rootEl
+  )
 }

@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
 const emptyFunction = () => {}
 
 class ContextHolder extends React.Component {
@@ -8,7 +8,6 @@ class ContextHolder extends React.Component {
       constants: PropTypes.object.required,
       onSetTitle: PropTypes.func.required,
       onSetMeta: PropTypes.func.required,
-      toSlug: PropTypes.func.isRequired,
     }),
     children: PropTypes.element.isRequired,
   }
@@ -17,7 +16,6 @@ class ContextHolder extends React.Component {
     constants: PropTypes.object,
     onSetTitle: PropTypes.func,
     onSetMeta: PropTypes.func,
-    toSlug: PropTypes.func,
   }
 
   getChildContext() {
@@ -26,7 +24,6 @@ class ContextHolder extends React.Component {
       constants: context.constants,
       onSetTitle: context.onSetTitle || emptyFunction,
       onSetMeta: context.onSetMeta || emptyFunction,
-      toSlug: context.toSlug || emptyFunction,
     }
   }
 

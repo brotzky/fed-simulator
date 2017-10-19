@@ -2,8 +2,8 @@ import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
-import { updateGame } from "../../actions/game"
-import { startGame } from "../../actions/game"
+import { updateName } from "../../actions/game"
+import { toggleStarted } from "../../actions/game"
 import Input from "../../components/form/input"
 import Button from "../../components/button/button"
 import HeaderOne from "../../components/h1/h1"
@@ -44,12 +44,13 @@ class NamePage extends Component {
   handleSubmit = event => {
     event.preventDefault()
 
-    const { dispatch, router, } = this.props
+    const { dispatch, router, started, } = this.props
 
-    let game = Object.assign({}, this.props.game, { name: this.state.name, })
+    dispatch(updateName(this.state.name))
 
-    dispatch(updateGame(game))
-    dispatch(startGame())
+    if (!started) {
+      dispatch(toggleStarted())
+    }
 
     router.push("/default")
   }
@@ -61,7 +62,14 @@ NamePage.contextTypes = {
   router: PropTypes.object.isRequired,
 }
 
+NamePage.propTypes = {
+  dispatch: PropTypes.func,
+  router: PropTypes.object,
+  started: PropTypes.bool,
+}
+
 export default connect(state => ({
   game: state.game,
   name: state.game.name,
+  started: state.game.started,
 }))(NamePage)

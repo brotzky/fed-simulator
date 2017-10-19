@@ -8,9 +8,7 @@ const storeEnhancer = compose(
   // applyMiddleware(diffLogger),
   persistState(),
   reduxReset(),
-  typeof window === "object" && typeof window.devToolsExtension !== "undefined"
-    ? window.devToolsExtension()
-    : f => f
+  typeof window === "object" && typeof window.devToolsExtension !== "undefined" ? window.devToolsExtension() : f => f
 )
 
 export default initialState => {

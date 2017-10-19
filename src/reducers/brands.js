@@ -1,39 +1,42 @@
+import { List } from "immutable"
+
 import Model from "../models/brand.model"
-import defaults from "../constants/defaults.json"
+import { getId } from "../models/model.helper"
+import { brands } from "../constants/defaults.json"
 
-const defaultState = []
-
-export default (state = defaultState, action) => {
-  state = JSON.parse(JSON.stringify(state))
-
+export default (state, action) => {
+  state = List(state).map(item => new Model(item))
   let index
 
   switch (action.type) {
     case "RESET":
     case "RESET_BRANDS":
-      state = defaultState
+      state = List()
       break
-    case "GENERATE_FEDERATION":
+    case "GENERATE":
     case "GENERATE_BRANDS":
-			state = defaults.brands
+      state = List(brands.map(item => new Model(item).merge({ id: getId(), })))
       break
     case "CREATE_BRAND":
-      state.push(action.payload)
+      state = state.push(new Model(action.payload).merge({ id: getId(), }))
       break
     case "UPDATE_BRAND":
-      index = state.findIndex(brand => brand.id === action.payload.id)
+      index = state.findIndex(item => item.id === action.payload.id)
 
       if (index > -1) {
-        state[index] = action.payload
+        state = state.updateIn([index,], item => new Model(item).merge(action.payload))
       }
       break
     case "DELETE_BRAND":
-      index = state.findIndex(brand => brand.id === action.payload)
+      index = state.findIndex(item => item.id === action.payload)
 
       if (index > -1) {
-        state.splice(index, 1)
+        state = state.delete(index)
       }
       break
   }
-  return state.length === 0 ? defaultState : state.map(newModel => new Model(newModel).toJSON())
+
+  return List(state)
+    .map(item => new Model(item))
+    .toJS()
 }
