@@ -1,11 +1,11 @@
-span.brand {
-  border: .2rem solid transparent;
+.brand {
+  border: 0.2rem solid transparent;
   font-size: smaller;
   font-variant: small-caps;
-  margin: .5rem;
-  padding: .5rem 1rem;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
 
   &.active {
-    border: .2rem solid currentColor;
+    border: 0.2rem solid currentColor;
   }
 }
