@@ -11,6 +11,9 @@ import "./manage-roster.skin.scss"
 const NOOP = () => {}
 
 const UpdateWrestlersPage = ({ showWrestlersFilters, openAddWrestler, addingWrestler, currentWrestler, onClick, style, }) => {
+  const hasPane = addingWrestler || currentWrestler
+  const col = hasPane ? "col-lg-6 col-md-6 col-sm-12 col-xs-12" : "col-lg-12 col-md-12 col-sm-12 col-xs-12"
+
   return (
     <div className="page manage-roster">
       <HeaderOne>
@@ -19,13 +22,25 @@ const UpdateWrestlersPage = ({ showWrestlersFilters, openAddWrestler, addingWres
           <i className="icon fa fa-info-circle" /> Click a wrestler to edit them
         </span>
       </HeaderOne>
-      <Wrestlers style={style} onClick={onClick} showFilter={showWrestlersFilters} />
-      <If condition={addingWrestler}>
-        <AddWrestler />
-      </If>
-      <If condition={currentWrestler}>
-        <EditWrestler {...currentWrestler} />
-      </If>
+      <div className="row">
+        <div className={col}>
+          <div className="box">
+            <Wrestlers style={style} onClick={onClick} showFilter={showWrestlersFilters} />
+          </div>
+        </div>
+        <If condition={hasPane}>
+          <div className={col}>
+            <div className="box">
+              <If condition={addingWrestler}>
+                <AddWrestler />
+              </If>
+              <If condition={currentWrestler}>
+                <EditWrestler {...currentWrestler} />
+              </If>
+            </div>
+          </div>
+        </If>
+      </div>
     </div>
   )
 }
