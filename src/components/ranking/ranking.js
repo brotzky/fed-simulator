@@ -5,24 +5,15 @@ import { formatCurrency } from "../../helpers/currency"
 
 import "./ranking.scss"
 
-const Ranking = ({
-  currencySymbol,
-  style,
-  columns,
-  rows,
-  amountToShow,
-  title,
-}) =>
+const Ranking = ({ currencySymbol, style, columns, rows, amountToShow, title, }) => (
   <div className="ranking">
-    <h3 style={style}>
-      {title}
-    </h3>
+    <h3 style={style}>{title}</h3>
     <table className="ranking__table table table-striped">
       <thead>
         <tr>
           {Object.keys(columns).map((column, key) => {
             return (
-              <td className={column} key={`thead-${key}`}>
+              <td className={column} tabIndex="0" key={`thead-${key}`}>
                 {column}
               </td>
             )
@@ -36,17 +27,11 @@ const Ranking = ({
               {Object.keys(columns).map((column, key) => {
                 let type = columns[column].type
                 return (
-                  <td className={column} key={key}>
+                  <td className={column} tabIndex="0" key={key}>
                     <Choose>
-                      <When condition={type === "rank"}>
-                        #{rowKey + 1}
-                      </When>
-                      <When condition={type === "currency"}>
-                        {formatCurrency(currencySymbol, row[column])}
-                      </When>
-                      <Otherwise>
-                        {row[column]}
-                      </Otherwise>
+                      <When condition={type === "rank"}>#{rowKey + 1}</When>
+                      <When condition={type === "currency"}>{formatCurrency(currencySymbol, row[column])}</When>
+                      <Otherwise>{row[column]}</Otherwise>
                     </Choose>
                   </td>
                 )
@@ -57,6 +42,7 @@ const Ranking = ({
       </tbody>
     </table>
   </div>
+)
 
 Ranking.propTypes = {
   amountToShow: PropTypes.number,

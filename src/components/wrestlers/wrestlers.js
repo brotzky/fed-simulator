@@ -32,20 +32,20 @@ const Wrestlers = ({
   const brandless = noBrand ? "eye-slash" : "eye"
   return (
     <Droppable types={["wrestler",]} onDrop={onDrop}>
-      <div className="wrestlers-wrapper" style={style}>
+      <div tabIndex="0" className="wrestlers-wrapper" style={style}>
         <If condition={showFilter}>
           <div className="filters">
-            <a onClick={toggleGender}>
+            <a tabIndex="0" onKeyPress={toggleGender} onClick={toggleGender}>
               <i className={`icon fa fa-${gender}`} />
             </a>
-            <a onClick={toggleOrderBy}>
+            <a tabIndex="0" onKeyPress={toggleOrderBy} onClick={toggleOrderBy}>
               <i className={`icon fa fa-sort-${sortBy}-${direction}`} />
             </a>
-            <a onClick={toggleOrder}>
+            <a tabIndex="0" onKeyPress={toggleOrder} onClick={toggleOrder}>
               <i className={`icon fa fa-sort-${direction}`} />
             </a>
             <If condition={showToggleBrand}>
-              <a onClick={toggleBrandless}>
+              <a tabIndex="0" onKeyPress={toggleBrandless} onClick={toggleBrandless}>
                 <i className={`icon fa fa-${brandless}`} />
               </a>
             </If>

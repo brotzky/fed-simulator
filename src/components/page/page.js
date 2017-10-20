@@ -46,11 +46,11 @@ class Page extends React.Component {
         <main style={darkStyle}>
           <If condition={isNavVisible}>
             <aside>
-              <Nav activeUrl={activeUrl} links={burgerLinks} {...style} modifier="main" />
+              <Nav tabIndex="0" activeUrl={activeUrl} links={burgerLinks} {...style} modifier="main" />
             </aside>
           </If>
           <article>
-            <Notifications />
+            <Notifications tabIndex="0" />
             <FadeIn duration={ANIMATION_SPEED}>{children}</FadeIn>
           </article>
         </main>

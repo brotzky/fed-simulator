@@ -6,10 +6,11 @@ import "./brand.scss"
 
 const noop = () => {}
 
-const Brand = ({ style = {}, id = "", active = false, onClick = noop, name = "", }) =>
-  <span onClick={() => onClick(id)} className={classNames({ active: active, }, "brand")} style={style}>
+const Brand = ({ style = {}, id = "", active = false, onClick = noop, name = "", }) => (
+  <span tabIndex="0" onKeyPress={() => onClick(id)} onClick={() => onClick(id)} className={classNames({ active: active, }, "brand")} style={style}>
     {name}
   </span>
+)
 
 Brand.propTypes = {
   active: PropTypes.bool,

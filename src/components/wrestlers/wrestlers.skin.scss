@@ -1,5 +1,5 @@
-@import 'src/stylesheets/z-index';
-@import 'src/stylesheets/breakpoints';
+@import "src/stylesheets/z-index";
+@import "src/stylesheets/breakpoints";
 
 $wrestlers-points-dimensions: 1rem;
 $wrestler-background: #fff;
@@ -9,17 +9,17 @@ $wrestler-width: 4rem;
 
 .wrestlers {
   max-height: 90vh;
-  padding: .2rem;
+  padding: 0.2rem;
   z-index: $z-index-wrestlers;
   overflow: auto;
 }
 
 .wrestlers .wrestler {
   background-color: $wrestler-background;
-  box-shadow: 0 .1rem .2rem 0 currentColor;
+  box-shadow: 0 0.1rem 0.2rem 0 currentColor;
   color: $wrestler-color;
-  margin: .3rem;
-  padding: .2rem;
+  margin: 0.3rem;
+  padding: 0.2rem;
   width: $wrestler-width;
 
   .name {
@@ -30,12 +30,12 @@ $wrestler-width: 4rem;
   .points {
     background-color: $wrestler-background;
     border-radius: 50%;
-    border: .01rem solid #999;
+    border: 0.01rem solid #999;
     font-size: x-small;
     font-weight: 500;
     height: $wrestlers-points-dimensions;
-    margin-right: .3rem;
-    opacity: .8;
+    margin-right: 0.3rem;
+    opacity: 0.8;
     transition: background-color $points-transition-length linear;
     width: $wrestlers-points-dimensions;
   }

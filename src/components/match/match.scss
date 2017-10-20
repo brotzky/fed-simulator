@@ -6,7 +6,7 @@ $match-border-color: #929292;
 
 .match .team {
   font-size: large;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   &.has-winner .box {
     border-style: solid;
@@ -17,11 +17,11 @@ $match-border-color: #929292;
   }
 
   &.has-many-wrestlers .wrestler:hover {
-    border: .1rem dashed $inner-color;
+    border: 0.1rem dashed $inner-color;
   }
 
   &:last-of-type {
-    opacity: .4;
+    opacity: 0.4;
   }
 
   .active {
@@ -33,15 +33,15 @@ $match-border-color: #929292;
   }
 
   .wrestler {
-    border: .1rem dashed transparent;
+    border: 0.1rem dashed transparent;
     flex-grow: 1;
-    margin: .1rem;
+    margin: 0.1rem;
     text-align: center;
-    transition: border .5s linear;
+    transition: border 0.5s linear;
 
     .icon {
-      opacity: .2;
-      transition: opacity .5s linear;
+      opacity: 0.2;
+      transition: opacity 0.5s linear;
     }
 
     &:hover {

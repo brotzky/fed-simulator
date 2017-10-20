@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import "./h1.scss"
 
 const HeaderOne = ({ style = {}, className = "", children = undefined, }) => (
-  <h1 style={style} className={className}>
+  <h1 style={style} tabIndex="0" className={className}>
     {children}
   </h1>
 )

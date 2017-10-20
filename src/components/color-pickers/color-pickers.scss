@@ -1,4 +1,4 @@
-@import 'src/stylesheets/z-index';
+@import "src/stylesheets/z-index";
 
 .popover {
   position: fixed;
@@ -14,7 +14,7 @@
 }
 
 .color-pickers {
-  border: .2rem solid currentColor;
+  border: 0.2rem solid currentColor;
   height: 1.4rem;
   margin: 0;
   padding: 0;

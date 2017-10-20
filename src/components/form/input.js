@@ -5,14 +5,13 @@ import "./input.scss"
 
 const NOOP = () => {}
 
-const Input = ({ label, name, onChange, placeholder, style, value, }) =>
+const Input = ({ label, name, onChange, placeholder, style, value, }) => (
   <div>
     <If condition={label.length > 0}>
-      <label htmlFor={name}>
-        {label}
-      </label>
+      <label htmlFor={name}>{label}</label>
     </If>
     <input
+      tabIndex="0"
       value={value}
       id={name}
       name={name}
@@ -24,6 +23,7 @@ const Input = ({ label, name, onChange, placeholder, style, value, }) =>
       type="text"
     />
   </div>
+)
 
 Input.propTypes = {
   label: PropTypes.string,

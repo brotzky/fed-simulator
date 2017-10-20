@@ -6,7 +6,7 @@ import "./generate-random.scss"
 
 const GenerateRandom = ({ onClick, color, }) => {
   return (
-    <a style={{ color, }} className="cursor-pointer medium-title" onClick={onClick}>
+    <a style={{ color, }} className="cursor-pointer medium-title" onKeyPress={onClick} onClick={onClick}>
       Auto Generate <i className="icon fa fa-angle-right" aria-hidden="true" />
     </a>
   )

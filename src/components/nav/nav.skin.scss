@@ -1,12 +1,12 @@
-@import 'src/stylesheets/z-index';
-@import 'src/stylesheets/breakpoints';
+@import "src/stylesheets/z-index";
+@import "src/stylesheets/breakpoints";
 
 $nav-font-weight: 100;
 $nav-font-size: small;
 $nav-link-color: currentColor;
 $nav-list-padding: 0;
-$nav-item-padding: .1rem;
-$nav-active-text-shadow: .15rem .15rem .15rem black;
+$nav-item-padding: 0.1rem;
+$nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
 
 .nav {
   margin: 0;

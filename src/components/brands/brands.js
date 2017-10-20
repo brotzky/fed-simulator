@@ -7,10 +7,11 @@ import "./brands.scss"
 
 const noop = () => {}
 
-const Brands = ({ style = {}, highlighted, onClick = noop, brands = [], }) =>
-  <div className="brands" style={style}>
-    {brands.map(brand => <Brand onClick={onClick} active={brand.id === highlighted} key={brand.id} {...brand} />)}
+const Brands = ({ style = {}, highlighted, onClick = noop, brands = [], }) => (
+  <div className="brands" tabIndex="0" style={style}>
+    {brands.map(brand => <Brand onKeyPress={onClick} onClick={onClick} active={brand.id === highlighted} key={brand.id} {...brand} />)}
   </div>
+)
 
 Brands.propTypes = {
   brands: PropTypes.array,

@@ -30,16 +30,14 @@ const EditWrestler = ({
   onGenderUpdate,
   onNameUpdate,
   points,
-}) =>
+}) => (
   <div className="manage-wrestler">
-    <h3>
-      {name}
-    </h3>
+    <h3 tabIndex="0">{name}</h3>
     <div className="row bottom-xs">
       <div className="col-xs">
         <div className="box">
           <label htmlFor="name">Brand</label>
-          <div className="brands">
+          <div tabIndex="0" className="brands">
             <Brands onClick={onBrandSelected} highlighted={brandId} brands={brands} />
           </div>
         </div>
@@ -49,23 +47,23 @@ const EditWrestler = ({
       <div className="col-xs">
         <div className="box">
           <label htmlFor="name">Championship</label>
-          <div className="championships">
-            <Brands onClick={onChampionshipSelected} highlighted={championshipId} brands={championships} />
+          <div tabIndex="0" className="championships">
+            <Brands onKeyPress={onChampionshipSelected} onClick={onChampionshipSelected} highlighted={championshipId} brands={championships} />
           </div>
         </div>
       </div>
     </div>
     <div className="row bottom-xs">
       <div className="col-xs">
-        <div className="box gender">
+        <div tabIndex="0" className="box gender">
           <label htmlFor="gender">Gender</label>
-          <Brands onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
+          <Brands onKeyPress={onGenderUpdate} onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
         </div>
       </div>
     </div>
     <div className="row bottom-xs">
       <div className="col-xs-12 col-lg-8">
-        <div className="box">
+        <div tabIndex="0" className="box">
           <label htmlFor="name">Name</label>
           <Input id="name" onChange={onNameUpdate} value={name} />
         </div>
@@ -78,14 +76,14 @@ const EditWrestler = ({
     </div>
     <div className="row bottom-xs">
       <div className="col-xs">
-        <div className="box">
+        <div tabIndex="0" className="box">
           <label htmlFor="points">Points</label>
           <Input id="points" onChange={onPointsUpdate} value={points} />
         </div>
       </div>
       <If condition={showDelete}>
         <div className="col-lg-4 col-xs-12">
-          <div className="box">
+          <div tabIndex="0" className="box">
             <Button classes="btn-delete" onClick={onDelete}>
               <i className="icon fa fa-trash" /> Delete wrestler
             </Button>
@@ -95,12 +93,13 @@ const EditWrestler = ({
       <If condition={!id}>
         <div className="col-lg-4 col-xs-12">
           <div className="box">
-            <Button classes="btn-create" onClick={onCreate} value="Create wrestler" />
+            <Button tabIndex="0" classes="btn-create" onKeyPress={onCreate} onClick={onCreate} value="Create wrestler" />
           </div>
         </div>
       </If>
     </div>
   </div>
+)
 
 EditWrestler.propTypes = {
   brandId: PropTypes.any,

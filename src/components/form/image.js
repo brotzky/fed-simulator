@@ -38,14 +38,9 @@ export default class Image extends React.Component {
     const { value, label, } = this.props
 
     return (
-      <Dropzone
-        className="image-dropzone dropzone"
-        multiple={false}
-        accept={"image/*"}
-        onDrop={this.onDrop}
-      >
+      <Dropzone className="image-dropzone dropzone" multiple={false} accept={"image/*"} onDrop={this.onDrop}>
         <div>
-          <label className="dropzone__label">
+          <label tabIndex="0" className="dropzone__label">
             {label}
           </label>
         </div>

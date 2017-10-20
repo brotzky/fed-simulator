@@ -15,14 +15,17 @@ const WelcomePage = ({ generateFederation = noop, }) => {
       <div className="row">
         <div className="col-xs-12 highlight grow">
           <div className="box">
-            <i className="icon fa fa-plus" /> <Link to="/name">I'll build this company from the ground up, dammit</Link>
+            <i className="icon fa fa-plus" />{" "}
+            <Link tabIndex="0" to="/name">
+              I'll build this company from the ground up, dammit
+            </Link>
           </div>
         </div>
       </div>
       <br />
       <div className="row">
         <div className="col-xs-12 highlight grow">
-          <div className="box" onClick={generateFederation}>
+          <div className="box" tabIndex="0" onClick={generateFederation}>
             <i className="icon fa fa-play" /> This is an invasion, create everything for me
           </div>
         </div>
@@ -32,10 +35,10 @@ const WelcomePage = ({ generateFederation = noop, }) => {
         <div className="col-xs-12 highlight shrink">
           <div className="box">
             <i className="icon fa fa-info-circle" />
-            <ul>
-              <li>Create and manage your roster</li>
-              <li>Manage your own touring schedule</li>
-              <li>Simulate random or created matches</li>
+            <ul tabIndex="0">
+              <li tabIndex="0">Create and manage your roster</li>
+              <li tabIndex="0">Manage your own touring schedule</li>
+              <li tabIndex="0">Simulate random or created matches</li>
             </ul>
           </div>
         </div>

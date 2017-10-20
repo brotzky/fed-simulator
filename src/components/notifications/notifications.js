@@ -5,18 +5,20 @@ import "./notifications.scss"
 
 const NOOP = () => {}
 
-const Notifications = ({ notifications, onDelete, onReset, style, limit, }) =>
+const Notifications = ({ notifications, onDelete, onReset, style, limit, }) => (
   <div className="notifications">
     <If condition={notifications.length > 0}>
       <h3>
-        <a onClick={onReset}>Clear All</a>
+        <a onKeyPress={onReset} onClick={onReset}>
+          Clear All
+        </a>
       </h3>
       <div className="notifications__list">
         {notifications.slice(0, limit).map(notification => {
           const { id, title, } = notification
           return (
             <div className="notification" style={style} key={id}>
-              <a data-id={id} onClick={() => onDelete(id)}>
+              <a data-id={id} onKeyPress={() => onDelete(id)} onClick={() => onDelete(id)}>
                 {title} <i className="icon fa fa-trash" />
               </a>
             </div>
@@ -25,6 +27,7 @@ const Notifications = ({ notifications, onDelete, onReset, style, limit, }) =>
       </div>
     </If>
   </div>
+)
 
 Notifications.propTypes = {
   limit: PropTypes.number,

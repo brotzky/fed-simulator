@@ -13,7 +13,7 @@ const AddBrand = ({ name, style, updateName, }) => {
   return (
     <div className="add-brand wrapper">
       <span className="icon fa fa-plus-circle" />
-      <Input placeholder={ADD_BRAND_ENTRY} style={style} type="text" value={name} onChange={updateName} />
+      <Input tabIndex="0" placeholder={ADD_BRAND_ENTRY} style={style} type="text" value={name} onChange={updateName} />
     </div>
   )
 }

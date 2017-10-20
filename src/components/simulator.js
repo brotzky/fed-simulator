@@ -47,7 +47,7 @@ class Simulator extends React.Component {
   render() {
     return null
     return (
-      <span className="cursor-pointer" onClick={this.onToggleSimulation}>
+      <span className="cursor-pointer" onKeyPress={this.onToggleSimulation} onClick={this.onToggleSimulation}>
         <Choose>
           <When condition={!this.state.active}>
             <i className="icon fa fa-play-circle" />

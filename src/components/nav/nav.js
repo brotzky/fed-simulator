@@ -16,11 +16,9 @@ const Nav = ({ backgroundColor = "black", activeUrl = "", color = "white", modif
         const { url, icon, title, } = item
         const isActive = activeUrl === url
         return (
-          <Link className={classNames("nav__item", { active: isActive, })} key={key} style={{ color, }} to={url}>
+          <Link tabIndex="0" className={classNames("nav__item", { active: isActive, })} key={key} style={{ color, }} to={url}>
             <div className={classNames("icon", "fa", `fa-${icon}`, "fa-1x")} style={style} />
-            <div>
-              {title}
-            </div>
+            <div>{title}</div>
           </Link>
         )
       })}

@@ -8,10 +8,10 @@ export function createMatch(payload) {
 }
 
 export function simulateRandomMatch() {
-	return {
-		type: types.SIMULATE_RANDOM_MATCH,
-		payload: null,
-	}
+  return {
+    type: types.SIMULATE_RANDOM_MATCH,
+    payload: null,
+  }
 }
 
 export function generateRandomMatches({ amountOfMatches = 50, roster = [], }) {

@@ -41,12 +41,7 @@ class ColorPickersContainer extends Component {
   render() {
     const { backgroundColor, color, } = this.props
     return (
-      <ColorPickers
-        backgroundColor={backgroundColor}
-        color={color}
-        onChangeBackgroundColor={this.onChangeBackgroundColor}
-        onChangeColor={this.onChangeColor}
-      />
+      <ColorPickers backgroundColor={backgroundColor} color={color} onChangeBackgroundColor={this.onChangeBackgroundColor} onChangeColor={this.onChangeColor} />
     )
   }
 }

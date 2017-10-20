@@ -29,7 +29,7 @@ export default class Team extends Component {
     )
 
     return (
-      <div data-teamId={teamId} className={teamClasses}>
+      <div tabIndex="0" data-teamId={teamId} className={teamClasses}>
         <Droppable types={["wrestler",]} onDrop={onDrop}>
           <div className="box dropzone">
             <Choose>
@@ -44,17 +44,22 @@ export default class Team extends Component {
                     <div className="wrestler" key={key} data-wrestlerId={wrestler.id}>
                       <span className="wrestler__name">
                         {wrestler.name}
-                        <sup>
-                          {wrestler.points}
-                        </sup>
+                        <sup>{wrestler.points}</sup>
                       </span>
                       &nbsp;
                       <span className="wrestler__icons">
-                        <i className={trophyClasses} title="Select the winner of the match" onClick={() => onSelectWinner(wrestler.id)} aria-hidden="true" />
+                        <i
+                          className={trophyClasses}
+                          title="Select the winner of the match"
+                          onKeyPress={() => onSelectWinner(wrestler.id)}
+                          onClick={() => onSelectWinner(wrestler.id)}
+                          aria-hidden="true"
+                        />
                         &nbsp;
                         <i
                           className="icon fa fa-trash"
                           title="Remove this wrestler from this match"
+                          onKeyPress={() => onRemoveWrestler(wrestler.id)}
                           onClick={() => onRemoveWrestler(wrestler.id)}
                           aria-hidden="true"
                         />

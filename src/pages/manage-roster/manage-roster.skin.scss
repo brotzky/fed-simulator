@@ -11,7 +11,7 @@ $manage-roster-font-size: large;
 
   .btn-create,
   .btn-delete {
-    padding: .7rem;
+    padding: 0.7rem;
   }
 
   label {
@@ -26,7 +26,7 @@ $manage-roster-font-size: large;
     padding: 0;
 
     label {
-      content: '';
+      content: "";
     }
 
     .avatar {

@@ -20,7 +20,7 @@ class Settings extends Component {
         <div className="row">
           <div className="col-xs-12">
             <div className="box" style={style}>
-              <a onClick={browserHistory.goBack}>
+              <a tabIndex="0" onClick={browserHistory.goBack}>
                 <i className="icon fa fa-arrow-left" />
                 &nbsp; Go back
               </a>
@@ -32,14 +32,16 @@ class Settings extends Component {
             </div>
             <br />
             <div className="box" style={style}>
-              <a onClick={this.onReset}>
+              <a tabIndex="0" onClick={this.onReset}>
                 <i className="icon fa fa-trash-o" />
                 &nbsp;Reset game
               </a>
             </div>
             <br />
             <div className="box" style={style}>
-              <Link to="name">Name your federation</Link>
+              <Link tabIndex="0" to="name">
+                Name your federation
+              </Link>
             </div>
           </div>
         </div>

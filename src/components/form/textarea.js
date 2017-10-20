@@ -10,6 +10,7 @@ const Textarea = ({ value = "", label = "", name = "", onChange = NOOP, placehol
     <div className="box">
       <label htmlFor={name}>{label}</label>
       <textarea
+        tabIndex="0"
         value={value}
         id={name}
         name={name}

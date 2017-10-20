@@ -17,11 +17,7 @@ export default compose(
     updateName: props => event => {
       props.updateName(event.target.value)
 
-      if (
-        event.key === "Enter" &&
-        props.name &&
-        props.name.length > minLengthForCreate
-      ) {
+      if (event.key === "Enter" && props.name && props.name.length > minLengthForCreate) {
         const hex = randomHex()
         const color = chromatism.contrastRatio(hex).hex
         props.createBrand({

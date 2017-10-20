@@ -26,9 +26,7 @@ class BrandingPage extends Component {
     const { style, name, } = this.props
     return (
       <section className="page branding">
-        <HeaderOne style={style}>
-          🏳️ What colours represent you {name}? 🏳️
-        </HeaderOne>
+        <HeaderOne style={style}>🏳️ What colours represent you {name}? 🏳️</HeaderOne>
         <div className="row">
           <div className="col-xs-6 col-lg-6 ">
             <div className="box text-center">

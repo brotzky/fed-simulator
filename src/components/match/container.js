@@ -13,7 +13,7 @@ class MatchContainer extends Component {
     const { currentMatch, } = this.props
 
     if (!currentMatch || !currentMatch.id) {
-      return null;
+      return null
     } else {
       return (
         <div className="match" data-matchId={currentMatch.id}>
