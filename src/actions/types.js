@@ -29,6 +29,12 @@ export const GENERATE_ROSTER = "GENERATE_ROSTER"
 export const CREATE_WRESTLER = "CREATE_WRESTLER"
 export const UPDATE_WRESTLER = "UPDATE_WRESTLER"
 
+// shows
+export const CREATE_SHOW = "CREATE_SHOW"
+export const UPDATE_SHOW = "UPDATE_SHOW"
+export const DELETE_SHOW = "DELETE_SHOW"
+export const RESET_SHOWS = "RESET_SHOWS"
+
 // matches
 export const CREATE_MATCH = "CREATE_MATCH"
 export const SELECT_WINNER_IN_MATCH = "SELECT_WINNER_IN_MATCH"
