@@ -1,7 +1,8 @@
-import { Record, List } from "immutable"
+import { Record } from "immutable"
 
 export const schema = {
   id: undefined,
+  championshipId: undefined,
   teamId: undefined,
   winner: false,
   loser: false,

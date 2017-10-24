@@ -5,7 +5,6 @@ export const schema = {
   brandId: undefined,
   championshipId: undefined,
   cost: 500,
-  damage: 100,
   image: "",
   losses: 0,
   male: true,

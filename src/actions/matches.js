@@ -10,7 +10,6 @@ export function createMatch(payload) {
 export function simulateRandomMatch() {
   return {
     type: types.SIMULATE_RANDOM_MATCH,
-    payload: null,
   }
 }
 
@@ -18,6 +17,13 @@ export function generateRandomMatches({ amountOfMatches = 50, roster = [], }) {
   return {
     type: types.GENERATE_RANDOM_MATCHES,
     payload: { amountOfMatches, roster, },
+  }
+}
+
+export function generateRandomMatch({ roster = [], }) {
+  return {
+    type: types.GENERATE_RANDOM_MATCHES,
+    payload: { amountOfMatches: 1, roster, },
   }
 }
 

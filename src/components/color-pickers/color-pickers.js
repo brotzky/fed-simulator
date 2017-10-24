@@ -13,7 +13,7 @@ const ColorPickers = ({ backgroundColor = "", color = "", onChangeBackgroundColo
       <ColorPicker tabIndex="0" onChange={onChangeBackgroundColor} />
     </div>
     <div className="col-xs-6 col" style={{ backgroundColor: color, }}>
-      <ColorPicker tabIndex="0" onChange={onChangeColor} />
+      <ColorPicker onChange={onChangeColor} />
     </div>
   </div>
 )

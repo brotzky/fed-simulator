@@ -1,65 +1,65 @@
 import React from "react"
 import { connect } from "react-redux"
+import PropTypes from "prop-types"
 
-import { simulateRandomMatch } from "../actions/roster"
-import { toggleSimulation } from "../actions/game"
+import { generateRandomMatch, simulateRandomMatch } from "../actions/matches"
 
-const TIME_PER_SIMULATED_MATCH = 200
+const NOOP = () => {}
 
 class Simulator extends React.Component {
-  static propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-  }
+  state = { active: false, }
 
-  displayName = "PageSecondary"
+  _intervalId = null
 
-  state = {
-    active: false,
-  }
+  onToggleActive = () => {
+    const { dispatch, roster, } = this.props
+    const active = !this.state.active
 
-  looper = () => {}
-
-  onToggleSimulation = () => {
-    this.props.dispatch(toggleSimulation())
     this.setState({
-      active: !this.state.active,
+      active,
     })
-  }
 
-  onSimulateMatches = () => {
-    this.looper = setInterval(() => {
-      this.props.dispatch(simulateRandomMatch())
-    }, TIME_PER_SIMULATED_MATCH)
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.active === false) {
-      clearInterval(this.looper)
+    if (active) {
+      this._intervalId = setInterval(() => {
+        dispatch(generateRandomMatch({ roster, }))
+        dispatch(simulateRandomMatch())
+      }, 2000)
     } else {
-      this.onSimulateMatches()
+      clearInterval(this._intervalId)
     }
   }
 
   componentWillUnmount() {
-    clearInterval(this.looper)
+    clearInterval(this._intervalId)
   }
 
   render() {
-    return null
+    const icon = !this.state.active ? "play-circle" : "stop-circle red"
+
     return (
-      <span className="cursor-pointer" onKeyPress={this.onToggleSimulation} onClick={this.onToggleSimulation}>
-        <Choose>
-          <When condition={!this.state.active}>
-            <i className="icon fa fa-play-circle" />
-          </When>
-          <Otherwise>
-            <i className="icon red fa fa-stop-circle" />
-          </Otherwise>
-        </Choose>{" "}
-        Auto Sim Matches
+      <span className="cursor-pointer" onKeyPress={this.onToggleActive} onClick={this.onToggleActive}>
+        <i className={`icon fa fa-${icon}`} /> Auto Sim Matches
       </span>
     )
   }
 }
 
-export default connect()(Simulator)
+Simulator.displayName = "PageSecondary"
+
+Simulator.propTypes = {
+  setInterval: PropTypes.func,
+  dispatch: PropTypes.func,
+  roster: PropTypes.array,
+  clearIntervals: PropTypes.func,
+}
+
+Simulator.defaultProps = {
+  setInterval: NOOP,
+  dispatch: NOOP,
+  roster: [],
+  clearIntervals: NOOP,
+}
+
+export default connect(state => ({
+  roster: state.roster,
+}))(Simulator)

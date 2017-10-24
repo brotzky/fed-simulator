@@ -26,7 +26,7 @@ const CreateAMatch = ({ onSimulateMatch, onReset, buttonText, winner, loser, onW
             <div className="box">
               <HeaderOne>
                 Create a match &nbsp;
-                <i className="icon fa fa-trash" onKeyPress={onReset} onClick={onReset} />&nbsp;
+                <i tabIndex="0" className="icon fa fa-trash" onKeyPress={onReset} onClick={onReset} />&nbsp;
                 <span className="medium-title">
                   <i className="icon fa fa-info-circle" /> Click or Drag wrestlers on teams
                 </span>

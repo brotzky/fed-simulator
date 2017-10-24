@@ -23,11 +23,9 @@ const Wrestler = ({ id, onClick, name, image, points, championshipId, canDrag, }
 
   return (
     <Draggable type="wrestler" enabled={canDrag} data={id}>
-      <div className={classes} data-id={id} onKeyPress={() => onClick(id)} onClick={() => onClick(id)}>
-        <span tabIndex="0" className="points">
-          {points}
-        </span>
-        <span tabIndex="0" className="name">
+      <div className={classes} data-id={id} tabIndex="0" onKeyPress={() => onClick(id)} onClick={() => onClick(id)}>
+        <span className="points">{points}</span>
+        <span className="name">
           {names.map((newName, key) => <div key={key}>{newName}</div>)}
           <If condition={hasOneName}>
             <div>&nbsp;</div>
