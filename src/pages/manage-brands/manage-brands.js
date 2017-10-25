@@ -1,9 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import ColorPickers from "../../components/color-pickers/color-pickers"
 import HeaderOne from "../../components/h1/h1"
-import Input from "../../components/form/input"
 import AddBrand from "../../components/add-brand/container.js"
 import Collection from "../../components/collection/brands.container"
 

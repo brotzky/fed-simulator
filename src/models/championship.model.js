@@ -6,6 +6,10 @@ export const schema = {
   current_champion: "",
   name: "",
   male: true,
+	style: {
+		backgroundColor: "#FFD700",
+		color: "black",
+	},
 }
 
 export const Championship = new Record(schema)

@@ -86,7 +86,7 @@ const Router = () => {
       <Route path="championships">
         <IndexRoute
           getComponent={(location, cb) => {
-            System.import("./pages/championships/championships")
+            System.import("./pages/championships/container")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}
