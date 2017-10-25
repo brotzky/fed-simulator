@@ -4,8 +4,9 @@ import { getId } from "../models/model.helper"
 import Model, { schema } from "../models/notification.model"
 
 export const NOTIFICATION_TYPES = {
-  CREATE_WRESTLER: "Created wrestler",
-  CREATE_BRAND: "Created brand",
+  CREATE_WRESTLER: "Created Wrestler",
+	CREATE_BRAND: "Created Brand",
+	CREATE_CHAMPIONSHIP: "Created Championship",
   TOGGLE_SIMULATION: "Toggled match simulation",
   UPDATE_STYLE: "Updated style",
 }

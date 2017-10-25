@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 import HeaderOne from "../../components/h1/h1"
-import AddBrand from "../../components/add-brand/container.js"
+import Create from "../../components/create/brand.container.js"
 import Collection from "../../components/collection/brands.container"
 
 import "./manage-brands.scss"
@@ -22,7 +22,7 @@ const ManageBrandsPage = ({ onClear = NOOP }) => {
         </span>
       </HeaderOne>
 			<Collection />
-      <AddBrand />
+      <Create />
     </section>
   )
 }

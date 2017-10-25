@@ -2,7 +2,7 @@ import { compose, withHandlers, withState } from "recompose"
 import { connect } from "react-redux"
 import chromatism from "chromatism"
 
-import AddBrand from "./add-brand"
+import Create from "./create"
 import { createBrand } from "../../actions/brands"
 
 const minLengthForCreate = 2
@@ -28,4 +28,4 @@ export default compose(
       }
     },
   })
-)(AddBrand)
+)(Create)
