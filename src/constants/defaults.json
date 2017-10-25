@@ -518,32 +518,44 @@
   ],
   "championships": [
     {
-      "name": "United States Championship",
-      "male": true
-    },
-    {
       "name": "Intercontinental Championship",
-      "male": true
+      "male": true,
+      "style": {
+        "color": "#ffffff",
+        "backgroundColor": "#a17f1a"
+      }
     },
     {
-      "name": "Tag Team Championship",
-      "male": true
+      "name": "Tag Team Championships",
+      "male": true,
+      "style": {
+        "color": "#ffffff",
+        "backgroundColor": "#285695"
+      }
     },
     {
       "name": "Cruiserweight Championship",
-      "male": true
-    },
-    {
-      "name": "Universal Championship",
-      "male": true
+      "male": true,
+      "style": {
+        "color": "white",
+        "backgroundColor": "#51378A"
+      }
     },
     {
       "name": "Heavyweight Championship",
-      "male": true
+      "male": true,
+      "style": {
+        "color": "white",
+        "backgroundColor": "#8F0015"
+      }
     },
     {
       "name": "Womens Championship",
-      "male": false
+      "male": false,
+      "style": {
+        "color": "#000000",
+        "backgroundColor": "#ffffff"
+      }
     }
   ]
 }
