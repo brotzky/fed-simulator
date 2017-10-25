@@ -1,0 +1,71 @@
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
+
+import { updateBrand, deleteBrand } from "../../actions/brands"
+import Collection from "./collection"
+
+class BrandsContainer extends Component {
+  onChangeName = (brand, event) => {
+    const { dispatch, } = this.props
+    const name = event.currentTarget.value
+
+    brand = Object.assign({}, brand, { name, })
+
+    dispatch(updateBrand(brand))
+  }
+
+  onChangeColor = (brand, color) => {
+    const { dispatch, } = this.props
+
+    brand.style.color = color
+
+    dispatch(updateBrand(brand))
+  }
+
+  onChangeBackgroundColor = (brand, color) => {
+    const { dispatch, } = this.props
+
+    brand.style.backgroundColor = color
+
+    dispatch(updateBrand(brand))
+  }
+
+  onDelete = id => {
+    const { dispatch, } = this.props
+
+    this.setState({
+      id: false,
+    })
+    dispatch(deleteBrand(id))
+  }
+
+  render() {
+    const { collection, style, brands } = this.props
+    return (
+      <Collection
+        onDelete={this.onDelete}
+        onChangeName={this.onChangeName}
+        onChangeColor={this.onChangeColor}
+        onChangeBackgroundColor={this.onChangeBackgroundColor}
+        canUpdateColors={true}
+        canUpdateBrand={false}
+        canUpdateGender={false}
+        canDelete={true}
+        canUpdateName={true}
+        collection={brands}
+        style={style}
+      />
+    )
+  }
+}
+
+BrandsContainer.propTypes = {
+  brands: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
+}
+
+export default connect(state => ({
+  brands: state.brands,
+  style: state.style,
+}))(BrandsContainer)
