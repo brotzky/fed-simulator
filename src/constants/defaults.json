@@ -518,11 +518,35 @@
   ],
   "championships": [
     {
-      "name": "Intercontinental Championship",
+      "name": "Heavyweight Championship",
       "male": true,
       "style": {
-        "color": "#ffffff",
-        "backgroundColor": "#a17f1a"
+        "color": "white",
+        "backgroundColor": "#1b1b1b"
+      }
+    },
+    {
+      "name": "Midweight Championship",
+      "male": true,
+      "style": {
+        "color": "black",
+        "backgroundColor": "#E4E2E3"
+      }
+    },
+    {
+      "name": "Lightweight Championship",
+      "male": true,
+      "style": {
+        "color": "white",
+        "backgroundColor": "#5A49CD"
+      }
+    },
+    {
+      "name": "Womens Championship",
+      "male": false,
+      "style": {
+        "color": "white",
+        "backgroundColor": "#1b1b1b"
       }
     },
     {
@@ -530,31 +554,7 @@
       "male": true,
       "style": {
         "color": "#ffffff",
-        "backgroundColor": "#285695"
-      }
-    },
-    {
-      "name": "Cruiserweight Championship",
-      "male": true,
-      "style": {
-        "color": "white",
-        "backgroundColor": "#51378A"
-      }
-    },
-    {
-      "name": "Heavyweight Championship",
-      "male": true,
-      "style": {
-        "color": "white",
-        "backgroundColor": "#8F0015"
-      }
-    },
-    {
-      "name": "Womens Championship",
-      "male": false,
-      "style": {
-        "color": "#000000",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#09b7be"
       }
     }
   ]

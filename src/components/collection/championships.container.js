@@ -5,12 +5,23 @@ import { connect } from "react-redux"
 import { updateChampionship, deleteChampionship } from "../../actions/champions"
 import Collection from "./collection"
 
+const NOOP = () => {}
+
 class ChampionshipsContainer extends Component {
   onChangeName = (championship, event) => {
     const { dispatch, } = this.props
     const name = event.currentTarget.value
 
     championship = Object.assign({}, championship, { name, })
+
+    dispatch(updateChampionship(championship))
+  }
+
+  onChangeGender = championship => {
+    const { dispatch, } = this.props
+    const male = !championship.male
+
+    championship = Object.assign({}, championship, { male, })
 
     dispatch(updateChampionship(championship))
   }
@@ -41,16 +52,17 @@ class ChampionshipsContainer extends Component {
   }
 
   render() {
-    const { collection, style, championships } = this.props
+    const { style, championships, } = this.props
     return (
       <Collection
         onDelete={this.onDelete}
         onChangeName={this.onChangeName}
+        onChangeGender={this.onChangeGender}
         onChangeColor={this.onChangeColor}
         onChangeBackgroundColor={this.onChangeBackgroundColor}
         canUpdateColors={true}
         canUpdateBrand={false}
-        canUpdateGender={false}
+        canUpdateGender={true}
         canDelete={true}
         canUpdateName={true}
         collection={championships}
@@ -61,8 +73,17 @@ class ChampionshipsContainer extends Component {
 }
 
 ChampionshipsContainer.propTypes = {
-  championships: PropTypes.array.isRequired,
+  championships: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
+  collection: PropTypes.array,
+  style: PropTypes.object,
+}
+
+ChampionshipsContainer.defaultProps = {
+  championships: [],
+  dispatch: NOOP,
+  collection: [],
+  style: {},
 }
 
 export default connect(state => ({

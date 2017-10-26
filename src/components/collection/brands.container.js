@@ -5,6 +5,8 @@ import { connect } from "react-redux"
 import { updateBrand, deleteBrand } from "../../actions/brands"
 import Collection from "./collection"
 
+const NOOP = () => {}
+
 class BrandsContainer extends Component {
   onChangeName = (brand, event) => {
     const { dispatch, } = this.props
@@ -41,7 +43,7 @@ class BrandsContainer extends Component {
   }
 
   render() {
-    const { collection, style, brands } = this.props
+    const { style, brands, } = this.props
     return (
       <Collection
         onDelete={this.onDelete}
@@ -60,9 +62,18 @@ class BrandsContainer extends Component {
   }
 }
 
+BrandsContainer.defaultProps = {
+  brands: [],
+  dispatch: NOOP,
+  collection: [],
+  style: {},
+}
+
 BrandsContainer.propTypes = {
-  brands: PropTypes.array.isRequired,
+  brands: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
+  collection: PropTypes.array,
+  style: PropTypes.object,
 }
 
 export default connect(state => ({

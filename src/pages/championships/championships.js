@@ -9,7 +9,7 @@ import "./championships.scss"
 
 const NOOP = () => {}
 
-const Championships = ({ onClear = NOOP }) => {
+const Championships = ({ onClear = NOOP, }) => {
   return (
     <section className="page manage-championships">
       <HeaderOne>
@@ -21,7 +21,7 @@ const Championships = ({ onClear = NOOP }) => {
           <i className="icon fa fa-info-circle" /> Type inline to update a championship
         </span>
       </HeaderOne>
-			<Collection />
+      <Collection />
       <Create />
     </section>
   )

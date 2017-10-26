@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Droppable } from "react-drag-and-drop"
 
 import Wrestler from "./wrestler"
+import GenderIcon from "../icons/gender"
 
 import "./wrestlers.scss"
 import "./wrestlers.skin.scss"
@@ -26,7 +27,6 @@ const Wrestlers = ({
   toggleOrder = NOOP,
   toggleOrderBy = NOOP,
 }) => {
-  const gender = male ? "male" : "female"
   const direction = order ? "desc" : "asc"
   const sortBy = orderBy ? "alpha" : "numeric"
   const brandless = noBrand ? "eye-slash" : "eye"
@@ -35,9 +35,7 @@ const Wrestlers = ({
       <div tabIndex="0" className="wrestlers-wrapper" style={style}>
         <If condition={showFilter}>
           <div className="filters">
-            <a tabIndex="0" onKeyPress={toggleGender} onClick={toggleGender}>
-              <i className={`icon fa fa-${gender}`} />
-            </a>
+            <GenderIcon gender={male} onClick={toggleGender} />
             <a tabIndex="0" onKeyPress={toggleOrderBy} onClick={toggleOrderBy}>
               <i className={`icon fa fa-sort-${sortBy}-${direction}`} />
             </a>
