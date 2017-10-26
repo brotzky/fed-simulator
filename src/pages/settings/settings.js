@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 import { browserHistory } from "react-router"
 import { Link } from "react-router"
+import chromatism from "chromatism"
 
 import ColorPickers from "../../components/color-pickers/container"
 import { reset } from "../../actions/game"
@@ -13,6 +14,12 @@ import "./settings.scss"
 class Settings extends Component {
   render() {
     const { style, } = this.props
+    const reduceBrightness = amount => {
+      return {
+        color: style.color,
+        backgroundColor: chromatism.brightness(amount, style.backgroundColor).hex,
+      }
+    }
 
     return (
       <section className="page settings">
@@ -25,20 +32,16 @@ class Settings extends Component {
                 &nbsp; Go back
               </a>
             </div>
-            <br />
-            <div className="box" style={style}>
-              <i className="icon fa fa-paint-brush" />
+            <div className="box" style={reduceBrightness(4)}>
               <ColorPickers />
             </div>
-            <br />
-            <div className="box" style={style}>
+            <div className="box" style={reduceBrightness(10)}>
               <a tabIndex="0" onClick={this.onReset}>
                 <i className="icon fa fa-trash-o" />
                 &nbsp;Reset game
               </a>
             </div>
-            <br />
-            <div className="box" style={style}>
+            <div className="box" style={reduceBrightness(16)}>
               <Link tabIndex="0" to="name">
                 Name your federation
               </Link>
