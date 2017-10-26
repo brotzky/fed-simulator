@@ -6,6 +6,8 @@ import Wrestlers from "../../components/wrestlers/container"
 import Brand from "../../components/brand/brand"
 import Create from "../../components/create/brand.container"
 
+import { ADD_BRAND_ENTRY } from "../../constants/confirmations"
+
 import "./draft.scss"
 
 const defaultBrand = {
@@ -24,7 +26,7 @@ const DraftPage = ({ brands = [], style = {}, }) => {
         </span>
       </HeaderOne>
       <If condition={brands.length === 0}>
-        <AddBrand />
+        <Create placeholder={ADD_BRAND_ENTRY} />
       </If>
       <If condition={brands.length > 0}>
         <div className="brands">
