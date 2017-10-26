@@ -24,18 +24,35 @@ const defaultCollection = [
 ]
 let testProps = {
 	canUpdateColors: false,
-  onChangeBackgroundColor: sinon.spy(),
-  onChangeColor: sinon.spy(),
-  canUpdateName: false,
-  onChangeName: sinon.spy(),
-  canUpdateBrand: false,
-  onChangeBrand: sinon.spy(),
-  canUpdateGender: false,
-  onChangeGender: sinon.spy(),
-  canDelete: false,
-  onDelete: sinon.spy(),
   brands: [],
+  canDelete: false,
+  canUpdateBrand: false,
+  canUpdateGender: false,
+  canUpdateName: false,
   collection: defaultCollection,
+  onChangeBackgroundColor: sinon.spy(),
+  onChangeBrand: sinon.spy(),
+  onChangeColor: sinon.spy(),
+  onChangeGender: sinon.spy(),
+  onChangeName: sinon.spy(),
+  onDelete: sinon.spy(),
+}
+
+const getValuesTrueFor = (key, oldProps) => {
+  let newProps = {
+    canDelete: false,
+    canUpdateName: false,
+    canUpdateGender: false,
+    canUpdateColors: false,
+    canUpdateBrand: false,
+    collection: [ defaultCollection[0] ],
+  }
+
+  if (newProps[key] !== undefined) {
+    newProps[key] = true
+  }
+
+  return Object.assign({}, oldProps, newProps)
 }
 
 describe('Given the Collection component', () => {
@@ -118,17 +135,7 @@ describe('Given the Collection component', () => {
   })
 
   describe('and delete is enabled', () => {
-    before(() => {
-      const changedProps = {
-        canDelete: true,
-        canUpdateName: false,
-        canUpdateGender: false,
-        canUpdateColors: false,
-        canUpdateBrand: false,
-        collection: [ defaultCollection[0] ]
-      }
-      testProps = Object.assign({}, testProps, changedProps)
-    })
+    before(() => testProps = getValuesTrueFor('canDelete', testProps))
 
     it('should show the delete icon', () => {
       expect(component.find('.fa-trash-o')).to.have.length(1)
