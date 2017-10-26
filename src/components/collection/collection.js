@@ -59,7 +59,7 @@ const Collection = ({
             <If condition={canDelete}>
               <div className="col-xs">
                 <div className="box">
-                  <a onClick={() => onDelete(item.id)}>
+                  <a className="delete" onClick={() => onDelete(item.id)}>
                     <span className="icon fa fa-trash-o fa-md" />
                   </a>
                 </div>
