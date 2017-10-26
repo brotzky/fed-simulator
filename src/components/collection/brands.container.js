@@ -57,6 +57,7 @@ class BrandsContainer extends Component {
         canUpdateName={true}
         collection={brands}
         style={style}
+        tabIndex="0"
       />
     )
   }

@@ -526,6 +526,14 @@
       }
     },
     {
+      "name": "Womens Championship",
+      "male": false,
+      "style": {
+        "color": "white",
+        "backgroundColor": "#4a4a4a"
+      }
+    },
+    {
       "name": "Midweight Championship",
       "male": true,
       "style": {
@@ -539,14 +547,6 @@
       "style": {
         "color": "white",
         "backgroundColor": "#5A49CD"
-      }
-    },
-    {
-      "name": "Womens Championship",
-      "male": false,
-      "style": {
-        "color": "white",
-        "backgroundColor": "#1b1b1b"
       }
     },
     {
