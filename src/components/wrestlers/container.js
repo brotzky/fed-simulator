@@ -36,7 +36,7 @@ export default compose(
     }
 
     if (noBrand) {
-      newRoster = newRoster.filter(wrestler => wrestler.brandId === null)
+      newRoster = newRoster.filter(wrestler => !wrestler.brandId)
     }
 
     if (brandId) {
