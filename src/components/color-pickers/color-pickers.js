@@ -9,10 +9,10 @@ const NOOP = () => {}
 
 const ColorPickers = ({ backgroundColor = "", color = "", onChangeBackgroundColor = NOOP, onChangeColor = NOOP, }) => (
   <div className="row around-xs cursor-pointer color-pickers">
-    <div className="col-xs-6 col" style={{ backgroundColor, }}>
+    <div className="col-xs-6 col background-color" style={{ backgroundColor, }}>
       <ColorPicker tabIndex="0" onChange={onChangeBackgroundColor} />
     </div>
-    <div className="col-xs-6 col" style={{ backgroundColor: color, }}>
+    <div className="col-xs-6 col color" style={{ backgroundColor: color, }}>
       <ColorPicker onChange={onChangeColor} />
     </div>
   </div>
