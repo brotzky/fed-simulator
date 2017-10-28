@@ -1,4 +1,4 @@
-$dropzone-border: .08rem dashed rgba(255, 255, 255, 0.23);
+$dropzone-border: 0.08rem solid rgba(255, 255, 255, 0.23);
 
 .dropzone {
   align-items: center;
@@ -8,6 +8,6 @@ $dropzone-border: .08rem dashed rgba(255, 255, 255, 0.23);
   min-height: 3.5rem;
 
   h3 {
-    margin: .5rem;
+    margin: 0.5rem;
   }
 }
