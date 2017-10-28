@@ -10,6 +10,7 @@ const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeM
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin")
 const getClientEnvironment = require("./env")
 const paths = require("./paths")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 const publicPath = "/"
 
@@ -41,7 +42,15 @@ module.exports = {
     alias: {
       "react-native": "react-native-web",
     },
-    plugins: [new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson,]),],
+    plugins: [
+      new CopyWebpackPlugin([
+        {
+          from: paths.appPublic,
+          to: "static/",
+        },
+      ]),
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson,]),
+    ],
   },
   module: {
     strictExportPresence: true,
