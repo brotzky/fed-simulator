@@ -5,9 +5,8 @@
   flex-wrap: inherit;
 
   .brand {
-    flex: auto;
+    flex: 1 0;
     height: 100vh;
-    min-width: 25%;
     overflow: hidden;
     padding: 0;
     text-align: center;
