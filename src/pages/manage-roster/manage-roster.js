@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 import HeaderOne from "../../components/h1/h1"
 import Wrestlers from "../../components/wrestlers/container"
+import Collection from "../../components/collection/wrestlers.container"
 import AddWrestler from "../../components/manage-wrestler/create.container"
 import EditWrestler from "../../components/manage-wrestler/update.container"
 import "./manage-roster.structure.scss"
@@ -10,28 +11,23 @@ import "./manage-roster.skin.scss"
 
 const NOOP = () => {}
 
-const UpdateWrestlersPage = ({ showWrestlersFilters, openAddWrestler, addingWrestler, currentWrestler, onClick, style, }) => {
-  const hasPane = addingWrestler || currentWrestler
+const UpdateWrestlersPage = ({ onToggleListView, listView, showWrestlersFilters, onToggleCreating, creating, currentWrestler, onClick, style, }) => {
+  const hasPane = creating || currentWrestler
   const col = hasPane ? "col-lg-6 col-md-6 col-sm-12 col-xs-12" : "col-lg-12 col-md-12 col-sm-12 col-xs-12"
-
   return (
     <div className="page manage-roster">
       <HeaderOne>
-        Manage Roster <i className="icon fa fa-plus-circle green" onClick={openAddWrestler} />{" "}
+        Manage Roster <i className="icon fa fa-plus-circle green" onClick={onToggleCreating} onKeyPress={onToggleCreating} tabIndex="0" />{" "}
+        <i className="icon fa fa-list" onClick={onToggleListView} onKeyPress={onToggleListView} tabIndex="0" />{" "}
         <span className="medium-title">
           <i className="icon fa fa-info-circle" /> Click a wrestler to edit them
         </span>
       </HeaderOne>
       <div className="row">
-        <div className={col}>
-          <div className="box">
-            <Wrestlers style={style} onClick={onClick} showFilter={showWrestlersFilters} />
-          </div>
-        </div>
         <If condition={hasPane}>
           <div className={col}>
             <div className="box">
-              <If condition={addingWrestler}>
+              <If condition={creating}>
                 <AddWrestler />
               </If>
               <If condition={currentWrestler}>
@@ -40,25 +36,38 @@ const UpdateWrestlersPage = ({ showWrestlersFilters, openAddWrestler, addingWres
             </div>
           </div>
         </If>
+        <div className={col}>
+          <Choose>
+            <When condition={!listView}>
+              <Wrestlers style={style} onClick={onClick} showFilter={showWrestlersFilters} />
+            </When>
+            <Otherwise>
+              <Collection />
+            </Otherwise>
+          </Choose>
+        </div>
       </div>
     </div>
   )
 }
 
 UpdateWrestlersPage.propTypes = {
-  addingWrestler: PropTypes.bool,
+  creating: PropTypes.bool,
   currentWrestler: PropTypes.object,
   onClick: PropTypes.func,
-  openAddWrestler: PropTypes.func,
+  listView: PropTypes.bool,
+  onToggleCreating: PropTypes.func,
+  onToggleListView: PropTypes.func,
   showWrestlersFilters: PropTypes.bool,
   style: PropTypes.object,
 }
 
 UpdateWrestlersPage.defaultProps = {
-  addingWrestler: false,
+  creating: false,
   currentWrestler: null,
+  listView: false,
   onClick: NOOP,
-  openAddWrestler: NOOP,
+  onToggleCreating: NOOP,
   showWrestlersFilters: true,
   style: {},
 }

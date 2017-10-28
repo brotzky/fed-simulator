@@ -1,4 +1,4 @@
-import { compose, withState, withProps, withHandlers } from "recompose"
+import { compose, withProps, withStateHandlers } from "recompose"
 import { connect } from "react-redux"
 
 import ManageRoster from "./manage-roster"
@@ -13,18 +13,24 @@ const propsMapper = props => {
 }
 
 export default compose(
-  withState("id", "setId", false),
-  withState("addingWrestler", "setAdd", false),
-  withHandlers({
-    onClick: ({ setId, setAdd, }) => wrestlerId => {
-      setAdd(false)
-      setId(wrestlerId)
-    },
-    openAddWrestler: ({ setAdd, addingWrestler, setId, }) => () => {
-      setAdd(!addingWrestler)
-      setId(null)
-    },
-  }),
+  withStateHandlers(
+    { id: false, creating: false, listView: false, },
+    {
+      onToggleCreating: ({ creating, }) => () => ({
+        creating: !creating,
+      }),
+      onSetId: ({ id, }) => () => ({
+        id: id,
+      }),
+      onToggleListView: ({ listView, }) => () => ({
+        listView: !listView,
+      }),
+      onClick: () => id => ({
+        creating: false,
+        id,
+      }),
+    }
+  ),
   connect(state => ({
     roster: state.roster,
     style: state.style,
