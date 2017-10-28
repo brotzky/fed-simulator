@@ -18,6 +18,7 @@ export default compose(
     {
       onToggleCreating: ({ creating, }) => () => ({
         creating: !creating,
+        id: false,
       }),
       onSetId: ({ id, }) => () => ({
         id: id,
