@@ -48,7 +48,12 @@ const EditWrestler = ({
         <div className="box">
           <label htmlFor="name">Championship</label>
           <div tabIndex="0" className="championships">
-            <Brands onKeyPress={onChampionshipSelected} onClick={onChampionshipSelected} highlighted={championshipId} brands={championships} />
+            <Brands
+              onKeyPress={onChampionshipSelected}
+              onClick={onChampionshipSelected}
+              highlighted={championshipId}
+              brands={championships.filter(item => item.male === male)}
+            />
           </div>
         </div>
       </div>
