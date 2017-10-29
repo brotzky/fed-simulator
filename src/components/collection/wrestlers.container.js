@@ -24,6 +24,15 @@ class WrestlersContainer extends Component {
     dispatch(updateWrestler(wrestler))
   }
 
+  onChangeBrand = (wrestler, event) => {
+    const { dispatch, } = this.props
+    const brandId = event.currentTarget.value
+
+    wrestler = Object.assign({}, wrestler, { brandId, })
+
+    dispatch(updateWrestler(wrestler))
+  }
+
   onChangeGender = wrestler => {
     const { dispatch, } = this.props
     const male = !wrestler.male
@@ -44,16 +53,16 @@ class WrestlersContainer extends Component {
 
   clean = (roster, style) => {
     let x = 0
-    return roster.map(item => {
+    return (roster = roster.map(item => {
       x++
       let amount = x + 1
       item.style = shade(amount, style)
       return item
-    })
+    }))
   }
 
   render() {
-    let { style, roster, } = this.props
+    let { style, roster, brands, } = this.props
 
     return (
       <Collection
@@ -62,6 +71,8 @@ class WrestlersContainer extends Component {
         onChangeColor={this.onChangeColor}
         onChangeGender={this.onChangeGender}
         onChangeBackgroundColor={this.onChangeBackgroundColor}
+        onChangeBrand={this.onChangeBrand}
+        brands={brands}
         canUpdateColors={false}
         canUpdateBrand={true}
         canUpdateGender={true}
@@ -75,20 +86,23 @@ class WrestlersContainer extends Component {
 }
 
 WrestlersContainer.defaultProps = {
-  roster: [],
-  dispatch: NOOP,
+  brands: [],
   collection: [],
+  dispatch: NOOP,
+  roster: [],
   style: {},
 }
 
 WrestlersContainer.propTypes = {
-  roster: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
+  brands: PropTypes.array,
   collection: PropTypes.array,
+  dispatch: PropTypes.func.isRequired,
+  roster: PropTypes.array,
   style: PropTypes.object,
 }
 
 export default connect(state => ({
+  brands: state.brands,
   roster: state.roster,
   style: state.style,
 }))(WrestlersContainer)

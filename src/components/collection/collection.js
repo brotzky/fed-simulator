@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 import ColorPickers from "../color-pickers/color-pickers"
 import GenderIcon from "../icons/gender"
+import Select from "../form/select"
 import Input from "../form/input"
 
 const NOOP = () => {}
@@ -32,21 +33,28 @@ const Collection = ({
         return (
           <div key={item.id} className="item row middle-xs" style={style}>
             <If condition={canUpdateName}>
-              <div className="col-xs-10">
+              <div className="col-xs-5 start-xs">
                 <div className="box">
                   <Input style={style} value={item.name} onChange={event => onChangeName(item, event)} />
                 </div>
               </div>
             </If>
             <If condition={canUpdateGender}>
-              <div className="col-xs">
+              <div className="col-xs end-xs">
                 <div className="box">
                   <GenderIcon gender={item.male} onClick={event => onChangeGender(item, event)} />
                 </div>
               </div>
             </If>
+            <If condition={canUpdateBrand}>
+              <div className="col-xs end-xs">
+                <div className="box">
+                  <Select options={brands} value={item.brandId} onChange={event => onChangeBrand(item, event)} />
+                </div>
+              </div>
+            </If>
             <If condition={canUpdateColors}>
-              <div className="col-xs">
+              <div className="col-xs end-xs">
                 <div className="box">
                   <ColorPickers
                     onChangeColor={event => onChangeColor(item, event)}
@@ -57,7 +65,7 @@ const Collection = ({
               </div>
             </If>
             <If condition={canDelete}>
-              <div className="col-xs">
+              <div className="col-xs end-xs">
                 <div className="box">
                   <a className="delete" onClick={() => onDelete(item.id)}>
                     <span className="icon fa fa-trash-o fa-md" />

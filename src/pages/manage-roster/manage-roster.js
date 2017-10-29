@@ -33,6 +33,7 @@ const UpdateWrestlersPage = ({ onToggleListView, listView, showWrestlersFilters,
               <If condition={currentWrestler}>
                 <EditWrestler {...currentWrestler} />
               </If>
+              <br />
             </div>
           </div>
         </If>
