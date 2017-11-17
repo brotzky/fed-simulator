@@ -7,22 +7,16 @@ export function update(item) {
   }
 }
 
-export function create(item) {
+export function createShow(item) {
   return {
     type: types.CREATE_SHOW,
     payload: item,
   }
 }
 
-export function delete(id) {
+export function deleteShow(id) {
   return {
     type: types.DELETE_SHOW,
     payload: id,
-  }
-}
-
-export function reset() {
-  return {
-    type: types.RESET,
   }
 }

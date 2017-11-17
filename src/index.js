@@ -4,8 +4,6 @@ import Root from "./root"
 import FastClick from "fastclick"
 import ReactDOM from "react-dom"
 
-import Error from "./components/error"
-
 const rootEl = document.getElementById("root")
 
 export const App = (
@@ -14,25 +12,5 @@ export const App = (
   </AppContainer>
 )
 
-try {
-  ReactDOM.render(App, rootEl)
-  FastClick.attach(rootEl)
-  if (module.hot) {
-    module.hot.accept("./root", () => {
-      const NextApp = require("./root").default // eslint-disable-line
-      ReactDOM.render(
-        <AppContainer>
-          <NextApp />
-        </AppContainer>,
-        rootEl
-      )
-    })
-  }
-} catch (err) {
-  ReactDOM.render(
-    <AppContainer>
-      <Error {...err} />
-    </AppContainer>,
-    rootEl
-  )
-}
+ReactDOM.render(App, rootEl)
+FastClick.attach(rootEl)

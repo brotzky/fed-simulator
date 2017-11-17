@@ -6,21 +6,9 @@ export function generateFederation() {
   }
 }
 
-export function toggleSimulation() {
-  return {
-    type: types.TOGGLE_SIMULATION,
-  }
-}
-
 export function toggleStarted() {
   return {
     type: types.TOGGLE_STARTED,
-  }
-}
-
-export function toggleAnimations() {
-  return {
-    type: types.TOGGLE_ANIMATIONS,
   }
 }
 
@@ -31,14 +19,8 @@ export function updateName(name) {
   }
 }
 
-export function reset() {
+export function resetAll() {
   return {
     type: types.RESET,
-  }
-}
-
-export function resetGame() {
-  return {
-    type: types.RESET_GAME,
   }
 }

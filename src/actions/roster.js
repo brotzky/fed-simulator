@@ -27,8 +27,8 @@ export function deleteWrestler(id) {
   }
 }
 
-export function reset() {
+export function resetRoster() {
   return {
-    type: types.RESET,
+    type: types.RESET_ROSTER,
   }
 }

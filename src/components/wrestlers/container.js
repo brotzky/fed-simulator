@@ -1,51 +1,49 @@
-import { compose, withState, withProps, withHandlers } from "recompose"
+import PropTypes from "prop-types"
+import { compose, withHandlers, setPropTypes, withProps } from "recompose"
 import { connect } from "react-redux"
-import sortBy from "lodash/sortBy"
-import { updateWrestler } from "../../actions/roster"
 
+import { updateWrestler } from "../../actions/roster"
 import Wrestlers from "./wrestlers"
 
-export default compose(
-  connect(state => ({
-    roster: state.roster,
-  })),
-  withState("noBrand", "toggleBrandless", false),
-  withState("male", "toggleGender", true),
-  withState("orderBy", "toggleOrderBy", true),
-  withState("order", "toggleOrder", true),
-  withHandlers({
-    onDrop: props => drop => {
-      props.dispatch(updateWrestler({ brandId: props.brandId, id: drop.wrestler, }))
-    },
-    toggleBrandless: ({ toggleBrandless, noBrand, }) => () => toggleBrandless(!noBrand),
-    toggleGender: ({ toggleGender, male, }) => () => toggleGender(!male),
-    toggleOrderBy: ({ toggleOrderBy, orderBy, }) => () => toggleOrderBy(!orderBy),
-    toggleOrder: ({ toggleOrder, order, }) => () => toggleOrder(!order),
-  }),
-  withProps(props => {
-    const { roster, order, male, orderBy, brandId, noBrand, } = props
-    const orderByField = orderBy ? "points" : "name"
+export const mappedPropTypes = {
+  brandId: PropTypes.oneOfType([PropTypes.null, PropTypes.string]),
+  collection: PropTypes.array,
+  onDrop: PropTypes.func,
+  onClick: PropTypes.func,
+  canDrag: PropTypes.bool,
+  withFilter: PropTypes.bool,
+}
 
-    let newRoster = Object.assign([], roster)
+export const handlers = {
+  onDrop: props => drop => {
+    const brandId = props.brandId || null
+    const id = drop.wrestler
 
-    newRoster = sortBy(newRoster, orderByField)
-    newRoster = newRoster.filter(wrestler => wrestler.male === male)
+    props.dispatch(updateWrestler({ brandId, id }))
+  },
+}
 
-    if (order) {
-      newRoster = newRoster.reverse()
-    }
+export const propsMapper = props => {
+  let newRoster = Object.assign([], props.collection)
 
-    if (noBrand) {
-      newRoster = newRoster.filter(wrestler => wrestler.brandId === null)
-    }
+  if (props.brandId) {
+    newRoster = newRoster.filter(item => item.brandId === props.brandId)
+  }
 
-    if (brandId) {
-      newRoster = newRoster.filter(wrestler => wrestler.brandId === brandId)
-    }
+  return {
+    collection: newRoster,
+  }
+}
 
-    return {
-      ...props,
-      roster: newRoster,
-    }
-  })
-)(Wrestlers)
+export const defaultStoreState = state => ({
+  collection: state.roster,
+})
+
+export const enhance = compose(
+  connect(defaultStoreState),
+  withHandlers(handlers),
+  setPropTypes(mappedPropTypes),
+  withProps(propsMapper)
+)
+
+export default enhance(Wrestlers)

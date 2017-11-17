@@ -1,6 +1,6 @@
 $manage-roster-font-size: large;
 
-.page.manage-roster {
+.page.roster {
   font-size: $manage-roster-font-size;
 
   input {
@@ -16,22 +16,5 @@ $manage-roster-font-size: large;
 
   label {
     margin: 1rem 0 0;
-  }
-
-  .dropzone {
-    border: 0;
-    color: #666;
-
-    margin: 0;
-    padding: 0;
-
-    label {
-      content: "";
-    }
-
-    .avatar {
-      height: 3rem;
-      width: 3rem;
-    }
   }
 }

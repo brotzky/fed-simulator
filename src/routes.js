@@ -47,19 +47,19 @@ const Router = () => {
           }}
         />
       </Route>
-      <Route path="manage-roster">
+      <Route path="roster">
         <IndexRoute
           getComponent={(location, cb) => {
-            System.import("./pages/manage-roster/container")
+            System.import("./pages/roster/container")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}
         />
       </Route>
-      <Route path="manage-brands">
+      <Route path="brands">
         <IndexRoute
           getComponent={(location, cb) => {
-            System.import("./pages/manage-brands/container")
+            System.import("./pages/brands/container")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}
@@ -86,7 +86,7 @@ const Router = () => {
       <Route path="championships">
         <IndexRoute
           getComponent={(location, cb) => {
-            System.import("./pages/championships/championships")
+            System.import("./pages/championships/container")
               .then(loadRoute(cb))
               .catch(errorLoading)
           }}

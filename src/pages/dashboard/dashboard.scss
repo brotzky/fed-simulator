@@ -2,4 +2,8 @@ $dashboard-font-size: large;
 
 .page.dashboard {
   font-size: $dashboard-font-size;
+
+  .wrestlers {
+    min-height: auto;
+  }
 }

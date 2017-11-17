@@ -15,7 +15,7 @@ export default (state, action) => {
       break
     case "GENERATE":
     case "GENERATE_BRANDS":
-      state = List(brands.map(item => new Model(item).merge({ id: getId(), })))
+      state = List(brands.map(item => new Model(item)))
       break
     case "CREATE_BRAND":
       state = state.push(new Model(action.payload).merge({ id: getId(), }))

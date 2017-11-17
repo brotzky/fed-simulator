@@ -3,39 +3,42 @@ import classNames from "classnames"
 import { Link } from "react-router"
 import PropTypes from "prop-types"
 
-const NOOP = () => {}
+import { Icon } from "../icons"
 
-import "./nav.skin.scss"
-import "./nav.structure.scss"
+import "./nav.scss"
 
-const Nav = ({ backgroundColor = "black", activeUrl = "", color = "white", modifier = "", links = [], }) => {
-  const style = { backgroundColor, color, }
+const Nav = ({ backgroundColor = "black", name = "Fed Simulator", activeUrl = "", color = "white", links = [] }) => {
+  const style = { backgroundColor, color }
   return (
-    <nav style={style} className={`nav ${modifier}`}>
-      {links.map((item, key) => {
-        const { url, icon, title, } = item
-        const isActive = activeUrl === url
-        return (
-          <Link tabIndex="0" className={classNames("nav__item", { active: isActive, })} key={key} style={{ color, }} to={url}>
-            <div className={classNames("icon", "fa", `fa-${icon}`, "fa-1x")} style={style} />
-            <div>{title}</div>
-          </Link>
-        )
-      })}
+    <nav className="nav" style={style}>
+      <div className="nav-left">
+        <span className="nav-item">{name}</span>
+      </div>
+      <label htmlFor="menu-toggle" className="nav-toggle">
+        &equiv;
+      </label>
+      <input type="checkbox" id="menu-toggle" className="is-hidden" />
+      <div className="nav-right nav-menu" style={style}>
+        {links.map((item, key) => {
+          const { url, icon, title } = item
+          const isActive = activeUrl === url
+          return (
+            <Link className={classNames("nav-item", "pointer", { active: isActive })} key={key} style={{ color }} to={url}>
+              <Icon icon={icon} style={style} tabIndex={-1} />&nbsp;
+              <div tabIndex="1">{title}</div>
+            </Link>
+          )
+        })}
+      </div>
     </nav>
   )
 }
 
 Nav.propTypes = {
-  activeUrl: PropTypes.any.isRequired,
-  backgroundColor: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  activeUrl: PropTypes.any,
+  backgroundColor: PropTypes.string,
+  color: PropTypes.string,
   links: PropTypes.array,
-  modifier: PropTypes.string,
-}
-
-Nav.defaultProps = {
-  onClickBurger: NOOP,
 }
 
 export default Nav

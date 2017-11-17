@@ -13,6 +13,26 @@ export function createChampionship(championship) {
   }
 }
 
+export function awardChampionship({ id, wrestlerId, }) {
+  return {
+    type: types.AWARD_CHAMPIONSHIP,
+    payload: { id, wrestlerId, },
+  }
+}
+
+export function stripChampionship({ id, wrestlerId, }) {
+  return {
+    type: types.STRIP_CHAMPIONSHIP,
+    payload: { id, wrestlerId, },
+  }
+}
+
+export function generateChampionships() {
+  return {
+    type: types.GENERATE_CHAMPIONSHIPS,
+  }
+}
+
 export function updateChampionship(championship) {
   return {
     type: types.UPDATE_CHAMPIONSHIP,

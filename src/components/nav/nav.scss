@@ -1,0 +1,81 @@
+$mobile: 768px;
+$nav-height: 2.5rem;
+$nav-font-size: medium;
+$nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
+
+.nav {
+  display: flex;
+  align-items: stretch;
+  min-height: $nav-height;
+  position: relative;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+
+  a.active {
+    text-shadow: $nav-active-text-shadow;
+  }
+}
+
+@media screen and (max-width: $mobile) {
+  #menu-toggle:checked + .nav-menu {
+    display: block;
+  }
+}
+
+.nav-toggle {
+  @media (min-width: $mobile) {
+    display: none;
+  }
+
+  font-size: $nav-height;
+  align-items: center;
+  display: flex;
+  padding-right: 1rem;
+}
+
+.nav-item {
+  align-items: center;
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  font-size: $nav-font-size;
+}
+
+.nav-left,
+.nav-right {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.nav-left {
+  justify-content: flex-start;
+}
+
+.nav-right {
+  justify-content: flex-end;
+}
+
+.nav-menu {
+  z-index: 100;
+
+  @media (max-width: $mobile) {
+    &.nav-right {
+      display: none;
+      left: 0;
+      right: 0;
+      top: 100%;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 4px 7px rgba(10, 10, 10, 0.1);
+
+      .nav-item {
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+input[type="checkbox"].is-hidden {
+  display: none;
+}

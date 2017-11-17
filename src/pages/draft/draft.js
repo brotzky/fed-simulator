@@ -4,27 +4,24 @@ import PropTypes from "prop-types"
 import HeaderOne from "../../components/h1/h1"
 import Wrestlers from "../../components/wrestlers/container"
 import Brand from "../../components/brand/brand"
-import AddBrand from "../../components/add-brand/container"
+import Create from "../../components/create/brand.container"
+
+import { ADD_BRAND_ENTRY } from "../../constants/confirmations"
 
 import "./draft.scss"
 
 const defaultBrand = {
   id: 0,
-  name: "Roster",
-  style: { color: "white", backgroundColor: "gray", },
+  name: "All",
+  style: { color: "white", backgroundColor: "gray" },
 }
 
-const DraftPage = ({ brands = [], style = {}, }) => {
+const DraftPage = ({ brands = [], style = {} }) => {
   return (
     <section className="page draft">
-      <HeaderOne>
-        Draft{" "}
-        <span className="medium-title">
-          <i className="icon fa fa-info-circle" /> Drag and drop wrestlers into other brands
-        </span>
-      </HeaderOne>
+      <HeaderOne>Draft</HeaderOne>
       <If condition={brands.length === 0}>
-        <AddBrand />
+        <Create placeholder={ADD_BRAND_ENTRY} />
       </If>
       <If condition={brands.length > 0}>
         <div className="brands">
@@ -33,7 +30,7 @@ const DraftPage = ({ brands = [], style = {}, }) => {
             <Wrestlers showToggleBrand={true} style={defaultBrand.style} />
           </div>
           {brands.map(brand => {
-            const { style, id: brandId, } = brand
+            const { style, id: brandId } = brand
             return (
               <div style={style} key={brandId} className="brand">
                 <Brand {...brand} />

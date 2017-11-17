@@ -1,26 +1,10 @@
-import React from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
 import Dropzone from "react-dropzone"
 
 import "./image.scss"
 
-export default class Image extends React.Component {
-  static propTypes = {
-    onChange: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    maxImageWidth: PropTypes.number.isRequired,
-    maxImageHeight: PropTypes.number.isRequired,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.any.isRequired,
-  }
-
-  static defaultProps = {
-    maxImageHeight: 200,
-    maxImageWidth: 200,
-    label: "Drop image files here",
-    value: "",
-  }
-
+class Image extends Component {
   onDrop = files => {
     const file = files[0]
     const reader = new FileReader()
@@ -51,3 +35,21 @@ export default class Image extends React.Component {
     )
   }
 }
+
+Image.defaultProps = {
+  maxImageHeight: 200,
+  maxImageWidth: 200,
+  label: "Drop image files here",
+  value: "",
+}
+
+Image.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  maxImageWidth: PropTypes.number.isRequired,
+  maxImageHeight: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
+}
+
+export default Image

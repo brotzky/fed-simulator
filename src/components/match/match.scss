@@ -2,22 +2,14 @@ $active-color: #ffd700;
 $inactive-color: red;
 $main-color: #fff;
 $inner-color: #3d3c3c;
-$match-border-color: #929292;
+$match-border-color: #4b4b4b;
 
 .match .team {
-  font-size: large;
   margin-bottom: 0.5rem;
 
-  &.has-winner .box {
-    border-style: solid;
-
-    .icon.active {
-      opacity: 1;
-    }
-  }
-
-  &.has-many-wrestlers .wrestler:hover {
-    border: 0.1rem dashed $inner-color;
+  .dropzone {
+    min-height: 3rem;
+    border: 0.1rem solid $match-border-color;
   }
 
   &:last-of-type {
@@ -32,27 +24,12 @@ $match-border-color: #929292;
     color: $inactive-color;
   }
 
-  .wrestler {
-    border: 0.1rem dashed transparent;
+  .member {
     flex-grow: 1;
     margin: 0.1rem;
     text-align: center;
-    transition: border 0.5s linear;
-
-    .icon {
-      opacity: 0.2;
-      transition: opacity 0.5s linear;
-    }
-
-    &:hover {
-      .icon {
-        opacity: 1;
-      }
-    }
-
-    &__icons {
-      display: flex;
-      justify-content: center;
-    }
+    justify-content: center;
+    align-items: center;
+    display: flex;
   }
 }

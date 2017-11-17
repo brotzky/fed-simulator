@@ -6,7 +6,7 @@ export default (state, action) => {
   switch (action.type) {
     case "RESET":
     case "RESET_GAME":
-      state = new Model(state)
+      state = new Model()
       break
     case "GENERATE":
       state = state.set("name", "WWE")

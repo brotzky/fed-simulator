@@ -1,0 +1,178 @@
+diff --git a/src/components/nav/nav.js b/src/components/nav/nav.js
+index 369eaff..42a6c3d 100644
+--- a/src/components/nav/nav.js
++++ b/src/components/nav/nav.js
+@@ -3,39 +3,40 @@ import classNames from "classnames"
+ import { Link } from "react-router"
+ import PropTypes from "prop-types"
+ 
+-const NOOP = () => {}
+-
+ import "./nav.skin.scss"
+ import "./nav.structure.scss"
+ 
+-const Nav = ({ backgroundColor = "black", activeUrl = "", color = "white", modifier = "", links = [], }) => {
+-  const style = { backgroundColor, color, }
+-  return (
+-    <nav style={style} className={`nav ${modifier}`}>
+-      {links.map((item, key) => {
+-        const { url, icon, title, } = item
+-        const isActive = activeUrl === url
+-        return (
+-          <Link tabIndex="0" className={classNames("nav__item", { active: isActive, })} key={key} style={{ color, }} to={url}>
+-            <div className={classNames("icon", "fa", `fa-${icon}`, "fa-1x")} style={style} />
+-            <div>{title}</div>
+-          </Link>
+-        )
+-      })}
+-    </nav>
+-  )
++const NOOP = () => {}
++
++const defaultStyle = {
++  backgroundColor: "black",
++  color: "white",
+ }
+ 
++const Nav = ({ style = defaultStyle, activeUrl = "", links = [] }) => (
++  <nav style={style} className="nav">
++    {links.map((item, key) => {
++      const { url, icon, title } = item
++      const isActive = activeUrl === url
++      return (
++        <Link tabIndex="0" className={classNames("nav__item", { active: isActive })} key={key} style={{ color }} to={url}>
++          <div>
++            <i className={classNames("icon", "fa", `fa-${icon}`)} style={style} />
++          </div>
++          <div>{title}</div>
++        </Link>
++      )
++    })}
++  </nav>
++)
++
+ Nav.propTypes = {
+   activeUrl: PropTypes.any.isRequired,
+-  backgroundColor: PropTypes.string.isRequired,
+-  color: PropTypes.string.isRequired,
++  style: PropTypes.shape({
++    backgroundColor: PropTypes.string.isRequired,
++    color: PropTypes.string.isRequired,
++  }),
+   links: PropTypes.array,
+-  modifier: PropTypes.string,
+-}
+-
+-Nav.defaultProps = {
+-  onClickBurger: NOOP,
+ }
+ 
+ export default Nav
+diff --git a/src/components/wrestlers/container.js b/src/components/wrestlers/container.js
+index 40d2023..95b2af6 100644
+--- a/src/components/wrestlers/container.js
++++ b/src/components/wrestlers/container.js
+@@ -1,4 +1,4 @@
+-import { compose, withState, withProps, withHandlers } from "recompose"
++import { compose, withState, withProps, withHandlers, branch, renderComponent } from "recompose"
+ import { connect } from "react-redux"
+ import sortBy from "lodash/sortBy"
+ import { updateWrestler } from "../../actions/roster"
+@@ -15,15 +15,15 @@ export default compose(
+   withState("order", "toggleOrder", true),
+   withHandlers({
+     onDrop: props => drop => {
+-      props.dispatch(updateWrestler({ brandId: props.brandId, id: drop.wrestler, }))
++      props.dispatch(updateWrestler({ brandId: props.brandId, id: drop.wrestler }))
+     },
+-    toggleBrandless: ({ toggleBrandless, noBrand, }) => () => toggleBrandless(!noBrand),
+-    toggleGender: ({ toggleGender, male, }) => () => toggleGender(!male),
+-    toggleOrderBy: ({ toggleOrderBy, orderBy, }) => () => toggleOrderBy(!orderBy),
+-    toggleOrder: ({ toggleOrder, order, }) => () => toggleOrder(!order),
++    toggleBrandless: ({ toggleBrandless, noBrand }) => () => toggleBrandless(!noBrand),
++    toggleGender: ({ toggleGender, male }) => () => toggleGender(!male),
++    toggleOrderBy: ({ toggleOrderBy, orderBy }) => () => toggleOrderBy(!orderBy),
++    toggleOrder: ({ toggleOrder, order }) => () => toggleOrder(!order),
+   }),
+   withProps(props => {
+-    const { roster, order, male, orderBy, brandId, noBrand, championsOnly, byPassGender, } = props
++    const { roster, order, male, orderBy, brandId, noBrand, championsOnly, byPassGender } = props
+     const orderByField = orderBy ? "points" : "name"
+ 
+     let newRoster = Object.assign([], roster)
+@@ -54,5 +54,6 @@ export default compose(
+       ...props,
+       roster: newRoster,
+     }
+-  })
++  }),
++  branch(props => props.enabled === true, renderComponent(HelloWorld), renderNothing)
+ )(Wrestlers)
+diff --git a/src/components/wrestlers/wrestlers.js b/src/components/wrestlers/wrestlers.js
+index ca0691a..3bc77e8 100644
+--- a/src/components/wrestlers/wrestlers.js
++++ b/src/components/wrestlers/wrestlers.js
+@@ -1,6 +1,5 @@
+ import React from "react"
+ import PropTypes from "prop-types"
+-import { Droppable } from "react-drag-and-drop"
+ 
+ import Wrestler from "./wrestler"
+ import GenderIcon from "../icons/gender"
+@@ -30,32 +29,37 @@ const Wrestlers = ({
+   const direction = order ? "desc" : "asc"
+   const sortBy = orderBy ? "alpha" : "numeric"
+   const brandless = noBrand ? "eye-slash" : "eye"
++
++  if (!showFilter && roster.length === 0) {
++    return null
++  }
++
+   return (
+-    <Droppable types={["wrestler",]} onDrop={onDrop}>
+-      <div tabIndex="0" className="wrestlers-wrapper" style={style}>
+-        <If condition={showFilter}>
+-          <div className="filters">
+-            <GenderIcon gender={male} onClick={toggleGender} />
+-            <a tabIndex="0" onKeyPress={toggleOrderBy} onClick={toggleOrderBy}>
+-              <i className={`icon fa fa-sort-${sortBy}-${direction}`} />
++    <div tabIndex="0" className="wrestlers-wrapper" style={style}>
++      <If condition={showFilter}>
++        <div className="filters">
++          <GenderIcon gender={male} onClick={toggleGender} />
++          <a tabIndex="0" onKeyPress={toggleOrderBy} onClick={toggleOrderBy}>
++            <i className={`icon fa fa-sort-${sortBy}-${direction}`} />
++          </a>
++          <a tabIndex="0" onKeyPress={toggleOrder} onClick={toggleOrder}>
++            <i className={`icon fa fa-sort-${direction}`} />
++          </a>
++          <If condition={showToggleBrand}>
++            <a tabIndex="0" onKeyPress={toggleBrandless} onClick={toggleBrandless}>
++              <i className={`icon fa fa-${brandless}`} />
+             </a>
+-            <a tabIndex="0" onKeyPress={toggleOrder} onClick={toggleOrder}>
+-              <i className={`icon fa fa-sort-${direction}`} />
+-            </a>
+-            <If condition={showToggleBrand}>
+-              <a tabIndex="0" onKeyPress={toggleBrandless} onClick={toggleBrandless}>
+-                <i className={`icon fa fa-${brandless}`} />
+-              </a>
+-            </If>
+-          </div>
+-        </If>
++          </If>
++        </div>
++      </If>
++      <If condition={roster.length > 0}>
+         <div className="wrestlers">
+           {roster.map(wrestler => {
+             return <Wrestler key={wrestler.id} onClick={onClick} className="wrestler" {...wrestler} />
+           })}
+         </div>
+-      </div>
+-    </Droppable>
++      </If>
++    </div>
+   )
+ }
+ 

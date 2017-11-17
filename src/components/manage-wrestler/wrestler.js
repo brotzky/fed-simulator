@@ -5,6 +5,7 @@ import Brands from "../brands/brands"
 import Button from "../button/button"
 import Image from "../form/image"
 import Input from "../form/input"
+import { Reset } from "../icons"
 
 import "./manage-wrestler.scss"
 
@@ -13,99 +14,65 @@ const genderBrands = [{ id: true, name: "male", style: { backgroundColor: "blue"
 
 const EditWrestler = ({
   brandId,
-  championshipId,
   brands,
-  championships,
-  image,
-  name,
-  male,
   id,
+  image,
+  male,
+  name,
   onBrandSelected,
-  onChampionshipSelected,
-  onImageUpdate,
-  onDelete,
   onCreate,
-  showDelete,
-  onPointsUpdate,
+  onDelete,
   onGenderUpdate,
+  onImageUpdate,
   onNameUpdate,
+  onPointsUpdate,
+  onResetImage,
   points,
+  showDelete,
+  style,
 }) => (
-  <div className="manage-wrestler">
-    <h3 tabIndex="0">{name}</h3>
-    <div className="row bottom-xs">
-      <div className="col-xs">
-        <div className="box">
-          <label htmlFor="name">Brand</label>
-          <div tabIndex="0" className="brands">
-            <Brands onClick={onBrandSelected} highlighted={brandId} brands={brands} />
-          </div>
-        </div>
-      </div>
+  <div className="manage-wrestler" style={style}>
+    <div className="name">
+      <label htmlFor="name">Name</label>
+      <Input tabIndex="0" id="name" onChange={onNameUpdate} value={name} />
     </div>
-    <div className="row bottom-xs">
-      <div className="col-xs">
-        <div className="box">
-          <label htmlFor="name">Championship</label>
-          <div tabIndex="0" className="championships">
-            <Brands onKeyPress={onChampionshipSelected} onClick={onChampionshipSelected} highlighted={championshipId} brands={championships} />
-          </div>
-        </div>
-      </div>
+    <label htmlFor="name">Brand</label>
+    <div className="brands">
+      <Brands id="brands" tabIndex="0" onClick={onBrandSelected} highlighted={brandId} brands={brands} />
     </div>
-    <div className="row bottom-xs">
-      <div className="col-xs">
-        <div tabIndex="0" className="box gender">
-          <label htmlFor="gender">Gender</label>
-          <Brands onKeyPress={onGenderUpdate} onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
-        </div>
-      </div>
+    <div className="gender">
+      <label htmlFor="gender">Gender</label>
+      <Brands id="gender" tabIndex="0" onKeyPress={onGenderUpdate} onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
     </div>
-    <div className="row bottom-xs">
-      <div className="col-xs-12 col-lg-8">
-        <div tabIndex="0" className="box">
-          <label htmlFor="name">Name</label>
-          <Input id="name" onChange={onNameUpdate} value={name} />
-        </div>
-      </div>
-      <div className="col-lg-4 col-xs-12">
-        <div className="box">
-          <Image id="image" name="image" label={image ? "" : "Drop image here"} value={image} onChange={onImageUpdate} />
-        </div>
-      </div>
+    <div className="image">
+      <label htmlFor="image">
+        Image (<a onClick={onResetImage}>reset</a>)
+      </label>
+      <Image id="image" name="image" label={image ? "" : "Drop image here"} value={image} onChange={onImageUpdate} />
     </div>
-    <div className="row bottom-xs">
-      <div className="col-xs">
-        <div tabIndex="0" className="box">
-          <label htmlFor="points">Points</label>
-          <Input id="points" onChange={onPointsUpdate} value={points} />
-        </div>
-      </div>
-      <If condition={showDelete}>
-        <div className="col-lg-4 col-xs-12">
-          <div tabIndex="0" className="box">
-            <Button classes="btn-delete" onClick={onDelete}>
-              <i className="icon fa fa-trash" /> Delete wrestler
-            </Button>
-          </div>
-        </div>
-      </If>
-      <If condition={!id}>
-        <div className="col-lg-4 col-xs-12">
-          <div className="box">
-            <Button tabIndex="0" classes="btn-create" onKeyPress={onCreate} onClick={onCreate} value="Create wrestler" />
-          </div>
-        </div>
-      </If>
+    <div className="points">
+      <label htmlFor="points">Points</label>
+      <Input id="points" tabIndex="0" onChange={onPointsUpdate} value={points} />
     </div>
+    <br />
+    <If condition={!id}>
+      <div className="create">
+        <Button tabIndex="0" classes="btn-create" onKeyPress={onCreate} onClick={onCreate} value="Create wrestler" />
+      </div>
+    </If>
+    <If condition={showDelete}>
+      <div className="delete">
+        <Button tabIndex="0" classes="btn-delete" onKeyPress={onDelete} onClick={onDelete}>
+          <Reset /> Delete wrestler
+        </Button>
+      </div>
+    </If>
   </div>
 )
 
 EditWrestler.propTypes = {
   brandId: PropTypes.any,
   brands: PropTypes.array,
-  championships: PropTypes.array,
-  championshipId: PropTypes.any,
   id: PropTypes.any,
   image: PropTypes.string,
   male: PropTypes.bool,
@@ -118,15 +85,18 @@ EditWrestler.propTypes = {
   onImageUpdate: PropTypes.func,
   onNameUpdate: PropTypes.func,
   onPointsUpdate: PropTypes.func,
+  onResetImage: PropTypes.func,
   points: PropTypes.number,
   showDelete: PropTypes.bool,
+  style: PropTypes.shape({
+    color: PropTypes.string,
+    backgroundColor: PropTypes.string,
+  }),
 }
 
 EditWrestler.defaultProps = {
   brandId: "",
   brands: [],
-  championshipId: "",
-  championships: [],
   id: false,
   image: "",
   male: true,
@@ -139,7 +109,9 @@ EditWrestler.defaultProps = {
   onImageUpdate: NOOP,
   onNameUpdate: NOOP,
   onPointsUpdate: NOOP,
+  onResetImage: NOOP,
   points: 0,
   showDelete: true,
+  style: {},
 }
 export default EditWrestler

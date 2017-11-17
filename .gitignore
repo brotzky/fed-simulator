@@ -6,3 +6,5 @@ npm-debug.log
 typings
 jsconfig.json
 coverage
+.idea
+yarn-error.log

@@ -3,19 +3,20 @@ import { Link } from "react-router"
 import PropTypes from "prop-types"
 
 import HeaderOne from "../../components/h1/h1"
+import { Icon } from "../../components/icons"
 
 import "./welcome.scss"
 
-const noop = () => {}
+const NOOP = () => {}
 
-const WelcomePage = ({ generateFederation = noop, }) => {
+const WelcomePage = ({ generateFederation = NOOP, }) => {
   return (
     <section className="page welcome">
       <HeaderOne>Welcome to Federation Simulator</HeaderOne>
       <div className="row">
-        <div className="col-xs-12 highlight grow">
+        <div className="col-xs-12 highlight shrink">
           <div className="box">
-            <i className="icon fa fa-plus" />{" "}
+            <Icon icon="plus" />{" "}
             <Link tabIndex="0" to="/name">
               I'll build this company from the ground up, dammit
             </Link>
@@ -24,9 +25,9 @@ const WelcomePage = ({ generateFederation = noop, }) => {
       </div>
       <br />
       <div className="row">
-        <div className="col-xs-12 highlight grow">
+        <div className="col-xs-12 highlight shrink">
           <div className="box" tabIndex="0" onClick={generateFederation}>
-            <i className="icon fa fa-play" /> This is an invasion, create everything for me
+            <Icon icon="play" /> This is an invasion, create everything for me
           </div>
         </div>
       </div>
@@ -34,7 +35,7 @@ const WelcomePage = ({ generateFederation = noop, }) => {
       <div className="row">
         <div className="col-xs-12 highlight shrink">
           <div className="box">
-            <i className="icon fa fa-info-circle" />
+            <Icon icon="info-circle" />
             <ul tabIndex="0">
               <li tabIndex="0">Create and manage your roster</li>
               <li tabIndex="0">Manage your own touring schedule</li>

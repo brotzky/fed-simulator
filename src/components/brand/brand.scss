@@ -1,9 +1,12 @@
 .brand {
   border: 0.2rem solid transparent;
-  font-size: smaller;
-  font-variant: small-caps;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
+
+  .title {
+    font-variant: small-caps;
+    font-size: smaller;
+  }
 
   &.active {
     border: 0.2rem solid currentColor;

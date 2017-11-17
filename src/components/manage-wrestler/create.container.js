@@ -1,57 +1,49 @@
-import { compose, withState, withHandlers, withProps } from "recompose"
+import { compose, withStateHandlers, withProps } from "recompose"
 import { connect } from "react-redux"
+import pick from "lodash.pick"
 
 import { createWrestler } from "../../actions/roster"
-import EditWrestler from "./wrestler"
+import Wrestler from "./wrestler"
 
 const defaultWrestler = {
   brandId: null,
-  championshipId: null,
-  id: false,
+  id: null,
   male: true,
   image: "",
-  name: "Vacant",
-  points: 40,
+  name: "",
+  points: 100,
 }
-export default compose(
-  connect(state => ({
-    brands: state.brands,
-    championships: state.championships,
-  })),
-  withState("id", "createWrestler", defaultWrestler.id),
-  withState("brandId", "onBrandSelected", defaultWrestler.brandId),
-  withState("championshipId", "onChampionshipSelected", defaultWrestler.championshipId),
-  withState("points", "onPointsUpdate", defaultWrestler.points),
-  withState("male", "onGenderUpdate", defaultWrestler.male),
-  withState("name", "onNameUpdate", defaultWrestler.name),
-  withState("image", "onImageUpdate", defaultWrestler.image),
-  withHandlers({
-    onBrandSelected: ({ onBrandSelected, }) => brandId => onBrandSelected(String(brandId)),
-    onChampionshipSelected: ({ onChampionshipSelected, }) => championshipId => onChampionshipSelected(String(championshipId)),
-    onPointsUpdate: ({ onPointsUpdate, }) => e => onPointsUpdate(Number(e.target.value)),
-    onNameUpdate: ({ onNameUpdate, }) => e => onNameUpdate(String(e.target.value)),
-    onGenderUpdate: ({ onGenderUpdate, }) => male => onGenderUpdate(Boolean(male)),
-    onImageUpdate: ({ onImageUpdate, }) => (name, value) => onImageUpdate(String(value)),
-    onCreate: props => () => {
-      const wrestler = {
-        brandId: props.brandId,
-        id: defaultWrestler.id,
-        image: props.image,
-        name: props.name,
-        male: props.male,
-        points: props.points,
-      }
-      props.dispatch(createWrestler(wrestler))
 
-      props.onBrandSelected(defaultWrestler.championshipId)
-      props.onChampionshipSelected(defaultWrestler.brandId)
-      props.onImageUpdate(defaultWrestler.image)
-      props.onGenderUpdate(defaultWrestler.male)
-      props.onNameUpdate(defaultWrestler.name)
-      props.onPointsUpdate(defaultWrestler.points)
-    },
-  }),
-  withProps({
-    showDelete: false,
-  })
-)(EditWrestler)
+const wrestlerKeys = Object.keys(defaultWrestler)
+
+const stateHandlers = {
+  onBrandSelected: () => brandId => ({ brandId: String(brandId), }),
+  onPointsUpdate: () => e => ({ points: Number(e.target.value), }),
+  onNameUpdate: () => e => ({ name: String(e.target.value), }),
+  onGenderUpdate: () => male => ({ male: Boolean(male), }),
+  onImageUpdate: () => (name, value) => ({ image: String(value), }),
+  onResetImage: () => () => () => ({ image: null, }),
+}
+
+const mappedProps = props => ({
+  showDelete: false,
+  highlightNewest: true,
+  onCreate: () => {
+    props.onCreate(pick(props, wrestlerKeys))
+    props.onClose()
+  },
+})
+
+export default compose(
+  connect(
+    state => ({
+      brands: state.brands,
+      style: state.style,
+    }),
+    dispatch => ({
+      onCreate: props => dispatch(createWrestler(props)),
+    })
+  ),
+  withStateHandlers(defaultWrestler, stateHandlers),
+  withProps(mappedProps)
+)(Wrestler)

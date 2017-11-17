@@ -1,10 +1,10 @@
-.wrestlers-wrapper {
-  min-height: 10rem;
+@import "src/stylesheets/z-index";
 
-  .filters {
-    display: flex;
-    font-variant: small-caps;
-    justify-content: space-around;
-    padding: 0.5rem;
-  }
+.wrestlers {
+  align-items: end;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  overflow: auto;
+  z-index: $z-index-wrestlers;
 }

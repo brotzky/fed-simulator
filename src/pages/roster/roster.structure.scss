@@ -1,0 +1,14 @@
+.page.roster {
+  label {
+    display: inline-flex;
+  }
+  .image-dropzone.dropzone {
+    align-items: start;
+    justify-content: flex-start;
+    border: none;
+  }
+  .wrestler,
+  .dropzone__image {
+    width: 4.5rem;
+  }
+}

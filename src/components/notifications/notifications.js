@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import { Reset } from "../icons"
+
 import "./notifications.scss"
 
 const NOOP = () => {}
@@ -19,7 +21,7 @@ const Notifications = ({ notifications, onDelete, onReset, style, limit, }) => (
           return (
             <div className="notification" style={style} key={id}>
               <a data-id={id} onKeyPress={() => onDelete(id)} onClick={() => onDelete(id)}>
-                {title} <i className="icon fa fa-trash" />
+                {title} <Reset />
               </a>
             </div>
           )

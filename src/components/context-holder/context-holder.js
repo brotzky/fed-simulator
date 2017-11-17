@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-const emptyFunction = () => {}
 
 class ContextHolder extends React.Component {
   static propTypes = {
@@ -11,22 +10,6 @@ class ContextHolder extends React.Component {
     }),
     children: PropTypes.element.isRequired,
   }
-
-  static childContextTypes = {
-    constants: PropTypes.object,
-    onSetTitle: PropTypes.func,
-    onSetMeta: PropTypes.func,
-  }
-
-  getChildContext() {
-    const context = this.props.context
-    return {
-      constants: context.constants,
-      onSetTitle: context.onSetTitle || emptyFunction,
-      onSetMeta: context.onSetMeta || emptyFunction,
-    }
-  }
-
   render() {
     return React.Children.only(this.props.children)
   }

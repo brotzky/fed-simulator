@@ -15,12 +15,12 @@
     "icon": "columns"
   },
   {
-    "url": "manage-roster",
+    "url": "roster",
     "title": "Roster",
     "icon": "users"
   },
   {
-    "url": "manage-brands",
+    "url": "brands",
     "title": "Brands",
     "icon": "tv"
   },

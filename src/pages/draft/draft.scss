@@ -5,15 +5,18 @@
   flex-wrap: inherit;
 
   .brand {
-    flex: auto;
+    flex: 1 0;
     height: 100vh;
-    min-width: 25%;
     overflow: hidden;
     padding: 0;
     text-align: center;
 
-    &:first-of-type {
-      border-radius: 0.5rem 0 0;
+    .wrestlers .wrestler {
+      width: 3rem;
+
+      .name {
+        font-size: xx-small;
+      }
     }
   }
 

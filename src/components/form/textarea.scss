@@ -1,7 +1,6 @@
 $font-weight: normal;
 $font-size: medium;
 $font-color: #232828 !default;
-$textarea-border-radius: 0 !default;
 $border-width: 0 !default;
 $border-style: solid !default;
 $border-color: #ccc !default;
@@ -17,7 +16,6 @@ $display: block !default;
 
 textarea {
   background-color: $textarea-bg-color;
-  border-radius: $textarea-border-radius;
   border: $border-width $border-style $border-color;
   box-sizing: border-box;
   color: $font-color;

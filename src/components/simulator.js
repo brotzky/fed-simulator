@@ -2,6 +2,8 @@ import React from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
+import { Icon } from "./icons"
+
 import { generateRandomMatch, simulateRandomMatch } from "../actions/matches"
 
 const NOOP = () => {}
@@ -34,11 +36,12 @@ class Simulator extends React.Component {
   }
 
   render() {
+    return null
     const icon = !this.state.active ? "play-circle" : "stop-circle red"
 
     return (
-      <span className="cursor-pointer" onKeyPress={this.onToggleActive} onClick={this.onToggleActive}>
-        <i className={`icon fa fa-${icon}`} /> Auto Sim Matches
+      <span>
+        <Icon icon={icon} onClick={this.onToggleActive} /> Auto Sim Matches
       </span>
     )
   }

@@ -1,15 +1,15 @@
 import * as types from "./types"
 
-export function reset() {
-  return {
-    type: types.RESET,
-  }
-}
-
 export function createBrand(brand) {
   return {
     type: types.CREATE_BRAND,
     payload: brand,
+  }
+}
+
+export function generateBrands() {
+  return {
+    type: types.GENERATE_BRANDS,
   }
 }
 

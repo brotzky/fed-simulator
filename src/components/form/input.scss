@@ -1,12 +1,13 @@
+@import "src/stylesheets/breakpoints";
+
 $font-weight: normal !default;
 $font-size: x-large !default;
 $font-color: #232828 !default;
-$border-radius: none !default;
 $border-width: 0 !default;
 $border-style: solid !default;
 $border-color: #ccc !default;
 $input-height: auto !default;
-$input-padding: .8rem !default;
+$input-padding: 0.8rem !default;
 $input-placeholder: #ccc !default;
 $input-width: 100% !default;
 $input-max-width: 100% !default;
@@ -15,12 +16,10 @@ $focus-bg-color: #f9fbfe !default;
 $focus-border-color: $border-color !default;
 $focus-font-color: $font-color !default;
 $allow-select-vendor-styling: true !default;
-
 $display: block !default;
 
 input {
   background-color: $input-bg-color;
-  border-radius: $border-radius;
   border: $border-width $border-style $border-color;
   box-sizing: border-box;
   color: $font-color;
@@ -33,6 +32,10 @@ input {
   padding: $input-padding;
   vertical-align: top;
   width: $input-width;
+
+  @include breakpoint(xs) {
+    font-size: small;
+  }
 }
 
 input[type="text"],

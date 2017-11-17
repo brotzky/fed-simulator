@@ -2,10 +2,15 @@ import { Record } from "immutable"
 
 export const schema = {
   id: undefined,
-  losses: 0,
-  current_champion: "",
   name: "",
   male: true,
+  switches: 0,
+  wrestlers: [],
+  tag: false,
+  style: {
+    backgroundColor: "#FFD700",
+    color: "black",
+  },
 }
 
 export const Championship = new Record(schema)

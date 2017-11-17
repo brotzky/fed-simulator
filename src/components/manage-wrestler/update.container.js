@@ -8,10 +8,10 @@ import EditWrestler from "./wrestler"
 const propsMapper = ({ dispatch, id, }) => ({
   onGenderUpdate: male => dispatch(updateWrestler({ male: Boolean(male), id: id, })),
   onBrandSelected: brandId => dispatch(updateWrestler({ brandId: String(brandId), id: id, })),
-  onChampionshipSelected: championshipId => dispatch(updateWrestler({ championshipId: String(championshipId), id: id, })),
   onPointsUpdate: e => dispatch(updateWrestler({ points: Number(e.target.value), id: id, })),
   onNameUpdate: e => dispatch(updateWrestler({ name: String(e.target.value), id: id, })),
   onImageUpdate: (name, value) => dispatch(updateWrestler({ image: String(value), id: id, })),
+  onResetImage: () => dispatch(updateWrestler({ image: "", id: id, })),
   onDelete: () => {
     if (confirm(WRESTLER_CONFIRM_DELETE)) {
       dispatch(deleteWrestler(id))
@@ -22,7 +22,7 @@ const propsMapper = ({ dispatch, id, }) => ({
 export default compose(
   connect(state => ({
     brands: state.brands,
-    championships: state.championships,
+    style: state.style,
   })),
   withProps(propsMapper)
 )(EditWrestler)

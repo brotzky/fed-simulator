@@ -1,16 +1,13 @@
-$welcome-font-size: xx-large;
-$welcome-font-weight: 100;
-$welcome-color: black;
-$welcome-bg-color: gold;
+@import "src/stylesheets/breakpoints";
 
 .page.welcome {
-  padding: 0 2rem;
+  font-size: 1rem;
+  font-weight: 100;
+
   .highlight {
-    background-color: $welcome-bg-color;
+    background-color: gold;
     display: flex;
-    font-size: $welcome-font-size;
-    font-weight: $welcome-font-weight;
-    padding: .5rem 2rem;
+    padding: 0.5rem;
 
     li {
       list-style: none;
@@ -18,7 +15,7 @@ $welcome-bg-color: gold;
 
     .box a,
     .box {
-      color: $welcome-color;
+      color: black;
       cursor: pointer;
       text-decoration: none;
     }

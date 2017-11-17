@@ -1,7 +1,19 @@
 h1 {
   font-size: -webkit-xxx-large;
   font-variant: small-caps;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
   font-weight: 100;
   margin: 0 0 1rem;
   width: 100%;
+
+  .icon {
+    margin: 0.2rem;
+  }
+
+  .tools {
+    justify-content: flex-end;
+    font-size: 1rem;
+  }
 }

@@ -3,8 +3,7 @@ import { Record } from "immutable"
 export const schema = {
   id: undefined,
   brandId: undefined,
-  championshipId: undefined,
-  cost: 500,
+  created: new Date(),
   image: "",
   losses: 0,
   male: true,

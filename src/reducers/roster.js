@@ -10,11 +10,12 @@ export default (state, action) => {
 
   switch (action.type) {
     case "RESET":
+    case "RESET_ROSTER":
       state = List()
       break
     case "GENERATE":
     case "GENERATE_ROSTER":
-      state = List(roster.map(item => new Model(item).merge({ id: getId(), })))
+      state = List(roster.map(item => new Model(item)))
       break
     case "DELETE_WRESTLER":
       index = state.findIndex(item => item.id === action.payload)

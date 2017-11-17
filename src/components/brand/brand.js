@@ -4,10 +4,10 @@ import PropTypes from "prop-types"
 
 import "./brand.scss"
 
-const noop = () => {}
+const NOOP = () => {}
 
-const Brand = ({ style = {}, id = "", active = false, onClick = noop, name = "", }) => (
-  <span tabIndex="0" onKeyPress={() => onClick(id)} onClick={() => onClick(id)} className={classNames({ active: active, }, "brand")} style={style}>
+const Brand = ({ style = {}, id = "", active = false, onClick = NOOP, name = "", }) => (
+  <span tabIndex="0" onKeyPress={() => onClick(id)} onClick={() => onClick(id)} className={classNames({ active: active, }, "brand", "title")} style={style}>
     {name}
   </span>
 )

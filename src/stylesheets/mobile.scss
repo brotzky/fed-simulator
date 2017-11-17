@@ -8,13 +8,14 @@
   h5 {
     &,
     & .icon {
-      font-size: 1.7rem !important;
+      font-size: medium !important;
       line-height: 1.7rem !important;
     }
   }
-  .page-container main {
+  .page {
     padding: 1.5rem !important;
   }
+
   input,
   textarea {
     font-size: 1rem;
