@@ -56,15 +56,11 @@ const Collection = ({
             <If condition={canUpdateWrestler}>
               <div className="col-xs end-xs" style={mediumWidth}>
                 <div className="box">
-                  <Choose>
-                    <When condition={item.tag}>
-                      <Select options={roster} value={item.wrestlers[0]} onChange={event => onChangeWrestler(item, event)} />
-                      <Select options={roster} value={item.wrestlers[1]} onChange={event => onChangeWrestler(item, event)} />
-                    </When>
-                    <Otherwise>
-                      <Select options={roster} value={item.wrestlers[0]} onChange={event => onChangeWrestler(item, event)} />
-                    </Otherwise>
-                  </Choose>
+                  {new Array(item.amount).fill(1 / item.amount).map((key) => {
+                    const wrestler = item.wrestlers && item.wrestlers[key + 1]
+
+                    return <Select options={roster} value={wrestler} onChange={event => onChangeWrestler(item, event)} />
+                  })}
                 </div>
               </div>
             </If>
@@ -75,14 +71,17 @@ const Collection = ({
                 </div>
               </div>
             </If>
-            <If condition={canUpdateColors}>
+            <If condition={canUpdateWrestler}>
               <div className="col-xs" style={mediumWidth}>
                 <div className="box">
-                  <ColorPickers
-                    onChangeColor={event => onChangeColor(item, event)}
-                    onChangeBackgroundColor={event => onChangeBackgroundColor(item, event)}
-                    {...item.style}
-                  />
+                  <Select options={brands} value={item.brandId} onChange={event => onChangeBrand(item, event)} />
+                </div>
+              </div>
+            </If>
+            <If condition={canUpdateColors}>
+              <div className="col-xs" style={smallWidth}>
+                <div className="box">
+                  <input type="number" value={item.amount} />
                 </div>
               </div>
             </If>

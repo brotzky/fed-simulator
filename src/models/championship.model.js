@@ -5,8 +5,7 @@ export const schema = {
   name: "",
   male: true,
   switches: 0,
-  wrestlers: [],
-  tag: false,
+  amount: 1,
   style: {
     backgroundColor: "#FFD700",
     color: "black",

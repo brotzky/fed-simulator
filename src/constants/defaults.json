@@ -1097,7 +1097,7 @@
       "name": "Heavyweight Championship",
       "male": true,
       "wrestlers": ["j9mr6qbv"],
-      "tag": false,
+      "amount": 1,
       "style": {
         "color": "white",
         "backgroundColor": "#1b1b1b"
@@ -1108,7 +1108,7 @@
       "name": "Womens Championship",
       "male": false,
       "wrestlers": ["j9mr6qcn"],
-      "tag": false,
+      "amount": 1,
       "style": {
         "color": "white",
         "backgroundColor": "#4a4a4a"
@@ -1119,7 +1119,7 @@
       "name": "Midweight Championship",
       "male": true,
       "wrestlers": ["j9mr6qc5"],
-      "tag": false,
+      "amount": 1,
       "style": {
         "color": "black",
         "backgroundColor": "#E4E2E3"
@@ -1130,7 +1130,7 @@
       "name": "Lightweight Championship",
       "male": true,
       "wrestlers": ["j9mr6qb7"],
-      "tag": false,
+      "amount": 1,
       "style": {
         "color": "white",
         "backgroundColor": "#5A49CD"
@@ -1141,7 +1141,7 @@
       "name": "Tag Team Championships",
       "male": true,
       "wrestlers": ["j9mr6qay", "j9mr6qax"],
-      "tag": true,
+      "amount": 2,
       "style": {
         "color": "#ffffff",
         "backgroundColor": "#09b7be"
