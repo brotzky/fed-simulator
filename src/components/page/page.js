@@ -6,7 +6,7 @@ import PropTypes from "prop-types"
 import StyleBrands from "./style-brands"
 import Notifications from "../notifications/container"
 import * as versionActions from "../../actions/version"
-import Nav from "../nav/nav"
+import Nav from "../nav/container"
 import links from "./links.json"
 
 import "../../stylesheets/base.scss"
@@ -34,9 +34,9 @@ class Page extends React.Component {
   }
 
   render() {
-    const { children, classnames, style, name, championships, location: { pathname } } = this.props
-    const topClasses = classNames(classnames, ["page-container", "no-select"])
-    const darkStyle = Object.assign({}, style, { backgroundColor: style.darkBgColor })
+    const { children, classnames, style, name, championships, location: { pathname, }, } = this.props
+    const topClasses = classNames(classnames, ["page-container", "no-select",])
+    const darkStyle = Object.assign({}, style, { backgroundColor: style.darkBgColor, })
     const activeUrl = pathname.replace(/^\//, "")
     const isNavVisible = championships.length > 0 && this.state.openNavBar
     return (

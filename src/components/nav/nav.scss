@@ -16,12 +16,6 @@ $nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
   }
 }
 
-@media screen and (max-width: $mobile) {
-  #menu-toggle:checked + .nav-menu {
-    display: block;
-  }
-}
-
 .nav-toggle {
   @media (min-width: $mobile) {
     display: none;
@@ -76,6 +70,8 @@ $nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
   }
 }
 
-input[type="checkbox"].is-hidden {
-  display: none;
+@media screen and (max-width: $mobile) {
+  .nav-menu.active {
+    display: block;
+  }
 }
