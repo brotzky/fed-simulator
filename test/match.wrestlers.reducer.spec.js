@@ -4,7 +4,6 @@ import { getId } from "../src/models/model.helper"
 import reducer from "../src/reducers/match.wrestlers"
 import Model from "../src/models/match.wrestler.model"
 import * as types from "../src/actions/types"
-import Wrestlers from "./wrestlers.json"
 
 const defaultWrestlers = new List([
   new Model({
