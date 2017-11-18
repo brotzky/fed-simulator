@@ -1,5 +1,4 @@
 import React from "react"
-import { List } from "immutable"
 import PropTypes from "prop-types"
 
 import Wrestlers from "../../components/wrestlers/container"
@@ -22,43 +21,41 @@ const CreateAMatch = ({
   onWrestlerClick = NOOP,
   style = {},
   winner = {},
-}) => {
-  const numberOfWrestlers = new List(currentMatch.wrestlers).size
-  return (
-    <section className="page create-a-match">
-      <form onSubmit={onSimulateMatch}>
-        <div className="row">
+  numberOfWrestlers = 0,
+}) => (
+  <section className="page create-a-match">
+    <form onSubmit={onSimulateMatch}>
+      <div className="row">
+        <div className="col-xs-12">
+          <div className="box">
+            <HeaderOne>
+              Create a match
+              <span className="tools">
+                <Reset onClick={onReset} />
+              </span>
+            </HeaderOne>
+            <Match currentMatch={currentMatch} />
+            <If condition={numberOfWrestlers > 1}>
+              <Button tabIndex="0" value={buttonText} onClick={onSimulateMatch} />
+            </If>
+          </div>
+        </div>
+        <If condition={winner.name && loser.name}>
           <div className="col-xs-12">
-            <div className="box">
-              <HeaderOne>
-                Create a match
-                <span className="tools">
-                  <Reset onClick={onReset} />
-                </span>
-              </HeaderOne>
-              <Match currentMatch={currentMatch} />
-              <If condition={numberOfWrestlers > 1}>
-                <Button tabIndex="0" value={buttonText} onClick={onSimulateMatch} />
-              </If>
+            <div className="box middle-xs center-xs">
+              <br />
+              <Winner {...winner} />
+              <br />
+              <Loser {...loser} />
             </div>
           </div>
-          <If condition={winner.name && loser.name}>
-            <div className="col-xs-12">
-              <div className="box middle-xs center-xs">
-                <br />
-                <Winner {...winner} />
-                <br />
-                <Loser {...loser} />
-              </div>
-            </div>
-          </If>
-        </div>
-        <br />
-        <Wrestlers onClick={onWrestlerClick} style={style} />
-      </form>
-    </section>
-  )
-}
+        </If>
+      </div>
+      <br />
+      <Wrestlers onClick={onWrestlerClick} style={style} />
+    </form>
+  </section>
+)
 
 CreateAMatch.propTypes = {
   buttonText: PropTypes.string,
@@ -69,6 +66,7 @@ CreateAMatch.propTypes = {
   onWrestlerClick: PropTypes.func,
   style: PropTypes.object,
   winner: PropTypes.object,
+  numberOfWrestlers: PropTypes.number,
 }
 
 export default CreateAMatch

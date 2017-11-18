@@ -12,30 +12,28 @@ import { RANKED_COLUMNS } from "../../constants/ranking"
 
 import "./dashboard.scss"
 
-export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestlers, }) => {
-  return (
-    <section className="page dashboard zoom">
-      <HeaderOne>
-        Dashboard{" "}
-        <span className="medium-title">
-          <Simulator />
-        </span>
-      </HeaderOne>
-      <div className="row">
-        <div className="col-xs-12 col-sm-6 col-lg-6">
-          <div className="box">
-            <Ranking style={style} amountToShow={30} rows={rankedMaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Male Wrestlers" />
-          </div>
-        </div>
-        <div className="col-xs-12 col-sm-6 col-lg-6">
-          <div className="box">
-            <Ranking style={style} amountToShow={30} rows={rankedFemaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Female Wrestlers" />
-          </div>
+export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestlers, }) => (
+  <section className="page dashboard zoom">
+    <HeaderOne>
+      Dashboard{" "}
+      <span className="medium-title">
+        <Simulator />
+      </span>
+    </HeaderOne>
+    <div className="row">
+      <div className="col-xs-12 col-sm-6 col-lg-6">
+        <div className="box">
+          <Ranking style={style} amountToShow={30} rows={rankedMaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Male Wrestlers" />
         </div>
       </div>
-    </section>
-  )
-}
+      <div className="col-xs-12 col-sm-6 col-lg-6">
+        <div className="box">
+          <Ranking style={style} amountToShow={30} rows={rankedFemaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Female Wrestlers" />
+        </div>
+      </div>
+    </div>
+  </section>
+)
 
 DashboardPage.displayName = "DashboardPage"
 

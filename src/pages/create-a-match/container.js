@@ -1,6 +1,7 @@
 import { compose, withProps, lifecycle, withStateHandlers } from "recompose"
 import { connect } from "react-redux"
 import { withRouter } from "react-router"
+import { List } from "immutable"
 
 import { getId } from "../../models/model.helper"
 import CreateAMatch from "./create-a-match"
@@ -57,33 +58,44 @@ export default compose(
     })
   ),
   withProps(props => {
+    let newProps, winner, loser
     const currentMatch = props.matches.find(item => item.id === props.id)
 
-    let newProps = {
-      buttonText: String(pick(buttonTexts)),
-      currentMatch,
-      onWrestlerClick: wrestlerId => {
-        return props.onWrestlerClick({
-          matchId: currentMatch.id,
-          wrestler: Object.assign(props.roster.find(item => item.id === wrestlerId), { teamId: getId(), }),
-        })
-      },
-      onReset: () => {
-        if (confirm(MATCH_CONFIRM_RESET)) {
-          const id = getId()
+    if (currentMatch) {
+      winner = currentMatch && currentMatch.wrestlers.find(item => item.winner)
+      loser = currentMatch && currentMatch.wrestlers.find(item => item.loser)
 
-          props.setId(id)
-          props.onCreate({ id, })
-          props.router.push(`/create-a-match?id=${id}`)
-        }
-      },
-      onSimulateMatch: event => {
-        event.preventDefault()
+      if (winner && loser) {
+        winner = props.roster.find(item => item.id === winner.id)
+        loser = props.roster.find(item => item.id === loser.id)
+      }
+      newProps = {
+        buttonText: String(pick(buttonTexts)),
+        currentMatch,
+        onWrestlerClick: wrestlerId => {
+          return props.onWrestlerClick({
+            matchId: currentMatch.id,
+            wrestler: Object.assign(props.roster.find(item => item.id === wrestlerId), { teamId: getId(), }),
+          })
+        },
+        onReset: () => {
+          if (confirm(MATCH_CONFIRM_RESET)) {
+            const id = getId()
 
-        return props.onSimulateMatch(currentMatch.id)
-      },
-      winner: currentMatch && currentMatch.wrestlers.find(item => item.winner),
-      loser: currentMatch && currentMatch.wrestlers.find(item => item.loser),
+            props.setId(id)
+            props.onCreate({ id, })
+            props.router.push(`/create-a-match?id=${id}`)
+          }
+        },
+        onSimulateMatch: event => {
+          event.preventDefault()
+
+          return props.onSimulateMatch(currentMatch.id)
+        },
+        winner,
+        loser,
+        numberOfWrestlers: new List(currentMatch.wrestlers).size,
+      }
     }
     return { ...props, ...newProps, }
   }),

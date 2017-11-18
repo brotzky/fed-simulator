@@ -10,21 +10,19 @@ import "./brands.scss"
 
 const NOOP = () => {}
 
-const BrandsPage = ({ onClear = NOOP, onGenerate = NOOP, }) => {
-  return (
-    <section className="page manage-brands">
-      <HeaderOne>
-        Manage Brands
-        <span className="tools">
-          <Generate onClick={onGenerate} title="Generate brands" tabIndex="0" />
-          <Reset onClick={onClear} />
-        </span>
-      </HeaderOne>
-      <Collection />
-      <Create />
-    </section>
-  )
-}
+const BrandsPage = ({ onClear = NOOP, onGenerate = NOOP, }) => (
+  <section className="page manage-brands">
+    <HeaderOne>
+      Manage Brands
+      <span className="tools">
+        <Generate onClick={onGenerate} title="Generate brands" tabIndex="0" />
+        <Reset onClick={onClear} />
+      </span>
+    </HeaderOne>
+    <Collection />
+    <Create />
+  </section>
+)
 
 BrandsPage.propTypes = {
   onClear: PropTypes.func,

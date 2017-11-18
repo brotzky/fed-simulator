@@ -10,21 +10,19 @@ import "./championships.scss"
 
 const NOOP = () => {}
 
-const Championships = ({ onGenerate = NOOP, onClear = NOOP, }) => {
-  return (
-    <section className="page manage-championships">
-      <HeaderOne>
-        Manage Championships
-        <span className="tools">
-          <Generate onClick={onGenerate} title="Generate championships" />
-          <Reset onClick={onClear} />
-        </span>
-      </HeaderOne>
-      <Collection />
-      <Create />
-    </section>
-  )
-}
+const Championships = ({ onGenerate = NOOP, onClear = NOOP, }) => (
+  <section className="page manage-championships">
+    <HeaderOne>
+      Manage Championships
+      <span className="tools">
+        <Generate onClick={onGenerate} title="Generate championships" />
+        <Reset onClick={onClear} />
+      </span>
+    </HeaderOne>
+    <Collection />
+    <Create />
+  </section>
+)
 
 Championships.propTypes = {
   onClear: PropTypes.func,
