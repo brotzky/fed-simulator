@@ -8,7 +8,7 @@ $match-border-color: #4b4b4b;
   margin-bottom: 0.5rem;
 
   .dropzone {
-    min-height: 3rem;
+    min-height: inherit;
     border: 0.1rem solid $match-border-color;
   }
 
