@@ -195,7 +195,7 @@
       "losses": 0,
       "male": true,
       "name": "Titus O Neil",
-      "points": 52,
+      "points": 62,
       "wins": 0,
       "created": "2017-11-05T12:34:38.641Z"
     },
@@ -218,6 +218,17 @@
       "male": true,
       "name": "Jimmy Uso",
       "points": 73,
+      "wins": 0,
+      "created": "2017-11-05T12:34:38.641Z"
+    },
+    {
+      "id": "hhh",
+      "brandId": "j9mr6qa8",
+      "image": "",
+      "losses": 0,
+      "male": true,
+      "name": "HHH",
+      "points": 90,
       "wins": 0,
       "created": "2017-11-05T12:34:38.641Z"
     },
