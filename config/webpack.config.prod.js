@@ -9,14 +9,15 @@ const WatchMissingNodeModulesPlugin = require("react-dev-utils/WatchMissingNodeM
 const ModuleScopePlugin = require("react-dev-utils/ModuleScopePlugin")
 const getClientEnvironment = require("./env")
 const paths = require("./paths")
-const CopyWebpackPlugin = require("copy-webpack-plugin")
+// const CopyWebpackPlugin = require("copy-webpack-plugin")
+const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 
 const publicPath = "/"
 const publicUrl = ""
 const env = getClientEnvironment(publicUrl)
 
 module.exports = {
-  devtool: "cheap-module-source-map",
+  devtool: "hidden-source-map",
   entry: [require.resolve("react-dev-utils/webpackHotDevClient"), require.resolve("./polyfills"), require.resolve("react-error-overlay"), paths.appIndexJs,],
   output: {
     path: paths.appBuild,
@@ -81,12 +82,13 @@ module.exports = {
     ],
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: paths.appPublic,
-        to: "static/",
-      },
-    ]),
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: paths.appPublic,
+    //     to: "static/",
+    //   },
+    // ]),
+    new UglifyJSPlugin(),
     new InterpolateHtmlPlugin(env.raw),
     new HtmlWebpackPlugin({
       inject: true,
