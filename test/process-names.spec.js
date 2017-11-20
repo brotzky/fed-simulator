@@ -1,6 +1,6 @@
 import processNames from "../src/components/wrestler/process-names"
 
-describe.only("Given a process names function", () => {
+describe("Given a process names function", () => {
   let result
 
   describe("Given a name with one part", () => {

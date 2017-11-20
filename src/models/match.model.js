@@ -5,6 +5,7 @@ export const schema = {
   showId: undefined,
   generated: false,
   simulated: false,
+  resultStored: false,
   wrestlers: List(),
 }
 
