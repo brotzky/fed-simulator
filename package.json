@@ -35,6 +35,7 @@
     "redux": "3.6.0",
     "redux-localstorage": "0.4.1",
     "string.prototype.includes": "1.0.0",
+    "uglifyjs-webpack-plugin": "^1.1.0",
     "uniqid": "4.1.1",
     "weighted": "0.3.0"
   },
