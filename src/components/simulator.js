@@ -1,42 +1,65 @@
-import React from "react"
+import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 import { Icon } from "./icons"
 
-import { generateRandomMatch, simulateRandomMatch } from "../actions/matches"
+import { generateRandomMatch, simulateRandomMatch, resetMatches } from "../actions/matches"
+import { storeMatchData } from "../actions/roster"
 
 const NOOP = () => {}
 
-class Simulator extends React.Component {
-  state = { active: false, }
-
-  _intervalId = null
+class Simulator extends Component {
+  state = {
+    active: false,
+    stage: 0,
+  }
 
   onToggleActive = () => {
-    const { dispatch, roster, } = this.props
     const active = !this.state.active
+    let stage = 0
+
+    if (active) {
+      this.props.dispatch(generateRandomMatch({ roster: this.props.roster }))
+      stage = 1
+    }
 
     this.setState({
       active,
+      stage,
     })
+  }
 
-    if (active) {
-      this._intervalId = setInterval(() => {
-        dispatch(generateRandomMatch({ roster, }))
-        dispatch(simulateRandomMatch())
-      }, 2000)
-    } else {
-      clearInterval(this._intervalId)
+  componentDidUpdate(nextProps, nextState) {
+    if (nextState.active) {
+      switch (nextState.stage) {
+        // stage 1: simulate random matches
+        case 1:
+          nextProps.dispatch(simulateRandomMatch())
+          break
+        // stage 2: store match data
+        case 2:
+          nextProps.dispatch(storeMatchData(
+            championships: nextProps.championships,
+            matches: nextProps.matches,
+          ))
+          break
+        // stage 3: clear simulated matches
+        case 3:
+          nextProps.dispatch(resetMatches())
+          break
+      }
+
+      const stage = nextState.stage + 1
+
+      this.setState({
+        stage,
+      })
     }
   }
 
-  componentWillUnmount() {
-    clearInterval(this._intervalId)
-  }
-
   render() {
-    return null
+    return null;
     const icon = !this.state.active ? "play-circle" : "stop-circle red"
 
     return (
@@ -50,19 +73,21 @@ class Simulator extends React.Component {
 Simulator.displayName = "PageSecondary"
 
 Simulator.propTypes = {
-  setInterval: PropTypes.func,
   dispatch: PropTypes.func,
   roster: PropTypes.array,
-  clearIntervals: PropTypes.func,
+  matches: PropTypes.array,
+  championships: PropTypes.array,
 }
 
 Simulator.defaultProps = {
-  setInterval: NOOP,
   dispatch: NOOP,
   roster: [],
-  clearIntervals: NOOP,
+  matches: [],
+  championships: [],
 }
 
 export default connect(state => ({
   roster: state.roster,
+  championships: state.championships,
+  matches: state.matches,
 }))(Simulator)
