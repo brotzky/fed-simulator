@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
+import { chain } from "redux-chain"
 
 import { Icon } from "./icons"
 
@@ -12,55 +13,40 @@ const NOOP = () => {}
 class Simulator extends Component {
   state = {
     active: false,
-    stage: 0,
   }
 
   onToggleActive = () => {
     const active = !this.state.active
-    let stage = 0
 
     if (active) {
-      this.props.dispatch(generateRandomMatch({ roster: this.props.roster }))
-      stage = 1
+      this.generateMatches()
     }
 
     this.setState({
       active,
-      stage,
     })
   }
 
-  componentDidUpdate(nextProps, nextState) {
-    if (nextState.active) {
-      switch (nextState.stage) {
-        // stage 1: simulate random matches
-        case 1:
-          nextProps.dispatch(simulateRandomMatch())
-          break
-        // stage 2: store match data
-        case 2:
-          nextProps.dispatch(storeMatchData(
-            championships: nextProps.championships,
-            matches: nextProps.matches,
-          ))
-          break
-        // stage 3: clear simulated matches
-        case 3:
-          nextProps.dispatch(resetMatches())
-          break
-      }
-
-      const stage = nextState.stage + 1
-
-      this.setState({
-        stage,
-      })
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.matches.length > 0) {
+      this.clearMatches(nextProps)
     }
   }
 
+  generateMatches = () => {
+    const { dispatch, roster } = this.props
+
+    dispatch(chain(generateRandomMatch({ roster }), simulateRandomMatch()))
+  }
+
+  clearMatches = nextProps => {
+    const { dispatch, matches, championships } = nextProps
+
+    dispatch(chain(storeMatchData({ matches, championships }), resetMatches()))
+  }
+
   render() {
-    return null;
-    const icon = !this.state.active ? "play-circle" : "stop-circle red"
+    const icon = !this.state.active ? "play-circle green" : "stop-circle red"
 
     return (
       <span>
