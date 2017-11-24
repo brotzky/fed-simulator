@@ -67,12 +67,12 @@ class ChampionshipsContainer extends Component {
         onChangeName={this.onChangeName}
         onChangeGender={this.onChangeGender}
         onChangeColor={this.onChangeColor}
-        onChangeWrestler={this.onChangeWrestler}
+        onChangeWrestler={NOOP}
         onChangeBackgroundColor={this.onChangeBackgroundColor}
         canUpdateColors={true}
         canUpdateBrand={false}
         canUpdateGender={true}
-        canUpdateWrestler={true}
+        canUpdateWrestler={false}
         canDelete={true}
         canUpdateName={true}
         collection={championships}
@@ -100,7 +100,7 @@ ChampionshipsContainer.defaultProps = {
 }
 
 export default connect(state => ({
-  championships: state.championships,
-  roster: state.roster,
+  championships: state.federation.championships,
+  roster: state.federation.roster,
   style: state.style,
 }))(ChampionshipsContainer)

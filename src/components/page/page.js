@@ -84,7 +84,7 @@ Page.contextTypes = {
 }
 
 export default connect(state => ({
-  championships: state.championships,
+  championships: state.federation.championships,
   name: state.game.name,
   style: state.style,
   version: state.version,

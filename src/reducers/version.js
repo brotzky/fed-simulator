@@ -1,4 +1,4 @@
-const defaultState = 5
+const defaultState = 5.5
 
 export default (state = defaultState, action) => {
   state = JSON.parse(JSON.stringify(state))

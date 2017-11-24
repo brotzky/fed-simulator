@@ -78,6 +78,6 @@ BrandsContainer.propTypes = {
 }
 
 export default connect(state => ({
-  brands: state.brands,
+  brands: state.federation.brands,
   style: state.style,
 }))(BrandsContainer)

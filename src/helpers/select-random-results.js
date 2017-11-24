@@ -6,8 +6,7 @@ import getPercentageAmount from "./get-percentage-amount"
 
 import { PERCENT_GAIN_FOR_HIGHEST_WRESTLER } from "../constants/game"
 
-export default function selectRandomResults({ wrestlers = [], }) {
-
+export default function selectRandomResults(wrestlers = []) {
   const numberOfTeams = Object.keys(groupBy(wrestlers, "teamId")).length
   const numberOfWrestlers = wrestlers.length
   const hasWinner = wrestlers.findIndex(wrestler => wrestler.winner) > -1

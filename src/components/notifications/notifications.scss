@@ -1,21 +1,25 @@
 @import "src/stylesheets/z-index";
 
 .notifications {
-  position: absolute;
-  right: 0;
-  text-align: center;
-  top: 0;
-  z-index: $z-index-notifications;
+  bottom: -3rem;
   font-size: small;
-  max-height: 20rem;
+  left: 50%;
+  max-height: 14rem;
   overflow: hidden;
+  position: absolute;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  width: 11rem;
+  z-index: $z-index-notifications;
 
   .notification {
-    display: flex;
-    padding: 1rem;
+    padding: 0.5rem;
     margin-bottom: 1rem;
     font-size: small;
     transition: background-color 2s ease-in;
-    box-shadow: rgba(0, 0, 0, 0.8) 0 0 0.1rem;
+    a {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }

@@ -7,16 +7,6 @@ export function updateWrestler(payload) {
   }
 }
 
-export function storeMatchData({ matches, championships }) {
-  return {
-    type: types.STORE_MATCH_DATA,
-    payload: {
-      matches,
-      championships,
-    },
-  }
-}
-
 export function createWrestler(wrestler) {
   return {
     type: types.CREATE_WRESTLER,

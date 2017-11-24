@@ -25,8 +25,8 @@ StyleBrands.propTypes = {
 }
 
 export default connect(state => ({
-  brands: state.brands,
-  championships: state.championships,
+  brands: state.federation.brands,
+  championships: state.federation.championships,
   style: state.style,
   version: state.version,
 }))(StyleBrands)

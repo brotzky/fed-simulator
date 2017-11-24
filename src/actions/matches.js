@@ -7,23 +7,10 @@ export function createMatch(payload) {
   }
 }
 
-export function simulateRandomMatch() {
+export function simulateRandomMatches(amountOfMatches = 50) {
   return {
-    type: types.SIMULATE_RANDOM_MATCH,
-  }
-}
-
-export function generateRandomMatches({ amountOfMatches = 50, roster = [], }) {
-  return {
-    type: types.GENERATE_RANDOM_MATCHES,
-    payload: { amountOfMatches, roster, },
-  }
-}
-
-export function generateRandomMatch({ roster = [], }) {
-  return {
-    type: types.GENERATE_RANDOM_MATCHES,
-    payload: { amountOfMatches: 1, roster, },
+    type: types.SIMULATE_RANDOM_MATCHES,
+    payload: { amountOfMatches },
   }
 }
 
@@ -34,24 +21,24 @@ export function simulateMatch(matchId) {
   }
 }
 
-export function removeWrestlerFromMatch({ matchId, wrestlerId, }) {
+export function removeWrestlerFromMatch({ matchId, wrestlerId }) {
   return {
     type: types.REMOVE_WRESTLER_FROM_MATCH,
-    payload: { matchId, wrestlerId, },
+    payload: { matchId, wrestlerId },
   }
 }
 
-export function addWrestlerToMatch({ matchId, wrestler, }) {
+export function addWrestlerToMatch({ matchId, wrestler }) {
   return {
     type: types.ADD_WRESTLER_TO_MATCH,
-    payload: { matchId, wrestler, },
+    payload: { matchId, wrestler },
   }
 }
 
-export function selectWinnerOfMatch({ matchId, wrestlerId, }) {
+export function selectWinnerOfMatch({ matchId, wrestlerId }) {
   return {
     type: types.SELECT_WINNER_IN_MATCH,
-    payload: { matchId, wrestlerId, },
+    payload: { matchId, wrestlerId },
   }
 }
 

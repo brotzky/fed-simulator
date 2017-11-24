@@ -6,14 +6,10 @@ import Select from "../form/select"
 import Input from "../form/input"
 import { Reset, Gender } from "../icons"
 
+import "./collection.scss"
+
 const NOOP = () => {}
 
-const mediumWidth = {
-  maxWidth: "9rem",
-}
-const smallWidth = {
-  maxWidth: "3rem",
-}
 const Collection = ({
   brands = [],
   canDelete = false,
@@ -47,14 +43,14 @@ const Collection = ({
         return (
           <div key={item.id} className="item row middle-xs" style={style}>
             <If condition={canUpdateName}>
-              <div className="col-xs">
+              <div className="col-xs input">
                 <div className="box">
                   <Input style={style} value={item.name} onChange={event => onChangeName(item, event)} />
                 </div>
               </div>
             </If>
             <If condition={canUpdateWrestler}>
-              <div className="col-xs end-xs" style={mediumWidth}>
+              <div className="col-xs end-xs medium">
                 <div className="box">
                   <Choose>
                     <When condition={item.tag}>
@@ -69,14 +65,21 @@ const Collection = ({
               </div>
             </If>
             <If condition={canUpdateBrand}>
-              <div className="col-xs" style={mediumWidth}>
+              <div className="col-xs">
                 <div className="box">
                   <Select options={brands} value={item.brandId} onChange={event => onChangeBrand(item, event)} />
                 </div>
               </div>
             </If>
+            <If condition={canUpdateGender}>
+              <div className="col-xs small">
+                <div className="box">
+                  <Gender gender={item.male} onClick={event => onChangeGender(item, event)} />
+                </div>
+              </div>
+            </If>
             <If condition={canUpdateColors}>
-              <div className="col-xs" style={mediumWidth}>
+              <div className="col-xs small">
                 <div className="box">
                   <ColorPickers
                     onChangeColor={event => onChangeColor(item, event)}
@@ -86,15 +89,8 @@ const Collection = ({
                 </div>
               </div>
             </If>
-            <If condition={canUpdateGender}>
-              <div className="col-xs" style={smallWidth}>
-                <div className="box">
-                  <Gender gender={item.male} onClick={event => onChangeGender(item, event)} />
-                </div>
-              </div>
-            </If>
             <If condition={canDelete}>
-              <div className="col-xs end-xs" style={smallWidth}>
+              <div className="col-xs end-xs small">
                 <div className="box">
                   <a className="delete" onClick={() => onDelete(item.id)}>
                     <Reset />

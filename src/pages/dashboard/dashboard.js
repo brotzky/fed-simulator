@@ -4,6 +4,7 @@ import sortBy from "lodash.sortby"
 import PropTypes from "prop-types"
 import orderBy from "lodash.orderby"
 
+import Champions from "../../components/champions/champions"
 import HeaderOne from "../../components/h1/h1"
 import Simulator from "../../components/simulator"
 import Ranking from "../../components/ranking/ranking"
@@ -12,7 +13,7 @@ import { RANKED_COLUMNS } from "../../constants/ranking"
 
 import "./dashboard.scss"
 
-export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestlers, }) => (
+export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestlers, champions }) => (
   <section className="page dashboard zoom">
     <HeaderOne>
       Dashboard{" "}
@@ -20,6 +21,9 @@ export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestler
         <Simulator />
       </span>
     </HeaderOne>
+    <div className="row">
+      <Champions />
+    </div>
     <div className="row">
       <div className="col-xs-12 col-sm-6 col-lg-6">
         <div className="box">
@@ -44,10 +48,8 @@ DashboardPage.propTypes = {
 }
 
 export default connect(state => ({
-  rankedMaleWrestlers: orderBy(state.roster.filter(wrestler => wrestler.male), "points", "desc"),
-  rankedFemaleWrestlers: orderBy(state.roster.filter(wrestler => !wrestler.male), "points", "desc"),
-  roster: state.roster,
-  iconColour: state.style.backgroundColor,
+  rankedMaleWrestlers: orderBy(state.federation.roster.filter(wrestler => wrestler.male), "points", "desc"),
+  rankedFemaleWrestlers: orderBy(state.federation.roster.filter(wrestler => !wrestler.male), "points", "desc"),
   ...state.game,
   style: state.style,
 }))(DashboardPage)

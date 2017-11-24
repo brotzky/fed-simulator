@@ -1,0 +1,48 @@
+@import "src/stylesheets/breakpoints";
+
+.collection {
+  .small.col-xs {
+    max-width: 4rem;
+    justify-content: flex-end;
+  }
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .input .box {
+    justify-content: flex-start;
+  }
+
+  @include breakpoint(xs) {
+    .item {
+      border-bottom: 1px solid black;
+    }
+    .small.col-xs,
+    .col-xs {
+      display: flex;
+      flex: auto;
+      width: 100%;
+      justify-content: space-around;
+      flex-grow: 0;
+      max-width: none;
+
+      &.input .box {
+        justify-content: center;
+
+        input {
+          text-align: center;
+          margin: 0.5rem;
+          padding: 0.5rem;
+          width: 100%;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+
+      .box {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

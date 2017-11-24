@@ -41,7 +41,7 @@ export default compose(
   withStateHandlers(defaultState, stateHandlers),
   connect(
     state => ({
-      roster: state.roster,
+      roster: state.federation.roster,
       style: state.style,
     }),
     dispatch => ({

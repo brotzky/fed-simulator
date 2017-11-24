@@ -1,7 +1,7 @@
 import { List } from "immutable"
 
 import { getId } from "../src/models/model.helper"
-import reducer from "../src/reducers/match.wrestlers"
+import reducer from "../src/reducers/federation/match.wrestlers"
 import Model from "../src/models/match.wrestler.model"
 import * as types from "../src/actions/types"
 
@@ -28,13 +28,19 @@ const defaultWrestlers = new List([
   }),
 ]).toJS()
 
+const storeStates = {
+  roster: defaultWrestlers,
+}
+
+const getState = storeName => storeStates[storeName]
+
 const reducerCreator = (activeReducer, type = types.RESET, payload = false) => {
   const action = {
     type,
     payload,
   }
 
-  return reducer(activeReducer, action)
+  return reducer(activeReducer, action, getState)
 }
 
 describe("given a match wrestler reducer", () => {
@@ -92,7 +98,7 @@ describe("given a match wrestler reducer", () => {
   })
   describe("and a random match simulated", () => {
     before(() => {
-      activeReducer = reducerCreator(activeReducer, types.SIMULATE_RANDOM_MATCH)
+      activeReducer = reducerCreator(activeReducer, types.SIMULATE_RANDOM_MATCHES)
       loser = activeReducer.filter(item => item.loser)
       winner = activeReducer.filter(item => item.winner)
     })
@@ -104,16 +110,6 @@ describe("given a match wrestler reducer", () => {
     })
     it("should be seperate wrestlers who win and lose", () => {
       expect(winner[0].id).to.not.equal(loser[0].id)
-    })
-  })
-  describe.skip("and generate random matches is requested", () => {
-    before(() => {
-      const payload = { roster: defaultWrestlers }
-
-      activeReducer = reducerCreator(activeReducer, types.GENERATE_RANDOM_MATCHES, payload)
-    })
-    it("random wrestlers should be added", () => {
-      expect(activeReducer.length).to.be.above(1)
     })
   })
   describe("and a winner is sent", () => {

@@ -1,4 +1,4 @@
-import reducer from "../src/reducers/brands"
+import reducer from "../src/reducers/federation/brands"
 import * as types from "../src/actions/types"
 
 const defaultModel1 = {

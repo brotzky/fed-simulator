@@ -4,67 +4,54 @@ import PropTypes from "prop-types"
 
 import { Icon } from "./icons"
 
-import { generateRandomMatch, simulateRandomMatch, resetMatches } from "../actions/matches"
-import { storeMatchData } from "../actions/roster"
+import { simulateRandomMatches } from "../actions/matches"
 
 const NOOP = () => {}
+const INTERVAL_AMOUNT = 900
 
 class Simulator extends Component {
   state = {
     active: false,
-    stage: 0,
   }
 
   onToggleActive = () => {
     const active = !this.state.active
-    let stage = 0
-
-    if (active) {
-      this.props.dispatch(generateRandomMatch({ roster: this.props.roster }))
-      stage = 1
-    }
 
     this.setState({
       active,
-      stage,
     })
-  }
 
-  componentDidUpdate(nextProps, nextState) {
-    if (nextState.active) {
-      switch (nextState.stage) {
-        // stage 1: simulate random matches
-        case 1:
-          nextProps.dispatch(simulateRandomMatch())
-          break
-        // stage 2: store match data
-        case 2:
-          nextProps.dispatch(storeMatchData(
-            championships: nextProps.championships,
-            matches: nextProps.matches,
-          ))
-          break
-        // stage 3: clear simulated matches
-        case 3:
-          nextProps.dispatch(resetMatches())
-          break
-      }
-
-      const stage = nextState.stage + 1
-
-      this.setState({
-        stage,
-      })
+    if (active) {
+      this.startInterval()
+    } else {
+      this.clearInterval()
     }
   }
 
-  render() {
-    return null;
-    const icon = !this.state.active ? "play-circle" : "stop-circle red"
+  startSimulations = () => {
+    this.props.dispatch(simulateRandomMatches())
+  }
 
+  startInterval = () => {
+    this._interval = setInterval(this.startSimulations, INTERVAL_AMOUNT)
+  }
+
+  clearInterval = () => {
+    clearInterval(this._interval)
+  }
+
+  componentWillUnmount() {
+    this.clearInterval()
+  }
+
+  render() {
+    const color = !this.state.active ? "white" : "red"
+    const icon = !this.state.active ? "play-circle" : "stop-circle"
+    const title = !this.state.active ? "Start simulations" : "Stop simulating"
     return (
-      <span>
-        <Icon icon={icon} onClick={this.onToggleActive} /> Auto Sim Matches
+      <span className={color}>
+        <Icon icon={icon} onClick={this.onToggleActive} />
+        {title}
       </span>
     )
   }
@@ -74,20 +61,10 @@ Simulator.displayName = "PageSecondary"
 
 Simulator.propTypes = {
   dispatch: PropTypes.func,
-  roster: PropTypes.array,
-  matches: PropTypes.array,
-  championships: PropTypes.array,
 }
 
 Simulator.defaultProps = {
   dispatch: NOOP,
-  roster: [],
-  matches: [],
-  championships: [],
 }
 
-export default connect(state => ({
-  roster: state.roster,
-  championships: state.championships,
-  matches: state.matches,
-}))(Simulator)
+export default connect(null)(Simulator)

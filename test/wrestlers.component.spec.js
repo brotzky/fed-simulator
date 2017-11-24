@@ -5,10 +5,7 @@ import sinon from "sinon"
 import { schema } from "../src/models/wrestler.model"
 import Wrestlers from "../src/components/wrestlers/wrestlers"
 import Wrestler from "../src/components/wrestler/wrestler"
-// import { Visible, Gender, SortBy, Direction } from "../src/components/icons"
 
-// const sandbox = sinon.sandbox.create()
-//
 const testProps = {
   collection: [{ ...schema, id: "123" }, { ...schema, id: "456" }],
 }

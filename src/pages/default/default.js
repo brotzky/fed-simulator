@@ -44,5 +44,5 @@ export default connect(state => ({
   started: state.game.started,
   name: state.game.name,
   untouched: state.style.untouched,
-  championships: state.championships,
+  championships: state.federation.championships,
 }))(DefaultPage)

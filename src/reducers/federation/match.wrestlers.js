@@ -1,26 +1,15 @@
 import { List } from "immutable"
 
-import randomiseWrestlers from "../helpers/randomise-wrestlers"
-import selectRandomResults from "../helpers/select-random-results"
-import Model from "../models/match.wrestler.model"
+import randomiseWrestlers from "../../helpers/randomise-wrestlers"
+import selectRandomResults from "../../helpers/select-random-results"
+import Model from "../../models/match.wrestler.model"
 
-export default (state, action) => {
+export default (state, action, getState) => {
   state = List(state)
 
   switch (action.type) {
     case "SIMULATE_MATCH":
-    case "SIMULATE_RANDOM_MATCH":
-      state = selectRandomResults({ wrestlers: state.toJS(), })
-      break
-    case "GENERATE_RANDOM_MATCHES":
-      {
-        let wrestlers = []
-
-        while (wrestlers.length === 0) {
-          wrestlers = randomiseWrestlers({ wrestlers: action.payload.roster, })
-        }
-        state = wrestlers
-      }
+      state = selectRandomResults(state.toJS())
       break
     case "SELECT_WINNER_IN_MATCH":
       state = state.map(item => {

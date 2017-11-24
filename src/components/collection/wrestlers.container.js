@@ -102,7 +102,7 @@ WrestlersContainer.propTypes = {
 }
 
 export default connect(state => ({
-  brands: state.brands,
-  roster: state.roster,
+  brands: state.federation.brands,
+  roster: state.federation.roster,
   style: state.style,
 }))(WrestlersContainer)

@@ -21,7 +21,7 @@ const propsMapper = ({ dispatch, id, }) => ({
 
 export default compose(
   connect(state => ({
-    brands: state.brands,
+    brands: state.federation.brands,
     style: state.style,
   })),
   withProps(propsMapper)
