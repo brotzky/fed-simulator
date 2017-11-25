@@ -28,27 +28,26 @@ export default (state, action) => {
       }
       break
     case "AWARD_CHAMPIONSHIP":
-      {
-        index = state.findIndex(item => item.id === action.payload.id)
+      index = state.findIndex(item => item.id === action.payload.id)
 
-        if (index > -1) {
-          const { wrestlerId, } = action.payload
+      if (index > -1) {
+        const { wrestlerId, } = action.payload
 
-          let item = state.get(index)
+        let item = state.get(index)
 
-          let wrestlers = Object.assign([], item.wrestlers)
+        let wrestlers = Object.assign([], item.wrestlers)
 
-          if (item.tag) {
-            wrestlers = [wrestlerId, item.wrestlers[0],]
-          } else if (!item.tag) {
-            wrestlers = [wrestlerId,]
-          }
-
-          const switches = item.get("switches") + 1
-
-          state = state.updateIn([index,], item => new Model(item).merge({ wrestlers, switches, }))
+        if (item.tag) {
+          wrestlers = [wrestlerId, item.wrestlers[0],]
+        } else if (!item.tag) {
+          wrestlers = [wrestlerId,]
         }
+
+        const switches = item.get("switches") + 1
+
+        state = state.updateIn([index,], item => new Model(item).merge({ wrestlers, switches, }))
       }
+
       break
     case "DELETE_CHAMPIONSHIP":
       index = state.findIndex(item => item.id === action.payload)
