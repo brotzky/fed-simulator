@@ -32,6 +32,7 @@ input {
   padding: $input-padding;
   vertical-align: top;
   width: $input-width;
+  border-radius: 0;
 
   @include breakpoint(xs) {
     font-size: small;
