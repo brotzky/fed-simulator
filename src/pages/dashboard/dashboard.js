@@ -16,7 +16,7 @@ export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestler
   <section className="page dashboard zoom">
     <HeaderOne>
       Dashboard{" "}
-      <span className="tools">
+      <span  tabIndex="0" className="tools">
         <Simulator />
       </span>
     </HeaderOne>

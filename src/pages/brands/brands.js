@@ -14,7 +14,7 @@ const BrandsPage = ({ onClear = NOOP, onGenerate = NOOP, }) => (
   <section className="page manage-brands">
     <HeaderOne>
       Manage Brands
-      <span className="tools">
+      <span tabIndex="0" className="tools">
         <Generate onClick={onGenerate} title="Generate brands" tabIndex="0" />
         <Reset onClick={onClear} />
       </span>

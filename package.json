@@ -9,7 +9,8 @@
     "build": "NODE_ENV=production DEBUG=app:* babel-node ./scripts/build.js",
     "lint": "eslint src --fix",
     "test": "NODE_ENV=test mocha --opts mocha.opts",
-    "test:watch": "NODE_ENV=test mocha --watch --opts mocha.opts "
+    "test:watch": "NODE_ENV=test mocha --watch --opts mocha.opts ",
+    "prepush": "npm test"
   },
   "dependencies": {
     "babel-core": "6.26.0",

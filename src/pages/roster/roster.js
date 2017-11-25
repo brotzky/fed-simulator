@@ -13,14 +13,14 @@ import "./roster.skin.scss"
 
 const NOOP = () => {}
 
-const RosterPage = ({ onToggleListView, onClose, onClick, onClear, onGenerate, listView, onToggleCreating, creating, currentWrestler, style }) => {
+const RosterPage = ({ onToggleListView, onClose, onClick, onClear, onGenerate, listView, onToggleCreating, creating, currentWrestler, style, }) => {
   const hasPane = creating || currentWrestler
   const col = hasPane ? "col-lg-6 col-md-6 col-sm-12 col-xs-12" : "col-lg-12 col-md-12 col-sm-12 col-xs-12"
   return (
     <div className="page roster">
       <HeaderOne>
         Manage Roster
-        <span className="tools">
+        <span tabIndex="0" className="tools">
           <Create onClick={onToggleCreating} ritle="Create wrestler" />
           <ListToggle onClick={onToggleListView} title="Toggle list view" />
           <Generate onClick={onGenerate} title="Generate roster" />

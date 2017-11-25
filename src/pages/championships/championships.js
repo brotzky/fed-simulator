@@ -14,7 +14,7 @@ const Championships = ({ onGenerate = NOOP, onClear = NOOP, }) => (
   <section className="page manage-championships">
     <HeaderOne>
       Manage Championships
-      <span className="tools">
+      <span tabIndex="0" className="tools">
         <Generate onClick={onGenerate} title="Generate championships" />
         <Reset onClick={onClear} />
       </span>

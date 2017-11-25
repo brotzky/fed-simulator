@@ -29,7 +29,7 @@ const CreateAMatch = ({
           <div className="box">
             <HeaderOne>
               Create a match
-              <span className="tools">
+              <span tabIndex="0" className="tools">
                 <Reset onClick={onReset} />
               </span>
             </HeaderOne>
