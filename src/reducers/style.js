@@ -8,10 +8,10 @@ export default (state, action) => {
 
   switch (action.type) {
     case "RESET":
-      state = new Model()
+      state = state = new Model()
       break
     case "GENERATE":
-      state.set("untouched", false)
+      state = state.set("untouched", false)
       break
     case "UPDATE_STYLE":
       state = state.merge(action.payload, { untouched: false, })
