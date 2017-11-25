@@ -4,7 +4,6 @@ import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
 import StyleBrands from "./style-brands"
-import Notifications from "../notifications/container"
 import * as versionActions from "../../actions/version"
 import Nav from "../nav/container"
 import links from "./links.json"
@@ -47,12 +46,7 @@ class Page extends PureComponent {
               <Nav name={name} tabIndex="0" activeUrl={activeUrl} links={links} {...style} modifier="main" />
             </aside>
           </If>
-          <article>
-            <If condition={isNavVisible}>
-              <Notifications />
-            </If>
-            {children}
-          </article>
+          {children}
         </main>
         <StyleBrands />
       </div>

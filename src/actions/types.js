@@ -49,9 +49,5 @@ export const CLEAR_WRESTLERS_FROM_MATCH = "CLEAR_WRESTLERS_FROM_MATCH"
 // resets
 export const RESET = "RESET"
 
-// notifications
-export const RESET_NOTIFICATIONS = "RESET_NOTIFICATIONS"
-export const DELETE_NOTIFICATION = "DELETE_NOTIFICATION"
-
 // droppables
 export const WRESTLER = "WRESTLER"
