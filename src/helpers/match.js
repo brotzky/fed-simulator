@@ -42,10 +42,21 @@ export default class Match {
       if (keyedChampionships[this.loser.championshipId]) {
         this.championship = keyedChampionships[this.loser.championshipId]
 
+        this.resetCurrentChampionshipId(this.loser.championshipId)
         this.processTitleChanges()
       }
     }
 
+    return this
+  }
+
+  resetCurrentChampionshipId(championshipId) {
+    this.roster = this.roster.map(item => {
+      if (item.get("championshipId") === championshipId) {
+        item.set("championshipId", null)
+      }
+      return item
+    })
     return this
   }
 
@@ -67,11 +78,8 @@ export default class Match {
       if (switchChampionship) {
         this.roster = this.roster.map(wrestler => {
           if (includes(this.winnerIds, wrestler.id)) {
-            console.log(wrestler.name, "won the ", this.championship.name)
             wrestler = wrestler.set("championshipId", this.championship.id)
           } else if (includes(this.loserIds, wrestler.id)) {
-            console.log(wrestler.name, "lost the ", this.championship.name)
-
             wrestler = wrestler.set("championshipId", null)
           }
 
@@ -120,27 +128,3 @@ export default class Match {
     return this.wrestlers
   }
 }
-
-// let championships = getState("championships")
-// let championship
-// const existingChampions = winners.filter(item => item.championshipId).length === 0
-// if (loser.championshipId && !existingChampions) {
-//   championship = championships.find(item => item.id === loser.championshipId)
-// }
-//
-// if (championship && championship.tag && loserIds.length === 2 && winnerIds.length === 2) {
-//   switchChampionship = true
-// } else if (championship && loserIds.length === 1 && winnerIds.length === 1) {
-//   switchChampionship = true
-// } else {
-//   switchChampionship = false
-// }
-
-// if (switchChampionship) {
-//   console.log(`New ${championship.name} champion`)
-//   item = item.set("championshipId", championship.id)
-// }
-
-// if (switchChampionship) {
-//   item = item.set("championshipId", null)
-// }
