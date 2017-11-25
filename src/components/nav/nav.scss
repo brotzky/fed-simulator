@@ -1,7 +1,6 @@
 $mobile: 768px;
 $nav-height: 2.5rem;
 $nav-font-size: medium;
-$nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
 
 .nav {
   align-items: stretch;
@@ -17,8 +16,14 @@ $nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
     text-transform: uppercase;
   }
 
-  a.active {
-    text-shadow: $nav-active-text-shadow;
+  a {
+    text-shadow: none;
+    transition: text-shadow 500ms ease;
+
+    &:hover,
+    &.active {
+      text-shadow: 0px 1px 20px white;
+    }
   }
 }
 
