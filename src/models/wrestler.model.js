@@ -8,7 +8,7 @@ export const schema = {
   image: "",
   losses: 0,
   male: true,
-  name: "Default",
+  name: "Vacant",
   points: 50,
   wins: 0,
 }

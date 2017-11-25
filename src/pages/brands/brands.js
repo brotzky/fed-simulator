@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import HeaderOne from "../../components/h1/h1"
+import HeaderOne from "../../components/header/header"
 import Create from "../../components/create/brand.container.js"
 import Collection from "../../components/collection/brands.container"
 import { Generate, Reset } from "../../components/icons"

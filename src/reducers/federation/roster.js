@@ -41,10 +41,11 @@ export default (state, action, getState) => {
         let { amountOfMatches, } = action.payload
 
         while (amountOfMatches > 0) {
-          state = new Match({ roster: state, })
+          state = new Match({ roster: state, championships: getState("championships"), })
             .generate()
             .simulate()
             .savePoints()
+            .switchChampionships()
             .getRoster()
           amountOfMatches--
         }

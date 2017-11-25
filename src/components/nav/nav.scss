@@ -4,12 +4,18 @@ $nav-font-size: medium;
 $nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
 
 .nav {
-  display: flex;
   align-items: stretch;
+  display: flex;
+  margin-bottom: 0.2rem;
   min-height: $nav-height;
-  position: relative;
-  margin-bottom: 1rem;
   padding: 0 1rem;
+  position: relative;
+
+  h1 {
+    font-size: medium;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
 
   a.active {
     text-shadow: $nav-active-text-shadow;
@@ -30,8 +36,11 @@ $nav-active-text-shadow: 0.15rem 0.15rem 0.15rem black;
 .nav-item {
   align-items: center;
   display: flex;
-  padding: 0.25rem 0.5rem;
+  flex-grow: inherit;
   font-size: $nav-font-size;
+  font-variant: all-petite-caps;
+  justify-content: flex-start;
+  padding: 0.25rem 0.5rem;
 }
 
 .nav-left,

@@ -1,10 +1,9 @@
 import { List } from "immutable"
 
-import randomiseWrestlers from "../../helpers/randomise-wrestlers"
 import selectRandomResults from "../../helpers/select-random-results"
 import Model from "../../models/match.wrestler.model"
 
-export default (state, action, getState) => {
+export default (state, action) => {
   state = List(state)
 
   switch (action.type) {

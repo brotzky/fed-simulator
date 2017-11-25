@@ -202,6 +202,7 @@
     {
       "id": "j9mr6qax",
       "brandId": "j9mr6qa9",
+      "championshipId": "j9nfpobi",
       "image": "",
       "losses": 0,
       "male": true,
@@ -213,6 +214,7 @@
     {
       "id": "j9mr6qay",
       "brandId": "j9mr6qa9",
+      "championshipId": "j9nfpobi",
       "image": "",
       "losses": 0,
       "male": true,
@@ -323,6 +325,7 @@
     {
       "id": "j9mr6qb7",
       "brandId": "j9mr6qaa",
+      "championshipId": "j9nfpobh",
       "image": "",
       "losses": 0,
       "male": true,
@@ -576,6 +579,7 @@
     {
       "id": "j9mr6qbv",
       "brandId": "j9mr6qa8",
+      "championshipId": "j9nfpobe",
       "image": "",
       "losses": 0,
       "male": true,
@@ -587,6 +591,7 @@
     {
       "id": "j9mr6qbw",
       "brandId": "j9mr6qa8",
+      "championshipId": "j9nfpobg",
       "image": "",
       "losses": 0,
       "male": true,
@@ -807,6 +812,7 @@
     {
       "id": "j9mr6qcl",
       "brandId": "j9mr6qa9",
+      "championshipId": "j9nfpobf",
       "image": "",
       "losses": 0,
       "male": false,
@@ -1107,7 +1113,6 @@
       "id": "j9nfpobe",
       "name": "Heavyweight Championship",
       "male": true,
-      "wrestlers": ["j9mr6qbv"],
       "tag": false,
       "style": {
         "color": "white",
@@ -1118,7 +1123,6 @@
       "id": "j9nfpobf",
       "name": "Womens Championship",
       "male": false,
-      "wrestlers": ["j9mr6qcl"],
       "tag": false,
       "style": {
         "color": "white",
@@ -1129,7 +1133,6 @@
       "id": "j9nfpobg",
       "name": "Midweight Championship",
       "male": true,
-      "wrestlers": ["j9mr6qc5"],
       "tag": false,
       "style": {
         "color": "black",
@@ -1140,7 +1143,6 @@
       "id": "j9nfpobh",
       "name": "Lightweight Championship",
       "male": true,
-      "wrestlers": ["j9mr6qb7"],
       "tag": false,
       "style": {
         "color": "white",
@@ -1151,7 +1153,6 @@
       "id": "j9nfpobi",
       "name": "Tag Team Championships",
       "male": true,
-      "wrestlers": ["j9mr6qay", "j9mr6qax"],
       "tag": true,
       "style": {
         "color": "#ffffff",

@@ -7,7 +7,7 @@ import { Icon } from "./icons"
 import { simulateRandomMatches } from "../actions/matches"
 
 const NOOP = () => {}
-const INTERVAL_AMOUNT = 900
+const INTERVAL_AMOUNT = 800
 
 class Simulator extends Component {
   state = {

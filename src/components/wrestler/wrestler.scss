@@ -9,8 +9,8 @@ $wrestlers-points-dimensions: 1rem;
   background-size: cover;
   box-shadow: 0 0.02rem 0.05rem 0 currentColor;
   color: black;
-  display: flex;
-  height: 2.4rem;
+  display: inline-flex;
+  height: 1.8rem;
   margin: 0.3rem;
   overflow: hidden;
   padding: 0.2rem;
@@ -43,11 +43,17 @@ $wrestlers-points-dimensions: 1rem;
     height: $wrestlers-points-dimensions;
     margin-right: 0.3rem;
     opacity: 0.7;
-    transition: background-color 500ms linear;
     width: $wrestlers-points-dimensions;
     align-items: center;
     display: flex;
     justify-content: center;
+    transition: background-color 500ms linear;
+  }
+
+  .icon.trophy {
+    display: inline-flex;
+    font-size: 0.7rem;
+    color: gold;
   }
 
   &:hover .points {

@@ -9,20 +9,12 @@ import "./nav.scss"
 
 const NOOP = () => {}
 
-const Nav = ({
-  backgroundColor = "black",
-  isSubMenuOpen = false,
-  toggleSubMenuOpen = NOOP,
-  name = "Fed Simulator",
-  activeUrl = "",
-  color = "white",
-  links = [],
-}) => {
+const Nav = ({ backgroundColor = "black", isSubMenuOpen = false, toggleSubMenuOpen = NOOP, activeUrl = "", color = "white", links = [], }) => {
   const style = { backgroundColor, color, }
   return (
     <nav className="nav" style={style}>
       <div className="nav-left">
-        <span className="nav-item">{name}</span>
+        <h1>Fed Simulator</h1>
       </div>
       <label htmlFor="menu-toggle" className="nav-toggle" onClick={toggleSubMenuOpen}>
         &equiv;
@@ -44,7 +36,6 @@ const Nav = ({
 }
 
 Nav.propTypes = {
-  name: PropTypes.string,
   isSubMenuOpen: PropTypes.bool,
   toggleSubMenuOpen: PropTypes.func,
   activeUrl: PropTypes.any,

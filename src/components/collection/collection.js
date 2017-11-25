@@ -41,7 +41,7 @@ const Collection = ({
         }
         roster = newRoster[item.male]
         return (
-          <div key={item.id} className="item row middle-xs" style={style}>
+          <div key={item.id} className="row middle-xs" style={style}>
             <If condition={canUpdateName}>
               <div className="col-xs input">
                 <div className="box">

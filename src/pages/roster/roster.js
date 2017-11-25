@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import HeaderOne from "../../components/h1/h1"
+import HeaderOne from "../../components/header/header"
 import Wrestlers from "../../components/wrestlers/container"
 import Collection from "../../components/collection/wrestlers.container"
 import AddWrestler from "../../components/manage-wrestler/create.container"

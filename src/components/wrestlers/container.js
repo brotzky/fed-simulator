@@ -1,27 +1,16 @@
 import PropTypes from "prop-types"
-import { compose, withHandlers, setPropTypes, withProps } from "recompose"
+import { compose, setPropTypes, withProps } from "recompose"
 import { connect } from "react-redux"
 import sortBy from "lodash.sortby"
 
-import { updateWrestler } from "../../actions/roster"
 import Wrestlers from "./wrestlers"
 
 export const mappedPropTypes = {
   brandId: PropTypes.oneOfType([PropTypes.null, PropTypes.string,]),
   collection: PropTypes.array,
-  onDrop: PropTypes.func,
   onClick: PropTypes.func,
   canDrag: PropTypes.bool,
   withFilter: PropTypes.bool,
-}
-
-export const handlers = {
-  onDrop: props => drop => {
-    const brandId = props.brandId || null
-    const id = drop.wrestler
-
-    props.dispatch(updateWrestler({ brandId, id, }))
-  },
 }
 
 export const propsMapper = props => {
@@ -42,6 +31,6 @@ export const defaultStoreState = state => ({
   collection: state.federation.roster,
 })
 
-export const enhance = compose(connect(defaultStoreState), withHandlers(handlers), setPropTypes(mappedPropTypes), withProps(propsMapper))
+export const enhance = compose(connect(defaultStoreState), setPropTypes(mappedPropTypes), withProps(propsMapper))
 
 export default enhance(Wrestlers)

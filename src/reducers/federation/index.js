@@ -1,5 +1,3 @@
-import { List } from "immutable"
-
 import Championships from "./championships"
 import Roster from "./roster"
 import Matches from "./matches"

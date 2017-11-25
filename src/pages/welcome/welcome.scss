@@ -1,13 +1,27 @@
 @import "src/stylesheets/breakpoints";
 
-.page.welcome {
+section.page.welcome {
   font-size: 1rem;
   font-weight: 100;
+  margin-top: 1rem;
 
   .highlight {
     background-color: gold;
     display: flex;
-    padding: 0.5rem;
+    padding: 0.8rem;
+    font-size: medium;
+    transition: font-size 1s ease-in;
+
+    &:hover {
+      font-size: large;
+    }
+
+    &.lower {
+      background-color: lightyellow;
+      color: white;
+      font-weight: lighter;
+      font-size: small;
+    }
 
     li {
       list-style: none;

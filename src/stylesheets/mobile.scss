@@ -12,13 +12,17 @@
       line-height: 1.7rem !important;
     }
   }
+  h2 {
+    font-weight: bolder !important;
+    font-size: x-large !important;
+  }
   .page {
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem 1rem !important;
   }
 
   input,
   textarea {
-    font-size: 1rem;
-    line-height: 1rem;
+    font-size: 1rem !important;
+    line-height: 1rem !important;
   }
 }

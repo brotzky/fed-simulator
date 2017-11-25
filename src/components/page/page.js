@@ -1,4 +1,4 @@
-import React from "react"
+import React, { PureComponent } from "react"
 import classNames from "classnames"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
@@ -12,7 +12,7 @@ import links from "./links.json"
 import "../../stylesheets/base.scss"
 import "./page.scss"
 
-class Page extends React.Component {
+class Page extends PureComponent {
   state = {
     openNavBar: true,
   }

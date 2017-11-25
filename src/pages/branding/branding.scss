@@ -1,12 +1,10 @@
-$branding-font-size: 2rem;
-
 .page.branding {
   .circle-picker {
     justify-content: center;
     padding: 0 1rem;
 
     span > div > div {
-      border: .1rem solid currentColor;
+      border: 0.1rem solid currentColor;
     }
   }
 }

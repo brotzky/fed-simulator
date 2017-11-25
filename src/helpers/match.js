@@ -1,12 +1,14 @@
 import { List } from "immutable"
 import includes from "lodash.includes"
+import keyBy from "lodash.keyby"
 
 import randomiseWrestlers from "./randomise-wrestlers"
 import selectRandomResults from "./select-random-results"
 
 export default class Match {
-  constructor({ roster = [], }) {
+  constructor({ roster = [], championships = [], }) {
     this.roster = new List(roster)
+    this.championships = new List(championships)
   }
 
   getQuickKeys() {
@@ -16,8 +18,8 @@ export default class Match {
     this.winnerIds = this.wrestlers.reduce((prev, curr) => (curr.teamId === this.winner.teamId ? prev.concat(curr.id) : prev), [])
     this.loserIds = this.wrestlers.reduce((prev, curr) => (curr.teamId === this.loser.teamId ? prev.concat(curr.id) : prev), [])
 
-    this.winners = this.roster.find(item => includes(this.winnerIds, item.id))
-    this.losers = this.roster.find(item => includes(this.loserIds, item.id))
+    this.winners = this.roster.filter(item => includes(this.winnerIds, item.id))
+    this.losers = this.roster.filter(item => includes(this.loserIds, item.id))
   }
 
   generate() {
@@ -29,6 +31,54 @@ export default class Match {
 
   simulate() {
     this.wrestlers = selectRandomResults(this.wrestlers.toJS())
+
+    return this
+  }
+
+  switchChampionships() {
+    if (this.loser && this.loser.championshipId) {
+      const keyedChampionships = keyBy(this.championships.toJS(), "id")
+
+      if (keyedChampionships[this.loser.championshipId]) {
+        this.championship = keyedChampionships[this.loser.championshipId]
+
+        this.processTitleChanges()
+      }
+    }
+
+    return this
+  }
+
+  processTitleChanges() {
+    const winnersHaveChampionships = this.winners.find(item => item.championshipId)
+
+    // if one winner is already a champion we don't switch the titles
+    if (!winnersHaveChampionships) {
+      const losers = this.losers.size
+      const winners = this.winners.size
+      let switchChampionship = false
+
+      if (this.championship.tag === true && losers === 2 && winners === 2) {
+        switchChampionship = true
+      } else if (this.championship.tag === false && losers === 1 && winners === 1) {
+        switchChampionship = true
+      }
+
+      if (switchChampionship) {
+        this.roster = this.roster.map(wrestler => {
+          if (includes(this.winnerIds, wrestler.id)) {
+            console.log(wrestler.name, "won the ", this.championship.name)
+            wrestler = wrestler.set("championshipId", this.championship.id)
+          } else if (includes(this.loserIds, wrestler.id)) {
+            console.log(wrestler.name, "lost the ", this.championship.name)
+
+            wrestler = wrestler.set("championshipId", null)
+          }
+
+          return wrestler
+        })
+      }
+    }
 
     return this
   }

@@ -4,7 +4,7 @@ import { Championship as Model } from "../../models/championship.model"
 import { getId } from "../../models/model.helper"
 import { championships } from "../../constants/defaults.json"
 
-export default (state, action, getState) => {
+export default (state, action) => {
   state = List(state).map(item => new Model(item))
   let index
 
@@ -18,13 +18,13 @@ export default (state, action, getState) => {
       state = List(championships.map(item => new Model(item)))
       break
     case "CREATE_CHAMPIONSHIP":
-      state = state.push(new Model(action.payload).merge({ id: getId() }))
+      state = state.push(new Model(action.payload).merge({ id: getId(), }))
       break
     case "UPDATE_CHAMPIONSHIP":
       index = state.findIndex(item => item.id === action.payload.id)
 
       if (index > -1) {
-        state = state.updateIn([index], item => new Model(item).merge(action.payload))
+        state = state.updateIn([index,], item => new Model(item).merge(action.payload))
       }
       break
     case "AWARD_CHAMPIONSHIP":
@@ -32,21 +32,21 @@ export default (state, action, getState) => {
         index = state.findIndex(item => item.id === action.payload.id)
 
         if (index > -1) {
-          const { wrestlerId } = action.payload
+          const { wrestlerId, } = action.payload
 
           let item = state.get(index)
 
           let wrestlers = Object.assign([], item.wrestlers)
 
           if (item.tag) {
-            wrestlers = [wrestlerId, item.wrestlers[0]]
+            wrestlers = [wrestlerId, item.wrestlers[0],]
           } else if (!item.tag) {
-            wrestlers = [wrestlerId]
+            wrestlers = [wrestlerId,]
           }
 
           const switches = item.get("switches") + 1
 
-          state = state.updateIn([index], item => new Model(item).merge({ wrestlers, switches }))
+          state = state.updateIn([index,], item => new Model(item).merge({ wrestlers, switches, }))
         }
       }
       break

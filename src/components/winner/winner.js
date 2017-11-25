@@ -4,13 +4,13 @@ import PropTypes from "prop-types"
 import "./winner.scss"
 
 export const Winner = ({ name = "", }) => (
-  <h2 className="winner gold pulse">
+  <h2 className="winner gold">
     <span>{name} Wins</span>
   </h2>
 )
 
 export const Loser = ({ name = "", }) => (
-  <h5 className="loser pulse">
+  <h5 className="loser">
     <span>{name} Loses 😵</span>
   </h5>
 )

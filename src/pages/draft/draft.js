@@ -1,7 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import HeaderOne from "../../components/h1/h1"
+import { Droppable } from "react-drag-and-drop"
+import HeaderOne from "../../components/header/header"
 import Wrestlers from "../../components/wrestlers/container"
 import Brand from "../../components/brand/brand"
 import Create from "../../components/create/brand.container"
@@ -10,13 +11,15 @@ import { ADD_BRAND_ENTRY } from "../../constants/confirmations"
 
 import "./draft.scss"
 
+const NOOP = () => {}
+
 const defaultBrand = {
   id: 0,
   name: "All",
   style: { color: "white", backgroundColor: "gray", },
 }
 
-const DraftPage = ({ brands = [], style = {}, }) => (
+const DraftPage = ({ brands = [], style = {}, onDrop = NOOP, }) => (
   <section className="page draft">
     <HeaderOne>Draft</HeaderOne>
     <If condition={brands.length === 0}>
@@ -31,9 +34,11 @@ const DraftPage = ({ brands = [], style = {}, }) => (
         {brands.map(brand => {
           const { style, id: brandId, } = brand
           return (
-            <div style={style} key={brandId} className="brand">
+            <div key={brandId} style={style} className="brand">
               <Brand {...brand} />
-              <Wrestlers brandId={brandId} style={style} />
+              <Droppable types={["wrestler",]} onDrop={event => onDrop(brandId, event)}>
+                <Wrestlers brandId={brandId} style={style} />
+              </Droppable>
             </div>
           )
         })}
@@ -45,6 +50,7 @@ const DraftPage = ({ brands = [], style = {}, }) => (
 DraftPage.propTypes = {
   brands: PropTypes.array,
   style: PropTypes.object,
+  onDrop: PropTypes.func,
 }
 
 export default DraftPage

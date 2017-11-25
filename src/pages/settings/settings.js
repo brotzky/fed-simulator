@@ -7,7 +7,7 @@ import chromatism from "chromatism"
 import { Reset } from "../../components/icons"
 import ColorPickers from "../../components/color-pickers/container"
 import { resetAll } from "../../actions/game"
-import HeaderOne from "../../components/h1/h1"
+import HeaderOne from "../../components/header/header"
 
 import "./settings.scss"
 

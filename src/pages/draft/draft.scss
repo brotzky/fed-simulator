@@ -7,12 +7,18 @@
   .brand {
     flex: 1 0;
     height: 100vh;
+    margin: 0;
     overflow: hidden;
     padding: 0;
     text-align: center;
 
-    .wrestlers .wrestler {
-      width: 3rem;
+    .wrestlers {
+      justify-content: center;
+    }
+    .wrestler {
+      height: inherit;
+      min-width: inherit;
+      width: 3.2rem;
 
       .name {
         font-size: xx-small;

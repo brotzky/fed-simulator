@@ -11,7 +11,7 @@ import "./wrestler.scss"
 const NOOP = () => {}
 
 const Wrestler = ({ wrestler = schema, onClick = NOOP, highlight = false, canDrag = true, }) => {
-  const { id, name, brandId, points, image, } = wrestler
+  const { id, name, brandId, points, image, championshipId, } = wrestler
   const classes = classnames("wrestler", { [brandId]: brandId, }, { "has-highlight": highlight, }, { "has-image": image, })
   const names = processNames(name)
   const withImage = image ? { backgroundImage: `url(${image}`, } : {}
@@ -21,6 +21,11 @@ const Wrestler = ({ wrestler = schema, onClick = NOOP, highlight = false, canDra
       <div className={classes} style={withImage} data-id={id} tabIndex="0" onKeyPress={() => onClick(id)} onClick={() => onClick(id)}>
         <span className="points">{points}</span>
         <span className="name">{names.map((newName, key) => <div key={key}>{newName}</div>)}</span>
+        <If condition={championshipId}>
+          <span className="championshipId">
+            <i className="icon trophy fa fa-trophy" aria-hidden="true" />
+          </span>
+        </If>
       </div>
     </Draggable>
   )

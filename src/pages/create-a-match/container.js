@@ -5,7 +5,6 @@ import { List } from "immutable"
 
 import { getId } from "../../models/model.helper"
 import CreateAMatch from "./create-a-match"
-import buttonTexts from "../../constants/create-a-match-button-texts"
 import { createMatch, simulateMatch, addWrestlerToMatch } from "../../actions/matches"
 import { MATCH_CONFIRM_RESET } from "../../constants/confirmations"
 
@@ -70,7 +69,6 @@ export default compose(
         loser = props.roster.find(item => item.id === loser.id)
       }
       newProps = {
-        buttonText: String(pick(buttonTexts)),
         currentMatch,
         onWrestlerClick: wrestlerId => {
           return props.onWrestlerClick({

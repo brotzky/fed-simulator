@@ -15,7 +15,7 @@
   }
 
   @include breakpoint(xs) {
-    .item {
+    .row {
       border-bottom: 1px solid black;
     }
     .small.col-xs,

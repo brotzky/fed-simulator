@@ -2,13 +2,10 @@ import { List } from "immutable"
 
 import Model from "../../models/match.model"
 import WrestlersReducer from "./match.wrestlers"
-import randomiseWrestlers from "../../helpers/randomise-wrestlers"
 
 import { getId } from "../../models/model.helper"
 
-const NOOP = () => {}
-
-export default (state, action, getState = NOOP) => {
+export default (state, action) => {
   state = List(state)
   let index
 
@@ -18,13 +15,13 @@ export default (state, action, getState = NOOP) => {
         const payload = action.payload || {}
         const id = action.payload.id ? action.payload.id : getId()
 
-        state = state.push(new Model(payload).merge({ id }))
+        state = state.push(new Model(payload).merge({ id, }))
       }
       break
     case "SIMULATE_MATCH":
       index = state.findIndex(item => item.id === action.payload)
 
-      state = state.updateIn([index], item => {
+      state = state.updateIn([index,], item => {
         item.simulated = true
         item.wrestlers = new WrestlersReducer(item.wrestlers, action)
         return item
@@ -32,28 +29,28 @@ export default (state, action, getState = NOOP) => {
       break
     case "SELECT_WINNER_IN_MATCH":
       {
-        const { matchId } = action.payload
+        const { matchId, } = action.payload
 
         index = state.findIndex(item => item.id === matchId)
 
         if (index > -1) {
           state = state.update(index, item => {
             item.wrestlers = new WrestlersReducer(item.wrestlers, action)
-            return new Model(item).merge({ simulated: false })
+            return new Model(item).merge({ simulated: false, })
           })
         }
       }
       break
     case "REMOVE_WRESTLER_FROM_MATCH":
       {
-        const { matchId } = action.payload
+        const { matchId, } = action.payload
 
         index = state.findIndex(item => item.id === matchId)
 
         if (index > -1) {
           state = state.update(index, item => {
             item.wrestlers = new WrestlersReducer(item.wrestlers, action)
-            return new Model(item).merge({ simulated: false })
+            return new Model(item).merge({ simulated: false, })
           })
         }
       }
@@ -75,7 +72,7 @@ export default (state, action, getState = NOOP) => {
     case "CLEAR_WRESTLERS_FROM_MATCH":
       index = state.findIndex(item => item.id === action.payload)
 
-      state = state.updateIn([index], item => {
+      state = state.updateIn([index,], item => {
         item.wrestlers = []
         return item
       })

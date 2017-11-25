@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import React, { Component } from "react"
 import { CirclePicker } from "react-color"
 
-import HeaderOne from "../../components/h1/h1"
+import HeaderOne from "../../components/header/header"
 import { colors } from "../../constants/colors"
 import { updateStyle } from "../../actions/style"
 import Button from "../../components/button/button"
