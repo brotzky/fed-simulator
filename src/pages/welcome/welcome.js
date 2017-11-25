@@ -14,18 +14,17 @@ const WelcomePage = ({ generateFederation = NOOP, }) => (
     <HeaderOne>Welcome to Federation Simulator</HeaderOne>
     <div className="row">
       <div className="col-xs-12 highlight">
-        <div className="box">
-          <Icon icon="plus" />{" "}
-          <Link tabIndex="0" to="/name">
-            I'll build this company from the ground up, dammit
-          </Link>
-        </div>
+        <Link tabIndex="0" to="/name">
+          <div className="box">
+            <Icon icon="plus" /> I'll build this company from the ground up, dammit
+          </div>
+        </Link>
       </div>
     </div>
     <br />
     <div className="row">
-      <div className="col-xs-12 highlight">
-        <div className="box" tabIndex="0" onClick={generateFederation}>
+      <div className="col-xs-12 highlight" onClick={generateFederation}>
+        <div className="box" tabIndex="0">
           <Icon icon="play" /> This is an invasion, create everything for me
         </div>
       </div>
