@@ -14,7 +14,6 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
-    "babel-core": "6.26.0",
     "chromatism": "2.6.0",
     "classnames": "2.2.5",
     "expect.js": "0.3.1",
@@ -47,6 +46,7 @@
     "abbrev": "1.1.0",
     "autoprefixer": "6.5.1",
     "babel-cli": "6.26.0",
+    "babel-core": "6.26.0",
     "babel-eslint": "6.1.2",
     "babel-loader": "6.2.5",
     "babel-plugin-transform-decorators": "6.22.0",
@@ -108,7 +108,6 @@
     "sinon": "1.17.6",
     "style-loader": "https://registry.npmjs.org/style-loader/-/style-loader-0.13.2.tgz",
     "superagent": "2.3.0",
-    "sw-precache-webpack-plugin": "0.9.1",
     "tar-pack": "3.4.0",
     "url-loader": "0.5.7",
     "webpack": "3.6.0",
@@ -119,6 +118,9 @@
     "fsevents": "*"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }
