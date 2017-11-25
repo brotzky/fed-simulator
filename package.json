@@ -10,7 +10,8 @@
     "lint": "eslint src --fix",
     "test": "NODE_ENV=test mocha --opts mocha.opts",
     "test:watch": "NODE_ENV=test mocha --watch --opts mocha.opts ",
-    "prepush": "npm test"
+    "prepush": "npm test",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "babel-core": "6.26.0",
@@ -116,5 +117,8 @@
   },
   "optionalDependencies": {
     "fsevents": "*"
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "git add"]
   }
 }

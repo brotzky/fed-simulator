@@ -28,7 +28,7 @@ const CreateAMatch = ({
         <div className="col-xs-12">
           <div className="box">
             <HeaderOne>
-              Create a match
+              Create a Match
               <span tabIndex="0" className="tools">
                 <Reset onClick={onReset} />
               </span>
