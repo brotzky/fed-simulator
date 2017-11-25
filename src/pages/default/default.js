@@ -14,8 +14,6 @@ class DefaultPage extends Component {
       pathName = "/name"
     } else if (untouched === true) {
       pathName = "/branding"
-    } else if (championships.length === 0) {
-      pathName = "/championships"
     }
 
     router.push(pathName)
@@ -36,7 +34,6 @@ DefaultPage.propTypes = {
   started: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   untouched: PropTypes.bool.isRequired,
-  championships: PropTypes.array.isRequired,
   router: PropTypes.object.isRequired,
 }
 
@@ -44,5 +41,4 @@ export default connect(state => ({
   started: state.game.started,
   name: state.game.name,
   untouched: state.style.untouched,
-  championships: state.federation.championships,
 }))(DefaultPage)
