@@ -7,9 +7,10 @@ import Wrestler from "./wrestler"
 
 const defaultWrestler = {
   brandId: null,
+  championshipId: null,
   id: null,
-  male: true,
   image: "",
+  male: true,
   name: "",
   points: 100,
 }
@@ -17,6 +18,7 @@ const defaultWrestler = {
 const wrestlerKeys = Object.keys(defaultWrestler)
 
 const stateHandlers = {
+  onChampionshipSelected: () => championshipId => ({ championshipId: String(championshipId), }),
   onBrandSelected: () => brandId => ({ brandId: String(brandId), }),
   onPointsUpdate: () => e => ({ points: Number(e.target.value), }),
   onNameUpdate: () => e => ({ name: String(e.target.value), }),
@@ -37,6 +39,7 @@ const mappedProps = props => ({
 export default compose(
   connect(
     state => ({
+      championships: state.federation.championships,
       brands: state.federation.brands,
       style: state.style,
     }),

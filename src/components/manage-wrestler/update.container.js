@@ -6,6 +6,8 @@ import { updateWrestler, deleteWrestler } from "../../actions/roster"
 import EditWrestler from "./wrestler"
 
 const propsMapper = ({ dispatch, id, }) => ({
+  onResetChampionship: () => dispatch(updateWrestler({ championshipId: null, id: id, })),
+  onChampionshipSelected: championshipId => dispatch(updateWrestler({ championshipId: String(championshipId), id: id, })),
   onGenderUpdate: male => dispatch(updateWrestler({ male: Boolean(male), id: id, })),
   onBrandSelected: brandId => dispatch(updateWrestler({ brandId: String(brandId), id: id, })),
   onPointsUpdate: e => dispatch(updateWrestler({ points: Number(e.target.value), id: id, })),
@@ -21,6 +23,7 @@ const propsMapper = ({ dispatch, id, }) => ({
 
 export default compose(
   connect(state => ({
+    championships: state.federation.championships,
     brands: state.federation.brands,
     style: state.style,
   })),

@@ -14,6 +14,7 @@ class ManageChampionships extends Component {
       dispatch(resetChampionships())
     }
   }
+
   onGenerate = () => this.props.dispatch(generateChampionships())
 
   render() {

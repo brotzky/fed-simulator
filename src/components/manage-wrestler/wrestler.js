@@ -13,23 +13,27 @@ const NOOP = () => {}
 const genderBrands = [{ id: true, name: "male", style: { backgroundColor: "blue", }, }, { id: false, name: "female", style: { backgroundColor: "red", }, },]
 
 const EditWrestler = ({
-  brandId,
-  brands,
-  id,
-  image,
-  male,
-  name,
-  onBrandSelected,
-  onCreate,
-  onDelete,
-  onGenderUpdate,
-  onImageUpdate,
-  onNameUpdate,
-  onPointsUpdate,
-  onResetImage,
-  points,
-  showDelete,
-  style,
+  brandId = "",
+  brands = [],
+  championshipId = null,
+  championships = [],
+  id = false,
+  image = "",
+  male = true,
+  name = "",
+  onBrandSelected = NOOP,
+  onChampionshipSelected = NOOP,
+  onCreate = NOOP,
+  onDelete = NOOP,
+  onGenderUpdate = NOOP,
+  onImageUpdate = NOOP,
+  onNameUpdate = NOOP,
+  onPointsUpdate = NOOP,
+  onResetImage = NOOP,
+  onResetChampionship = NOOP,
+  points = 0,
+  showDelete = true,
+  style = {},
 }) => (
   <div className="manage-wrestler" style={style}>
     <div className="name">
@@ -40,6 +44,20 @@ const EditWrestler = ({
     <div className="brands">
       <Brands id="brands" tabIndex="0" onClick={onBrandSelected} highlighted={brandId} brands={brands} />
     </div>
+    <If condition={id}>
+      <label htmlFor="championshipId">
+        Championship (<a onClick={onResetChampionship}>reset</a>)
+      </label>
+      <div className="brands">
+        <Brands
+          id="championshipId"
+          tabIndex="0"
+          onClick={onChampionshipSelected}
+          highlighted={championshipId}
+          brands={championships.filter(item => item.male === male)}
+        />
+      </div>
+    </If>
     <div className="gender">
       <label htmlFor="gender">Gender</label>
       <Brands id="gender" tabIndex="0" onKeyPress={onGenderUpdate} onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
@@ -73,6 +91,8 @@ const EditWrestler = ({
 EditWrestler.propTypes = {
   brandId: PropTypes.any,
   brands: PropTypes.array,
+  championships: PropTypes.array,
+  championshipId: PropTypes.any,
   id: PropTypes.any,
   image: PropTypes.string,
   male: PropTypes.bool,
@@ -86,6 +106,7 @@ EditWrestler.propTypes = {
   onNameUpdate: PropTypes.func,
   onPointsUpdate: PropTypes.func,
   onResetImage: PropTypes.func,
+  onResetChampionship: PropTypes.func,
   points: PropTypes.number,
   showDelete: PropTypes.bool,
   style: PropTypes.shape({
@@ -94,24 +115,4 @@ EditWrestler.propTypes = {
   }),
 }
 
-EditWrestler.defaultProps = {
-  brandId: "",
-  brands: [],
-  id: false,
-  image: "",
-  male: true,
-  name: "",
-  onBrandSelected: NOOP,
-  onChampionshipSelected: NOOP,
-  onCreate: NOOP,
-  onDelete: NOOP,
-  onGenderUpdate: NOOP,
-  onImageUpdate: NOOP,
-  onNameUpdate: NOOP,
-  onPointsUpdate: NOOP,
-  onResetImage: NOOP,
-  points: 0,
-  showDelete: true,
-  style: {},
-}
 export default EditWrestler

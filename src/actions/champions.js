@@ -13,13 +13,6 @@ export function createChampionship(championship) {
   }
 }
 
-export function awardChampionship({ id, wrestlerId, }) {
-  return {
-    type: types.AWARD_CHAMPIONSHIP,
-    payload: { id, wrestlerId, },
-  }
-}
-
 export function generateChampionships() {
   return {
     type: types.GENERATE_CHAMPIONSHIPS,
