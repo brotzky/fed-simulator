@@ -9,7 +9,6 @@ import Nav from "../nav/container"
 import links from "./links.json"
 
 import "../../stylesheets/base.scss"
-import "./page.scss"
 
 class Page extends PureComponent {
   state = {
@@ -33,11 +32,11 @@ class Page extends PureComponent {
   }
 
   render() {
-    const { children, classnames, style, name, championships, location: { pathname, }, } = this.props
+    const { children, classnames, style, name, location: { pathname, }, } = this.props
     const topClasses = classNames(classnames, ["page-container", "no-select",])
     const darkStyle = Object.assign({}, style, { backgroundColor: style.darkBgColor, })
     const activeUrl = pathname.replace(/^\//, "")
-    const isNavVisible = championships.length > 0 && this.state.openNavBar
+    const isNavVisible = !style.untouched && this.state.openNavBar
     return (
       <div id="page-container" style={darkStyle} className={topClasses}>
         <main style={darkStyle}>
@@ -57,7 +56,6 @@ class Page extends PureComponent {
 Page.displayName = "Page"
 
 Page.propTypes = {
-  championships: PropTypes.array,
   children: PropTypes.object.isRequired,
   classnames: PropTypes.string,
   dispatch: PropTypes.func.isRequired,
@@ -78,7 +76,6 @@ Page.contextTypes = {
 }
 
 export default connect(state => ({
-  championships: state.federation.championships,
   name: state.game.name,
   style: state.style,
   version: state.version,
