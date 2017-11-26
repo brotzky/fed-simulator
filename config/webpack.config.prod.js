@@ -16,35 +16,35 @@ const env = getClientEnvironment(publicUrl)
 
 module.exports = {
   devtool: "hidden-source-map",
-  entry: [require.resolve("./polyfills"), require.resolve("react-error-overlay"), paths.appIndexJs],
+  entry: [require.resolve("./polyfills"), require.resolve("react-error-overlay"), paths.appIndexJs,],
   output: {
     path: paths.appBuild,
     pathinfo: true,
-    filename: "static/js/bundle.js",
-    chunkFilename: "static/js/[name].chunk.js",
+    filename: "static/js/[name].[hash:8].js",
+    chunkFilename: "static/js/chunk.[name].[hash:8].js",
     publicPath: publicPath,
     devtoolModuleFilenameTemplate: info => path.resolve(info.absoluteResourcePath),
   },
   resolve: {
-    modules: ["node_modules", paths.appNodeModules].concat(process.env.NODE_PATH.split(path.delimiter).filter(Boolean)),
-    extensions: [".js", ".json", ".jsx"],
+    modules: ["node_modules", paths.appNodeModules,].concat(process.env.NODE_PATH.split(path.delimiter).filter(Boolean)),
+    extensions: [".js", ".json", ".jsx",],
     alias: {
       "react-native": "react-native-web",
     },
-    plugins: [new ModuleScopePlugin(paths.appSrc)],
+    plugins: [new ModuleScopePlugin(paths.appSrc),],
   },
   module: {
     strictExportPresence: true,
     rules: [
       {
-        exclude: [/\.html$/, /\.(js|jsx)$/, /\.css|scss$/, /\.json$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        exclude: [/\.html$/, /\.(js|jsx)$/, /\.css|scss$/, /\.json$/, /\.gif$/, /\.jpe?g$/, /\.png$/,],
         loader: require.resolve("file-loader"),
         options: {
           name: "static/media/[name].[hash:8].[ext]",
         },
       },
       {
-        test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
+        test: [/\.gif$/, /\.jpe?g$/, /\.png$/,],
         loader: require.resolve("url-loader"),
         options: {
           limit: 10000,
