@@ -6,8 +6,14 @@ import randomiseWrestlers from "./randomise-wrestlers"
 import selectRandomResults from "./select-random-results"
 
 export default class Match {
-  constructor({ roster = [], championships = [], }) {
+  /*
+    wrestlers: array, collection of wrestlers already in the Match
+    roster: array, full collection of available wrestlers to pick from
+    championship: array, belts to pass the championshipId to
+  */
+  constructor({ roster = [], wrestlers = [], championships = [], }) {
     this.roster = new List(roster)
+    this.wrestlers = new List(wrestlers)
     this.championships = new List(championships)
   }
 
@@ -57,12 +63,9 @@ export default class Match {
 
     if ((this.championship.tag === true && losers === 2 && winners === 2) || (this.championship.tag === false && losers === 1 && winners === 1)) {
       this.roster = this.roster.map(wrestler => {
-        if (wrestler.get("championshipId") === this.championship.id) {
-          wrestler = wrestler.set("championshipId", null)
-        }
         if (includes(this.winnerIds, wrestler.id)) {
           wrestler = wrestler.set("championshipId", this.championship.id)
-        } else if (includes(this.loserIds, wrestler.id)) {
+        } else if (includes(this.loserIds, wrestler.id) || wrestler.get("championshipId") === this.championship.id) {
           wrestler = wrestler.set("championshipId", null)
         }
 
