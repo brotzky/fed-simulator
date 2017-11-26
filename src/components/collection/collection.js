@@ -42,6 +42,17 @@ const Collection = ({
         roster = newRoster[item.male]
         return (
           <div key={item.id} className="item row middle-xs" style={style}>
+            <If condition={canUpdateColors}>
+              <div className="col-xs small">
+                <div className="box">
+                  <ColorPickers
+                    onChangeColor={event => onChangeColor(item, event)}
+                    onChangeBackgroundColor={event => onChangeBackgroundColor(item, event)}
+                    {...item.style}
+                  />
+                </div>
+              </div>
+            </If>
             <If condition={canUpdateName}>
               <div className="col-xs input">
                 <div className="box">
@@ -75,17 +86,6 @@ const Collection = ({
               <div className="col-xs small">
                 <div className="box">
                   <Gender gender={item.male} onClick={event => onChangeGender(item, event)} />
-                </div>
-              </div>
-            </If>
-            <If condition={canUpdateColors}>
-              <div className="col-xs small">
-                <div className="box">
-                  <ColorPickers
-                    onChangeColor={event => onChangeColor(item, event)}
-                    onChangeBackgroundColor={event => onChangeBackgroundColor(item, event)}
-                    {...item.style}
-                  />
                 </div>
               </div>
             </If>
