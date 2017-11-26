@@ -36,7 +36,9 @@ export default class Match {
   }
 
   switchChampionships() {
-    if (this.loser && this.loser.championshipId) {
+    const winnersHaveChampionships = this.winners.find(item => item.championshipId)
+
+    if (!winnersHaveChampionships && this.loser && this.loser.championshipId) {
       const keyedChampionships = keyBy(this.championships.toJS(), "id")
 
       if (keyedChampionships[this.loser.championshipId]) {
@@ -50,31 +52,22 @@ export default class Match {
   }
 
   processChampionships() {
-    const winnersHaveChampionships = this.winners.find(item => item.championshipId)
+    const losers = this.losers.size
+    const winners = this.winners.size
 
-    // if one winner is already a champion we don't switch the titles
-    if (!winnersHaveChampionships) {
-      const losers = this.losers.size
-      const winners = this.winners.size
-      let switchChampionship = false
+    if ((this.championship.tag === true && losers === 2 && winners === 2) || (this.championship.tag === false && losers === 1 && winners === 1)) {
+      this.roster = this.roster.map(wrestler => {
+        if (wrestler.get("championshipId") === this.championship.id) {
+          wrestler = wrestler.set("championshipId", null)
+        }
+        if (includes(this.winnerIds, wrestler.id)) {
+          wrestler = wrestler.set("championshipId", this.championship.id)
+        } else if (includes(this.loserIds, wrestler.id)) {
+          wrestler = wrestler.set("championshipId", null)
+        }
 
-      if (this.championship.tag === true && losers === 2 && winners === 2) {
-        switchChampionship = true
-      } else if (this.championship.tag === false && losers === 1 && winners === 1) {
-        switchChampionship = true
-      }
-
-      if (switchChampionship) {
-        this.roster = this.roster.map(wrestler => {
-          if (includes(this.winnerIds, wrestler.id)) {
-            wrestler = wrestler.set("championshipId", this.championship.id)
-          } else if (includes(this.loserIds, wrestler.id) || wrestler.get("championshipId") === this.championship.id) {
-            wrestler = wrestler.set("championshipId", null)
-          }
-
-          return wrestler
-        })
-      }
+        return wrestler
+      })
     }
 
     return this
@@ -90,17 +83,15 @@ export default class Match {
     this.roster = this.roster.map(wrestler => {
       if (includes(this.loserIds, wrestler.id)) {
         wrestler = wrestler.set("losses", wrestler.get("losses") + 1)
+
         if (wrestler.get("losses") % 10 === 0) {
           wrestler = wrestler.set("points", wrestler.get("points") - 1)
         }
       } else if (includes(this.winnerIds, wrestler.id)) {
-        const wins = wrestler.get("wins") + 1
+        wrestler = wrestler.set("wins", wrestler.get("wins") + 1)
 
-        wrestler = wrestler.set("wins", wins)
         if (wrestler.get("wins") % 10 === 0) {
-          const points = wrestler.get("points") + 1
-
-          wrestler = wrestler.set("points", points)
+          wrestler = wrestler.set("points", wrestler.get("points") + 1)
         }
       }
       return wrestler
