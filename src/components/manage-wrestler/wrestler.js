@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Brands from "../brands/brands"
+import Labels from "../labels/labels"
 import Button from "../button/button"
 import Image from "../form/image"
 import Input from "../form/input"
@@ -10,7 +10,7 @@ import { Reset } from "../icons"
 import "./manage-wrestler.scss"
 
 const NOOP = () => {}
-const genderBrands = [{ id: true, name: "male", style: { backgroundColor: "blue", }, }, { id: false, name: "female", style: { backgroundColor: "red", }, },]
+const genderLabels = [{ id: true, name: "male", style: { backgroundColor: "blue", }, }, { id: false, name: "female", style: { backgroundColor: "red", }, },]
 
 const EditWrestler = ({
   brandId = "",
@@ -42,14 +42,14 @@ const EditWrestler = ({
     </div>
     <label htmlFor="name">Brand</label>
     <div className="brands">
-      <Brands id="brands" tabIndex="0" onClick={onBrandSelected} highlighted={brandId} brands={brands} />
+      <Labels id="brands" tabIndex="0" onClick={onBrandSelected} highlighted={brandId} labels={brands} />
     </div>
     <If condition={id}>
       <label htmlFor="championshipId">
         Championship (<a onClick={onResetChampionship}>reset</a>)
       </label>
       <div className="brands">
-        <Brands
+        <Labels
           id="championshipId"
           tabIndex="0"
           onClick={onChampionshipSelected}
@@ -60,7 +60,7 @@ const EditWrestler = ({
     </If>
     <div className="gender">
       <label htmlFor="gender">Gender</label>
-      <Brands id="gender" tabIndex="0" onKeyPress={onGenderUpdate} onClick={onGenderUpdate} highlighted={male} brands={genderBrands} />
+      <Labels id="gender" tabIndex="0" onKeyPress={onGenderUpdate} onClick={onGenderUpdate} highlighted={male} labels={genderLabels} />
     </div>
     <div className="image">
       <label htmlFor="image">

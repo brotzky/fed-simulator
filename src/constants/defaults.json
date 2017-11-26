@@ -1148,16 +1148,6 @@
         "color": "white",
         "backgroundColor": "#5A49CD"
       }
-    },
-    {
-      "id": "j9nfpobi",
-      "name": "Tag Team Championships",
-      "male": true,
-      "tag": true,
-      "style": {
-        "color": "#ffffff",
-        "backgroundColor": "#09b7be"
-      }
     }
   ]
 }
