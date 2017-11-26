@@ -42,25 +42,14 @@ export default class Match {
       if (keyedChampionships[this.loser.championshipId]) {
         this.championship = keyedChampionships[this.loser.championshipId]
 
-        this.resetCurrentChampionshipId(this.loser.championshipId)
-        this.processTitleChanges()
+        this.processChampionships()
       }
     }
 
     return this
   }
 
-  resetCurrentChampionshipId(championshipId) {
-    this.roster = this.roster.map(item => {
-      if (item.get("championshipId") === championshipId) {
-        item.set("championshipId", null)
-      }
-      return item
-    })
-    return this
-  }
-
-  processTitleChanges() {
+  processChampionships() {
     const winnersHaveChampionships = this.winners.find(item => item.championshipId)
 
     // if one winner is already a champion we don't switch the titles
