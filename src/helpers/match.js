@@ -79,7 +79,7 @@ export default class Match {
         this.roster = this.roster.map(wrestler => {
           if (includes(this.winnerIds, wrestler.id)) {
             wrestler = wrestler.set("championshipId", this.championship.id)
-          } else if (includes(this.loserIds, wrestler.id)) {
+          } else if (includes(this.loserIds, wrestler.id) || wrestler.get("championshipId") === this.championship.id) {
             wrestler = wrestler.set("championshipId", null)
           }
 
