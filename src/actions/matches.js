@@ -1,4 +1,5 @@
 import * as types from "./types"
+import { SIMULATE_MATCHES_AMOUNT } from "../constants/game"
 
 export function createMatch(payload) {
   return {
@@ -7,10 +8,10 @@ export function createMatch(payload) {
   }
 }
 
-export function simulateRandomMatches(amountOfMatches = 50) {
+export function simulateRandomMatches(amountOfMatches = SIMULATE_MATCHES_AMOUNT) {
   return {
     type: types.SIMULATE_RANDOM_MATCHES,
-    payload: { amountOfMatches },
+    payload: { amountOfMatches, },
   }
 }
 
@@ -21,24 +22,24 @@ export function simulateMatch(matchId) {
   }
 }
 
-export function removeWrestlerFromMatch({ matchId, wrestlerId }) {
+export function removeWrestlerFromMatch({ matchId, wrestlerId, }) {
   return {
     type: types.REMOVE_WRESTLER_FROM_MATCH,
-    payload: { matchId, wrestlerId },
+    payload: { matchId, wrestlerId, },
   }
 }
 
-export function addWrestlerToMatch({ matchId, wrestler }) {
+export function addWrestlerToMatch({ matchId, wrestler, }) {
   return {
     type: types.ADD_WRESTLER_TO_MATCH,
-    payload: { matchId, wrestler },
+    payload: { matchId, wrestler, },
   }
 }
 
-export function selectWinnerOfMatch({ matchId, wrestlerId }) {
+export function selectWinnerOfMatch({ matchId, wrestlerId, }) {
   return {
     type: types.SELECT_WINNER_IN_MATCH,
-    payload: { matchId, wrestlerId },
+    payload: { matchId, wrestlerId, },
   }
 }
 

@@ -5,13 +5,14 @@ import PropTypes from "prop-types"
 import { Icon } from "./icons"
 
 import { simulateRandomMatches } from "../actions/matches"
+import { SIMULATE_MATCHES_AMOUNT, SIMULATE_MATCHES_PERIOD } from "../constants/game"
 
 const NOOP = () => {}
-const INTERVAL_AMOUNT = 800
 
 class Simulator extends Component {
   state = {
     active: false,
+    counter: 0,
   }
 
   onToggleActive = () => {
@@ -29,14 +30,18 @@ class Simulator extends Component {
   }
 
   startSimulations = () => {
+    this.setState({ counter: this.state.counter + SIMULATE_MATCHES_AMOUNT, })
     this.props.dispatch(simulateRandomMatches())
   }
 
   startInterval = () => {
-    this._interval = setInterval(this.startSimulations, INTERVAL_AMOUNT)
+    this._interval = setInterval(this.startSimulations, SIMULATE_MATCHES_PERIOD)
   }
 
   clearInterval = () => {
+    this.setState({
+      counter: 0,
+    })
     clearInterval(this._interval)
   }
 
