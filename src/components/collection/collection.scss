@@ -7,19 +7,25 @@
     max-width: 4rem;
     justify-content: flex-end;
   }
+
   .box {
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   .input .box {
     justify-content: flex-start;
+    & > div {
+      width: 100%;
+    }
   }
 
   @include breakpoint(xs) {
     .item {
       border-bottom: 1px solid black;
     }
+
     .small.col-xs,
     .col-xs {
       display: flex;
@@ -44,6 +50,7 @@
       .box {
         width: 100%;
         margin-bottom: 0.5rem;
+        padding: 1rem 0 0;
       }
     }
   }
