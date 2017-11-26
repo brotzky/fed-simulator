@@ -50,13 +50,13 @@ class Simulator extends Component {
   }
 
   render() {
-    const color = !this.state.active ? "white" : "red"
+    const color = !this.state.active ? "white" : "gold"
     const icon = !this.state.active ? "play-circle" : "stop-circle"
     const title = !this.state.active ? "Start simulations" : "Stop simulating"
     return (
-      <span className={color}>
-        <Icon icon={icon} onClick={this.onToggleActive} />
-        {title}
+      <span className={color} onClick={this.onToggleActive}>
+        <Icon icon={icon} />
+        {title} ({this.state.counter})
       </span>
     )
   }
