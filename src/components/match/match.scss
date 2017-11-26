@@ -24,6 +24,10 @@ $match-border-color: #4b4b4b;
     color: $inactive-color;
   }
 
+  .points {
+    font-size: x-small;
+  }
+
   .member {
     flex-grow: 1;
     margin: 0.1rem;

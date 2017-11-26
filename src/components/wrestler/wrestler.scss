@@ -4,6 +4,7 @@
 $wrestlers-points-dimensions: 1rem;
 
 .wrestler {
+  font-size: small;
   align-items: center;
   background-color: white;
   background-size: cover;
@@ -30,7 +31,6 @@ $wrestlers-points-dimensions: 1rem;
   }
 
   .name {
-    font-size: x-small;
     font-weight: 100;
     text-align: left;
   }
@@ -38,7 +38,6 @@ $wrestlers-points-dimensions: 1rem;
   .points {
     border-radius: 50%;
     border: 0.01rem solid #999;
-    font-size: x-small;
     font-weight: 500;
     height: $wrestlers-points-dimensions;
     margin-right: 0.3rem;
@@ -70,8 +69,9 @@ $wrestlers-points-dimensions: 1rem;
   .wrestlers .wrestler {
     width: 5rem;
 
+    .points,
     .name {
-      font-size: small;
+      font-size: x-small;
     }
   }
 }
