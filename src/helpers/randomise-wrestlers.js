@@ -14,7 +14,7 @@ const defaultSettings = {
   },
   tag: {
     options: [true, false,],
-    weights: [0.1, 0.8,],
+    weights: [0.5, 0.5,],
     perTeam: 2,
   },
 }
