@@ -1,5 +1,5 @@
 div.ranking {
-  font-size: medium;
+  font-size: small;
 
   .table,
   h3 {
@@ -12,13 +12,13 @@ div.ranking {
   .points,
   .rank,
   .wins {
-    font-size: small;
     text-align: center;
   }
 
   thead {
     font-variant: small-caps;
     font-weight: 500;
+    font-size: smaller;
 
     td {
       vertical-align: middle;
