@@ -1,32 +1,37 @@
 import reducer from "../src/reducers/federation/roster"
-import sinon from "sinon"
 
 const championships = [
   {
-    id: "z",
+    id: "x",
+    name: "x",
     tag: true,
   },
   {
     id: "z",
-    tag: true,
+    name: "z",
+    tag: false,
   },
 ]
+
 const roster = [
   {
     id: "1",
     championshipId: null,
     wins: 0,
+    male: true,
     losses: 0,
   },
   {
     id: "2",
     championshipId: null,
     wins: 0,
+    male: true,
     losses: 0,
   },
   {
     id: "3",
     championshipId: "z",
+    male: true,
     wins: 0,
     losses: 0,
   },
@@ -34,6 +39,7 @@ const roster = [
     id: "4",
     championshipId: "z",
     wins: 0,
+    male: true,
     losses: 0,
   },
 ]
@@ -46,7 +52,7 @@ const storeStates = {
 const action = {
   type: "SIMULATE_RANDOM_MATCHES",
   payload: {
-    amountOfMatches: 1,
+    amountOfMatches: 5,
   },
 }
 
@@ -58,11 +64,11 @@ describe("given a roster reducer", () => {
   describe("and a SIMULATE_RANDOM_MATCHES action is called", () => {
     before(() => (activeReducer = reducer(roster, action, getState)))
 
-    it("should have 2 winners", () => {
-      expect(activeReducer.filter(item => item.wins > 0)).to.have.length(1)
+    it("should have 1 winner", () => {
+      expect(activeReducer.filter(item => item.wins > 0).length).to.be.above(1)
     })
-    it("should have 2 losers", () => {
-      expect(activeReducer.filter(item => item.losses > 0)).to.have.length(1)
+    it("should have 1 loser", () => {
+      expect(activeReducer.filter(item => item.losses > 0).length).to.be.above(1)
     })
   })
 })
