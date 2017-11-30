@@ -38,7 +38,6 @@
     "redux": "3.6.0",
     "redux-localstorage": "0.4.1",
     "string.prototype.includes": "1.0.0",
-    "uglifyjs-webpack-plugin": "^1.1.0",
     "uniqid": "4.1.1",
     "weighted": "0.3.0"
   },
@@ -109,6 +108,7 @@
     "style-loader": "https://registry.npmjs.org/style-loader/-/style-loader-0.13.2.tgz",
     "superagent": "2.3.0",
     "tar-pack": "3.4.0",
+    "uglifyjs-webpack-plugin": "^1.1.0",
     "url-loader": "0.5.7",
     "webpack": "3.6.0",
     "webpack-dev-server": "2.7.1",
@@ -118,9 +118,6 @@
     "fsevents": "*"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"]
   }
 }
