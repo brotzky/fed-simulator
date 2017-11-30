@@ -34,23 +34,22 @@ const CreateAMatch = ({
               </span>
             </HeaderOne>
             <Match currentMatch={currentMatch} />
+            <If condition={winner.name && loser.name}>
+              <div className="col-xs-12">
+                <div className="box middle-xs center-xs">
+                  <Winner {...winner} />
+                  <br />
+                  <Loser {...loser} />
+                </div>
+              </div>
+            </If>
             <If condition={numberOfWrestlers > 1}>
+              <br />
               <Button tabIndex="0" value="Simulate Match" onClick={onSimulateMatch} />
             </If>
           </div>
         </div>
-        <If condition={winner.name && loser.name}>
-          <div className="col-xs-12">
-            <div className="box middle-xs center-xs">
-              <br />
-              <Winner {...winner} />
-              <br />
-              <Loser {...loser} />
-            </div>
-          </div>
-        </If>
       </div>
-      <br />
       <Wrestlers onClick={onWrestlerClick} style={style} />
     </form>
   </section>
