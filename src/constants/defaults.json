@@ -23,14 +23,6 @@
         "color": "#ffffff",
         "backgroundColor": "#750de5"
       }
-    },
-    {
-      "id": "nxtRandom",
-      "name": "NXT",
-      "style": {
-        "color": "#000000",
-        "backgroundColor": "#f0a71f"
-      }
     }
   ],
   "roster": [
@@ -202,7 +194,6 @@
     {
       "id": "j9mr6qax",
       "brandId": "j9mr6qa9",
-      "championshipId": "j9nfpobi",
       "image": "",
       "losses": 0,
       "male": true,
@@ -214,7 +205,6 @@
     {
       "id": "j9mr6qay",
       "brandId": "j9mr6qa9",
-      "championshipId": "j9nfpobi",
       "image": "",
       "losses": 0,
       "male": true,
@@ -391,7 +381,7 @@
     },
     {
       "id": "j9mr6qbd",
-      "brandId": "j9mr6qa8",
+      "brandId": "j9mr6qaa",
       "image": "",
       "losses": 0,
       "male": true,
@@ -502,6 +492,7 @@
     {
       "id": "j9mr6qbo",
       "brandId": "j9mr6qa9",
+      "championshipId": "wweUSW",
       "image": "",
       "losses": 0,
       "male": true,
@@ -614,6 +605,7 @@
     {
       "id": "j9mr6qby",
       "brandId": "j9mr6qa9",
+      "championshipId": "wweC",
       "image": "",
       "losses": 0,
       "male": true,
@@ -812,7 +804,7 @@
     {
       "id": "j9mr6qcl",
       "brandId": "j9mr6qa9",
-      "championshipId": "j9nfpobf",
+      "championshipId": "wweCW",
       "image": "",
       "losses": 0,
       "male": false,
@@ -846,6 +838,7 @@
     {
       "id": "j9mr6qco",
       "brandId": "j9mr6qa8",
+      "championshipId": "j9nfpobf",
       "image": "",
       "losses": 0,
       "male": false,
@@ -1111,27 +1104,30 @@
   "championships": [
     {
       "id": "j9nfpobe",
-      "name": "Heavyweight Championship",
+      "name": "Universal Champ",
+      "brandId": "j9mr6qa8",
       "male": true,
       "tag": false,
       "style": {
         "color": "white",
-        "backgroundColor": "#1b1b1b"
+        "backgroundColor": "#d7182a"
       }
     },
     {
       "id": "j9nfpobf",
-      "name": "Womens Championship",
+      "name": "Womens Champ",
+      "brandId": "j9mr6qa8",
       "male": false,
       "tag": false,
       "style": {
         "color": "white",
-        "backgroundColor": "#4a4a4a"
+        "backgroundColor": "#eb1826"
       }
     },
     {
       "id": "j9nfpobg",
-      "name": "Midweight Championship",
+      "name": "Intercontinental Champ",
+      "brandId": "j9mr6qa8",
       "male": true,
       "tag": false,
       "style": {
@@ -1141,12 +1137,46 @@
     },
     {
       "id": "j9nfpobh",
-      "name": "Lightweight Championship",
+      "name": "Cruiserweight Champ",
+      "brandId": "j9mr6qaa",
       "male": true,
       "tag": false,
       "style": {
         "color": "white",
         "backgroundColor": "#5A49CD"
+      }
+    },
+    {
+      "id": "wweC",
+      "name": "WWE Champ",
+      "brandId": "j9mr6qa9",
+      "male": true,
+      "tag": false,
+      "style": {
+        "color": "white",
+        "backgroundColor": "#404040"
+      }
+    },
+    {
+      "id": "wweCW",
+      "name": "Womens Champ",
+      "brandId": "j9mr6qa9",
+      "male": false,
+      "tag": false,
+      "style": {
+        "color": "white",
+        "backgroundColor": "#3b30fe"
+      }
+    },
+    {
+      "id": "wweUSW",
+      "name": "US Champ",
+      "brandId": "j9mr6qa9",
+      "male": true,
+      "tag": false,
+      "style": {
+        "color": "black",
+        "backgroundColor": "#E4E2E3"
       }
     }
   ]

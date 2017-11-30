@@ -2,37 +2,29 @@ import React from "react"
 import { Link } from "react-router"
 import PropTypes from "prop-types"
 
-import HeaderOne from "../../components/header/header"
 import { Icon } from "../../components/icons"
+import { schema as defaultStyle } from "../../models/style.model"
 
 import "./welcome.scss"
+import "./pulse.scss"
 
 const NOOP = () => {}
 
-const WelcomePage = ({ generateFederation = NOOP, }) => (
+const WelcomePage = ({ generateFederation = NOOP, style = defaultStyle, }) => (
   <section className="page welcome">
-    <HeaderOne>Welcome to Federation Simulator</HeaderOne>
-    <div className="row">
-      <div className="col-xs-12 highlight">
+    <div className="items collection">
+      <div className="item highlight">
         <Link tabIndex="0" to="/name">
-          <div className="box">
-            <Icon icon="plus" /> I'll build this company from the ground up, dammit
-          </div>
+          <Icon icon="plus" /> I'll build this company from the ground up, dammit
         </Link>
       </div>
-    </div>
-    <br />
-    <div className="row">
-      <div className="col-xs-12 highlight" onClick={generateFederation}>
-        <div className="box" tabIndex="0">
-          <Icon icon="play" /> This is an invasion, create everything for me
-        </div>
+      <div className="item highlight pulse" onClick={generateFederation}>
+        <Icon icon="play" /> This is an invasion, create everything for me
       </div>
     </div>
-    <br />
-    <div className="row">
-      <div className="col-xs-12 highlight middle-xs center-xs lower">
-        <div className="box">
+    <footer>
+      <div className="collection">
+        <div className="item" style={style}>
           <a target="_blank" href="https://twitter.com/UniverseSimMan">
             <i className="fa fa-twitter" aria-hidden="true" /> Twitter
           </a>
@@ -41,16 +33,9 @@ const WelcomePage = ({ generateFederation = NOOP, }) => (
           &nbsp;&nbsp;&nbsp;
           <a target="_blank" href="https://github.com/azz0r/fed-simulator">
             <i className="fa fa-github" aria-hidden="true" /> Github
-          </a>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div className="row">
-      <div className="col-xs-12 highlight middle-xs center-xs lower">
-        <div className="box">
-          {" "}
-          With thanks to <br />
+          </a>{" "}
+          <br />
+          <br />
           <a target="_blank" href="http://fontawesome.io/icons/">
             Font Awesome
           </a>
@@ -64,16 +49,17 @@ const WelcomePage = ({ generateFederation = NOOP, }) => (
           <i className="fa fa-ellipsis-v" aria-hidden="true" />
           &nbsp;
           <a target="_blank" href="https://reactjs.org/">
-            ReactJS
+            React
           </a>
         </div>
       </div>
-    </div>
+    </footer>
   </section>
 )
 
 WelcomePage.propTypes = {
   generateFederation: PropTypes.func.isRequired,
+  style: PropTypes.object,
 }
 
 export default WelcomePage

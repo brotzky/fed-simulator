@@ -20,7 +20,11 @@ export default connect(state => ({
       ` .${item.id} .points {
           background-color: ${item.style.backgroundColor};
           color: ${item.style.color};
-        }`,
+        }
+        .${item.id} .trophy {
+          color: ${item.style.backgroundColor};
+        }
+        `,
     ""
   ),
 }))(StyleBrands)

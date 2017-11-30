@@ -4,34 +4,46 @@ section.page.welcome {
   font-size: 1rem;
   font-weight: 100;
   margin-top: 1rem;
+  height: 100%;
 
-  .highlight {
-    background-color: gold;
-    display: flex;
-    padding: 0.8rem;
-    font-size: medium;
-    transition: font-size 1s ease-in;
+  .items {
+    margin-bottom: 10rem;
+  }
 
-    &:hover {
-      font-size: large;
-    }
+  .collection {
+    align-items: end;
+    font-weight: lighter;
+    overflow: auto;
 
-    &.lower {
-      background-color: lightyellow;
-      color: white;
-      font-weight: lighter;
-      font-size: small;
-    }
-
-    li {
-      list-style: none;
-    }
-
-    .box a,
-    .box {
-      color: black;
+    .item {
       cursor: pointer;
+      margin-bottom: 1rem;
+      padding: 0.4rem;
+      text-align: center;
       text-decoration: none;
+      width: 100%;
+      margin: 0 auto 1rem;
+      font-size: x-small;
+
+      a,
+      a:hover {
+        color: white;
+      }
+
+      &.highlight {
+        background-color: gold;
+        color: black;
+        font-size: initial;
+        padding: 1rem;
+
+        a {
+          color: black;
+        }
+      }
+
+      @include breakpoint(xs) {
+        font-size: smaller;
+      }
     }
   }
 }

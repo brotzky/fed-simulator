@@ -56,7 +56,7 @@ class Simulator extends Component {
     return (
       <span className={color} onClick={this.onToggleActive}>
         <Icon icon={icon} />
-        {title} ({this.state.counter})
+        {title} {this.state.counter.toLocaleString("en")}
       </span>
     )
   }

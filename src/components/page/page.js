@@ -37,14 +37,13 @@ class Page extends PureComponent {
     const darkStyle = Object.assign({}, style, { backgroundColor: style.darkBgColor, })
     const activeUrl = pathname.replace(/^\//, "")
     const isNavVisible = !style.untouched && this.state.openNavBar
+    const activeLinks = isNavVisible ? links : []
     return (
       <div id="page-container" style={darkStyle} className={topClasses}>
         <main style={darkStyle}>
-          <If condition={isNavVisible}>
-            <aside>
-              <Nav name={name} tabIndex="0" activeUrl={activeUrl} links={links} {...style} modifier="main" />
-            </aside>
-          </If>
+          <aside>
+            <Nav name={name} tabIndex="0" activeUrl={activeUrl} links={activeLinks} style={style} modifier="main" />
+          </aside>
           {children}
         </main>
         <StyleBrands />

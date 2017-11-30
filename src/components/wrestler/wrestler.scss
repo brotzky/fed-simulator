@@ -4,18 +4,18 @@
 $wrestlers-points-dimensions: 1rem;
 
 .wrestler {
-  font-size: small;
   align-items: center;
   background-color: white;
   background-size: cover;
   box-shadow: 0 0.02rem 0.05rem 0 currentColor;
   color: black;
   display: inline-flex;
+  font-size: x-small;
   height: 1.8rem;
   margin: 0.3rem;
+  min-width: 4.5rem;
   overflow: hidden;
   padding: 0.2rem;
-  min-width: 4.5rem;
   word-wrap: break-word;
 
   &.has-image .name {
@@ -36,23 +36,23 @@ $wrestlers-points-dimensions: 1rem;
   }
 
   .points {
+    align-items: center;
     border-radius: 50%;
     border: 0.01rem solid #999;
-    font-weight: 500;
+    display: flex;
+    font-size: xx-small;
     height: $wrestlers-points-dimensions;
+    justify-content: center;
     margin-right: 0.3rem;
     opacity: 0.7;
-    width: $wrestlers-points-dimensions;
-    align-items: center;
-    display: flex;
-    justify-content: center;
     transition: background-color 500ms linear;
+    width: $wrestlers-points-dimensions;
   }
 
   .icon.trophy {
     display: inline-flex;
     font-size: 0.7rem;
-    color: gold;
+    margin: 0 0.3rem;
   }
 
   &:hover .points {

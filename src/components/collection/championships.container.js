@@ -26,12 +26,12 @@ class ChampionshipsContainer extends Component {
     dispatch(updateChampionship(championship))
   }
 
-  onChangeWrestler = (championship, event) => {
+  onChangeBrand = (championship, event) => {
     const { dispatch, } = this.props
-    const wrestlerId = event.currentTarget.value
+    const brandId = event.currentTarget.value
     const id = championship.id
 
-    dispatch(awardChampionship({ wrestlerId, id, }))
+    dispatch(updateChampionship({ brandId, id, }))
   }
 
   onChangeColor = (championship, color) => {
@@ -60,17 +60,17 @@ class ChampionshipsContainer extends Component {
   }
 
   render() {
-    const { style, championships, roster, } = this.props
+    const { style, championships, roster, brandId, brands, } = this.props
     return (
       <Collection
         onDelete={this.onDelete}
         onChangeName={this.onChangeName}
         onChangeGender={this.onChangeGender}
         onChangeColor={this.onChangeColor}
-        onChangeWrestler={NOOP}
+        onChangeBrand={this.onChangeBrand}
         onChangeBackgroundColor={this.onChangeBackgroundColor}
         canUpdateColors={true}
-        canUpdateBrand={false}
+        canUpdateBrand={true}
         canUpdateGender={true}
         canUpdateWrestler={false}
         canDelete={true}
@@ -78,20 +78,26 @@ class ChampionshipsContainer extends Component {
         collection={championships}
         style={style}
         roster={roster}
+        brandId={brandId}
+        brands={brands}
       />
     )
   }
 }
 
 ChampionshipsContainer.propTypes = {
+  brandId: PropTypes.string,
+  brands: PropTypes.array,
   championships: PropTypes.array,
   collection: PropTypes.array,
   dispatch: PropTypes.func.isRequired,
-  style: PropTypes.object,
   roster: PropTypes.array,
+  style: PropTypes.object,
 }
 
 ChampionshipsContainer.defaultProps = {
+  brandId: "",
+  brands: [],
   championships: [],
   collection: [],
   dispatch: NOOP,
@@ -100,6 +106,7 @@ ChampionshipsContainer.defaultProps = {
 }
 
 export default connect(state => ({
+  brands: state.federation.brands,
   championships: state.federation.championships,
   roster: state.federation.roster,
   style: state.style,

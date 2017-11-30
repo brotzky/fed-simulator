@@ -11,8 +11,9 @@ export default class Match {
     roster: array, full collection of available wrestlers to pick from
     championship: array, belts to pass the championshipId to
   */
-  constructor({ roster = [], wrestlers = [], championships = [], }) {
+  constructor({ roster = [], wrestlers = [], brandId = null, championships = [] }) {
     this.roster = new List(roster)
+    this.brandId = String(brandId)
     this.wrestlers = new List(wrestlers)
     this.championships = new List(championships)
   }
@@ -29,8 +30,13 @@ export default class Match {
   }
 
   generate() {
-    const wrestlers = this.roster.toJS()
-    this.wrestlers = new List(randomiseWrestlers({ wrestlers, }))
+    let wrestlers = this.roster.toJS()
+
+    if (this.brandId !== null) {
+      wrestlers = wrestlers.filter(item => item.brandId === this.brandId)
+    }
+
+    this.wrestlers = new List(randomiseWrestlers({ wrestlers }))
 
     return this
   }

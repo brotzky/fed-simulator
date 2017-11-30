@@ -1,21 +1,19 @@
 @import "src/stylesheets/breakpoints";
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 100;
+}
+
 @include breakpoint(xs) {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
-    &,
-    & .icon {
-      font-size: large !important;
-      line-height: 1.7rem !important;
-    }
-  }
   h2 {
     font-weight: bolder !important;
     font-size: x-large !important;
   }
+
   .page {
     padding: 0.2rem 1rem !important;
   }
@@ -24,5 +22,17 @@
   textarea {
     font-size: 1rem !important;
     line-height: 1rem !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  .icon {
+    text-transform: uppercase;
+
+    font-size: large !important;
+    line-height: 1.7rem !important;
   }
 }

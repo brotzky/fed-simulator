@@ -9,28 +9,35 @@ import "./nav.scss"
 
 const NOOP = () => {}
 
-const Nav = ({ backgroundColor = "black", isSubMenuOpen = false, toggleSubMenuOpen = NOOP, activeUrl = "", color = "white", links = [], }) => {
-  const style = { backgroundColor, color, }
+const Nav = ({ style = {}, isSubMenuOpen = false, toggleSubMenuOpen = NOOP, activeUrl = "", links = [], }) => {
   return (
     <nav className="nav" style={style}>
       <div className="nav-left">
         <h1>Fed Simulator</h1>
       </div>
-      <label htmlFor="menu-toggle" className="nav-toggle" onClick={toggleSubMenuOpen}>
-        &equiv;
-      </label>
-      <div className={classnames({ active: isSubMenuOpen, }, "nav-right", "nav-menu")} style={style}>
-        {links.map((item, key) => {
-          const { url, icon, title, } = item
-          const isActive = activeUrl === url
-          return (
-            <Link className={classnames("nav-item", "pointer", { active: isActive, })} key={key} style={{ color, }} to={url} onClick={toggleSubMenuOpen}>
-              <Icon icon={icon} style={style} tabIndex={-1} />&nbsp;
-              <div tabIndex="1">{title}</div>
-            </Link>
-          )
-        })}
-      </div>
+      <If condition={links.length > 0}>
+        <label htmlFor="menu-toggle" className="nav-toggle" onClick={toggleSubMenuOpen}>
+          &equiv;
+        </label>
+        <div className={classnames({ active: isSubMenuOpen, }, "nav-right", "nav-menu")} style={style}>
+          {links.map((item, key) => {
+            const { url, icon, title, } = item
+            const isActive = activeUrl === url
+            return (
+              <Link
+                className={classnames("nav-item", "pointer", { active: isActive, })}
+                key={key}
+                style={{ color: style.color, }}
+                to={url}
+                onClick={toggleSubMenuOpen}
+              >
+                <Icon icon={icon} style={style} tabIndex={-1} />&nbsp;
+                <div tabIndex="1">{title}</div>
+              </Link>
+            )
+          })}
+        </div>
+      </If>
     </nav>
   )
 }

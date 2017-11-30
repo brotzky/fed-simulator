@@ -3,6 +3,7 @@ import { Record } from "immutable"
 export const schema = {
   id: undefined,
   name: "",
+  brandId: null,
   male: true,
   switches: 0,
   wrestlers: [],

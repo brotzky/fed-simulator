@@ -16,23 +16,23 @@ export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestler
   <section className="page dashboard zoom">
     <HeaderOne>
       Dashboard{" "}
-      <span  tabIndex="0" className="tools">
+      <span tabIndex="0" className="tools">
         <Simulator />
       </span>
     </HeaderOne>
     <div className="row">
-      <div className="col-xs-12 col-sm-2 col-lg-2">
+      <div className="col-xs-12 col-sm-4 col-lg-4">
         <div className="box">
           <Champions />
           <br />
         </div>
       </div>
-      <div className="col-xs-12 col-sm-5 col-lg-5">
+      <div className="col-xs-12 col-sm-4 col-lg-4">
         <div className="box">
           <Ranking style={style} amountToShow={30} rows={rankedMaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Male Wrestlers" />
         </div>
       </div>
-      <div className="col-xs-12 col-sm-5 col-lg-5">
+      <div className="col-xs-12 col-sm-4 col-lg-4">
         <div className="box">
           <Ranking style={style} amountToShow={30} rows={rankedFemaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Female Wrestlers" />
         </div>

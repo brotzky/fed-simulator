@@ -48,15 +48,13 @@ const EditWrestler = ({
       <label htmlFor="championshipId">
         Championship (<a onClick={onResetChampionship}>reset</a>)
       </label>
-      <div className="brands">
-        <Labels
-          id="championshipId"
-          tabIndex="0"
-          onClick={onChampionshipSelected}
-          highlighted={championshipId}
-          brands={championships.filter(item => item.male === male)}
-        />
-      </div>
+      <Labels
+        id="championshipId"
+        tabIndex="0"
+        onClick={onChampionshipSelected}
+        highlighted={championshipId}
+        labels={championships.filter(item => item.male === male && item.brandId === brandId)}
+      />
     </If>
     <div className="gender">
       <label htmlFor="gender">Gender</label>
@@ -72,7 +70,6 @@ const EditWrestler = ({
       <label htmlFor="points">Points</label>
       <Input id="points" tabIndex="0" onChange={onPointsUpdate} value={points} />
     </div>
-    <br />
     <If condition={!id}>
       <div className="create">
         <Button tabIndex="0" classes="btn-create" onKeyPress={onCreate} onClick={onCreate} value="Create wrestler" />

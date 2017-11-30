@@ -8,14 +8,13 @@ import AddWrestler from "../../components/manage-wrestler/create.container"
 import EditWrestler from "../../components/manage-wrestler/update.container"
 import { Generate, Reset, ListToggle, Create } from "../../components/icons"
 
-import "./roster.structure.scss"
-import "./roster.skin.scss"
+import "./roster.scss"
 
 const NOOP = () => {}
 
 const RosterPage = ({ onToggleListView, onClose, onClick, onClear, onGenerate, listView, onToggleCreating, creating, currentWrestler, style, }) => {
   const hasPane = creating || currentWrestler
-  const col = hasPane ? "col-lg-6 col-md-6 col-sm-12 col-xs-12" : "col-lg-12 col-md-12 col-sm-12 col-xs-12"
+  const col = hasPane ? "col-lg-6 col-md-6 col-sm-6 col-xs-12" : "col-lg-12 col-md-12 col-sm-12 col-xs-12"
   return (
     <div className="page roster">
       <HeaderOne>

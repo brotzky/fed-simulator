@@ -1,16 +1,22 @@
 .champions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   .champion {
-    padding: 1rem;
-    min-height: 1rem;
-    margin: 0 0.5rem 0.5rem 0;
+    margin: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     header {
       margin: 0;
-      font-size: small;
       font-weight: lighter;
+      font-size: small;
     }
-    .wrestler {
-      max-width: 5rem;
+
+    .wrestler .name {
+      font-size: xx-small;
     }
   }
 }
