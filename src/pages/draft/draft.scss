@@ -18,8 +18,23 @@
   }
 
   @include breakpoint(xs) {
-    display: inline-block;
-    height: 30vh;
-    width: 100%;
+    flex-direction: column;
+    overflow: scroll;
+
+    .brand {
+      max-height: 10rem;
+      min-height: 5rem;
+      overflow: scroll;
+      margin-bottom: 1rem;
+    }
+
+    .icon.trophy {
+      font-size: 0.4rem;
+      margin: 0;
+    }
+
+    h3 {
+      display: none;
+    }
   }
 }
