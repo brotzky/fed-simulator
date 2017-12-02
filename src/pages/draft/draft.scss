@@ -15,16 +15,6 @@
     .wrestlers {
       justify-content: center;
     }
-
-    .wrestler {
-      height: inherit;
-      min-width: inherit;
-      width: 4.2rem;
-
-      .name {
-        font-size: xx-small;
-      }
-    }
   }
 
   @include breakpoint(xs) {
