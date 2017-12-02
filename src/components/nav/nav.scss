@@ -1,6 +1,5 @@
 $mobile: 768px;
 $nav-height: 2.5rem;
-$nav-font-size: medium;
 
 .nav {
   align-items: stretch;
@@ -41,10 +40,16 @@ $nav-font-size: medium;
   align-items: center;
   display: flex;
   flex-grow: inherit;
-  font-size: $nav-font-size;
-  font-variant: all-petite-caps;
+  font-size: small;
   justify-content: flex-end;
   padding: 0.25rem 0.5rem;
+
+  @media (max-width: $mobile) {
+    justify-content: center;
+    font-variant: inherit;
+    font-size: small;
+    padding: 1rem;
+  }
 }
 
 .nav-left,
@@ -75,10 +80,6 @@ $nav-font-size: medium;
       position: absolute;
       background-color: white;
       box-shadow: 0 4px 7px rgba(10, 10, 10, 0.1);
-
-      .nav-item {
-        padding: 1rem;
-      }
     }
   }
 }
