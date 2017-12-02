@@ -12,10 +12,10 @@ import { RANKED_COLUMNS } from "../../constants/ranking"
 
 import "./dashboard.scss"
 
-export const DashboardPage = ({ style, rankedMaleWrestlers, rankedFemaleWrestlers, }) => (
+export const DashboardPage = ({ name, style, rankedMaleWrestlers, rankedFemaleWrestlers, }) => (
   <section className="page dashboard zoom">
     <HeaderOne>
-      Dashboard{" "}
+      {name} Dashboard
       <span tabIndex="0" className="tools">
         <Simulator />
       </span>
@@ -46,6 +46,7 @@ DashboardPage.displayName = "DashboardPage"
 DashboardPage.propTypes = {
   rankedFemaleWrestlers: PropTypes.array.isRequired,
   rankedMaleWrestlers: PropTypes.array.isRequired,
+  name: PropTypes.object.isRequired,
   style: PropTypes.object.isRequired,
 }
 
