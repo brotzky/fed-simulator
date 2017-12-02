@@ -13,7 +13,7 @@ section.page.welcome {
   .collection {
     align-items: end;
     font-weight: lighter;
-    overflow: auto;
+    overflow: hidden;
 
     .item {
       cursor: pointer;
@@ -21,8 +21,8 @@ section.page.welcome {
       padding: 0.4rem;
       text-decoration: none;
       width: 100%;
-      margin: 0 auto 1rem;
       font-size: x-small;
+      overflow: hidden;
 
       a,
       a:hover {

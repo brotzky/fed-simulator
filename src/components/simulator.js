@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { PureComponent } from "react"
 import { connect } from "react-redux"
 import PropTypes from "prop-types"
 
@@ -9,7 +9,7 @@ import { SIMULATE_MATCHES_AMOUNT, SIMULATE_MATCHES_PERIOD } from "../constants/g
 
 const NOOP = () => {}
 
-class Simulator extends Component {
+class Simulator extends PureComponent {
   state = {
     active: false,
     counter: 0,

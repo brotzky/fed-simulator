@@ -14,10 +14,15 @@
     "precommit": "lint-staged"
   },
   "dependencies": {
+    "@babel/core": "^7.0.0-beta.34",
+    "@babel/plugin-transform-react-jsx": "^7.0.0-beta.34",
+    "babel-eslint": "7",
     "chromatism": "2.6.0",
     "classnames": "2.2.5",
+    "eslint": "3.x",
     "expect.js": "0.3.1",
     "fastclick": "1.0.6",
+    "flow-bin": "^0.60.1",
     "immutable": "4.0.0-rc.4",
     "lodash.groupby": "4.6.0",
     "lodash.includes": "^4.3.0",
@@ -27,15 +32,15 @@
     "lodash.sortby": "4.7.0",
     "moment": "^2.19.1",
     "promise": "7.1.1",
-    "react": "15.6.1",
-    "react-color": "2.11.4",
-    "react-dom": "15.6.1",
+    "react": "^16.2.0",
+    "react-color": "^2.13.8",
+    "react-dom": "^16.2.0",
     "react-drag-and-drop": "2.4.0",
     "react-dropzone": "3.13.3",
     "react-redux": "5.0.6",
     "react-router": "3.0",
     "recompose": "0.26.0",
-    "redux": "3.6.0",
+    "redux": "^3.7.2",
     "redux-localstorage": "0.4.1",
     "string.prototype.includes": "1.0.0",
     "uniqid": "4.1.1",
@@ -118,6 +123,9 @@
     "fsevents": "*"
   },
   "lint-staged": {
-    "*.js": ["eslint --fix", "git add"]
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   }
 }

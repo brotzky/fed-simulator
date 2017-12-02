@@ -13,11 +13,11 @@ const NOOP = () => {}
 const WelcomePage = ({ generateFederation = NOOP, style = defaultStyle, }) => (
   <section className="page welcome">
     <div className="items collection">
-      <div className="item highlight">
-        <Link tabIndex="0" to="/name">
+      <Link tabIndex="0" to="/name">
+        <div className="item highlight">
           <Icon icon="plus" /> I'll build this company from the ground up, dammit
-        </Link>
       </div>
+      </Link>
       <div className="item highlight pulse" onClick={generateFederation}>
         <Icon icon="play" /> This is an invasion, create everything for me
       </div>

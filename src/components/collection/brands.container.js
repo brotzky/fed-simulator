@@ -20,15 +20,15 @@ class BrandsContainer extends Component {
   onChangeColor = (brand, color) => {
     const { dispatch, } = this.props
 
-    brand.style.color = color
+    brand.style = Object.assign({}, brand.style, { color, }, )
 
     dispatch(updateBrand(brand))
   }
 
-  onChangeBackgroundColor = (brand, color) => {
+  onChangeBackgroundColor = (brand, backgroundColor) => {
     const { dispatch, } = this.props
 
-    brand.style.backgroundColor = color
+    brand.style = Object.assign({}, brand.style, { backgroundColor, }, )
 
     dispatch(updateBrand(brand))
   }

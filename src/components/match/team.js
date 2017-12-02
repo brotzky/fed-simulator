@@ -21,7 +21,7 @@ const Team = ({ classes = "", teamId = "", wrestlers = [], onSelectWinner = NOOP
     classes
   )
   return (
-    <div data-teamId={teamId} className={teamClasses}>
+    <div className={teamClasses}>
       <Droppable types={["wrestler",]} onDrop={onDrop}>
         <div className="box dropzone">
           <Choose>
@@ -33,7 +33,7 @@ const Team = ({ classes = "", teamId = "", wrestlers = [], onSelectWinner = NOOP
                   inactive: wrestler.loser,
                 })
                 return (
-                  <div tabIndex="0" className="member" key={key} data-wrestlerId={wrestler.id}>
+                  <div tabIndex="0" className="member" key={key}>
                     <Wrestler wrestler={wrestler} />
                     &nbsp;
                     <span className="wrestler__icons">

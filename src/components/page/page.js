@@ -32,9 +32,17 @@ class Page extends PureComponent {
   }
 
   render() {
-    const { children, classnames, style, name, location: { pathname, }, } = this.props
-    const topClasses = classNames(classnames, ["page-container", "no-select",])
-    const darkStyle = Object.assign({}, style, { backgroundColor: style.darkBgColor, })
+    const {
+      children,
+      classnames,
+      style,
+      name,
+      location: { pathname, },
+    } = this.props
+    const topClasses = classNames(classnames, ["page-container", "no-select"])
+    const darkStyle = Object.assign({}, style, {
+      backgroundColor: style.darkBgColor,
+    })
     const activeUrl = pathname.replace(/^\//, "")
     const isNavVisible = !style.untouched && this.state.openNavBar
     const activeLinks = isNavVisible ? links : []
@@ -42,7 +50,14 @@ class Page extends PureComponent {
       <div id="page-container" style={darkStyle} className={topClasses}>
         <main style={darkStyle}>
           <aside>
-            <Nav name={name} tabIndex="0" activeUrl={activeUrl} links={activeLinks} style={style} modifier="main" />
+            <Nav
+              name={name}
+              tabIndex="0"
+              activeUrl={activeUrl}
+              links={activeLinks}
+              style={style}
+              modifier="main"
+            />
           </aside>
           {children}
         </main>
@@ -55,7 +70,10 @@ class Page extends PureComponent {
 Page.displayName = "Page"
 
 Page.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
   classnames: PropTypes.string,
   dispatch: PropTypes.func.isRequired,
   location: PropTypes.object,

@@ -9,14 +9,14 @@ import Teams from "./teams"
 
 class MatchContainer extends Component {
   render() {
-    const { onAddWrestler, onSelectWinner, onRemoveWrestler } = this
-    const { currentMatch } = this.props
+    const { onAddWrestler, onSelectWinner, onRemoveWrestler, } = this
+    const { currentMatch, } = this.props
 
     if (!currentMatch || !currentMatch.id) {
       return null
     } else {
       return (
-        <div className="match" data-matchId={currentMatch.id}>
+        <div className="match">
           <Teams
             onDrop={onAddWrestler}
             onAddWrestler={onAddWrestler}

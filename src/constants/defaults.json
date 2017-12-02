@@ -27,17 +27,6 @@
   ],
   "roster": [
     {
-      "id": "j9mr6qag",
-      "brandId": "j9mr6qa9",
-      "image": "",
-      "losses": 0,
-      "male": true,
-      "name": "James Ellsworth",
-      "points": 10,
-      "wins": 0,
-      "created": "2017-11-05T12:34:38.641Z"
-    },
-    {
       "id": "j9mr6qah",
       "brandId": "j9mr6qa9",
       "image": "",
@@ -132,7 +121,7 @@
       "losses": 0,
       "male": true,
       "name": "Drew Gulak",
-      "points": 40,
+      "points": 50,
       "wins": 0,
       "created": "2017-11-05T12:34:38.641Z"
     },

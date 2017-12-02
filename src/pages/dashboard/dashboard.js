@@ -46,7 +46,7 @@ DashboardPage.displayName = "DashboardPage"
 DashboardPage.propTypes = {
   rankedFemaleWrestlers: PropTypes.array.isRequired,
   rankedMaleWrestlers: PropTypes.array.isRequired,
-  name: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
   style: PropTypes.object.isRequired,
 }
 
