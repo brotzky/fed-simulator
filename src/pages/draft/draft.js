@@ -4,9 +4,9 @@ import PropTypes from "prop-types"
 import { Droppable } from "react-drag-and-drop"
 import HeaderOne from "../../components/header/header"
 import Wrestlers from "../../components/wrestlers/container"
-import { Label } from "../../components/labels/labels"
 import Create from "../../components/create/brand.container"
 
+import { Generate } from "../../components/icons"
 import { ADD_BRAND_ENTRY } from "../../constants/confirmations"
 
 import "./draft.scss"
@@ -19,9 +19,14 @@ const defaultBrand = {
   style: { color: "white", backgroundColor: "gray", },
 }
 
-const DraftPage = ({ brands = [], style = {}, onDrop = NOOP, }) => (
+const DraftPage = ({ brands = [], style = {}, onDrop = NOOP, onGenerate = NOOP, }) => (
   <section className="page draft">
-    <HeaderOne>Draft</HeaderOne>
+    <HeaderOne>
+      Draft
+      <span tabIndex="0" className="tools">
+        <Generate onClick={onGenerate} title="Generate default roster" />
+      </span>
+    </HeaderOne>
     <If condition={brands.length === 0}>
       <Create placeholder={ADD_BRAND_ENTRY} />
     </If>
@@ -51,6 +56,7 @@ DraftPage.propTypes = {
   brands: PropTypes.array,
   style: PropTypes.object,
   onDrop: PropTypes.func,
+  onGenerate: PropTypes.func,
 }
 
 export default DraftPage

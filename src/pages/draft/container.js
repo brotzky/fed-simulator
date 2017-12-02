@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 import { updateWrestler } from "../../actions/roster"
 import { compose, withHandlers } from "recompose"
 
+import { generateRoster } from "../../actions/roster"
 import Draft from "./draft"
 
 export const handlers = {
@@ -10,6 +11,7 @@ export const handlers = {
 
     props.dispatch(updateWrestler({ brandId, id, }))
   },
+  onGenerate: props => () => props.dispatch(generateRoster()),
 }
 
 export const enhance = compose(
