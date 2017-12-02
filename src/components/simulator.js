@@ -55,8 +55,8 @@ class Simulator extends Component {
     const title = !this.state.active ? "Start simulations" : "Stop simulating"
     return (
       <span className={color} onClick={this.onToggleActive}>
-        <Icon icon={icon} />
-        {title} {this.state.counter.toLocaleString("en")}
+        <Icon icon={icon} /> {title}
+        <If condition={this.state.active}>&nbsp;({this.state.counter.toLocaleString("en")})</If>
       </span>
     )
   }
