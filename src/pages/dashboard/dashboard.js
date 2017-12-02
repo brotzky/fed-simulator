@@ -12,7 +12,7 @@ import { RANKED_COLUMNS } from "../../constants/ranking"
 
 import "./dashboard.scss"
 
-export const DashboardPage = ({ name, style, rankedMaleWrestlers, rankedFemaleWrestlers, }) => (
+export const DashboardPage = ({ name, style, championships, rankedMaleWrestlers, rankedFemaleWrestlers, }) => (
   <section className="page dashboard zoom">
     <HeaderOne>
       {name} Dashboard
@@ -21,18 +21,20 @@ export const DashboardPage = ({ name, style, rankedMaleWrestlers, rankedFemaleWr
       </span>
     </HeaderOne>
     <div className="row">
-      <div className="col-xs-12 col-sm-4 col-lg-4">
-        <div className="box">
-          <Champions />
-          <br />
+      <If condition={championships.length > 0}>
+        <div className="col-xs">
+          <div className="box">
+            <Champions />
+            <br />
+          </div>
         </div>
-      </div>
-      <div className="col-xs-12 col-sm-4 col-lg-4">
+    </If>
+      <div className="col-xs">
         <div className="box">
           <Ranking style={style} amountToShow={30} rows={rankedMaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Male Wrestlers" />
         </div>
       </div>
-      <div className="col-xs-12 col-sm-4 col-lg-4">
+      <div className="col-xs">
         <div className="box">
           <Ranking style={style} amountToShow={30} rows={rankedFemaleWrestlers} columns={RANKED_COLUMNS} title="Ranked Female Wrestlers" />
         </div>
@@ -44,13 +46,15 @@ export const DashboardPage = ({ name, style, rankedMaleWrestlers, rankedFemaleWr
 DashboardPage.displayName = "DashboardPage"
 
 DashboardPage.propTypes = {
+  championships: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired,
   rankedFemaleWrestlers: PropTypes.array.isRequired,
   rankedMaleWrestlers: PropTypes.array.isRequired,
-  name: PropTypes.string.isRequired,
   style: PropTypes.object.isRequired,
 }
 
 export default connect(state => ({
+  championships: state.federation.championships,
   rankedMaleWrestlers: orderBy(state.federation.roster.filter(wrestler => wrestler.male), "points", "desc"),
   rankedFemaleWrestlers: orderBy(state.federation.roster.filter(wrestler => !wrestler.male), "points", "desc"),
   ...state.game,
