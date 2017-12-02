@@ -30,7 +30,6 @@
     "lodash.orderby": "4.6.0",
     "lodash.pick": "^4.4.0",
     "lodash.sortby": "4.7.0",
-    "moment": "^2.19.1",
     "promise": "7.1.1",
     "react": "^16.2.0",
     "react-color": "^2.13.8",
