@@ -1,18 +1,14 @@
 @import "src/stylesheets/breakpoints";
 
-.custom-select {
-  position: relative;
-  display: block;
-}
-
-.custom-select select {
+select {
   background-color: transparent;
   border: none;
   color: currentColor;
   margin: 0;
   outline: none;
   padding: 0.5rem;
-
+  position: relative;
+  display: block;
   box-sizing: border-box;
   font-size: medium;
   width: 8rem;

@@ -7,7 +7,12 @@ const NOOP = () => {}
 
 class Select extends Component {
   render() {
-    const { name, value, onChange, error, } = this.props
+    let { value, } = this.props
+    const { name, onChange, } = this.props
+
+    if (value === null) {
+      value = ""
+    }
 
     const options = this.props.options.map(value => (
       <option key={value.id} value={value.id}>
@@ -16,12 +21,9 @@ class Select extends Component {
     ))
 
     return (
-      <div className="custom-select">
-        <select name={name} ref={name} value={value} onChange={onChange}>
-          {options}
-        </select>
-        <div className="input">{error}</div>
-      </div>
+      <select name={name} ref={name} value={value} onChange={onChange}>
+        {options}
+      </select>
     )
   }
 }
@@ -31,7 +33,6 @@ Select.propTypes = {
   onChange: PropTypes.func,
   options: PropTypes.array,
   value: PropTypes.any,
-  error: PropTypes.string,
 }
 
 Select.defaultProps = {
